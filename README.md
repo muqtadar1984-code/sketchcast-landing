@@ -2,8 +2,9 @@
 
 Static marketing site for [sketchcast.app](https://sketchcast.app), deployed to
 Cloudflare (Workers static assets). Plain HTML — no framework, no bundler. Each
-page is a self-contained file (`index.html`, `pricing.html`, `privacy.html`,
-`terms.html`) with inline CSS/JS, sharing the "Live Ink" tokens and header/footer.
+page is a single HTML file with inline CSS/JS, sharing the "Live Ink" tokens and
+header/footer. (`pricing.html` additionally loads `pricing.config.js` — the one
+data file it renders from; see below.)
 
 ## Run locally
 
@@ -19,55 +20,36 @@ Open `/` for the homepage and `/pricing` for the pricing page.
 
 ## Pricing page
 
-`/pricing` renders entirely from a single config so no price is ever written twice:
+`/pricing` renders entirely from **`pricing.config.js`** — the single source of
+truth for plans, prices, copy, features, and checkout links. No price or link
+is ever written twice; to change any of them, edit that one file. Annual pricing
+is two months free — the whole-dollar teacher plans are exactly monthly × 10
+(24→240, 49→490), and Family is $99 (~2 months off $9.99). All prices USD.
 
-- **`pricing.config.js`** — the source of truth: plans, prices, copy, features.
-  Annual = monthly × 10 (two months free). All prices USD.
-- **`pricing.links.js`** — the public Lemon Squeezy checkout URLs + schools /
-  sign-up URLs. **Generated** from environment variables; committed with blank
-  values so the page always works (paid CTAs fall back to sign-up, schools to a
-  mailto — a missing link never renders a broken button).
-- **`build-pricing-config.mjs`** — writes `pricing.links.js` from env at build time.
-
-Teachers and parents check out via **Lemon Squeezy** hosted checkout (USD).
-**Schools have no public price** — the schools block is a sales enquiry only.
-No student-facing purchase surface exists.
-
-### Inject the checkout links (env)
-
-The checkout links are **public** (not secrets) — kept in env only so they swap
-between test and live without editing committed code. See `.env.example`:
-
-```
-LS_TEACHER_PRO_M=   LS_TEACHER_PRO_A=
-LS_TEACHER_PROPLUS_M=  LS_TEACHER_PROPLUS_A=
-LS_PARENT_FAMILY_M=  LS_PARENT_FAMILY_A=
-LS_FOUNDING_TEACHER=
-SCHOOLS_ENQUIRY_URL=
-APP_SIGNUP_URL=https://app.sketchcast.app/signup
-```
-
-Set these in the **Cloudflare project → Settings → Variables**, then run the
-build so they land in `pricing.links.js`:
-
-```bash
-node build-pricing-config.mjs
-```
-
-Locally you can export them first (or use a `.env` and a loader) — with none set,
-the build re-emits blanks and the page degrades gracefully.
+- **Checkout links live directly in the config.** This is a static site with no
+  runtime env, and Lemon Squeezy hosted-checkout URLs are public (any visitor
+  can see them) — so they belong in code. **No secrets exist in this repo**;
+  billing secrets (API keys, webhook signing secrets) live in the separate app.
+- **One product URL serves both cycles.** Lemon Squeezy shows the monthly and
+  annual variant on the same checkout page, so the toggle changes displayed
+  prices only — the customer picks the cycle at checkout.
+- **Founding offer is code-driven.** The banner links to the plain Teacher Pro
+  checkout and displays the discount code (with a copy button); the teacher
+  chooses Monthly and pastes the code in the discount field. The "first N" cap
+  is a single config value (`founding.cap`, set `null` to remove the line).
+- **Schools have no public price** — the schools block is a sales enquiry only.
+  No student-facing purchase surface exists.
+- A missing/blank link degrades gracefully (paid CTAs fall back to sign-up), so
+  a misconfigured value never renders a broken button.
 
 ## Deploy
 
 ```bash
-node build-pricing-config.mjs   # inject checkout links from env
-npx wrangler deploy             # upload the static assets
+npx wrangler deploy
 ```
 
-For a git-connected Cloudflare **Workers build**, set the build command to
-`node build-pricing-config.mjs` and add the variables above in the project
-settings. `wrangler.jsonc`, the ignore files, `build-pricing-config.mjs`, and
-`.env*` are excluded from the served assets via `.assetsignore`.
+No environment variables to configure. `wrangler.jsonc` and the ignore files are
+excluded from the served assets via `.assetsignore`.
 
-Ship changes on a branch and review the Cloudflare **preview** URL before merging
-to `main`.
+Ship changes on a branch and review the Cloudflare **preview** URL before
+merging to `main`.

@@ -71,7 +71,7 @@
   .ph-uline{position:relative;display:inline-block;white-space:nowrap}
   .ph-uline svg{position:absolute;left:0;right:0;bottom:-8px;width:100%;height:12px}
   .ph-sub{font-size:18px;color:var(--graphite);max-width:600px;margin:22px auto 0}
-  .ph-usd{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:6px}
+  .ph-usd{font-family:var(--mono);font-size:12px;color:var(--graphite);margin-top:6px}
 
   /* ── monthly / annual toggle (tablist) ── */
   .ph-toggle{display:inline-flex;background:var(--mist);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;margin:28px 0 8px}
@@ -109,6 +109,12 @@
   .ph-founding-sub strong{color:var(--marker);font-weight:600}
   .ph-founding-cap{font-family:var(--mono);font-size:12px;color:#9AA2AC;margin-top:8px}
   .ph-founding .ph-cta{width:auto;flex:0 0 auto}
+  .ph-code-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .ph-code{font-family:var(--mono);font-size:16px;letter-spacing:.08em;color:var(--marker);background:rgba(255,255,255,.08);border:1.5px dashed var(--marker);border-radius:9px;padding:9px 16px;user-select:all}
+  .ph-copy{font:inherit;font-size:13px;font-weight:500;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:9px 16px;cursor:pointer;transition:background .15s,border-color .15s}
+  .ph-copy:hover{background:rgba(255,255,255,.10);border-color:#fff}
+  .ph-founding-how{color:#D6DAE0;font-size:13px;margin-top:10px}
+  .ph-founding-how strong{color:#fff}
 
   /* ── schools contact ── */
   .ph-schools{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
@@ -213,6 +219,7 @@
     </span>
     <div class="foot-links">
       <a href="/">Home</a>
+      <a href="/pricing" aria-current="page">Pricing</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
       <a href="mailto:hello@sketchcast.app">Contact</a>
@@ -220,7 +227,6 @@
   </div>
 </footer>
 
-<script src="/pricing.links.js"></script>
 <script src="/pricing.config.js"></script>
 <script>
   (function () {
@@ -228,7 +234,7 @@
     var P = window.SKETCHCAST_PRICING;
     if (!P) return;
     var signup = P.appSignupUrl || "https://app.sketchcast.app/signup";
-    var cycle = "monthly"; // default
+    var cycle = null; // set by the initial setCycle("monthly") below
     var updaters = [];
 
     var CHECK = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 l3 3 l7-8" stroke="#1FB8A6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -265,23 +271,23 @@
       var per = card.querySelector(".ph-per");
       var save = card.querySelector(".ph-save");
       var cta = card.querySelector(".ph-cta");
-      var isFree = !plan.checkout || (plan.monthly === 0 && plan.annual === 0);
+      var isFree = plan.monthly === 0 && plan.annual === 0;
       cta.textContent = plan.cta;
+      // One Lemon Squeezy product URL serves BOTH cycles — the customer picks
+      // monthly vs annual on the checkout page, so the href never changes with
+      // the toggle. Missing link → sign-up, never a broken button.
+      cta.setAttribute("href", plan.checkout || signup);
       cta.addEventListener("click", function(){ track("pricing_cta", { plan: plan.key, cycle: cycle }, true); });
       updaters.push(function(cy){
         if (isFree){
           amount.textContent = "$0"; per.textContent = "";
           save.textContent = "";
-          cta.setAttribute("href", signup);
           return;
         }
         var price = cy === "annual" ? plan.annual : plan.monthly;
         amount.textContent = money(price);
         per.textContent = cy === "annual" ? "/yr" : "/mo";
         save.textContent = (cy === "annual" && plan.saveLabel) ? plan.saveLabel : "";
-        // Direct Lemon Squeezy hosted-checkout link for this cycle; blank →
-        // sign-up so a missing link never renders a broken button.
-        cta.setAttribute("href", (plan.checkout && plan.checkout[cy]) || signup);
       });
     }
 
@@ -299,16 +305,63 @@
       var priceStr = "$" + f.price + "/mo";
       var cap = (f.cap != null) ? '<p class="ph-founding-cap">Only the first ' + esc(String(f.cap)) + ' teachers.</p>' : "";
       var href = f.checkout || signup; // blank → sign-up, never a broken link
+      // The founding price is unlocked by a DISCOUNT CODE on the plain Teacher
+      // Pro checkout — without the visible code a teacher lands on the full
+      // price. So the code + copy button are the heart of this banner.
+      var codeRow = f.code
+        ? '<div class="ph-code-row">'
+          + '<code class="ph-code" id="founding-code">' + esc(f.code) + '</code>'
+          + '<button type="button" class="ph-copy" aria-label="Copy code ' + esc(f.code) + '">Copy code</button>'
+          + '<span class="sr-only" role="status" id="copy-status"></span>'
+          + '</div>'
+          + '<p class="ph-founding-how">At checkout, choose <strong>Monthly</strong> and paste this code in the discount field.</p>'
+        : "";
       box.innerHTML =
         '<div>'
         + '<p class="ph-founding-eyebrow">Founding offer</p>'
         + '<h3 class="ph-founding-h">' + esc(f.name) + '</h3>'
         + '<p class="ph-founding-sub">' + esc(f.plan) + ' at <strong>' + esc(priceStr) + '</strong>, locked for ' + esc(String(f.lockMonths)) + ' months.</p>'
+        + codeRow
         + cap
         + '</div>'
-        + '<a class="btn btn-marker ph-cta" href="' + esc(href) + '">' + esc(f.cta || "Become a Founding Teacher") + '</a>';
+        + '<a class="btn btn-marker ph-cta" href="' + esc(href) + '">' + esc(f.cta || "Claim founding price") + '</a>';
       var cta = box.querySelector(".ph-cta");
       if (cta) cta.addEventListener("click", function(){ track("pricing_cta", { plan: "founding", cycle: "fixed" }, true); });
+      var copyBtn = box.querySelector(".ph-copy");
+      if (copyBtn){
+        var revert = null;
+        var announce = function(ok){
+          var status = document.getElementById("copy-status");
+          copyBtn.textContent = ok ? "Copied ✓" : "Copy failed";
+          if (status) status.textContent = ok ? "Discount code copied to clipboard." : "Copy failed — select the code and copy it manually.";
+          if (revert) clearTimeout(revert);
+          revert = setTimeout(function(){ copyBtn.textContent = "Copy code"; if (status) status.textContent = ""; }, 2000);
+          track("pricing_copy_code", { plan: "founding", cycle: "fixed" }, true);
+        };
+        copyBtn.addEventListener("click", function(){
+          if (navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(f.code).then(function(){ announce(true); }, function(){ announce(legacyCopy(f.code)); });
+          } else {
+            announce(legacyCopy(f.code));
+          }
+        });
+      }
+    }
+
+    function legacyCopy(text){
+      var prev = document.activeElement; // restore focus after the off-screen textarea trick
+      try {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed"; ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        if (prev && prev.focus) prev.focus();
+        return ok;
+      } catch (e) { if (prev && prev.focus) prev.focus(); return false; }
     }
 
     function renderSchools(s){
@@ -339,6 +392,13 @@
     var status = document.getElementById("cycle-status");
     function setCycle(cy, opts){
       opts = opts || {};
+      // No-op guard: re-selecting the current cycle (clicking the active tab,
+      // or Home/End on the endpoint tab) must not re-announce the live region,
+      // re-run updaters, or fire a spurious toggle event. Still honour focus.
+      if (cy === cycle){
+        if (opts.focus){ var same = tabs.filter(function(t){ return t.getAttribute("data-cycle") === cy; })[0]; if (same) same.focus(); }
+        return;
+      }
       cycle = cy;
       tabs.forEach(function(t){
         var sel = t.getAttribute("data-cycle") === cy;
