@@ -2,3 +2,5 @@ wrangler.jsonc
 .gitignore
 .assetsignore
 README*
+build-pricing-config.mjs
+.env*
