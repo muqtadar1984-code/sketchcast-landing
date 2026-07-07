@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SketchCast — Pricing</title>
+<meta name="description" content="Simple pricing for teachers and parents — start free, upgrade when SketchCast saves you evenings. Teacher Pro, Pro+, and a Family plan, billed monthly or annually in USD. Schools get a tailored quote." />
+<link rel="canonical" href="https://sketchcast.app/pricing" />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="SketchCast — Pricing" />
+<meta property="og:description" content="Start free, upgrade when SketchCast saves you evenings. Teacher and Family plans in USD; schools get a tailored quote." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:url" content="https://sketchcast.app/pricing" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scrollbar-gutter:stable} /* reserve the scrollbar so toggling price height never reflows column widths */
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  .btn-marker{background:var(--marker);color:var(--ink)}
+  .btn-marker:hover{filter:brightness(.95)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand b{font-weight:600}.brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px}
+  .foot-links a:hover{color:var(--ink)}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+  /* ── pricing hero ── */
+  .ph-hero{padding:60px 0 6px;text-align:center}
+  .ph-hero h1{font-size:44px;max-width:820px;margin:12px auto 0}
+  .ph-uline{position:relative;display:inline-block;white-space:nowrap}
+  .ph-uline svg{position:absolute;left:0;right:0;bottom:-8px;width:100%;height:12px}
+  .ph-sub{font-size:18px;color:var(--graphite);max-width:600px;margin:22px auto 0}
+  .ph-usd{font-family:var(--mono);font-size:12px;color:var(--graphite);margin-top:6px}
+
+  /* ── monthly / annual toggle (tablist) ── */
+  .ph-toggle{display:inline-flex;background:var(--mist);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;margin:28px 0 8px}
+  .ph-toggle button{font:inherit;font-size:14px;font-weight:500;color:var(--graphite);background:transparent;border:0;border-radius:999px;padding:9px 18px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s}
+  .ph-toggle button[aria-selected="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 2px rgba(20,24,31,.10)}
+  .ph-2mo{font-family:var(--mono);font-size:10px;letter-spacing:.03em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.14);padding:2px 7px;border-radius:999px}
+
+  /* ── plan grids + cards ── */
+  .ph-section{padding:44px 0 8px}
+  .ph-sec-head{text-align:center;margin-bottom:6px}
+  .ph-sec-head h2{font-size:28px;margin-top:8px}
+  .ph-grid{display:grid;gap:22px;margin-top:26px;align-items:stretch}
+  .ph-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ph-grid-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px;margin-left:auto;margin-right:auto}
+  .ph-card{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px 26px}
+  .ph-card--featured{border-color:var(--teal);box-shadow:0 1px 2px rgba(20,24,31,.05),0 22px 50px -30px rgba(31,184,166,.55)}
+  .ph-badge{position:absolute;top:-11px;left:26px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--teal-ink);padding:4px 10px;border-radius:999px}
+  .ph-name{font-size:21px;margin-bottom:4px}
+  .ph-tag{color:var(--graphite);font-size:14px;min-height:40px}
+  .ph-price{display:flex;align-items:baseline;gap:5px;margin-top:14px;min-height:46px}
+  .ph-amount{font-family:var(--display);font-weight:600;font-size:40px;letter-spacing:-.02em;line-height:1}
+  .ph-per{font-size:15px;color:var(--graphite)}
+  .ph-save{min-height:22px;font-family:var(--mono);font-size:12px;color:var(--teal-ink);margin-top:6px}
+  .ph-features{list-style:none;margin:18px 0 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .ph-features li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--ink)}
+  .ph-features li svg{flex:0 0 16px;height:16px;margin-top:3px}
+  .ph-cta{width:100%;justify-content:center;margin-top:auto}
+  .ph-note{text-align:center;color:var(--graphite);font-size:13px;margin-top:22px}
+
+  /* ── founding banner ── */
+  .ph-founding{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:16px;padding:30px 34px;margin:14px 0 0}
+  .ph-founding-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--marker)}
+  .ph-founding-h{font-family:var(--display);font-size:24px;color:#fff;margin:6px 0 6px}
+  .ph-founding-sub{color:#D6DAE0;font-size:15px;max-width:560px}
+  .ph-founding-sub strong{color:var(--marker);font-weight:600}
+  .ph-founding-cap{font-family:var(--mono);font-size:12px;color:#9AA2AC;margin-top:8px}
+  .ph-founding .ph-cta{width:auto;flex:0 0 auto}
+  .ph-code-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .ph-code{font-family:var(--mono);font-size:16px;letter-spacing:.08em;color:var(--marker);background:rgba(255,255,255,.08);border:1.5px dashed var(--marker);border-radius:9px;padding:9px 16px;user-select:all}
+  .ph-copy{font:inherit;font-size:13px;font-weight:500;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:9px 16px;cursor:pointer;transition:background .15s,border-color .15s}
+  .ph-copy:hover{background:rgba(255,255,255,.10);border-color:#fff}
+  .ph-founding-how{color:#D6DAE0;font-size:13px;margin-top:10px}
+  .ph-founding-how strong{color:#fff}
+
+  /* ── schools contact ── */
+  .ph-schools{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+  .ph-schools-h{font-size:24px;margin:6px 0 8px}
+  .ph-schools-sub{color:var(--graphite);font-size:15px;max-width:520px}
+  .ph-tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .ph-tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .ph-schools .ph-cta{width:auto;flex:0 0 auto}
+
+  .ph-noscript{max-width:1080px;margin:0 auto;padding:14px 24px;text-align:center;color:var(--graphite);font-size:14px}
+  .ph-noscript a{color:var(--teal-ink);font-weight:500}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .ph-hero h1{font-size:34px}
+    .ph-grid-3,.ph-grid-2{grid-template-columns:1fr}
+    .ph-founding,.ph-schools{flex-direction:column;align-items:flex-start;text-align:left}
+    .ph-founding .ph-cta,.ph-schools .ph-cta{width:100%;justify-content:center}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/#free">What's free</a>
+      <a href="/#outcomes">Outcomes</a>
+      <a href="/pricing" aria-current="page">Pricing</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://app.sketchcast.app" class="login">Log in</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px">Start free</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="ph-hero">
+    <div class="wrap">
+      <p class="eyebrow">Pricing</p>
+      <h1>Priced for every
+        <span class="ph-uline">teacher<svg class="ink in" viewBox="0 0 240 12" preserveAspectRatio="none" fill="none" style="--l:290"><path d="M3 8 C 46 3, 96 11, 150 6 S 214 4, 237 7" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--d:.5s"/></svg></span>,
+        parent, and school.</h1>
+      <p class="ph-sub">Start free. Upgrade when SketchCast is saving you evenings. Teachers and parents check out securely; schools get a tailored quote.</p>
+
+      <div class="ph-toggle" role="tablist" aria-label="Billing period">
+        <button type="button" role="tab" id="tab-monthly" data-cycle="monthly" aria-selected="true" aria-controls="teacher-grid parent-grid" tabindex="0">Monthly</button>
+        <button type="button" role="tab" id="tab-annual" data-cycle="annual" aria-selected="false" aria-controls="teacher-grid parent-grid" tabindex="-1">Annual <span class="ph-2mo">2 months free</span></button>
+      </div>
+      <p class="ph-usd">Prices in USD.</p>
+      <span class="sr-only" aria-live="polite" id="cycle-status"></span>
+    </div>
+  </section>
+
+  <noscript>
+    <p class="ph-noscript">Turn on JavaScript to see live plan prices, or <a href="https://app.sketchcast.app/signup">start free</a> and pick a plan inside the app.</p>
+  </noscript>
+
+  <section class="wrap ph-section" aria-labelledby="teacher-h">
+    <div class="ph-sec-head">
+      <p class="eyebrow">For teachers</p>
+      <h2 id="teacher-h">Make every lesson, every week.</h2>
+    </div>
+    <div class="ph-grid ph-grid-3" id="teacher-grid" role="tabpanel" aria-label="Teacher plans"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="ph-founding" id="founding"></div>
+  </section>
+
+  <section class="wrap ph-section" aria-labelledby="parent-h">
+    <div class="ph-sec-head">
+      <p class="eyebrow">For parents</p>
+      <h2 id="parent-h">Practice and help at home.</h2>
+    </div>
+    <div class="ph-grid ph-grid-2" id="parent-grid" role="tabpanel" aria-label="Parent plans"></div>
+    <p class="ph-note">All paid plans are billed in USD. Cancel anytime.</p>
+  </section>
+
+  <section class="band">
+    <div class="wrap ph-section" style="padding-bottom:44px">
+      <div class="ph-schools" id="schools"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span style="display:inline-flex;align-items:center;gap:11px">
+      <img src="seal.png" alt="SketchCast AI — a chapter, taught" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+      © 2026 SketchCast AI
+    </span>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/pricing" aria-current="page">Pricing</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:hello@sketchcast.app">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/pricing.config.js"></script>
+<script>
+  (function () {
+    "use strict";
+    var P = window.SKETCHCAST_PRICING;
+    if (!P) return;
+    var signup = P.appSignupUrl || "https://app.sketchcast.app/signup";
+    var cycle = null; // set by the initial setCycle("monthly") below
+    var updaters = [];
+
+    var CHECK = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 l3 3 l7-8" stroke="#1FB8A6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+    function money(n){ return n === 0 ? "$0" : "$" + (Number.isInteger(n) ? String(n) : n.toFixed(2)); }
+    function track(name, data, userInitiated){
+      if (!userInitiated) return; // never fire on initial render
+      try {
+        if (typeof window.plausible === "function") window.plausible(name, { props: data });
+        if (typeof window.sc_track === "function") window.sc_track(name, data);
+      } catch (e) {}
+    }
+
+    function planCardHTML(plan){
+      var featured = plan.featured ? " ph-card--featured" : "";
+      var badge = plan.badge ? '<span class="ph-badge">' + esc(plan.badge) + '</span>' : "";
+      var tag = '<p class="ph-tag">' + (plan.tag ? esc(plan.tag) : "") + '</p>';
+      var feats = (plan.features || []).map(function(f){ return '<li>' + CHECK + '<span>' + esc(f) + '</span></li>'; }).join("");
+      var btnClass = plan.featured ? "btn-primary" : "btn-ghost";
+      return '<article class="ph-card' + featured + '" data-key="' + esc(plan.key) + '">'
+        + badge
+        + '<h3 class="ph-name">' + esc(plan.name) + '</h3>'
+        + tag
+        + '<div class="ph-price"><span class="ph-amount"></span><span class="ph-per"></span></div>'
+        + '<p class="ph-save"></p>'
+        + '<ul class="ph-features">' + feats + '</ul>'
+        + '<a class="btn ' + btnClass + ' ph-cta"></a>'
+        + '</article>';
+    }
+
+    function wireCard(card, plan){
+      var amount = card.querySelector(".ph-amount");
+      var per = card.querySelector(".ph-per");
+      var save = card.querySelector(".ph-save");
+      var cta = card.querySelector(".ph-cta");
+      var isFree = plan.monthly === 0 && plan.annual === 0;
+      cta.textContent = plan.cta;
+      // One Lemon Squeezy product URL serves BOTH cycles — the customer picks
+      // monthly vs annual on the checkout page, so the href never changes with
+      // the toggle. Missing link → sign-up, never a broken button.
+      cta.setAttribute("href", plan.checkout || signup);
+      cta.addEventListener("click", function(){ track("pricing_cta", { plan: plan.key, cycle: cycle }, true); });
+      updaters.push(function(cy){
+        if (isFree){
+          amount.textContent = "$0"; per.textContent = "";
+          save.textContent = "";
+          return;
+        }
+        var price = cy === "annual" ? plan.annual : plan.monthly;
+        amount.textContent = money(price);
+        per.textContent = cy === "annual" ? "/yr" : "/mo";
+        save.textContent = (cy === "annual" && plan.saveLabel) ? plan.saveLabel : "";
+      });
+    }
+
+    function mountCards(gridId, plans){
+      var grid = document.getElementById(gridId);
+      if (!grid) return;
+      grid.innerHTML = plans.map(planCardHTML).join("");
+      var cards = grid.querySelectorAll(".ph-card");
+      plans.forEach(function(plan, i){ if (cards[i]) wireCard(cards[i], plan); });
+    }
+
+    function renderFounding(f){
+      var box = document.getElementById("founding");
+      if (!box || !f){ if (box) box.style.display = "none"; return; }
+      var priceStr = "$" + f.price + "/mo";
+      var cap = (f.cap != null) ? '<p class="ph-founding-cap">Only the first ' + esc(String(f.cap)) + ' teachers.</p>' : "";
+      var href = f.checkout || signup; // blank → sign-up, never a broken link
+      // The founding price is unlocked by a DISCOUNT CODE on the plain Teacher
+      // Pro checkout — without the visible code a teacher lands on the full
+      // price. So the code + copy button are the heart of this banner.
+      var codeRow = f.code
+        ? '<div class="ph-code-row">'
+          + '<code class="ph-code" id="founding-code">' + esc(f.code) + '</code>'
+          + '<button type="button" class="ph-copy" aria-label="Copy code ' + esc(f.code) + '">Copy code</button>'
+          + '<span class="sr-only" role="status" id="copy-status"></span>'
+          + '</div>'
+          + '<p class="ph-founding-how">At checkout, choose <strong>Monthly</strong> and paste this code in the discount field.</p>'
+        : "";
+      box.innerHTML =
+        '<div>'
+        + '<p class="ph-founding-eyebrow">Founding offer</p>'
+        + '<h3 class="ph-founding-h">' + esc(f.name) + '</h3>'
+        + '<p class="ph-founding-sub">' + esc(f.plan) + ' at <strong>' + esc(priceStr) + '</strong>, locked for ' + esc(String(f.lockMonths)) + ' months.</p>'
+        + codeRow
+        + cap
+        + '</div>'
+        + '<a class="btn btn-marker ph-cta" href="' + esc(href) + '">' + esc(f.cta || "Claim founding price") + '</a>';
+      var cta = box.querySelector(".ph-cta");
+      if (cta) cta.addEventListener("click", function(){ track("pricing_cta", { plan: "founding", cycle: "fixed" }, true); });
+      var copyBtn = box.querySelector(".ph-copy");
+      if (copyBtn){
+        var revert = null;
+        var announce = function(ok){
+          var status = document.getElementById("copy-status");
+          copyBtn.textContent = ok ? "Copied ✓" : "Copy failed";
+          if (status) status.textContent = ok ? "Discount code copied to clipboard." : "Copy failed — select the code and copy it manually.";
+          if (revert) clearTimeout(revert);
+          revert = setTimeout(function(){ copyBtn.textContent = "Copy code"; if (status) status.textContent = ""; }, 2000);
+          track("pricing_copy_code", { plan: "founding", cycle: "fixed" }, true);
+        };
+        copyBtn.addEventListener("click", function(){
+          if (navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(f.code).then(function(){ announce(true); }, function(){ announce(legacyCopy(f.code)); });
+          } else {
+            announce(legacyCopy(f.code));
+          }
+        });
+      }
+    }
+
+    function legacyCopy(text){
+      var prev = document.activeElement; // restore focus after the off-screen textarea trick
+      try {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed"; ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        if (prev && prev.focus) prev.focus();
+        return ok;
+      } catch (e) { if (prev && prev.focus) prev.focus(); return false; }
+    }
+
+    function renderSchools(s){
+      var box = document.getElementById("schools");
+      if (!box || !s) return;
+      var href = s.href || "mailto:hello@sketchcast.app?subject=SketchCast%20for%20schools";
+      var tiers = (s.tiers || []).map(function(t){ return '<li>' + esc(t) + '</li>'; }).join("");
+      box.innerHTML =
+        '<div>'
+        + '<p class="eyebrow">For schools</p>'
+        + '<h3 class="ph-schools-h">Rolling it out for a school?</h3>'
+        + '<p class="ph-schools-sub">Essentials, Professional and Enterprise tiers, priced to your size and needs. No public price — we tailor a quote to your school.</p>'
+        + '<ul class="ph-tiers">' + tiers + '</ul>'
+        + '</div>'
+        + '<a class="btn btn-primary ph-cta" href="' + esc(href) + '">' + esc(s.cta || "Contact sales") + '</a>';
+      var cta = box.querySelector(".ph-cta");
+      if (cta) cta.addEventListener("click", function(){ track("pricing_cta", { plan: "schools", cycle: "n/a" }, true); });
+    }
+
+    // ── build ──
+    mountCards("teacher-grid", P.teacher || []);
+    mountCards("parent-grid", P.parent || []);
+    renderFounding(P.founding);
+    renderSchools(P.schools);
+
+    // ── toggle (tablist) ──
+    var tabs = [document.getElementById("tab-monthly"), document.getElementById("tab-annual")].filter(Boolean);
+    var status = document.getElementById("cycle-status");
+    function setCycle(cy, opts){
+      opts = opts || {};
+      // No-op guard: re-selecting the current cycle (clicking the active tab,
+      // or Home/End on the endpoint tab) must not re-announce the live region,
+      // re-run updaters, or fire a spurious toggle event. Still honour focus.
+      if (cy === cycle){
+        if (opts.focus){ var same = tabs.filter(function(t){ return t.getAttribute("data-cycle") === cy; })[0]; if (same) same.focus(); }
+        return;
+      }
+      cycle = cy;
+      tabs.forEach(function(t){
+        var sel = t.getAttribute("data-cycle") === cy;
+        t.setAttribute("aria-selected", sel ? "true" : "false");
+        t.tabIndex = sel ? 0 : -1;
+      });
+      updaters.forEach(function(fn){ fn(cy); });
+      if (status) status.textContent = (cy === "annual" ? "Annual" : "Monthly") + " pricing shown.";
+      track("pricing_toggle", { cycle: cy }, opts.userInitiated);
+      if (opts.focus){ var active = tabs.filter(function(t){ return t.getAttribute("data-cycle") === cy; })[0]; if (active) active.focus(); }
+    }
+    tabs.forEach(function(t){
+      t.addEventListener("click", function(){ setCycle(t.getAttribute("data-cycle"), { userInitiated: true }); });
+      t.addEventListener("keydown", function(e){
+        var i = tabs.indexOf(t), next = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") next = tabs[(i + 1) % tabs.length];
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === "Home") next = tabs[0];
+        else if (e.key === "End") next = tabs[tabs.length - 1];
+        if (next){ e.preventDefault(); setCycle(next.getAttribute("data-cycle"), { userInitiated: true, focus: true }); }
+      });
+    });
+
+    setCycle("monthly", { userInitiated: false }); // default, no analytics on load
+  })();
+</script>
+
+</body>
+</html>
