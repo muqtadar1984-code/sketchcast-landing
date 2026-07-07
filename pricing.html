@@ -73,6 +73,13 @@
   .ph-sub{font-size:18px;color:var(--graphite);max-width:600px;margin:22px auto 0}
   .ph-usd{font-family:var(--mono);font-size:12px;color:var(--graphite);margin-top:6px}
 
+  /* free-trial countdown banner */
+  .ph-trial{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;max-width:720px;margin:24px auto 0;padding:12px 20px;background:rgba(255,176,32,.12);border:1px solid rgba(255,176,32,.55);border-radius:12px}
+  .ph-trial-badge{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--marker);padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .ph-trial-msg{font-size:14px;color:var(--ink);line-height:1.5}
+  .ph-trial-msg strong{font-weight:600}
+  .ph-trial-left{font-family:var(--mono);font-size:13px;color:var(--teal-ink);white-space:nowrap}
+
   /* ── monthly / annual toggle (tablist) ── */
   .ph-toggle{display:inline-flex;background:var(--mist);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;margin:28px 0 8px}
   .ph-toggle button{font:inherit;font-size:14px;font-weight:500;color:var(--graphite);background:transparent;border:0;border-radius:999px;padding:9px 18px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s}
@@ -170,6 +177,8 @@
         parent, and school.</h1>
       <p class="ph-sub">Start free. Upgrade when SketchCast is saving you evenings. Teachers and parents check out securely; schools get a tailored quote.</p>
 
+      <div class="ph-trial" id="trial-banner" hidden></div>
+
       <div class="ph-toggle" role="tablist" aria-label="Billing period">
         <button type="button" role="tab" id="tab-monthly" data-cycle="monthly" aria-selected="true" aria-controls="teacher-grid parent-grid" tabindex="0">Monthly</button>
         <button type="button" role="tab" id="tab-annual" data-cycle="annual" aria-selected="false" aria-controls="teacher-grid parent-grid" tabindex="-1">Annual <span class="ph-2mo">2 months free</span></button>
@@ -237,6 +246,12 @@
     var cycle = null; // set by the initial setCycle("monthly") below
     var updaters = [];
 
+    // Free-trial mode: while on, paid CTAs go to the app (free month) instead of
+    // Lemon Squeezy checkout, and a countdown banner shows. Auto-off after endsAt.
+    var trial = P.trial || {};
+    var trialActive = !!trial.enabled && (!trial.endsAt || Date.now() < new Date(trial.endsAt).getTime());
+    var trialUrl = trial.url || signup;
+
     var CHECK = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 l3 3 l7-8" stroke="#1FB8A6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
     function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
@@ -272,11 +287,18 @@
       var save = card.querySelector(".ph-save");
       var cta = card.querySelector(".ph-cta");
       var isFree = plan.monthly === 0 && plan.annual === 0;
-      cta.textContent = plan.cta;
-      // One Lemon Squeezy product URL serves BOTH cycles — the customer picks
-      // monthly vs annual on the checkout page, so the href never changes with
-      // the toggle. Missing link → sign-up, never a broken button.
-      cta.setAttribute("href", plan.checkout || signup);
+      // During the free trial every paid CTA sends the visitor into the app for
+      // the free month instead of Lemon Squeezy checkout (free plans already go
+      // to sign-up). After the trial, the normal per-plan checkout link is used —
+      // one LS product URL serves both cycles, so the href never changes with the
+      // toggle.
+      if (trialActive && !isFree){
+        cta.textContent = trial.cta || "Start free trial";
+        cta.setAttribute("href", trialUrl);
+      } else {
+        cta.textContent = plan.cta;
+        cta.setAttribute("href", plan.checkout || signup);
+      }
       cta.addEventListener("click", function(){ track("pricing_cta", { plan: plan.key, cycle: cycle }, true); });
       updaters.push(function(cy){
         if (isFree){
@@ -304,7 +326,7 @@
       if (!box || !f){ if (box) box.style.display = "none"; return; }
       var priceStr = "$" + f.price + "/mo";
       var cap = (f.cap != null) ? '<p class="ph-founding-cap">Only the first ' + esc(String(f.cap)) + ' teachers.</p>' : "";
-      var href = f.checkout || signup; // blank → sign-up, never a broken link
+      var href = trialActive ? trialUrl : (f.checkout || signup); // trial → app; else Lemon Squeezy
       // The founding price is unlocked by a DISCOUNT CODE on the plain Teacher
       // Pro checkout — without the visible code a teacher lands on the full
       // price. So the code + copy button are the heart of this banner.
@@ -314,7 +336,9 @@
           + '<button type="button" class="ph-copy" aria-label="Copy code ' + esc(f.code) + '">Copy code</button>'
           + '<span class="sr-only" role="status" id="copy-status"></span>'
           + '</div>'
-          + '<p class="ph-founding-how">At checkout, choose <strong>Monthly</strong> and paste this code in the discount field.</p>'
+          + (trialActive
+              ? '<p class="ph-founding-how">Your first month is free — start now, then paste this code at checkout to lock <strong>$10/mo</strong> when you subscribe.</p>'
+              : '<p class="ph-founding-how">At checkout, choose <strong>Monthly</strong> and paste this code in the discount field.</p>')
         : "";
       box.innerHTML =
         '<div>'
@@ -324,7 +348,7 @@
         + codeRow
         + cap
         + '</div>'
-        + '<a class="btn btn-marker ph-cta" href="' + esc(href) + '">' + esc(f.cta || "Claim founding price") + '</a>';
+        + '<a class="btn btn-marker ph-cta" href="' + esc(href) + '">' + esc(trialActive ? (trial.cta || "Start free trial") : (f.cta || "Claim founding price")) + '</a>';
       var cta = box.querySelector(".ph-cta");
       if (cta) cta.addEventListener("click", function(){ track("pricing_cta", { plan: "founding", cycle: "fixed" }, true); });
       var copyBtn = box.querySelector(".ph-copy");
@@ -381,11 +405,35 @@
       if (cta) cta.addEventListener("click", function(){ track("pricing_cta", { plan: "schools", cycle: "n/a" }, true); });
     }
 
+    function initTrialBanner(){
+      var box = document.getElementById("trial-banner");
+      if (!box) return;
+      if (!trialActive){ box.hidden = true; return; }
+      var end = new Date(trial.endsAt).getTime();
+      var endLabel = new Date(trial.endsAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+      function remaining(){
+        var ms = end - Date.now();
+        if (ms <= 0) return null;
+        var d = Math.floor(ms / 86400000), h = Math.floor((ms % 86400000) / 3600000), m = Math.floor((ms % 3600000) / 60000);
+        return d + "d " + h + "h " + m + "m";
+      }
+      function paint(){
+        var left = remaining();
+        if (left === null){ box.hidden = true; return; } // trial ended while the page was open
+        box.hidden = false;
+        box.innerHTML = '<span class="ph-trial-badge">Free trial</span>'
+          + '<span class="ph-trial-msg">Every feature is <strong>free for everyone until ' + esc(endLabel) + '</strong> — no card needed. The prices below apply after. <span class="ph-trial-left">' + esc(left) + ' left</span></span>';
+      }
+      paint();
+      setInterval(paint, 60000); // tick each minute
+    }
+
     // ── build ──
     mountCards("teacher-grid", P.teacher || []);
     mountCards("parent-grid", P.parent || []);
     renderFounding(P.founding);
     renderSchools(P.schools);
+    initTrialBanner();
 
     // ── toggle (tablist) ──
     var tabs = [document.getElementById("tab-monthly"), document.getElementById("tab-annual")].filter(Boolean);

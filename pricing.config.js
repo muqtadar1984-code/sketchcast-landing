@@ -30,6 +30,21 @@
     currency: "USD",
     appSignupUrl: APP_SIGNUP,
 
+    // ── FREE-TRIAL MODE ──────────────────────────────────────────────────────
+    // While `enabled` and the current time is before `endsAt`, every paid CTA
+    // (Teacher Pro / Pro+ / Family / Founding) BYPASSES Lemon Squeezy checkout
+    // and sends the visitor into the app for a free month; a live countdown
+    // banner shows the time remaining. After `endsAt` (or set enabled:false) the
+    // page automatically reverts to normal paid checkout — no redeploy needed.
+    // The trial's in-app limits (1 book, etc.) are enforced server-side.
+    trial: {
+      enabled: true,
+      startsAt: "2026-07-07",
+      endsAt: "2026-08-07T23:59:59+08:00", // one month from 7 Jul 2026 (Malaysia time)
+      url: APP_SIGNUP,
+      cta: "Start free trial"
+    },
+
     teacher: [
       {
         key: "free",
