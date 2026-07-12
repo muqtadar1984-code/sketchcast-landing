@@ -55,9 +55,10 @@
         cta: "Start free",
         checkout: APP_SIGNUP,
         features: [
-          "Limited lesson generations",
-          "Limited slides, worksheets & quizzes",
-          "Videos with watermark"
+          "One book — generate every chapter",
+          "Slides, worksheets, quizzes & exams",
+          "Narrated lesson videos",
+          "Assign to a class & track progress"
         ]
       },
       {
