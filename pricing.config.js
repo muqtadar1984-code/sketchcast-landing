@@ -142,7 +142,7 @@
       plan: "Teacher Pro",
       price: 10, // USD / month at checkout with the code (not affected by the toggle)
       lockMonths: 24,
-      cap: 500,
+      cap: 50,
       code: "FOUNDINGTEACHER",
       cta: "Claim founding price",
       checkout: CHECKOUT.teacherPro
