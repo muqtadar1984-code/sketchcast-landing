@@ -124,7 +124,7 @@
         checkout: CHECKOUT.parentFamily,
         features: [
           "Up to 2 children",
-          "10 video lesson parts + 30 practice papers & documents a month",
+          "8 video lesson parts + 24 practice papers & documents a month",
           "Unused allowance rolls over a month",
           "Homework help & AI explanations",
           "Progress tracking",
