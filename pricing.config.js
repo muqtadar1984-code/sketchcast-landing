@@ -55,7 +55,7 @@
         cta: "Start free",
         checkout: APP_SIGNUP,
         features: [
-          "One book — generate every chapter",
+          "One book — 20 lesson videos & 40 documents a month",
           "Slides, worksheets, quizzes & exams",
           "Narrated lesson videos",
           "Assign to a class & track progress"
@@ -73,12 +73,12 @@
         cta: "Choose Teacher Pro",
         checkout: CHECKOUT.teacherPro,
         features: [
-          "Unlimited lessons (fair use)",
-          "Editable PowerPoint",
-          "Worksheets & homework",
-          "Assessments",
-          "Video lessons",
-          "Exports"
+          "20 video lesson parts a month — unused roll over",
+          "40 documents a month (worksheets, exams, plans, activities)",
+          "2 new books a month",
+          "Long chapters always fully covered (multi-part videos)",
+          "Editable PowerPoint & exports",
+          "Live fair-use meter in your Library — no surprises"
         ]
       },
       {
@@ -92,9 +92,9 @@
         checkout: CHECKOUT.teacherProPlus,
         features: [
           "Everything in Teacher Pro, plus:",
-          "Higher AI limits",
+          "40 video lesson parts + 80 documents a month — unused roll over",
+          "4 new books a month",
           "AI Tutor",
-          "Exam papers",
           "Priority generation",
           "Early access to new features"
         ]
@@ -123,11 +123,11 @@
         cta: "Get Family",
         checkout: CHECKOUT.parentFamily,
         features: [
-          "Practice papers",
-          "Homework help",
-          "Revision",
-          "AI explanations",
-          "Progress tracking"
+          "10 video lesson parts + 30 practice papers & documents a month",
+          "Unused allowance rolls over a month",
+          "Homework help & AI explanations",
+          "Progress tracking",
+          "Live fair-use meter — no surprises"
         ]
       }
     ],
