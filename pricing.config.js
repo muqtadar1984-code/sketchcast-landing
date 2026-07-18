@@ -149,11 +149,14 @@
       checkout: CHECKOUT.teacherPro
     },
 
-    // Schools never see a public price — sales enquiry only.
+    // Schools never see a public price — sales enquiry only. The feature
+    // showcase lives at /schools (learnHref renders a second, ghost button).
     schools: {
       tiers: ["Essentials", "Professional", "Enterprise"],
       cta: "Contact sales",
-      href: SCHOOLS_ENQUIRY
+      href: SCHOOLS_ENQUIRY,
+      learnHref: "/schools",
+      learnLabel: "See what schools get"
     }
   };
 })();

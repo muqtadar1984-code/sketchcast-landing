@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SketchCast — For Schools</title>
+<meta name="description" content="One portal for your whole school: role-scoped dashboards for leadership, a timetable that generates and covers itself, textbook-grounded lessons in nine languages, and parents kept in the loop — governed by design." />
+<link rel="canonical" href="https://sketchcast.app/schools" />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="SketchCast — For Schools" />
+<meta property="og:description" content="Role-scoped dashboards, a self-running timetable with auto-cover, textbook lessons in nine languages, and parents in the loop — one portal for the whole school." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:url" content="https://sketchcast.app/schools" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap}
+  .foot-links a:hover{color:var(--ink)}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;left:0;right:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:left;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;left:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;left:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/#free">What's free</a>
+      <a href="/schools" aria-current="page">For schools</a>
+      <a href="/pricing">Pricing</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://app.sketchcast.app" class="login">Log in</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px">Start free</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">For schools</p>
+        <h1>Your <span class="uline">whole school<svg class="ink" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 70 3, 160 3, 297 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:300"/></svg></span>, teaching from one place.</h1>
+        <p class="hero-sub">Leadership sees the school clearly, teachers get lessons made from their own textbooks, the timetable writes and covers itself, and parents stay in the loop — each behind their own login, seeing only what's theirs.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school">Contact sales</a>
+          <a class="btn btn-ghost" href="/pricing#schools">See pricing</a>
+        </div>
+        <p class="hero-stat"><b>5 roles</b> · <b>9 languages</b> · <b>1 portal</b> — your school's own address</p>
+      </div>
+
+      <!-- the self-running timetable, drawn as product -->
+      <div class="tt reveal" role="img" aria-label="A weekly class timetable: period 1 is always the class teacher, and an absent teacher's lesson is automatically covered.">
+        <div class="tt-head">
+          <span class="tt-title">Class 5 Putra — week</span>
+          <span class="tt-chip">auto-generated</span>
+        </div>
+        <div class="tt-grid" aria-hidden="true">
+          <span class="tt-cell tt-col"></span>
+          <span class="tt-cell tt-col">P1</span><span class="tt-cell tt-col">P2</span><span class="tt-cell tt-col">P3</span><span class="tt-cell tt-col">P4</span><span class="tt-cell tt-col">P5</span>
+          <span class="tt-cell tt-day">MON</span>
+          <span class="tt-cell tt-p1">BM</span><span class="tt-cell">MAT</span><span class="tt-cell">SCI</span><span class="tt-cell">EN</span><span class="tt-cell">PE</span>
+          <span class="tt-cell tt-day">TUE</span>
+          <span class="tt-cell tt-p1">BM</span><span class="tt-cell">SCI</span>
+          <span class="tt-cell tt-cover">EN
+            <svg class="ink" viewBox="0 0 74 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37 3 C 12 2, 3 8, 4 20 C 5 33, 22 38, 39 37 C 58 36, 71 31, 70 19 C 69 8, 56 3, 42 3" stroke="#FFB020" stroke-width="2.6" stroke-linecap="round" style="--l:210;--d:.5s"/></svg>
+          </span>
+          <span class="tt-cell">MAT</span><span class="tt-cell">ART</span>
+          <span class="tt-cell tt-day">WED</span>
+          <span class="tt-cell tt-p1">BM</span><span class="tt-cell">MAT</span><span class="tt-cell">EN</span><span class="tt-cell">SCI</span><span class="tt-cell">MUS</span>
+        </div>
+        <p class="tt-note"><span><span class="k1">■</span> P1 — the class teacher, every day</span><span><span class="k2">◯</span> auto-cover — Ms Farah steps in</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── portal + roles ───────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="portal">
+      <div class="sec-head reveal">
+        <p class="eyebrow">One door for every role</p>
+        <h2>Your school gets its own address.</h2>
+        <p class="sub">Principals, coordinators, teachers, students and parents each sign in through your school's portal — and the data walls between them are enforced in the database, not just the interface.</p>
+        <span class="portal-url">school.sketchcast.app/<b>your-school</b></span>
+      </div>
+      <div class="roles">
+        <div class="card reveal">
+          <span class="tag">leadership</span>
+          <h3>See the school clearly</h3>
+          <p>Live dashboards, an at-risk worklist, and an assistant that answers questions about your own data.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">teachers</span>
+          <h3>Teach, don't typeset</h3>
+          <p>Full lesson kits from the school's own textbooks, plus each teacher's personal week and cover duties.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">students</span>
+          <h3>One place to learn</h3>
+          <p>Assigned lessons that play in class or at home, worksheets to hand in, and a tutor that sticks to the chapter.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">parents</span>
+          <h3>Finally in the loop</h3>
+          <p>Each child's assignments, scores and due dates — read-only, and only for their own children.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── leadership ───────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="leadership">
+      <div class="sec-head reveal">
+        <p class="eyebrow">For leadership</p>
+        <h2>Answers, not spreadsheets.</h2>
+        <p class="sub">Everything a principal's office asks for on a Monday morning — already computed, already scoped to who's asking.</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag">analytics</span>
+          <h3>The at-risk list writes itself</h3>
+          <p>Whole-school activity, completion and overdue work at a glance. Students who go quiet, slip or fall behind are flagged by rule — coordinators get a <b>named, actionable worklist</b>; principals see clean aggregates by grade.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">briefing</span>
+          <h3>Ask the school a question</h3>
+          <p>A briefing assistant that answers from <b>your school's live numbers only</b> — "which Grade 5 students need a call home this week?" — with every briefing recorded in the access log.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">teacher support</span>
+          <h3>Spot who needs backup</h3>
+          <p>Each teacher's lessons, assignments and grading backlog next to their classes' progress — framed as <b>support flags, not rankings</b>, so help arrives before burnout does.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">governance</span>
+          <h3>Who sees what, in writing</h3>
+          <p>A plain-language access page states exactly what every role can see, coordinators get <b>scoped grants</b> (their grades, nothing more), and leadership views land in an audit log.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── timetable ────────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="timetable">
+      <div class="sec-head reveal">
+        <p class="eyebrow">The timetable</p>
+        <h2>A week that builds itself — and covers itself.</h2>
+        <p class="sub">Set your start time, period length and breaks. SketchCast fills the rest, and keeps it standing when someone calls in sick.</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag">auto-generate</span>
+          <h3>Good rules, applied everywhere</h3>
+          <p>The <b>class teacher opens every day</b>, core subjects run daily for every class, enrichment fills the gaps with variety — and no teacher is ever double-booked or pushed past their daily cap.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">fully editable</span>
+          <h3>Your judgement wins</h3>
+          <p>Drag to move or swap, <b>lock</b> the cells the generator must never touch, copy or clear a day, undo anything. Period times are derived from your start time and breaks — change one number, the whole day shifts.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">absence cover</span>
+          <h3>Absent at 7:02, covered by 7:03</h3>
+          <p>Mark a teacher absent and every lesson gets a cover plan — subject teacher first, then class teacher, then the lightest load, <b>only from staff with room in their day</b>. No cover available? It says so, honestly.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">personal weeks</span>
+          <h3>Everyone knows where to be</h3>
+          <p>Every teacher sees their own week and any <b>cover duties</b> from their own login; every student sees their class grid, breaks and times included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── lessons ──────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="lessons">
+      <div class="sec-head reveal">
+        <p class="eyebrow">The classroom engine</p>
+        <h2>Your textbooks, taught.</h2>
+        <p class="sub">The same engine individual teachers love, at school scale: upload the books your school actually teaches from, and every chapter becomes a complete kit.</p>
+      </div>
+      <div class="feat feat-3">
+        <div class="card reveal">
+          <span class="tag">full kit</span>
+          <h3>Six pieces per chapter</h3>
+          <p>A narrated video lesson that draws itself, an editable deck, a lesson plan, activities, a worksheet and an exam paper — <b>grounded in the chapter</b>, not the internet.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">long chapters</span>
+          <h3>Parts, not marathons</h3>
+          <p>Long chapters split into <b>classroom-sized parts</b> — each with its own video and kit, generated on demand, so a 40-page chapter becomes four teachable lessons.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">9 languages</span>
+          <h3>Taught in your language</h3>
+          <p>The book's language is detected automatically, and lessons narrate in a matching voice — including <b>fully mirrored right-to-left Arabic</b>.</p>
+          <ul class="langs" style="margin-top:14px">
+            <li>English</li><li>Bahasa Melayu</li><li class="rtl" lang="ar" dir="rtl">العربية</li><li>Français</li><li>Español</li><li>Português</li><li lang="te">తెలుగు</li><li lang="mr">मराठी</li><li lang="hi">हिन्दी</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <span class="tag">assign + track</span>
+          <h3>From generated to graded</h3>
+          <p>Assign any item to a class with a due date; submissions come back <b>auto-scored</b> with the teacher's mark on top — the same records leadership analytics read.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">ask coach</span>
+          <h3>A tutor that stays on the page</h3>
+          <p>Students on school plans get <b>Ask Coach</b>: a tutor locked to the assigned chapter — it explains, quizzes and recaps from the book, never from outside it.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">book health</span>
+          <h3>Bad scans flagged early</h3>
+          <p>Every uploaded book gets a <b>health score</b> at indexing — text quality, structure, detected problems — so quality issues surface before a teacher builds a week on them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── parents ──────────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="parents">
+      <div class="sec-head reveal">
+        <p class="eyebrow">For parents</p>
+        <h2>The report card, every day.</h2>
+        <p class="sub">Parents join by school invitation, already linked to their own children — nothing to set up, nothing extra to see.</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag">progress</span>
+          <h3>Each child, at a glance</h3>
+          <p>Assignments, completion, scores and overdue flags per child — <b>read-only</b>, scoped to their own children and no one else's.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">calendar</span>
+          <h3>School dates where families look</h3>
+          <p>School events and class dates, <b>subscribable</b> into Google, Outlook or Apple calendars — with assignment deadlines riding along on the in-app calendar.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">invitations</span>
+          <h3>Invited, not registered</h3>
+          <p>The school issues each parent invite <b>with the child link already attached</b> — so access is granted deliberately, never self-claimed.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">practical</span>
+          <h3>Small things, handled</h3>
+          <p>Forgot passwords stay in the family: a parent resets their own child's login and hands over a <b>one-time password</b> that must be changed at next sign-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── trust ────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="trust">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Governed by design</p>
+        <h2>Built for schools that answer to parents.</h2>
+      </div>
+      <div class="trust">
+        <div class="card reveal">
+          <span class="tag">isolation</span>
+          <h3>Walls in the database</h3>
+          <p>Every read is scoped by role <b>at the database layer</b> — a student sees their own work, a teacher their classes, a coordinator their grades. The URL never decides.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">audit</span>
+          <h3>Leadership access, logged</h3>
+          <p>Every leadership view of student data — dashboards and briefings alike — is written to an <b>access log</b> the school admin can read.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">provisioning</span>
+          <h3>Staff accounts, managed</h3>
+          <p>Teacher and admin accounts are <b>provisioned with SketchCast staff</b>, not self-served — rosters stay deliberate, licensing stays predictable.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">support</span>
+          <h3>Reports come back answered</h3>
+          <p>Teachers and staff can report a problem in-app and follow its status — received, reviewed, fixed — from a <b>notification bell</b>, with the resolution note attached.</p>
+        </div>
+      </div>
+      <p style="margin-top:26px;font-size:13px;color:var(--faint)">Data processing agreement available for schools — see our <a href="/privacy" style="color:var(--teal-ink);font-weight:500">privacy policy</a> for the full posture.</p>
+    </div>
+  </section>
+
+  <!-- ── final CTA ────────────────────────────────────────────────────── -->
+  <section class="cta">
+    <div class="wrap reveal">
+      <h2>Rolling it out for <span class="circle">your school<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span>?</h2>
+      <p class="cta-sub">No public price list — we tailor a quote to your size and needs, and set your features up with you during onboarding.</p>
+      <ul class="tiers"><li>Essentials</li><li>Professional</li><li>Enterprise</li></ul>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school">Contact sales</a>
+        <a class="btn btn-ghost" href="/pricing#schools">Teacher &amp; parent pricing</a>
+      </div>
+      <p class="cta-note">Prefer to try it first? Any teacher can <a href="https://app.sketchcast.app" style="color:var(--teal-ink)">start free</a> today.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span style="display:inline-flex;align-items:center;gap:11px">
+      <img src="seal.png" alt="SketchCast AI — a chapter, taught" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+      © 2026 SketchCast AI
+    </span>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/schools" aria-current="page">For schools</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:hello@sketchcast.app">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

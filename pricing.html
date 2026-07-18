@@ -130,16 +130,22 @@
   .ph-tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
   .ph-tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
   .ph-schools .ph-cta{width:auto;flex:0 0 auto}
+  .ph-schools-ctas{display:flex;gap:12px;flex-wrap:wrap;flex:0 0 auto}
 
   .ph-noscript{max-width:1080px;margin:0 auto;padding:14px 24px;text-align:center;color:var(--graphite);font-size:14px}
   .ph-noscript a{color:var(--teal-ink);font-weight:500}
 
   @media(max-width:860px){
     .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
     .ph-hero h1{font-size:34px}
     .ph-grid-3,.ph-grid-2{grid-template-columns:1fr}
     .ph-founding,.ph-schools{flex-direction:column;align-items:flex-start;text-align:left}
     .ph-founding .ph-cta,.ph-schools .ph-cta{width:100%;justify-content:center}
+    .ph-schools .ph-schools-ctas{width:100%}
   }
   @media(prefers-reduced-motion:reduce){
     .ink path{stroke-dashoffset:0 !important;animation:none !important}
@@ -158,7 +164,7 @@
     <nav class="nav-links">
       <a href="/#how">How it works</a>
       <a href="/#free">What's free</a>
-      <a href="/#outcomes">Outcomes</a>
+      <a href="/schools">For schools</a>
       <a href="/pricing" aria-current="page">Pricing</a>
     </nav>
     <div class="nav-cta">
@@ -228,6 +234,7 @@
     </span>
     <div class="foot-links">
       <a href="/">Home</a>
+      <a href="/schools">For schools</a>
       <a href="/pricing" aria-current="page">Pricing</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
@@ -400,9 +407,16 @@
         + '<p class="ph-schools-sub">Essentials, Professional and Enterprise tiers, priced to your size and needs. No public price — we tailor a quote to your school.</p>'
         + '<ul class="ph-tiers">' + tiers + '</ul>'
         + '</div>'
-        + '<a class="btn btn-primary ph-cta" href="' + esc(href) + '">' + esc(s.cta || "Contact sales") + '</a>';
+        + '<div class="ph-schools-ctas">'
+        + '<a class="btn btn-primary ph-cta" href="' + esc(href) + '">' + esc(s.cta || "Contact sales") + '</a>'
+        + (s.learnHref
+            ? '<a class="btn btn-ghost ph-cta" data-schools-learn href="' + esc(s.learnHref) + '">' + esc(s.learnLabel || "See what schools get") + '</a>'
+            : '')
+        + '</div>';
       var cta = box.querySelector(".ph-cta");
       if (cta) cta.addEventListener("click", function(){ track("pricing_cta", { plan: "schools", cycle: "n/a" }, true); });
+      var learn = box.querySelector("[data-schools-learn]");
+      if (learn) learn.addEventListener("click", function(){ track("pricing_cta", { plan: "schools_learn", cycle: "n/a" }, true); });
     }
 
     function initTrialBanner(){
