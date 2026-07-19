@@ -58,6 +58,7 @@
           "One book — 20 lesson videos & 40 documents a month",
           "Slides, worksheets, quizzes & exams",
           "Narrated lesson videos",
+          "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
           "Assign to a class & track progress"
         ]
       },
@@ -77,6 +78,7 @@
           "40 documents a month (worksheets, exams, plans, activities)",
           "2 new books a month",
           "Long chapters always fully covered (multi-part videos)",
+          "All 9 lesson languages with matching voices",
           "Editable PowerPoint & exports",
           "Live fair-use meter in your Library — no surprises"
         ]
@@ -126,6 +128,7 @@
           "Up to 2 children",
           "8 video lesson parts + 24 practice papers & documents a month",
           "Unused allowance rolls over a month",
+          "Practice papers in the book's own language (9 supported)",
           "Homework help & AI explanations",
           "Progress tracking",
           "Live fair-use meter — no surprises"

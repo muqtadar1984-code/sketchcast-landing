@@ -124,6 +124,11 @@
 
   /* ── what's free ── */
   .free{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .langs-note{margin-top:34px;text-align:center;color:var(--graphite);font-size:15px}
+  .langs-note b{color:var(--ink);font-weight:500}
+  .langs{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px;padding:0}
+  .langs li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
   .card .tag{display:inline-flex;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--teal-ink);background:var(--mist);padding:4px 10px;border-radius:999px;margin-bottom:14px}
   .card h3{font-size:20px;margin-bottom:9px}
@@ -289,6 +294,10 @@
         <p>Generate worksheets and exams; students take them in-app and the objective questions are graded automatically.</p>
       </div>
     </div>
+    <p class="langs-note">All of it in <b>nine languages</b> — detected from your book automatically, narrated in a matching voice, with Arabic fully right-to-left:</p>
+    <ul class="langs">
+      <li>English</li><li>Bahasa Melayu</li><li class="rtl" lang="ar" dir="rtl">العربية</li><li>Français</li><li>Español</li><li>Português</li><li lang="te">తెలుగు</li><li lang="mr">मराठी</li><li lang="hi">हिन्दी</li>
+    </ul>
   </div>
 </section>
 
