@@ -436,7 +436,7 @@
         if (left === null){ box.hidden = true; return; } // trial ended while the page was open
         box.hidden = false;
         box.innerHTML = '<span class="ph-trial-badge">Free trial</span>'
-          + '<span class="ph-trial-msg">Every feature is <strong>free for everyone until ' + esc(endLabel) + '</strong> — no card needed. The prices below apply after. <span class="ph-trial-left">' + esc(left) + ' left</span></span>';
+          + '<span class="ph-trial-msg">Try <strong>every feature free until ' + esc(endLabel) + '</strong> — no card needed. The prices below apply after. <span class="ph-trial-left">' + esc(left) + ' left</span></span>';
       }
       paint();
       setInterval(paint, 60000); // tick each minute
