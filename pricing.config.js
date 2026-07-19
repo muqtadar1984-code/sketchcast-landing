@@ -55,7 +55,7 @@
         cta: "Start free",
         checkout: APP_SIGNUP,
         features: [
-          "One book — 20 lesson videos & 40 documents a month",
+          "1 book, with the full six-piece kit for one chapter part",
           "Slides, worksheets, quizzes & exams",
           "Narrated lesson videos",
           "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
@@ -112,7 +112,10 @@
         annual: 0,
         cta: "Start free",
         checkout: APP_SIGNUP,
-        features: ["A taste of practice & explanations"]
+        features: [
+          "1 book, with practice for one chapter part",
+          "Papers in the book's own language"
+        ]
       },
       {
         key: "family",
