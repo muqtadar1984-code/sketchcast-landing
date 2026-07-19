@@ -74,8 +74,8 @@
         cta: "Choose Teacher Pro",
         checkout: CHECKOUT.teacherPro,
         features: [
-          "20 video lesson parts a month — unused roll over",
-          "40 documents a month (worksheets, exams, plans, activities)",
+          "16 lessons a month — unused roll over",
+          "Every lesson includes its full document kit free (plan, activities, worksheet, exam, case study)",
           "2 new books a month",
           "Long chapters always fully covered (multi-part videos)",
           "All 9 lesson languages with matching voices",
@@ -94,7 +94,7 @@
         checkout: CHECKOUT.teacherProPlus,
         features: [
           "Everything in Teacher Pro, plus:",
-          "40 video lesson parts + 80 documents a month — unused roll over",
+          "32 lessons a month — unused roll over",
           "4 new books a month",
           "AI Tutor",
           "Priority generation",
@@ -129,7 +129,7 @@
         checkout: CHECKOUT.parentFamily,
         features: [
           "Up to 2 children",
-          "8 video lesson parts + 24 practice papers & documents a month",
+          "6 video lessons a month — practice papers & documents included free",
           "Unused allowance rolls over a month",
           "Practice papers in the book's own language (9 supported)",
           "Homework help & AI explanations",
