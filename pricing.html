@@ -61,8 +61,13 @@
   .nav-cta a.login:hover{color:var(--ink)}
   footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
   .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  .foot-links{display:flex;gap:20px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
   .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
   .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 
   /* ── pricing hero ── */
@@ -166,6 +171,7 @@
       <a href="/#free">What's free</a>
       <a href="/schools">For schools</a>
       <a href="/pricing" aria-current="page">Pricing</a>
+      <a href="/about">About</a>
     </nav>
     <div class="nav-cta">
       <a href="https://app.sketchcast.app" class="login">Log in</a>
@@ -227,19 +233,29 @@
 </main>
 
 <footer>
-  <div class="wrap foot">
-    <span style="display:inline-flex;align-items:center;gap:11px">
-      <img src="seal.png" alt="SketchCast AI — a chapter, taught" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
-      © 2026 SketchCast AI
-    </span>
-    <div class="foot-links">
-      <a href="/">Home</a>
-      <a href="/schools">For schools</a>
-      <a href="/pricing" aria-current="page">Pricing</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="mailto:hello@sketchcast.app">Contact</a>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="seal.png" alt="SketchCast AI — a chapter, taught" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        © 2026 SketchCast AI
+      </span>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/schools">For schools</a>
+        <a href="/pricing" aria-current="page">Pricing</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:hello@sketchcast.app">Contact</a>
+        <!-- TODO(compliance): enable when the Aethel Twin company LinkedIn page exists.
+             Uncomment and set the real href — do NOT ship a live "#" / empty href.
+        <a class="foot-li" href="AETHEL_TWIN_COMPANY_LINKEDIN_URL" target="_blank" rel="noopener" aria-label="Aethel Twin on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+        -->
+      </div>
     </div>
+    <p class="foot-legal">A product of <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Malaysia Digital status MD/0002997</p>
   </div>
 </footer>
 
