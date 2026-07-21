@@ -1,0 +1,14 @@
+# HTML pages must revalidate so a deploy is picked up immediately at every edge.
+# (Static assets — images, fonts — keep their default long cache.)
+/
+  Cache-Control: no-cache
+/about
+  Cache-Control: no-cache
+/schools
+  Cache-Control: no-cache
+/pricing
+  Cache-Control: no-cache
+/privacy
+  Cache-Control: no-cache
+/terms
+  Cache-Control: no-cache
