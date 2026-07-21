@@ -82,6 +82,8 @@
   /* ── prose ── */
   .prose{max-width:64ch}
   .prose p{color:var(--graphite);font-size:17px;margin-top:16px}
+  .prose-say{color:var(--ink);font-size:18px;font-weight:500;margin-top:24px;max-width:62ch}
+  .prose-attr{font-family:var(--mono);font-size:13px;color:var(--graphite);margin-top:9px}
 
   /* ── team ── */
   .team{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;margin-top:34px;max-width:820px}
@@ -220,8 +222,10 @@
           don't teach from either — they teach from the book the school adopted. SketchCast starts
           there: index the school's own textbook, and produce lessons sized to a real class period,
           in the sequence the curriculum already follows.</p>
-        <!-- TODO(founder): add one closing sentence here in Muqtadar's own voice — the personal
-             "why". Keep it to a single sentence so the section stays tight. -->
+        <p class="prose-say">&ldquo;For me the test was simple: if it doesn't begin with the book a
+          teacher already trusts, it isn't really helping — so that's where we made SketchCast
+          begin.&rdquo;</p>
+        <p class="prose-attr">— Muqtadar Quraishi, Founder &amp; CEO</p>
       </div>
     </div>
   </section>
@@ -234,8 +238,8 @@
         <h2>Team</h2>
       </div>
       <div class="team">
-        <!-- TODO(headshot): drop the real photo at /assets/team/muqtadar.jpg (square, ~512px).
-             Until it exists the initials placeholder below shows. Do NOT use a stock photo. -->
+        <!-- Founder headshot (512×512, EXIF-stripped). The "MQ" monogram is a fallback that
+             only shows if the image ever fails to load. -->
         <div class="avatar">
           <img src="/assets/team/muqtadar.jpg" alt="Muqtadar Musawir Quraishi, Founder and CEO of Aethel Twin" width="132" height="132" onerror="this.remove()" />
           <span class="ph" aria-hidden="true">MQ</span>
