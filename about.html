@@ -241,7 +241,7 @@
         <!-- Founder headshot (512×512, EXIF-stripped). The "MQ" monogram is a fallback that
              only shows if the image ever fails to load. -->
         <div class="avatar">
-          <img src="/assets/team/muqtadar.jpg?v=1" alt="Muqtadar Musawir Quraishi, Founder and CEO of Aethel Twin" width="132" height="132" onerror="this.remove()" />
+          <img src="/assets/team/muqtadar-quraishi.jpg" alt="Muqtadar Musawir Quraishi, Founder and CEO of Aethel Twin" width="132" height="132" onerror="if(this.dataset.retried){this.remove()}else{this.dataset.retried='1';this.src='/assets/team/muqtadar-quraishi.jpg?r='+Date.now()}" />
           <span class="ph" aria-hidden="true">MQ</span>
         </div>
         <div>
