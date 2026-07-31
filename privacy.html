@@ -36,7 +36,7 @@
 <div class="wrap">
   <a class="home" href="/">← SketchCast AI</a>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 12 July 2026 · Effective: 12 July 2026</p>
+  <p class="muted">Last updated: 31 July 2026 · Effective: 31 July 2026</p>
 
   <p>SketchCast AI (“SketchCast”, “we”, “us”, “our”) turns textbook chapters into narrated
   lessons, decks, videos, worksheets, and an optional book-grounded AI study assistant, for
@@ -107,7 +107,19 @@
   address (used for account communication only), class enrolment, and learning records — which
   lessons were assigned, completion status, quiz/worksheet answers and scores, any answer files
   the student submits, and — if the AI study assistant is used — the messages the student types
-  to it and its replies (see §6).</p>
+  to it and its replies (see §6). Where a school or family uses the <strong>diary</strong>, we
+  also store the notes teachers and parents write about the student, any replies the student
+  writes, and a record of which parent acknowledged which note and when.</p>
+
+  <h3>Health &amp; wellbeing notes in the diary</h3>
+  <p>The diary lets a parent or teacher record a note about a child's health or wellbeing — an
+  absence, medication, an allergy, or a concern — so the adults teaching that child can act on
+  it. We treat this as sensitive information: it is provided at the parent's or school's
+  initiative, it is visible only to that child's teachers, their parents and their school's
+  leadership, and it is <strong>never used for advertising and never used to train AI
+  models</strong>. It is deleted with the student's record, and the author can delete it at any
+  time. <strong>Please don't use the diary for medical emergencies</strong> — contact the school
+  directly.</p>
   <h3>Content you upload</h3>
   <p>Textbook chapters and materials teachers/parents upload, and the lessons, decks, videos,
   and worksheets we generate from them.</p>
@@ -173,6 +185,12 @@
       service (self-hosted) may also be called to check calculations. We store the assistant
       conversation for up to 30 days so the student can continue where they left off, and to let
       you review it.</li>
+    <li><strong>Translating diary notes.</strong> When a reader taps “Translate” on a diary note,
+      <strong>the text of that note and its replies</strong> is sent to Anthropic (Claude) to
+      translate it into the chosen language, and the translation is stored so it never has to be
+      produced twice. Only the message text is sent — no names, account ids or school details are
+      attached — though a note written by a teacher or parent may of course mention a child by
+      name. Anyone who can read a note can translate it, including the student.</li>
   </ul>
   <p>Our AI providers process this content <strong>only to provide the service</strong>. Under
   their business terms they <strong>do not use it to train their models</strong> and are not
@@ -190,7 +208,7 @@
       <tr><td>Vercel</td><td>Hosts the web application</td></tr>
       <tr><td>Railway</td><td>Runs the lesson-generation worker and maths service</td></tr>
       <tr><td>Cloudflare</td><td>Serves this website</td></tr>
-      <tr><td>Anthropic</td><td>AI generation and the study assistant (§6)</td></tr>
+      <tr><td>Anthropic</td><td>AI generation, the study assistant, and diary translation (§6)</td></tr>
       <tr><td>Microsoft (Edge TTS) &amp; ElevenLabs</td><td>Narration audio (ElevenLabs only when premium voices are enabled)</td></tr>
       <tr><td>Google</td><td>Optional “Sign in with Google” for adult accounts only</td></tr>
       <tr><td>Resend</td><td>Sends account and support emails</td></tr>
@@ -223,6 +241,10 @@
     <li><strong>Student learning records</strong> are deleted when the student is removed;
       removing a student deletes their profile and records with them.</li>
     <li><strong>AI-assistant conversations</strong> are kept for up to 30 days, then deleted.</li>
+    <li><strong>Diary notes, replies and acknowledgments</strong> are kept while the account is
+      active and are deleted with the student's record. The author of a note or reply can delete
+      it at any time; deleting a note also deletes its replies, the acknowledgments on it, and
+      any stored translations of it.</li>
     <li><strong>Technical logs</strong> are kept for a short period (typically up to 90 days) for
       security and debugging, then deleted or anonymised.</li>
     <li>To <strong>close an account or delete a school’s data entirely</strong>, email us — we
