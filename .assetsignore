@@ -3,3 +3,11 @@ wrangler.jsonc
 .assetsignore
 README*
 .env*
+
+# Build-time only — the generator, its inputs and its tooling never ship.
+# (Its OUTPUT — the <locale>/ folders, sitemap.xml, robots.txt — does.)
+build-i18n.mjs
+strings
+package.json
+package-lock.json
+node_modules

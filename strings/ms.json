@@ -1,0 +1,695 @@
+{
+  "_note": [
+    "Bahasa Melayu (Malaysia). Key set mirrors en.json exactly.",
+    "Never changed: SketchCast, Aethel Twin Sdn. Bhd., plan names, registration numbers,",
+    "MD/0002997, the postal address, e-mail addresses and URLs."
+  ],
+
+  "common": {
+    "nav": {
+      "how": "Cara ia berfungsi",
+      "free": "Yang percuma",
+      "outcomes": "Hasilnya",
+      "schools": "Untuk sekolah",
+      "pricing": "Harga",
+      "about": "Tentang kami",
+      "home": "Utama",
+      "login": "Log masuk",
+      "startFree": "Mula percuma",
+      "backHome": "SketchCast AI"
+    },
+    "footer": {
+      "sealAlt": "SketchCast AI — satu bab, terus diajar",
+      "copyright": "© 2026 SketchCast AI",
+      "privacy": "Privasi",
+      "terms": "Terma",
+      "contact": "Hubungi",
+      "linkedIn": "Aethel Twin di LinkedIn",
+      "legal": "Produk <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Status Malaysia Digital MD/0002997",
+      "legalPlain": "Produk Aethel Twin Sdn. Bhd. (202601012908) · Status Malaysia Digital MD/0002997"
+    },
+    "lang": {
+      "label": "Bahasa",
+      "choose": "Pilih bahasa anda",
+      "footerLabel": "Halaman ini dalam bahasa lain"
+    },
+    "legal": {
+      "translationNotice": "Ini terjemahan yang disediakan untuk kemudahan anda. Jika ia berbeza daripada versi bahasa Inggeris, versi bahasa Inggeris yang terpakai."
+    }
+  },
+
+  "index": {
+    "meta": {
+      "title": "SketchCast AI — Satu bab buku teks, terus diajar",
+      "description": "Muat naik satu bab buku teks dan SketchCast melukis kit pelajaran penuh dengan satu klik — video bernarasi, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja dan peperiksaan. Percuma untuk guru dan pelajar.",
+      "ogTitle": "SketchCast AI — Satu bab buku teks, terus diajar",
+      "ogDescription": "Muat naik satu bab; satu klik menjana kit penuh — video bernarasi, slaid boleh sunting, rancangan, lembaran kerja dan peperiksaan. Percuma untuk guru dan pelajar."
+    },
+    "hero": {
+      "eyebrow": "PDF buku teks → pelajaran bernarasi",
+      "headline": "Satu bab buku teks yang <mark>mengajar dirinya</mark>.",
+      "sub": "Muat naik satu bab. Satu klik menjana kit penuh — video bernarasi yang melukis dirinya sendiri, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja dan peperiksaan — kemudian tugaskannya dan lihat siapa sudah selesai. Beberapa minit, bukan sepetang suntuk.",
+      "ctaPrimary": "Mula percuma",
+      "ctaSecondary": "Lihat cara ia berfungsi",
+      "stat": "<b>Tiada</b> persediaan &nbsp;·&nbsp; <b>beberapa minit</b> untuk menjana &nbsp;·&nbsp; <b>$0</b> untuk mula"
+    },
+    "demo": {
+      "tag": "paparan langsung",
+      "chapter": "Bab 4 · Fotosintesis",
+      "title": "Bagaimana tumbuhan membuat makanan",
+      "bullet1": "Daun menangkap cahaya matahari dengan klorofil",
+      "bullet2": "Air + CO&#8322; menjadi gula dan oksigen",
+      "node1": "Cahaya matahari",
+      "node2": "Gula + O&#8322;"
+    },
+    "how": {
+      "eyebrow": "Cara ia berfungsi",
+      "heading": "PDF masuk, pelajaran keluar.",
+      "sub": "Tiga langkah. Anda bawa babnya; SketchCast yang melukis.",
+      "step1": {
+        "num": "01",
+        "title": "Muat naik satu bab",
+        "body": "Lepaskan satu bab buku teks dalam bentuk PDF. Tiada persediaan, tiada pemformatan."
+      },
+      "step2": {
+        "num": "02",
+        "title": "SketchCast membinanya",
+        "body": "Ia menulis naratif Socratic dan melukis seluruh kit — slaid, video, rancangan, lembaran kerja dan peperiksaan sekali gus."
+      },
+      "step3": {
+        "num": "03",
+        "title": "Ajar atau tugaskan",
+        "body": "Mainkannya dalam kelas, atau tugaskan bab itu kepada satu kelas dan lihat siapa yang selesai."
+      }
+    },
+    "outcomes": {
+      "eyebrow": "Hasilnya",
+      "heading": "Dapatkan semula waktu petang anda.",
+      "stat1": {
+        "big": "Min<em>it</em>",
+        "body": "Satu bab menjadi pelajaran bernarasi — slaid + video — sedia untuk diajar atau ditugaskan."
+      },
+      "stat2": {
+        "big": "1<em> klik</em>",
+        "body": "Satu janaan = kit penuh: pelajaran video, slaid, rancangan, aktiviti, lembaran kerja dan peperiksaan — dokumennya percuma dengan setiap pelajaran."
+      },
+      "stat3": {
+        "big": "$0",
+        "body": "Mula percuma: hasilkan dan tugaskan pelajaran pertama anda tanpa kos sepanjang percubaan terbuka."
+      }
+    },
+    "free": {
+      "eyebrow": "Yang percuma",
+      "heading": "Semua yang perlu untuk pelajaran pertama anda.",
+      "card1": {
+        "tag": "slaid + nota",
+        "title": "Slaid boleh sunting dengan nota Socratic",
+        "body": "Set slaid yang kemas, dengan nota penceramah setiap slaid membawa soalan Socratic — buka dan suntingnya dalam PowerPoint, Google Slides atau Keynote."
+      },
+      "card2": {
+        "tag": "pelajaran video",
+        "title": "Pelajaran yang melukis dirinya",
+        "body": "Satu video bernarasi dengan perkataan slaid ditulis di depan mata sambil suara mengajar — tugaskan sebagai kerja rumah atau mainkan dalam kelas."
+      },
+      "card3": {
+        "tag": "tugas + jejak",
+        "title": "Kelas, tugasan, kemajuan",
+        "body": "Cipta kelas, agihkan log masuk, tugaskan satu bab, dan lihat siapa telah selesai, mengulang kaji atau belum mula — semuanya di satu tempat."
+      },
+      "card4": {
+        "tag": "lembaran + peperiksaan",
+        "title": "Latihan, disemak untuk anda",
+        "body": "Lembaran kerja dan peperiksaan datang percuma dengan kit setiap pelajaran; pelajar menjawabnya dalam aplikasi dan soalan objektif disemak secara automatik."
+      },
+      "langsNote": "Semuanya dalam <b>sembilan bahasa</b> — dikesan daripada buku anda secara automatik, dinaratifkan dengan suara yang sepadan, dan bahasa Arab dipapar sepenuhnya dari kanan ke kiri:"
+    },
+    "cta": {
+      "heading": "Hasilkan pelajaran pertama anda <mark>hari ini</mark>.",
+      "sub": "Percuma untuk bermula, bagi guru dan pelajar. Tiada kad kredit.",
+      "button": "Mula percuma"
+    }
+  },
+
+  "schools": {
+    "meta": {
+      "title": "SketchCast — Untuk Sekolah",
+      "description": "Satu portal untuk seluruh sekolah anda: papan pemuka mengikut peranan untuk kepimpinan, jadual waktu yang menjana dan mengganti dirinya sendiri, pelajaran berasaskan buku teks dalam sembilan bahasa, dan ibu bapa sentiasa dimaklumkan — bertadbir urus dari asasnya.",
+      "ogTitle": "SketchCast — Untuk Sekolah",
+      "ogDescription": "Papan pemuka mengikut peranan, jadual waktu yang berjalan dan mengganti sendiri, pelajaran daripada buku teks dalam sembilan bahasa, dan ibu bapa dimaklumkan — satu portal untuk seluruh sekolah."
+    },
+    "hero": {
+      "eyebrow": "Untuk sekolah",
+      "headline": "<mark>Seluruh sekolah</mark> anda, mengajar dari satu tempat.",
+      "sub": "Kepimpinan melihat sekolah dengan jelas, guru mendapat pelajaran yang dibuat daripada buku teks mereka sendiri, jadual waktu menulis dan mengganti dirinya sendiri, dan ibu bapa sentiasa dimaklumkan — masing-masing di sebalik log masuk sendiri, hanya melihat apa yang menjadi haknya.",
+      "ctaPrimary": "Hubungi jualan",
+      "ctaSecondary": "Lihat harga",
+      "stat": "<b>5 peranan</b> · <b>9 bahasa</b> · <b>1 portal</b> — alamat sekolah anda sendiri"
+    },
+    "timetableCard": {
+      "alt": "Jadual waktu mingguan sebuah kelas: waktu pertama sentiasa guru kelas, dan pelajaran guru yang tidak hadir diganti secara automatik.",
+      "title": "Kelas 5 Putra — minggu ini",
+      "chip": "dijana automatik",
+      "periods": { "p1": "W1", "p2": "W2", "p3": "W3", "p4": "W4", "p5": "W5" },
+      "days": { "mon": "ISN", "tue": "SEL", "wed": "RAB" },
+      "subjects": {
+        "bm": "BM",
+        "mat": "MT",
+        "sci": "SN",
+        "en": "BI",
+        "pe": "PJ",
+        "art": "PSV",
+        "mus": "MZ"
+      },
+      "keyP1": "W1 — guru kelas, setiap hari",
+      "keyCover": "ganti automatik — Cikgu Farah mengambil alih"
+    },
+    "portal": {
+      "eyebrow": "Satu pintu untuk setiap peranan",
+      "heading": "Sekolah anda mendapat alamatnya sendiri.",
+      "sub": "Pengetua, penyelaras, guru, pelajar dan ibu bapa masing-masing log masuk melalui portal sekolah anda — dan dinding data antara mereka dikuatkuasakan dalam pangkalan data, bukan sekadar pada antara muka.",
+      "url": "school.sketchcast.app/<b>your-school</b>",
+      "leadership": {
+        "tag": "kepimpinan",
+        "title": "Lihat sekolah dengan jelas",
+        "body": "Papan pemuka langsung, senarai pelajar berisiko, dan pembantu yang menjawab soalan daripada data sekolah anda sendiri."
+      },
+      "teachers": {
+        "tag": "guru",
+        "title": "Mengajar, bukan menaip semula",
+        "body": "Kit pelajaran penuh daripada buku teks sekolah sendiri, serta jadual peribadi setiap guru dan tugas gantian mereka."
+      },
+      "students": {
+        "tag": "pelajar",
+        "title": "Satu tempat untuk belajar",
+        "body": "Pelajaran yang ditugaskan boleh dimainkan di kelas atau di rumah, lembaran kerja untuk dihantar, dan tutor yang berpaut pada bab itu sahaja."
+      },
+      "parents": {
+        "tag": "ibu bapa",
+        "title": "Akhirnya dimaklumkan",
+        "body": "Tugasan, markah dan tarikh akhir setiap anak — baca sahaja, dan hanya untuk anak mereka sendiri."
+      }
+    },
+    "leadership": {
+      "eyebrow": "Untuk kepimpinan",
+      "heading": "Jawapan, bukan hamparan.",
+      "sub": "Semua yang diminta pejabat pengetua pada awal minggu — sudah dikira, dan sudah ditapis mengikut hak orang yang bertanya.",
+      "analytics": {
+        "tag": "analitik",
+        "title": "Senarai pelajar berisiko menulis dirinya sendiri",
+        "body": "Aktiviti seluruh sekolah, penyiapan dan kerja tertunggak dalam satu pandangan. Pelajar yang mula senyap, merosot atau ketinggalan ditandakan mengikut peraturan — penyelaras mendapat <b>senarai bernama yang boleh terus ditindaki</b>; pengetua melihat agregat yang kemas mengikut tingkatan."
+      },
+      "briefing": {
+        "tag": "taklimat",
+        "title": "Tanya sekolah anda satu soalan",
+        "body": "Pembantu taklimat yang menjawab <b>daripada angka langsung sekolah anda sahaja</b> — “pelajar Tahun 5 yang mana perlu dihubungi ibu bapanya minggu ini?” — dan setiap taklimat direkodkan dalam log akses."
+      },
+      "support": {
+        "tag": "sokongan guru",
+        "title": "Kenal pasti siapa perlukan bantuan",
+        "body": "Pelajaran, tugasan dan tunggakan penyemakan setiap guru di sebelah kemajuan kelas mereka — dipaparkan sebagai <b>petunjuk sokongan, bukan ranking</b>, supaya bantuan tiba sebelum keletihan melanda."
+      },
+      "governance": {
+        "tag": "tadbir urus",
+        "title": "Siapa lihat apa, secara bertulis",
+        "body": "Satu halaman akses dalam bahasa mudah menyatakan dengan tepat apa yang boleh dilihat oleh setiap peranan, penyelaras mendapat <b>kebenaran berskop</b> (tingkatan mereka sahaja), dan setiap paparan kepimpinan masuk ke dalam log audit."
+      }
+    },
+    "timetable": {
+      "eyebrow": "Jadual waktu",
+      "heading": "Satu minggu yang membina dirinya — dan mengganti dirinya.",
+      "sub": "Tetapkan waktu mula, panjang waktu pengajaran dan rehat. SketchCast mengisi selebihnya, dan mengekalkannya berdiri apabila ada yang tidak hadir.",
+      "generate": {
+        "tag": "jana automatik",
+        "title": "Peraturan yang baik, terpakai di mana-mana",
+        "body": "<b>Guru kelas membuka setiap hari</b>, mata pelajaran teras berjalan setiap hari untuk setiap kelas, mata pelajaran tambahan mengisi ruang kosong dengan kepelbagaian — dan tiada guru ditempah dua kali atau melebihi had waktu hariannya."
+      },
+      "editable": {
+        "tag": "boleh disunting sepenuhnya",
+        "title": "Pertimbangan anda yang menang",
+        "body": "Seret untuk alih atau tukar, <b>kunci</b> sel yang penjana tidak boleh sentuh, salin atau kosongkan satu hari, batalkan apa sahaja. Waktu setiap masa diterbitkan daripada waktu mula dan rehat anda — ubah satu nombor, seluruh hari beralih."
+      },
+      "cover": {
+        "tag": "gantian ketidakhadiran",
+        "title": "Tidak hadir pukul 7:02, diganti menjelang 7:03",
+        "body": "Tandakan seorang guru tidak hadir dan setiap pelajaran mendapat pelan gantian — guru mata pelajaran dahulu, kemudian guru kelas, kemudian yang paling ringan bebannya, <b>hanya daripada staf yang masih ada ruang pada hari itu</b>. Tiada gantian? Ia berterus terang memberitahu."
+      },
+      "personal": {
+        "tag": "jadual peribadi",
+        "title": "Semua orang tahu di mana perlu berada",
+        "body": "Setiap guru melihat jadual mingguannya sendiri dan sebarang <b>tugas gantian</b> daripada log masuknya sendiri; setiap pelajar melihat grid kelasnya, lengkap dengan rehat dan waktu."
+      }
+    },
+    "lessons": {
+      "eyebrow": "Enjin bilik darjah",
+      "heading": "Buku teks anda, terus diajar.",
+      "sub": "Enjin yang sama yang digemari guru persendirian, kini pada skala sekolah: muat naik buku yang sekolah anda benar-benar ajar, dan setiap bab menjadi kit yang lengkap.",
+      "kit": {
+        "tag": "kit penuh",
+        "title": "Enam bahagian, satu klik",
+        "body": "Setiap janaan menghasilkan kit lengkap sekali gus — pelajaran video bernarasi yang melukis dirinya, slaid boleh sunting, rancangan pengajaran, aktiviti, lembaran kerja dan kertas peperiksaan — <b>berpaksikan bab itu sendiri</b>, bukan internet."
+      },
+      "parts": {
+        "tag": "bab panjang",
+        "title": "Bahagian, bukan maraton",
+        "body": "Bab yang panjang dipecahkan kepada <b>bahagian sebesar satu waktu pengajaran</b> — setiap satu dengan video dan kitnya sendiri, dijana atas permintaan, jadi bab 40 halaman menjadi empat pelajaran yang boleh diajar."
+      },
+      "languages": {
+        "tag": "9 bahasa",
+        "title": "Diajar dalam bahasa anda",
+        "body": "Bahasa buku dikesan secara automatik, dan pelajaran dinaratifkan dengan suara yang sepadan — termasuk <b>bahasa Arab yang dicerminkan sepenuhnya dari kanan ke kiri</b>."
+      },
+      "assign": {
+        "tag": "tugas + jejak",
+        "title": "Daripada dijana kepada disemak",
+        "body": "Tugaskan mana-mana item kepada satu kelas dengan tarikh akhir; hantaran kembali <b>bermarkah automatik</b> dengan markah guru di atasnya — rekod yang sama itulah yang dibaca oleh analitik kepimpinan."
+      },
+      "coach": {
+        "tag": "Ask Coach",
+        "title": "Tutor yang tidak lari daripada halaman",
+        "body": "Pelajar pada pelan sekolah mendapat <b>Ask Coach</b>: tutor yang terkunci pada bab yang ditugaskan — ia menerangkan, menguji dan mengulang kaji daripada buku itu, tidak sekali-kali dari luar."
+      },
+      "health": {
+        "tag": "kesihatan buku",
+        "title": "Imbasan buruk ditanda awal",
+        "body": "Setiap buku yang dimuat naik mendapat <b>skor kesihatan</b> semasa pengindeksan — kualiti teks, struktur, masalah yang dikesan — supaya isu kualiti muncul sebelum seorang guru membina satu minggu di atasnya."
+      }
+    },
+    "parents": {
+      "eyebrow": "Untuk ibu bapa",
+      "heading": "Kad laporan, setiap hari.",
+      "sub": "Ibu bapa menyertai melalui jemputan sekolah, sudah pun terpaut kepada anak mereka sendiri — tiada apa yang perlu disediakan, tiada apa yang lebih untuk dilihat.",
+      "progress": {
+        "tag": "kemajuan",
+        "title": "Setiap anak, dalam satu pandangan",
+        "body": "Tugasan, penyiapan, markah dan penanda lewat bagi setiap anak — <b>baca sahaja</b>, terhad kepada anak mereka sendiri dan bukan anak orang lain."
+      },
+      "calendar": {
+        "tag": "kalendar",
+        "title": "Tarikh sekolah di tempat keluarga melihat",
+        "body": "Acara sekolah dan tarikh kelas, <b>boleh dilanggan</b> ke dalam kalendar Google, Outlook atau Apple — dengan tarikh akhir tugasan turut terbawa dalam kalendar aplikasi."
+      },
+      "invitations": {
+        "tag": "jemputan",
+        "title": "Dijemput, bukan mendaftar sendiri",
+        "body": "Sekolah mengeluarkan jemputan setiap ibu bapa <b>dengan pautan anak sudah dilampirkan</b> — jadi akses diberikan secara sengaja, bukan dituntut sendiri."
+      },
+      "practical": {
+        "tag": "praktikal",
+        "title": "Hal kecil, sudah diuruskan",
+        "body": "Kata laluan yang terlupa kekal dalam keluarga: ibu bapa menetapkan semula log masuk anak sendiri dan menyerahkan <b>kata laluan sekali guna</b> yang wajib ditukar pada log masuk berikutnya."
+      }
+    },
+    "trust": {
+      "eyebrow": "Tadbir urus dari asasnya",
+      "heading": "Dibina untuk sekolah yang bertanggungjawab kepada ibu bapa.",
+      "isolation": {
+        "tag": "pengasingan",
+        "title": "Dinding di dalam pangkalan data",
+        "body": "Setiap bacaan ditapis mengikut peranan <b>di lapisan pangkalan data</b> — pelajar melihat kerjanya sendiri, guru melihat kelasnya, penyelaras melihat tingkatannya. URL tidak pernah menentukan apa-apa."
+      },
+      "audit": {
+        "tag": "audit",
+        "title": "Akses kepimpinan, dilog",
+        "body": "Setiap kali kepimpinan melihat data pelajar — papan pemuka mahupun taklimat — ia ditulis ke dalam <b>log akses</b> yang boleh dibaca oleh pentadbir sekolah."
+      },
+      "provisioning": {
+        "tag": "penyediaan akaun",
+        "title": "Akaun staf, diurus",
+        "body": "Akaun guru dan pentadbir <b>disediakan bersama staf SketchCast</b>, bukan didaftar sendiri — senarai kekal disengajakan, pelesenan kekal boleh dijangka."
+      },
+      "support": {
+        "tag": "sokongan",
+        "title": "Laporan kembali dengan jawapan",
+        "body": "Guru dan staf boleh melaporkan masalah dalam aplikasi dan mengikuti statusnya — diterima, disemak, dibaiki — daripada <b>loceng pemberitahuan</b>, lengkap dengan nota penyelesaiannya."
+      },
+      "dpa": "Perjanjian pemprosesan data tersedia untuk sekolah — lihat <a href=\"/privacy\">dasar privasi</a> kami untuk gambaran penuh."
+    },
+    "cta": {
+      "heading": "Melaksanakannya untuk <mark>sekolah anda</mark>?",
+      "sub": "Tiada senarai harga awam — kami menyesuaikan sebut harga mengikut saiz dan keperluan anda, dan menyediakan ciri-cirinya bersama anda semasa permulaan.",
+      "tier1": "Essentials",
+      "tier2": "Professional",
+      "tier3": "Enterprise",
+      "primary": "Hubungi jualan",
+      "secondary": "Harga guru &amp; ibu bapa",
+      "note": "Mahu cuba dahulu? Mana-mana guru boleh <a href=\"https://app.sketchcast.app\">mula percuma</a> hari ini."
+    }
+  },
+
+  "pricing": {
+    "meta": {
+      "title": "SketchCast — Harga",
+      "description": "Harga yang mudah untuk guru dan ibu bapa — mula percuma, naik taraf apabila SketchCast menyelamatkan waktu petang anda. Teacher Pro, Pro+ dan pelan Family, dibil bulanan atau tahunan dalam USD. Sekolah mendapat sebut harga khusus.",
+      "ogTitle": "SketchCast — Harga",
+      "ogDescription": "Mula percuma, naik taraf apabila SketchCast menyelamatkan waktu petang anda. Pelan guru dan keluarga dalam USD; sekolah mendapat sebut harga khusus."
+    },
+    "hero": {
+      "eyebrow": "Harga",
+      "headline": "Berpatutan untuk setiap <mark>guru</mark>, ibu bapa dan sekolah.",
+      "sub": "Mula percuma — semua orang atas belanja kami sepanjang percubaan terbuka. Inilah pelan untuk selepas ia tamat: langganan guru dan ibu bapa (dibil dalam USD), dan sebut harga khusus untuk sekolah."
+    },
+    "toggle": {
+      "label": "Tempoh bil",
+      "monthly": "Bulanan",
+      "annual": "Tahunan",
+      "annualSaving": "2 bulan percuma",
+      "usd": "Harga dalam USD.",
+      "statusMonthly": "Harga bulanan dipaparkan.",
+      "statusAnnual": "Harga tahunan dipaparkan.",
+      "perMonth": "/bln",
+      "perYear": "/thn",
+      "teacherPanel": "Pelan guru",
+      "parentPanel": "Pelan ibu bapa"
+    },
+    "noscript": "Hidupkan JavaScript untuk melihat harga pelan secara langsung, atau <a href=\"https://app.sketchcast.app/signup\">mula percuma</a> dan pilih pelan di dalam aplikasi.",
+    "teachers": {
+      "eyebrow": "Untuk guru",
+      "heading": "Hasilkan setiap pelajaran, setiap minggu."
+    },
+    "parents": {
+      "eyebrow": "Untuk ibu bapa",
+      "heading": "Latihan dan bantuan di rumah.",
+      "note": "Semua pelan berbayar dibil dalam USD. Batal bila-bila masa."
+    },
+    "trial": {
+      "badge": "Percubaan percuma",
+      "message": "Cuba <strong>setiap ciri secara percuma sehingga {date}</strong> — tiada kad diperlukan. Harga di bawah terpakai selepas itu.",
+      "remaining": "tinggal {left}",
+      "cta": "Mula percubaan percuma"
+    },
+    "plans": {
+      "teacherFree": {
+        "name": "Percuma",
+        "tag": "Untuk mencubanya pada pelajaran anda yang seterusnya",
+        "cta": "Mula percuma",
+        "f1": "1 buku, dengan kit enam bahagian penuh untuk satu bahagian bab",
+        "f2": "Slaid, lembaran kerja, kuiz & peperiksaan",
+        "f3": "Video pelajaran bernarasi",
+        "f4": "9 bahasa pelajaran, dikesan automatik daripada buku anda (bahasa Arab sepenuhnya kanan ke kiri)",
+        "f5": "Tugaskan kepada kelas & jejaki kemajuan"
+      },
+      "teacherPro": {
+        "name": "Teacher Pro",
+        "tag": "Semua yang anda perlukan, setiap minggu",
+        "badge": "Paling popular",
+        "cta": "Pilih Teacher Pro",
+        "saveLabel": "Jimat $48 setahun",
+        "f1": "16 pelajaran sebulan — yang tidak digunakan dibawa ke hadapan",
+        "f2": "Setiap pelajaran termasuk kit dokumen penuhnya secara percuma (rancangan, aktiviti, lembaran kerja, peperiksaan, kajian kes)",
+        "f3": "2 buku baharu sebulan",
+        "f4": "Bab panjang sentiasa diliputi sepenuhnya (video berbilang bahagian)",
+        "f5": "Kesemua 9 bahasa pelajaran dengan suara yang sepadan",
+        "f6": "PowerPoint boleh sunting & eksport",
+        "f7": "Meter penggunaan saksama secara langsung dalam Pustaka anda — tiada kejutan"
+      },
+      "teacherProPlus": {
+        "name": "Teacher Pro+",
+        "tag": "Untuk pengguna berat dan panitia",
+        "cta": "Pilih Teacher Pro+",
+        "saveLabel": "Jimat $98 setahun",
+        "f1": "Semua dalam Teacher Pro, serta:",
+        "f2": "32 pelajaran sebulan — yang tidak digunakan dibawa ke hadapan",
+        "f3": "4 buku baharu sebulan",
+        "f4": "Tutor AI",
+        "f5": "Janaan keutamaan",
+        "f6": "Akses awal kepada ciri baharu"
+      },
+      "parentFree": {
+        "name": "Percuma",
+        "tag": "Lihat apa yang anak anda dapat",
+        "cta": "Mula percuma",
+        "f1": "1 buku, dengan latihan untuk satu bahagian bab",
+        "f2": "Kertas dalam bahasa buku itu sendiri"
+      },
+      "parentFamily": {
+        "name": "Family",
+        "tag": "Latihan dan bantuan yang benar-benar melekat",
+        "cta": "Dapatkan Family",
+        "saveLabel": "2 bulan percuma",
+        "f1": "Sehingga 2 orang anak",
+        "f2": "6 pelajaran video sebulan — kertas latihan & dokumen disertakan percuma",
+        "f3": "Baki yang tidak digunakan dibawa ke bulan berikutnya",
+        "f4": "Kertas latihan dalam bahasa buku itu sendiri (9 disokong)",
+        "f5": "Bantuan kerja rumah & penerangan AI",
+        "f6": "Penjejakan kemajuan",
+        "f7": "Meter penggunaan saksama secara langsung — tiada kejutan"
+      }
+    },
+    "founding": {
+      "eyebrow": "Tawaran perintis",
+      "name": "Guru Perintis",
+      "sub": "{plan} pada <strong>{price}</strong>, dikunci selama {months} bulan.",
+      "cap": "Hanya untuk {n} guru yang pertama.",
+      "copy": "Salin kod",
+      "copied": "Disalin ✓",
+      "copyFailed": "Salinan gagal",
+      "copyAnnounce": "Kod diskaun disalin ke papan keratan.",
+      "copyFailedAnnounce": "Salinan gagal — pilih kod itu dan salin secara manual.",
+      "copyAria": "Salin kod {code}",
+      "howTrial": "Bulan pertama anda percuma — mula sekarang, kemudian tampal kod ini semasa pembayaran untuk mengunci <strong>{price}</strong> apabila anda melanggan.",
+      "howNormal": "Semasa pembayaran, pilih <strong>Bulanan</strong> dan tampal kod ini dalam medan diskaun.",
+      "cta": "Tuntut harga perintis"
+    },
+    "schools": {
+      "eyebrow": "Untuk sekolah",
+      "heading": "Melaksanakannya untuk sebuah sekolah?",
+      "sub": "Peringkat Essentials, Professional dan Enterprise, berharga mengikut saiz dan keperluan anda. Tiada harga awam — kami menyesuaikan sebut harga untuk sekolah anda.",
+      "tier1": "Essentials",
+      "tier2": "Professional",
+      "tier3": "Enterprise",
+      "cta": "Hubungi jualan",
+      "learn": "Lihat apa yang sekolah dapat"
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "Tentang kami — SketchCast AI",
+      "description": "SketchCast dibina oleh Aethel Twin Sdn. Bhd., sebuah syarikat AI Malaysia yang berstatus Malaysia Digital (MD). Pendaftaran syarikat, alamat, kepimpinan dan butiran hubungan.",
+      "ogTitle": "Tentang kami — SketchCast AI",
+      "ogDescription": "SketchCast dibina oleh Aethel Twin Sdn. Bhd., sebuah syarikat AI Malaysia yang berstatus Malaysia Digital (MD). Butiran syarikat, kepimpinan dan hubungan."
+    },
+    "hero": {
+      "eyebrow": "Tentang kami",
+      "headline": "Syarikat di sebalik <mark>SketchCast</mark>",
+      "lead": "SketchCast dibina oleh <strong>Aethel Twin Sdn. Bhd.</strong>, syarikat AI Malaysia yang diperbadankan pada 2026 dan dianugerahkan status Malaysia Digital (MD) oleh MDEC pada Mei 2026.",
+      "sub": "SketchCast menukar buku teks sekolah itu sendiri menjadi kit pengajaran yang lengkap — video pelajaran bernarasi, lembaran kerja, peperiksaan dan rancangan pengajaran — dan membalutnya dalam lapisan operasi yang benar-benar menggerakkan sesebuah sekolah: penjadualan waktu, ketidakhadiran, analitik, jurulatih ulang kaji untuk pelajar dan portal ibu bapa."
+    },
+    "why": {
+      "eyebrow": "Kenapa kami membinanya",
+      "heading": "Kenapa kami membina SketchCast",
+      "body": "Setiap alat pengajaran AI menjana daripada gesaan atau daripada pustaka kandungannya sendiri. Guru tidak mengajar daripada mana-mana pun — mereka mengajar daripada buku yang diguna pakai oleh sekolah. Di situlah SketchCast bermula: indekskan buku teks sekolah itu sendiri, dan hasilkan pelajaran bersaiz satu waktu pengajaran sebenar, mengikut urutan yang memang telah ditetapkan oleh kurikulum.",
+      "quote": "&ldquo;Bagi saya ujiannya mudah: jika ia tidak bermula dengan buku yang sudah dipercayai seorang guru, ia sebenarnya tidak membantu — jadi di situlah kami mulakan SketchCast.&rdquo;",
+      "attribution": "— Muqtadar Quraishi, Pengasas &amp; Ketua Pegawai Eksekutif"
+    },
+    "team": {
+      "eyebrow": "Pasukan",
+      "heading": "Pasukan",
+      "role": "Pengasas &amp; Ketua Pegawai Eksekutif, Aethel Twin",
+      "bio": "Akauntan Pengurusan Bertauliah. Membina dan menghantar SketchCast dari hujung ke hujung — saluran janaan yang menukar buku teks menjadi kit pengajaran penuh, dan platform sekolah tempat guru dan pemimpin bekerja.",
+      "inventor": "Pencipta",
+      "linkedIn": "LinkedIn"
+    },
+    "contact": {
+      "eyebrow": "Hubungi",
+      "heading": "Hubungi",
+      "registration": "No. Pendaftaran 202601012908 (1675006-X)",
+      "incorporated": "Diperbadankan 3 April 2026 di bawah Akta Syarikat 2016, Malaysia",
+      "address": "D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling,<br />Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia",
+      "ssmKey": "Pendaftaran syarikat · SSM Malaysia",
+      "ssmNote": "Diperbadankan 3 April 2026, Akta Syarikat 2016.",
+      "mdKey": "Status Malaysia Digital · MDEC",
+      "mdNote": "Dianugerahkan 13 Mei 2026."
+    }
+  },
+
+  "privacy": {
+    "meta": {
+      "title": "Dasar Privasi — SketchCast AI",
+      "description": "Bagaimana SketchCast AI mengumpul, menggunakan dan melindungi data — termasuk cara kami melindungi pelajar."
+    },
+    "h1": "Dasar Privasi",
+    "updated": "Kemas kini terakhir: 31 Julai 2026 · Berkuat kuasa: 31 Julai 2026",
+    "intro1": "SketchCast AI (“SketchCast”, “kami”) menukar bab buku teks menjadi pelajaran bernarasi, slaid, video, lembaran kerja, dan pembantu ulang kaji AI pilihan yang berpaksikan buku, untuk sekolah, guru, ibu bapa dan pelajar mereka. Ramai pengguna kami adalah kanak-kanak, jadi kami mengikat diri kami pada satu piawai yang mudah: <strong>kumpul yang paling minimum, gunakannya untuk mengajar sahaja, jangan sekali-kali menjualnya, jangan sekali-kali beriklan dengannya, jangan sekali-kali menggunakannya untuk melatih model AI, dan jangan sekali-kali menjejaki tingkah laku untuk tujuan selain menunjukkan kemajuan pembelajaran kepada guru dan ibu bapa.</strong>",
+    "intro2": "Dasar ini menerangkan apa yang kami kumpul, mengapa, dengan siapa kami berkongsi, berapa lama kami menyimpannya, dan hak yang anda miliki. Ia terpakai bagi <strong>sketchcast.app</strong> dan <strong>app.sketchcast.app</strong>.",
+    "toc": {
+      "label": "Pada halaman ini:",
+      "items": "1. Siapa kami &middot; 2. Undang-undang yang terpakai &middot; 3. Apa yang kami kumpul &middot; 4. Privasi kanak-kanak &amp; peranan sekolah &middot; 5. Cara kami menggunakan data &amp; asas perundangan kami &middot; 6. Pemprosesan AI &middot; 7. Siapa memproses data untuk kami (sub-pemproses) &middot; 8. Pemindahan antarabangsa &middot; 9. Kuki &amp; penjejakan &middot; 10. Penyimpanan &amp; penghapusan &middot; 11. Keselamatan &amp; pemberitahuan pelanggaran &middot; 12. Hak anda &middot; 13. Pemprosesan automatik &middot; 14. Sekolah (DPA) &middot; 15. Perubahan &amp; hubungan"
+    },
+    "s1": {
+      "h": "1. Siapa kami",
+      "p1": "Perkhidmatan ini dikendalikan oleh <strong>Aethel Twin Sdn. Bhd.</strong>, No. Pendaftaran 202601012908 (1675006-X), sebuah syarikat yang diperbadankan di Malaysia (“pengendali”), berdaftar di <strong>D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling, Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia</strong>. Bagi data peribadi yang diterangkan di sini, pengendali ialah pengawal data / pemegang amanah data — <em>kecuali</em> bagi data di dalam ruang kerja sesebuah sekolah, di mana <strong>sekolah ialah pengawal dan kami bertindak sebagai pemprosesnya</strong> di bawah perjanjian kami dengan sekolah itu (lihat §14).",
+      "p2": "Hubungan privasi / pegawai aduan: boleh dihubungi di <a href=\"mailto:privacy@sketchcast.app\">privacy@sketchcast.app</a> (atau <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>), tel +60 11-2088 2016. Kami berusaha mengakui penerimaan permintaan dalam masa 72 jam dan menyelesaikannya dalam tempoh yang ditetapkan oleh undang-undang yang terpakai."
+    },
+    "s2": {
+      "h": "2. Undang-undang yang terpakai kepada anda",
+      "p1": "SketchCast tersedia di lebih daripada satu negara, jadi perlindungan yang boleh anda harapkan bergantung pada lokasi anda dan sekolah anda. Di mana pun anda berada, komitmen di atas terpakai. Selain itu:",
+      "li1": "<strong>India</strong> — Digital Personal Data Protection Act, 2023 (DPDP Act), termasuk peruntukannya bagi data kanak-kanak dan persetujuan ibu bapa yang boleh disahkan.",
+      "li2": "<strong>Kawasan Ekonomi Eropah &amp; United Kingdom</strong> — GDPR / UK GDPR, termasuk peraturan mengenai persetujuan kanak-kanak dan pemindahan ke luar EEA/UK.",
+      "li3": "<strong>Amerika Syarikat</strong> — apabila sebuah sekolah AS menggunakan SketchCast, Children’s Online Privacy Protection Act (COPPA) — yang mana sekolah memberikan persetujuan bagi pihak ibu bapa untuk tujuan pendidikan terhad di sini — dan Family Educational Rights and Privacy Act (FERPA), yang mana kami bertindak sebagai “pegawai sekolah” dengan kepentingan pendidikan yang sah dan menggunakan rekod pelajar hanya seperti yang diarahkan oleh sekolah.",
+      "li4": "<strong>California</strong> — CCPA/CPRA. Kami <strong>tidak “menjual” atau “berkongsi”</strong> maklumat peribadi sebagaimana istilah itu ditakrifkan, dan kami menghormati perlindungan tambahan bagi pengguna di bawah umur 16 tahun.",
+      "li5": "<strong>Malaysia</strong> — Akta Perlindungan Data Peribadi 2010 (PDPA).",
+      "p2": "Jika undang-undang tempatan yang mandatori memberi anda hak yang lebih kuat daripada yang diterangkan dalam dasar ini, undang-undang itu yang mengatasi."
+    },
+    "s3": {
+      "h": "3. Apa yang kami kumpul",
+      "adultsH": "Guru, ibu bapa, pentadbir sekolah dan penyelaras (orang dewasa)",
+      "adultsP": "Nama, alamat e-mel, kata laluan (disimpan hanya sebagai cincangan bergaram oleh pembekal pengesahan kami) atau identiti log masuk Google, peranan, dan — bagi staf sekolah — gabungan sekolah. Semasa mendaftar kami juga mengumpul profil ringkas yang anda berikan (contohnya tingkatan/mata pelajaran yang anda ajar, atau, bagi ibu bapa, berapa ramai anak yang anda sokong dan tingkatan mereka).",
+      "studentsH": "Pelajar",
+      "studentsP": "Akaun pelajar dicipta oleh guru, ibu bapa atau sekolah — <strong>pelajar tidak sekali-kali mendaftar sendiri</strong>. Bagi setiap pelajar kami menyimpan: nama, ID log masuk, alamat e-mel ibu bapa/penjaga (digunakan untuk komunikasi akaun sahaja), pendaftaran kelas, dan rekod pembelajaran — pelajaran yang ditugaskan, status penyiapan, jawapan dan markah kuiz/lembaran kerja, sebarang fail jawapan yang dihantar pelajar, dan — jika pembantu ulang kaji AI digunakan — mesej yang ditaip pelajar kepadanya serta balasannya (lihat §6). Apabila sesebuah sekolah atau keluarga menggunakan <strong>diari</strong>, kami turut menyimpan nota yang ditulis guru dan ibu bapa tentang pelajar itu, sebarang balasan yang ditulis pelajar, dan rekod ibu bapa mana yang mengakui nota mana dan bila.",
+      "healthH": "Nota kesihatan &amp; kesejahteraan dalam diari",
+      "healthP": "Diari membolehkan ibu bapa atau guru merekodkan nota tentang kesihatan atau kesejahteraan seorang kanak-kanak — ketidakhadiran, ubat, alahan, atau sesuatu yang membimbangkan — supaya orang dewasa yang mengajar kanak-kanak itu boleh bertindak. Kami menganggapnya sebagai maklumat sensitif: ia diberikan atas inisiatif ibu bapa atau sekolah, ia hanya kelihatan kepada guru kanak-kanak itu, ibu bapanya dan kepimpinan sekolahnya, dan ia <strong>tidak sekali-kali digunakan untuk pengiklanan dan tidak sekali-kali digunakan untuk melatih model AI</strong>. Ia dipadam bersama rekod pelajar, dan penulisnya boleh memadamnya pada bila-bila masa. <strong>Jangan gunakan diari untuk kecemasan perubatan</strong> — hubungi sekolah secara terus.",
+      "contentH": "Kandungan yang anda muat naik",
+      "contentP": "Bab buku teks dan bahan yang dimuat naik guru/ibu bapa, serta pelajaran, slaid, video dan lembaran kerja yang kami hasilkan daripadanya.",
+      "paymentH": "Maklumat pembayaran (pelan berbayar sahaja)",
+      "paymentP": "Jika anda membeli pelan berbayar, pembekal pembayaran kami (lihat §7) mengumpul dan memproses butiran pembayaran anda. <strong>Kami tidak menerima atau menyimpan nombor kad penuh.</strong> Kami hanya menyimpan pelan anda, status bil, dan rujukan pembekal yang diperlukan untuk menguruskan langganan.",
+      "technicalH": "Data teknikal",
+      "technicalP": "Untuk memastikan perkhidmatan berjalan dan selamat, kami memproses data teknikal asas seperti alamat IP, jenis peranti/pelayar, dan log ralat. Kami <strong>tidak menggunakan penjejak pengiklanan atau analitik, tiada SDK pemprofilan tingkah laku, dan tiada kuki selain kuki sesi yang mengekalkan log masuk anda.</strong> Kami tidak mengumpul nombor telefon pelajar, alamat rumah, gambar, biometrik, atau lokasi tepat."
+    },
+    "s4": {
+      "h": "4. Privasi kanak-kanak &amp; peranan sekolah",
+      "li1": "Akaun pelajar wujud hanya di dalam ruang kerja sekolah, guru atau ibu bapa dan dicipta, dinamakan serta diuruskan oleh orang dewasa itu — bertindak dengan persetujuan ibu bapa yang dikehendaki oleh undang-undang yang terpakai (contohnya DPDP Act, GDPR Perkara 8, atau mekanisme persetujuan sekolah dalam COPPA).",
+      "li2": "Data pelajar digunakan untuk satu tujuan sahaja: menyampaikan pelajaran yang ditugaskan dan menunjukkan kepada guru, sekolah dan ibu bapa pelajar itu sendiri bagaimana pembelajarannya berjalan. Kami mengamalkan peminimuman data — kami tidak meminta data pelajar melebihi keperluan tujuan itu.",
+      "li3": "Kami tidak pernah mengiklan kepada pelajar, tidak pernah menjual atau berkongsi data pelajar untuk tujuan komersial, dan <strong>tidak pernah menggunakan data pelajar (termasuk perbualan pembantu AI) untuk melatih model AI</strong>.",
+      "li4": "Akses kepada data pelajar ditapis mengikut peranan: guru hanya melihat kelasnya sendiri; penyelaras hanya melihat tingkatan yang diberikan kepadanya; ibu bapa hanya melihat anaknya sendiri; paparan kepimpinan terhadap data peringkat pelajar direkodkan dalam log akses yang boleh disemak pentadbir sekolah.",
+      "li5": "Ibu bapa atau penjaga boleh menyemak, membetulkan atau meminta penghapusan data anak mereka pada bila-bila masa — melalui sekolah/guru, atau terus melalui hubungan di §1 — dan boleh menarik balik persetujuan, yang menamatkan pemprosesan selanjutnya bagi data anak itu."
+    },
+    "s5": {
+      "h": "5. Cara kami menggunakan data &amp; asas perundangan kami",
+      "li1": "<strong>Untuk menjalankan perkhidmatan</strong> — log masuk, menjana bahan pengajaran, menugaskannya, pembantu ulang kaji AI, serta merekodkan kemajuan dan markah untuk guru, sekolah dan ibu bapa pelajar itu sendiri. <em>Asas:</em> pelaksanaan kontrak kami dengan anda (atau, bagi data pelajar, arahan dan persetujuan sekolah).",
+      "li2": "<strong>Untuk berkomunikasi tentang akaun</strong> — contohnya menghantar kelayakan log masuk ke e-mel ibu bapa, penetapan semula kata laluan, dan notis perkhidmatan. <em>Asas:</em> kontrak / kepentingan sah.",
+      "li3": "<strong>Untuk memastikan perkhidmatan selamat, mencegah penyalahgunaan, dan menyahpepijat kegagalan.</strong> <em>Asas:</em> kepentingan sah / kewajipan undang-undang.",
+      "li4": "<strong>Untuk menerima pembayaran</strong> bagi pelan berbayar. <em>Asas:</em> kontrak.",
+      "p": "Kami tidak menggunakan data anda untuk pengiklanan, dan kami tidak menjualnya kepada sesiapa. Apabila kami bergantung pada persetujuan (contohnya data seorang kanak-kanak, atau suara premium), anda boleh menariknya balik pada bila-bila masa."
+    },
+    "s6": {
+      "h": "6. Pemprosesan AI",
+      "p1": "SketchCast menggunakan kecerdasan buatan dalam dua cara, dan kami jelas tentang apa yang dihantar ke mana:",
+      "li1": "<strong>Menjana pelajaran.</strong> <em>Kandungan bab yang dimuat naik</em> dihantar kepada Anthropic (Claude) untuk menghasilkan pelajaran, slaid, lembaran kerja dan peperiksaan; <em>teks skrip pelajaran</em> dihantar kepada Microsoft (teks-ke-pertuturan Edge) atau — hanya apabila sesebuah sekolah mengaktifkan suara premium — ElevenLabs, untuk menghasilkan naratif. Langkah ini tidak menghantar sebarang data peribadi pelajar.",
+      "li2": "<strong>Pembantu ulang kaji AI.</strong> Apabila seorang guru, ibu bapa atau <em>pelajar</em> menggunakan pembantu pilihan ini, <strong>soalan yang mereka taip</strong> dihantar kepada Anthropic (Claude), bersama kandungan buku/pelajaran yang berkaitan, supaya ia boleh menjawab. Ini bermakna mesej yang ditaip seorang pelajar diproses oleh pembekal AI kami. Satu perkhidmatan matematik ringkas yang terkawal (dihos sendiri) juga mungkin dipanggil untuk menyemak pengiraan. Kami menyimpan perbualan pembantu sehingga 30 hari supaya pelajar boleh menyambung semula, dan supaya anda boleh menyemaknya.",
+      "li3": "<strong>Menterjemah nota diari.</strong> Apabila seorang pembaca menekan “Terjemah” pada nota diari, <strong>teks nota itu dan balasannya</strong> dihantar kepada Anthropic (Claude) untuk diterjemahkan ke bahasa yang dipilih, dan terjemahan itu disimpan supaya ia tidak perlu dihasilkan dua kali. Hanya teks mesej yang dihantar — tiada nama, id akaun atau butiran sekolah dilampirkan — walaupun nota yang ditulis guru atau ibu bapa sudah tentu boleh menyebut nama seorang kanak-kanak. Sesiapa yang boleh membaca sesuatu nota boleh menterjemahkannya, termasuk pelajar itu sendiri.",
+      "p2": "Pembekal AI kami memproses kandungan ini <strong>semata-mata untuk menyediakan perkhidmatan</strong>. Di bawah terma perniagaan mereka, mereka <strong>tidak menggunakannya untuk melatih model mereka</strong> dan tidak dibenarkan menggunakannya untuk pengiklanan. Kami tidak menggunakan kandungan anda atau data pelajar anda untuk melatih sebarang model AI. Pembantu ini berpaksikan buku dan direka untuk memberi petunjuk dan kaedah — bukan jawapan bermarkah — tetapi, seperti semua AI, keluarannya boleh mengandungi ralat dan harus disemak."
+    },
+    "s7": {
+      "h": "7. Siapa memproses data untuk kami (sub-pemproses)",
+      "p1": "Kami menggunakan sebilangan kecil pembekal yang telah disaring untuk menjalankan perkhidmatan ini. Setiap satu memproses data hanya atas arahan kami dan di bawah perjanjian pemprosesan data.",
+      "thProvider": "Pembekal",
+      "thWhat": "Apa yang mereka lakukan",
+      "supabase": "Pangkalan data, pengesahan dan storan fail",
+      "vercel": "Menghoskan aplikasi web",
+      "railway": "Menjalankan pekerja janaan pelajaran dan perkhidmatan matematik",
+      "cloudflare": "Menyajikan laman web ini",
+      "anthropic": "Janaan AI, pembantu ulang kaji, dan terjemahan diari (§6)",
+      "tts": "Audio naratif (ElevenLabs hanya apabila suara premium diaktifkan)",
+      "google": "Pilihan “Log masuk dengan Google” untuk akaun dewasa sahaja",
+      "resend": "Menghantar e-mel akaun dan sokongan",
+      "stripe": "Pembayaran bagi pelan sekolah",
+      "lemonSqueezy": "Pembayaran bagi pelan ibu bapa/guru (sebagai Merchant of Record)",
+      "p2": "Kami akan mengemas kini senarai ini dan memberi notis kepada sekolah tentang perubahan ketara pada sub-pemproses yang mengendalikan data pelajar sebelum ia berkuat kuasa."
+    },
+    "s8": {
+      "h": "8. Pemindahan data antarabangsa",
+      "p": "Sesetengah pembekal di atas berpangkalan di, atau memproses data di, Amerika Syarikat dan negara lain di luar negara anda. Apabila kami memindahkan data peribadi merentas sempadan, kami bergantung pada perlindungan yang sesuai — seperti Fasal Kontrak Standard Suruhanjaya Eropah (dan Addendum UK), komitmen pematuhan pembekal itu sendiri, dan, bagi data pelajar, arahan sekolah. Anda boleh meminta butiran perlindungan yang terpakai bagi sesuatu pemindahan."
+    },
+    "s9": {
+      "h": "9. Kuki &amp; penjejakan",
+      "p": "Kami menggunakan satu kuki penting sahaja — kuki sesi yang mengekalkan log masuk anda. Kami <strong>tidak</strong> menggunakan kuki pengiklanan, kuki analitik, penjejak merentas laman, atau teknik yang mengalahkan “Do Not Track”. Oleh sebab kami hanya menggunakan kuki penting, tiada sepanduk persetujuan kuki diperlukan, tetapi anda boleh membersihkan kuki itu pada bila-bila masa dengan log keluar."
+    },
+    "s10": {
+      "h": "10. Penyimpanan &amp; penghapusan",
+      "li1": "<strong>Data akaun</strong> disimpan selagi akaun itu aktif.",
+      "li2": "<strong>Buku yang dimuat naik dan kandungan yang dijana</strong> disimpan sehingga anda memadamnya — guru/ibu bapa boleh memadamnya pada bila-bila masa di dalam produk.",
+      "li3": "<strong>Rekod pembelajaran pelajar</strong> dipadam apabila pelajar itu dikeluarkan; mengeluarkan seorang pelajar memadamkan profil dan rekodnya sekali.",
+      "li4": "<strong>Perbualan pembantu AI</strong> disimpan sehingga 30 hari, kemudian dipadam.",
+      "li5": "<strong>Nota diari, balasan dan pengakuan</strong> disimpan selagi akaun itu aktif dan dipadam bersama rekod pelajar. Penulis sesuatu nota atau balasan boleh memadamnya pada bila-bila masa; memadam sesuatu nota turut memadam balasannya, pengakuan padanya, dan sebarang terjemahan tersimpan baginya.",
+      "li6": "<strong>Log teknikal</strong> disimpan untuk tempoh yang singkat (biasanya sehingga 90 hari) bagi keselamatan dan penyahpepijatan, kemudian dipadam atau dinyahkenal.",
+      "li7": "Untuk <strong>menutup akaun atau memadam data sesebuah sekolah sepenuhnya</strong>, e-mel kami — kami menyempurnakan penghapusan dalam <strong>30 hari</strong>, kecuali apabila undang-undang menghendaki penyimpanan lebih lama (contohnya rekod cukai bagi sesuatu pembayaran). Sandaran ditulis ganti mengikut kitaran bergilir."
+    },
+    "s11": {
+      "h": "11. Keselamatan &amp; pemberitahuan pelanggaran",
+      "p1": "Data disulitkan semasa dalam transit; kata laluan dicincang; setiap pertanyaan pangkalan data ditapis oleh keselamatan peringkat baris supaya pengguna hanya mencapai data yang dibenarkan peranannya; fail disajikan melalui pautan bertandatangan yang berumur pendek; akses kepimpinan kepada data peringkat pelajar diaudit; butiran kad pembayaran tidak pernah menyentuh pelayan kami. Tiada sistem yang selamat sepenuhnya, tetapi pengumpulan minimum ialah perlindungan pertama kami — apa yang tidak kami simpan tidak boleh bocor.",
+      "p2": "Jika berlaku pelanggaran data peribadi yang berkemungkinan menimbulkan risiko kepada anda, kami akan memberitahu pihak berkuasa penyeliaan yang berkaitan serta sekolah/pengguna yang terjejas tanpa kelewatan yang tidak wajar dan dalam tempoh yang dikehendaki undang-undang yang terpakai, serta menerangkan apa yang berlaku dan apa yang sedang kami lakukan mengenainya."
+    },
+    "s12": {
+      "h": "12. Hak anda",
+      "p1": "Tertakluk kepada undang-undang tempatan anda, anda berhak untuk: <strong>mengakses</strong> data peribadi yang kami simpan tentang anda; <strong>membetulkannya</strong>; <strong>memadamnya</strong>; memperoleh <strong>salinan</strong> dalam format mudah alih; <strong>menyekat</strong> atau <strong>membantah</strong> pemprosesan tertentu; dan <strong>menarik balik persetujuan</strong> apabila kami bergantung padanya. Ibu bapa dan penjaga boleh melaksanakan hak ini bagi pihak anak mereka. Kami tidak mendiskriminasi anda kerana melaksanakannya, dan kami tidak akan menjual atau berkongsi data anda.",
+      "p2": "Untuk melaksanakan sesuatu hak, hubungi kami di alamat dalam §1 — jika anda sebahagian daripada sesebuah sekolah, pentadbir sekolah anda juga boleh melaksanakan kebanyakan permintaan terus di dalam produk. Jika anda percaya kami telah salah mengendalikan data anda, anda boleh membuat aduan kepada pihak berkuasa perlindungan data tempatan anda (contohnya Data Protection Board of India, pihak berkuasa penyeliaan EU/EEA, ICO di UK, atau California Privacy Protection Agency)."
+    },
+    "s13": {
+      "h": "13. Pemprosesan automatik",
+      "p": "Sesetengah ciri mengira isyarat berguna secara automatik — contohnya skor kualiti “kesihatan buku” semasa muat naik, senarai kerja pembelajaran berisiko untuk guru, dan pemarkahan automatik soalan kuiz objektif. Ini membantu pertimbangan seorang guru dan sentiasa boleh disemak serta ditolak oleh manusia; <strong>kami tidak membuat keputusan yang menghasilkan kesan undang-undang atau kesan yang sama pentingnya terhadap seorang pelajar melalui cara automatik semata-mata.</strong> Bahan pengajaran yang dijana AI harus sentiasa disemak oleh guru sebelum digunakan dalam bilik darjah."
+    },
+    "s14": {
+      "h": "14. Sekolah: peranan kami &amp; perjanjian pemprosesan data",
+      "p": "Apabila sesebuah sekolah menggunakan SketchCast, sekolah itu ialah pengawal data pelajarnya dan kami ialah pemprosesnya: kami memproses data pelajar hanya atas arahan bertulis sekolah, untuk tujuan pendidikan, dan di bawah kerahsiaan. Sekolah yang memerlukan Addendum Pemprosesan Data (DPA) rasmi — termasuk terma sub-pemproses dan, jika berkaitan, Fasal Kontrak Standard — boleh memintanya melalui hubungan di §1."
+    },
+    "s15": {
+      "h": "15. Perubahan &amp; hubungan",
+      "p": "Jika kami mengubah dasar ini, kami akan mengemas kini halaman ini dan tarikh “Kemas kini terakhir”-nya, serta memberitahu sekolah tentang sebarang perubahan ketara yang menjejaskan data pelajar sebelum ia berkuat kuasa. Soalan atau permintaan: <a href=\"mailto:privacy@sketchcast.app\">privacy@sketchcast.app</a>."
+    },
+    "foot": {
+      "questions": "Soalan atau permintaan: <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>",
+      "links": "SketchCast AI · <a href=\"/about\">Tentang kami</a> · <a href=\"/terms\">Terma Perkhidmatan</a> · <a href=\"/\">sketchcast.app</a>"
+    }
+  },
+
+  "terms": {
+    "meta": {
+      "title": "Terma Perkhidmatan — SketchCast AI",
+      "description": "Terma yang mengawal penggunaan SketchCast AI."
+    },
+    "h1": "Terma Perkhidmatan",
+    "updated": "Kemas kini terakhir: 31 Julai 2026",
+    "intro": "Terma ini mengawal penggunaan SketchCast AI (“SketchCast”, “kami”) oleh anda — perkhidmatan di sketchcast.app dan app.sketchcast.app yang menukar bab buku teks menjadi pelajaran bernarasi, slaid, video, lembaran kerja, dan pembantu ulang kaji AI pilihan. Perkhidmatan ini dikendalikan oleh <strong>Aethel Twin Sdn. Bhd.</strong>, No. Pendaftaran 202601012908 (1675006-X), berdaftar di D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling, Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia. Dengan mencipta akaun atau menggunakan perkhidmatan ini, anda bersetuju dengan terma ini. Jika anda menerimanya bagi pihak sesebuah sekolah, anda mengesahkan bahawa anda diberi kuasa untuk berbuat demikian.",
+    "s1": {
+      "h": "1. Akaun",
+      "li1": "<strong>Orang dewasa:</strong> akaun guru, penyelaras dan pentadbir sekolah hanya boleh dicipta oleh orang yang berumur 18 tahun ke atas, menggunakan maklumat yang tepat.",
+      "li2": "<strong>Pelajar:</strong> akaun pelajar dicipta dan diuruskan oleh guru atau sekolah — tidak sekali-kali oleh pelajar sendiri. Sekolah bertanggungjawab memperoleh sebarang persetujuan ibu bapa yang dikehendaki undang-undang sebelum mencipta akaun pelajar, dan menguruskan akaun tersebut secara bertanggungjawab.",
+      "li3": "Rahsiakan kelayakan log masuk anda. Anda bertanggungjawab atas aktiviti di bawah akaun anda; sekolah bertanggungjawab atas akaun yang disediakannya."
+    },
+    "s2": {
+      "h": "2. Perkhidmatan dan kandungan yang dijana AI",
+      "p": "SketchCast menggunakan kecerdasan buatan untuk menjana bahan pengajaran daripada kandungan yang anda muat naik. <strong>Bahan yang dijana AI boleh mengandungi ralat atau ketinggalan.</strong> Guru mesti menyemak pelajaran, lembaran kerja, peperiksaan dan skema jawapan yang dijana sebelum digunakan dalam bilik darjah — perkhidmatan ini membantu pertimbangan pengajaran anda; ia tidak menggantikannya. Pemarkahan kuiz automatik ialah kemudahan dan boleh ditolak oleh guru."
+    },
+    "s3": {
+      "h": "3. Kandungan anda",
+      "li1": "Anda mengekalkan pemilikan segala yang anda muat naik. Anda memberi kami lesen terhad yang diperlukan untuk menyimpan dan memprosesnya semata-mata untuk menyediakan perkhidmatan kepada anda dan sekolah anda.",
+      "li2": "Anda mengesahkan bahawa anda mempunyai hak undang-undang untuk memuat naik bahan yang anda serahkan — contohnya di bawah lesen sekolah anda atau peruntukan penggunaan pendidikan yang terpakai dalam undang-undang hak cipta. Anda bertanggungjawab atas muat naik anda.",
+      "li3": "Bahan yang dijana boleh digunakan untuk pengajaran di dalam sekolah atau amalan tuisyen anda. Kami tidak menuntut pemilikan ke atasnya.",
+      "li4": "Kami tidak menggunakan kandungan anda atau data pelajar anda untuk melatih model AI."
+    },
+    "s4": {
+      "h": "4. Penggunaan yang boleh diterima",
+      "p1": "Jangan salah guna perkhidmatan ini: tiada kandungan menyalahi undang-undang, tiada percubaan mengakses data di luar peranan atau sekolah anda, tiada penyiasatan atau gangguan terhadap sistem, tiada penjualan semula perkhidmatan, dan tiada penggunaan yang memudaratkan pelajar. Kami boleh menggantung akaun yang melanggar peraturan ini.",
+      "p2": "<strong>Diari</strong> adalah untuk komunikasi tentang pembelajaran dan penjagaan seorang kanak-kanak. Pastikan nota relevan dan hormat — tiada kandungan kesat, memfitnah, atau tidak berkaitan tentang kanak-kanak, keluarga atau staf. <strong>Diari bukan saluran yang dipantau atau saluran kecemasan:</strong> nota mungkin tidak dibaca sehingga hari persekolahan berikutnya, jadi untuk apa-apa yang mendesak — termasuk hal perubatan — hubungi sekolah secara terus."
+    },
+    "s5": {
+      "h": "5. Pelan percuma dan berbayar",
+      "p": "SketchCast menawarkan peringkat percuma dan pelan berbayar (contohnya langganan guru dan ibu bapa, serta pelan sekolah), seperti yang diterangkan pada <a href=\"/pricing\">halaman harga</a> kami. Pelan berbayar diperbaharui bagi tempoh bil yang anda pilih sehingga anda membatalkannya; anda boleh membatalkannya pada bila-bila masa dan akan mengekalkan akses sehingga tamat tempoh yang telah dibayar. Yuran dinyatakan tidak termasuk cukai melainkan dinyatakan sebaliknya, dan dikendalikan oleh pembekal pembayaran kami (lihat Dasar Privasi). Kecuali apabila undang-undang menghendaki sebaliknya, pembayaran yang telah dibuat tidak boleh dikembalikan. Kami boleh mengubah pelan, ciri dan harga dengan notis yang munasabah; kami tidak akan mengenakan bayaran secara retroaktif bagi apa yang telah anda gunakan secara percuma, dan perubahan harga tidak akan menjejaskan tempoh yang telah anda bayar."
+    },
+    "s6": {
+      "h": "6. Privasi",
+      "p": "<a href=\"/privacy\">Dasar Privasi</a> kami — termasuk cara kami melindungi pelajar — adalah sebahagian daripada terma ini."
+    },
+    "s7": {
+      "h": "7. Ketersediaan, penafian dan liabiliti",
+      "p": "Perkhidmatan ini disediakan “sebagaimana adanya”, dalam pembangunan aktif, dan tanpa jaminan ketersediaan tanpa gangguan atau keluaran bebas ralat. Setakat maksimum yang dibenarkan undang-undang, jumlah liabiliti kami bagi sebarang tuntutan berkaitan perkhidmatan ini terhad kepada jumlah yang anda bayar kepada kami dalam dua belas bulan sebelum tuntutan itu (atau RM 100 jika anda tidak membayar apa-apa). Tiada apa-apa dalam terma ini menghadkan liabiliti yang tidak boleh dihadkan oleh undang-undang."
+    },
+    "s8": {
+      "h": "8. Penamatan",
+      "p": "Anda boleh berhenti menggunakan perkhidmatan ini dan meminta penghapusan pada bila-bila masa. Kami boleh menggantung atau menutup akaun yang melanggar terma ini. Sekolah boleh mengeksport bahan mereka sebelum penutupan dengan memuat turunnya daripada papan pemuka."
+    },
+    "s9": {
+      "h": "9. Undang-undang yang mengawal",
+      "p": "Terma ini dikawal oleh undang-undang Malaysia, dan pertikaian tertakluk kepada mahkamah di Selangor, Malaysia."
+    },
+    "s10": {
+      "h": "10. Perubahan",
+      "p": "Kami boleh mengemas kini terma ini apabila perkhidmatan berkembang. Kami akan menyiarkan perubahan di sini dan memberitahu pemegang akaun tentang perubahan ketara; penggunaan berterusan selepas sesuatu perubahan bermakna penerimaan."
+    },
+    "foot": {
+      "questions": "Soalan: <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>",
+      "links": "SketchCast AI · <a href=\"/about\">Tentang kami</a> · <a href=\"/privacy\">Dasar Privasi</a> · <a href=\"/\">sketchcast.app</a>"
+    }
+  }
+}

@@ -1,0 +1,695 @@
+{
+  "_note": [
+    "Português. Register matches the portal's pt messages. Key set mirrors en.json exactly.",
+    "Never changed: SketchCast, Aethel Twin Sdn. Bhd., plan names, registration numbers,",
+    "MD/0002997, the postal address, e-mail addresses and URLs."
+  ],
+
+  "common": {
+    "nav": {
+      "how": "Como funciona",
+      "free": "O que é grátis",
+      "outcomes": "Resultados",
+      "schools": "Para escolas",
+      "pricing": "Preços",
+      "about": "Sobre",
+      "home": "Início",
+      "login": "Entrar",
+      "startFree": "Começar grátis",
+      "backHome": "SketchCast AI"
+    },
+    "footer": {
+      "sealAlt": "SketchCast AI — um capítulo, já ensinado",
+      "copyright": "© 2026 SketchCast AI",
+      "privacy": "Privacidade",
+      "terms": "Termos",
+      "contact": "Contato",
+      "linkedIn": "Aethel Twin no LinkedIn",
+      "legal": "Um produto da <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Status Malaysia Digital MD/0002997",
+      "legalPlain": "Um produto da Aethel Twin Sdn. Bhd. (202601012908) · Status Malaysia Digital MD/0002997"
+    },
+    "lang": {
+      "label": "Idioma",
+      "choose": "Escolha seu idioma",
+      "footerLabel": "Esta página em outros idiomas"
+    },
+    "legal": {
+      "translationNotice": "Esta é uma tradução oferecida para sua conveniência. Se houver divergência com a versão em inglês, prevalece a versão em inglês."
+    }
+  },
+
+  "index": {
+    "meta": {
+      "title": "SketchCast AI — Um capítulo do livro, já ensinado",
+      "description": "Envie um capítulo do livro didático e o SketchCast desenha o kit completo da aula em um clique: videoaula narrada, slides editáveis com notas socráticas, plano de aula, atividades, exercícios e prova. Grátis para professores e alunos.",
+      "ogTitle": "SketchCast AI — Um capítulo do livro, já ensinado",
+      "ogDescription": "Envie um capítulo; um clique gera o kit completo — videoaula narrada, slides editáveis, plano, exercícios e prova. Grátis para professores e alunos."
+    },
+    "hero": {
+      "eyebrow": "PDF do livro → aula narrada",
+      "headline": "Um capítulo do livro que <mark>se ensina sozinho</mark>.",
+      "sub": "Envie um capítulo. Um clique gera o kit completo — uma videoaula narrada que se desenha sozinha, slides editáveis com notas socráticas, um plano de aula, atividades, exercícios e uma prova — depois é só atribuir e ver quem terminou. Minutos, não noites inteiras.",
+      "ctaPrimary": "Começar grátis",
+      "ctaSecondary": "Ver como funciona",
+      "stat": "<b>0</b> configuração &nbsp;·&nbsp; <b>minutos</b> para gerar &nbsp;·&nbsp; <b>$0</b> para começar"
+    },
+    "demo": {
+      "tag": "prévia ao vivo",
+      "chapter": "Capítulo 4 · Fotossíntese",
+      "title": "Como as plantas produzem alimento",
+      "bullet1": "As folhas captam a luz do sol com a clorofila",
+      "bullet2": "Água + CO&#8322; viram açúcar e oxigênio",
+      "node1": "Luz do sol",
+      "node2": "Açúcar + O&#8322;"
+    },
+    "how": {
+      "eyebrow": "Como funciona",
+      "heading": "Entra um PDF, sai uma aula.",
+      "sub": "Três passos. Você traz o capítulo; o SketchCast faz o desenho.",
+      "step1": {
+        "num": "01",
+        "title": "Envie um capítulo",
+        "body": "Arraste um capítulo do livro didático em PDF. Sem configuração, sem formatação."
+      },
+      "step2": {
+        "num": "02",
+        "title": "O SketchCast monta tudo",
+        "body": "Ele escreve a narração socrática e desenha o kit inteiro — slides, vídeo, plano, exercícios e prova, tudo junto."
+      },
+      "step3": {
+        "num": "03",
+        "title": "Ensine ou atribua",
+        "body": "Passe em sala, ou atribua o capítulo a uma turma e acompanhe quem termina."
+      }
+    },
+    "outcomes": {
+      "eyebrow": "Resultados",
+      "heading": "Recupere suas noites.",
+      "stat1": {
+        "big": "Min<em>utos</em>",
+        "body": "Um capítulo vira uma aula narrada — slides + vídeo — pronta para dar ou atribuir."
+      },
+      "stat2": {
+        "big": "1<em> clique</em>",
+        "body": "Uma geração = o kit completo: videoaula, slides, plano, atividades, exercícios e prova — os documentos vêm de graça com cada aula."
+      },
+      "stat3": {
+        "big": "$0",
+        "body": "Comece grátis: crie e atribua suas primeiras aulas sem custo durante o período de testes aberto."
+      }
+    },
+    "free": {
+      "eyebrow": "O que é grátis",
+      "heading": "Tudo para montar suas primeiras aulas.",
+      "card1": {
+        "tag": "slides + notas",
+        "title": "Slides editáveis com notas socráticas",
+        "body": "Um conjunto de slides limpo em que as notas do apresentador de cada slide trazem as perguntas socráticas — abra e edite no PowerPoint, no Google Slides ou no Keynote."
+      },
+      "card2": {
+        "tag": "videoaula",
+        "title": "Uma aula que se desenha sozinha",
+        "body": "Um vídeo narrado em que as palavras do slide vão sendo escritas enquanto a voz explica — atribua como tarefa de casa ou passe em sala."
+      },
+      "card3": {
+        "tag": "atribuir + acompanhar",
+        "title": "Turmas, tarefas, progresso",
+        "body": "Crie uma turma, distribua os acessos, atribua um capítulo e veja quem concluiu, quem revisou e quem nem começou — tudo em um lugar só."
+      },
+      "card4": {
+        "tag": "exercícios + provas",
+        "title": "Prática, já corrigida",
+        "body": "Exercícios e provas vêm de graça com o kit de cada aula; os alunos respondem no aplicativo e as questões objetivas são corrigidas automaticamente."
+      },
+      "langsNote": "Tudo isso em <b>nove idiomas</b> — detectados automaticamente do seu livro, narrados com uma voz compatível e com o árabe totalmente da direita para a esquerda:"
+    },
+    "cta": {
+      "heading": "Monte sua primeira aula <mark>hoje</mark>.",
+      "sub": "Começar é grátis, para professores e alunos. Sem cartão de crédito.",
+      "button": "Começar grátis"
+    }
+  },
+
+  "schools": {
+    "meta": {
+      "title": "SketchCast — Para escolas",
+      "description": "Um único portal para a escola inteira: painéis por função para a gestão, um horário que se gera e se cobre sozinho, aulas baseadas nos próprios livros em nove idiomas e famílias sempre informadas — com governança desde o projeto.",
+      "ogTitle": "SketchCast — Para escolas",
+      "ogDescription": "Painéis por função, horário que se monta e se cobre sozinho, aulas a partir dos livros da escola em nove idiomas e famílias informadas — um portal para a escola inteira."
+    },
+    "hero": {
+      "eyebrow": "Para escolas",
+      "headline": "<mark>Sua escola inteira</mark>, ensinando a partir de um só lugar.",
+      "sub": "A gestão enxerga a escola com clareza, os professores recebem aulas feitas com os próprios livros, o horário se escreve e se cobre sozinho, e as famílias ficam por dentro — cada um atrás do seu acesso, vendo apenas o que é seu.",
+      "ctaPrimary": "Falar com vendas",
+      "ctaSecondary": "Ver preços",
+      "stat": "<b>5 perfis</b> · <b>9 idiomas</b> · <b>1 portal</b> — no endereço da sua própria escola"
+    },
+    "timetableCard": {
+      "alt": "Horário semanal de uma turma: a primeira aula é sempre do professor regente, e a aula de um professor ausente é coberta automaticamente.",
+      "title": "Turma 5 Putra — a semana",
+      "chip": "gerado automaticamente",
+      "periods": { "p1": "A1", "p2": "A2", "p3": "A3", "p4": "A4", "p5": "A5" },
+      "days": { "mon": "SEG", "tue": "TER", "wed": "QUA" },
+      "subjects": {
+        "bm": "PORT",
+        "mat": "MAT",
+        "sci": "CIÊ",
+        "en": "ING",
+        "pe": "EDF",
+        "art": "ART",
+        "mus": "MÚS"
+      },
+      "keyP1": "A1 — o professor regente, todo dia",
+      "keyCover": "cobertura automática — a professora Farah assume"
+    },
+    "portal": {
+      "eyebrow": "Uma porta para cada função",
+      "heading": "Sua escola ganha o próprio endereço.",
+      "sub": "Diretores, coordenadores, professores, alunos e famílias entram pelo portal da sua escola — e as paredes entre os dados deles são aplicadas no banco de dados, não só na interface.",
+      "url": "school.sketchcast.app/<b>your-school</b>",
+      "leadership": {
+        "tag": "gestão",
+        "title": "Enxergar a escola com clareza",
+        "body": "Painéis ao vivo, uma lista de alunos em risco e um assistente que responde a partir dos dados da sua própria escola."
+      },
+      "teachers": {
+        "tag": "professores",
+        "title": "Ensinar, não diagramar",
+        "body": "Kits de aula completos feitos com os livros da própria escola, além da semana pessoal de cada professor e suas coberturas."
+      },
+      "students": {
+        "tag": "alunos",
+        "title": "Um lugar só para aprender",
+        "body": "Aulas atribuídas que rodam em sala ou em casa, exercícios para entregar e um tutor que não sai do capítulo."
+      },
+      "parents": {
+        "tag": "famílias",
+        "title": "Finalmente por dentro",
+        "body": "As tarefas, as notas e os prazos de cada filho — somente leitura, e apenas dos próprios filhos."
+      }
+    },
+    "leadership": {
+      "eyebrow": "Para a gestão",
+      "heading": "Respostas, não planilhas.",
+      "sub": "Tudo o que a direção pede no começo da semana — já calculado e já limitado ao que quem pergunta pode ver.",
+      "analytics": {
+        "tag": "análises",
+        "title": "A lista de alunos em risco se escreve sozinha",
+        "body": "Atividade da escola inteira, conclusão e trabalhos atrasados num relance. Alunos que somem, escorregam ou ficam para trás são sinalizados por regra — coordenadores recebem uma <b>lista nominal e acionável</b>; a direção vê agregados limpos por série."
+      },
+      "briefing": {
+        "tag": "briefing",
+        "title": "Faça uma pergunta à sua escola",
+        "body": "Um assistente de briefing que responde <b>apenas com os números ao vivo da sua escola</b> — “quais alunos do 5.º ano precisam de uma ligação para casa esta semana?” — e cada consulta fica registrada no log de acesso."
+      },
+      "support": {
+        "tag": "apoio ao professor",
+        "title": "Veja quem precisa de reforço",
+        "body": "As aulas, as tarefas e a fila de correção de cada professor ao lado do progresso das turmas dele — apresentados como <b>sinais de apoio, não um ranking</b>, para que a ajuda chegue antes do esgotamento."
+      },
+      "governance": {
+        "tag": "governança",
+        "title": "Quem vê o quê, por escrito",
+        "body": "Uma página de acessos em linguagem simples diz exatamente o que cada função pode ver, coordenadores recebem <b>permissões delimitadas</b> (as séries deles, nada além) e as consultas da gestão caem em um log de auditoria."
+      }
+    },
+    "timetable": {
+      "eyebrow": "O horário",
+      "heading": "Uma semana que se monta — e se cobre — sozinha.",
+      "sub": "Defina o horário de início, a duração das aulas e os intervalos. O SketchCast preenche o resto e mantém tudo de pé quando alguém falta.",
+      "generate": {
+        "tag": "geração automática",
+        "title": "Boas regras, aplicadas em todo lugar",
+        "body": "<b>O professor regente abre todos os dias</b>, as disciplinas principais aparecem diariamente em cada turma, as complementares preenchem os vãos com variedade — e nenhum professor é marcado duas vezes nem passa do limite diário."
+      },
+      "editable": {
+        "tag": "totalmente editável",
+        "title": "Quem decide é você",
+        "body": "Arraste para mover ou trocar, <b>trave</b> as células em que o gerador nunca deve mexer, copie ou limpe um dia, desfaça o que quiser. Os horários das aulas derivam do seu horário de início e dos intervalos — mude um número e o dia inteiro se desloca."
+      },
+      "cover": {
+        "tag": "cobertura de falta",
+        "title": "Faltou às 7:02, coberto às 7:03",
+        "body": "Marque um professor como ausente e cada aula ganha um plano de cobertura — primeiro o professor da disciplina, depois o regente, depois quem tem menos carga, <b>apenas entre quem ainda tem espaço no dia</b>. Não há quem cubra? Ele diz isso com franqueza."
+      },
+      "personal": {
+        "tag": "semanas pessoais",
+        "title": "Todo mundo sabe onde estar",
+        "body": "Cada professor vê a própria semana e as <b>coberturas</b> que recebeu, no próprio acesso; cada aluno vê a grade da turma, com intervalos e horários."
+      }
+    },
+    "lessons": {
+      "eyebrow": "O motor da sala de aula",
+      "heading": "Seus livros didáticos, já ensinados.",
+      "sub": "O mesmo motor que os professores adoram, na escala da escola: envie os livros com que sua escola realmente ensina e cada capítulo vira um kit completo.",
+      "kit": {
+        "tag": "kit completo",
+        "title": "Seis peças, um clique",
+        "body": "Cada geração produz o kit completo de uma vez — uma videoaula narrada que se desenha sozinha, slides editáveis, um plano de aula, atividades, exercícios e uma prova — <b>ancorados no capítulo</b>, não na internet."
+      },
+      "parts": {
+        "tag": "capítulos longos",
+        "title": "Partes, não maratonas",
+        "body": "Capítulos longos são divididos em <b>partes do tamanho de uma aula</b> — cada uma com seu vídeo e seu kit, geradas sob demanda: um capítulo de 40 páginas vira quatro aulas para dar."
+      },
+      "languages": {
+        "tag": "9 idiomas",
+        "title": "Ensinado no seu idioma",
+        "body": "O idioma do livro é detectado automaticamente e as aulas são narradas com uma voz compatível — incluindo <b>árabe totalmente espelhado da direita para a esquerda</b>."
+      },
+      "assign": {
+        "tag": "atribuir + acompanhar",
+        "title": "De gerado a corrigido",
+        "body": "Atribua qualquer item a uma turma com prazo; as entregas voltam <b>corrigidas automaticamente</b>, com a nota do professor por cima — os mesmos registros que as análises da gestão leem."
+      },
+      "coach": {
+        "tag": "Ask Coach",
+        "title": "Um tutor que não sai da página",
+        "body": "Alunos dos planos escolares têm o <b>Ask Coach</b>: um tutor preso ao capítulo atribuído — ele explica, pergunta e revisa a partir do livro, nunca de fora dele."
+      },
+      "health": {
+        "tag": "saúde do livro",
+        "title": "Digitalizações ruins sinalizadas cedo",
+        "body": "Todo livro enviado recebe uma <b>nota de saúde</b> na indexação — qualidade do texto, estrutura, problemas detectados — para que as falhas apareçam antes de um professor montar uma semana em cima delas."
+      }
+    },
+    "parents": {
+      "eyebrow": "Para as famílias",
+      "heading": "O boletim, todo dia.",
+      "sub": "As famílias entram por convite da escola, já ligadas aos próprios filhos — nada para configurar, nada a mais para ver.",
+      "progress": {
+        "tag": "progresso",
+        "title": "Cada filho, num relance",
+        "body": "Tarefas, conclusão, notas e avisos de atraso por filho — <b>somente leitura</b>, restrito aos próprios filhos e a mais ninguém."
+      },
+      "calendar": {
+        "tag": "calendário",
+        "title": "As datas da escola onde a família olha",
+        "body": "Eventos da escola e datas da turma, <b>assináveis</b> no Google, no Outlook ou no Apple Calendário — com os prazos das tarefas acompanhando no calendário do aplicativo."
+      },
+      "invitations": {
+        "tag": "convites",
+        "title": "Convidadas, não cadastradas",
+        "body": "A escola emite cada convite às famílias <b>já com o vínculo ao filho anexado</b> — o acesso é concedido de propósito, nunca reivindicado por conta própria."
+      },
+      "practical": {
+        "tag": "prático",
+        "title": "As coisas pequenas, resolvidas",
+        "body": "Senha esquecida fica em família: o responsável redefine o acesso do próprio filho e entrega uma <b>senha de uso único</b> que precisa ser trocada no próximo login."
+      }
+    },
+    "trust": {
+      "eyebrow": "Governança desde o projeto",
+      "heading": "Feito para escolas que prestam contas às famílias.",
+      "isolation": {
+        "tag": "isolamento",
+        "title": "Paredes dentro do banco de dados",
+        "body": "Toda leitura é delimitada por função <b>na camada do banco de dados</b> — o aluno vê o próprio trabalho, o professor vê as turmas dele, o coordenador vê as séries dele. A URL nunca decide nada."
+      },
+      "audit": {
+        "tag": "auditoria",
+        "title": "Acesso da gestão, registrado",
+        "body": "Toda consulta da gestão a dados de alunos — em painéis ou em briefings — é gravada em um <b>log de acesso</b> que o administrador da escola pode ler."
+      },
+      "provisioning": {
+        "tag": "criação de contas",
+        "title": "Contas da equipe, gerenciadas",
+        "body": "Contas de professores e administradores são <b>criadas junto com a equipe do SketchCast</b>, não por autoatendimento — as listas seguem intencionais e o licenciamento, previsível."
+      },
+      "support": {
+        "tag": "suporte",
+        "title": "Chamados voltam respondidos",
+        "body": "Professores e equipe podem relatar um problema dentro do aplicativo e acompanhar o status — recebido, analisado, corrigido — pelo <b>sino de notificações</b>, com a nota de resolução junto."
+      },
+      "dpa": "Contrato de tratamento de dados disponível para escolas — veja nossa <a href=\"/privacy\">política de privacidade</a> para o quadro completo."
+    },
+    "cta": {
+      "heading": "Vai implantar na <mark>sua escola</mark>?",
+      "sub": "Sem tabela de preços pública — montamos uma proposta sob medida para o seu tamanho e suas necessidades, e configuramos os recursos com você na implantação.",
+      "tier1": "Essentials",
+      "tier2": "Professional",
+      "tier3": "Enterprise",
+      "primary": "Falar com vendas",
+      "secondary": "Preços para professores &amp; famílias",
+      "note": "Prefere testar antes? Qualquer professor pode <a href=\"https://app.sketchcast.app\">começar grátis</a> hoje."
+    }
+  },
+
+  "pricing": {
+    "meta": {
+      "title": "SketchCast — Preços",
+      "description": "Preços simples para professores e famílias — comece grátis e mude de plano quando o SketchCast devolver suas noites. Teacher Pro, Pro+ e um plano Family, cobrados por mês ou por ano em USD. Escolas recebem uma proposta sob medida.",
+      "ogTitle": "SketchCast — Preços",
+      "ogDescription": "Comece grátis e mude de plano quando o SketchCast devolver suas noites. Planos para professores e famílias em USD; proposta sob medida para escolas."
+    },
+    "hero": {
+      "eyebrow": "Preços",
+      "headline": "Um preço para cada <mark>professor</mark>, cada família e cada escola.",
+      "sub": "Comece grátis — durante o período de testes aberto, é por nossa conta. Estes são os planos para depois que ele acabar: assinaturas de professores e famílias (cobradas em USD) e uma proposta sob medida para escolas."
+    },
+    "toggle": {
+      "label": "Período de cobrança",
+      "monthly": "Mensal",
+      "annual": "Anual",
+      "annualSaving": "2 meses grátis",
+      "usd": "Preços em USD.",
+      "statusMonthly": "Exibindo preços mensais.",
+      "statusAnnual": "Exibindo preços anuais.",
+      "perMonth": "/mês",
+      "perYear": "/ano",
+      "teacherPanel": "Planos para professores",
+      "parentPanel": "Planos para famílias"
+    },
+    "noscript": "Ative o JavaScript para ver os preços ao vivo, ou <a href=\"https://app.sketchcast.app/signup\">comece grátis</a> e escolha um plano dentro do aplicativo.",
+    "teachers": {
+      "eyebrow": "Para professores",
+      "heading": "Monte cada aula, toda semana."
+    },
+    "parents": {
+      "eyebrow": "Para famílias",
+      "heading": "Prática e ajuda em casa.",
+      "note": "Todos os planos pagos são cobrados em USD. Cancele quando quiser."
+    },
+    "trial": {
+      "badge": "Teste grátis",
+      "message": "Teste <strong>todos os recursos de graça até {date}</strong> — sem cartão. Os preços abaixo valem depois disso.",
+      "remaining": "faltam {left}",
+      "cta": "Começar o teste grátis"
+    },
+    "plans": {
+      "teacherFree": {
+        "name": "Grátis",
+        "tag": "Para testar na sua próxima aula",
+        "cta": "Começar grátis",
+        "f1": "1 livro, com o kit completo de seis peças para uma parte de capítulo",
+        "f2": "Slides, exercícios, quizzes e provas",
+        "f3": "Videoaulas narradas",
+        "f4": "9 idiomas de aula, detectados automaticamente do seu livro (árabe totalmente da direita para a esquerda)",
+        "f5": "Atribuir a uma turma e acompanhar o progresso"
+      },
+      "teacherPro": {
+        "name": "Teacher Pro",
+        "tag": "Tudo o que você precisa, toda semana",
+        "badge": "Mais escolhido",
+        "cta": "Escolher Teacher Pro",
+        "saveLabel": "Economize $48 por ano",
+        "f1": "16 aulas por mês — o que sobra é acumulado",
+        "f2": "Cada aula inclui o kit de documentos completo de graça (plano, atividades, exercícios, prova, estudo de caso)",
+        "f3": "2 livros novos por mês",
+        "f4": "Capítulos longos sempre cobertos por inteiro (vídeos em várias partes)",
+        "f5": "Todos os 9 idiomas de aula com vozes compatíveis",
+        "f6": "PowerPoint editável e exportações",
+        "f7": "Medidor de uso justo ao vivo na sua biblioteca — sem surpresas"
+      },
+      "teacherProPlus": {
+        "name": "Teacher Pro+",
+        "tag": "Para quem usa muito e para departamentos",
+        "cta": "Escolher Teacher Pro+",
+        "saveLabel": "Economize $98 por ano",
+        "f1": "Tudo do Teacher Pro, e mais:",
+        "f2": "32 aulas por mês — o que sobra é acumulado",
+        "f3": "4 livros novos por mês",
+        "f4": "Tutor com IA",
+        "f5": "Geração prioritária",
+        "f6": "Acesso antecipado a novidades"
+      },
+      "parentFree": {
+        "name": "Grátis",
+        "tag": "Veja o que seu filho recebe",
+        "cta": "Começar grátis",
+        "f1": "1 livro, com prática para uma parte de capítulo",
+        "f2": "Provas no próprio idioma do livro"
+      },
+      "parentFamily": {
+        "name": "Family",
+        "tag": "Prática e ajuda que realmente ficam",
+        "cta": "Assinar o Family",
+        "saveLabel": "2 meses grátis",
+        "f1": "Até 2 filhos",
+        "f2": "6 videoaulas por mês — provas de prática e documentos inclusos de graça",
+        "f3": "O saldo não usado é acumulado por um mês",
+        "f4": "Provas de prática no próprio idioma do livro (9 suportados)",
+        "f5": "Ajuda com a lição de casa e explicações com IA",
+        "f6": "Acompanhamento do progresso",
+        "f7": "Medidor de uso justo ao vivo — sem surpresas"
+      }
+    },
+    "founding": {
+      "eyebrow": "Oferta de fundador",
+      "name": "Professor fundador",
+      "sub": "{plan} por <strong>{price}</strong>, travado por {months} meses.",
+      "cap": "Somente para os {n} primeiros professores.",
+      "copy": "Copiar código",
+      "copied": "Copiado ✓",
+      "copyFailed": "Não foi possível copiar",
+      "copyAnnounce": "Código de desconto copiado para a área de transferência.",
+      "copyFailedAnnounce": "Não foi possível copiar — selecione o código e copie manualmente.",
+      "copyAria": "Copiar o código {code}",
+      "howTrial": "Seu primeiro mês é grátis — comece agora e cole este código no pagamento para travar <strong>{price}</strong> quando assinar.",
+      "howNormal": "No pagamento, escolha <strong>Mensal</strong> e cole este código no campo de desconto.",
+      "cta": "Garantir o preço de fundador"
+    },
+    "schools": {
+      "eyebrow": "Para escolas",
+      "heading": "Vai implantar numa escola?",
+      "sub": "Níveis Essentials, Professional e Enterprise, com preço conforme seu tamanho e suas necessidades. Sem preço público — montamos uma proposta sob medida para a sua escola.",
+      "tier1": "Essentials",
+      "tier2": "Professional",
+      "tier3": "Enterprise",
+      "cta": "Falar com vendas",
+      "learn": "Veja o que as escolas recebem"
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "Sobre — SketchCast AI",
+      "description": "O SketchCast é feito pela Aethel Twin Sdn. Bhd., uma empresa de IA da Malásia com status Malaysia Digital (MD). Registro da empresa, endereço, liderança e contatos.",
+      "ogTitle": "Sobre — SketchCast AI",
+      "ogDescription": "O SketchCast é feito pela Aethel Twin Sdn. Bhd., uma empresa de IA da Malásia com status Malaysia Digital (MD). Dados da empresa, liderança e contato."
+    },
+    "hero": {
+      "eyebrow": "Sobre",
+      "headline": "A empresa por trás do <mark>SketchCast</mark>",
+      "lead": "O SketchCast é feito pela <strong>Aethel Twin Sdn. Bhd.</strong>, empresa de IA da Malásia constituída em 2026 e agraciada com o status Malaysia Digital (MD) pela MDEC em maio de 2026.",
+      "sub": "O SketchCast transforma os livros didáticos da própria escola em kits de ensino completos — videoaulas narradas, exercícios, provas e planos de aula — e os coloca dentro da camada operacional em que uma escola de fato funciona: horários, faltas, análises, um tutor de estudos para os alunos e um portal para as famílias."
+    },
+    "why": {
+      "eyebrow": "Por que criamos",
+      "heading": "Por que criamos o SketchCast",
+      "body": "Toda ferramenta de ensino com IA gera a partir de comandos ou da própria biblioteca de conteúdo. Professores não ensinam com nenhuma das duas — ensinam com o livro que a escola adotou. É daí que o SketchCast parte: indexa o livro didático da própria escola e produz aulas do tamanho de um tempo real de aula, na sequência que o currículo já segue.",
+      "quote": "&ldquo;Para mim o teste era simples: se não começa pelo livro em que o professor já confia, não está ajudando de verdade — então foi daí que fizemos o SketchCast começar.&rdquo;",
+      "attribution": "— Muqtadar Quraishi, fundador &amp; CEO"
+    },
+    "team": {
+      "eyebrow": "Equipe",
+      "heading": "Equipe",
+      "role": "Fundador &amp; CEO, Aethel Twin",
+      "bio": "Contador gerencial certificado. Constrói e entrega o SketchCast de ponta a ponta — o pipeline de geração que transforma um livro didático em um kit de ensino completo e a plataforma escolar em que professores e gestores trabalham.",
+      "inventor": "Inventor",
+      "linkedIn": "LinkedIn"
+    },
+    "contact": {
+      "eyebrow": "Contato",
+      "heading": "Contato",
+      "registration": "Registro n.º 202601012908 (1675006-X)",
+      "incorporated": "Constituída em 3 de abril de 2026 sob o Companies Act 2016, Malásia",
+      "address": "D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling,<br />Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia",
+      "ssmKey": "Registro da empresa · SSM Malaysia",
+      "ssmNote": "Constituída em 3 de abril de 2026, Companies Act 2016.",
+      "mdKey": "Status Malaysia Digital · MDEC",
+      "mdNote": "Concedido em 13 de maio de 2026."
+    }
+  },
+
+  "privacy": {
+    "meta": {
+      "title": "Política de Privacidade — SketchCast AI",
+      "description": "Como o SketchCast AI coleta, usa e protege dados — inclusive como protegemos os alunos."
+    },
+    "h1": "Política de Privacidade",
+    "updated": "Última atualização: 31 de julho de 2026 · Em vigor: 31 de julho de 2026",
+    "intro1": "O SketchCast AI (“SketchCast”, “nós”) transforma capítulos de livros didáticos em aulas narradas, slides, vídeos, exercícios e um assistente de estudos com IA opcional ancorado no livro, para escolas, professores, famílias e seus alunos. Muitos dos nossos usuários são crianças, então nos cobramos um padrão simples: <strong>coletar o mínimo, usar apenas para ensinar, nunca vender, nunca anunciar com isso, nunca usar para treinar modelos de IA e nunca rastrear comportamento com qualquer finalidade que não seja mostrar o progresso de aprendizagem a professores e famílias.</strong>",
+    "intro2": "Esta política explica o que coletamos, por quê, com quem compartilhamos, por quanto tempo guardamos e quais direitos você tem. Ela se aplica a <strong>sketchcast.app</strong> e <strong>app.sketchcast.app</strong>.",
+    "toc": {
+      "label": "Nesta página:",
+      "items": "1. Quem somos &middot; 2. Quais leis se aplicam &middot; 3. O que coletamos &middot; 4. Privacidade das crianças &amp; o papel da escola &middot; 5. Como usamos os dados &amp; nossas bases legais &middot; 6. Processamento por IA &middot; 7. Quem processa dados por nós (suboperadores) &middot; 8. Transferências internacionais &middot; 9. Cookies &amp; rastreamento &middot; 10. Retenção &amp; exclusão &middot; 11. Segurança &amp; notificação de incidentes &middot; 12. Seus direitos &middot; 13. Processamento automatizado &middot; 14. Escolas (DPA) &middot; 15. Mudanças &amp; contato"
+    },
+    "s1": {
+      "h": "1. Quem somos",
+      "p1": "O serviço é operado pela <strong>Aethel Twin Sdn. Bhd.</strong>, registro n.º 202601012908 (1675006-X), empresa constituída na Malásia (“a operadora”), com sede em <strong>D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling, Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia</strong>. Para os dados pessoais aqui descritos, a operadora é a controladora / fiduciária dos dados — <em>exceto</em> quanto aos dados dentro do espaço de trabalho de uma escola, em que <strong>a escola é a controladora e nós atuamos como sua operadora</strong> nos termos do nosso contrato com ela (veja o §14).",
+      "p2": "Contato de privacidade / encarregado de reclamações: disponível em <a href=\"mailto:privacy@sketchcast.app\">privacy@sketchcast.app</a> (ou <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>), tel. +60 11-2088 2016. Buscamos confirmar o recebimento dos pedidos em até 72 horas e resolvê-los dentro dos prazos previstos na lei aplicável."
+    },
+    "s2": {
+      "h": "2. Quais leis se aplicam a você",
+      "p1": "O SketchCast está disponível em mais de um país, então as proteções com que você pode contar dependem de onde você e sua escola estão. Onde quer que você esteja, os compromissos acima valem. Além disso:",
+      "li1": "<strong>Índia</strong> — o Digital Personal Data Protection Act, 2023 (DPDP Act), inclusive suas disposições sobre dados de crianças e consentimento parental verificável.",
+      "li2": "<strong>Espaço Econômico Europeu &amp; Reino Unido</strong> — o GDPR / UK GDPR, inclusive as regras sobre consentimento de crianças e sobre transferências para fora do EEE/Reino Unido.",
+      "li3": "<strong>Estados Unidos</strong> — quando uma escola dos EUA usa o SketchCast, o Children's Online Privacy Protection Act (COPPA) — pelo qual a escola dá o consentimento em nome das famílias para a finalidade educacional limitada descrita aqui — e o Family Educational Rights and Privacy Act (FERPA), pelo qual atuamos como “school official” com interesse educacional legítimo e usamos os registros dos alunos apenas conforme a escola determinar.",
+      "li4": "<strong>Califórnia</strong> — o CCPA/CPRA. Nós <strong>não “vendemos” nem “compartilhamos”</strong> informações pessoais no sentido desses termos, e respeitamos as proteções adicionais para consumidores menores de 16 anos.",
+      "li5": "<strong>Malásia</strong> — o Personal Data Protection Act 2010 (PDPA).",
+      "p2": "Se uma lei local imperativa lhe der direitos mais fortes do que os descritos nesta política, essa lei prevalece."
+    },
+    "s3": {
+      "h": "3. O que coletamos",
+      "adultsH": "Professores, famílias, administradores escolares e coordenadores (adultos)",
+      "adultsP": "Nome, e-mail, senha (armazenada apenas como hash com sal pelo nosso provedor de autenticação) ou identidade de login do Google, função e — para a equipe da escola — vínculo com a escola. No cadastro também coletamos um perfil curto que você informa (por exemplo, as séries/disciplinas que leciona ou, no caso de uma família, quantos filhos acompanha e em que séries estão).",
+      "studentsH": "Alunos",
+      "studentsP": "As contas de aluno são criadas por um professor, por uma família ou pela escola — <strong>alunos nunca se cadastram sozinhos</strong>. De cada aluno guardamos: nome, um ID de login, um e-mail de responsável (usado apenas para comunicação da conta), a matrícula na turma e os registros de aprendizagem — quais aulas foram atribuídas, o status de conclusão, respostas e notas de quizzes e exercícios, quaisquer arquivos de resposta enviados pelo aluno e — se o assistente de estudos com IA for usado — as mensagens que o aluno digita para ele e as respostas dele (veja o §6). Quando uma escola ou família usa a <strong>agenda</strong>, também guardamos as notas que professores e famílias escrevem sobre o aluno, as respostas que o aluno escrever e o registro de qual responsável confirmou qual nota e quando.",
+      "healthH": "Notas de saúde &amp; bem-estar na agenda",
+      "healthP": "A agenda permite que uma família ou um professor registre uma nota sobre a saúde ou o bem-estar de uma criança — uma falta, um medicamento, uma alergia ou uma preocupação — para que os adultos que a ensinam possam agir. Tratamos isso como informação sensível: é fornecida por iniciativa da família ou da escola, só fica visível para os professores daquela criança, suas famílias e a gestão da escola dela, e <strong>nunca é usada para publicidade nem para treinar modelos de IA</strong>. É excluída junto com o registro do aluno, e quem escreveu pode apagá-la a qualquer momento. <strong>Não use a agenda para emergências médicas</strong> — fale diretamente com a escola.",
+      "contentH": "O conteúdo que você envia",
+      "contentP": "Os capítulos de livros e materiais que professores e famílias enviam, e as aulas, slides, vídeos e exercícios que geramos a partir deles.",
+      "paymentH": "Informações de pagamento (apenas planos pagos)",
+      "paymentP": "Se você contratar um plano pago, nossos provedores de pagamento (veja o §7) coletam e processam seus dados de pagamento. <strong>Não recebemos nem armazenamos números completos de cartão.</strong> Guardamos apenas seu plano, o status de cobrança e uma referência do provedor necessária para administrar a assinatura.",
+      "technicalH": "Dados técnicos",
+      "technicalP": "Para manter o serviço no ar e seguro, processamos dados técnicos básicos como endereço IP, tipo de dispositivo/navegador e logs de erro. <strong>Não usamos rastreadores de publicidade ou de análise, nem SDKs de perfilamento comportamental, nem cookies além do cookie de sessão que mantém seu login.</strong> Não coletamos telefone, endereço residencial, fotos, biometria nem localização precisa de alunos."
+    },
+    "s4": {
+      "h": "4. Privacidade das crianças &amp; o papel da escola",
+      "li1": "Contas de aluno só existem dentro do espaço de trabalho de uma escola, de um professor ou de uma família, e são criadas, nomeadas e administradas por esse adulto — agindo com o consentimento parental exigido pela lei aplicável (por exemplo, o DPDP Act, o art. 8 do GDPR ou o mecanismo de consentimento escolar do COPPA).",
+      "li2": "Os dados de alunos são usados para exatamente uma finalidade: entregar as aulas atribuídas e mostrar aos professores, à escola e à família do próprio aluno como está a aprendizagem. Aplicamos a minimização de dados — não pedimos mais dados do aluno do que essa finalidade exige.",
+      "li3": "Nunca anunciamos para alunos, nunca vendemos nem compartilhamos dados de alunos para fins comerciais e <strong>nunca usamos dados de alunos (inclusive conversas com o assistente de IA) para treinar modelos de IA</strong>.",
+      "li4": "O acesso aos dados dos alunos é delimitado por função: um professor vê apenas as próprias turmas; um coordenador vê apenas as séries atribuídas a ele; uma família vê apenas os próprios filhos; consultas da gestão a dados individuais ficam registradas em um log de acesso que o administrador da escola pode revisar.",
+      "li5": "Pais ou responsáveis podem revisar, corrigir ou pedir a exclusão dos dados do filho a qualquer momento — pela escola/professor ou diretamente no contato do §1 — e podem retirar o consentimento, o que encerra qualquer processamento posterior dos dados daquela criança."
+    },
+    "s5": {
+      "h": "5. Como usamos os dados &amp; nossas bases legais",
+      "li1": "<strong>Para operar o serviço</strong> — login, geração de materiais de ensino, atribuição, o assistente de estudos com IA e o registro de progresso e notas para os professores, a escola e a família do próprio aluno. <em>Base:</em> execução do nosso contrato com você (ou, para dados de alunos, as instruções e o consentimento da escola).",
+      "li2": "<strong>Para nos comunicarmos sobre contas</strong> — por exemplo, enviar credenciais ao e-mail de um responsável, redefinições de senha e avisos do serviço. <em>Base:</em> contrato / legítimo interesse.",
+      "li3": "<strong>Para manter o serviço seguro, prevenir abusos e depurar falhas.</strong> <em>Base:</em> legítimo interesse / obrigação legal.",
+      "li4": "<strong>Para receber pagamentos</strong> dos planos pagos. <em>Base:</em> contrato.",
+      "p": "Não usamos seus dados para publicidade e não os vendemos a ninguém. Onde nos apoiamos no consentimento (por exemplo, dados de uma criança ou vozes premium), você pode retirá-lo a qualquer momento."
+    },
+    "s6": {
+      "h": "6. Processamento por IA",
+      "p1": "O SketchCast usa inteligência artificial de duas formas, e somos precisos sobre o que é enviado para onde:",
+      "li1": "<strong>Gerar aulas.</strong> O <em>conteúdo do capítulo enviado</em> vai para a Anthropic (Claude) para produzir a aula, os slides, os exercícios e a prova; o <em>texto do roteiro da aula</em> vai para a Microsoft (síntese de voz do Edge) ou — apenas quando uma escola ativa as vozes premium — para a ElevenLabs, para produzir a narração. Esta etapa não envia dados pessoais de alunos.",
+      "li2": "<strong>O assistente de estudos com IA.</strong> Quando um professor, uma família ou um <em>aluno</em> usa o assistente opcional, <strong>as perguntas digitadas</strong> vão para a Anthropic (Claude), junto com o conteúdo relevante do livro/aula, para que ele possa responder. Isso significa que as mensagens digitadas por um aluno são processadas pelo nosso provedor de IA. Um pequeno serviço matemático restrito (hospedado por nós) também pode ser chamado para conferir cálculos. Guardamos a conversa por até 30 dias para que o aluno possa continuar de onde parou e para que você possa revisá-la.",
+      "li3": "<strong>Traduzir notas da agenda.</strong> Quando alguém toca em “Traduzir” numa nota da agenda, <strong>o texto daquela nota e das respostas dela</strong> vai para a Anthropic (Claude) para ser traduzido no idioma escolhido, e a tradução fica guardada para não precisar ser feita duas vezes. Só o texto da mensagem é enviado — sem nomes, ids de conta ou dados da escola — embora uma nota escrita por um professor ou por uma família possa, claro, citar uma criança pelo nome. Quem pode ler uma nota pode traduzi-la, inclusive o aluno.",
+      "p2": "Nossos provedores de IA processam este conteúdo <strong>apenas para prestar o serviço</strong>. Sob os termos comerciais deles, <strong>não o usam para treinar seus modelos</strong> e não podem usá-lo para publicidade. Não usamos seu conteúdo nem os dados dos seus alunos para treinar qualquer modelo de IA. O assistente é ancorado no livro e foi feito para dar pistas e método — não respostas prontas para nota — mas, como toda IA, sua saída pode conter erros e deve ser revisada."
+    },
+    "s7": {
+      "h": "7. Quem processa dados por nós (suboperadores)",
+      "p1": "Usamos um pequeno número de fornecedores avaliados para operar o serviço. Cada um processa dados apenas conforme nossas instruções e sob um contrato de tratamento de dados.",
+      "thProvider": "Fornecedor",
+      "thWhat": "O que fazem",
+      "supabase": "Banco de dados, autenticação e armazenamento de arquivos",
+      "vercel": "Hospeda o aplicativo web",
+      "railway": "Roda o gerador de aulas e o serviço matemático",
+      "cloudflare": "Serve este site",
+      "anthropic": "Geração com IA, assistente de estudos e tradução da agenda (§6)",
+      "tts": "Áudio da narração (ElevenLabs apenas quando as vozes premium estão ativadas)",
+      "google": "Opção “Entrar com o Google”, apenas para contas de adultos",
+      "resend": "Envia e-mails de conta e de suporte",
+      "stripe": "Pagamentos dos planos escolares",
+      "lemonSqueezy": "Pagamentos dos planos de famílias/professores (como Merchant of Record)",
+      "p2": "Manteremos esta lista atualizada e avisaremos as escolas sobre mudanças materiais nos suboperadores que lidam com dados de alunos antes que entrem em vigor."
+    },
+    "s8": {
+      "h": "8. Transferências internacionais de dados",
+      "p": "Alguns dos fornecedores acima ficam ou processam dados nos Estados Unidos e em outros países fora do seu. Quando transferimos dados pessoais para fora do país, contamos com salvaguardas adequadas — como as Cláusulas Contratuais Padrão da Comissão Europeia (e o Adendo do Reino Unido), os compromissos de conformidade dos próprios fornecedores e, para dados de alunos, as instruções da escola. Você pode nos pedir os detalhes das salvaguardas aplicáveis a uma transferência específica."
+    },
+    "s9": {
+      "h": "9. Cookies &amp; rastreamento",
+      "p": "Usamos um único cookie essencial — o cookie de sessão que mantém seu login. <strong>Não</strong> usamos cookies de publicidade, cookies de análise, rastreadores entre sites nem técnicas que burlem o sinal “Do Not Track”. Como usamos apenas um cookie essencial, não é necessário banner de consentimento, mas você pode limpar o cookie quando quiser saindo da conta."
+    },
+    "s10": {
+      "h": "10. Retenção &amp; exclusão",
+      "li1": "<strong>Dados da conta</strong> são mantidos enquanto a conta estiver ativa.",
+      "li2": "<strong>Livros enviados e conteúdo gerado</strong> são mantidos até você excluí-los — professores e famílias podem apagá-los a qualquer momento no produto.",
+      "li3": "<strong>Registros de aprendizagem do aluno</strong> são excluídos quando o aluno é removido; remover um aluno apaga o perfil e os registros dele junto.",
+      "li4": "<strong>Conversas com o assistente de IA</strong> são mantidas por até 30 dias e depois excluídas.",
+      "li5": "<strong>Notas da agenda, respostas e confirmações</strong> são mantidas enquanto a conta estiver ativa e são excluídas com o registro do aluno. Quem escreveu uma nota ou resposta pode apagá-la a qualquer momento; apagar uma nota também apaga suas respostas, as confirmações nela e quaisquer traduções guardadas.",
+      "li6": "<strong>Logs técnicos</strong> são mantidos por pouco tempo (em geral até 90 dias) para segurança e depuração, e depois excluídos ou anonimizados.",
+      "li7": "Para <strong>encerrar uma conta ou apagar por completo os dados de uma escola</strong>, escreva para nós — concluímos a exclusão em <strong>30 dias</strong>, exceto onde a lei exigir retenção maior (por exemplo, registros fiscais de um pagamento). Os backups são sobrescritos em um ciclo contínuo."
+    },
+    "s11": {
+      "h": "11. Segurança &amp; notificação de incidentes",
+      "p1": "Os dados são criptografados em trânsito; as senhas são armazenadas como hash; toda consulta ao banco é delimitada por segurança em nível de linha, de modo que cada pessoa alcança apenas os dados que a função dela permite; os arquivos são servidos por links assinados de curta duração; o acesso da gestão a dados individuais é auditado; dados de cartão nunca passam pelos nossos servidores. Nenhum sistema é perfeitamente seguro, mas coletar o mínimo é a nossa primeira proteção — o que não guardamos não pode vazar.",
+      "p2": "Se ocorrer um incidente com dados pessoais que provavelmente crie risco para você, avisaremos a autoridade competente e as escolas e usuários afetados sem demora indevida e dentro dos prazos exigidos pela lei aplicável, descrevendo o que aconteceu e o que estamos fazendo a respeito."
+    },
+    "s12": {
+      "h": "12. Seus direitos",
+      "p1": "Conforme a sua lei local, você tem direito a: <strong>acessar</strong> os dados pessoais que temos sobre você; <strong>corrigi-los</strong>; <strong>excluí-los</strong>; obter uma <strong>cópia</strong> em formato portável; <strong>restringir</strong> certos tratamentos ou a eles <strong>se opor</strong>; e <strong>retirar o consentimento</strong> quando nos apoiamos nele. Pais e responsáveis podem exercer esses direitos pelo filho. Não discriminamos você por exercê-los e não venderemos nem compartilharemos seus dados.",
+      "p2": "Para exercer um direito, fale conosco no endereço do §1 — se você faz parte de uma escola, o administrador dela também pode atender a maioria dos pedidos direto no produto. Se achar que lidamos mal com seus dados, você pode registrar reclamação na sua autoridade local de proteção de dados (por exemplo, o Data Protection Board of India, uma autoridade de controle da UE/EEE, a ICO do Reino Unido ou a California Privacy Protection Agency)."
+    },
+    "s13": {
+      "h": "13. Processamento automatizado",
+      "p": "Alguns recursos calculam sinais úteis automaticamente — por exemplo, uma nota de qualidade de “saúde do livro” no envio, uma lista de alunos em risco para o professor e a correção automática de questões objetivas. Eles apoiam o julgamento do professor e são sempre revisáveis e reversíveis por uma pessoa; <strong>não tomamos decisões com efeitos jurídicos ou impacto igualmente significativo sobre um aluno apenas por meios automatizados.</strong> Materiais de ensino gerados por IA devem sempre ser revisados por um professor antes do uso em sala."
+    },
+    "s14": {
+      "h": "14. Escolas: nosso papel &amp; contrato de tratamento de dados",
+      "p": "Quando uma escola usa o SketchCast, a escola é a controladora dos dados dos seus alunos e nós somos sua operadora: processamos dados de alunos apenas conforme as instruções documentadas da escola, para a finalidade educacional e sob confidencialidade. Escolas que precisem de um Adendo de Tratamento de Dados (DPA) formal — incluindo os termos de suboperadores e, quando cabível, as Cláusulas Contratuais Padrão — podem solicitá-lo no contato do §1."
+    },
+    "s15": {
+      "h": "15. Mudanças &amp; contato",
+      "p": "Se alterarmos esta política, atualizaremos esta página e a data de “última atualização” e avisaremos as escolas sobre qualquer mudança material que afete dados de alunos antes de ela entrar em vigor. Dúvidas ou pedidos: <a href=\"mailto:privacy@sketchcast.app\">privacy@sketchcast.app</a>."
+    },
+    "foot": {
+      "questions": "Dúvidas ou pedidos: <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>",
+      "links": "SketchCast AI · <a href=\"/about\">Sobre</a> · <a href=\"/terms\">Termos de Serviço</a> · <a href=\"/\">sketchcast.app</a>"
+    }
+  },
+
+  "terms": {
+    "meta": {
+      "title": "Termos de Serviço — SketchCast AI",
+      "description": "Os termos que regem o uso do SketchCast AI."
+    },
+    "h1": "Termos de Serviço",
+    "updated": "Última atualização: 31 de julho de 2026",
+    "intro": "Estes termos regem o seu uso do SketchCast AI (“SketchCast”, “nós”) — o serviço em sketchcast.app e app.sketchcast.app que transforma capítulos de livros didáticos em aulas narradas, slides, vídeos, exercícios e um assistente de estudos com IA opcional. O serviço é operado pela <strong>Aethel Twin Sdn. Bhd.</strong>, registro n.º 202601012908 (1675006-X), com sede em D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling, Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia. Ao criar uma conta ou usar o serviço, você concorda com estes termos. Se você os aceita em nome de uma escola, confirma que está autorizado a fazê-lo.",
+    "s1": {
+      "h": "1. Contas",
+      "li1": "<strong>Adultos:</strong> contas de professor, coordenador e administrador escolar só podem ser criadas por pessoas com 18 anos ou mais, com informações corretas.",
+      "li2": "<strong>Alunos:</strong> contas de aluno são criadas e administradas por um professor ou pela escola — nunca pelos próprios alunos. Cabe à escola obter qualquer consentimento parental exigido por lei antes de criar contas de aluno e administrá-las de forma responsável.",
+      "li3": "Mantenha suas credenciais em sigilo. Você é responsável pela atividade feita na sua conta; as escolas são responsáveis pelas contas que criam."
+    },
+    "s2": {
+      "h": "2. O serviço e o conteúdo gerado por IA",
+      "p": "O SketchCast usa inteligência artificial para gerar materiais de ensino a partir do conteúdo que você envia. <strong>Material gerado por IA pode conter erros ou omissões.</strong> Os professores devem revisar aulas, exercícios, provas e gabaritos gerados antes de usá-los em sala — o serviço apoia o seu julgamento pedagógico; não o substitui. A correção automática de quizzes é uma conveniência e pode ser alterada pelo professor."
+    },
+    "s3": {
+      "h": "3. Seu conteúdo",
+      "li1": "Você continua sendo dono de tudo o que envia. Você nos concede a licença limitada necessária para armazená-lo e processá-lo unicamente para prestar o serviço a você e à sua escola.",
+      "li2": "Você confirma ter o direito legal de enviar os materiais que submete — por exemplo, ao amparo das licenças da sua escola ou das disposições de uso educacional aplicáveis na lei de direitos autorais. Você é responsável pelos seus envios.",
+      "li3": "Os materiais gerados podem ser usados para ensinar dentro da sua escola ou da sua atividade de reforço. Não reivindicamos propriedade sobre eles.",
+      "li4": "Não usamos seu conteúdo nem os dados dos seus alunos para treinar modelos de IA."
+    },
+    "s4": {
+      "h": "4. Uso aceitável",
+      "p1": "Não use o serviço de má-fé: nada de conteúdo ilegal, nem tentativas de acessar dados fora da sua função ou da sua escola, nem sondagem ou perturbação dos sistemas, nem revenda do serviço, nem qualquer uso que prejudique alunos. Podemos suspender contas que violem estas regras.",
+      "p2": "A <strong>agenda</strong> serve para a comunicação sobre a aprendizagem e o cuidado de uma criança. Mantenha as notas pertinentes e respeitosas — nada de conteúdo abusivo, difamatório ou irrelevante sobre crianças, famílias ou funcionários. <strong>A agenda não é um canal monitorado nem de emergência:</strong> uma nota pode não ser lida até o próximo dia letivo, então, para qualquer urgência — inclusive médica — fale diretamente com a escola."
+    },
+    "s5": {
+      "h": "5. Planos grátis e pagos",
+      "p": "O SketchCast oferece um nível gratuito e planos pagos (por exemplo, assinaturas de professores e famílias, e planos escolares), conforme descrito na nossa <a href=\"/pricing\">página de preços</a>. Os planos pagos são renovados pelo período de cobrança que você escolher até o cancelamento; você pode cancelar quando quiser e mantém o acesso até o fim do período pago. As tarifas são informadas sem impostos, salvo indicação em contrário, e são processadas pelos nossos provedores de pagamento (veja a Política de Privacidade). Salvo quando a lei exigir o contrário, pagamentos já feitos não são reembolsáveis. Podemos mudar planos, recursos e preços com aviso razoável; não cobraremos retroativamente por aquilo que você já usou de graça, e uma mudança de preço não afetará o período que você já pagou."
+    },
+    "s6": {
+      "h": "6. Privacidade",
+      "p": "Nossa <a href=\"/privacy\">Política de Privacidade</a> — inclusive como protegemos os alunos — faz parte destes termos."
+    },
+    "s7": {
+      "h": "7. Disponibilidade, isenções e responsabilidade",
+      "p": "O serviço é fornecido “no estado em que se encontra”, está em desenvolvimento ativo e não há garantia de disponibilidade ininterrupta nem de resultados sem erros. Na máxima extensão permitida em lei, nossa responsabilidade total por qualquer reclamação relativa ao serviço se limita ao valor que você nos pagou nos doze meses anteriores à reclamação (ou RM 100 se você não pagou nada). Nada nestes termos limita responsabilidade que não possa ser limitada por lei."
+    },
+    "s8": {
+      "h": "8. Rescisão",
+      "p": "Você pode parar de usar o serviço e pedir a exclusão a qualquer momento. Podemos suspender ou encerrar contas que violem estes termos. As escolas podem exportar seus materiais antes do encerramento, baixando-os pelo painel."
+    },
+    "s9": {
+      "h": "9. Lei aplicável",
+      "p": "Estes termos são regidos pelas leis da Malásia, e as disputas ficam sujeitas aos tribunais de Selangor, Malásia."
+    },
+    "s10": {
+      "h": "10. Mudanças",
+      "p": "Podemos atualizar estes termos conforme o serviço evolui. Publicaremos as mudanças aqui e avisaremos os titulares de conta sobre alterações materiais; continuar usando após uma mudança significa aceitação."
+    },
+    "foot": {
+      "questions": "Dúvidas: <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>",
+      "links": "SketchCast AI · <a href=\"/about\">Sobre</a> · <a href=\"/privacy\">Política de Privacidade</a> · <a href=\"/\">sketchcast.app</a>"
+    }
+  }
+}

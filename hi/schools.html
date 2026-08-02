@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="schools.meta.title">SketchCast — स्कूलों के लिए</title>
+<meta name="description" data-i18n-attr="content:schools.meta.description" content="पूरे स्कूल के लिए एक ही पोर्टल: नेतृत्व के लिए भूमिका-सीमित डैशबोर्ड, ऐसी समय-सारणी जो खुद बनती और खुद कवर करती है, नौ भाषाओं में आपकी अपनी किताबों से बने पाठ, और अभिभावक हमेशा जानकारी में — गवर्नेंस शुरुआत से ही।" />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" data-i18n-attr="content:schools.meta.ogTitle" content="SketchCast — स्कूलों के लिए" />
+<meta property="og:description" data-i18n-attr="content:schools.meta.ogDescription" content="भूमिका-सीमित डैशबोर्ड, खुद चलने और खुद कवर करने वाली समय-सारणी, नौ भाषाओं में किताबों से बने पाठ, और जानकारी में रहते अभिभावक — पूरे स्कूल के लिए एक पोर्टल।" />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/hi/schools" />
+  <link rel="alternate" hreflang="en" href="https://sketchcast.app/schools" />
+  <link rel="alternate" hreflang="ms" href="https://sketchcast.app/ms/schools" />
+  <link rel="alternate" hreflang="ar" href="https://sketchcast.app/ar/schools" />
+  <link rel="alternate" hreflang="fr" href="https://sketchcast.app/fr/schools" />
+  <link rel="alternate" hreflang="es" href="https://sketchcast.app/es/schools" />
+  <link rel="alternate" hreflang="pt" href="https://sketchcast.app/pt/schools" />
+  <link rel="alternate" hreflang="te" href="https://sketchcast.app/te/schools" />
+  <link rel="alternate" hreflang="mr" href="https://sketchcast.app/mr/schools" />
+  <link rel="alternate" hreflang="hi" href="https://sketchcast.app/hi/schools" />
+  <link rel="alternate" hreflang="ms-Arab" href="https://sketchcast.app/ms-arab/schools" />
+  <link rel="alternate" hreflang="x-default" href="https://sketchcast.app/schools" />
+  <meta property="og:url" content="https://sketchcast.app/hi/schools" />
+  <meta property="og:locale" content="hi_IN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="ms_MY" />
+  <meta property="og:locale:alternate" content="ar_AR" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:locale:alternate" content="pt_PT" />
+  <meta property="og:locale:alternate" content="te_IN" />
+  <meta property="og:locale:alternate" content="mr_IN" />
+  <meta property="og:locale:alternate" content="ms_MY" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-foot-lang{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--graphite,#5B6470)}.i18n-foot-lang b{font-weight:500;color:var(--graphite,#5B6470)}.i18n-foot-lang a{color:var(--graphite,#5B6470);text-decoration:none}.i18n-foot-lang a:hover{color:var(--ink)}.i18n-foot-lang a[aria-current]{color:var(--ink);font-weight:500}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}:root{--display:"Noto Sans Devanagari","Space Grotesk",ui-sans-serif,system-ui,sans-serif;--sans:"Noto Sans Devanagari","Inter",ui-sans-serif,system-ui,sans-serif;--mono:"Noto Sans Devanagari",ui-monospace,monospace}body{font-family:var(--sans);line-height:1.8}h1,h2,h3{font-family:var(--display)}*,*::before,*::after{letter-spacing:normal!important;text-transform:none!important}</style>
+<!--/i18n:head-->
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/hi/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/hi/#how" data-i18n="common.nav.how">यह कैसे काम करता है</a>
+      <a href="/hi/#free" data-i18n="common.nav.free">मुफ़्त क्या है</a>
+      <a href="/hi/schools" aria-current="page" data-i18n="common.nav.schools">स्कूलों के लिए</a>
+      <a href="/hi/pricing" data-i18n="common.nav.pricing">क़ीमतें</a>
+      <a href="/hi/about" data-i18n="common.nav.about">हमारे बारे में</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="अपनी भाषा चुनें"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="hi" dir="ltr">हिन्दी (Hindi)</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/schools" lang="en" hreflang="en" dir="ltr">English</a></li>
+      <li><a href="https://sketchcast.app/ms/schools" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/schools" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/schools" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/schools" lang="es" hreflang="es" dir="ltr">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/schools" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/schools" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/schools" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/schools" lang="hi" hreflang="hi" dir="ltr" aria-current="true">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/schools" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">लॉग इन</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">मुफ़्त शुरू करें</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <p class="eyebrow" data-i18n="schools.hero.eyebrow">स्कूलों के लिए</p>
+        <h1 data-i18n="schools.hero.headline" data-i18n-mark="uline"><span class="uline">आपका पूरा स्कूल<svg class="ink" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 70 3, 160 3, 297 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:300"/></svg></span>, एक ही जगह से पढ़ाता हुआ।</h1>
+        <p class="hero-sub" data-i18n="schools.hero.sub">नेतृत्व को स्कूल साफ़ दिखता है, शिक्षकों को उनकी अपनी किताबों से बने पाठ मिलते हैं, समय-सारणी खुद लिखती और खुद कवर करती है, और अभिभावक जानकारी में रहते हैं — हर कोई अपने लॉगिन के पीछे, सिर्फ़ अपना हिस्सा देखता हुआ।</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school" data-i18n="schools.hero.ctaPrimary">बिक्री टीम से बात करें</a>
+          <a class="btn btn-ghost" href="/hi/pricing#schools" data-i18n="schools.hero.ctaSecondary">क़ीमतें देखें</a>
+        </div>
+        <p class="hero-stat" data-i18n="schools.hero.stat"><b>5 भूमिकाएँ</b> · <b>9 भाषाएँ</b> · <b>1 पोर्टल</b> — आपके स्कूल के अपने पते पर</p>
+      </div>
+
+      <!-- The self-running timetable, drawn as product. Every cell is a key: an
+           Arabic reader who sees MON/TUE/BM in Latin is looking at a screenshot
+           of someone else's school, not a preview of their own. -->
+      <div class="tt reveal" role="img" data-i18n-attr="aria-label:schools.timetableCard.alt" aria-label="एक कक्षा की साप्ताहिक समय-सारणी: पहला कालांश हमेशा कक्षा-शिक्षक का, और अनुपस्थित शिक्षक का कालांश अपने आप कवर हो जाता है।">
+        <div class="tt-head">
+          <span class="tt-title" data-i18n="schools.timetableCard.title">कक्षा 5 पुत्रा — सप्ताह</span>
+          <span class="tt-chip" data-i18n="schools.timetableCard.chip">अपने आप बना</span>
+        </div>
+        <div class="tt-grid" aria-hidden="true">
+          <span class="tt-cell tt-col"></span>
+          <span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p1">क1</span><span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p2">क2</span><span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p3">क3</span><span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p4">क4</span><span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p5">क5</span>
+          <span class="tt-cell tt-day" data-i18n="schools.timetableCard.days.mon">सोम</span>
+          <span class="tt-cell tt-p1" data-i18n="schools.timetableCard.subjects.bm">हिंदी</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.mat">गणित</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.sci">विज्ञान</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.en">अंग्रेज़ी</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.pe">खेल</span>
+          <span class="tt-cell tt-day" data-i18n="schools.timetableCard.days.tue">मंगल</span>
+          <span class="tt-cell tt-p1" data-i18n="schools.timetableCard.subjects.bm">हिंदी</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.sci">विज्ञान</span>
+          <span class="tt-cell tt-cover"><span data-i18n="schools.timetableCard.subjects.en">अंग्रेज़ी</span>
+            <svg class="ink" viewBox="0 0 74 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37 3 C 12 2, 3 8, 4 20 C 5 33, 22 38, 39 37 C 58 36, 71 31, 70 19 C 69 8, 56 3, 42 3" stroke="#FFB020" stroke-width="2.6" stroke-linecap="round" style="--l:210;--d:.5s"/></svg>
+          </span>
+          <span class="tt-cell" data-i18n="schools.timetableCard.subjects.mat">गणित</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.art">कला</span>
+          <span class="tt-cell tt-day" data-i18n="schools.timetableCard.days.wed">बुध</span>
+          <span class="tt-cell tt-p1" data-i18n="schools.timetableCard.subjects.bm">हिंदी</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.mat">गणित</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.en">अंग्रेज़ी</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.sci">विज्ञान</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.mus">संगीत</span>
+        </div>
+        <p class="tt-note"><span><span class="k1">■</span> <span data-i18n="schools.timetableCard.keyP1">क1 — कक्षा-शिक्षक, हर दिन</span></span><span><span class="k2">◯</span> <span data-i18n="schools.timetableCard.keyCover">स्वतः कवर — Farah मैडम सँभालती हैं</span></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── portal + roles ───────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="portal">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.portal.eyebrow">हर भूमिका के लिए एक दरवाज़ा</p>
+        <h2 data-i18n="schools.portal.heading">आपके स्कूल को अपना पता मिलता है।</h2>
+        <p class="sub" data-i18n="schools.portal.sub">प्रधानाचार्य, समन्वयक, शिक्षक, छात्र और अभिभावक — सब आपके स्कूल के पोर्टल से ही अंदर आते हैं, और उनके डेटा के बीच की दीवारें डेटाबेस में लागू होती हैं, सिर्फ़ इंटरफ़ेस में नहीं।</p>
+        <span class="portal-url" data-i18n="schools.portal.url">school.sketchcast.app/<b>your-school</b></span>
+      </div>
+      <div class="roles">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.portal.leadership.tag">नेतृत्व</span>
+          <h3 data-i18n="schools.portal.leadership.title">स्कूल को साफ़ देखिए</h3>
+          <p data-i18n="schools.portal.leadership.body">लाइव डैशबोर्ड, जोखिम वाले छात्रों की सूची, और एक सहायक जो आपके अपने डेटा से सवालों के जवाब देता है।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.portal.teachers.tag">शिक्षक</span>
+          <h3 data-i18n="schools.portal.teachers.title">पढ़ाइए, टाइपसेटिंग मत कीजिए</h3>
+          <p data-i18n="schools.portal.teachers.body">स्कूल की अपनी किताबों से बनी पूरी पाठ-किट, साथ में हर शिक्षक का निजी सप्ताह और उसकी कवर ड्यूटी।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.portal.students.tag">छात्र</span>
+          <h3 data-i18n="schools.portal.students.title">सीखने के लिए एक ही जगह</h3>
+          <p data-i18n="schools.portal.students.body">सौंपे गए पाठ जो कक्षा में या घर पर चलते हैं, जमा करने के लिए वर्कशीट, और एक ट्यूटर जो अध्याय से बाहर नहीं जाता।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.portal.parents.tag">अभिभावक</span>
+          <h3 data-i18n="schools.portal.parents.title">आख़िरकार जानकारी में</h3>
+          <p data-i18n="schools.portal.parents.body">हर बच्चे के असाइनमेंट, अंक और समय-सीमाएँ — सिर्फ़ पढ़ने के लिए, और सिर्फ़ अपने ही बच्चों के।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── leadership ───────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="leadership">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.leadership.eyebrow">नेतृत्व के लिए</p>
+        <h2 data-i18n="schools.leadership.heading">जवाब चाहिए, स्प्रेडशीट नहीं।</h2>
+        <p class="sub" data-i18n="schools.leadership.sub">हफ़्ते की शुरुआत में प्रधानाचार्य कार्यालय जो कुछ माँगता है — पहले से गिना हुआ, और पूछने वाले की सीमा के भीतर।</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.leadership.analytics.tag">विश्लेषण</span>
+          <h3 data-i18n="schools.leadership.analytics.title">जोखिम वाली सूची खुद लिख जाती है</h3>
+          <p data-i18n="schools.leadership.analytics.body">पूरे स्कूल की गतिविधि, पूर्णता और बकाया काम एक नज़र में। जो छात्र चुप हो जाएँ, फिसलें या पिछड़ें, उन्हें नियम के अनुसार चिह्नित किया जाता है — समन्वयकों को <b>नामों वाली, तुरंत काम में आने वाली सूची</b> मिलती है; प्रधानाचार्य को कक्षा-वार साफ़ आँकड़े।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.leadership.briefing.tag">ब्रीफ़िंग</span>
+          <h3 data-i18n="schools.leadership.briefing.title">अपने स्कूल से सवाल पूछिए</h3>
+          <p data-i18n="schools.leadership.briefing.body">एक ब्रीफ़िंग सहायक जो <b>सिर्फ़ आपके स्कूल के लाइव आँकड़ों</b> से जवाब देता है — “इस हफ़्ते कक्षा 5 के किन छात्रों के घर फ़ोन करना चाहिए?” — और हर ब्रीफ़िंग एक्सेस लॉग में दर्ज होती है।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.leadership.support.tag">शिक्षक सहायता</span>
+          <h3 data-i18n="schools.leadership.support.title">पहचानिए किसे सहारा चाहिए</h3>
+          <p data-i18n="schools.leadership.support.body">हर शिक्षक के पाठ, असाइनमेंट और बची हुई जाँच, उसकी कक्षाओं की प्रगति के साथ — यह सब <b>सहायता के संकेत हैं, रैंकिंग नहीं</b>, ताकि मदद थकान से पहले पहुँचे।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.leadership.governance.tag">गवर्नेंस</span>
+          <h3 data-i18n="schools.leadership.governance.title">कौन क्या देखता है, लिखित में</h3>
+          <p data-i18n="schools.leadership.governance.body">सरल भाषा में बना एक एक्सेस पन्ना ठीक-ठीक बताता है कि हर भूमिका क्या देख सकती है, समन्वयकों को <b>सीमित अधिकार</b> मिलते हैं (सिर्फ़ उनकी कक्षाएँ, इससे ज़्यादा नहीं), और नेतृत्व का हर अवलोकन ऑडिट लॉग में जाता है।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── timetable ────────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="timetable">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.timetable.eyebrow">समय-सारणी</p>
+        <h2 data-i18n="schools.timetable.heading">ऐसा सप्ताह जो खुद बनता है — और खुद कवर करता है।</h2>
+        <p class="sub" data-i18n="schools.timetable.sub">शुरू होने का समय, कालांश की लंबाई और अवकाश तय कीजिए। बाक़ी SketchCast भर देता है, और कोई बीमार पड़े तब भी सारणी टिकी रहती है।</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.timetable.generate.tag">स्वतः निर्माण</span>
+          <h3 data-i18n="schools.timetable.generate.title">अच्छे नियम, हर जगह लागू</h3>
+          <p data-i18n="schools.timetable.generate.body"><b>हर दिन की शुरुआत कक्षा-शिक्षक से</b>, हर कक्षा में मुख्य विषय रोज़, और बाक़ी ख़ाली जगहें विविधता के साथ भरी जाती हैं — न किसी शिक्षक की दो जगह बुकिंग होती है, न उसका रोज़ का नियत भार पार होता है।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.timetable.editable.tag">पूरी तरह संपादन-योग्य</span>
+          <h3 data-i18n="schools.timetable.editable.title">आख़िरी फ़ैसला आपका</h3>
+          <p data-i18n="schools.timetable.editable.body">खींचकर बदलिए या अदल-बदल कीजिए, जिन ख़ानों को जनरेटर छू भी न सके उन्हें <b>लॉक</b> कीजिए, कोई दिन कॉपी या ख़ाली कीजिए, कुछ भी वापस लीजिए। कालांशों के समय आपके शुरुआती समय और अवकाशों से निकलते हैं — एक अंक बदलिए, पूरा दिन खिसक जाएगा।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.timetable.cover.tag">अनुपस्थिति कवर</span>
+          <h3 data-i18n="schools.timetable.cover.title">7:02 पर अनुपस्थित, 7:03 तक कवर</h3>
+          <p data-i18n="schools.timetable.cover.body">किसी शिक्षक को अनुपस्थित चिह्नित कीजिए और हर कालांश को कवर योजना मिल जाती है — पहले विषय-शिक्षक, फिर कक्षा-शिक्षक, फिर सबसे कम भार वाला, <b>और सिर्फ़ उन्हीं में से जिनके दिन में जगह बची है</b>। कोई कवर उपलब्ध नहीं? यह साफ़-साफ़ बता देता है।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.timetable.personal.tag">निजी सप्ताह</span>
+          <h3 data-i18n="schools.timetable.personal.title">हर किसी को पता है कहाँ होना है</h3>
+          <p data-i18n="schools.timetable.personal.body">हर शिक्षक अपने लॉगिन से अपना सप्ताह और अपनी <b>कवर ड्यूटी</b> देखता है; हर छात्र अपनी कक्षा की सारणी देखता है — अवकाश और समय समेत।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── lessons ──────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="lessons">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.lessons.eyebrow">कक्षा का इंजन</p>
+        <h2 data-i18n="schools.lessons.heading">आपकी पाठ्यपुस्तकें, पढ़ाई हुई।</h2>
+        <p class="sub" data-i18n="schools.lessons.sub">वही इंजन जो अकेले शिक्षकों को पसंद आता है, अब पूरे स्कूल के पैमाने पर: वे किताबें अपलोड कीजिए जिनसे आपका स्कूल सचमुच पढ़ाता है, और हर अध्याय पूरी किट बन जाएगा।</p>
+      </div>
+      <div class="feat feat-3">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.kit.tag">पूरी किट</span>
+          <h3 data-i18n="schools.lessons.kit.title">छह हिस्से, एक क्लिक</h3>
+          <p data-i18n="schools.lessons.kit.body">हर बार बनाने पर पूरी किट एक साथ तैयार होती है — खुद बनता बोलता वीडियो पाठ, संपादन-योग्य स्लाइड, पाठ योजना, गतिविधियाँ, वर्कशीट और परीक्षा प्रश्नपत्र — सब <b>उसी अध्याय पर आधारित</b>, इंटरनेट पर नहीं।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.parts.tag">लंबे अध्याय</span>
+          <h3 data-i18n="schools.lessons.parts.title">हिस्से, मैराथन नहीं</h3>
+          <p data-i18n="schools.lessons.parts.body">लंबे अध्याय <b>एक कालांश जितने हिस्सों</b> में बँट जाते हैं — हर हिस्से का अपना वीडियो और अपनी किट, ज़रूरत पड़ने पर बनते हैं; यानी 40 पन्नों का अध्याय चार पढ़ाने-योग्य पाठ बन जाता है।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.languages.tag">9 भाषाएँ</span>
+          <h3 data-i18n="schools.lessons.languages.title">आपकी भाषा में पढ़ाया गया</h3>
+          <p data-i18n="schools.lessons.languages.body">किताब की भाषा अपने आप पहचानी जाती है, और पाठ मिलती-जुलती आवाज़ में सुनाए जाते हैं — जिसमें <b>पूरी तरह दाएँ-से-बाएँ पलटी हुई अरबी</b> भी शामिल है।</p>
+          <!-- Endonyms — never translated. See index.html. -->
+          <ul class="langs" style="margin-top:14px">
+            <li>English</li><li>Bahasa Melayu</li><li class="rtl" lang="ar" dir="rtl">العربية</li><li>Français</li><li>Español</li><li>Português</li><li lang="te">తెలుగు</li><li lang="mr">मराठी</li><li lang="hi">हिन्दी</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.assign.tag">सौंपें + नज़र रखें</span>
+          <h3 data-i18n="schools.lessons.assign.title">बनने से लेकर अंक मिलने तक</h3>
+          <p data-i18n="schools.lessons.assign.body">किसी भी हिस्से को समय-सीमा के साथ कक्षा को सौंपिए; उत्तर <b>अपने आप जाँचे हुए</b> लौटते हैं और उन पर शिक्षक के अंक चढ़ते हैं — यही रिकॉर्ड नेतृत्व का विश्लेषण भी पढ़ता है।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.coach.tag">Ask Coach</span>
+          <h3 data-i18n="schools.lessons.coach.title">ऐसा ट्यूटर जो पन्ने से बाहर नहीं जाता</h3>
+          <p data-i18n="schools.lessons.coach.body">स्कूल प्लान वाले छात्रों को <b>Ask Coach</b> मिलता है: सौंपे गए अध्याय से बँधा एक ट्यूटर — वह किताब से ही समझाता है, सवाल पूछता है और दोहराता है, बाहर से कभी नहीं।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.health.tag">किताब की सेहत</span>
+          <h3 data-i18n="schools.lessons.health.title">ख़राब स्कैन पहले ही पकड़े जाते हैं</h3>
+          <p data-i18n="schools.lessons.health.body">हर अपलोड की गई किताब को इंडेक्स करते समय <b>सेहत स्कोर</b> मिलता है — पाठ की गुणवत्ता, ढाँचा, पकड़ी गई गड़बड़ियाँ — ताकि दिक्क़तें तब सामने आएँ, इससे पहले कि कोई शिक्षक उन पर पूरा हफ़्ता खड़ा कर दे।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── parents ──────────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="parents">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.parents.eyebrow">अभिभावकों के लिए</p>
+        <h2 data-i18n="schools.parents.heading">रिपोर्ट कार्ड, हर दिन।</h2>
+        <p class="sub" data-i18n="schools.parents.sub">अभिभावक स्कूल के निमंत्रण से जुड़ते हैं, अपने ही बच्चों से पहले से जुड़े हुए — न कुछ सेट करना है, न कुछ ज़्यादा देखना है।</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.parents.progress.tag">प्रगति</span>
+          <h3 data-i18n="schools.parents.progress.title">हर बच्चा, एक नज़र में</h3>
+          <p data-i18n="schools.parents.progress.body">हर बच्चे के असाइनमेंट, पूर्णता, अंक और देरी के संकेत — <b>सिर्फ़ पढ़ने के लिए</b>, और सिर्फ़ अपने बच्चों तक सीमित, किसी और के नहीं।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.parents.calendar.tag">कैलेंडर</span>
+          <h3 data-i18n="schools.parents.calendar.title">स्कूल की तारीख़ें वहीं, जहाँ परिवार देखता है</h3>
+          <p data-i18n="schools.parents.calendar.body">स्कूल के कार्यक्रम और कक्षा की तारीख़ें, Google, Outlook या Apple कैलेंडर में <b>सब्सक्राइब</b> की जा सकती हैं — और असाइनमेंट की समय-सीमाएँ ऐप के कैलेंडर में साथ चलती हैं।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.parents.invitations.tag">निमंत्रण</span>
+          <h3 data-i18n="schools.parents.invitations.title">निमंत्रित, स्व-पंजीकृत नहीं</h3>
+          <p data-i18n="schools.parents.invitations.body">स्कूल हर अभिभावक का निमंत्रण <b>बच्चे की कड़ी पहले से जोड़कर</b> भेजता है — यानी पहुँच सोच-समझकर दी जाती है, कोई खुद नहीं ले लेता।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.parents.practical.tag">व्यावहारिक</span>
+          <h3 data-i18n="schools.parents.practical.title">छोटी-छोटी बातें, सँभाली हुई</h3>
+          <p data-i18n="schools.parents.practical.body">भूली हुई पासवर्ड घर में ही सुलझ जाती है: अभिभावक अपने ही बच्चे का लॉगिन रीसेट करता है और उसे <b>एक-बार वाली पासवर्ड</b> देता है, जिसे अगली बार लॉग इन करते ही बदलना होता है।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── trust ────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="trust">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.trust.eyebrow">शुरुआत से ही गवर्नेंस</p>
+        <h2 data-i18n="schools.trust.heading">उन स्कूलों के लिए बना जो अभिभावकों को जवाब देते हैं।</h2>
+      </div>
+      <div class="trust">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.trust.isolation.tag">पृथक्करण</span>
+          <h3 data-i18n="schools.trust.isolation.title">दीवारें डेटाबेस के भीतर</h3>
+          <p data-i18n="schools.trust.isolation.body">हर पठन भूमिका के हिसाब से <b>डेटाबेस की परत पर</b> ही सीमित होता है — छात्र अपना काम देखता है, शिक्षक अपनी कक्षाएँ, समन्वयक अपनी कक्षा-श्रेणियाँ। फ़ैसला URL कभी नहीं करता।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.trust.audit.tag">ऑडिट</span>
+          <h3 data-i18n="schools.trust.audit.title">नेतृत्व की पहुँच, दर्ज</h3>
+          <p data-i18n="schools.trust.audit.body">छात्र-डेटा पर नेतृत्व का हर अवलोकन — डैशबोर्ड हो या ब्रीफ़िंग — एक <b>एक्सेस लॉग</b> में लिखा जाता है, जिसे स्कूल एडमिन पढ़ सकता है।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.trust.provisioning.tag">खाते बनाना</span>
+          <h3 data-i18n="schools.trust.provisioning.title">स्टाफ़ के खाते, संभाले हुए</h3>
+          <p data-i18n="schools.trust.provisioning.body">शिक्षकों और एडमिन के खाते <b>SketchCast टीम के साथ मिलकर</b> बनाए जाते हैं, खुद-ब-खुद नहीं — सूचियाँ सोच-समझकर बनी रहती हैं और लाइसेंस अनुमान में रहते हैं।</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.trust.support.tag">सहायता</span>
+          <h3 data-i18n="schools.trust.support.title">शिकायतें जवाब के साथ लौटती हैं</h3>
+          <p data-i18n="schools.trust.support.body">शिक्षक और स्टाफ़ ऐप में ही समस्या दर्ज कर सकते हैं और उसकी स्थिति देख सकते हैं — मिली, जाँची गई, ठीक हुई — <b>नोटिफ़िकेशन घंटी</b> से, समाधान की टिप्पणी के साथ।</p>
+        </div>
+      </div>
+      <p class="dpa-note" data-i18n="schools.trust.dpa">स्कूलों के लिए डेटा प्रोसेसिंग समझौता उपलब्ध है — पूरी तस्वीर के लिए हमारी <a href="/hi/privacy">निजता नीति</a> देखिए।</p>
+    </div>
+  </section>
+
+  <!-- ── final CTA ────────────────────────────────────────────────────── -->
+  <section class="cta">
+    <div class="wrap reveal">
+      <h2 data-i18n="schools.cta.heading" data-i18n-mark="circle"><span class="circle">अपने स्कूल<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span> में लागू करने की सोच रहे हैं?</h2>
+      <p class="cta-sub" data-i18n="schools.cta.sub">कोई सार्वजनिक मूल्य-सूची नहीं — हम आपके आकार और ज़रूरत के हिसाब से प्रस्ताव बनाते हैं, और शुरुआत के दौरान आपके साथ मिलकर सुविधाएँ सेट करते हैं।</p>
+      <ul class="tiers"><li data-i18n="schools.cta.tier1">Essentials</li><li data-i18n="schools.cta.tier2">Professional</li><li data-i18n="schools.cta.tier3">Enterprise</li></ul>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school" data-i18n="schools.cta.primary">बिक्री टीम से बात करें</a>
+        <a class="btn btn-ghost" href="/hi/pricing#schools" data-i18n="schools.cta.secondary">शिक्षक और अभिभावक क़ीमतें</a>
+      </div>
+      <p class="cta-note" data-i18n="schools.cta.note">पहले आज़माना चाहेंगे? कोई भी शिक्षक आज ही <a href="https://app.sketchcast.app">मुफ़्त शुरू</a> कर सकता है।</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — एक अध्याय, पूरा पढ़ाया हुआ" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/hi/" data-i18n="common.nav.home">होम</a>
+        <a href="/hi/about" data-i18n="common.nav.about">हमारे बारे में</a>
+        <a href="/hi/schools" aria-current="page" data-i18n="common.nav.schools">स्कूलों के लिए</a>
+        <a href="/hi/pricing" data-i18n="common.nav.pricing">क़ीमतें</a>
+        <a href="/hi/privacy" data-i18n="common.footer.privacy">निजता</a>
+        <a href="/hi/terms" data-i18n="common.footer.terms">शर्तें</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">संपर्क</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="LinkedIn पर Aethel Twin">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <!--i18n:footer-lang-->
+  <nav class="i18n-foot-lang" aria-label="भाषा">
+    <b>यह पन्ना दूसरी भाषाओं में</b>
+    <a href="https://sketchcast.app/schools" lang="en" hreflang="en" dir="ltr">English</a>
+    <a href="https://sketchcast.app/ms/schools" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a>
+    <a href="https://sketchcast.app/ar/schools" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a>
+    <a href="https://sketchcast.app/fr/schools" lang="fr" hreflang="fr" dir="ltr">Français</a>
+    <a href="https://sketchcast.app/es/schools" lang="es" hreflang="es" dir="ltr">Español</a>
+    <a href="https://sketchcast.app/pt/schools" lang="pt" hreflang="pt" dir="ltr">Português</a>
+    <a href="https://sketchcast.app/te/schools" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a>
+    <a href="https://sketchcast.app/mr/schools" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a>
+    <a href="https://sketchcast.app/hi/schools" lang="hi" hreflang="hi" dir="ltr" aria-current="true">हिन्दी (Hindi)</a>
+    <a href="https://sketchcast.app/ms-arab/schools" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a>
+  </nav>
+<!--/i18n:footer-lang-->
+    <p class="foot-legal" data-i18n="common.footer.legal"><strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) का उत्पाद · Malaysia Digital दर्जा MD/0002997</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

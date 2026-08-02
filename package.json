@@ -1,0 +1,12 @@
+{
+  "name": "sketchcast-landing",
+  "private": true,
+  "type": "module",
+  "description": "Static marketing site for sketchcast.app. No framework, no bundler — the only build step is the translation generator.",
+  "scripts": {
+    "i18n": "node build-i18n.mjs",
+    "i18n:check": "node build-i18n.mjs --check",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  }
+}

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ms-Arab" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="schools.meta.title">SketchCast — اونتوق سکوله</title>
+<meta name="description" data-i18n-attr="content:schools.meta.description" content="ساتو ڤورتل اونتوق سلوروه سکوله اندا: ڤاڤن ڤموک مڠيکوت ڤرانن اونتوق کڤيمڤينن، جدوال وقتو يڠ منجان دان مڠݢنتي ديريڽ سنديري، ڤلاجرن براساسکن بوکو تيکس دالم سمبيلن بهاس، دان ايبو باڤ سنتياس دمعلومکن — برتدبير اوروس درڤد اساسڽ." />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" data-i18n-attr="content:schools.meta.ogTitle" content="SketchCast — اونتوق سکوله" />
+<meta property="og:description" data-i18n-attr="content:schools.meta.ogDescription" content="ڤاڤن ڤموک مڠيکوت ڤرانن، جدوال وقتو يڠ برجالن دان مڠݢنتي سنديري، ڤلاجرن درڤد بوکو تيکس دالم سمبيلن بهاس، دان ايبو باڤ دمعلومکن — ساتو ڤورتل اونتوق سلوروه سکوله." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/ms-arab/schools" />
+  <link rel="alternate" hreflang="en" href="https://sketchcast.app/schools" />
+  <link rel="alternate" hreflang="ms" href="https://sketchcast.app/ms/schools" />
+  <link rel="alternate" hreflang="ar" href="https://sketchcast.app/ar/schools" />
+  <link rel="alternate" hreflang="fr" href="https://sketchcast.app/fr/schools" />
+  <link rel="alternate" hreflang="es" href="https://sketchcast.app/es/schools" />
+  <link rel="alternate" hreflang="pt" href="https://sketchcast.app/pt/schools" />
+  <link rel="alternate" hreflang="te" href="https://sketchcast.app/te/schools" />
+  <link rel="alternate" hreflang="mr" href="https://sketchcast.app/mr/schools" />
+  <link rel="alternate" hreflang="hi" href="https://sketchcast.app/hi/schools" />
+  <link rel="alternate" hreflang="ms-Arab" href="https://sketchcast.app/ms-arab/schools" />
+  <link rel="alternate" hreflang="x-default" href="https://sketchcast.app/schools" />
+  <meta property="og:url" content="https://sketchcast.app/ms-arab/schools" />
+  <meta property="og:locale" content="ms_MY" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="ms_MY" />
+  <meta property="og:locale:alternate" content="ar_AR" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:locale:alternate" content="pt_PT" />
+  <meta property="og:locale:alternate" content="te_IN" />
+  <meta property="og:locale:alternate" content="mr_IN" />
+  <meta property="og:locale:alternate" content="hi_IN" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-foot-lang{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--graphite,#5B6470)}.i18n-foot-lang b{font-weight:500;color:var(--graphite,#5B6470)}.i18n-foot-lang a{color:var(--graphite,#5B6470);text-decoration:none}.i18n-foot-lang a:hover{color:var(--ink)}.i18n-foot-lang a[aria-current]{color:var(--ink);font-weight:500}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}:root{--display:"Noto Kufi Arabic","Space Grotesk",ui-sans-serif,system-ui,sans-serif;--sans:"Noto Sans Arabic","Inter",ui-sans-serif,system-ui,sans-serif;--mono:"Noto Sans Arabic",ui-monospace,monospace}body{font-family:var(--sans);line-height:1.85}h1,h2,h3{font-family:var(--display)}*,*::before,*::after{letter-spacing:normal!important;text-transform:none!important}.rtl-flip{display:inline-block;scale:-1 1}.uline svg,.ph-uline svg,.arrow svg,.arr svg,.demo .flow svg{scale:-1 1}.demo{--pen-x:-1}</style>
+<!--/i18n:head-->
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/ms-arab/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/ms-arab/#how" data-i18n="common.nav.how">چارا اي برفوڠسي</a>
+      <a href="/ms-arab/#free" data-i18n="common.nav.free">يڠ ڤرچوما</a>
+      <a href="/ms-arab/schools" aria-current="page" data-i18n="common.nav.schools">اونتوق سکوله</a>
+      <a href="/ms-arab/pricing" data-i18n="common.nav.pricing">هرݢ</a>
+      <a href="/ms-arab/about" data-i18n="common.nav.about">تنتڠ کامي</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="ڤيليه بهاس اندا"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/schools" lang="en" hreflang="en" dir="ltr">English</a></li>
+      <li><a href="https://sketchcast.app/ms/schools" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/schools" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/schools" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/schools" lang="es" hreflang="es" dir="ltr">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/schools" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/schools" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/schools" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/schools" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/schools" lang="ms-Arab" hreflang="ms-Arab" dir="rtl" aria-current="true">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">لوݢ ماسوق</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">مولا ڤرچوما</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <p class="eyebrow" data-i18n="schools.hero.eyebrow">اونتوق سکوله</p>
+        <h1 data-i18n="schools.hero.headline" data-i18n-mark="uline"><span class="uline">سلوروه سکوله<svg class="ink" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 70 3, 160 3, 297 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:300"/></svg></span> اندا، مڠاجر درڤد ساتو تمڤت.</h1>
+        <p class="hero-sub" data-i18n="schools.hero.sub">کڤيمڤينن مليهت سکوله دڠن جلس، ݢورو مندڤت ڤلاجرن يڠ دبوات درڤد بوکو تيکس مريک سنديري، جدوال وقتو منوليس دان مڠݢنتي ديريڽ سنديري، دان ايبو باڤ سنتياس دمعلومکن — ماسيڠ-ماسيڠ د سبالق لوݢ ماسوق سنديري، هاڽ مليهت اڤ يڠ منجادي حقڽ.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school" data-i18n="schools.hero.ctaPrimary">هوبوڠي جوالن</a>
+          <a class="btn btn-ghost" href="/ms-arab/pricing#schools" data-i18n="schools.hero.ctaSecondary">ليهت هرݢ</a>
+        </div>
+        <p class="hero-stat" data-i18n="schools.hero.stat"><b>5 ڤرانن</b> · <b>9 بهاس</b> · <b>1 ڤورتل</b> — د علامت سکوله اندا سنديري</p>
+      </div>
+
+      <!-- The self-running timetable, drawn as product. Every cell is a key: an
+           Arabic reader who sees MON/TUE/BM in Latin is looking at a screenshot
+           of someone else's school, not a preview of their own. -->
+      <div class="tt reveal" role="img" data-i18n-attr="aria-label:schools.timetableCard.alt" aria-label="جدوال وقتو مڠݢوان سبواه کلس: وقتو ڤرتام سنتياس ݢورو کلس، دان ڤلاجرن ݢورو يڠ تيدق حاضير دݢنتي سچارا اوتوماتيک.">
+        <div class="tt-head">
+          <span class="tt-title" data-i18n="schools.timetableCard.title">کلس 5 ڤوترا — ميڠݢو اين</span>
+          <span class="tt-chip" data-i18n="schools.timetableCard.chip">دجان اوتوماتيک</span>
+        </div>
+        <div class="tt-grid" aria-hidden="true">
+          <span class="tt-cell tt-col"></span>
+          <span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p1">و1</span><span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p2">و2</span><span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p3">و3</span><span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p4">و4</span><span class="tt-cell tt-col" data-i18n="schools.timetableCard.periods.p5">و5</span>
+          <span class="tt-cell tt-day" data-i18n="schools.timetableCard.days.mon">ايسن</span>
+          <span class="tt-cell tt-p1" data-i18n="schools.timetableCard.subjects.bm">BM</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.mat">MT</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.sci">SN</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.en">BI</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.pe">PJ</span>
+          <span class="tt-cell tt-day" data-i18n="schools.timetableCard.days.tue">سلاس</span>
+          <span class="tt-cell tt-p1" data-i18n="schools.timetableCard.subjects.bm">BM</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.sci">SN</span>
+          <span class="tt-cell tt-cover"><span data-i18n="schools.timetableCard.subjects.en">BI</span>
+            <svg class="ink" viewBox="0 0 74 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37 3 C 12 2, 3 8, 4 20 C 5 33, 22 38, 39 37 C 58 36, 71 31, 70 19 C 69 8, 56 3, 42 3" stroke="#FFB020" stroke-width="2.6" stroke-linecap="round" style="--l:210;--d:.5s"/></svg>
+          </span>
+          <span class="tt-cell" data-i18n="schools.timetableCard.subjects.mat">MT</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.art">PSV</span>
+          <span class="tt-cell tt-day" data-i18n="schools.timetableCard.days.wed">رابو</span>
+          <span class="tt-cell tt-p1" data-i18n="schools.timetableCard.subjects.bm">BM</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.mat">MT</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.en">BI</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.sci">SN</span><span class="tt-cell" data-i18n="schools.timetableCard.subjects.mus">MZ</span>
+        </div>
+        <p class="tt-note"><span><span class="k1">■</span> <span data-i18n="schools.timetableCard.keyP1">و1 — ݢورو کلس، ستياڤ هاري</span></span><span><span class="k2">◯</span> <span data-i18n="schools.timetableCard.keyCover">ݢنتي اوتوماتيک — چيکݢو فرح مڠمبيل عاليه</span></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── portal + roles ───────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="portal">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.portal.eyebrow">ساتو ڤينتو اونتوق ستياڤ ڤرانن</p>
+        <h2 data-i18n="schools.portal.heading">سکوله اندا مندڤت علامتڽ سنديري.</h2>
+        <p class="sub" data-i18n="schools.portal.sub">ڤڠتوا، ڤڽلارس، ݢورو، ڤلاجر دان ايبو باڤ ماسيڠ-ماسيڠ لوݢ ماسوق ملالوءي ڤورتل سکوله اندا — دان ديندڠ داتا انتارا مريک دکواتکواساکن دالم ڤڠکالن داتا، بوکن سکادر ڤد انتارا موک.</p>
+        <span class="portal-url" data-i18n="schools.portal.url">school.sketchcast.app/<b>your-school</b></span>
+      </div>
+      <div class="roles">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.portal.leadership.tag">کڤيمڤينن</span>
+          <h3 data-i18n="schools.portal.leadership.title">ليهت سکوله دڠن جلس</h3>
+          <p data-i18n="schools.portal.leadership.body">ڤاڤن ڤموک لڠسوڠ، سنراي ڤلاجر بريسيکو، دان ڤمبنتو يڠ منجاوب درڤد داتا سکوله اندا سنديري.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.portal.teachers.tag">ݢورو</span>
+          <h3 data-i18n="schools.portal.teachers.title">مڠاجر، بوکن منتايڤ سمولا</h3>
+          <p data-i18n="schools.portal.teachers.body">کيت ڤلاجرن ڤنوه درڤد بوکو تيکس سکوله سنديري، سرتا جدوال ڤريبادي ستياڤ ݢورو دان توݢس ݢنتينڽ.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.portal.students.tag">ڤلاجر</span>
+          <h3 data-i18n="schools.portal.students.title">ساتو تمڤت اونتوق بلاجر</h3>
+          <p data-i18n="schools.portal.students.body">ڤلاجرن يڠ دتوݢسکن بوليه دمأينکن دالم کلس اتاو د رومه، لمبرن کرجا اونتوق دهنتر، دان تيوتور يڠ تيدق کلوار درڤد باب ايت.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.portal.parents.tag">ايبو باڤ</span>
+          <h3 data-i18n="schools.portal.parents.title">اخيرڽ دمعلومکن</h3>
+          <p data-i18n="schools.portal.parents.body">توݢسن، مرکه دان تاريخ اخير ستياڤ انق — باچ سهاج، دان هاڽ اونتوق انق مريک سنديري.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── leadership ───────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="leadership">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.leadership.eyebrow">اونتوق کڤيمڤينن</p>
+        <h2 data-i18n="schools.leadership.heading">جواڤن، بوکن همڤرن.</h2>
+        <p class="sub" data-i18n="schools.leadership.sub">سموا يڠ دمينتا ڤجابت ڤڠتوا ڤد اول ميڠݢو — سوده دکيرا، دان سوده دتاڤيس مڠيکوت حق اورڠ يڠ برتاڽ.</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.leadership.analytics.tag">اناليتيک</span>
+          <h3 data-i18n="schools.leadership.analytics.title">سنراي ڤلاجر بريسيکو منوليس ديريڽ سنديري</h3>
+          <p data-i18n="schools.leadership.analytics.body">اکتيۏيتي سلوروه سکوله، ڤڽياڤن دان کرجا ترتوڠݢق دالم ساتو ڤنداڠن. ڤلاجر يڠ مولا سڽڤ، مروسوت اتاو کتيڠݢلن دتنداکن مڠيکوت ڤراتورن — ڤڽلارس مندڤت <b>سنراي برنام يڠ بوليه تروس دتينداکي</b>؛ ڤڠتوا مليهت اݢريݢت يڠ کمس مڠيکوت تيڠکتن.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.leadership.briefing.tag">تقليمت</span>
+          <h3 data-i18n="schools.leadership.briefing.title">تاڽ سکوله اندا ساتو سوءالن</h3>
+          <p data-i18n="schools.leadership.briefing.body">ڤمبنتو تقليمت يڠ منجاوب <b>درڤد اڠک لڠسوڠ سکوله اندا سهاج</b> — «ڤلاجر تاهون 5 يڠ مان ڤرلو دهوبوڠي ايبو باڤڽ ميڠݢو اين؟» — دان ستياڤ تقليمت دريکودکن دالم لوݢ اکسيس.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.leadership.support.tag">سوکوڠن ݢورو</span>
+          <h3 data-i18n="schools.leadership.support.title">کنل ڤستي سياڤ ڤرلوکن بنتوان</h3>
+          <p data-i18n="schools.leadership.support.body">ڤلاجرن، توݢسن دان تونݢݢقن ڤڽمقن ستياڤ ݢورو د سبله کماجوان کلسڽ — دڤاڤرکن سباݢاي <b>ڤتونجوق سوکوڠن، بوکن ڤمريڠکتن</b>، سوڤايا بنتوان تيبا سبلوم کلتيهن ملندا.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.leadership.governance.tag">تدبير اوروس</span>
+          <h3 data-i18n="schools.leadership.governance.title">سياڤ ليهت اڤ، سچارا برتوليس</h3>
+          <p data-i18n="schools.leadership.governance.body">ساتو هلامن اکسيس دالم بهاس موده مڽاتاکن دڠن تڤت اڤ يڠ بوليه دليهت اوليه ستياڤ ڤرانن، ڤڽلارس مندڤت <b>کبنرن برسکوڤ</b> (تيڠکتن مريک سهاج)، دان ستياڤ ڤاڤرن کڤيمڤينن ماسوق ک دالم لوݢ اوديت.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── timetable ────────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="timetable">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.timetable.eyebrow">جدوال وقتو</p>
+        <h2 data-i18n="schools.timetable.heading">ساتو ميڠݢو يڠ ممبينا ديريڽ — دان مڠݢنتي ديريڽ.</h2>
+        <p class="sub" data-i18n="schools.timetable.sub">تتڤکن وقتو مولا، ڤنجڠ وقتو ڤڠاجرن دان ريحت. SketchCast مڠيسي سلبيهڽ، دان مڠکلکنڽ برديري اڤابيلا اد يڠ تيدق حاضير.</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.timetable.generate.tag">جان اوتوماتيک</span>
+          <h3 data-i18n="schools.timetable.generate.title">ڤراتورن يڠ باءيق، ترڤاکاي د مان-مان</h3>
+          <p data-i18n="schools.timetable.generate.body"><b>ݢورو کلس ممبوک ستياڤ هاري</b>، مات ڤلاجرن تراس برجالن ستياڤ هاري اونتوق ستياڤ کلس، مات ڤلاجرن تمبهن مڠيسي رواڠ کوسوڠ دڠن کڤلباݢاين — دان تياد ݢورو دتمڤه دوا کالي اتاو ملبيهي حد وقتو هارينڽ.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.timetable.editable.tag">بوليه دسونتيڠ سڤنوهڽ</span>
+          <h3 data-i18n="schools.timetable.editable.title">ڤرتيمبڠن اندا يڠ منڠ</h3>
+          <p data-i18n="schools.timetable.editable.body">سيريت اونتوق عاليه اتاو توکر، <b>کونچي</b> سيل يڠ ڤنجان تيدق بوليه سنتوه، ساليڤ اتاو کوسوڠکن ساتو هاري، بطلکن اڤ سهاج. وقتو ستياڤ ماس دتربيتکن درڤد وقتو مولا دان ريحت اندا — اوبه ساتو نومبور، سلوروه هاري برعاليه.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.timetable.cover.tag">ݢنتي کتيدقحاضيرن</span>
+          <h3 data-i18n="schools.timetable.cover.title">تيدق حاضير ڤوکول 7:02، دݢنتي منجلڠ 7:03</h3>
+          <p data-i18n="schools.timetable.cover.body">تنداکن سأورڠ ݢورو تيدق حاضير دان ستياڤ ڤلاجرن مندڤت ڤلن ݢنتي — ݢورو مات ڤلاجرن دهولو، کمودين ݢورو کلس، کمودين يڠ ڤاليڠ ريڠن بيباننڽ، <b>هاڽ درڤد ستف يڠ ماسيه اد رواڠ ڤد هاري ايت</b>. تياد ݢنتي؟ اي برتروس-ترڠ ممبريتاهو.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.timetable.personal.tag">جدوال ڤريبادي</span>
+          <h3 data-i18n="schools.timetable.personal.title">سموا اورڠ تاهو د مان ڤرلو براد</h3>
+          <p data-i18n="schools.timetable.personal.body">ستياڤ ݢورو مليهت جدوال مڠݢوانڽ سنديري دان سبارڠ <b>توݢس ݢنتي</b> درڤد لوݢ ماسوقڽ سنديري؛ ستياڤ ڤلاجر مليهت ݢريد کلسڽ، لڠکڤ دڠن ريحت دان وقتو.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── lessons ──────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="lessons">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.lessons.eyebrow">اينجين بيليق درجه</p>
+        <h2 data-i18n="schools.lessons.heading">بوکو تيکس اندا، تروس دأجر.</h2>
+        <p class="sub" data-i18n="schools.lessons.sub">اينجين يڠ سام يڠ دݢمري ݢورو ڤرسنديرين، کيني ڤد سکالا سکوله: موات نايق بوکو يڠ سکوله اندا بنر-بنر اجر، دان ستياڤ باب منجادي کيت يڠ لڠکڤ.</p>
+      </div>
+      <div class="feat feat-3">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.kit.tag">کيت ڤنوه</span>
+          <h3 data-i18n="schools.lessons.kit.title">انم بهاݢين، ساتو کليک</h3>
+          <p data-i18n="schools.lessons.kit.body">ستياڤ جاناءن مڠهاسيلکن کيت لڠکڤ سکالي ݢوس — ڤلاجرن ۏيديو برناراسي يڠ ملوکيس ديريڽ، سلايد بوليه سونتيڠ، رنچاڠن ڤڠاجرن، اکتيۏيتي، لمبرن کرجا دان کرتس ڤڤريقساءن — <b>برڤقسيکن باب ايت سنديري</b>، بوکن اينترنيت.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.parts.tag">باب ڤنجڠ</span>
+          <h3 data-i18n="schools.lessons.parts.title">بهاݢين، بوکن مارتون</h3>
+          <p data-i18n="schools.lessons.parts.body">باب يڠ ڤنجڠ دڤيچهکن کڤد <b>بهاݢين سبسر ساتو وقتو ڤڠاجرن</b> — ستياڤ ساتو دڠن ۏيديو دان کيتڽ سنديري، دجان اتس ڤرمينتاءن؛ جادي باب 40 هلامن منجادي امڤت ڤلاجرن يڠ بوليه دأجر.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.languages.tag">9 بهاس</span>
+          <h3 data-i18n="schools.lessons.languages.title">دأجر دالم بهاس اندا</h3>
+          <p data-i18n="schools.lessons.languages.body">بهاس بوکو دکسن سچارا اوتوماتيک، دان ڤلاجرن دناراسيکن دڠن سوارا يڠ سڤادن — ترماسوق <b>بهاس عرب يڠ دچرمينکن سڤنوهڽ درڤد کانن ک کيري</b>.</p>
+          <!-- Endonyms — never translated. See index.html. -->
+          <ul class="langs" style="margin-top:14px">
+            <li>English</li><li>Bahasa Melayu</li><li class="rtl" lang="ar" dir="rtl">العربية</li><li>Français</li><li>Español</li><li>Português</li><li lang="te">తెలుగు</li><li lang="mr">मराठी</li><li lang="hi">हिन्दी</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.assign.tag">توݢس + جيجق</span>
+          <h3 data-i18n="schools.lessons.assign.title">درڤد دجان کڤد دسمق</h3>
+          <p data-i18n="schools.lessons.assign.body">توݢسکن مان-مان ايتم کڤد ساتو کلس دڠن تاريخ اخير؛ هنترن کمبالي <b>برمرکه اوتوماتيک</b> دڠن مرکه ݢورو د اتسڽ — ريکود يڠ سام ايتوله يڠ دباچ اوليه اناليتيک کڤيمڤينن.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.coach.tag">Ask Coach</span>
+          <h3 data-i18n="schools.lessons.coach.title">تيوتور يڠ تيدق لاري درڤد هلامن</h3>
+          <p data-i18n="schools.lessons.coach.body">ڤلاجر ڤد ڤلن سکوله مندڤت <b>Ask Coach</b>: تيوتور يڠ ترکونچي ڤد باب يڠ دتوݢسکن — اي منرڠکن، مڠوجي دان مڠولڠ کاجي درڤد بوکو ايت، تيدق سکالي-کالي دري لوار.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.lessons.health.tag">کصيحتن بوکو</span>
+          <h3 data-i18n="schools.lessons.health.title">ايمبسن بوروق دتندا اول</h3>
+          <p data-i18n="schools.lessons.health.body">ستياڤ بوکو يڠ دموات نايق مندڤت <b>سکور کصيحتن</b> سماس ڤڠيندکسن — کواليتي تيکس، ستروکتور، مسئله يڠ دکسن — سوڤايا ايسو کواليتي مونچول سبلوم سأورڠ ݢورو ممبينا ساتو ميڠݢو د اتسڽ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── parents ──────────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section" id="parents">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.parents.eyebrow">اونتوق ايبو باڤ</p>
+        <h2 data-i18n="schools.parents.heading">کاد لاڤورن، ستياڤ هاري.</h2>
+        <p class="sub" data-i18n="schools.parents.sub">ايبو باڤ مڽرتاي ملالوءي جمڤوتن سکوله، سوده ڤون ترڤاءوت کڤد انق مريک سنديري — تياد اڤ يڠ ڤرلو دسدياکن، تياد اڤ يڠ لبيه اونتوق دليهت.</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.parents.progress.tag">کماجوان</span>
+          <h3 data-i18n="schools.parents.progress.title">ستياڤ انق، دالم ساتو ڤنداڠن</h3>
+          <p data-i18n="schools.parents.progress.body">توݢسن، ڤڽياڤن، مرکه دان ڤننداءن لمبت باݢي ستياڤ انق — <b>باچ سهاج</b>، ترحد کڤد انق مريک سنديري دان بوکن انق اورڠ لاءين.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.parents.calendar.tag">کالندر</span>
+          <h3 data-i18n="schools.parents.calendar.title">تاريخ سکوله د تمڤت کلوارݢ مليهت</h3>
+          <p data-i18n="schools.parents.calendar.body">اچارا سکوله دان تاريخ کلس، <b>بوليه دلڠݢن</b> ک دالم کالندر Google، Outlook اتاو Apple — دڠن تاريخ اخير توݢسن توروت تربوا دالم کالندر اڤليکاسي.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.parents.invitations.tag">جمڤوتن</span>
+          <h3 data-i18n="schools.parents.invitations.title">دجمڤوت، بوکن مندفتر سنديري</h3>
+          <p data-i18n="schools.parents.invitations.body">سکوله مڠلوارکن جمڤوتن ستياڤ ايبو باڤ <b>دڠن ڤاءوتن انق سوده دلمڤيرکن</b> — جادي اکسيس دبريکن سچارا سڠاج، بوکن دتونتوت سنديري.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.parents.practical.tag">ڤراکتيکل</span>
+          <h3 data-i18n="schools.parents.practical.title">هال کچيل، سوده دأوروسکن</h3>
+          <p data-i18n="schools.parents.practical.body">کات لالوان يڠ ترلوڤا ککل دالم کلوارݢ: ايبو باڤ منتڤکن سمولا لوݢ ماسوق انق سنديري دان مڽرهکن <b>کات لالوان سکالي ݢونا</b> يڠ واجب دتوکر ڤد لوݢ ماسوق بريکوتڽ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── trust ────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap" id="trust">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="schools.trust.eyebrow">تدبير اوروس درڤد اساسڽ</p>
+        <h2 data-i18n="schools.trust.heading">دبينا اونتوق سکوله يڠ برتڠݢوڠجواب کڤد ايبو باڤ.</h2>
+      </div>
+      <div class="trust">
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.trust.isolation.tag">ڤڠاسيڠن</span>
+          <h3 data-i18n="schools.trust.isolation.title">ديندڠ د دالم ڤڠکالن داتا</h3>
+          <p data-i18n="schools.trust.isolation.body">ستياڤ باچاءن دتاڤيس مڠيکوت ڤرانن <b>د لاڤيسن ڤڠکالن داتا</b> — ڤلاجر مليهت کرجاڽ سنديري، ݢورو مليهت کلسڽ، ڤڽلارس مليهت تيڠکتنڽ. URL تيدق ڤرنه منتوکن اڤ-اڤ.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.trust.audit.tag">اوديت</span>
+          <h3 data-i18n="schools.trust.audit.title">اکسيس کڤيمڤينن، دلوݢ</h3>
+          <p data-i18n="schools.trust.audit.body">ستياڤ کالي کڤيمڤينن مليهت داتا ڤلاجر — ڤاڤن ڤموک ماهوڤون تقليمت — اي دتوليس ک دالم <b>لوݢ اکسيس</b> يڠ بوليه دباچ اوليه ڤنتدبير سکوله.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.trust.provisioning.tag">ڤڽدياءن اکاءون</span>
+          <h3 data-i18n="schools.trust.provisioning.title">اکاءون ستف، دأوروس</h3>
+          <p data-i18n="schools.trust.provisioning.body">اکاءون ݢورو دان ڤنتدبير <b>دسدياکن برسام ستف SketchCast</b>، بوکن دفتر سنديري — سنراي ککل دسڠاجاکن، ڤليسينن ککل بوليه دجڠک.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="schools.trust.support.tag">سوکوڠن</span>
+          <h3 data-i18n="schools.trust.support.title">لاڤورن کمبالي دڠن جواڤن</h3>
+          <p data-i18n="schools.trust.support.body">ݢورو دان ستف بوليه ملاڤورکن مسئله دالم اڤليکاسي دان مڠيکوتي ستاتوسڽ — دتريما، دسمق، دبايکي — درڤد <b>لوچيڠ ڤمبريتاهوان</b>، لڠکڤ دڠن نوتا ڤڽلساين.</p>
+        </div>
+      </div>
+      <p class="dpa-note" data-i18n="schools.trust.dpa">ڤرجنجين ڤمڤروسيسن داتا ترسديا اونتوق سکوله — ليهت <a href="/ms-arab/privacy">داسر ڤريۏاسي</a> کامي اونتوق ݢمبرن ڤنوه.</p>
+    </div>
+  </section>
+
+  <!-- ── final CTA ────────────────────────────────────────────────────── -->
+  <section class="cta">
+    <div class="wrap reveal">
+      <h2 data-i18n="schools.cta.heading" data-i18n-mark="circle">ملقساناکنڽ اونتوق <span class="circle">سکوله اندا<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span>؟</h2>
+      <p class="cta-sub" data-i18n="schools.cta.sub">تياد سنراي هرݢ عوام — کامي مڽسواءيکن سبوت هرݢ مڠيکوت سايز دان کڤرلوان اندا، دان مڽدياکن چيري-چيريڽ برسام اندا سماس ڤرمولاءن.</p>
+      <ul class="tiers"><li data-i18n="schools.cta.tier1">Essentials</li><li data-i18n="schools.cta.tier2">Professional</li><li data-i18n="schools.cta.tier3">Enterprise</li></ul>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school" data-i18n="schools.cta.primary">هوبوڠي جوالن</a>
+        <a class="btn btn-ghost" href="/ms-arab/pricing#schools" data-i18n="schools.cta.secondary">هرݢ ݢورو &amp; ايبو باڤ</a>
+      </div>
+      <p class="cta-note" data-i18n="schools.cta.note">ماهو چوبا دهولو؟ مان-مان ݢورو بوليه <a href="https://app.sketchcast.app">مولا ڤرچوما</a> هاري اين.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — ساتو باب، تروس دأجر" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/ms-arab/" data-i18n="common.nav.home">اوتام</a>
+        <a href="/ms-arab/about" data-i18n="common.nav.about">تنتڠ کامي</a>
+        <a href="/ms-arab/schools" aria-current="page" data-i18n="common.nav.schools">اونتوق سکوله</a>
+        <a href="/ms-arab/pricing" data-i18n="common.nav.pricing">هرݢ</a>
+        <a href="/ms-arab/privacy" data-i18n="common.footer.privacy">ڤريۏاسي</a>
+        <a href="/ms-arab/terms" data-i18n="common.footer.terms">ترما</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">هوبوڠي</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="Aethel Twin د LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <!--i18n:footer-lang-->
+  <nav class="i18n-foot-lang" aria-label="بهاس">
+    <b>هلامن اين دالم بهاس لاءين</b>
+    <a href="https://sketchcast.app/schools" lang="en" hreflang="en" dir="ltr">English</a>
+    <a href="https://sketchcast.app/ms/schools" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a>
+    <a href="https://sketchcast.app/ar/schools" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a>
+    <a href="https://sketchcast.app/fr/schools" lang="fr" hreflang="fr" dir="ltr">Français</a>
+    <a href="https://sketchcast.app/es/schools" lang="es" hreflang="es" dir="ltr">Español</a>
+    <a href="https://sketchcast.app/pt/schools" lang="pt" hreflang="pt" dir="ltr">Português</a>
+    <a href="https://sketchcast.app/te/schools" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a>
+    <a href="https://sketchcast.app/mr/schools" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a>
+    <a href="https://sketchcast.app/hi/schools" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a>
+    <a href="https://sketchcast.app/ms-arab/schools" lang="ms-Arab" hreflang="ms-Arab" dir="rtl" aria-current="true">بهاس ملايو — Jawi (Malay)</a>
+  </nav>
+<!--/i18n:footer-lang-->
+    <p class="foot-legal" data-i18n="common.footer.legal">ڤرودوق <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · ستاتوس Malaysia Digital نومبور MD/0002997</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

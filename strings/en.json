@@ -1,0 +1,717 @@
+{
+  "_readme": [
+    "ENGLISH IS THE SCHEMA. Every other strings/<locale>.json is this file with the",
+    "same keys and translated values — build-i18n.mjs refuses to emit a locale whose",
+    "shape does not match. Keys are page.section.item and are STABLE: rename a key and",
+    "you throw away nine translations of it, so add a new one instead.",
+    "",
+    "INLINE MARKUP. Most values are plain text. A value keeps HTML inside it only when",
+    "the sentence genuinely contains it — emphasis that has to move with the words, or",
+    "a link whose anchor text is part of the sentence. Three tags appear:",
+    "  <strong>/<b>/<em>  emphasis. Move it to whatever words carry the stress in your",
+    "                     language; never delete it.",
+    "  <a href=\"…\">       a link. Translate the words, NEVER touch the href — the build",
+    "                     compares your opening tags against English and fails on a",
+    "                     changed URL. Locale prefixes are added by the build.",
+    "  <mark>…</mark>     the words the hand-drawn ink stroke is drawn under. Exactly one",
+    "                     pair per value; the stroke itself is markup, not your problem.",
+    "  <br />             a hard line break in a postal address.",
+    "Everything else — the SVG marks, layout, classes — lives in the HTML and never",
+    "reaches a translator.",
+    "",
+    "PLACEHOLDERS. {name} in single braces is filled in at runtime (pricing only). Move",
+    "it inside the sentence, never rename it.",
+    "",
+    "NOT HERE, ON PURPOSE: the language names in the switcher (each is written in its",
+    "own language, so it is never translated), the nine endonyms in the language pills,",
+    "brand and provider names, prices, and company/registration numbers."
+  ],
+
+  "common": {
+    "nav": {
+      "how": "How it works",
+      "free": "What's free",
+      "outcomes": "Outcomes",
+      "schools": "For schools",
+      "pricing": "Pricing",
+      "about": "About",
+      "home": "Home",
+      "login": "Log in",
+      "startFree": "Start free",
+      "backHome": "SketchCast AI"
+    },
+    "footer": {
+      "sealAlt": "SketchCast AI — a chapter, taught",
+      "copyright": "© 2026 SketchCast AI",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact",
+      "linkedIn": "Aethel Twin on LinkedIn",
+      "legal": "A product of <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Malaysia Digital status MD/0002997",
+      "legalPlain": "A product of Aethel Twin Sdn. Bhd. (202601012908) · Malaysia Digital status MD/0002997"
+    },
+    "lang": {
+      "label": "Language",
+      "choose": "Choose your language",
+      "footerLabel": "This page in other languages"
+    },
+    "legal": {
+      "translationNotice": "This is a translation provided for your convenience. If it differs from the English version, the English version applies."
+    }
+  },
+
+  "index": {
+    "meta": {
+      "title": "SketchCast AI — A textbook chapter, taught",
+      "description": "Upload a textbook chapter and SketchCast draws the full lesson kit in one click — a narrated video, editable deck with Socratic notes, plan, activities, worksheet and exam. Free for teachers and students.",
+      "ogTitle": "SketchCast AI — A textbook chapter, taught",
+      "ogDescription": "Upload a chapter; one click generates the full kit — narrated video, editable deck, plan, worksheets and exam. Free for teachers and students."
+    },
+    "hero": {
+      "eyebrow": "Textbook PDF → narrated lesson",
+      "headline": "A textbook chapter that <mark>teaches itself</mark>.",
+      "sub": "Upload a chapter. One click generates the full kit — a narrated video that draws itself, an editable deck with Socratic notes, a lesson plan, activities, a worksheet and an exam — then assign it and see who's done. Minutes, not evenings.",
+      "ctaPrimary": "Start free",
+      "ctaSecondary": "See how it works",
+      "stat": "<b>0</b> setup &nbsp;·&nbsp; <b>minutes</b> to generate &nbsp;·&nbsp; <b>$0</b> to start"
+    },
+    "demo": {
+      "tag": "live render",
+      "chapter": "Chapter 4 · Photosynthesis",
+      "title": "How plants make food",
+      "bullet1": "Leaves capture sunlight with chlorophyll",
+      "bullet2": "Water + CO&#8322; become sugar and oxygen",
+      "node1": "Sunlight",
+      "node2": "Sugar + O&#8322;"
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "heading": "PDF in, lesson out.",
+      "sub": "Three steps. You bring the chapter; SketchCast does the drawing.",
+      "step1": {
+        "num": "01",
+        "title": "Upload a chapter",
+        "body": "Drop in a textbook chapter as a PDF. No setup, no formatting."
+      },
+      "step2": {
+        "num": "02",
+        "title": "SketchCast builds it",
+        "body": "It writes Socratic narration and draws the whole kit — slides, video, plan, worksheets and exam together."
+      },
+      "step3": {
+        "num": "03",
+        "title": "Teach or assign",
+        "body": "Play it in class, or assign the chapter to a class and watch who finishes."
+      }
+    },
+    "outcomes": {
+      "eyebrow": "Outcomes",
+      "heading": "Get your evenings back.",
+      "stat1": {
+        "big": "Min<em>utes</em>",
+        "body": "A chapter becomes a narrated lesson — deck + video — you can teach or assign."
+      },
+      "stat2": {
+        "big": "1<em> click</em>",
+        "body": "One generate = the full kit: video lesson, deck, plan, activities, worksheet and exam — the documents come free with every lesson."
+      },
+      "stat3": {
+        "big": "$0",
+        "body": "Start free: make and assign your first lessons at no cost during the open trial."
+      }
+    },
+    "free": {
+      "eyebrow": "What's free",
+      "heading": "Everything to make your first lessons.",
+      "card1": {
+        "tag": "deck + notes",
+        "title": "Editable deck with Socratic notes",
+        "body": "A clean slide deck where each slide's speaker notes carry the Socratic questions — open and edit it in PowerPoint, Google Slides or Keynote."
+      },
+      "card2": {
+        "tag": "narrated video",
+        "title": "A lesson that draws itself",
+        "body": "One narrated video where the slide's words write on as the voice teaches — assign it as homework or play it in class."
+      },
+      "card3": {
+        "tag": "assign + track",
+        "title": "Classes, assignments, progress",
+        "body": "Create a class, hand out logins, assign a chapter, and see who has completed, revised or not started — all in one place."
+      },
+      "card4": {
+        "tag": "worksheets + exams",
+        "title": "Practice, graded for you",
+        "body": "Worksheets and exams arrive free with every lesson's kit; students take them in-app and the objective questions are graded automatically."
+      },
+      "langsNote": "All of it in <b>nine languages</b> — detected from your book automatically, narrated in a matching voice, with Arabic fully right-to-left:"
+    },
+    "cta": {
+      "heading": "Make your first lesson <mark>today</mark>.",
+      "sub": "Free to start for teachers and students. No credit card.",
+      "button": "Start free"
+    }
+  },
+
+  "schools": {
+    "meta": {
+      "title": "SketchCast — For Schools",
+      "description": "One portal for your whole school: role-scoped dashboards for leadership, a timetable that generates and covers itself, textbook-grounded lessons in nine languages, and parents kept in the loop — governed by design.",
+      "ogTitle": "SketchCast — For Schools",
+      "ogDescription": "Role-scoped dashboards, a self-running timetable with auto-cover, textbook lessons in nine languages, and parents in the loop — one portal for the whole school."
+    },
+    "hero": {
+      "eyebrow": "For schools",
+      "headline": "Your <mark>whole school</mark>, teaching from one place.",
+      "sub": "Leadership sees the school clearly, teachers get lessons made from their own textbooks, the timetable writes and covers itself, and parents stay in the loop — each behind their own login, seeing only what's theirs.",
+      "ctaPrimary": "Contact sales",
+      "ctaSecondary": "See pricing",
+      "stat": "<b>5 roles</b> · <b>9 languages</b> · <b>1 portal</b> — your school's own address"
+    },
+    "timetableCard": {
+      "alt": "A weekly class timetable: period 1 is always the class teacher, and an absent teacher's lesson is automatically covered.",
+      "title": "Class 5 Putra — week",
+      "chip": "auto-generated",
+      "periods": { "p1": "P1", "p2": "P2", "p3": "P3", "p4": "P4", "p5": "P5" },
+      "days": { "mon": "MON", "tue": "TUE", "wed": "WED" },
+      "subjects": {
+        "bm": "BM",
+        "mat": "MAT",
+        "sci": "SCI",
+        "en": "EN",
+        "pe": "PE",
+        "art": "ART",
+        "mus": "MUS"
+      },
+      "keyP1": "P1 — the class teacher, every day",
+      "keyCover": "auto-cover — Ms Farah steps in"
+    },
+    "portal": {
+      "eyebrow": "One door for every role",
+      "heading": "Your school gets its own address.",
+      "sub": "Principals, coordinators, teachers, students and parents each sign in through your school's portal — and the data walls between them are enforced in the database, not just the interface.",
+      "url": "school.sketchcast.app/<b>your-school</b>",
+      "leadership": {
+        "tag": "leadership",
+        "title": "See the school clearly",
+        "body": "Live dashboards, an at-risk worklist, and an assistant that answers questions about your own data."
+      },
+      "teachers": {
+        "tag": "teachers",
+        "title": "Teach, don't typeset",
+        "body": "Full lesson kits from the school's own textbooks, plus each teacher's personal week and cover duties."
+      },
+      "students": {
+        "tag": "students",
+        "title": "One place to learn",
+        "body": "Assigned lessons that play in class or at home, worksheets to hand in, and a tutor that sticks to the chapter."
+      },
+      "parents": {
+        "tag": "parents",
+        "title": "Finally in the loop",
+        "body": "Each child's assignments, scores and due dates — read-only, and only for their own children."
+      }
+    },
+    "leadership": {
+      "eyebrow": "For leadership",
+      "heading": "Answers, not spreadsheets.",
+      "sub": "Everything a principal's office asks for on a Monday morning — already computed, already scoped to who's asking.",
+      "analytics": {
+        "tag": "analytics",
+        "title": "The at-risk list writes itself",
+        "body": "Whole-school activity, completion and overdue work at a glance. Students who go quiet, slip or fall behind are flagged by rule — coordinators get a <b>named, actionable worklist</b>; principals see clean aggregates by grade."
+      },
+      "briefing": {
+        "tag": "briefing",
+        "title": "Ask the school a question",
+        "body": "A briefing assistant that answers from <b>your school's live numbers only</b> — \"which Grade 5 students need a call home this week?\" — with every briefing recorded in the access log."
+      },
+      "support": {
+        "tag": "teacher support",
+        "title": "Spot who needs backup",
+        "body": "Each teacher's lessons, assignments and grading backlog next to their classes' progress — framed as <b>support flags, not rankings</b>, so help arrives before burnout does."
+      },
+      "governance": {
+        "tag": "governance",
+        "title": "Who sees what, in writing",
+        "body": "A plain-language access page states exactly what every role can see, coordinators get <b>scoped grants</b> (their grades, nothing more), and leadership views land in an audit log."
+      }
+    },
+    "timetable": {
+      "eyebrow": "The timetable",
+      "heading": "A week that builds itself — and covers itself.",
+      "sub": "Set your start time, period length and breaks. SketchCast fills the rest, and keeps it standing when someone calls in sick.",
+      "generate": {
+        "tag": "auto-generate",
+        "title": "Good rules, applied everywhere",
+        "body": "The <b>class teacher opens every day</b>, core subjects run daily for every class, enrichment fills the gaps with variety — and no teacher is ever double-booked or pushed past their daily cap."
+      },
+      "editable": {
+        "tag": "fully editable",
+        "title": "Your judgement wins",
+        "body": "Drag to move or swap, <b>lock</b> the cells the generator must never touch, copy or clear a day, undo anything. Period times are derived from your start time and breaks — change one number, the whole day shifts."
+      },
+      "cover": {
+        "tag": "absence cover",
+        "title": "Absent at 7:02, covered by 7:03",
+        "body": "Mark a teacher absent and every lesson gets a cover plan — subject teacher first, then class teacher, then the lightest load, <b>only from staff with room in their day</b>. No cover available? It says so, honestly."
+      },
+      "personal": {
+        "tag": "personal weeks",
+        "title": "Everyone knows where to be",
+        "body": "Every teacher sees their own week and any <b>cover duties</b> from their own login; every student sees their class grid, breaks and times included."
+      }
+    },
+    "lessons": {
+      "eyebrow": "The classroom engine",
+      "heading": "Your textbooks, taught.",
+      "sub": "The same engine individual teachers love, at school scale: upload the books your school actually teaches from, and every chapter becomes a complete kit.",
+      "kit": {
+        "tag": "full kit",
+        "title": "Six pieces, one click",
+        "body": "Every generate produces the complete kit together — a narrated video lesson that draws itself, an editable deck, a lesson plan, activities, a worksheet and an exam paper — <b>grounded in the chapter</b>, not the internet."
+      },
+      "parts": {
+        "tag": "long chapters",
+        "title": "Parts, not marathons",
+        "body": "Long chapters split into <b>classroom-sized parts</b> — each with its own video and kit, generated on demand, so a 40-page chapter becomes four teachable lessons."
+      },
+      "languages": {
+        "tag": "9 languages",
+        "title": "Taught in your language",
+        "body": "The book's language is detected automatically, and lessons narrate in a matching voice — including <b>fully mirrored right-to-left Arabic</b>."
+      },
+      "assign": {
+        "tag": "assign + track",
+        "title": "From generated to graded",
+        "body": "Assign any item to a class with a due date; submissions come back <b>auto-scored</b> with the teacher's mark on top — the same records leadership analytics read."
+      },
+      "coach": {
+        "tag": "ask coach",
+        "title": "A tutor that stays on the page",
+        "body": "Students on school plans get <b>Ask Coach</b>: a tutor locked to the assigned chapter — it explains, quizzes and recaps from the book, never from outside it."
+      },
+      "health": {
+        "tag": "book health",
+        "title": "Bad scans flagged early",
+        "body": "Every uploaded book gets a <b>health score</b> at indexing — text quality, structure, detected problems — so quality issues surface before a teacher builds a week on them."
+      }
+    },
+    "parents": {
+      "eyebrow": "For parents",
+      "heading": "The report card, every day.",
+      "sub": "Parents join by school invitation, already linked to their own children — nothing to set up, nothing extra to see.",
+      "progress": {
+        "tag": "progress",
+        "title": "Each child, at a glance",
+        "body": "Assignments, completion, scores and overdue flags per child — <b>read-only</b>, scoped to their own children and no one else's."
+      },
+      "calendar": {
+        "tag": "calendar",
+        "title": "School dates where families look",
+        "body": "School events and class dates, <b>subscribable</b> into Google, Outlook or Apple calendars — with assignment deadlines riding along on the in-app calendar."
+      },
+      "invitations": {
+        "tag": "invitations",
+        "title": "Invited, not registered",
+        "body": "The school issues each parent invite <b>with the child link already attached</b> — so access is granted deliberately, never self-claimed."
+      },
+      "practical": {
+        "tag": "practical",
+        "title": "Small things, handled",
+        "body": "Forgot passwords stay in the family: a parent resets their own child's login and hands over a <b>one-time password</b> that must be changed at next sign-in."
+      }
+    },
+    "trust": {
+      "eyebrow": "Governed by design",
+      "heading": "Built for schools that answer to parents.",
+      "isolation": {
+        "tag": "isolation",
+        "title": "Walls in the database",
+        "body": "Every read is scoped by role <b>at the database layer</b> — a student sees their own work, a teacher their classes, a coordinator their grades. The URL never decides."
+      },
+      "audit": {
+        "tag": "audit",
+        "title": "Leadership access, logged",
+        "body": "Every leadership view of student data — dashboards and briefings alike — is written to an <b>access log</b> the school admin can read."
+      },
+      "provisioning": {
+        "tag": "provisioning",
+        "title": "Staff accounts, managed",
+        "body": "Teacher and admin accounts are <b>provisioned with SketchCast staff</b>, not self-served — rosters stay deliberate, licensing stays predictable."
+      },
+      "support": {
+        "tag": "support",
+        "title": "Reports come back answered",
+        "body": "Teachers and staff can report a problem in-app and follow its status — received, reviewed, fixed — from a <b>notification bell</b>, with the resolution note attached."
+      },
+      "dpa": "Data processing agreement available for schools — see our <a href=\"/privacy\">privacy policy</a> for the full posture."
+    },
+    "cta": {
+      "heading": "Rolling it out for <mark>your school</mark>?",
+      "sub": "No public price list — we tailor a quote to your size and needs, and set your features up with you during onboarding.",
+      "tier1": "Essentials",
+      "tier2": "Professional",
+      "tier3": "Enterprise",
+      "primary": "Contact sales",
+      "secondary": "Teacher &amp; parent pricing",
+      "note": "Prefer to try it first? Any teacher can <a href=\"https://app.sketchcast.app\">start free</a> today."
+    }
+  },
+
+  "pricing": {
+    "meta": {
+      "title": "SketchCast — Pricing",
+      "description": "Simple pricing for teachers and parents — start free, upgrade when SketchCast saves you evenings. Teacher Pro, Pro+, and a Family plan, billed monthly or annually in USD. Schools get a tailored quote.",
+      "ogTitle": "SketchCast — Pricing",
+      "ogDescription": "Start free, upgrade when SketchCast saves you evenings. Teacher and Family plans in USD; schools get a tailored quote."
+    },
+    "hero": {
+      "eyebrow": "Pricing",
+      "headline": "Priced for every <mark>teacher</mark>, parent, and school.",
+      "sub": "Start free — everyone is on the house during the open trial. These are the plans for when it ends: teacher and parent subscriptions (billed in USD), and a tailored quote for schools."
+    },
+    "toggle": {
+      "label": "Billing period",
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "annualSaving": "2 months free",
+      "usd": "Prices in USD.",
+      "statusMonthly": "Monthly pricing shown.",
+      "statusAnnual": "Annual pricing shown.",
+      "perMonth": "/mo",
+      "perYear": "/yr",
+      "teacherPanel": "Teacher plans",
+      "parentPanel": "Parent plans"
+    },
+    "noscript": "Turn on JavaScript to see live plan prices, or <a href=\"https://app.sketchcast.app/signup\">start free</a> and pick a plan inside the app.",
+    "teachers": {
+      "eyebrow": "For teachers",
+      "heading": "Make every lesson, every week."
+    },
+    "parents": {
+      "eyebrow": "For parents",
+      "heading": "Practice and help at home.",
+      "note": "All paid plans are billed in USD. Cancel anytime."
+    },
+    "trial": {
+      "badge": "Free trial",
+      "message": "Try <strong>every feature free until {date}</strong> — no card needed. The prices below apply after.",
+      "remaining": "{left} left",
+      "cta": "Start free trial"
+    },
+    "plans": {
+      "teacherFree": {
+        "name": "Free",
+        "tag": "To try it on your next lesson",
+        "cta": "Start free",
+        "f1": "1 book, with the full six-piece kit for one chapter part",
+        "f2": "Slides, worksheets, quizzes & exams",
+        "f3": "Narrated lesson videos",
+        "f4": "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
+        "f5": "Assign to a class & track progress"
+      },
+      "teacherPro": {
+        "name": "Teacher Pro",
+        "tag": "Everything you need, every week",
+        "badge": "Most popular",
+        "cta": "Choose Teacher Pro",
+        "saveLabel": "Save $48 a year",
+        "f1": "16 lessons a month — unused roll over",
+        "f2": "Every lesson includes its full document kit free (plan, activities, worksheet, exam, case study)",
+        "f3": "2 new books a month",
+        "f4": "Long chapters always fully covered (multi-part videos)",
+        "f5": "All 9 lesson languages with matching voices",
+        "f6": "Editable PowerPoint & exports",
+        "f7": "Live fair-use meter in your Library — no surprises"
+      },
+      "teacherProPlus": {
+        "name": "Teacher Pro+",
+        "tag": "For power users and departments",
+        "cta": "Choose Teacher Pro+",
+        "saveLabel": "Save $98 a year",
+        "f1": "Everything in Teacher Pro, plus:",
+        "f2": "32 lessons a month — unused roll over",
+        "f3": "4 new books a month",
+        "f4": "AI Tutor",
+        "f5": "Priority generation",
+        "f6": "Early access to new features"
+      },
+      "parentFree": {
+        "name": "Free",
+        "tag": "See what your child gets",
+        "cta": "Start free",
+        "f1": "1 book, with practice for one chapter part",
+        "f2": "Papers in the book's own language"
+      },
+      "parentFamily": {
+        "name": "Family",
+        "tag": "Practice and help that actually sticks",
+        "cta": "Get Family",
+        "saveLabel": "2 months free",
+        "f1": "Up to 2 children",
+        "f2": "6 video lessons a month — practice papers & documents included free",
+        "f3": "Unused allowance rolls over a month",
+        "f4": "Practice papers in the book's own language (9 supported)",
+        "f5": "Homework help & AI explanations",
+        "f6": "Progress tracking",
+        "f7": "Live fair-use meter — no surprises"
+      }
+    },
+    "founding": {
+      "eyebrow": "Founding offer",
+      "name": "Founding Teacher",
+      "sub": "{plan} at <strong>{price}</strong>, locked for {months} months.",
+      "cap": "Only the first {n} teachers.",
+      "copy": "Copy code",
+      "copied": "Copied ✓",
+      "copyFailed": "Copy failed",
+      "copyAnnounce": "Discount code copied to clipboard.",
+      "copyFailedAnnounce": "Copy failed — select the code and copy it manually.",
+      "copyAria": "Copy code {code}",
+      "howTrial": "Your first month is free — start now, then paste this code at checkout to lock <strong>{price}</strong> when you subscribe.",
+      "howNormal": "At checkout, choose <strong>Monthly</strong> and paste this code in the discount field.",
+      "cta": "Claim founding price"
+    },
+    "schools": {
+      "eyebrow": "For schools",
+      "heading": "Rolling it out for a school?",
+      "sub": "Essentials, Professional and Enterprise tiers, priced to your size and needs. No public price — we tailor a quote to your school.",
+      "tier1": "Essentials",
+      "tier2": "Professional",
+      "tier3": "Enterprise",
+      "cta": "Contact sales",
+      "learn": "See what schools get"
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "About — SketchCast AI",
+      "description": "SketchCast is built by Aethel Twin Sdn. Bhd., a Malaysian AI company with Malaysia Digital (MD) status. Company registration, address, leadership and contact details.",
+      "ogTitle": "About — SketchCast AI",
+      "ogDescription": "SketchCast is built by Aethel Twin Sdn. Bhd., a Malaysian AI company with Malaysia Digital (MD) status. Company, leadership and contact details."
+    },
+    "hero": {
+      "eyebrow": "About",
+      "headline": "The company behind <mark>SketchCast</mark>",
+      "lead": "SketchCast is built by <strong>Aethel Twin Sdn. Bhd.</strong>, the Malaysian AI company incorporated in 2026 and awarded Malaysia Digital (MD) status by MDEC in May 2026.",
+      "sub": "SketchCast turns a school's own textbooks into complete teaching kits — narrated lesson videos, worksheets, exams and lesson plans — and wraps them in the operating layer a school actually runs on: timetabling, absences, analytics, a study coach for students and a parent portal."
+    },
+    "why": {
+      "eyebrow": "Why we built it",
+      "heading": "Why we built SketchCast",
+      "body": "Every AI teaching tool generates from prompts or from its own content library. Teachers don't teach from either — they teach from the book the school adopted. SketchCast starts there: index the school's own textbook, and produce lessons sized to a real class period, in the sequence the curriculum already follows.",
+      "quote": "&ldquo;For me the test was simple: if it doesn't begin with the book a teacher already trusts, it isn't really helping — so that's where we made SketchCast begin.&rdquo;",
+      "attribution": "— Muqtadar Quraishi, Founder &amp; CEO"
+    },
+    "team": {
+      "eyebrow": "Team",
+      "heading": "Team",
+      "role": "Founder &amp; CEO, Aethel Twin",
+      "bio": "Certified Management Accountant. Builds and ships SketchCast end to end — the generation pipeline that turns a textbook into a full teaching kit, and the school platform teachers and leaders run on.",
+      "inventor": "Inventor",
+      "linkedIn": "LinkedIn"
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "heading": "Contact",
+      "registration": "Registration No. 202601012908 (1675006-X)",
+      "incorporated": "Incorporated 3 April 2026 under the Companies Act 2016, Malaysia",
+      "address": "D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling,<br />Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia",
+      "ssmKey": "Company registration · SSM Malaysia",
+      "ssmNote": "Incorporated 3 April 2026, Companies Act 2016.",
+      "mdKey": "Malaysia Digital status · MDEC",
+      "mdNote": "Granted 13 May 2026."
+    }
+  },
+
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy — SketchCast AI",
+      "description": "How SketchCast AI collects, uses, and protects data — including how we protect students."
+    },
+    "h1": "Privacy Policy",
+    "updated": "Last updated: 31 July 2026 · Effective: 31 July 2026",
+    "intro1": "SketchCast AI (“SketchCast”, “we”, “us”, “our”) turns textbook chapters into narrated lessons, decks, videos, worksheets, and an optional book-grounded AI study assistant, for schools, teachers, parents, and their students. Many of our users are children, so we hold ourselves to a simple standard: <strong>collect the minimum, use it only to teach, never sell it, never advertise with it, never use it to train AI models, and never track behaviour for any purpose other than showing teachers and parents learning progress.</strong>",
+    "intro2": "This policy explains what we collect, why, who we share it with, how long we keep it, and the rights you have. It applies to <strong>sketchcast.app</strong> and <strong>app.sketchcast.app</strong>.",
+    "toc": {
+      "label": "On this page:",
+      "items": "1. Who we are &middot; 2. Which laws apply &middot; 3. What we collect &middot; 4. Children’s privacy &amp; the school’s role &middot; 5. How we use data &amp; our legal bases &middot; 6. AI processing &middot; 7. Who processes data for us (sub-processors) &middot; 8. International transfers &middot; 9. Cookies &amp; tracking &middot; 10. Retention &amp; deletion &middot; 11. Security &amp; breach notification &middot; 12. Your rights &middot; 13. Automated processing &middot; 14. Schools (DPA) &middot; 15. Changes &amp; contact"
+    },
+    "s1": {
+      "h": "1. Who we are",
+      "p1": "The service is operated by <strong>Aethel Twin Sdn. Bhd.</strong>, Registration No. 202601012908 (1675006-X), a company incorporated in Malaysia (“the operator”), registered at <strong>D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling, Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia</strong>. For the personal data described here, the operator is the data controller / data fiduciary — <em>except</em> for data inside a school’s workspace, where the <strong>school is the controller and we act as its processor</strong> under our agreement with the school (see §14).",
+      "p2": "Privacy contact / grievance officer: reachable at <a href=\"mailto:privacy@sketchcast.app\">privacy@sketchcast.app</a> (or <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>), tel +60 11-2088 2016. We aim to acknowledge requests within 72 hours and to resolve them within the timeframes set by applicable law."
+    },
+    "s2": {
+      "h": "2. Which laws apply to you",
+      "p1": "SketchCast is available in more than one country, so the protections you can rely on depend on where you and your school are. Wherever you are, the commitments above apply. In addition:",
+      "li1": "<strong>India</strong> — the Digital Personal Data Protection Act, 2023 (DPDP Act), including its provisions for children’s data and verifiable parental consent.",
+      "li2": "<strong>European Economic Area &amp; United Kingdom</strong> — the GDPR / UK GDPR, including the rules on children’s consent and on transfers outside the EEA/UK.",
+      "li3": "<strong>United States</strong> — where a US school uses SketchCast, the Children’s Online Privacy Protection Act (COPPA) — under which the school provides consent on parents’ behalf for the limited educational purpose here — and the Family Educational Rights and Privacy Act (FERPA), under which we act as a “school official” with a legitimate educational interest and use student records only as the school directs.",
+      "li4": "<strong>California</strong> — the CCPA/CPRA. We <strong>do not “sell” or “share”</strong> personal information as those terms are defined, and we honour the additional protections for consumers under 16.",
+      "li5": "<strong>Malaysia</strong> — the Personal Data Protection Act 2010 (PDPA).",
+      "p2": "If a mandatory local law gives you stronger rights than this policy describes, that law prevails."
+    },
+    "s3": {
+      "h": "3. What we collect",
+      "adultsH": "Teachers, parents, school admins, and coordinators (adults)",
+      "adultsP": "Name, email address, password (stored only as a salted hash by our authentication provider) or Google sign-in identity, role, and — for school staff — school affiliation. At sign-up we also collect a short profile you provide (e.g. the grades/subjects you teach, or, for a parent, how many children you support and their grade levels).",
+      "studentsH": "Students",
+      "studentsP": "Student accounts are created by a teacher, parent, or school — <strong>students never sign themselves up</strong>. For each student we store: name, a login ID, a parent/guardian email address (used for account communication only), class enrolment, and learning records — which lessons were assigned, completion status, quiz/worksheet answers and scores, any answer files the student submits, and — if the AI study assistant is used — the messages the student types to it and its replies (see §6). Where a school or family uses the <strong>diary</strong>, we also store the notes teachers and parents write about the student, any replies the student writes, and a record of which parent acknowledged which note and when.",
+      "healthH": "Health &amp; wellbeing notes in the diary",
+      "healthP": "The diary lets a parent or teacher record a note about a child's health or wellbeing — an absence, medication, an allergy, or a concern — so the adults teaching that child can act on it. We treat this as sensitive information: it is provided at the parent's or school's initiative, it is visible only to that child's teachers, their parents and their school's leadership, and it is <strong>never used for advertising and never used to train AI models</strong>. It is deleted with the student's record, and the author can delete it at any time. <strong>Please don't use the diary for medical emergencies</strong> — contact the school directly.",
+      "contentH": "Content you upload",
+      "contentP": "Textbook chapters and materials teachers/parents upload, and the lessons, decks, videos, and worksheets we generate from them.",
+      "paymentH": "Payment information (paid plans only)",
+      "paymentP": "If you buy a paid plan, our payment providers (see §7) collect and process your payment details. <strong>We do not receive or store full card numbers.</strong> We store only your plan, billing status, and a provider reference needed to manage the subscription.",
+      "technicalH": "Technical data",
+      "technicalP": "To keep the service running and secure we process basic technical data such as IP address, device/browser type, and error logs. We use <strong>no advertising or analytics trackers, no behavioural-profiling SDKs, and no cookies other than the session cookie that keeps you signed in.</strong> We do not collect student phone numbers, home addresses, photos, biometrics, or precise location."
+    },
+    "s4": {
+      "h": "4. Children’s privacy &amp; the school’s role",
+      "li1": "Student accounts exist only inside a school’s, teacher’s, or parent’s workspace and are created, named, and managed by that adult — acting with the parental consent required by applicable law (e.g. the DPDP Act, GDPR Art. 8, or COPPA’s school-consent mechanism).",
+      "li2": "Student data is used for exactly one purpose: delivering assigned lessons and showing the student’s own teachers, school, and parent how learning is going. We apply data minimisation — we ask for no more student data than that purpose needs.",
+      "li3": "We never advertise to students, never sell or share student data for commercial purposes, and <strong>never use student data (including AI-assistant conversations) to train AI models</strong>.",
+      "li4": "Access to student data is role-scoped: a teacher sees only their own classes; a coordinator sees only the grades assigned to them; a parent sees only their own children; leadership views of student-level data are recorded in an access log the school admin can review.",
+      "li5": "Parents or guardians may review, correct, or request deletion of their child’s data at any time — through the school/teacher, or directly at the contact in §1 — and may withdraw consent, which ends further processing of that child’s data."
+    },
+    "s5": {
+      "h": "5. How we use data &amp; our legal bases",
+      "li1": "<strong>To run the service</strong> — sign-in, generating teaching materials, assigning them, the AI study assistant, and recording progress and grades for the student’s own teachers, school, and parent. <em>Basis:</em> performance of our contract with you (or, for student data, the school’s instructions and consent).",
+      "li2": "<strong>To communicate about accounts</strong> — e.g. sending login credentials to a parent’s email, password resets, and service notices. <em>Basis:</em> contract / legitimate interests.",
+      "li3": "<strong>To keep the service secure, prevent abuse, and debug failures.</strong> <em>Basis:</em> legitimate interests / legal obligation.",
+      "li4": "<strong>To take payment</strong> for paid plans. <em>Basis:</em> contract.",
+      "p": "We do not use your data for advertising, and we do not sell it to anyone. Where we rely on consent (e.g. a child’s data, or premium voices), you may withdraw it at any time."
+    },
+    "s6": {
+      "h": "6. AI processing",
+      "p1": "SketchCast uses artificial intelligence in two ways, and we are precise about what is sent where:",
+      "li1": "<strong>Generating lessons.</strong> The <em>uploaded chapter content</em> is sent to Anthropic (Claude) to produce the lesson, deck, worksheet, and exam; the <em>lesson script text</em> is sent to Microsoft (Edge text-to-speech) or — only when a school enables premium voices — ElevenLabs, to produce narration. This step does not send student personal data.",
+      "li2": "<strong>The AI study assistant.</strong> When a teacher, parent, or <em>student</em> uses the optional assistant, the <strong>questions they type</strong> are sent to Anthropic (Claude), together with the relevant book/lesson content, so it can answer. This means a student’s typed messages are processed by our AI provider. A short constrained maths service (self-hosted) may also be called to check calculations. We store the assistant conversation for up to 30 days so the student can continue where they left off, and to let you review it.",
+      "li3": "<strong>Translating diary notes.</strong> When a reader taps “Translate” on a diary note, <strong>the text of that note and its replies</strong> is sent to Anthropic (Claude) to translate it into the chosen language, and the translation is stored so it never has to be produced twice. Only the message text is sent — no names, account ids or school details are attached — though a note written by a teacher or parent may of course mention a child by name. Anyone who can read a note can translate it, including the student.",
+      "p2": "Our AI providers process this content <strong>only to provide the service</strong>. Under their business terms they <strong>do not use it to train their models</strong> and are not permitted to use it for advertising. We do not use your content or your students’ data to train any AI model. The assistant is grounded in the book and is designed to give hints and method — not graded answers — but, like all AI, its output can contain errors and should be reviewed."
+    },
+    "s7": {
+      "h": "7. Who processes data for us (sub-processors)",
+      "p1": "We use a small number of vetted providers to run the service. Each processes data only on our instructions and under a data-processing agreement.",
+      "thProvider": "Provider",
+      "thWhat": "What they do",
+      "supabase": "Database, authentication, and file storage",
+      "vercel": "Hosts the web application",
+      "railway": "Runs the lesson-generation worker and maths service",
+      "cloudflare": "Serves this website",
+      "anthropic": "AI generation, the study assistant, and diary translation (§6)",
+      "tts": "Narration audio (ElevenLabs only when premium voices are enabled)",
+      "google": "Optional “Sign in with Google” for adult accounts only",
+      "resend": "Sends account and support emails",
+      "stripe": "Payments for school plans",
+      "lemonSqueezy": "Payments for parent/teacher plans (as Merchant of Record)",
+      "p2": "We will keep this list current and give schools notice of material changes to sub-processors that handle student data before they take effect."
+    },
+    "s8": {
+      "h": "8. International data transfers",
+      "p": "Some of the providers above are based in, or process data in, the United States and other countries outside your own. Where we transfer personal data across borders, we rely on appropriate safeguards — such as the European Commission’s Standard Contractual Clauses (and the UK Addendum), the providers’ own compliance commitments, and, for student data, the school’s instructions. You can ask us for details of the safeguards that apply to a given transfer."
+    },
+    "s9": {
+      "h": "9. Cookies &amp; tracking",
+      "p": "We use a single essential cookie — the session cookie that keeps you signed in. We do <strong>not</strong> use advertising cookies, analytics cookies, cross-site trackers, or “Do Not Track”-defeating techniques. Because we use only an essential cookie, no cookie-consent banner is required, but you can clear the cookie at any time by signing out."
+    },
+    "s10": {
+      "h": "10. Retention &amp; deletion",
+      "li1": "<strong>Account data</strong> is kept for as long as the account is active.",
+      "li2": "<strong>Uploaded books and generated content</strong> are kept until you delete them — teachers/parents can delete them at any time in the product.",
+      "li3": "<strong>Student learning records</strong> are deleted when the student is removed; removing a student deletes their profile and records with them.",
+      "li4": "<strong>AI-assistant conversations</strong> are kept for up to 30 days, then deleted.",
+      "li5": "<strong>Diary notes, replies and acknowledgments</strong> are kept while the account is active and are deleted with the student's record. The author of a note or reply can delete it at any time; deleting a note also deletes its replies, the acknowledgments on it, and any stored translations of it.",
+      "li6": "<strong>Technical logs</strong> are kept for a short period (typically up to 90 days) for security and debugging, then deleted or anonymised.",
+      "li7": "To <strong>close an account or delete a school’s data entirely</strong>, email us — we complete deletion within <strong>30 days</strong>, except where law requires longer retention (e.g. tax records of a payment). Backups are overwritten on a rolling cycle."
+    },
+    "s11": {
+      "h": "11. Security &amp; breach notification",
+      "p1": "Data is encrypted in transit; passwords are hashed; every database query is scoped by row-level security so users reach only data their role permits; files are served through short-lived signed links; leadership access to student-level data is audit-logged; payment card details never touch our servers. No system is perfectly secure, but minimal collection is our first protection — what we don’t hold can’t leak.",
+      "p2": "If a personal-data breach occurs that is likely to create a risk to you, we will notify the relevant supervisory authority and affected schools/users without undue delay and within the timeframes required by applicable law, and describe what happened and what we are doing about it."
+    },
+    "s12": {
+      "h": "12. Your rights",
+      "p1": "Subject to your local law, you have the right to: <strong>access</strong> the personal data we hold about you; <strong>correct</strong> it; <strong>delete</strong> it; obtain a <strong>copy</strong> in a portable format; <strong>restrict</strong> or <strong>object</strong> to certain processing; and <strong>withdraw consent</strong> where we rely on it. Parents and guardians may exercise these rights for their child. We do not discriminate against you for exercising them, and we will not sell or share your data.",
+      "p2": "To exercise a right, contact us at the address in §1 — if you are part of a school, your school admin can also action most requests directly in the product. If you believe we have mishandled your data, you may lodge a complaint with your local data-protection authority (for example, the Data Protection Board of India, an EU/EEA supervisory authority, the UK ICO, or the California Privacy Protection Agency)."
+    },
+    "s13": {
+      "h": "13. Automated processing",
+      "p": "Some features compute helpful signals automatically — for example a “book health” quality score at upload, an at-risk learning worklist for teachers, and auto-scoring of objective quiz questions. These assist a teacher’s judgment and are always reviewable and overridable by a human; <strong>we do not make decisions producing legal or similarly significant effects about a student by automated means alone.</strong> AI-generated teaching materials should always be reviewed by a teacher before classroom use."
+    },
+    "s14": {
+      "h": "14. Schools: our role &amp; a data-processing agreement",
+      "p": "When a school uses SketchCast, the school is the controller of its students’ data and we are its processor: we process student data only on the school’s documented instructions, for the educational purpose, and under confidentiality. Schools that need a formal Data Processing Addendum (DPA) — including sub-processor terms and, where relevant, Standard Contractual Clauses — can request one at the contact in §1."
+    },
+    "s15": {
+      "h": "15. Changes &amp; contact",
+      "p": "If we change this policy, we will update this page and its “Last updated” date, and notify schools of any material change affecting student data before it takes effect. Questions or requests: <a href=\"mailto:privacy@sketchcast.app\">privacy@sketchcast.app</a>."
+    },
+    "foot": {
+      "questions": "Questions or requests: <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>",
+      "links": "SketchCast AI · <a href=\"/about\">About</a> · <a href=\"/terms\">Terms of Service</a> · <a href=\"/\">sketchcast.app</a>"
+    }
+  },
+
+  "terms": {
+    "meta": {
+      "title": "Terms of Service — SketchCast AI",
+      "description": "The terms that govern use of SketchCast AI."
+    },
+    "h1": "Terms of Service",
+    "updated": "Last updated: 31 July 2026",
+    "intro": "These terms govern your use of SketchCast AI (“SketchCast”, “we”, “us”) — the service at sketchcast.app and app.sketchcast.app that turns textbook chapters into narrated lessons, decks, videos, worksheets, and an optional AI study assistant. The service is operated by <strong>Aethel Twin Sdn. Bhd.</strong>, Registration No. 202601012908 (1675006-X), registered at D-1-1, Bangi Gateway Shopping Complex, Persiaran Pekeliling, Seksyen 15, 43650 Bandar Baru Bangi, Selangor, Malaysia. By creating an account or using the service you agree to these terms. If you accept them on behalf of a school, you confirm you are authorised to do so.",
+    "s1": {
+      "h": "1. Accounts",
+      "li1": "<strong>Adults:</strong> teacher, coordinator, and school-admin accounts may be created only by people aged 18 or over, using accurate information.",
+      "li2": "<strong>Students:</strong> student accounts are created and managed by a teacher or school — never by students themselves. The school is responsible for obtaining any parental consent required by law before creating student accounts, and for managing those accounts responsibly.",
+      "li3": "Keep your credentials confidential. You are responsible for activity under your account; schools are responsible for the accounts they provision."
+    },
+    "s2": {
+      "h": "2. The service and AI-generated content",
+      "p": "SketchCast uses artificial intelligence to generate teaching materials from content you upload. <strong>AI-generated material can contain errors or omissions.</strong> Teachers must review generated lessons, worksheets, exams, and answer keys before classroom use — the service assists your teaching judgment; it does not replace it. Automatic quiz scoring is a convenience and may be overridden by the teacher."
+    },
+    "s3": {
+      "h": "3. Your content",
+      "li1": "You retain ownership of everything you upload. You grant us the limited licence needed to store and process it solely to provide the service to you and your school.",
+      "li2": "You confirm you have the legal right to upload the materials you submit — for example under your school’s licences or applicable educational-use provisions of copyright law. You are responsible for your uploads.",
+      "li3": "Generated materials may be used for teaching within your school or tuition practice. We claim no ownership of them.",
+      "li4": "We do not use your content or your students’ data to train AI models."
+    },
+    "s4": {
+      "h": "4. Acceptable use",
+      "p1": "Don’t misuse the service: no unlawful content, no attempting to access data outside your role or school, no probing or disrupting the systems, no reselling the service, and no use that harms students. We may suspend accounts that break these rules.",
+      "p2": "The <strong>diary</strong> is for communication about a child’s learning and care. Keep notes relevant and respectful — no abusive, defamatory, or irrelevant content about children, families, or staff. <strong>The diary is not a monitored or emergency channel:</strong> notes may not be read until the next school day, so for anything urgent — including a medical matter — contact the school directly."
+    },
+    "s5": {
+      "h": "5. Free and paid plans",
+      "p": "SketchCast offers a free tier and paid plans (for example teacher and parent subscriptions, and school plans), as described on our <a href=\"/pricing\">pricing page</a>. Paid plans renew for the billing period you choose until you cancel; you can cancel at any time and will keep access until the end of the paid period. Fees are stated exclusive of taxes unless noted, and are handled by our payment providers (see the Privacy Policy). Except where the law requires otherwise, payments already made are non-refundable. We may change plans, features, and pricing with reasonable notice; we will not retroactively charge for what you already used for free, and a price change will not affect the period you have already paid for."
+    },
+    "s6": {
+      "h": "6. Privacy",
+      "p": "Our <a href=\"/privacy\">Privacy Policy</a> — including how we protect students — is part of these terms."
+    },
+    "s7": {
+      "h": "7. Availability, disclaimers, and liability",
+      "p": "The service is provided “as is”, in active development, and without warranties of uninterrupted availability or error-free output. To the maximum extent permitted by law, our total liability for any claim relating to the service is limited to the amount you paid us in the twelve months before the claim (or RM 100 if you paid nothing). Nothing in these terms limits liability that cannot be limited by law."
+    },
+    "s8": {
+      "h": "8. Termination",
+      "p": "You may stop using the service and request deletion at any time. We may suspend or close accounts that violate these terms. Schools may export their materials before closure by downloading them from the dashboard."
+    },
+    "s9": {
+      "h": "9. Governing law",
+      "p": "These terms are governed by the laws of Malaysia, and disputes are subject to the courts of Selangor, Malaysia."
+    },
+    "s10": {
+      "h": "10. Changes",
+      "p": "We may update these terms as the service evolves. We will post changes here and notify account holders of material changes; continued use after a change means acceptance."
+    },
+    "foot": {
+      "questions": "Questions: <a href=\"mailto:hello@sketchcast.app\">hello@sketchcast.app</a>",
+      "links": "SketchCast AI · <a href=\"/about\">About</a> · <a href=\"/privacy\">Privacy Policy</a> · <a href=\"/\">sketchcast.app</a>"
+    }
+  }
+}

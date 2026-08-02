@@ -7,3 +7,6 @@
 
 # local editor / preview tooling
 .claude/
+
+# the site has no dependencies; this is only ever npx's scratch space
+node_modules/

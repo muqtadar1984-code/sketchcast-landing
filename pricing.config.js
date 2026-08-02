@@ -14,6 +14,13 @@
  * One product URL serves BOTH the monthly and annual variant — the customer
  * picks the billing cycle on the Lemon Squeezy checkout page itself. That is
  * why each paid plan has a single `checkout` link, not one per cycle.
+ *
+ * TRANSLATION. The English copy below is the FALLBACK, not the only copy: each
+ * plan's `i18n` key names its string group in strings/en.json, and pricing.html
+ * prefers the translated words from the generated /<locale>/pricing.i18n.js.
+ * Prices, checkout links and plan structure stay here and are shared by all ten
+ * languages, so no number is ever written twice and no translator ever handles
+ * a checkout URL. Change the copy here and in strings/en.json together.
  */
 (function () {
   "use strict";
@@ -48,6 +55,7 @@
     teacher: [
       {
         key: "free",
+        i18n: "teacherFree",
         name: "Free",
         tag: "To try it on your next lesson",
         monthly: 0,
@@ -64,6 +72,7 @@
       },
       {
         key: "pro",
+        i18n: "teacherPro",
         name: "Teacher Pro",
         tag: "Everything you need, every week",
         featured: true,
@@ -85,6 +94,7 @@
       },
       {
         key: "proplus",
+        i18n: "teacherProPlus",
         name: "Teacher Pro+",
         tag: "For power users and departments",
         monthly: 49,
@@ -106,6 +116,7 @@
     parent: [
       {
         key: "free",
+        i18n: "parentFree",
         name: "Free",
         tag: "See what your child gets",
         monthly: 0,
@@ -119,6 +130,7 @@
       },
       {
         key: "family",
+        i18n: "parentFamily",
         name: "Family",
         tag: "Practice and help that actually sticks",
         featured: true,
