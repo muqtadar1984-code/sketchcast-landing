@@ -26,7 +26,6 @@
     "own language, so it is never translated), the nine endonyms in the language pills,",
     "brand and provider names, prices, and company/registration numbers."
   ],
-
   "common": {
     "nav": {
       "how": "How it works",
@@ -59,7 +58,6 @@
       "translationNotice": "This is a translation provided for your convenience. If it differs from the English version, the English version applies."
     }
   },
-
   "index": {
     "meta": {
       "title": "SketchCast AI — A textbook chapter, taught",
@@ -151,7 +149,6 @@
       "button": "Start free"
     }
   },
-
   "schools": {
     "meta": {
       "title": "SketchCast — For Schools",
@@ -171,8 +168,18 @@
       "alt": "A weekly class timetable: period 1 is always the class teacher, and an absent teacher's lesson is automatically covered.",
       "title": "Class 5 Putra — week",
       "chip": "auto-generated",
-      "periods": { "p1": "P1", "p2": "P2", "p3": "P3", "p4": "P4", "p5": "P5" },
-      "days": { "mon": "MON", "tue": "TUE", "wed": "WED" },
+      "periods": {
+        "p1": "P1",
+        "p2": "P2",
+        "p3": "P3",
+        "p4": "P4",
+        "p5": "P5"
+      },
+      "days": {
+        "mon": "MON",
+        "tue": "TUE",
+        "wed": "WED"
+      },
       "subjects": {
         "bm": "BM",
         "mat": "MAT",
@@ -357,7 +364,6 @@
       "note": "Prefer to try it first? Any teacher can <a href=\"https://app.sketchcast.app\">start free</a> today."
     }
   },
-
   "pricing": {
     "meta": {
       "title": "SketchCast — Pricing",
@@ -416,8 +422,8 @@
         "badge": "Most popular",
         "cta": "Choose Teacher Pro",
         "saveLabel": "Save $48 a year",
-        "f1": "16 lessons a month — unused roll over",
-        "f2": "Every lesson includes its full document kit free (plan, activities, worksheet, exam, case study)",
+        "f1": "24 generations a month — about 4 complete lesson kits",
+        "f2": "A lesson, plan, activities, worksheet, test paper or case study — each counts as one",
         "f3": "2 new books a month",
         "f4": "Long chapters always fully covered (multi-part videos)",
         "f5": "All 9 lesson languages with matching voices",
@@ -430,7 +436,7 @@
         "cta": "Choose Teacher Pro+",
         "saveLabel": "Save $98 a year",
         "f1": "Everything in Teacher Pro, plus:",
-        "f2": "32 lessons a month — unused roll over",
+        "f2": "72 generations a month — about 12 complete lesson kits",
         "f3": "4 new books a month",
         "f4": "AI Tutor",
         "f5": "Priority generation",
@@ -449,7 +455,7 @@
         "cta": "Get Family",
         "saveLabel": "2 months free",
         "f1": "Up to 2 children",
-        "f2": "6 video lessons a month — practice papers & documents included free",
+        "f2": "12 generations a month — about 2 complete lesson kits",
         "f3": "Unused allowance rolls over a month",
         "f4": "Practice papers in the book's own language (9 supported)",
         "f5": "Homework help & AI explanations",
@@ -483,7 +489,6 @@
       "learn": "See what schools get"
     }
   },
-
   "about": {
     "meta": {
       "title": "About — SketchCast AI",
@@ -524,7 +529,6 @@
       "mdNote": "Granted 13 May 2026."
     }
   },
-
   "privacy": {
     "meta": {
       "title": "Privacy Policy — SketchCast AI",
@@ -654,7 +658,6 @@
       "links": "SketchCast AI · <a href=\"/about\">About</a> · <a href=\"/terms\">Terms of Service</a> · <a href=\"/\">sketchcast.app</a>"
     }
   },
-
   "terms": {
     "meta": {
       "title": "Terms of Service — SketchCast AI",

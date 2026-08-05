@@ -83,8 +83,8 @@
         cta: "Choose Teacher Pro",
         checkout: CHECKOUT.teacherPro,
         features: [
-          "16 lessons a month — unused roll over",
-          "Every lesson includes its full document kit free (plan, activities, worksheet, exam, case study)",
+          "24 generations a month — about 4 complete lesson kits",
+          "A lesson, plan, activities, worksheet, test paper or case study — each counts as one",
           "2 new books a month",
           "Long chapters always fully covered (multi-part videos)",
           "All 9 lesson languages with matching voices",
@@ -104,7 +104,7 @@
         checkout: CHECKOUT.teacherProPlus,
         features: [
           "Everything in Teacher Pro, plus:",
-          "32 lessons a month — unused roll over",
+          "72 generations a month — about 12 complete lesson kits",
           "4 new books a month",
           "AI Tutor",
           "Priority generation",
@@ -141,7 +141,7 @@
         checkout: CHECKOUT.parentFamily,
         features: [
           "Up to 2 children",
-          "6 video lessons a month — practice papers & documents included free",
+          "12 generations a month — about 2 complete lesson kits",
           "Unused allowance rolls over a month",
           "Practice papers in the book's own language (9 supported)",
           "Homework help & AI explanations",

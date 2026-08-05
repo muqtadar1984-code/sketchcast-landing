@@ -4,7 +4,6 @@
     "Never changed: SketchCast, Aethel Twin Sdn. Bhd., plan names, registration numbers,",
     "MD/0002997, the postal address, e-mail addresses and URLs."
   ],
-
   "common": {
     "nav": {
       "how": "Como funciona",
@@ -37,7 +36,6 @@
       "translationNotice": "Esta é uma tradução oferecida para sua conveniência. Se houver divergência com a versão em inglês, prevalece a versão em inglês."
     }
   },
-
   "index": {
     "meta": {
       "title": "SketchCast AI — Um capítulo do livro, já ensinado",
@@ -129,7 +127,6 @@
       "button": "Começar grátis"
     }
   },
-
   "schools": {
     "meta": {
       "title": "SketchCast — Para escolas",
@@ -149,8 +146,18 @@
       "alt": "Horário semanal de uma turma: a primeira aula é sempre do professor regente, e a aula de um professor ausente é coberta automaticamente.",
       "title": "Turma 5 Putra — a semana",
       "chip": "gerado automaticamente",
-      "periods": { "p1": "A1", "p2": "A2", "p3": "A3", "p4": "A4", "p5": "A5" },
-      "days": { "mon": "SEG", "tue": "TER", "wed": "QUA" },
+      "periods": {
+        "p1": "A1",
+        "p2": "A2",
+        "p3": "A3",
+        "p4": "A4",
+        "p5": "A5"
+      },
+      "days": {
+        "mon": "SEG",
+        "tue": "TER",
+        "wed": "QUA"
+      },
       "subjects": {
         "bm": "PORT",
         "mat": "MAT",
@@ -335,7 +342,6 @@
       "note": "Prefere testar antes? Qualquer professor pode <a href=\"https://app.sketchcast.app\">começar grátis</a> hoje."
     }
   },
-
   "pricing": {
     "meta": {
       "title": "SketchCast — Preços",
@@ -394,8 +400,8 @@
         "badge": "Mais escolhido",
         "cta": "Escolher Teacher Pro",
         "saveLabel": "Economize $48 por ano",
-        "f1": "16 aulas por mês — o que sobra é acumulado",
-        "f2": "Cada aula inclui o kit de documentos completo de graça (plano, atividades, exercícios, prova, estudo de caso)",
+        "f1": "24 gerações por mês — cerca de 4 kits de aula completos",
+        "f2": "Aula, plano, atividades, exercícios, prova ou estudo de caso — cada um conta como uma geração",
         "f3": "2 livros novos por mês",
         "f4": "Capítulos longos sempre cobertos por inteiro (vídeos em várias partes)",
         "f5": "Todos os 9 idiomas de aula com vozes compatíveis",
@@ -408,7 +414,7 @@
         "cta": "Escolher Teacher Pro+",
         "saveLabel": "Economize $98 por ano",
         "f1": "Tudo do Teacher Pro, e mais:",
-        "f2": "32 aulas por mês — o que sobra é acumulado",
+        "f2": "72 gerações por mês — cerca de 12 kits de aula completos",
         "f3": "4 livros novos por mês",
         "f4": "Tutor com IA",
         "f5": "Geração prioritária",
@@ -427,7 +433,7 @@
         "cta": "Assinar o Family",
         "saveLabel": "2 meses grátis",
         "f1": "Até 2 filhos",
-        "f2": "6 videoaulas por mês — provas de prática e documentos inclusos de graça",
+        "f2": "12 gerações por mês — cerca de 2 kits de aula completos",
         "f3": "O saldo não usado é acumulado por um mês",
         "f4": "Provas de prática no próprio idioma do livro (9 suportados)",
         "f5": "Ajuda com a lição de casa e explicações com IA",
@@ -461,7 +467,6 @@
       "learn": "Veja o que as escolas recebem"
     }
   },
-
   "about": {
     "meta": {
       "title": "Sobre — SketchCast AI",
@@ -502,7 +507,6 @@
       "mdNote": "Concedido em 13 de maio de 2026."
     }
   },
-
   "privacy": {
     "meta": {
       "title": "Política de Privacidade — SketchCast AI",
@@ -632,7 +636,6 @@
       "links": "SketchCast AI · <a href=\"/about\">Sobre</a> · <a href=\"/terms\">Termos de Serviço</a> · <a href=\"/\">sketchcast.app</a>"
     }
   },
-
   "terms": {
     "meta": {
       "title": "Termos de Serviço — SketchCast AI",

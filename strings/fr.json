@@ -4,7 +4,6 @@
     "Never changed: SketchCast, Aethel Twin Sdn. Bhd., plan names, registration numbers,",
     "MD/0002997, the postal address, e-mail addresses and URLs."
   ],
-
   "common": {
     "nav": {
       "how": "Comment ça marche",
@@ -37,7 +36,6 @@
       "translationNotice": "Ceci est une traduction fournie pour votre confort de lecture. En cas de divergence avec la version anglaise, c'est la version anglaise qui s'applique."
     }
   },
-
   "index": {
     "meta": {
       "title": "SketchCast AI — Un chapitre de manuel, enseigné",
@@ -129,7 +127,6 @@
       "button": "Commencer gratuitement"
     }
   },
-
   "schools": {
     "meta": {
       "title": "SketchCast — Pour les écoles",
@@ -149,8 +146,18 @@
       "alt": "Emploi du temps hebdomadaire d'une classe : la première heure revient toujours au professeur principal, et le cours d'un enseignant absent est automatiquement remplacé.",
       "title": "Classe de 5 Putra — la semaine",
       "chip": "généré automatiquement",
-      "periods": { "p1": "S1", "p2": "S2", "p3": "S3", "p4": "S4", "p5": "S5" },
-      "days": { "mon": "LUN", "tue": "MAR", "wed": "MER" },
+      "periods": {
+        "p1": "S1",
+        "p2": "S2",
+        "p3": "S3",
+        "p4": "S4",
+        "p5": "S5"
+      },
+      "days": {
+        "mon": "LUN",
+        "tue": "MAR",
+        "wed": "MER"
+      },
       "subjects": {
         "bm": "FR",
         "mat": "MATH",
@@ -335,7 +342,6 @@
       "note": "Vous préférez essayer d'abord ? N'importe quel enseignant peut <a href=\"https://app.sketchcast.app\">commencer gratuitement</a> dès aujourd'hui."
     }
   },
-
   "pricing": {
     "meta": {
       "title": "SketchCast — Tarifs",
@@ -394,8 +400,8 @@
         "badge": "Le plus choisi",
         "cta": "Choisir Teacher Pro",
         "saveLabel": "Économisez 48 $ par an",
-        "f1": "16 leçons par mois — le solde non utilisé est reporté",
-        "f2": "Chaque leçon inclut gratuitement son kit documentaire complet (préparation, activités, fiche d'exercices, examen, étude de cas)",
+        "f1": "24 générations par mois — soit environ 4 kits pédagogiques complets",
+        "f2": "Une leçon, une préparation, des activités, une fiche d'exercices, un sujet d'examen ou une étude de cas — chacun compte pour une génération",
         "f3": "2 nouveaux manuels par mois",
         "f4": "Les chapitres longs toujours couverts en entier (vidéos en plusieurs parties)",
         "f5": "Les 9 langues d'enseignement avec des voix assorties",
@@ -408,7 +414,7 @@
         "cta": "Choisir Teacher Pro+",
         "saveLabel": "Économisez 98 $ par an",
         "f1": "Tout Teacher Pro, et en plus :",
-        "f2": "32 leçons par mois — le solde non utilisé est reporté",
+        "f2": "72 générations par mois — soit environ 12 kits pédagogiques complets",
         "f3": "4 nouveaux manuels par mois",
         "f4": "Tuteur IA",
         "f5": "Génération prioritaire",
@@ -427,7 +433,7 @@
         "cta": "Choisir Family",
         "saveLabel": "2 mois offerts",
         "f1": "Jusqu'à 2 enfants",
-        "f2": "6 leçons vidéo par mois — sujets d'entraînement et documents inclus gratuitement",
+        "f2": "12 générations par mois — soit environ 2 kits pédagogiques complets",
         "f3": "Le solde non utilisé est reporté d'un mois",
         "f4": "Sujets d'entraînement dans la langue même du manuel (9 prises en charge)",
         "f5": "Aide aux devoirs et explications par IA",
@@ -461,7 +467,6 @@
       "learn": "Voir ce que reçoivent les écoles"
     }
   },
-
   "about": {
     "meta": {
       "title": "À propos — SketchCast AI",
@@ -502,7 +507,6 @@
       "mdNote": "Accordé le 13 mai 2026."
     }
   },
-
   "privacy": {
     "meta": {
       "title": "Politique de confidentialité — SketchCast AI",
@@ -632,7 +636,6 @@
       "links": "SketchCast AI · <a href=\"/about\">À propos</a> · <a href=\"/terms\">Conditions d'utilisation</a> · <a href=\"/\">sketchcast.app</a>"
     }
   },
-
   "terms": {
     "meta": {
       "title": "Conditions d'utilisation — SketchCast AI",

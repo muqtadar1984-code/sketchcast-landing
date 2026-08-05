@@ -4,7 +4,6 @@
     "Never changed: SketchCast, Aethel Twin Sdn. Bhd., plan names, registration numbers,",
     "MD/0002997, the postal address, e-mail addresses and URLs."
   ],
-
   "common": {
     "nav": {
       "how": "Cara ia berfungsi",
@@ -37,7 +36,6 @@
       "translationNotice": "Ini terjemahan yang disediakan untuk kemudahan anda. Jika ia berbeza daripada versi bahasa Inggeris, versi bahasa Inggeris yang terpakai."
     }
   },
-
   "index": {
     "meta": {
       "title": "SketchCast AI — Satu bab buku teks, terus diajar",
@@ -129,7 +127,6 @@
       "button": "Mula percuma"
     }
   },
-
   "schools": {
     "meta": {
       "title": "SketchCast — Untuk Sekolah",
@@ -149,8 +146,18 @@
       "alt": "Jadual waktu mingguan sebuah kelas: waktu pertama sentiasa guru kelas, dan pelajaran guru yang tidak hadir diganti secara automatik.",
       "title": "Kelas 5 Putra — minggu ini",
       "chip": "dijana automatik",
-      "periods": { "p1": "W1", "p2": "W2", "p3": "W3", "p4": "W4", "p5": "W5" },
-      "days": { "mon": "ISN", "tue": "SEL", "wed": "RAB" },
+      "periods": {
+        "p1": "W1",
+        "p2": "W2",
+        "p3": "W3",
+        "p4": "W4",
+        "p5": "W5"
+      },
+      "days": {
+        "mon": "ISN",
+        "tue": "SEL",
+        "wed": "RAB"
+      },
       "subjects": {
         "bm": "BM",
         "mat": "MT",
@@ -335,7 +342,6 @@
       "note": "Mahu cuba dahulu? Mana-mana guru boleh <a href=\"https://app.sketchcast.app\">mula percuma</a> hari ini."
     }
   },
-
   "pricing": {
     "meta": {
       "title": "SketchCast — Harga",
@@ -394,8 +400,8 @@
         "badge": "Paling popular",
         "cta": "Pilih Teacher Pro",
         "saveLabel": "Jimat $48 setahun",
-        "f1": "16 pelajaran sebulan — yang tidak digunakan dibawa ke hadapan",
-        "f2": "Setiap pelajaran termasuk kit dokumen penuhnya secara percuma (rancangan, aktiviti, lembaran kerja, peperiksaan, kajian kes)",
+        "f1": "24 janaan sebulan — kira-kira 4 kit pelajaran lengkap",
+        "f2": "Pelajaran, rancangan, aktiviti, lembaran kerja, kertas peperiksaan atau kajian kes — setiap satu dikira satu janaan",
         "f3": "2 buku baharu sebulan",
         "f4": "Bab panjang sentiasa diliputi sepenuhnya (video berbilang bahagian)",
         "f5": "Kesemua 9 bahasa pelajaran dengan suara yang sepadan",
@@ -408,7 +414,7 @@
         "cta": "Pilih Teacher Pro+",
         "saveLabel": "Jimat $98 setahun",
         "f1": "Semua dalam Teacher Pro, serta:",
-        "f2": "32 pelajaran sebulan — yang tidak digunakan dibawa ke hadapan",
+        "f2": "72 janaan sebulan — kira-kira 12 kit pelajaran lengkap",
         "f3": "4 buku baharu sebulan",
         "f4": "Tutor AI",
         "f5": "Janaan keutamaan",
@@ -427,7 +433,7 @@
         "cta": "Dapatkan Family",
         "saveLabel": "2 bulan percuma",
         "f1": "Sehingga 2 orang anak",
-        "f2": "6 pelajaran video sebulan — kertas latihan & dokumen disertakan percuma",
+        "f2": "12 janaan sebulan — kira-kira 2 kit pelajaran lengkap",
         "f3": "Baki yang tidak digunakan dibawa ke bulan berikutnya",
         "f4": "Kertas latihan dalam bahasa buku itu sendiri (9 disokong)",
         "f5": "Bantuan kerja rumah & penerangan AI",
@@ -461,7 +467,6 @@
       "learn": "Lihat apa yang sekolah dapat"
     }
   },
-
   "about": {
     "meta": {
       "title": "Tentang kami — SketchCast AI",
@@ -502,7 +507,6 @@
       "mdNote": "Dianugerahkan 13 Mei 2026."
     }
   },
-
   "privacy": {
     "meta": {
       "title": "Dasar Privasi — SketchCast AI",
@@ -632,7 +636,6 @@
       "links": "SketchCast AI · <a href=\"/about\">Tentang kami</a> · <a href=\"/terms\">Terma Perkhidmatan</a> · <a href=\"/\">sketchcast.app</a>"
     }
   },
-
   "terms": {
     "meta": {
       "title": "Terma Perkhidmatan — SketchCast AI",
