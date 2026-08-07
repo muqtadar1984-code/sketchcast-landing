@@ -277,58 +277,56 @@
   </div>
 </section>
 
-<!-- 19-SECOND PRODUCT DEMO — click to play, on purpose.
-     The demo is a self-contained export: React, the fonts and six real product
-     screenshots are all inlined, so it makes ZERO external requests. But it is
-     3.2 MB raw and still 2.4 MB after brotli, because base64 PNGs do not
-     compress. This whole homepage is 32 KB. Embedding it to autoload would have
-     made every visit 74x heavier, and `loading="lazy"` does NOT save you here —
-     the section sits just below the fold, well inside Chrome's lazy threshold,
-     so it fetched on load anyway (measured).
-     Most of this product's teachers are in Malaysia and India, on mobile data.
-     So the page ships a 28 KB poster — a real frame from the demo itself — and
-     fetches the 2.4 MB only when someone actually asks to watch.
+<!-- 19-SECOND PRODUCT DEMO — a real MP4, click to play, with sound.
+     preload="none" so NOTHING of the 4.4 MB is fetched until someone presses
+     play. The homepage stays 32 KB for everyone who scrolls past.
+
+     Why not autoplay: no browser will autoplay audio, only muted video. This
+     cut was scored with music, and an autoplay that mutes it throws away the
+     reason it exists. Motion would buy more passive attention — that trade was
+     considered and declined.
+
+     The file is FAST-START (moov relocated ahead of mdat, all 1,138 chunk
+     offsets rewritten). Without that a browser must pull almost the whole 4.4 MB
+     before the first frame, which would make even click-to-play feel broken.
+
+     Native <video controls> does the work: real play/scrub/volume, keyboard
+     support and captions plumbing for free. The overlay button exists only
+     because a bare poster with a thin control bar reads as an image, not a
+     film — it hides the moment playback starts, however it was started.
 
      Placed BELOW the hero, not inside it. The hero has its own slide, and that
-     one is a mockup TRANSLATED into all ten locales so an Arabic reader watches
-     an Arabic chapter draw itself. This is the other half of the argument —
-     proof the real product exists — and it is English only. Side by side they
-     would compete; here the translated mockup sells the idea and this backs it.
-
-     No heading text, deliberately: a heading would be a new string needing ten
-     translations, and the demo opens with its own caption anyway. -->
+     one is TRANSLATED in all ten locales; this is English and shows the real
+     product. -->
 <style>
   .demo-film{margin-top:2px}
-  .demo-film .frame{position:relative;display:block;width:100%;padding:0;aspect-ratio:16/9;
-    border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0A0E0D;cursor:pointer;
+  .demo-film .frame{position:relative;aspect-ratio:16/9;border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;background:#0A0E0D;
     box-shadow:0 1px 2px rgba(20,24,31,.04),0 24px 60px -28px rgba(20,24,31,.28)}
-  .demo-film .frame img{width:100%;height:100%;object-fit:cover;display:block}
-  .demo-film .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
-  .demo-film .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;pointer-events:none;
-    transition:transform .18s ease}
-  .demo-film .play svg{width:100%;height:100%;display:block}
-  .demo-film .frame:hover .play,.demo-film .frame:focus-visible .play{transform:scale(1.07)}
-  .demo-film .frame:focus-visible{outline:2px solid #1FB8A6;outline-offset:3px}
+  .demo-film video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#0A0E0D}
+  .demo-film .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;padding:0;border:0;
+    background:none;cursor:pointer;transition:transform .18s ease,opacity .18s ease}
+  .demo-film .play svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
+  .demo-film .play:hover,.demo-film .play:focus-visible{transform:scale(1.07)}
+  .demo-film .play:focus-visible{outline:2px solid #1FB8A6;outline-offset:4px;border-radius:50%}
   .demo-film .dur{position:absolute;bottom:12px;inset-inline-end:14px;font-family:var(--mono);
     font-size:11px;letter-spacing:.04em;color:#fff;background:rgba(10,14,13,.62);
-    padding:3px 8px;border-radius:6px;pointer-events:none}
-  @media(prefers-reduced-motion:reduce){.demo-film .play{transition:none}}
+    padding:3px 8px;border-radius:6px;pointer-events:none;transition:opacity .18s ease}
+  .demo-film.playing .play,.demo-film.playing .dur{opacity:0;pointer-events:none}
+  @media(prefers-reduced-motion:reduce){.demo-film .play,.demo-film .dur{transition:none}}
 
   /* Scroll-driven reveal: the panel rises and fades in as it scrolls into view,
      and falls away again as you carry on past it. Pure CSS — animation-timeline
-     runs on the compositor, so it cannot jank the way a scroll listener does,
-     and there is no JS to ship.
+     runs on the compositor, so it cannot jank the way a scroll listener does.
 
-     LONGHANDS, not the `animation` shorthand, on purpose: the shorthand RESETS
-     animation-timeline to auto, so `animation: x; animation-timeline: view();`
-     only works while those two lines stay in that order. Someone reordering
-     them later would silently get a normal time-based animation that fires once
-     on load. Longhands cannot break that way.
+     LONGHANDS, NOT the `animation` shorthand, on purpose: the shorthand RESETS
+     animation-timeline to auto, so the shorthand form only works while those
+     lines stay in order. Someone reordering them later would silently get a
+     time-based animation that fires once on load. Longhands cannot break so.
 
-     Two layers of graceful degradation, both deliberate: browsers without
-     scroll-driven animation skip the @supports block and simply show the panel,
-     and anyone who has asked their OS for less motion gets the same. Neither
-     case loses the demo — they lose only the movement. */
+     Degrades twice, both keeping the demo: no scroll-timeline support skips the
+     @supports block, and reduced-motion skips the whole @media. Either way the
+     panel is simply always visible — only the movement is lost. */
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       @keyframes filmScroll {
@@ -337,9 +335,6 @@
         exit 10%   { opacity: 1; transform: none; }
         exit 100%  { opacity: 0; transform: translateY(-34px) scale(.985); }
       }
-      /* Applies to the poster button AND to the div that replaces it once the
-         demo is playing — both carry .frame, so the behaviour is the same
-         before and after the click. */
       .demo-film .frame {
         animation-name: filmScroll;
         animation-timing-function: linear;
@@ -351,30 +346,26 @@
 </style>
 <section class="section demo-film">
   <div class="wrap">
-    <button type="button" class="frame" data-demo="assets/demo/demo-19s.html"
-            aria-label="Play the 19 second SketchCast demo">
-      <img src="assets/demo/demo-19s-poster.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
-      <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11.1" fill="rgba(10,14,13,.55)" stroke="#fff" stroke-width="1.3"/><path d="M9.9 8.3 L16.3 12 L9.9 15.7 Z" fill="#fff"/></svg></span>
+    <div class="frame">
+      <video src="assets/demo/demo-19s.mp4" poster="assets/demo/demo-19s-poster.jpg"
+             preload="none" controls playsinline
+             title="SketchCast in 19 seconds"></video>
+      <button type="button" class="play" aria-label="Play the 19 second SketchCast demo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11.1" fill="rgba(10,14,13,.55)" stroke="#fff" stroke-width="1.3"/><path d="M9.9 8.3 L16.3 12 L9.9 15.7 Z" fill="#fff"/></svg></button>
       <span class="dur">19s</span>
-    </button>
+    </div>
   </div>
 </section>
 <script>
 (function(){
-  var b=document.querySelector('.demo-film .frame[data-demo]');
-  if(!b)return;
-  b.addEventListener('click',function(){
-    var f=document.createElement('iframe');
-    f.src=b.getAttribute('data-demo');
-    f.title='SketchCast in 19 seconds';
-    f.setAttribute('scrolling','no');
-    f.setAttribute('referrerpolicy','no-referrer');
-    f.setAttribute('allow','autoplay');
-    var d=document.createElement('div');
-    d.className='frame';
-    d.appendChild(f);
-    b.replaceWith(d);
-  },{once:true});
+  var s=document.querySelector('.demo-film');
+  if(!s)return;
+  var v=s.querySelector('video'), b=s.querySelector('.play');
+  if(!v||!b)return;
+  b.addEventListener('click',function(){ v.play(); });
+  // Listen on the VIDEO, not the button: playback can also start from the
+  // native controls, and the overlay has to get out of the way either way.
+  v.addEventListener('play',function(){ s.classList.add('playing'); });
+  v.addEventListener('ended',function(){ s.classList.remove('playing'); });
 })();
 </script>
 
