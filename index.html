@@ -279,20 +279,31 @@
 
 <!-- 19-SECOND PRODUCT DEMO — a real MP4, click to play, with sound.
      preload="metadata" fetches only the ~21 KB index, so the homepage stays
-     32 KB-ish for everyone who scrolls past. The 4.4 MB body is warmed when the
+     32 KB-ish for everyone who scrolls past. The 1.8 MB body is warmed when the
      visitor shows intent — hover, touch or keyboard focus — and, on a fast
      unmetered connection only, once it has settled in view. See the script
      below; the connection gate is why a teacher on 3G is never made to pay for
      a video they merely scrolled past.
+
+     720p / 0.80 Mbps, down from 1080p / 1.85 Mbps. The resolution matters less
+     than the bitrate: at 0.80 Mbps the film streams SLOWER than almost any
+     connection it will meet, so playback starts on the first buffer and never
+     stalls. At 1.85 it outran modest mobile links and had to be waited for.
+     The frame renders about 1100px wide at most, so 720p is already above what
+     the layout can show — the 1080p rows were being thrown away on resize.
 
      Why not autoplay: no browser will autoplay audio, only muted video. This
      cut was scored with music, and an autoplay that mutes it throws away the
      reason it exists. Motion would buy more passive attention — that trade was
      considered and declined.
 
-     The file is FAST-START (moov relocated ahead of mdat, all 1,138 chunk
-     offsets rewritten). Without that a browser must pull almost the whole 4.4 MB
-     before the first frame, which would make even click-to-play feel broken.
+     The file must be FAST-START — `moov` ahead of `mdat` — or a browser has to
+     pull nearly the whole 1.8 MB before it can show frame one, which would make
+     even click-to-play feel broken. This export arrived that way already; the
+     1080p one did not and had its moov relocated by hand, every one of its
+     chunk offsets rewritten (they are ABSOLUTE file offsets, so moving the box
+     invalidates all of them). CHECK ANY REPLACEMENT: box order must read
+     ftyp, moov, ..., mdat. scratchpad/faststart.py does the fix if it does not.
 
      Native <video controls> does the work: real play/scrub/volume, keyboard
      support and captions plumbing for free. The overlay button exists only
@@ -386,7 +397,7 @@
   // On a fast, unmetered connection, start warming once it has actually settled
   // in view — by the time anyone decides to click it is already buffered. Gated
   // on effectiveType and saveData so a teacher on 3G or with data-saver on is
-  // never made to pay 4.4 MB for something they only scrolled past. Where the
+  // never made to pay 1.8 MB for something they only scrolled past. Where the
   // Network Information API is missing (Safari, Firefox) we do NOT assume fast:
   // those visitors keep intent-only warming.
   var c=navigator.connection;
