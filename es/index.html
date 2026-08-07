@@ -278,8 +278,12 @@
 </section>
 
 <!-- 19-SECOND PRODUCT DEMO — a real MP4, click to play, with sound.
-     preload="none" so NOTHING of the 4.4 MB is fetched until someone presses
-     play. The homepage stays 32 KB for everyone who scrolls past.
+     preload="metadata" fetches only the ~21 KB index, so the homepage stays
+     32 KB-ish for everyone who scrolls past. The 4.4 MB body is warmed when the
+     visitor shows intent — hover, touch or keyboard focus — and, on a fast
+     unmetered connection only, once it has settled in view. See the script
+     below; the connection gate is why a teacher on 3G is never made to pay for
+     a video they merely scrolled past.
 
      Why not autoplay: no browser will autoplay audio, only muted video. This
      cut was scored with music, and an autoplay that mutes it throws away the
@@ -348,7 +352,7 @@
   <div class="wrap">
     <div class="frame">
       <video src="../assets/demo/demo-19s.mp4" poster="../assets/demo/demo-19s-poster.jpg"
-             preload="none" controls playsinline
+             preload="metadata" controls playsinline
              title="SketchCast in 19 seconds"></video>
       <button type="button" class="play" aria-label="Play the 19 second SketchCast demo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11.1" fill="rgba(10,14,13,.55)" stroke="#fff" stroke-width="1.3"/><path d="M9.9 8.3 L16.3 12 L9.9 15.7 Z" fill="#fff"/></svg></button>
       <span class="dur">19s</span>
@@ -359,8 +363,42 @@
 (function(){
   var s=document.querySelector('.demo-film');
   if(!s)return;
-  var v=s.querySelector('video'), b=s.querySelector('.play');
+  var v=s.querySelector('video'), b=s.querySelector('.play'), f=s.querySelector('.frame');
   if(!v||!b)return;
+
+  // WARM THE BUFFER BEFORE THE CLICK.
+  // preload="metadata" already fetches the ~21 KB index, so the browser knows
+  // the file's layout and can ask for media data in one hop instead of two.
+  // This escalates to a real download at the first sign the visitor intends to
+  // watch — a hover, a touch, or a keyboard focus — so the wait overlaps with
+  // the half-second they spend reaching for the button instead of following it.
+  var warmed=false;
+  function warm(){
+    if(warmed||v.readyState>2)return;   // already buffering or ready enough
+    warmed=true;
+    v.preload='auto';
+    v.load();
+  }
+  ['pointerenter','touchstart','focusin'].forEach(function(e){
+    f.addEventListener(e,warm,{once:true,passive:true});
+  });
+
+  // On a fast, unmetered connection, start warming once it has actually settled
+  // in view — by the time anyone decides to click it is already buffered. Gated
+  // on effectiveType and saveData so a teacher on 3G or with data-saver on is
+  // never made to pay 4.4 MB for something they only scrolled past. Where the
+  // Network Information API is missing (Safari, Firefox) we do NOT assume fast:
+  // those visitors keep intent-only warming.
+  var c=navigator.connection;
+  if(c && c.effectiveType==='4g' && !c.saveData && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ setTimeout(warm,1200); io.disconnect(); }
+      });
+    },{threshold:.4});
+    io.observe(f);
+  }
+
   b.addEventListener('click',function(){ v.play(); });
   // Listen on the VIDEO, not the button: playback can also start from the
   // native controls, and the overlay has to get out of the way either way.
