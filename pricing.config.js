@@ -47,7 +47,12 @@
     trial: {
       enabled: true,
       startsAt: "2026-07-07",
-      endsAt: "2026-08-07T23:59:59+08:00", // one month from 7 Jul 2026 (Malaysia time)
+      // Extended by one week on 7 Aug 2026, hours before it would have lapsed.
+      // MUST stay in step with promo_ends_at() in the database (migration 0077):
+      // this drives the banner, the countdown and the checkout bypass, while the
+      // DB decides who is actually still on the free tier. If they disagree, the
+      // site sells a trial the app will not honour, or vice versa.
+      endsAt: "2026-08-14T23:59:59+08:00", // was 2026-08-07 (one month from 7 Jul)
       url: APP_SIGNUP,
       cta: "Start free trial"
     },
