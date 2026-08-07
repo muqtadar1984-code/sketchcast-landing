@@ -39,14 +39,14 @@
   "index": {
     "meta": {
       "title": "SketchCast AI — Un capítulo del libro, ya explicado",
-      "description": "Suba un capítulo del libro de texto y SketchCast dibuja el kit completo de la clase con un solo clic: un video narrado, diapositivas editables con notas socráticas, plan de clase, actividades, hoja de trabajo y examen. Gratis para profesores y alumnos.",
+      "description": "Suba el libro de texto entero y SketchCast encuentra los capítulos. Elija uno y un solo clic dibuja el kit completo de la clase: un video narrado, diapositivas editables con notas socráticas, plan de clase, actividades, hoja de trabajo y examen. Gratis para profesores y alumnos.",
       "ogTitle": "SketchCast AI — Un capítulo del libro, ya explicado",
-      "ogDescription": "Suba un capítulo; un clic genera el kit completo: video narrado, diapositivas editables, plan, hojas de trabajo y examen. Gratis para profesores y alumnos."
+      "ogDescription": "Suba el libro de texto entero; un clic convierte cualquier capítulo en el kit completo: video narrado, diapositivas editables, plan, hojas de trabajo y examen. Gratis para profesores y alumnos."
     },
     "hero": {
       "eyebrow": "PDF del libro → clase narrada",
       "headline": "Un capítulo del libro que <mark>se explica solo</mark>.",
-      "sub": "Suba un capítulo. Un clic genera el kit completo — un video narrado que se dibuja solo, diapositivas editables con notas socráticas, un plan de clase, actividades, una hoja de trabajo y un examen — y después asígnelo y vea quién lo ha terminado. Minutos, no tardes enteras.",
+      "sub": "Suba el libro de texto entero una sola vez. A partir de ahí, un clic convierte cualquier capítulo en el kit completo — un video narrado que se dibuja solo, diapositivas editables con notas socráticas, un plan de clase, actividades, una hoja de trabajo y un examen — y después asígnelo y vea quién lo ha terminado. Minutos, no tardes enteras.",
       "ctaPrimary": "Empezar gratis",
       "ctaSecondary": "Ver cómo funciona",
       "stat": "<b>0</b> configuración &nbsp;·&nbsp; <b>minutos</b> para generar &nbsp;·&nbsp; <b>$0</b> para empezar"
@@ -62,22 +62,22 @@
     },
     "how": {
       "eyebrow": "Cómo funciona",
-      "heading": "Entra un PDF, sale una clase.",
-      "sub": "Tres pasos. Usted pone el capítulo; SketchCast se encarga de dibujar.",
+      "heading": "Entra un libro, salen muchas clases.",
+      "sub": "Tres pasos. Usted pone el libro; SketchCast encuentra los capítulos.",
       "step1": {
         "num": "01",
-        "title": "Suba un capítulo",
-        "body": "Arrastre un capítulo del libro de texto en PDF. Sin configurar nada, sin dar formato."
+        "title": "Suba el libro entero",
+        "body": "Arrastre el libro de texto entero en un solo PDF: solo tiene que hacerlo una vez. Sin dividirlo, sin configurar nada, sin dar formato."
       },
       "step2": {
         "num": "02",
-        "title": "SketchCast lo construye",
-        "body": "Escribe la narración socrática y dibuja el kit entero: diapositivas, video, plan, hojas de trabajo y examen, todo junto."
+        "title": "Elija un capítulo",
+        "body": "Elija uno de la lista. Un clic dibuja el kit entero: video, diapositivas, plan, actividades, hoja de trabajo y examen, todo junto."
       },
       "step3": {
         "num": "03",
         "title": "Enseñe o asigne",
-        "body": "Reprodúzcalo en clase, o asigne el capítulo a un grupo y vea quién lo termina."
+        "body": "Reprodúzcalo en clase, o asigne el capítulo a un grupo y vea quién lo termina. Y la semana que viene, el siguiente capítulo."
       }
     },
     "outcomes": {

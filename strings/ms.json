@@ -39,14 +39,14 @@
   "index": {
     "meta": {
       "title": "SketchCast AI — Satu bab buku teks, terus diajar",
-      "description": "Muat naik satu bab buku teks dan SketchCast melukis kit pelajaran penuh dengan satu klik — video bernarasi, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja dan peperiksaan. Percuma untuk guru dan pelajar.",
+      "description": "Muat naik seluruh buku teks; SketchCast mengesan bab-babnya. Satu klik melukis kit pelajaran penuh untuk satu bab — video bernarasi, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja dan peperiksaan. Percuma untuk guru dan pelajar.",
       "ogTitle": "SketchCast AI — Satu bab buku teks, terus diajar",
-      "ogDescription": "Muat naik satu bab; satu klik menjana kit penuh — video bernarasi, slaid boleh sunting, rancangan, lembaran kerja dan peperiksaan. Percuma untuk guru dan pelajar."
+      "ogDescription": "Muat naik seluruh buku teks; satu klik menukar mana-mana bab menjadi kit penuh — video bernarasi, slaid boleh sunting, rancangan, lembaran kerja dan peperiksaan. Percuma untuk guru dan pelajar."
     },
     "hero": {
       "eyebrow": "PDF buku teks → pelajaran bernarasi",
       "headline": "Satu bab buku teks yang <mark>mengajar dirinya</mark>.",
-      "sub": "Muat naik satu bab. Satu klik menjana kit penuh — video bernarasi yang melukis dirinya sendiri, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja dan peperiksaan — kemudian tugaskannya dan lihat siapa sudah selesai. Beberapa minit, bukan sepetang suntuk.",
+      "sub": "Muat naik seluruh buku teks sekali sahaja. Selepas itu, satu klik menukar mana-mana bab menjadi kit penuh — video bernarasi yang melukis dirinya sendiri, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja dan peperiksaan — kemudian tugaskannya dan lihat siapa sudah selesai. Beberapa minit, bukan sepetang suntuk.",
       "ctaPrimary": "Mula percuma",
       "ctaSecondary": "Lihat cara ia berfungsi",
       "stat": "<b>Tiada</b> persediaan &nbsp;·&nbsp; <b>beberapa minit</b> untuk menjana &nbsp;·&nbsp; <b>$0</b> untuk mula"
@@ -62,22 +62,22 @@
     },
     "how": {
       "eyebrow": "Cara ia berfungsi",
-      "heading": "PDF masuk, pelajaran keluar.",
-      "sub": "Tiga langkah. Anda bawa babnya; SketchCast yang melukis.",
+      "heading": "Satu buku masuk, banyak pelajaran keluar.",
+      "sub": "Tiga langkah. Anda bawa bukunya; SketchCast yang mengesan bab-babnya.",
       "step1": {
         "num": "01",
-        "title": "Muat naik satu bab",
-        "body": "Lepaskan satu bab buku teks dalam bentuk PDF. Tiada persediaan, tiada pemformatan."
+        "title": "Muat naik seluruh buku",
+        "body": "Lepaskan seluruh buku teks dalam bentuk satu PDF — anda hanya perlu melakukannya sekali. Tiada pemisahan fail, tiada persediaan, tiada pemformatan."
       },
       "step2": {
         "num": "02",
-        "title": "SketchCast membinanya",
-        "body": "Ia menulis naratif Socratic dan melukis seluruh kit — slaid, video, rancangan, lembaran kerja dan peperiksaan sekali gus."
+        "title": "Pilih satu bab",
+        "body": "Pilih satu daripada senarai. Satu klik melukis seluruh kit sekali gus — video, slaid, rancangan, aktiviti, lembaran kerja dan peperiksaan."
       },
       "step3": {
         "num": "03",
         "title": "Ajar atau tugaskan",
-        "body": "Mainkannya dalam kelas, atau tugaskan bab itu kepada satu kelas dan lihat siapa yang selesai."
+        "body": "Mainkannya dalam kelas, atau tugaskan bab itu kepada satu kelas dan lihat siapa yang selesai. Minggu depan, teruskan dengan bab seterusnya."
       }
     },
     "outcomes": {

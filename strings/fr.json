@@ -39,14 +39,14 @@
   "index": {
     "meta": {
       "title": "SketchCast AI — Un chapitre de manuel, enseigné",
-      "description": "Importez un chapitre de manuel : en un clic, SketchCast dessine le kit pédagogique complet — une vidéo narrée, un diaporama modifiable avec des notes socratiques, une fiche de préparation, des activités, une fiche d'exercices et un examen. Gratuit pour les enseignants et les élèves.",
+      "description": "Importez tout le manuel : SketchCast en détecte les chapitres. En un clic, il dessine le kit pédagogique complet d'un chapitre — une vidéo narrée, un diaporama modifiable avec des notes socratiques, une fiche de préparation, des activités, une fiche d'exercices et un examen. Gratuit pour les enseignants et les élèves.",
       "ogTitle": "SketchCast AI — Un chapitre de manuel, enseigné",
-      "ogDescription": "Importez un chapitre ; un clic génère le kit complet — vidéo narrée, diaporama modifiable, préparation, fiches d'exercices et examen. Gratuit pour les enseignants et les élèves."
+      "ogDescription": "Importez tout le manuel ; un clic génère le kit complet de n'importe quel chapitre — vidéo narrée, diaporama modifiable, préparation, fiches d'exercices et examen. Gratuit pour les enseignants et les élèves."
     },
     "hero": {
       "eyebrow": "PDF du manuel → leçon narrée",
       "headline": "Un chapitre de manuel qui <mark>fait cours tout seul</mark>.",
-      "sub": "Importez un chapitre. Un clic génère le kit complet — une vidéo narrée qui se dessine sous les yeux des élèves, un diaporama modifiable avec des notes socratiques, une fiche de préparation, des activités, une fiche d'exercices et un examen — puis attribuez-le et voyez qui a terminé. Des minutes, pas des soirées.",
+      "sub": "Importez tout le manuel une seule fois. Ensuite, un clic génère le kit complet de n'importe quel chapitre — une vidéo narrée qui se dessine sous les yeux des élèves, un diaporama modifiable avec des notes socratiques, une fiche de préparation, des activités, une fiche d'exercices et un examen — puis attribuez-le et voyez qui a terminé. Des minutes, pas des soirées.",
       "ctaPrimary": "Commencer gratuitement",
       "ctaSecondary": "Voir comment ça marche",
       "stat": "<b>0</b> paramétrage &nbsp;·&nbsp; <b>quelques minutes</b> pour générer &nbsp;·&nbsp; <b>0 $</b> pour commencer"
@@ -62,22 +62,22 @@
     },
     "how": {
       "eyebrow": "Comment ça marche",
-      "heading": "Un PDF entre, une leçon sort.",
-      "sub": "Trois étapes. Vous apportez le chapitre ; SketchCast se charge du dessin.",
+      "heading": "Un manuel entre, des leçons sortent.",
+      "sub": "Trois étapes. Vous apportez le manuel ; SketchCast en détecte les chapitres.",
       "step1": {
         "num": "01",
-        "title": "Importez un chapitre",
-        "body": "Déposez un chapitre de manuel au format PDF. Aucun paramétrage, aucune mise en forme."
+        "title": "Importez tout le manuel",
+        "body": "Déposez le manuel entier en un seul fichier PDF — une seule fois suffit. Aucun découpage, aucun paramétrage, aucune mise en forme."
       },
       "step2": {
         "num": "02",
-        "title": "SketchCast le construit",
-        "body": "Il écrit une narration socratique et dessine tout le kit — diapositives, vidéo, préparation, fiches d'exercices et examen d'un seul tenant."
+        "title": "Choisissez un chapitre",
+        "body": "Sélectionnez-en un dans la liste. Un clic dessine tout le kit d'un seul tenant — vidéo, diaporama, préparation, activités, fiche d'exercices et examen."
       },
       "step3": {
         "num": "03",
         "title": "Enseignez ou attribuez",
-        "body": "Diffusez-le en classe, ou attribuez le chapitre à une classe et suivez qui l'a terminé."
+        "body": "Diffusez-le en classe, ou attribuez le chapitre à une classe et suivez qui l'a terminé. La semaine prochaine, passez au chapitre suivant."
       }
     },
     "outcomes": {
