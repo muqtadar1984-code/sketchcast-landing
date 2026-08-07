@@ -28,9 +28,7 @@
       "legalPlain": "Un producto de Aethel Twin Sdn. Bhd. (202601012908) · Estatus Malaysia Digital MD/0002997"
     },
     "lang": {
-      "label": "Idioma",
-      "choose": "Elija su idioma",
-      "footerLabel": "Esta página en otros idiomas"
+      "choose": "Elija su idioma"
     },
     "legal": {
       "translationNotice": "Esta es una traducción ofrecida para su comodidad. Si difiere de la versión en inglés, prevalece la versión en inglés."

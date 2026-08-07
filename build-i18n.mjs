@@ -28,8 +28,9 @@
  * WHAT IT ALSO OWNS. Between <!--i18n:NAME--> … <!--/i18n:NAME--> markers the
  * build writes the parts that MUST agree across sixty pages and would rot if
  * hand-maintained: canonical + hreflang + og:url, the per-script font and
- * typography block, the language switcher, and the "this is a translation"
- * notice on the legal pages. Adding a language edits none of the HTML.
+ * typography block, the header language switcher, and the "this is a
+ * translation" notice on the legal pages. Adding a language edits none of the
+ * HTML.
  *
  *   node build-i18n.mjs           validate, then write every page
  *   node build-i18n.mjs --check   validate only, write nothing (exit 1 on error)
@@ -374,11 +375,6 @@ const switcherCss = () => `
 .i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}
 .i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}
 .i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}
-.i18n-foot-lang{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--graphite,#5B6470)}
-.i18n-foot-lang b{font-weight:500;color:var(--graphite,#5B6470)}
-.i18n-foot-lang a{color:var(--graphite,#5B6470);text-decoration:none}
-.i18n-foot-lang a:hover{color:var(--ink)}
-.i18n-foot-lang a[aria-current]{color:var(--ink);font-weight:500}
 .i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}
 @media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}
 `.replace(/\n\s*/g, "");
@@ -427,20 +423,16 @@ ${items}
   </details>`;
 }
 
-/** The footer list — the same links, but always in the document. A crawler and
- * a reader who never opens the header menu both still see every language. */
-function footerLangBlock(locale, page, active, t) {
-  const items = active
-    .map((l) => {
-      const cur = l.code === locale ? ' aria-current="true"' : "";
-      return `<a href="${urlFor(l.code, page.route)}" lang="${l.html}" hreflang="${l.html}" dir="${l.dir}"${cur}>${l.label}</a>`;
-    })
-    .join("\n    ");
-  return `  <nav class="i18n-foot-lang" aria-label="${escapeAttr(t("common.lang.label"))}">
-    <b>${t("common.lang.footerLabel")}</b>
-    ${items}
-  </nav>`;
-}
+/* THE FOOTER LANGUAGE LIST WAS REMOVED (2026-08-07). It printed all ten
+ * languages again at the bottom of every page, directly duplicating the header
+ * switcher above. Its two original justifications had both lapsed: crawlers are
+ * served by the eleven <link rel="alternate" hreflang> tags headBlock() writes
+ * into <head> plus 660 xhtml:link alternates in sitemap.xml — which is what
+ * search engines actually read, a visible nav was never required — and the
+ * "reader who never opens the header menu" case was measured on a 375px
+ * viewport: the switcher is present, in-viewport, and opens all ten items
+ * without clipping or sideways scroll. Do not reintroduce it without a reason
+ * neither hreflang nor the header control already covers. */
 
 /** Privacy and Terms only, and only when translated: a translation of a legal
  * document is a convenience, not the instrument. Saying so is what keeps the
@@ -496,7 +488,7 @@ function planPage(html, file, errors) {
     if (tok.name === "html") ops.push({ kind: "html", raw: tok.raw, start: tok.start, end: tok.end });
   });
 
-  for (const name of ["head", "switcher", "footer-lang", "legal-notice"]) {
+  for (const name of ["head", "switcher", "legal-notice"]) {
     const open = `<!--i18n:${name}-->`;
     const close = `<!--/i18n:${name}-->`;
     let from = 0;
@@ -550,7 +542,6 @@ function renderPage(html, plan, page, locale, dict, en, active, errors) {
         const body =
           op.name === "head" ? headBlock(locale, page, active)
           : op.name === "switcher" ? switcherBlock(locale, page, active, t)
-          : op.name === "footer-lang" ? footerLangBlock(locale, page, active, t)
           : legalNoticeBlock(locale, t);
         return { start: op.start, end: op.end, text: body ? `\n${body}\n` : "" };
       }
