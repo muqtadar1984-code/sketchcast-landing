@@ -313,6 +313,41 @@
     font-size:11px;letter-spacing:.04em;color:#fff;background:rgba(10,14,13,.62);
     padding:3px 8px;border-radius:6px;pointer-events:none}
   @media(prefers-reduced-motion:reduce){.demo-film .play{transition:none}}
+
+  /* Scroll-driven reveal: the panel rises and fades in as it scrolls into view,
+     and falls away again as you carry on past it. Pure CSS — animation-timeline
+     runs on the compositor, so it cannot jank the way a scroll listener does,
+     and there is no JS to ship.
+
+     LONGHANDS, not the `animation` shorthand, on purpose: the shorthand RESETS
+     animation-timeline to auto, so `animation: x; animation-timeline: view();`
+     only works while those two lines stay in that order. Someone reordering
+     them later would silently get a normal time-based animation that fires once
+     on load. Longhands cannot break that way.
+
+     Two layers of graceful degradation, both deliberate: browsers without
+     scroll-driven animation skip the @supports block and simply show the panel,
+     and anyone who has asked their OS for less motion gets the same. Neither
+     case loses the demo — they lose only the movement. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      @keyframes filmScroll {
+        entry 0%   { opacity: 0; transform: translateY(34px) scale(.985); }
+        entry 90%  { opacity: 1; transform: none; }
+        exit 10%   { opacity: 1; transform: none; }
+        exit 100%  { opacity: 0; transform: translateY(-34px) scale(.985); }
+      }
+      /* Applies to the poster button AND to the div that replaces it once the
+         demo is playing — both carry .frame, so the behaviour is the same
+         before and after the click. */
+      .demo-film .frame {
+        animation-name: filmScroll;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+      }
+    }
+  }
 </style>
 <section class="section demo-film">
   <div class="wrap">
