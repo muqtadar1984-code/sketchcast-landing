@@ -524,7 +524,10 @@
       "ssmKey": "Company registration · SSM Malaysia",
       "ssmNote": "Incorporated 3 April 2026, Companies Act 2016.",
       "mdKey": "Malaysia Digital status · MDEC",
-      "mdNote": "Granted 13 May 2026."
+      "mdNote": "Granted 13 May 2026.",
+      "nvidiaKey": "NVIDIA Inception Program",
+      "nvidiaValue": "Member",
+      "nvidiaNote": "NVIDIA's global programme for AI and data-science startups."
     }
   },
   "privacy": {

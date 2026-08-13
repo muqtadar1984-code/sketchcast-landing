@@ -502,7 +502,10 @@
       "ssmKey": "कंपनी नोंदणी · SSM Malaysia",
       "ssmNote": "3 एप्रिल 2026 रोजी स्थापन, Companies Act 2016.",
       "mdKey": "Malaysia Digital दर्जा · MDEC",
-      "mdNote": "13 मे 2026 रोजी प्रदान."
+      "mdNote": "13 मे 2026 रोजी प्रदान.",
+      "nvidiaKey": "NVIDIA इन्सेप्शन प्रोग्राम",
+      "nvidiaValue": "सदस्य",
+      "nvidiaNote": "AI आणि डेटा सायन्स स्टार्टअपसाठी NVIDIA चा जागतिक कार्यक्रम."
     }
   },
   "privacy": {

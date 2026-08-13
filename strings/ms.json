@@ -502,7 +502,10 @@
       "ssmKey": "Pendaftaran syarikat · SSM Malaysia",
       "ssmNote": "Diperbadankan 3 April 2026, Akta Syarikat 2016.",
       "mdKey": "Status Malaysia Digital · MDEC",
-      "mdNote": "Dianugerahkan 13 Mei 2026."
+      "mdNote": "Dianugerahkan 13 Mei 2026.",
+      "nvidiaKey": "Program NVIDIA Inception",
+      "nvidiaValue": "Ahli",
+      "nvidiaNote": "Program global NVIDIA untuk syarikat permulaan AI dan sains data."
     }
   },
   "privacy": {

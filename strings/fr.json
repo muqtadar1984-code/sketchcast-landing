@@ -502,7 +502,10 @@
       "ssmKey": "Immatriculation de la société · SSM Malaysia",
       "ssmNote": "Constituée le 3 avril 2026, Companies Act 2016.",
       "mdKey": "Statut Malaysia Digital · MDEC",
-      "mdNote": "Accordé le 13 mai 2026."
+      "mdNote": "Accordé le 13 mai 2026.",
+      "nvidiaKey": "Programme NVIDIA Inception",
+      "nvidiaValue": "Membre",
+      "nvidiaNote": "Le programme mondial de NVIDIA pour les startups en IA et science des données."
     }
   },
   "privacy": {
