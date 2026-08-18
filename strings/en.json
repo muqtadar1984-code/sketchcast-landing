@@ -423,10 +423,11 @@
         "f1": "24 generations a month — about 4 complete lesson kits",
         "f2": "A lesson, plan, activities, worksheet, test paper or case study — each counts as one",
         "f3": "2 new books a month",
-        "f4": "Long chapters always fully covered (multi-part videos)",
-        "f5": "All 9 lesson languages with matching voices",
-        "f6": "Editable PowerPoint & exports",
-        "f7": "Live fair-use meter in your Library — no surprises"
+        "f4": "AI Tutor",
+        "f5": "Long chapters always fully covered (multi-part videos)",
+        "f6": "All 9 lesson languages with matching voices",
+        "f7": "Editable PowerPoint & exports",
+        "f8": "Live fair-use meter in your Library — no surprises"
       },
       "teacherProPlus": {
         "name": "Teacher Pro+",
@@ -434,11 +435,10 @@
         "cta": "Choose Teacher Pro+",
         "saveLabel": "Save $98 a year",
         "f1": "Everything in Teacher Pro, plus:",
-        "f2": "72 generations a month — about 12 complete lesson kits",
-        "f3": "4 new books a month",
-        "f4": "AI Tutor",
-        "f5": "Priority generation",
-        "f6": "Early access to new features"
+        "f2": "48 additional generations — 72 a month, about 12 complete lesson kits",
+        "f3": "2 additional books — 4 a month",
+        "f4": "Priority generation",
+        "f5": "Early access to new features"
       },
       "parentFree": {
         "name": "Free",

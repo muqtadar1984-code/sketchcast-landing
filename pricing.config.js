@@ -91,6 +91,7 @@
           "24 generations a month — about 4 complete lesson kits",
           "A lesson, plan, activities, worksheet, test paper or case study — each counts as one",
           "2 new books a month",
+          "AI Tutor",
           "Long chapters always fully covered (multi-part videos)",
           "All 9 lesson languages with matching voices",
           "Editable PowerPoint & exports",
@@ -109,9 +110,8 @@
         checkout: CHECKOUT.teacherProPlus,
         features: [
           "Everything in Teacher Pro, plus:",
-          "72 generations a month — about 12 complete lesson kits",
-          "4 new books a month",
-          "AI Tutor",
+          "48 additional generations — 72 a month, about 12 complete lesson kits",
+          "2 additional books — 4 a month",
           "Priority generation",
           "Early access to new features"
         ]

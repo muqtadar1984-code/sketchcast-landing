@@ -401,10 +401,11 @@
         "f1": "24 janaan sebulan — kira-kira 4 kit pelajaran lengkap",
         "f2": "Pelajaran, rancangan, aktiviti, lembaran kerja, kertas peperiksaan atau kajian kes — setiap satu dikira satu janaan",
         "f3": "2 buku baharu sebulan",
-        "f4": "Bab panjang sentiasa diliputi sepenuhnya (video berbilang bahagian)",
-        "f5": "Kesemua 9 bahasa pelajaran dengan suara yang sepadan",
-        "f6": "PowerPoint boleh sunting & eksport",
-        "f7": "Meter penggunaan saksama secara langsung dalam Pustaka anda — tiada kejutan"
+        "f4": "Tutor AI",
+        "f5": "Bab panjang sentiasa diliputi sepenuhnya (video berbilang bahagian)",
+        "f6": "Kesemua 9 bahasa pelajaran dengan suara yang sepadan",
+        "f7": "PowerPoint boleh sunting & eksport",
+        "f8": "Meter penggunaan saksama secara langsung dalam Pustaka anda — tiada kejutan"
       },
       "teacherProPlus": {
         "name": "Teacher Pro+",
@@ -412,11 +413,10 @@
         "cta": "Pilih Teacher Pro+",
         "saveLabel": "Jimat $98 setahun",
         "f1": "Semua dalam Teacher Pro, serta:",
-        "f2": "72 janaan sebulan — kira-kira 12 kit pelajaran lengkap",
-        "f3": "4 buku baharu sebulan",
-        "f4": "Tutor AI",
-        "f5": "Janaan keutamaan",
-        "f6": "Akses awal kepada ciri baharu"
+        "f2": "48 janaan tambahan — 72 sebulan, kira-kira 12 kit pelajaran lengkap",
+        "f3": "2 buku tambahan — 4 sebulan",
+        "f4": "Janaan keutamaan",
+        "f5": "Akses awal kepada ciri baharu"
       },
       "parentFree": {
         "name": "Percuma",

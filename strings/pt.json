@@ -401,10 +401,11 @@
         "f1": "24 gerações por mês — cerca de 4 kits de aula completos",
         "f2": "Aula, plano, atividades, exercícios, prova ou estudo de caso — cada um conta como uma geração",
         "f3": "2 livros novos por mês",
-        "f4": "Capítulos longos sempre cobertos por inteiro (vídeos em várias partes)",
-        "f5": "Todos os 9 idiomas de aula com vozes compatíveis",
-        "f6": "PowerPoint editável e exportações",
-        "f7": "Medidor de uso justo ao vivo na sua biblioteca — sem surpresas"
+        "f4": "Tutor com IA",
+        "f5": "Capítulos longos sempre cobertos por inteiro (vídeos em várias partes)",
+        "f6": "Todos os 9 idiomas de aula com vozes compatíveis",
+        "f7": "PowerPoint editável e exportações",
+        "f8": "Medidor de uso justo ao vivo na sua biblioteca — sem surpresas"
       },
       "teacherProPlus": {
         "name": "Teacher Pro+",
@@ -412,11 +413,10 @@
         "cta": "Escolher Teacher Pro+",
         "saveLabel": "Economize $98 por ano",
         "f1": "Tudo do Teacher Pro, e mais:",
-        "f2": "72 gerações por mês — cerca de 12 kits de aula completos",
-        "f3": "4 livros novos por mês",
-        "f4": "Tutor com IA",
-        "f5": "Geração prioritária",
-        "f6": "Acesso antecipado a novidades"
+        "f2": "48 gerações adicionais — 72 por mês, cerca de 12 kits de aula completos",
+        "f3": "2 livros adicionais — 4 por mês",
+        "f4": "Geração prioritária",
+        "f5": "Acesso antecipado a novidades"
       },
       "parentFree": {
         "name": "Grátis",
