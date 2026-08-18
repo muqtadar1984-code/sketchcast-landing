@@ -229,6 +229,18 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "SketchCast for homeschooling — 20 seconds",
+  "description": "Upload the curriculum book you already teach from and watch a chapter become a narrated video lesson, worksheet, test paper and lesson plan — assigned to your learners in one click.",
+  "thumbnailUrl": "https://sketchcast.app/assets/demo/homeschool-20s-poster.jpg",
+  "contentUrl": "https://sketchcast.app/assets/demo/homeschool-20s.mp4",
+  "uploadDate": "2026-08-18",
+  "duration": "PT20S"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
@@ -401,6 +413,105 @@
       </div>
     </div>
   </section>
+
+  <!-- ── 20-second demo film ──────────────────────────────────────────────
+       The index page's demo-film unit, transplanted whole (same class names,
+       same rules, different cut). Click-to-play on purpose: this cut is
+       scored with MUSIC and no browser autoplays audio — a muted autoplay
+       would throw away the reason the cut exists. FAST-START verified on
+       this file (box order ftyp, moov, free, mdat — checked 2026-08-18;
+       Cloudflare Pages ignores Range requests, so a tail-moov file would
+       have to download whole before frame one). Native <video controls>
+       carries play/scrub/volume/keyboard; the overlay button only keeps a
+       bare poster from reading as a static image. English on all locales,
+       like the homepage film — it shows the real product. -->
+  <style>
+    .demo-film{margin-top:2px}
+    .demo-film .frame{position:relative;aspect-ratio:16/9;border:1px solid var(--line);
+      border-radius:14px;overflow:hidden;background:#0A0E0D;
+      box-shadow:0 1px 2px rgba(20,24,31,.04),0 24px 60px -28px rgba(20,24,31,.28)}
+    .demo-film video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#0A0E0D}
+    .demo-film .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;padding:0;border:0;
+      background:none;cursor:pointer;transition:transform .18s ease,opacity .18s ease}
+    .demo-film .play svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
+    .demo-film .play:hover,.demo-film .play:focus-visible{transform:scale(1.07)}
+    .demo-film .play:focus-visible{outline:2px solid #1FB8A6;outline-offset:4px;border-radius:50%}
+    .demo-film .dur{position:absolute;bottom:12px;inset-inline-end:14px;font-family:var(--mono);
+      font-size:11px;letter-spacing:.04em;color:#fff;background:rgba(10,14,13,.62);
+      padding:3px 8px;border-radius:6px;pointer-events:none;transition:opacity .18s ease}
+    .demo-film.playing .play,.demo-film.playing .dur{opacity:0;pointer-events:none}
+    @media(prefers-reduced-motion:reduce){.demo-film .play,.demo-film .dur{transition:none}}
+    @media (prefers-reduced-motion: no-preference) {
+      @supports (animation-timeline: view()) {
+        @keyframes filmScroll {
+          entry 0%   { opacity: 0; transform: translateY(34px) scale(.985); }
+          entry 90%  { opacity: 1; transform: none; }
+          exit 10%   { opacity: 1; transform: none; }
+          exit 100%  { opacity: 0; transform: translateY(-34px) scale(.985); }
+        }
+        /* LONGHANDS on purpose — the `animation` shorthand resets
+           animation-timeline to auto (see index.html's demo film). */
+        .demo-film .frame {
+          animation-name: filmScroll;
+          animation-timing-function: linear;
+          animation-fill-mode: both;
+          animation-timeline: view();
+        }
+      }
+    }
+  </style>
+  <section class="section demo-film">
+    <div class="wrap">
+      <div class="frame">
+        <video src="assets/demo/homeschool-20s.mp4" poster="assets/demo/homeschool-20s-poster.jpg"
+               preload="metadata" controls playsinline
+               title="SketchCast for homeschooling — 20 seconds"></video>
+        <button type="button" class="play" aria-label="Play the 20 second homeschool demo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11.1" fill="rgba(10,14,13,.55)" stroke="#fff" stroke-width="1.3"/><path d="M9.9 8.3 L16.3 12 L9.9 15.7 Z" fill="#fff"/></svg></button>
+        <span class="dur">20s</span>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var s=document.querySelector('.demo-film');
+    if(!s)return;
+    var v=s.querySelector('video'), b=s.querySelector('.play'), f=s.querySelector('.frame');
+    if(!v||!b)return;
+
+    // Warm the buffer before the click (see index.html's demo film for the
+    // full reasoning): metadata is already fetched; escalate to a real
+    // download on the first sign of intent, so the wait overlaps the reach
+    // for the button instead of following it.
+    var warmed=false;
+    function warm(){
+      if(warmed||v.readyState>2)return;
+      warmed=true;
+      v.preload='auto';
+      v.load();
+    }
+    ['pointerenter','touchstart','focusin'].forEach(function(e){
+      f.addEventListener(e,warm,{once:true,passive:true});
+    });
+
+    // Fast, unmetered connections warm on view — gated on effectiveType and
+    // saveData so nobody on 3G/data-saver pays 4.4 MB for scrolling past.
+    var c=navigator.connection;
+    if(c && c.effectiveType==='4g' && !c.saveData && 'IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){ setTimeout(warm,1200); io.disconnect(); }
+        });
+      },{threshold:.4});
+      io.observe(f);
+    }
+
+    b.addEventListener('click',function(){ v.play(); });
+    // Listen on the VIDEO, not the button: playback can also start from the
+    // native controls, and the overlay must get out of the way either way.
+    v.addEventListener('play',function(){ s.classList.add('playing'); });
+    v.addEventListener('ended',function(){ s.classList.remove('playing'); });
+  })();
+  </script>
 
   <!-- ── the problem ──────────────────────────────────────────────────── -->
   <section class="band">
