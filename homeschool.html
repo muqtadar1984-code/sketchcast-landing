@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="homeschool.meta.title">SketchCast — For Homeschool &amp; Tutors</title>
+<meta name="description" data-i18n-attr="content:homeschool.meta.description" content="Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over." />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" data-i18n-attr="content:homeschool.meta.ogTitle" content="SketchCast — For Homeschool &amp; Tutors" />
+<meta property="og:description" data-i18n-attr="content:homeschool.meta.ogDescription" content="Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:660px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* ── learners card (product-as-illustration) ── */
+  .lc{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .lc-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+  .lc-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .lc-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .lc-row{padding:13px 0;border-top:1px solid var(--line)}
+  .lc-row:first-of-type{border-top:0}
+  .lc-name{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px}
+  .lc-name b{font-weight:500;font-size:15px}
+  .lc-name span{font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+  .lc-subs{display:flex;flex-direction:column;gap:6px}
+  .lc-sub{display:grid;grid-template-columns:82px 1fr auto;align-items:center;gap:10px}
+  .lc-sub em{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--graphite)}
+  .lc-bar{height:6px;border-radius:999px;background:var(--mist);overflow:hidden}
+  .lc-bar i{display:block;height:100%;border-radius:999px;background:var(--teal)}
+  .lc-bar.amber i{background:var(--marker)}
+  .lc-pct{font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+  .lc-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:15px;padding-top:13px;border-top:1px solid var(--line)}
+
+  /* ── cards ── */
+  .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── the day strip ── */
+  .day{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:46px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
+  .day div{padding:24px;border-inline-start:1px solid var(--line)}
+  .day div:first-child{border-inline-start:0}
+  .day .n{font-family:var(--mono);font-size:11px;color:var(--teal-ink);letter-spacing:.06em}
+  .day h4{font-family:var(--display);font-size:16px;font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+  .day p{font-size:13.5px;color:var(--graphite)}
+
+  /* ── records split ── */
+  .rec{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+  .rec-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .band .rec-card{background:var(--canvas)}
+  .rec-card .who{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-ink);margin-bottom:10px}
+  .rec-card h3{font-size:17px;margin-bottom:8px}
+  .rec-card p{font-size:14px;color:var(--graphite)}
+
+  /* ── pricing ── */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px;align-items:start}
+  .plan{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
+  .plan.feat-plan{border-color:var(--teal);box-shadow:0 24px 60px -40px rgba(31,184,166,.55)}
+  .plan .pill{position:absolute;top:-12px;inset-inline-start:28px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:var(--teal-ink);color:#fff;border-radius:999px;padding:4px 11px}
+  .plan h3{font-size:19px}
+  .plan .who{font-size:13.5px;color:var(--graphite);margin-top:4px;min-height:38px}
+  .plan .price{font-family:var(--display);font-size:38px;font-weight:600;letter-spacing:-.03em;margin:14px 0 2px}
+  .plan .price small{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--graphite);letter-spacing:0}
+  .plan .cadence{font-family:var(--mono);font-size:11px;color:var(--faint);margin-bottom:16px}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+  .plan li{font-size:14px;color:var(--graphite);display:flex;gap:9px;align-items:flex-start}
+  .plan li svg{flex:0 0 15px;margin-top:4px}
+  .plan li b{color:var(--ink);font-weight:500}
+  .plan .btn{width:100%;justify-content:center}
+  .packs{margin-top:26px;font-size:13.5px;color:var(--graphite);text-align:center}
+  .packs b{color:var(--ink);font-weight:500}
+
+  /* ── final CTA ── */
+  .cta{padding:86px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline:-16px;top:-11px;width:calc(100% + 32px);height:calc(100% + 22px)}
+  .cta-sub{color:var(--graphite);margin-top:18px;font-size:16px;max-width:560px;margin-inline:auto}
+  .cta-btns{display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+  .cta-note{font-size:13px;color:var(--faint);margin-top:20px}
+  .cta-note a{color:var(--teal-ink)}
+
+  @media(max-width:940px){
+    .hero-grid{grid-template-columns:1fr;gap:44px}
+    .kit,.plans{grid-template-columns:1fr}
+    .feat,.rec{grid-template-columns:1fr}
+    .day{grid-template-columns:1fr 1fr}
+    .day div:nth-child(3){border-inline-start:0}
+  }
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .hero h1{font-size:38px}
+    .sec-head h2{font-size:28px}
+    .cta h2{font-size:30px}
+    .section{padding:56px 0}
+  }
+  @media(max-width:620px){
+    .day{grid-template-columns:1fr}
+    .day div{border-inline-start:0;border-top:1px solid var(--line)}
+    .day div:first-child{border-top:0}
+  }
+
+  /* ── FAQ ── */
+  .faq{max-width:760px;margin-top:44px;display:flex;flex-direction:column;gap:12px}
+  .faq-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:2px 22px}
+  .faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.01em}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";font-family:var(--mono);font-size:18px;color:var(--teal-ink);flex:0 0 auto}
+  .faq-item[open] summary::after{content:"−"}
+  .faq-item p{padding:0 0 18px;font-size:14.5px;color:var(--graphite);max-width:640px}
+</style>
+<!-- Structured data for search. Three blocks: the Homeschool plan as a Product
+     with its two Offers, the page itself, and the FAQ. The FAQPage text below
+     and the visible FAQ section MUST stay word-for-word identical — Google
+     requires parity between markup and what the reader sees. The build copies
+     these blocks verbatim into every locale (script contents are never
+     translated); all locales currently carry the same English FAQ strings, so
+     parity holds everywhere until real translations land. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "SketchCast Homeschool",
+  "description": "The SketchCast Homeschool plan: 48 generations a month (about 8 complete lesson kits), up to 10 learners each with their own books and login, printable progress records per learner, 4 new books a month and an AI study coach for every learner.",
+  "brand": { "@type": "Brand", "name": "SketchCast AI" },
+  "image": "https://sketchcast.app/seal.png",
+  "url": "https://sketchcast.app/homeschool",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Homeschool — monthly",
+      "price": "34",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://sketchcast.app/pricing#home"
+    },
+    {
+      "@type": "Offer",
+      "name": "Homeschool — annual",
+      "price": "340",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://sketchcast.app/pricing#home"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "SketchCast — For Homeschool & Tutors",
+  "url": "https://sketchcast.app/homeschool",
+  "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
+  "isPartOf": { "@type": "WebSite", "name": "SketchCast", "url": "https://sketchcast.app" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use my own curriculum books?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — that is the point. Upload the book you already teach from, as a PDF or as photos of the pages taken with your phone. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many children or students can I teach on one plan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which languages does it work in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I get records for my homeschool portfolio or review?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a tutor use it with students from different schools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+      }
+    }
+  ]
+}
+</script>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/homeschool" />
+  <link rel="alternate" hreflang="en" href="https://sketchcast.app/homeschool" />
+  <link rel="alternate" hreflang="ms" href="https://sketchcast.app/ms/homeschool" />
+  <link rel="alternate" hreflang="ar" href="https://sketchcast.app/ar/homeschool" />
+  <link rel="alternate" hreflang="fr" href="https://sketchcast.app/fr/homeschool" />
+  <link rel="alternate" hreflang="es" href="https://sketchcast.app/es/homeschool" />
+  <link rel="alternate" hreflang="pt" href="https://sketchcast.app/pt/homeschool" />
+  <link rel="alternate" hreflang="te" href="https://sketchcast.app/te/homeschool" />
+  <link rel="alternate" hreflang="mr" href="https://sketchcast.app/mr/homeschool" />
+  <link rel="alternate" hreflang="hi" href="https://sketchcast.app/hi/homeschool" />
+  <link rel="alternate" hreflang="ms-Arab" href="https://sketchcast.app/ms-arab/homeschool" />
+  <link rel="alternate" hreflang="x-default" href="https://sketchcast.app/homeschool" />
+  <meta property="og:url" content="https://sketchcast.app/homeschool" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ms_MY" />
+  <meta property="og:locale:alternate" content="ar_AR" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:locale:alternate" content="pt_PT" />
+  <meta property="og:locale:alternate" content="te_IN" />
+  <meta property="og:locale:alternate" content="mr_IN" />
+  <meta property="og:locale:alternate" content="hi_IN" />
+  <meta property="og:locale:alternate" content="ms_MY" />
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}</style>
+<!--/i18n:head-->
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/#how" data-i18n="common.nav.how">How it works</a>
+      <a href="/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Homeschool</a>
+      <a href="/schools" data-i18n="common.nav.schools">For schools</a>
+      <a href="/pricing" data-i18n="common.nav.pricing">Pricing</a>
+      <a href="/about" data-i18n="common.nav.about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="Choose your language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="en" dir="ltr">English</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/homeschool" lang="en" hreflang="en" dir="ltr" aria-current="true">English</a></li>
+      <li><a href="https://sketchcast.app/ms/homeschool" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/homeschool" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/homeschool" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/homeschool" lang="es" hreflang="es" dir="ltr">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/homeschool" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/homeschool" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/homeschool" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/homeschool" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/homeschool" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">Log in</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">Start free</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">Homeschool &amp; tutors</p>
+        <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">You already have the <span class="uline">books<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. Now you have the teacher pack.</h1>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">Start free — one full kit</a>
+          <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">See plans</a>
+        </div>
+        <p class="hero-stat" data-i18n="homeschool.hero.stat"><b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household</p>
+      </div>
+
+      <!-- Learners, drawn as product: the thing a homeschool parent or tutor
+           actually opens on a Monday. Every label is a translated key. -->
+      <div class="lc reveal" role="img" data-i18n-attr="aria-label:homeschool.learnersCard.alt" aria-label="A learners panel: two children, each with their own subjects and progress through the chapters taught so far.">
+        <div class="lc-head">
+          <span class="lc-title" data-i18n="homeschool.learnersCard.title">Your learners</span>
+          <span class="lc-chip" data-i18n="homeschool.learnersCard.chip">this term</span>
+        </div>
+
+        <div class="lc-row">
+          <div class="lc-name">
+            <b data-i18n="homeschool.learnersCard.l1.name">Aisha</b>
+            <span data-i18n="homeschool.learnersCard.l1.year">Year 5 · 4 subjects</span>
+          </div>
+          <div class="lc-subs">
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Science</em><span class="lc-bar"><i style="width:78%"></i></span><span class="lc-pct">78%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.maths">Maths</em><span class="lc-bar"><i style="width:54%"></i></span><span class="lc-pct">54%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.english">English</em><span class="lc-bar amber"><i style="width:31%"></i></span><span class="lc-pct">31%</span></div>
+          </div>
+        </div>
+
+        <div class="lc-row">
+          <div class="lc-name">
+            <b data-i18n="homeschool.learnersCard.l2.name">Yusuf</b>
+            <span data-i18n="homeschool.learnersCard.l2.year">Year 3 · 3 subjects</span>
+          </div>
+          <div class="lc-subs">
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Science</em><span class="lc-bar"><i style="width:92%"></i></span><span class="lc-pct">92%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.reading">Reading</em><span class="lc-bar"><i style="width:66%"></i></span><span class="lc-pct">66%</span></div>
+          </div>
+        </div>
+
+        <p class="lc-note" data-i18n="homeschool.learnersCard.note">Each learner keeps their own books, assignments and progress — and their own printable record.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── the problem ──────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="homeschool.why.eyebrow">Why we built this</p>
+        <h2 data-i18n="homeschool.why.heading">A school has a staffroom. You have a kitchen table.</h2>
+        <p class="sub" data-i18n="homeschool.why.sub">Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.</p>
+      </div>
+
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.why.c1.tag">The evening tax</span>
+          <h3 data-i18n="homeschool.why.c1.title">Six subjects, one of you</h3>
+          <p data-i18n="homeschool.why.c1.body">Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.why.c2.tag">Not generic</span>
+          <h3 data-i18n="homeschool.why.c2.title">Your curriculum, not a stock one</h3>
+          <p data-i18n="homeschool.why.c2.body">Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── what a chapter gives you ─────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">One chapter in</p>
+        <h2 data-i18n="homeschool.kit.heading">Six pieces out — a full week of one subject</h2>
+        <p class="sub" data-i18n="homeschool.kit.sub">Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.</p>
+      </div>
+      <div class="kit">
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k1.tag">Teach</span>
+          <h3 data-i18n="homeschool.kit.k1.title">Narrated video lesson</h3>
+          <p data-i18n="homeschool.kit.k1.body">The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k2.tag">Plan</span>
+          <h3 data-i18n="homeschool.kit.k2.title">Lesson plan</h3>
+          <p data-i18n="homeschool.kit.k2.body">Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k3.tag">Practise</span>
+          <h3 data-i18n="homeschool.kit.k3.title">Worksheet</h3>
+          <p data-i18n="homeschool.kit.k3.body">Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k4.tag">Assess</span>
+          <h3 data-i18n="homeschool.kit.k4.title">Test paper</h3>
+          <p data-i18n="homeschool.kit.k4.body">A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k5.tag">Do</span>
+          <h3 data-i18n="homeschool.kit.k5.title">Activities</h3>
+          <p data-i18n="homeschool.kit.k5.body">Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k6.tag">Apply</span>
+          <h3 data-i18n="homeschool.kit.k6.title">Case study</h3>
+          <p data-i18n="homeschool.kit.k6.body">A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── learners, not classes ────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="homeschool.learners.eyebrow">Built around learners</p>
+        <h2 data-i18n="homeschool.learners.heading">Named learners, not a class register</h2>
+        <p class="sub" data-i18n="homeschool.learners.sub">School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.</p>
+      </div>
+
+      <div class="day">
+        <div class="reveal">
+          <p class="n">01</p>
+          <h4 data-i18n="homeschool.learners.s1.title">Add each learner</h4>
+          <p data-i18n="homeschool.learners.s1.body">By name, with their own login. Up to ten on the Homeschool plan.</p>
+        </div>
+        <div class="reveal">
+          <p class="n">02</p>
+          <h4 data-i18n="homeschool.learners.s2.title">Upload their book</h4>
+          <p data-i18n="homeschool.learners.s2.body">A PDF, or photograph the pages with your phone. Different books per learner is normal here.</p>
+        </div>
+        <div class="reveal">
+          <p class="n">03</p>
+          <h4 data-i18n="homeschool.learners.s3.title">Assign the chapter</h4>
+          <p data-i18n="homeschool.learners.s3.body">Send the lesson, worksheet or quiz to that learner — with a due date if you want one.</p>
+        </div>
+        <div class="reveal">
+          <p class="n">04</p>
+          <h4 data-i18n="homeschool.learners.s4.title">See where they are</h4>
+          <p data-i18n="homeschool.learners.s4.body">Who watched, who submitted, what they scored, which topics keep tripping them up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── records ──────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="homeschool.records.eyebrow">Proof of the work</p>
+        <h2 data-i18n="homeschool.records.heading">A record you can hand to someone else</h2>
+        <p class="sub" data-i18n="homeschool.records.sub">Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.</p>
+      </div>
+      <div class="rec">
+        <div class="rec-card reveal">
+          <p class="who" data-i18n="homeschool.records.r1.who">Homeschooling</p>
+          <h3 data-i18n="homeschool.records.r1.title">For your portfolio or review</h3>
+          <p data-i18n="homeschool.records.r1.body">Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates.</p>
+        </div>
+        <div class="rec-card reveal">
+          <p class="who" data-i18n="homeschool.records.r2.who">Tutoring</p>
+          <h3 data-i18n="homeschool.records.r2.title">For the parent paying you</h3>
+          <p data-i18n="homeschool.records.r2.body">The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── tutors ───────────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap section">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="homeschool.tutors.eyebrow">Home tuition</p>
+        <h2 data-i18n="homeschool.tutors.heading">Six students, four schools, one evening to prepare</h2>
+        <p class="sub" data-i18n="homeschool.tutors.sub">Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.</p>
+      </div>
+      <div class="feat">
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.tutors.c1.tag">Per student</span>
+          <h3 data-i18n="homeschool.tutors.c1.title">Their book, their paper</h3>
+          <p data-i18n="homeschool.tutors.c1.body">Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.tutors.c2.tag">Worth the fee</span>
+          <h3 data-i18n="homeschool.tutors.c2.title">Show the progress</h3>
+          <p data-i18n="homeschool.tutors.c2.body">Scores, topic weak spots and a monthly report per student — the difference between "we did some questions" and evidence a parent can see.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── what it costs (pointer only — pricing lives on /pricing) ─────── -->
+  <section class="section" id="plans">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="homeschool.plans.eyebrow">What it costs</p>
+        <h2 data-i18n="homeschool.plans.heading">Two plans for teaching at home</h2>
+        <p class="sub" data-i18n="homeschool.plans.sub"><b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.</p>
+      </div>
+      <div class="hero-ctas" style="margin-top:30px">
+        <a class="btn btn-primary" href="/pricing#home" data-i18n="homeschool.plans.cta">See home plans and prices</a>
+        <a class="btn btn-ghost" href="https://app.sketchcast.app" data-i18n="homeschool.plans.ctaFree">Start free first</a>
+      </div>
+      <p class="packs reveal" style="text-align:start" data-i18n="homeschool.plans.packs">Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire.</p>
+    </div>
+  </section>
+
+  <!-- ── FAQ ──────────────────────────────────────────────────────────────
+       The visible text here and the FAQPage JSON-LD in <head> must stay
+       word-for-word identical — Google requires parity. Both are English in
+       every locale until real translations land (and the JSON-LD must be
+       translated in step with the strings when they do). ─────────────────── -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="homeschool.faq.eyebrow">FAQ</p>
+        <h2 data-i18n="homeschool.faq.heading">Questions from homeschool families and tutors</h2>
+      </div>
+      <div class="faq">
+        <details class="faq-item">
+          <summary data-i18n="homeschool.faq.q1.q">Can I use my own curriculum books?</summary>
+          <p data-i18n="homeschool.faq.q1.a">Yes — that is the point. Upload the book you already teach from, as a PDF or as photos of the pages taken with your phone. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="homeschool.faq.q2.q">How many children or students can I teach on one plan?</summary>
+          <p data-i18n="homeschool.faq.q2.a">Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="homeschool.faq.q3.q">Which languages does it work in?</summary>
+          <p data-i18n="homeschool.faq.q3.a">Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="homeschool.faq.q4.q">Do I get records for my homeschool portfolio or review?</summary>
+          <p data-i18n="homeschool.faq.q4.a">Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="homeschool.faq.q5.q">Can a tutor use it with students from different schools?</summary>
+          <p data-i18n="homeschool.faq.q5.a">Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="homeschool.faq.q6.q">What does it cost?</summary>
+          <p data-i18n="homeschool.faq.q6.a">You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── final CTA ────────────────────────────────────────────────────── -->
+  <section class="cta band">
+    <div class="wrap reveal">
+      <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">Try it on <span class="circle">tomorrow's lesson<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.</p>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">Start free</a>
+        <a class="btn btn-ghost" href="/pricing" data-i18n="homeschool.cta.secondary">See all pricing</a>
+      </div>
+      <p class="cta-note" data-i18n="homeschool.cta.note">Questions about homeschooling or tuition use? <a href="mailto:hello@sketchcast.app">Talk to us</a> — a real person answers.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — a chapter, taught" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/" data-i18n="common.nav.home">Home</a>
+        <a href="/about" data-i18n="common.nav.about">About</a>
+        <a href="/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Homeschool</a>
+        <a href="/schools" data-i18n="common.nav.schools">For schools</a>
+        <a href="/pricing" data-i18n="common.nav.pricing">Pricing</a>
+        <a href="/privacy" data-i18n="common.footer.privacy">Privacy</a>
+        <a href="/terms" data-i18n="common.footer.terms">Terms</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">Contact</a>
+      </div>
+    </div>
+    <p class="foot-legal" data-i18n="common.footer.legal">A product of <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Malaysia Digital status MD/0002997</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

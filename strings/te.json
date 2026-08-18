@@ -7,6 +7,7 @@
   "common": {
     "nav": {
       "how": "ఇది ఎలా పనిచేస్తుంది",
+      "homeschool": "Homeschool",
       "free": "ఉచితంగా ఏమేమి",
       "outcomes": "ఫలితాలు",
       "schools": "పాఠశాలల కోసం",
@@ -340,6 +341,186 @@
       "note": "ముందు ప్రయత్నించి చూడాలా? ఏ ఉపాధ్యాయుడైనా ఈరోజే <a href=\"https://app.sketchcast.app\">ఉచితంగా మొదలుపెట్టవచ్చు</a>."
     }
   },
+  "homeschool": {
+    "meta": {
+      "title": "SketchCast — For Homeschool &amp; Tutors",
+      "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
+      "ogTitle": "SketchCast — For Homeschool &amp; Tutors",
+      "ogDescription": "Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records."
+    },
+    "hero": {
+      "eyebrow": "Homeschool &amp; tutors",
+      "headline": "You already have the <mark>books</mark>. Now you have the teacher pack.",
+      "sub": "Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.",
+      "ctaPrimary": "Start free — one full kit",
+      "ctaSecondary": "See plans",
+      "stat": "<b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household"
+    },
+    "learnersCard": {
+      "alt": "A learners panel: two children, each with their own subjects and progress through the chapters taught so far.",
+      "title": "Your learners",
+      "chip": "this term",
+      "l1": {
+        "name": "Aisha",
+        "year": "Year 5 · 4 subjects"
+      },
+      "l2": {
+        "name": "Yusuf",
+        "year": "Year 3 · 3 subjects"
+      },
+      "subjects": {
+        "science": "Science",
+        "maths": "Maths",
+        "english": "English",
+        "reading": "Reading"
+      },
+      "note": "Each learner keeps their own books, assignments and progress — and their own printable record."
+    },
+    "why": {
+      "eyebrow": "Why we built this",
+      "heading": "A school has a staffroom. You have a kitchen table.",
+      "sub": "Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.",
+      "c1": {
+        "tag": "The evening tax",
+        "title": "Six subjects, one of you",
+        "body": "Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing."
+      },
+      "c2": {
+        "tag": "Not generic",
+        "title": "Your curriculum, not a stock one",
+        "body": "Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library."
+      }
+    },
+    "kit": {
+      "eyebrow": "One chapter in",
+      "heading": "Six pieces out — a full week of one subject",
+      "sub": "Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.",
+      "k1": {
+        "tag": "Teach",
+        "title": "Narrated video lesson",
+        "body": "The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling."
+      },
+      "k2": {
+        "tag": "Plan",
+        "title": "Lesson plan",
+        "body": "Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter."
+      },
+      "k3": {
+        "tag": "Practise",
+        "title": "Worksheet",
+        "body": "Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready."
+      },
+      "k4": {
+        "tag": "Assess",
+        "title": "Test paper",
+        "body": "A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself."
+      },
+      "k5": {
+        "tag": "Do",
+        "title": "Activities",
+        "body": "Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet."
+      },
+      "k6": {
+        "tag": "Apply",
+        "title": "Case study",
+        "body": "A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page."
+      }
+    },
+    "learners": {
+      "eyebrow": "Built around learners",
+      "heading": "Named learners, not a class register",
+      "sub": "School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.",
+      "s1": {
+        "title": "Add each learner",
+        "body": "By name, with their own login. Up to ten on the Homeschool plan."
+      },
+      "s2": {
+        "title": "Upload their book",
+        "body": "A PDF, or photograph the pages with your phone. Different books per learner is normal here."
+      },
+      "s3": {
+        "title": "Assign the chapter",
+        "body": "Send the lesson, worksheet or quiz to that learner — with a due date if you want one."
+      },
+      "s4": {
+        "title": "See where they are",
+        "body": "Who watched, who submitted, what they scored, which topics keep tripping them up."
+      }
+    },
+    "records": {
+      "eyebrow": "Proof of the work",
+      "heading": "A record you can hand to someone else",
+      "sub": "Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.",
+      "r1": {
+        "who": "Homeschooling",
+        "title": "For your portfolio or review",
+        "body": "Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates."
+      },
+      "r2": {
+        "who": "Tutoring",
+        "title": "For the parent paying you",
+        "body": "The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep."
+      }
+    },
+    "tutors": {
+      "eyebrow": "Home tuition",
+      "heading": "Six students, four schools, one evening to prepare",
+      "sub": "Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.",
+      "c1": {
+        "tag": "Per student",
+        "title": "Their book, their paper",
+        "body": "Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool."
+      },
+      "c2": {
+        "tag": "Worth the fee",
+        "title": "Show the progress",
+        "body": "Scores, topic weak spots and a monthly report per student — the difference between \"we did some questions\" and evidence a parent can see."
+      }
+    },
+    "plans": {
+      "eyebrow": "What it costs",
+      "heading": "Two plans for teaching at home",
+      "sub": "<b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.",
+      "cta": "See home plans and prices",
+      "ctaFree": "Start free first",
+      "packs": "Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "heading": "Questions from homeschool families and tutors",
+      "q1": {
+        "q": "Can I use my own curriculum books?",
+        "a": "Yes — that is the point. Upload the book you already teach from, as a PDF or as photos of the pages taken with your phone. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+      },
+      "q2": {
+        "q": "How many children or students can I teach on one plan?",
+        "a": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+      },
+      "q3": {
+        "q": "Which languages does it work in?",
+        "a": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+      },
+      "q4": {
+        "q": "Do I get records for my homeschool portfolio or review?",
+        "a": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+      },
+      "q5": {
+        "q": "Can a tutor use it with students from different schools?",
+        "a": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+      },
+      "q6": {
+        "q": "What does it cost?",
+        "a": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+      }
+    },
+    "cta": {
+      "heading": "Try it on <mark>tomorrow's lesson</mark>",
+      "sub": "Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.",
+      "primary": "Start free",
+      "secondary": "See all pricing",
+      "note": "Questions about homeschooling or tuition use? <a href=\"mailto:hello@sketchcast.app\">Talk to us</a> — a real person answers."
+    }
+  },
   "pricing": {
     "meta": {
       "title": "SketchCast — ధరలు",
@@ -363,17 +544,25 @@
       "perMonth": "/నెల",
       "perYear": "/సం.",
       "teacherPanel": "ఉపాధ్యాయ ప్లాన్లు",
-      "parentPanel": "తల్లిదండ్రుల ప్లాన్లు"
+      "homePanel": "Home plans"
     },
     "noscript": "ప్రత్యక్ష ధరలు చూడటానికి JavaScript ఆన్ చేయండి, లేదా <a href=\"https://app.sketchcast.app/signup\">ఉచితంగా మొదలుపెట్టి</a> యాప్‌లోనే ప్లాన్ ఎంచుకోండి.",
+    "free": {
+      "eyebrow": "Start here",
+      "heading": "Free for everyone, teacher or parent.",
+      "sub": "One book, one complete six-piece kit — no card, no timer. Pick a plan below only when you want more.",
+      "panel": "Free plan"
+    },
     "teachers": {
       "eyebrow": "ఉపాధ్యాయుల కోసం",
-      "heading": "ప్రతి పాఠాన్నీ తయారుచేయండి, ప్రతి వారం."
+      "heading": "ప్రతి పాఠాన్నీ తయారుచేయండి, ప్రతి వారం.",
+      "sub": "Built around a class: rosters, join codes and whole-class progress."
     },
-    "parents": {
-      "eyebrow": "తల్లిదండ్రుల కోసం",
-      "heading": "ఇంట్లోనే అభ్యాసం, సాయం.",
-      "note": "అన్ని చెల్లింపు ప్లాన్ల బిల్లింగ్ USD లో ఉంటుంది. ఎప్పుడైనా రద్దు చేసుకోవచ్చు."
+    "home": {
+      "eyebrow": "For home &amp; tutors",
+      "heading": "Teaching at home, or one learner at a time.",
+      "sub": "Built around named learners rather than a class — <a href=\"/homeschool\">see how it works</a>.",
+      "note": "All paid plans are billed in USD. Cancel anytime. Need a heavier month? Credit packs can be added to any paid plan."
     },
     "trial": {
       "badge": "ఉచిత ట్రయల్",
@@ -382,15 +571,14 @@
       "cta": "ఉచిత ట్రయల్ మొదలుపెట్టండి"
     },
     "plans": {
-      "teacherFree": {
-        "name": "ఉచితం",
-        "tag": "మీ తర్వాతి పాఠంలో ప్రయత్నించి చూడటానికి",
-        "cta": "ఉచితంగా మొదలుపెట్టండి",
-        "f1": "1 పుస్తకం, ఒక అధ్యాయ భాగానికి పూర్తి ఆరు-భాగాల కిట్‌తో",
-        "f2": "స్లయిడ్‌లు, వర్క్‌షీట్లు, క్విజ్‌లు, పరీక్షలు",
-        "f3": "వ్యాఖ్యానంతో వీడియో పాఠాలు",
-        "f4": "9 పాఠ భాషలు, మీ పుస్తకం నుంచి వాటంతట అవే గుర్తించబడతాయి (అరబిక్ పూర్తిగా కుడి-నుంచి-ఎడమకు)",
-        "f5": "తరగతికి అప్పగించండి, పురోగతిని గమనించండి"
+      "freeAll": {
+        "name": "Free",
+        "tag": "Try it on your next lesson",
+        "cta": "Start free",
+        "f1": "1 book, with the full six-piece kit for one chapter part",
+        "f2": "Narrated video lessons, worksheets, test papers and lesson plans",
+        "f3": "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
+        "f4": "Assign to a learner or a class and track progress"
       },
       "teacherPro": {
         "name": "Teacher Pro",
@@ -418,25 +606,30 @@
         "f4": "ప్రాధాన్యతతో తయారీ",
         "f5": "కొత్త ఫీచర్లకు ముందస్తు ప్రవేశం"
       },
-      "parentFree": {
-        "name": "ఉచితం",
-        "tag": "మీ బిడ్డకు ఏమి అందుతుందో చూడండి",
-        "cta": "ఉచితంగా మొదలుపెట్టండి",
-        "f1": "1 పుస్తకం, ఒక అధ్యాయ భాగానికి అభ్యాసంతో",
-        "f2": "పత్రాలు పుస్తకం సొంత భాషలోనే"
+      "homeBasic": {
+        "name": "Home Basic",
+        "tag": "A subject or two, alongside school",
+        "cta": "Get Home Basic",
+        "saveLabel": "2 months free",
+        "f1": "12 generations a month — about 2 complete lesson kits",
+        "f2": "Up to 2 learners",
+        "f3": "Practice papers in the book's own language (9 supported)",
+        "f4": "Homework help & AI explanations",
+        "f5": "Progress tracking",
+        "f6": "Unused allowance rolls over a month"
       },
-      "parentFamily": {
-        "name": "Family",
-        "tag": "నిజంగా నిలిచిపోయే అభ్యాసం, సాయం",
-        "cta": "Family తీసుకోండి",
-        "saveLabel": "2 నెలలు ఉచితం",
-        "f1": "2 మంది పిల్లల వరకు",
-        "f2": "నెలకు 12 తయారీలు — దాదాపు 2 పూర్తి పాఠ కిట్‌లు",
-        "f3": "వాడని కోటా ఒక నెల ముందుకు వెళ్తుంది",
-        "f4": "అభ్యాస పత్రాలు పుస్తకం సొంత భాషలోనే (9 భాషలు)",
-        "f5": "ఇంటిపనిలో సాయం, AI వివరణలు",
-        "f6": "పురోగతి పర్యవేక్షణ",
-        "f7": "ప్రత్యక్ష న్యాయ-వినియోగ మీటర్ — ఆశ్చర్యాలు ఉండవు"
+      "homeschool": {
+        "name": "Homeschool",
+        "tag": "The whole curriculum at home — and tutors with a full roster",
+        "badge": "For home educators",
+        "cta": "Choose Homeschool",
+        "saveLabel": "2 months free",
+        "f1": "48 generations a month — about 8 complete lesson kits",
+        "f2": "Up to 10 learners, each with their own books",
+        "f3": "Printable progress records per learner",
+        "f4": "4 new books a month",
+        "f5": "AI study coach for every learner",
+        "f6": "Live fair-use meter — no surprises"
       }
     },
     "founding": {

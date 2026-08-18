@@ -93,9 +93,12 @@
   .ph-section{padding:44px 0 8px}
   .ph-sec-head{text-align:center;margin-bottom:6px}
   .ph-sec-head h2{font-size:28px;margin-top:8px}
+  .ph-sec-sub{color:var(--graphite);font-size:15px;margin-top:10px;max-width:620px}
+  .ph-sec-sub a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:2px}
   .ph-grid{display:grid;gap:22px;margin-top:26px;align-items:stretch}
   .ph-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
   .ph-grid-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px;margin-left:auto;margin-right:auto}
+  .ph-grid-1{grid-template-columns:minmax(0,1fr);max-width:420px;margin-left:auto;margin-right:auto}
   .ph-card{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px 26px}
   .ph-card--featured{border-color:var(--teal);box-shadow:0 1px 2px rgba(20,24,31,.05),0 22px 50px -30px rgba(31,184,166,.55)}
   .ph-badge{position:absolute;top:-11px;inset-inline-start:26px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--teal-ink);padding:4px 10px;border-radius:999px}
@@ -145,7 +148,7 @@
     .nav-cta{gap:10px;font-size:14px}
     .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
     .ph-hero h1{font-size:34px}
-    .ph-grid-3,.ph-grid-2{grid-template-columns:1fr}
+    .ph-grid-3,.ph-grid-2,.ph-grid-1{grid-template-columns:1fr}
     .ph-founding,.ph-schools{flex-direction:column;align-items:flex-start;text-align:start}
     .ph-founding .ph-cta,.ph-schools .ph-cta{width:100%;justify-content:center}
     .ph-schools .ph-schools-ctas{width:100%}
@@ -194,7 +197,7 @@
     </a>
     <nav class="nav-links">
       <a href="/mr/#how" data-i18n="common.nav.how">हे कसे चालते</a>
-      <a href="/mr/#free" data-i18n="common.nav.free">मोफत काय आहे</a>
+      <a href="/mr/homeschool" data-i18n="common.nav.homeschool">Homeschool</a>
       <a href="/mr/schools" data-i18n="common.nav.schools">शाळांसाठी</a>
       <a href="/mr/pricing" aria-current="page" data-i18n="common.nav.pricing">किंमती</a>
       <a href="/mr/about" data-i18n="common.nav.about">आमच्याविषयी</a>
@@ -233,8 +236,8 @@
       <div class="ph-trial" id="trial-banner" hidden></div>
 
       <div class="ph-toggle" role="tablist" data-i18n-attr="aria-label:pricing.toggle.label" aria-label="बिलिंग कालावधी">
-        <button type="button" role="tab" id="tab-monthly" data-cycle="monthly" aria-selected="true" aria-controls="teacher-grid parent-grid" tabindex="0" data-i18n="pricing.toggle.monthly">मासिक</button>
-        <button type="button" role="tab" id="tab-annual" data-cycle="annual" aria-selected="false" aria-controls="teacher-grid parent-grid" tabindex="-1"><span data-i18n="pricing.toggle.annual">वार्षिक</span> <span class="ph-2mo" data-i18n="pricing.toggle.annualSaving">2 महिने मोफत</span></button>
+        <button type="button" role="tab" id="tab-monthly" data-cycle="monthly" aria-selected="true" aria-controls="teacher-grid home-grid" tabindex="0" data-i18n="pricing.toggle.monthly">मासिक</button>
+        <button type="button" role="tab" id="tab-annual" data-cycle="annual" aria-selected="false" aria-controls="teacher-grid home-grid" tabindex="-1"><span data-i18n="pricing.toggle.annual">वार्षिक</span> <span class="ph-2mo" data-i18n="pricing.toggle.annualSaving">2 महिने मोफत</span></button>
       </div>
       <p class="ph-usd" data-i18n="pricing.toggle.usd">किंमती USD मध्ये.</p>
       <span class="sr-only" aria-live="polite" id="cycle-status"></span>
@@ -245,25 +248,36 @@
     <p class="ph-noscript" data-i18n="pricing.noscript">थेट किंमती पाहण्यासाठी JavaScript चालू करा, किंवा <a href="https://app.sketchcast.app/signup">मोफत सुरू करा</a> आणि ॲपमध्येच योजना निवडा.</p>
   </noscript>
 
+  <section class="wrap ph-section" aria-labelledby="free-h">
+    <div class="ph-sec-head">
+      <p class="eyebrow" data-i18n="pricing.free.eyebrow">Start here</p>
+      <h2 id="free-h" data-i18n="pricing.free.heading">Free for everyone, teacher or parent.</h2>
+      <p class="ph-sec-sub" data-i18n="pricing.free.sub">One book, one complete six-piece kit — no card, no timer. Pick a plan below only when you want more.</p>
+    </div>
+    <div class="ph-grid ph-grid-1" id="free-grid" data-i18n-attr="aria-label:pricing.free.panel" aria-label="Free plan"></div>
+  </section>
+
   <section class="wrap ph-section" aria-labelledby="teacher-h">
     <div class="ph-sec-head">
       <p class="eyebrow" data-i18n="pricing.teachers.eyebrow">शिक्षकांसाठी</p>
       <h2 id="teacher-h" data-i18n="pricing.teachers.heading">प्रत्येक धडा तयार करा, दर आठवड्याला.</h2>
+      <p class="ph-sec-sub" data-i18n="pricing.teachers.sub">Built around a class: rosters, join codes and whole-class progress.</p>
     </div>
-    <div class="ph-grid ph-grid-3" id="teacher-grid" role="tabpanel" data-i18n-attr="aria-label:pricing.toggle.teacherPanel" aria-label="शिक्षक योजना"></div>
+    <div class="ph-grid ph-grid-2" id="teacher-grid" role="tabpanel" data-i18n-attr="aria-label:pricing.toggle.teacherPanel" aria-label="शिक्षक योजना"></div>
   </section>
 
   <section class="wrap">
     <div class="ph-founding" id="founding"></div>
   </section>
 
-  <section class="wrap ph-section" aria-labelledby="parent-h">
+  <section class="wrap ph-section" id="home" aria-labelledby="home-h">
     <div class="ph-sec-head">
-      <p class="eyebrow" data-i18n="pricing.parents.eyebrow">पालकांसाठी</p>
-      <h2 id="parent-h" data-i18n="pricing.parents.heading">घरच्या घरी सराव आणि मदत.</h2>
+      <p class="eyebrow" data-i18n="pricing.home.eyebrow">For home &amp; tutors</p>
+      <h2 id="home-h" data-i18n="pricing.home.heading">Teaching at home, or one learner at a time.</h2>
+      <p class="ph-sec-sub" data-i18n="pricing.home.sub">Built around named learners rather than a class — <a href="/mr/homeschool">see how it works</a>.</p>
     </div>
-    <div class="ph-grid ph-grid-2" id="parent-grid" role="tabpanel" data-i18n-attr="aria-label:pricing.toggle.parentPanel" aria-label="पालक योजना"></div>
-    <p class="ph-note" data-i18n="pricing.parents.note">सर्व सशुल्क योजनांचे बिलिंग USD मध्ये होते. कधीही रद्द करा.</p>
+    <div class="ph-grid ph-grid-2" id="home-grid" role="tabpanel" data-i18n-attr="aria-label:pricing.toggle.homePanel" aria-label="Home plans"></div>
+    <p class="ph-note" data-i18n="pricing.home.note">All paid plans are billed in USD. Cancel anytime. Need a heavier month? Credit packs can be added to any paid plan.</p>
   </section>
 
   <section class="band">
@@ -283,6 +297,7 @@
       <div class="foot-links">
         <a href="/mr/" data-i18n="common.nav.home">मुख्यपृष्ठ</a>
         <a href="/mr/about" data-i18n="common.nav.about">आमच्याविषयी</a>
+        <a href="/mr/homeschool" data-i18n="common.nav.homeschool">Homeschool</a>
         <a href="/mr/schools" data-i18n="common.nav.schools">शाळांसाठी</a>
         <a href="/mr/pricing" aria-current="page" data-i18n="common.nav.pricing">किंमती</a>
         <a href="/mr/privacy" data-i18n="common.footer.privacy">गोपनीयता</a>
@@ -539,8 +554,9 @@
     }
 
     // ── build ──
+    mountCards("free-grid", P.free ? [P.free] : []);
     mountCards("teacher-grid", P.teacher || []);
-    mountCards("parent-grid", P.parent || []);
+    mountCards("home-grid", P.home || []);
     renderFounding(P.founding);
     renderSchools(P.schools);
     initTrialBanner();

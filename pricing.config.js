@@ -28,7 +28,8 @@
   var CHECKOUT = {
     teacherPro: "https://aetheltwin.lemonsqueezy.com/checkout/buy/40f7d222-0d05-4c18-9c87-5aee4254617b",
     teacherProPlus: "https://aetheltwin.lemonsqueezy.com/checkout/buy/6957c1fe-66d3-4f36-af4c-d21436d84cac",
-    parentFamily: "https://aetheltwin.lemonsqueezy.com/checkout/buy/10b1b75b-fd10-43b5-8c5e-6243623ff5b2"
+    homeBasic: "https://aetheltwin.lemonsqueezy.com/checkout/buy/10b1b75b-fd10-43b5-8c5e-6243623ff5b2",
+    homeschool: "https://aetheltwin.lemonsqueezy.com/checkout/buy/8760db3a-46e0-4ea5-baca-9515519930ea"
   };
   var APP_SIGNUP = "https://app.sketchcast.app/signup"; // TODO: confirm real sign-up path
   var SCHOOLS_ENQUIRY = "mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school"; // TODO: swap to the sales form URL if one exists
@@ -57,24 +58,27 @@
       cta: "Start free trial"
     },
 
+    // ── ONE free tier, shared by teachers and home educators alike ─────────
+    // The trial is a single complete kit from a single book (6 generations),
+    // enforced server-side by the trial pin — the same shape whoever you are.
+    free: {
+      key: "free",
+      i18n: "freeAll",
+      name: "Free",
+      tag: "Try it on your next lesson",
+      monthly: 0,
+      annual: 0,
+      cta: "Start free",
+      checkout: APP_SIGNUP,
+      features: [
+        "1 book, with the full six-piece kit for one chapter part",
+        "Narrated video lessons, worksheets, test papers and lesson plans",
+        "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
+        "Assign to a learner or a class and track progress"
+      ]
+    },
+
     teacher: [
-      {
-        key: "free",
-        i18n: "teacherFree",
-        name: "Free",
-        tag: "To try it on your next lesson",
-        monthly: 0,
-        annual: 0,
-        cta: "Start free",
-        checkout: APP_SIGNUP,
-        features: [
-          "1 book, with the full six-piece kit for one chapter part",
-          "Slides, worksheets, quizzes & exams",
-          "Narrated lesson videos",
-          "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
-          "Assign to a class & track progress"
-        ]
-      },
       {
         key: "pro",
         i18n: "teacherPro",
@@ -92,8 +96,8 @@
           "A lesson, plan, activities, worksheet, test paper or case study — each counts as one",
           "2 new books a month",
           "AI Tutor",
+          "Class rosters, join codes and whole-class progress",
           "Long chapters always fully covered (multi-part videos)",
-          "All 9 lesson languages with matching voices",
           "Editable PowerPoint & exports",
           "Live fair-use meter in your Library — no surprises"
         ]
@@ -118,39 +122,46 @@
       }
     ],
 
-    parent: [
+    // Home educators and private tutors — built around named learners rather
+    // than a class register. The showcase lives at /homeschool.
+    home: [
       {
-        key: "free",
-        i18n: "parentFree",
-        name: "Free",
-        tag: "See what your child gets",
-        monthly: 0,
-        annual: 0,
-        cta: "Start free",
-        checkout: APP_SIGNUP,
-        features: [
-          "1 book, with practice for one chapter part",
-          "Papers in the book's own language"
-        ]
-      },
-      {
-        key: "family",
-        i18n: "parentFamily",
-        name: "Family",
-        tag: "Practice and help that actually sticks",
-        featured: true,
+        key: "basic",
+        i18n: "homeBasic",
+        name: "Home Basic",
+        tag: "A subject or two, alongside school",
         monthly: 9.99,
         annual: 99,
         saveLabel: "2 months free",
-        cta: "Get Family",
-        checkout: CHECKOUT.parentFamily,
+        cta: "Get Home Basic",
+        checkout: CHECKOUT.homeBasic,
         features: [
-          "Up to 2 children",
           "12 generations a month — about 2 complete lesson kits",
-          "Unused allowance rolls over a month",
+          "Up to 2 learners",
           "Practice papers in the book's own language (9 supported)",
           "Homework help & AI explanations",
           "Progress tracking",
+          "Unused allowance rolls over a month"
+        ]
+      },
+      {
+        key: "homeschool",
+        i18n: "homeschool",
+        name: "Homeschool",
+        tag: "The whole curriculum at home — and tutors with a full roster",
+        featured: true,
+        badge: "For home educators",
+        monthly: 34,
+        annual: 340,
+        saveLabel: "2 months free",
+        cta: "Choose Homeschool",
+        checkout: CHECKOUT.homeschool,
+        features: [
+          "48 generations a month — about 8 complete lesson kits",
+          "Up to 10 learners, each with their own books",
+          "Printable progress records per learner",
+          "4 new books a month",
+          "AI study coach for every learner",
           "Live fair-use meter — no surprises"
         ]
       }

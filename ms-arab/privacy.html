@@ -224,7 +224,10 @@
   <hr />
   <footer>
     <span data-i18n="privacy.foot.questions">سوءالن اتاو ڤرمينتاءن: <a href="mailto:hello@sketchcast.app">hello@sketchcast.app</a></span><br />
-    <span data-i18n="privacy.foot.links">SketchCast AI · <a href="/ms-arab/about">تنتڠ کامي</a> · <a href="/ms-arab/terms">ترما ڤرخدمتن</a> · <a href="/ms-arab/">sketchcast.app</a></span><br />
+    <!-- The Homeschool link sits OUTSIDE the translated foot.links string so the
+         nine existing translations of that string stay untouched; the link text
+         itself is the shared common.nav.homeschool key. -->
+    <span data-i18n="privacy.foot.links">SketchCast AI · <a href="/ms-arab/about">تنتڠ کامي</a> · <a href="/ms-arab/terms">ترما ڤرخدمتن</a> · <a href="/ms-arab/">sketchcast.app</a></span> · <a href="/ms-arab/homeschool" data-i18n="common.nav.homeschool">Homeschool</a><br />
     <span data-i18n="common.footer.legalPlain">ڤرودوق Aethel Twin Sdn. Bhd. (202601012908) · ستاتوس Malaysia Digital نومبور MD/0002997</span>
   </footer>
 </div>

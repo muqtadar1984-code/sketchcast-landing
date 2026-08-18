@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* SketchCast marketing site — the translation generator.
  *
- * WHAT THIS IS. Six hand-written English pages in, sixty static pages out. The
+ * WHAT THIS IS. Seven hand-written English pages in, seventy static pages out. The
  * English files at the root are BOTH the source you edit and the English page
  * we serve; each other language is written to <locale>/<page>.html. There is no
  * framework, no bundler and no dependency — `node build-i18n.mjs` is the whole
@@ -130,11 +130,12 @@ const SCRIPTS = {
   },
 };
 
-/* The six pages. `route` is the extensionless URL Cloudflare serves the file
+/* The seven pages. `route` is the extensionless URL Cloudflare serves the file
  * at; `file` is the English source. `legal` marks the two pages that carry the
  * "English prevails" notice when translated. */
 const PAGES = [
-  { file: "index.html",   route: "/" },
+  { file: "index.html",      route: "/" },
+  { file: "homeschool.html", route: "/homeschool" },
   { file: "schools.html", route: "/schools" },
   { file: "pricing.html", route: "/pricing" },
   { file: "about.html",   route: "/about" },
