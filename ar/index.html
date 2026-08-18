@@ -258,6 +258,29 @@
     </div>
   </div>
 </header>
+<script>
+(function(){
+  // Locale-proof header fit: hide the middle links only when the row REALLY
+  // overflows (French/Telugu labels run long; breakpoints can't know that).
+  // Hysteresis: re-show only 40px past where it last overflowed.
+  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!links)return;
+  var hiddenAt=0;
+  function fit(){
+    var w=nav.clientWidth;
+    if(links.style.display!=='none'){
+      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
+    }else if(w>hiddenAt+40){
+      links.style.display='';
+      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
+    }
+  }
+  fit();
+  addEventListener('resize',fit);
+  // Web fonts can widen labels after first paint — re-measure when they land.
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
 
 <section class="hero">
   <div class="wrap hero-grid">
