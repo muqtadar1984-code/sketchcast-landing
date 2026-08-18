@@ -110,11 +110,11 @@
       },
       "stat2": {
         "big": "1<em> click</em>",
-        "body": "One generate = the full kit: video lesson, deck, plan, activities, worksheet and exam — the documents come free with every lesson."
+        "body": "One click draws the whole kit: video lesson, deck, plan, activities, worksheet and test paper. Each piece counts as one generation from your monthly allowance."
       },
       "stat3": {
         "big": "$0",
-        "body": "Start free: make and assign your first lessons at no cost during the open trial."
+        "body": "Start free: one book and one complete kit — six generations — at no cost."
       }
     },
     "free": {
@@ -553,7 +553,7 @@
     "hero": {
       "eyebrow": "Pricing",
       "headline": "Priced for every <mark>teacher</mark>, home and school.",
-      "sub": "Start free — everyone is on the house during the open trial. These are the plans for when it ends: subscriptions for classroom teachers and for home educators and tutors (billed in USD), and a tailored quote for schools."
+      "sub": "Start free with one book and one complete kit. Beyond that: subscriptions for classroom teachers and for home educators and tutors (billed in USD), and a tailored quote for schools."
     },
     "toggle": {
       "label": "Billing period",

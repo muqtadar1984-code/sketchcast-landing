@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title data-i18n="homeschool.meta.title">SketchCast — For Homeschool &amp; Tutors</title>
-<meta name="description" data-i18n-attr="content:homeschool.meta.description" content="Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over." />
+<title data-i18n="homeschool.meta.title">SketchCast — Untuk Homeschool &amp; Tutor</title>
+<meta name="description" data-i18n-attr="content:homeschool.meta.description" content="Ajar setiap mata pelajaran daripada buku yang anda sudah miliki. Muat naik buku kurikulum dan dapatkan pelajaran video bernarasi, lembaran kerja, kertas peperiksaan dan rancangan pengajaran — bagi setiap murid, lengkap dengan rekod kemajuan yang boleh anda serahkan." />
 <link rel="icon" type="image/png" href="/seal.png" />
-<meta property="og:title" data-i18n-attr="content:homeschool.meta.ogTitle" content="SketchCast — For Homeschool &amp; Tutors" />
-<meta property="og:description" data-i18n-attr="content:homeschool.meta.ogDescription" content="Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records." />
+<meta property="og:title" data-i18n-attr="content:homeschool.meta.ogTitle" content="SketchCast — Untuk Homeschool &amp; Tutor" />
+<meta property="og:description" data-i18n-attr="content:homeschool.meta.ogDescription" content="Setiap mata pelajaran, diajar daripada buku anda sendiri. Pelajaran video, lembaran kerja dan kertas peperiksaan bagi setiap murid — lengkap dengan rekod kemajuan yang boleh dicetak." />
 <meta property="og:image" content="https://sketchcast.app/seal.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
@@ -192,20 +192,39 @@
   .faq-item[open] summary::after{content:"−"}
   .faq-item p{padding:0 0 18px;font-size:14.5px;color:var(--graphite);max-width:640px}
 </style>
-<!-- Structured data for search. Three blocks: the Homeschool plan as a Product
-     with its two Offers, the page itself, and the FAQ. The FAQPage text below
-     and the visible FAQ section MUST stay word-for-word identical — Google
-     requires parity between markup and what the reader sees. The build copies
-     these blocks verbatim into every locale (script contents are never
-     translated); all locales currently carry the same English FAQ strings, so
-     parity holds everywhere until real translations land. -->
-<script type="application/ld+json">
+<!-- Structured data for search. Four blocks: the Homeschool plan as a Product
+     with its two Offers, the page itself, the demo video, and the FAQ.
+     The FAQPage text and the visible FAQ section MUST stay word-for-word
+     identical — Google requires parity between markup and what the reader
+     sees, and treats a mismatch as spam rather than as a missing enhancement.
+
+     data-i18n-json is what keeps that promise in ten languages: the build
+     re-serializes each block per locale, pulling every marked field from the
+     SAME strings/<locale>.json keys the visible elements use, so the FAQ in
+     /ar/homeschool.html's JSON-LD is literally its <details> text. Prices,
+     currency, availability, dates and every URL are deliberately NOT marked —
+     they are the same in every language, and the build refuses to translate
+     them even if someone adds a pair for one.
+
+     The VideoObject below is the one block that stays English on purpose: it
+     describes a single English-narrated MP4 that every locale serves. A
+     translated name there would advertise a localized video we do not have. -->
+<script type="application/ld+json"
+        data-i18n-json="description:pricing.plans.homeschool.tag
+                       +pricing.plans.homeschool.f1
+                       +pricing.plans.homeschool.f2
+                       +pricing.plans.homeschool.f3
+                       +pricing.plans.homeschool.f4
+                       +pricing.plans.homeschool.f5">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "The SketchCast Homeschool plan: 48 generations a month (about 8 complete lesson kits), up to 10 learners each with their own books and login, printable progress records per learner, 4 new books a month and an AI study coach for every learner.",
-  "brand": { "@type": "Brand", "name": "SketchCast AI" },
+  "description": "Keseluruhan kurikulum di rumah — dan tutor dengan senarai pelajar yang penuh · 48 janaan sebulan — kira-kira 8 kit pelajaran lengkap · Sehingga 10 murid, masing-masing dengan buku mereka sendiri · Rekod kemajuan boleh cetak bagi setiap murid · 4 buku baharu sebulan · Jurulatih ulang kaji AI untuk setiap murid",
+  "brand": {
+    "@type": "Brand",
+    "name": "SketchCast AI"
+  },
   "image": "https://sketchcast.app/seal.png",
   "url": "https://sketchcast.app/homeschool",
   "offers": [
@@ -228,14 +247,19 @@
   ]
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json"
+        data-i18n-json="name:homeschool.meta.title; description:homeschool.meta.description">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "SketchCast — For Homeschool & Tutors",
+  "name": "SketchCast — Untuk Homeschool & Tutor",
   "url": "https://sketchcast.app/homeschool",
-  "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
-  "isPartOf": { "@type": "WebSite", "name": "SketchCast", "url": "https://sketchcast.app" }
+  "description": "Ajar setiap mata pelajaran daripada buku yang anda sudah miliki. Muat naik buku kurikulum dan dapatkan pelajaran video bernarasi, lembaran kerja, kertas peperiksaan dan rancangan pengajaran — bagi setiap murid, lengkap dengan rekod kemajuan yang boleh anda serahkan.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "SketchCast",
+    "url": "https://sketchcast.app"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -250,57 +274,63 @@
   "duration": "PT20S"
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json"
+        data-i18n-json="mainEntity.0.name:homeschool.faq.q1.q; mainEntity.0.acceptedAnswer.text:homeschool.faq.q1.a;
+                        mainEntity.1.name:homeschool.faq.q2.q; mainEntity.1.acceptedAnswer.text:homeschool.faq.q2.a;
+                        mainEntity.2.name:homeschool.faq.q3.q; mainEntity.2.acceptedAnswer.text:homeschool.faq.q3.a;
+                        mainEntity.3.name:homeschool.faq.q4.q; mainEntity.3.acceptedAnswer.text:homeschool.faq.q4.a;
+                        mainEntity.4.name:homeschool.faq.q5.q; mainEntity.4.acceptedAnswer.text:homeschool.faq.q5.a;
+                        mainEntity.5.name:homeschool.faq.q6.q; mainEntity.5.acceptedAnswer.text:homeschool.faq.q6.a">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can I use my own curriculum books?",
+      "name": "Bolehkah saya menggunakan buku kurikulum saya sendiri?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+        "text": "Ya — itulah tujuannya. Muat naik buku yang anda sudah gunakan untuk mengajar sebagai satu PDF. Halaman yang difoto juga boleh, asalkan digabungkan menjadi satu PDF — pengimbas halaman yang terbina dalam menukar foto telefon anda menjadi tepat seperti itu. Setiap pelajaran, lembaran kerja dan kertas peperiksaan dijana daripada bab buku itu sendiri, jadi bahannya sepadan dengan sukatan yang benar-benar diikuti murid anda."
       }
     },
     {
       "@type": "Question",
-      "name": "How many children or students can I teach on one plan?",
+      "name": "Berapa ramai anak atau pelajar yang boleh saya ajar dengan satu pelan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+        "text": "Home Basic merangkumi sehingga 2 murid; Homeschool merangkumi sehingga 10. Setiap murid mempunyai log masuk sendiri, buku sendiri dan rekod kemajuan sendiri — cukup untuk keluarga homeschool yang besar, atau senarai penuh pelajar seorang tutor."
       }
     },
     {
       "@type": "Question",
-      "name": "Which languages does it work in?",
+      "name": "Dalam bahasa apakah ia berfungsi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+        "text": "Pelajaran dijana dalam 9 bahasa, dikesan secara automatik daripada buku yang anda muat naik — termasuk bahasa Arab, sepenuhnya kanan ke kiri pada slaid dan lembaran kerja. Anda mengajar dalam bahasa buku anda, bukan bahasa laman web kami."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I get records for my homeschool portfolio or review?",
+      "name": "Adakah saya mendapat rekod untuk portfolio atau semakan homeschool saya?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+        "text": "Ya. Semua yang diajar, ditugaskan dan disiapkan direkodkan sambil anda mengajar, dan satu butang mengeksport laporan boleh cetak bagi setiap murid: bab yang diliputi bagi setiap mata pelajaran, kerja yang disiapkan dan keputusan penilaian, lengkap dengan tarikh. Keluarga menggunakannya untuk semakan portfolio; tutor menghantar laporan yang sama sebagai kemas kini bulanan kepada ibu bapa."
       }
     },
     {
       "@type": "Question",
-      "name": "Can a tutor use it with students from different schools?",
+      "name": "Bolehkah seorang tutor menggunakannya dengan pelajar daripada sekolah yang berbeza?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+        "text": "Ya. Setiap pelajar mengekalkan buku mereka sendiri, jadi anda boleh memuat naik buku teks sekolah setiap pelajar dan menjana kertas latihan berdasarkan sukatan sebenar pelajar itu. Enam pelajar daripada empat sekolah ialah susunan biasa di sini."
       }
     },
     {
       "@type": "Question",
-      "name": "What does it cost?",
+      "name": "Berapakah kosnya?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+        "text": "Anda boleh mula secara percuma dengan satu kit pelajaran yang lengkap — tiada kad diperlukan. Home Basic ialah $9.99 sebulan untuk satu dua mata pelajaran, dan Homeschool ialah $34 sebulan atau $340 setahun (dua bulan percuma) untuk keseluruhan kurikulum: 48 janaan sebulan, sehingga 10 murid dan rekod kemajuan yang boleh dicetak."
       }
     }
   ]
@@ -344,7 +374,7 @@
     </a>
     <nav class="nav-links">
       <a href="/ms/#how" data-i18n="common.nav.how">Cara ia berfungsi</a>
-      <a href="/ms/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Homeschool</a>
+      <a href="/ms/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Sekolah di rumah</a>
       <a href="/ms/schools" data-i18n="common.nav.schools">Untuk sekolah</a>
       <a href="/ms/pricing" data-i18n="common.nav.pricing">Harga</a>
       <a href="/ms/about" data-i18n="common.nav.about">Tentang kami</a>
@@ -402,48 +432,48 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="reveal">
-        <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">Homeschool &amp; tutors</p>
-        <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">You already have the <span class="uline">books<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. Now you have the teacher pack.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.</p>
+        <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">Homeschool &amp; tutor</p>
+        <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">Anda sudah ada <span class="uline">bukunya<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. Kini anda ada pek gurunya.</h1>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">Muat naik buku kurikulum yang anda gunakan untuk mengajar. Mana-mana bab menjadi pelajaran video bernarasi, rancangan pengajaran, lembaran kerja, kertas peperiksaan, aktiviti dan kajian kes — siap sebelum sarapan, dalam bahasa yang anda gunakan untuk mengajar.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">Start free — one full kit</a>
-          <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">See plans</a>
+          <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">Mula percuma — satu kit penuh</a>
+          <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">Lihat pelan</a>
         </div>
-        <p class="hero-stat" data-i18n="homeschool.hero.stat"><b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household</p>
+        <p class="hero-stat" data-i18n="homeschool.hero.stat"><b>8 kit sebulan</b> · <b>sehingga 10 murid</b> · <b>9 bahasa</b> — satu langganan untuk seisi rumah</p>
       </div>
 
       <!-- Learners, drawn as product: the thing a homeschool parent or tutor
            actually opens on a Monday. Every label is a translated key. -->
-      <div class="lc reveal" role="img" data-i18n-attr="aria-label:homeschool.learnersCard.alt" aria-label="A learners panel: two children, each with their own subjects and progress through the chapters taught so far.">
+      <div class="lc reveal" role="img" data-i18n-attr="aria-label:homeschool.learnersCard.alt" aria-label="Panel murid: dua orang anak, masing-masing dengan mata pelajaran sendiri dan kemajuan menerusi bab yang telah diajar setakat ini.">
         <div class="lc-head">
-          <span class="lc-title" data-i18n="homeschool.learnersCard.title">Your learners</span>
-          <span class="lc-chip" data-i18n="homeschool.learnersCard.chip">this term</span>
+          <span class="lc-title" data-i18n="homeschool.learnersCard.title">Murid anda</span>
+          <span class="lc-chip" data-i18n="homeschool.learnersCard.chip">penggal ini</span>
         </div>
 
         <div class="lc-row">
           <div class="lc-name">
             <b data-i18n="homeschool.learnersCard.l1.name">Aisha</b>
-            <span data-i18n="homeschool.learnersCard.l1.year">Year 5 · 4 subjects</span>
+            <span data-i18n="homeschool.learnersCard.l1.year">Tahun 5 · 4 mata pelajaran</span>
           </div>
           <div class="lc-subs">
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Science</em><span class="lc-bar"><i style="width:78%"></i></span><span class="lc-pct">78%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.maths">Maths</em><span class="lc-bar"><i style="width:54%"></i></span><span class="lc-pct">54%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.english">English</em><span class="lc-bar amber"><i style="width:31%"></i></span><span class="lc-pct">31%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Sains</em><span class="lc-bar"><i style="width:78%"></i></span><span class="lc-pct">78%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.maths">Matematik</em><span class="lc-bar"><i style="width:54%"></i></span><span class="lc-pct">54%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.english">Bahasa Inggeris</em><span class="lc-bar amber"><i style="width:31%"></i></span><span class="lc-pct">31%</span></div>
           </div>
         </div>
 
         <div class="lc-row">
           <div class="lc-name">
             <b data-i18n="homeschool.learnersCard.l2.name">Yusuf</b>
-            <span data-i18n="homeschool.learnersCard.l2.year">Year 3 · 3 subjects</span>
+            <span data-i18n="homeschool.learnersCard.l2.year">Tahun 3 · 3 mata pelajaran</span>
           </div>
           <div class="lc-subs">
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Science</em><span class="lc-bar"><i style="width:92%"></i></span><span class="lc-pct">92%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.reading">Reading</em><span class="lc-bar"><i style="width:66%"></i></span><span class="lc-pct">66%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Sains</em><span class="lc-bar"><i style="width:92%"></i></span><span class="lc-pct">92%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.reading">Bacaan</em><span class="lc-bar"><i style="width:66%"></i></span><span class="lc-pct">66%</span></div>
           </div>
         </div>
 
-        <p class="lc-note" data-i18n="homeschool.learnersCard.note">Each learner keeps their own books, assignments and progress — and their own printable record.</p>
+        <p class="lc-note" data-i18n="homeschool.learnersCard.note">Setiap murid mengekalkan buku, tugasan dan kemajuan mereka sendiri — serta rekod mereka sendiri yang boleh dicetak.</p>
       </div>
     </div>
   </section>
@@ -551,21 +581,21 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.why.eyebrow">Why we built this</p>
-        <h2 data-i18n="homeschool.why.heading">A school has a staffroom. You have a kitchen table.</h2>
-        <p class="sub" data-i18n="homeschool.why.sub">Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.</p>
+        <p class="eyebrow" data-i18n="homeschool.why.eyebrow">Mengapa kami membinanya</p>
+        <h2 data-i18n="homeschool.why.heading">Sekolah ada bilik guru. Anda ada meja dapur.</h2>
+        <p class="sub" data-i18n="homeschool.why.sub">Sekolah membeli pek guru bersama setiap buku teks: contoh berjawab, lembaran kerja, ujian, skema jawapan. Mengajar di rumah — atau memberi tuisyen kepada pelajar daripada empat sekolah berbeza — anda dapat bukunya sahaja, tiada yang lain. Jadi setiap penerangan, setiap lembaran latihan dan setiap ujian dibina oleh seorang sahaja, selalunya lewat malam, satu mata pelajaran demi satu.</p>
       </div>
 
       <div class="feat">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.why.c1.tag">The evening tax</span>
-          <h3 data-i18n="homeschool.why.c1.title">Six subjects, one of you</h3>
-          <p data-i18n="homeschool.why.c1.body">Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing.</p>
+          <span class="tag" data-i18n="homeschool.why.c1.tag">Cukai waktu petang</span>
+          <h3 data-i18n="homeschool.why.c1.title">Enam mata pelajaran, anda seorang</h3>
+          <p data-i18n="homeschool.why.c1.body">Menyediakan bahan seminggu untuk matematik, sains, bahasa dan selebihnya ialah kerja kedua. SketchCast membuat persediaan itu daripada <b>buku anda sendiri</b>, supaya masa anda pergi kepada mengajar, bukan menaip.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.why.c2.tag">Not generic</span>
-          <h3 data-i18n="homeschool.why.c2.title">Your curriculum, not a stock one</h3>
-          <p data-i18n="homeschool.why.c2.body">Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library.</p>
+          <span class="tag" data-i18n="homeschool.why.c2.tag">Bukan generik</span>
+          <h3 data-i18n="homeschool.why.c2.title">Kurikulum anda, bukan kurikulum siap pakai</h3>
+          <p data-i18n="homeschool.why.c2.body">Segalanya dijana daripada bab yang anda muat naik — sukatan, istilah dan contoh yang sama seperti yang dinilai ke atas murid anda. Tiada apa-apa direka daripada pustaka generik.</p>
         </div>
       </div>
     </div>
@@ -575,40 +605,40 @@
   <section class="section">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">One chapter in</p>
-        <h2 data-i18n="homeschool.kit.heading">Six pieces out — a full week of one subject</h2>
-        <p class="sub" data-i18n="homeschool.kit.sub">Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.</p>
+        <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">Satu bab masuk</p>
+        <h2 data-i18n="homeschool.kit.heading">Enam bahan keluar — seminggu penuh bagi satu mata pelajaran</h2>
+        <p class="sub" data-i18n="homeschool.kit.sub">Muat naik satu bab dan SketchCast memulangkan kit pengajaran yang lengkap. Fail Word dan PowerPoint yang boleh disunting, jadi anda boleh ubah apa sahaja sebelum mengajarnya.</p>
       </div>
       <div class="kit">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k1.tag">Teach</span>
-          <h3 data-i18n="homeschool.kit.k1.title">Narrated video lesson</h3>
-          <p data-i18n="homeschool.kit.k1.body">The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling.</p>
+          <span class="tag" data-i18n="homeschool.kit.k1.tag">Ajar</span>
+          <h3 data-i18n="homeschool.kit.k1.title">Pelajaran video bernarasi</h3>
+          <p data-i18n="homeschool.kit.k1.body">Bab itu diterangkan pada slaid beranimasi, dengan suara sebenar — supaya seorang murid boleh menonton, menjeda dan menonton semula sementara anda mengajar adik-beradiknya.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k2.tag">Plan</span>
-          <h3 data-i18n="homeschool.kit.k2.title">Lesson plan</h3>
-          <p data-i18n="homeschool.kit.k2.body">Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter.</p>
+          <span class="tag" data-i18n="homeschool.kit.k2.tag">Rancang</span>
+          <h3 data-i18n="homeschool.kit.k2.title">Rancangan pengajaran</h3>
+          <p data-i18n="homeschool.kit.k2.body">Objektif, bahan, aliran berjadual dan kosa kata utama — struktur yang sekolah berikan kepada gurunya, ditulis khusus untuk bab anda.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k3.tag">Practise</span>
-          <h3 data-i18n="homeschool.kit.k3.title">Worksheet</h3>
-          <p data-i18n="homeschool.kit.k3.body">Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready.</p>
+          <span class="tag" data-i18n="homeschool.kit.k3.tag">Berlatih</span>
+          <h3 data-i18n="homeschool.kit.k3.title">Lembaran kerja</h3>
+          <p data-i18n="homeschool.kit.k3.body">Isi tempat kosong, betul atau salah, padanan dan jawapan pendek — dengan skema jawapan pada halamannya sendiri, siap dicetak.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k4.tag">Assess</span>
-          <h3 data-i18n="homeschool.kit.k4.title">Test paper</h3>
-          <p data-i18n="homeschool.kit.k4.body">A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself.</p>
+          <span class="tag" data-i18n="homeschool.kit.k4.tag">Nilai</span>
+          <h3 data-i18n="homeschool.kit.k4.title">Kertas peperiksaan</h3>
+          <p data-i18n="homeschool.kit.k4.body">Kertas yang tersusun kemas dengan markah bagi setiap soalan dan skema pemarkahan — atau tetapkannya sebagai kuiz interaktif dan biarkan ia menyemak sendiri.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k5.tag">Do</span>
-          <h3 data-i18n="homeschool.kit.k5.title">Activities</h3>
-          <p data-i18n="homeschool.kit.k5.body">Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet.</p>
+          <span class="tag" data-i18n="homeschool.kit.k5.tag">Buat</span>
+          <h3 data-i18n="homeschool.kit.k5.title">Aktiviti</h3>
+          <p data-i18n="homeschool.kit.k5.body">Tugasan amali menggunakan bahan yang sudah ada di rumah, lengkap dengan masa dan ciri kejayaannya — untuk bahagian hari yang tidak sepatutnya menjadi lembaran kerja.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k6.tag">Apply</span>
-          <h3 data-i18n="homeschool.kit.k6.title">Case study</h3>
-          <p data-i18n="homeschool.kit.k6.body">A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page.</p>
+          <span class="tag" data-i18n="homeschool.kit.k6.tag">Guna</span>
+          <h3 data-i18n="homeschool.kit.k6.title">Kajian kes</h3>
+          <p data-i18n="homeschool.kit.k6.body">Senario dunia sebenar dengan soalan perbincangan dan nota panduan, supaya bab itu bermakna di luar halaman buku.</p>
         </div>
       </div>
     </div>
@@ -618,31 +648,31 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.learners.eyebrow">Built around learners</p>
-        <h2 data-i18n="homeschool.learners.heading">Named learners, not a class register</h2>
-        <p class="sub" data-i18n="homeschool.learners.sub">School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.</p>
+        <p class="eyebrow" data-i18n="homeschool.learners.eyebrow">Berteraskan murid</p>
+        <h2 data-i18n="homeschool.learners.heading">Murid bernama, bukan senarai kelas</h2>
+        <p class="sub" data-i18n="homeschool.learners.sub">Perisian sekolah menganggap ada tiga puluh pelajar dan satu kod sertai. Anda pula ada tiga orang anak pada tahap berbeza, atau enam pelajar daripada empat sekolah berbeza. SketchCast dibina mengikut cara anda benar-benar mengajar.</p>
       </div>
 
       <div class="day">
         <div class="reveal">
           <p class="n">01</p>
-          <h4 data-i18n="homeschool.learners.s1.title">Add each learner</h4>
-          <p data-i18n="homeschool.learners.s1.body">By name, with their own login. Up to ten on the Homeschool plan.</p>
+          <h4 data-i18n="homeschool.learners.s1.title">Tambah setiap murid</h4>
+          <p data-i18n="homeschool.learners.s1.body">Mengikut nama, dengan log masuk mereka sendiri. Sehingga sepuluh orang pada pelan Homeschool.</p>
         </div>
         <div class="reveal">
           <p class="n">02</p>
-          <h4 data-i18n="homeschool.learners.s2.title">Upload their book</h4>
-          <p data-i18n="homeschool.learners.s2.body">A PDF, or photograph the pages with your phone. Different books per learner is normal here.</p>
+          <h4 data-i18n="homeschool.learners.s2.title">Muat naik buku mereka</h4>
+          <p data-i18n="homeschool.learners.s2.body">Satu PDF, atau ambil gambar halamannya dengan telefon anda. Buku yang berbeza bagi setiap murid memang perkara biasa di sini.</p>
         </div>
         <div class="reveal">
           <p class="n">03</p>
-          <h4 data-i18n="homeschool.learners.s3.title">Assign the chapter</h4>
-          <p data-i18n="homeschool.learners.s3.body">Send the lesson, worksheet or quiz to that learner — with a due date if you want one.</p>
+          <h4 data-i18n="homeschool.learners.s3.title">Tugaskan babnya</h4>
+          <p data-i18n="homeschool.learners.s3.body">Hantar pelajaran, lembaran kerja atau kuiz kepada murid itu — berserta tarikh akhir jika anda mahu.</p>
         </div>
         <div class="reveal">
           <p class="n">04</p>
-          <h4 data-i18n="homeschool.learners.s4.title">See where they are</h4>
-          <p data-i18n="homeschool.learners.s4.body">Who watched, who submitted, what they scored, which topics keep tripping them up.</p>
+          <h4 data-i18n="homeschool.learners.s4.title">Lihat di mana mereka berada</h4>
+          <p data-i18n="homeschool.learners.s4.body">Siapa yang menonton, siapa yang menghantar, berapa markah mereka, dan topik mana yang sentiasa menyukarkan mereka.</p>
         </div>
       </div>
     </div>
@@ -652,20 +682,20 @@
   <section class="section">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.records.eyebrow">Proof of the work</p>
-        <h2 data-i18n="homeschool.records.heading">A record you can hand to someone else</h2>
-        <p class="sub" data-i18n="homeschool.records.sub">Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.</p>
+        <p class="eyebrow" data-i18n="homeschool.records.eyebrow">Bukti kerja yang dibuat</p>
+        <h2 data-i18n="homeschool.records.heading">Rekod yang boleh anda serahkan kepada orang lain</h2>
+        <p class="sub" data-i18n="homeschool.records.sub">Semua yang diajar dan disiapkan sudah pun direkodkan. Satu butang menukarkannya menjadi laporan boleh cetak bagi setiap murid — apa yang diliputi, bila, dan bagaimana pencapaian mereka.</p>
       </div>
       <div class="rec">
         <div class="rec-card reveal">
-          <p class="who" data-i18n="homeschool.records.r1.who">Homeschooling</p>
-          <h3 data-i18n="homeschool.records.r1.title">For your portfolio or review</h3>
-          <p data-i18n="homeschool.records.r1.body">Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates.</p>
+          <p class="who" data-i18n="homeschool.records.r1.who">Homeschool</p>
+          <h3 data-i18n="homeschool.records.r1.title">Untuk portfolio atau semakan anda</h3>
+          <p data-i18n="homeschool.records.r1.body">Banyak keluarga perlu menunjukkan apa yang telah diajar sepanjang tahun. Daripada menyusunnya semula daripada ingatan, eksport rekod itu: bab yang diliputi bagi setiap mata pelajaran, kerja yang disiapkan, keputusan penilaian, lengkap dengan tarikh.</p>
         </div>
         <div class="rec-card reveal">
-          <p class="who" data-i18n="homeschool.records.r2.who">Tutoring</p>
-          <h3 data-i18n="homeschool.records.r2.title">For the parent paying you</h3>
-          <p data-i18n="homeschool.records.r2.body">The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep.</p>
+          <p class="who" data-i18n="homeschool.records.r2.who">Tuisyen</p>
+          <h3 data-i18n="homeschool.records.r2.title">Untuk ibu bapa yang membayar anda</h3>
+          <p data-i18n="homeschool.records.r2.body">Laporan yang sama itulah kemas kini bulanan yang diingini pelanggan anda: inilah yang kami liputi, inilah markah anak anda, inilah langkah kami seterusnya. Itulah yang membuatkan seorang tutor mudah dikekalkan.</p>
         </div>
       </div>
     </div>
@@ -675,20 +705,20 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.tutors.eyebrow">Home tuition</p>
-        <h2 data-i18n="homeschool.tutors.heading">Six students, four schools, one evening to prepare</h2>
-        <p class="sub" data-i18n="homeschool.tutors.sub">Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.</p>
+        <p class="eyebrow" data-i18n="homeschool.tutors.eyebrow">Tuisyen di rumah</p>
+        <h2 data-i18n="homeschool.tutors.heading">Enam pelajar, empat sekolah, satu petang untuk bersedia</h2>
+        <p class="sub" data-i18n="homeschool.tutors.sub">Tuisyen bermakna sukatan yang berbeza bagi hampir setiap pelajar — dan bahan yang mesti sepadan dengan sekolah <em>mereka</em>, bukan sekolah generik. Muat naik buku setiap pelajar dan jana daripada buku mereka sendiri.</p>
       </div>
       <div class="feat">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.tutors.c1.tag">Per student</span>
-          <h3 data-i18n="homeschool.tutors.c1.title">Their book, their paper</h3>
-          <p data-i18n="homeschool.tutors.c1.body">Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool.</p>
+          <span class="tag" data-i18n="homeschool.tutors.c1.tag">Setiap pelajar</span>
+          <h3 data-i18n="homeschool.tutors.c1.title">Buku mereka, kertas mereka</h3>
+          <p data-i18n="homeschool.tutors.c1.body">Setiap pelajar mengekalkan buku dan tugasan mereka sendiri. Kertas latihan untuk pelajar hari Selasa datang daripada <b>bab pelajar hari Selasa itu sendiri</b> — bukan daripada kumpulan bahan yang dikongsi.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.tutors.c2.tag">Worth the fee</span>
-          <h3 data-i18n="homeschool.tutors.c2.title">Show the progress</h3>
-          <p data-i18n="homeschool.tutors.c2.body">Scores, topic weak spots and a monthly report per student — the difference between "we did some questions" and evidence a parent can see.</p>
+          <span class="tag" data-i18n="homeschool.tutors.c2.tag">Berbaloi dengan yurannya</span>
+          <h3 data-i18n="homeschool.tutors.c2.title">Tunjukkan kemajuannya</h3>
+          <p data-i18n="homeschool.tutors.c2.body">Markah, topik yang lemah dan laporan bulanan bagi setiap pelajar — bezanya antara “kami buat beberapa soalan” dengan bukti yang boleh dilihat sendiri oleh ibu bapa.</p>
         </div>
       </div>
     </div>
@@ -698,53 +728,55 @@
   <section class="section" id="plans">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.plans.eyebrow">What it costs</p>
-        <h2 data-i18n="homeschool.plans.heading">Two plans for teaching at home</h2>
-        <p class="sub" data-i18n="homeschool.plans.sub"><b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.</p>
+        <p class="eyebrow" data-i18n="homeschool.plans.eyebrow">Berapa kosnya</p>
+        <h2 data-i18n="homeschool.plans.heading">Dua pelan untuk mengajar di rumah</h2>
+        <p class="sub" data-i18n="homeschool.plans.sub"><b>Home Basic</b> untuk satu dua mata pelajaran di samping persekolahan, dan <b>Homeschool</b> untuk keseluruhan kurikulum — atau tutor dengan senarai pelajar yang penuh. Kedua-duanya berteraskan murid bernama, dan setiap pelan bermula dengan satu kit percuma.</p>
       </div>
       <div class="hero-ctas" style="margin-top:30px">
-        <a class="btn btn-primary" href="/ms/pricing#home" data-i18n="homeschool.plans.cta">See home plans and prices</a>
-        <a class="btn btn-ghost" href="https://app.sketchcast.app" data-i18n="homeschool.plans.ctaFree">Start free first</a>
+        <a class="btn btn-primary" href="/ms/pricing#home" data-i18n="homeschool.plans.cta">Lihat pelan dan harga untuk rumah</a>
+        <a class="btn btn-ghost" href="https://app.sketchcast.app" data-i18n="homeschool.plans.ctaFree">Mula percuma dahulu</a>
       </div>
-      <p class="packs reveal" style="text-align:start" data-i18n="homeschool.plans.packs">Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire.</p>
+      <p class="packs reveal" style="text-align:start" data-i18n="homeschool.plans.packs">Bulan yang sibuk? <b>Pek kredit</b> boleh ditambah pada mana-mana pelan berbayar, dan ia tidak luput.</p>
     </div>
   </section>
 
   <!-- ── FAQ ──────────────────────────────────────────────────────────────
        The visible text here and the FAQPage JSON-LD in <head> must stay
-       word-for-word identical — Google requires parity. Both are English in
-       every locale until real translations land (and the JSON-LD must be
-       translated in step with the strings when they do). ─────────────────── -->
+       word-for-word identical — Google requires parity. They cannot drift:
+       the JSON-LD is generated from these same homeschool.faq.* keys (see the
+       data-i18n-json attribute up there), so translating a question here
+       translates it in the structured data too. Adding a question means adding
+       BOTH a <details> block and a mainEntity entry with its pair. ────────── -->
   <section class="section" id="faq">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.faq.eyebrow">FAQ</p>
-        <h2 data-i18n="homeschool.faq.heading">Questions from homeschool families and tutors</h2>
+        <p class="eyebrow" data-i18n="homeschool.faq.eyebrow">Soalan Lazim</p>
+        <h2 data-i18n="homeschool.faq.heading">Soalan daripada keluarga homeschool dan tutor</h2>
       </div>
       <div class="faq">
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q1.q">Can I use my own curriculum books?</summary>
-          <p data-i18n="homeschool.faq.q1.a">Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows.</p>
+          <summary data-i18n="homeschool.faq.q1.q">Bolehkah saya menggunakan buku kurikulum saya sendiri?</summary>
+          <p data-i18n="homeschool.faq.q1.a">Ya — itulah tujuannya. Muat naik buku yang anda sudah gunakan untuk mengajar sebagai satu PDF. Halaman yang difoto juga boleh, asalkan digabungkan menjadi satu PDF — pengimbas halaman yang terbina dalam menukar foto telefon anda menjadi tepat seperti itu. Setiap pelajaran, lembaran kerja dan kertas peperiksaan dijana daripada bab buku itu sendiri, jadi bahannya sepadan dengan sukatan yang benar-benar diikuti murid anda.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q2.q">How many children or students can I teach on one plan?</summary>
-          <p data-i18n="homeschool.faq.q2.a">Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster.</p>
+          <summary data-i18n="homeschool.faq.q2.q">Berapa ramai anak atau pelajar yang boleh saya ajar dengan satu pelan?</summary>
+          <p data-i18n="homeschool.faq.q2.a">Home Basic merangkumi sehingga 2 murid; Homeschool merangkumi sehingga 10. Setiap murid mempunyai log masuk sendiri, buku sendiri dan rekod kemajuan sendiri — cukup untuk keluarga homeschool yang besar, atau senarai penuh pelajar seorang tutor.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q3.q">Which languages does it work in?</summary>
-          <p data-i18n="homeschool.faq.q3.a">Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website.</p>
+          <summary data-i18n="homeschool.faq.q3.q">Dalam bahasa apakah ia berfungsi?</summary>
+          <p data-i18n="homeschool.faq.q3.a">Pelajaran dijana dalam 9 bahasa, dikesan secara automatik daripada buku yang anda muat naik — termasuk bahasa Arab, sepenuhnya kanan ke kiri pada slaid dan lembaran kerja. Anda mengajar dalam bahasa buku anda, bukan bahasa laman web kami.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q4.q">Do I get records for my homeschool portfolio or review?</summary>
-          <p data-i18n="homeschool.faq.q4.a">Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update.</p>
+          <summary data-i18n="homeschool.faq.q4.q">Adakah saya mendapat rekod untuk portfolio atau semakan homeschool saya?</summary>
+          <p data-i18n="homeschool.faq.q4.a">Ya. Semua yang diajar, ditugaskan dan disiapkan direkodkan sambil anda mengajar, dan satu butang mengeksport laporan boleh cetak bagi setiap murid: bab yang diliputi bagi setiap mata pelajaran, kerja yang disiapkan dan keputusan penilaian, lengkap dengan tarikh. Keluarga menggunakannya untuk semakan portfolio; tutor menghantar laporan yang sama sebagai kemas kini bulanan kepada ibu bapa.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q5.q">Can a tutor use it with students from different schools?</summary>
-          <p data-i18n="homeschool.faq.q5.a">Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here.</p>
+          <summary data-i18n="homeschool.faq.q5.q">Bolehkah seorang tutor menggunakannya dengan pelajar daripada sekolah yang berbeza?</summary>
+          <p data-i18n="homeschool.faq.q5.a">Ya. Setiap pelajar mengekalkan buku mereka sendiri, jadi anda boleh memuat naik buku teks sekolah setiap pelajar dan menjana kertas latihan berdasarkan sukatan sebenar pelajar itu. Enam pelajar daripada empat sekolah ialah susunan biasa di sini.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q6.q">What does it cost?</summary>
-          <p data-i18n="homeschool.faq.q6.a">You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records.</p>
+          <summary data-i18n="homeschool.faq.q6.q">Berapakah kosnya?</summary>
+          <p data-i18n="homeschool.faq.q6.a">Anda boleh mula secara percuma dengan satu kit pelajaran yang lengkap — tiada kad diperlukan. Home Basic ialah $9.99 sebulan untuk satu dua mata pelajaran, dan Homeschool ialah $34 sebulan atau $340 setahun (dua bulan percuma) untuk keseluruhan kurikulum: 48 janaan sebulan, sehingga 10 murid dan rekod kemajuan yang boleh dicetak.</p>
         </details>
       </div>
     </div>
@@ -753,13 +785,13 @@
   <!-- ── final CTA ────────────────────────────────────────────────────── -->
   <section class="cta band">
     <div class="wrap reveal">
-      <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">Try it on <span class="circle">tomorrow's lesson<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.</p>
+      <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">Cuba pada <span class="circle">pelajaran esok<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">Muat naik satu bab dan dapatkan kit enam bahagian yang penuh secara percuma — tiada kad, tiada pemasa percubaan. Jika ia menyelamatkan satu petang anda, pelannya ada di sana.</p>
       <div class="cta-btns">
-        <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">Start free</a>
-        <a class="btn btn-ghost" href="/ms/pricing" data-i18n="homeschool.cta.secondary">See all pricing</a>
+        <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">Mula percuma</a>
+        <a class="btn btn-ghost" href="/ms/pricing" data-i18n="homeschool.cta.secondary">Lihat semua harga</a>
       </div>
-      <p class="cta-note" data-i18n="homeschool.cta.note">Questions about homeschooling or tuition use? <a href="mailto:hello@sketchcast.app">Talk to us</a> — a real person answers.</p>
+      <p class="cta-note" data-i18n="homeschool.cta.note">Ada soalan tentang penggunaan untuk homeschool atau tuisyen? <a href="mailto:hello@sketchcast.app">Hubungi kami</a> — orang sebenar yang menjawab.</p>
     </div>
   </section>
 
@@ -775,7 +807,7 @@
       <div class="foot-links">
         <a href="/ms/" data-i18n="common.nav.home">Utama</a>
         <a href="/ms/about" data-i18n="common.nav.about">Tentang kami</a>
-        <a href="/ms/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Homeschool</a>
+        <a href="/ms/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Sekolah di rumah</a>
         <a href="/ms/schools" data-i18n="common.nav.schools">Untuk sekolah</a>
         <a href="/ms/pricing" data-i18n="common.nav.pricing">Harga</a>
         <a href="/ms/privacy" data-i18n="common.footer.privacy">Privasi</a>

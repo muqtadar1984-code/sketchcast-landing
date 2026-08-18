@@ -9,7 +9,7 @@
   "common": {
     "nav": {
       "how": "چارا اي برفوڠسي",
-      "homeschool": "Homeschool",
+      "homeschool": "سکوله د رومه",
       "free": "يڠ ڤرچوما",
       "outcomes": "هاسيلڽ",
       "schools": "اونتوق سکوله",
@@ -90,11 +90,11 @@
       },
       "stat2": {
         "big": "1<em> کليک</em>",
-        "body": "ساتو جاناءن = کيت ڤنوه: ڤلاجرن ۏيديو، سلايد، رنچاڠن، اکتيۏيتي، لمبرن کرجا دان ڤڤريقساءن — دوکومنڽ ڤرچوما دڠن ستياڤ ڤلاجرن."
+        "body": "ساتو کليک ملوکيس سلوروه کيت: ڤلاجرن ۏيديو، سلايد، رنچاڠن، اکتيۏيتي، لمبرن کرجا دان کرتس ڤڤريقساءن. ستياڤ بهاݢين دکيرا ساتو جاناءن درڤد ڤرونتوقن بولنن اندا."
       },
       "stat3": {
         "big": "$0",
-        "body": "مولا ڤرچوما: هاسيلکن دان توݢسکن ڤلاجرن ڤرتام اندا تنڤا کوس سڤنجڠ ڤرچوباءن تربوک."
+        "body": "مولا ڤرچوما: ساتو بوکو دان ساتو کيت يڠ لڠکڤ — انم جاناءن — تنڤا سبارڠ کوس."
       }
     },
     "free": {
@@ -345,195 +345,195 @@
   },
   "homeschool": {
     "meta": {
-      "title": "SketchCast — For Homeschool &amp; Tutors",
-      "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
-      "ogTitle": "SketchCast — For Homeschool &amp; Tutors",
-      "ogDescription": "Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records."
+      "title": "SketchCast — اونتوق Homeschool &amp; تيوتور",
+      "description": "اجر ستياڤ مات ڤلاجرن درڤد بوکو يڠ اندا سوده ميليقي. موات نايق بوکو کوريکولوم دان داڤتکن ڤلاجرن ۏيديو برناراسي، لمبرن کرجا، کرتس ڤڤريقساءن دان رنچاڠن ڤڠاجرن — باݢي ستياڤ موريد، لڠکڤ دڠن رکود کماجوان يڠ بوليه اندا سراهکن.",
+      "ogTitle": "SketchCast — اونتوق Homeschool &amp; تيوتور",
+      "ogDescription": "ستياڤ مات ڤلاجرن، دأجر درڤد بوکو اندا سنديري. ڤلاجرن ۏيديو، لمبرن کرجا دان کرتس ڤڤريقساءن باݢي ستياڤ موريد — لڠکڤ دڠن رکود کماجوان يڠ بوليه دچيتق."
     },
     "hero": {
-      "eyebrow": "Homeschool &amp; tutors",
-      "headline": "You already have the <mark>books</mark>. Now you have the teacher pack.",
-      "sub": "Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.",
-      "ctaPrimary": "Start free — one full kit",
-      "ctaSecondary": "See plans",
-      "stat": "<b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household"
+      "eyebrow": "Homeschool &amp; تيوتور",
+      "headline": "اندا سوده اد <mark>بوکوڽ</mark>. کيني اندا اد ڤيک ݢوروڽ.",
+      "sub": "موات نايق بوکو کوريکولوم يڠ اندا ݢوناکن اونتوق مڠاجر. مان-مان باب منجادي ڤلاجرن ۏيديو برناراسي، رنچاڠن ڤڠاجرن، لمبرن کرجا، کرتس ڤڤريقساءن، اکتيۏيتي دان کاجين کيس — سياڤ سبلوم سراڤن، دالم بهاس يڠ اندا ݢوناکن اونتوق مڠاجر.",
+      "ctaPrimary": "مولا ڤرچوما — ساتو کيت ڤنوه",
+      "ctaSecondary": "ليهت ڤلن",
+      "stat": "<b>8 کيت سبولن</b> · <b>سهيڠݢ 10 موريد</b> · <b>9 بهاس</b> — ساتو لڠݢنن اونتوق سايسي رومه"
     },
     "learnersCard": {
-      "alt": "A learners panel: two children, each with their own subjects and progress through the chapters taught so far.",
-      "title": "Your learners",
-      "chip": "this term",
+      "alt": "ڤانيل موريد: دوا اورڠ انق، ماسيڠ-ماسيڠ دڠن مات ڤلاجرن سنديري دان کماجوان منروسي باب يڠ تله دأجر ستاکت اين.",
+      "title": "موريد اندا",
+      "chip": "ڤڠݢل اين",
       "l1": {
-        "name": "Aisha",
-        "year": "Year 5 · 4 subjects"
+        "name": "عاءيشه",
+        "year": "تاهون 5 · 4 مات ڤلاجرن"
       },
       "l2": {
-        "name": "Yusuf",
-        "year": "Year 3 · 3 subjects"
+        "name": "يوسوف",
+        "year": "تاهون 3 · 3 مات ڤلاجرن"
       },
       "subjects": {
-        "science": "Science",
-        "maths": "Maths",
-        "english": "English",
-        "reading": "Reading"
+        "science": "ساءين",
+        "maths": "متماتيک",
+        "english": "بهاس ايڠݢريس",
+        "reading": "باچاءن"
       },
-      "note": "Each learner keeps their own books, assignments and progress — and their own printable record."
+      "note": "ستياڤ موريد مڠکلکن بوکو، توݢسن دان کماجوان مريک سنديري — سرتا رکود مريک سنديري يڠ بوليه دچيتق."
     },
     "why": {
-      "eyebrow": "Why we built this",
-      "heading": "A school has a staffroom. You have a kitchen table.",
-      "sub": "Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.",
+      "eyebrow": "مڠاڤ کامي ممبيناڽ",
+      "heading": "سکوله اد بيليق ݢورو. اندا اد ميجا داڤور.",
+      "sub": "سکوله ممبلي ڤيک ݢورو برسام ستياڤ بوکو تيکس: چونتوه برجواب، لمبرن کرجا، اوجين، سکيم جواڤن. مڠاجر د رومه — اتاو ممبري تيوشن کڤد ڤلاجر درڤد امڤت سکوله بربيذا — اندا داڤت بوکوڽ سهاج، تياد يڠ لاين. جادي ستياڤ ڤنراڠن، ستياڤ لمبرن لاتيهن دان ستياڤ اوجين دبينا اوليه سأورڠ سهاج، سلالوڽ لوات مالم، ساتو مات ڤلاجرن دمي ساتو.",
       "c1": {
-        "tag": "The evening tax",
-        "title": "Six subjects, one of you",
-        "body": "Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing."
+        "tag": "چوکاي وقتو ڤتڠ",
+        "title": "انم مات ڤلاجرن، اندا سأورڠ",
+        "body": "مڽدياکن بهن سميڠݢو اونتوق متماتيک، ساءين، بهاس دان سلبيهڽ اياله کرجا کدوا. SketchCast ممبوات ڤرسدياءن ايت درڤد <b>بوکو اندا سنديري</b>، سوڤايا ماس اندا ڤرݢي کڤد مڠاجر، بوکن منتايڤ."
       },
       "c2": {
-        "tag": "Not generic",
-        "title": "Your curriculum, not a stock one",
-        "body": "Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library."
+        "tag": "بوکن ݢنريک",
+        "title": "کوريکولوم اندا، بوکن کوريکولوم سياڤ ڤاکاي",
+        "body": "سݢالاڽ دجان درڤد باب يڠ اندا موات نايق — سوکتن، ايستيله دان چونتوه يڠ سام سڤرتي يڠ دنيلاي ک اتس موريد اندا. تياد اڤ-اڤ دريکا درڤد ڤوستاک ݢنريک."
       }
     },
     "kit": {
-      "eyebrow": "One chapter in",
-      "heading": "Six pieces out — a full week of one subject",
-      "sub": "Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.",
+      "eyebrow": "ساتو باب ماسوق",
+      "heading": "انم بهن کلوار — سميڠݢو ڤنوه باݢي ساتو مات ڤلاجرن",
+      "sub": "موات نايق ساتو باب دان SketchCast ممولڠکن کيت ڤڠاجرن يڠ لڠکڤ. فايل Word دان PowerPoint يڠ بوليه دسونتيڠ، جادي اندا بوليه اوبه اڤ سهاج سبلوم مڠاجرڽ.",
       "k1": {
-        "tag": "Teach",
-        "title": "Narrated video lesson",
-        "body": "The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling."
+        "tag": "اجر",
+        "title": "ڤلاجرن ۏيديو برناراسي",
+        "body": "باب ايت دترڠکن ڤد سلايد برانيماسي، دڠن سوارا سبنر — سوڤايا سأورڠ موريد بوليه منونتون، منجدا دان منونتون سمولا سمنتارا اندا مڠاجر اديق-براديقڽ."
       },
       "k2": {
-        "tag": "Plan",
-        "title": "Lesson plan",
-        "body": "Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter."
+        "tag": "رنچڠ",
+        "title": "رنچاڠن ڤڠاجرن",
+        "body": "اوبجيکتيف، بهن، اليرن برجدوال دان کوسا کات اوتام — ستروکتور يڠ سکوله بريکن کڤد ݢوروڽ، دتوليس خصوص اونتوق باب اندا."
       },
       "k3": {
-        "tag": "Practise",
-        "title": "Worksheet",
-        "body": "Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready."
+        "tag": "برلاتيه",
+        "title": "لمبرن کرجا",
+        "body": "ايسي تمڤت کوسوڠ، بتول اتاو ساله، ڤادنن دان جواڤن ڤينديق — دڠن سکيم جواڤن ڤد هلامنڽ سنديري، سياڤ دچيتق."
       },
       "k4": {
-        "tag": "Assess",
-        "title": "Test paper",
-        "body": "A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself."
+        "tag": "نيلاي",
+        "title": "کرتس ڤڤريقساءن",
+        "body": "کرتس يڠ ترسوسون کمس دڠن مرکه باݢي ستياڤ سوءالن دان سکيم ڤمرکهن — اتاو تتڤکنڽ سباݢاي کويز اينترکتيف دان بيارکن اي مڽمق سنديري."
       },
       "k5": {
-        "tag": "Do",
-        "title": "Activities",
-        "body": "Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet."
+        "tag": "بوات",
+        "title": "اکتيۏيتي",
+        "body": "توݢسن عملي مڠݢوناکن بهن يڠ سوده اد د رومه، لڠکڤ دڠن ماس دان چيري کجاياءنڽ — اونتوق بهاݢين هاري يڠ تيدق سڤاتوتڽ منجادي لمبرن کرجا."
       },
       "k6": {
-        "tag": "Apply",
-        "title": "Case study",
-        "body": "A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page."
+        "tag": "ݢونا",
+        "title": "کاجين کيس",
+        "body": "سيناريو دنيا سبنر دڠن سوءالن ڤربينچاڠن دان نوتا ڤندوان، سوڤايا باب ايت برمعنى د لوار هلامن بوکو."
       }
     },
     "learners": {
-      "eyebrow": "Built around learners",
-      "heading": "Named learners, not a class register",
-      "sub": "School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.",
+      "eyebrow": "برتراسکن موريد",
+      "heading": "موريد برنام، بوکن سناراي کلس",
+      "sub": "ڤريسين سکوله مڠڠݢڤ اد تيݢ ڤولوه ڤلاجر دان ساتو کود سرتاي. اندا ڤولا اد تيݢ اورڠ انق ڤد تاهڤ بربيذا، اتاو انم ڤلاجر درڤد امڤت سکوله بربيذا. SketchCast دبينا مڠيکوت چارا اندا بنر-بنر مڠاجر.",
       "s1": {
-        "title": "Add each learner",
-        "body": "By name, with their own login. Up to ten on the Homeschool plan."
+        "title": "تمبه ستياڤ موريد",
+        "body": "مڠيکوت نام، دڠن لوݢ ماسوق مريک سنديري. سهيڠݢ سڤولوه اورڠ ڤد ڤلن Homeschool."
       },
       "s2": {
-        "title": "Upload their book",
-        "body": "A PDF, or photograph the pages with your phone. Different books per learner is normal here."
+        "title": "موات نايق بوکو مريک",
+        "body": "ساتو PDF، اتاو امبيل ݢمبر هلامنڽ دڠن تيليفون اندا. بوکو يڠ بربيذا باݢي ستياڤ موريد ممڠ ڤرکارا بياسا د سيني."
       },
       "s3": {
-        "title": "Assign the chapter",
-        "body": "Send the lesson, worksheet or quiz to that learner — with a due date if you want one."
+        "title": "توݢسکن بابڽ",
+        "body": "هنتر ڤلاجرن، لمبرن کرجا اتاو کويز کڤد موريد ايت — برسرتا تاريخ اخير جک اندا ماهو."
       },
       "s4": {
-        "title": "See where they are",
-        "body": "Who watched, who submitted, what they scored, which topics keep tripping them up."
+        "title": "ليهت د مان مريک برادا",
+        "body": "سياڤ يڠ منونتون، سياڤ يڠ مڠهنتر، براڤ مرکه مريک، دان توڤيک مان يڠ سنتياس مڽوکرکن مريک."
       }
     },
     "records": {
-      "eyebrow": "Proof of the work",
-      "heading": "A record you can hand to someone else",
-      "sub": "Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.",
+      "eyebrow": "بوکتي کرجا يڠ دبوات",
+      "heading": "رکود يڠ بوليه اندا سراهکن کڤد اورڠ لاين",
+      "sub": "سموا يڠ دأجر دان دسياڤکن سوده ڤون درکودکن. ساتو بوتڠ منوکرکنڽ منجادي لاڤورن بوليه چيتق باݢي ستياڤ موريد — اڤ يڠ دليڤوتي، بيلا، دان باݢايمان ڤنچاڤاين مريک.",
       "r1": {
-        "who": "Homeschooling",
-        "title": "For your portfolio or review",
-        "body": "Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates."
+        "who": "Homeschool",
+        "title": "اونتوق ڤورتفوليو اتاو سماکن اندا",
+        "body": "باڽق کلوارݢ ڤرلو منونجوقکن اڤ يڠ تله دأجر سڤنجڠ تاهون. درڤد مڽوسونڽ سمولا درڤد ايڠتن، ايکسڤورت رکود ايت: باب يڠ دليڤوتي باݢي ستياڤ مات ڤلاجرن، کرجا يڠ دسياڤکن، کڤوتوسن ڤنيلاين، لڠکڤ دڠن تاريخ."
       },
       "r2": {
-        "who": "Tutoring",
-        "title": "For the parent paying you",
-        "body": "The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep."
+        "who": "تيوشن",
+        "title": "اونتوق ايبو باڤ يڠ ممباير اندا",
+        "body": "لاڤورن يڠ سام ايتوله کمس کيني بولنن يڠ دايڠيني ڤلڠݢن اندا: اينيله يڠ کامي ليڤوتي، اينيله مرکه انق اندا، اينيله لڠکه کامي سترسڽ. ايتوله يڠ ممبواتکن سأورڠ تيوتور موده دککلکن."
       }
     },
     "tutors": {
-      "eyebrow": "Home tuition",
-      "heading": "Six students, four schools, one evening to prepare",
-      "sub": "Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.",
+      "eyebrow": "تيوشن د رومه",
+      "heading": "انم ڤلاجر، امڤت سکوله، ساتو ڤتڠ اونتوق برسديا",
+      "sub": "تيوشن برمعنى سوکتن يڠ بربيذا باݢي همڤير ستياڤ ڤلاجر — دان بهن يڠ مستي سڤادن دڠن سکوله <em>مريک</em>، بوکن سکوله ݢنريک. موات نايق بوکو ستياڤ ڤلاجر دان جان درڤد بوکو مريک سنديري.",
       "c1": {
-        "tag": "Per student",
-        "title": "Their book, their paper",
-        "body": "Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool."
+        "tag": "ستياڤ ڤلاجر",
+        "title": "بوکو مريک، کرتس مريک",
+        "body": "ستياڤ ڤلاجر مڠکلکن بوکو دان توݢسن مريک سنديري. کرتس لاتيهن اونتوق ڤلاجر هاري سلاس داتڠ درڤد <b>باب ڤلاجر هاري سلاس ايت سنديري</b> — بوکن درڤد کومڤولن بهن يڠ دکوڠسي."
       },
       "c2": {
-        "tag": "Worth the fee",
-        "title": "Show the progress",
-        "body": "Scores, topic weak spots and a monthly report per student — the difference between \"we did some questions\" and evidence a parent can see."
+        "tag": "بربالوي دڠن يورنڽ",
+        "title": "تونجوقکن کماجوانڽ",
+        "body": "مرکه، توڤيک يڠ لمه دان لاڤورن بولنن باݢي ستياڤ ڤلاجر — بيذاڽ انتارا “کامي بوات ببراڤ سوءالن” دڠن بوکتي يڠ بوليه دليهت سنديري اوليه ايبو باڤ."
       }
     },
     "plans": {
-      "eyebrow": "What it costs",
-      "heading": "Two plans for teaching at home",
-      "sub": "<b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.",
-      "cta": "See home plans and prices",
-      "ctaFree": "Start free first",
-      "packs": "Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire."
+      "eyebrow": "براڤ کوسڽ",
+      "heading": "دوا ڤلن اونتوق مڠاجر د رومه",
+      "sub": "<b>Home Basic</b> اونتوق ساتو دوا مات ڤلاجرن د سمڤيڠ ڤرسکولهن، دان <b>Homeschool</b> اونتوق کسلوروهن کوريکولوم — اتاو تيوتور دڠن سناراي ڤلاجر يڠ ڤنوه. کدوا-دواڽ برتراسکن موريد برنام، دان ستياڤ ڤلن برمولا دڠن ساتو کيت ڤرچوما.",
+      "cta": "ليهت ڤلن دان هرݢ اونتوق رومه",
+      "ctaFree": "مولا ڤرچوما دهولو",
+      "packs": "بولن يڠ سيبوق؟ <b>ڤيک کريديت</b> بوليه دتمبه ڤد مان-مان ڤلن برباير، دان اي تيدق لوڤوت."
     },
     "faq": {
-      "eyebrow": "FAQ",
-      "heading": "Questions from homeschool families and tutors",
+      "eyebrow": "سوءالن لازيم",
+      "heading": "سوءالن درڤد کلوارݢ homeschool دان تيوتور",
       "q1": {
-        "q": "Can I use my own curriculum books?",
-        "a": "Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+        "q": "بوليهکه ساي مڠݢوناکن بوکو کوريکولوم ساي سنديري؟",
+        "a": "يا — ايتوله توجواڽ. موات نايق بوکو يڠ اندا سوده ݢوناکن اونتوق مڠاجر سباݢاي ساتو PDF. هلامن يڠ ديفوتو جوݢ بوليه، اسلکن دݢابوڠکن منجادي ساتو PDF — ڤڠيمبس هلامن يڠ تربينا دالم منوکر فوتو تيليفون اندا منجادي تڤت سڤرتي ايت. ستياڤ ڤلاجرن، لمبرن کرجا دان کرتس ڤڤريقساءن دجان درڤد باب بوکو ايت سنديري، جادي بهنڽ سڤادن دڠن سوکتن يڠ بنر-بنر دايکوتي موريد اندا."
       },
       "q2": {
-        "q": "How many children or students can I teach on one plan?",
-        "a": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+        "q": "براڤ راماي انق اتاو ڤلاجر يڠ بوليه ساي اجر دڠن ساتو ڤلن؟",
+        "a": "Home Basic مرڠکومي سهيڠݢ 2 موريد؛ Homeschool مرڠکومي سهيڠݢ 10. ستياڤ موريد ممڤوڽاءي لوݢ ماسوق سنديري، بوکو سنديري دان رکود کماجوان سنديري — چوکوڤ اونتوق کلوارݢ homeschool يڠ بسر، اتاو سناراي ڤنوه ڤلاجر سأورڠ تيوتور."
       },
       "q3": {
-        "q": "Which languages does it work in?",
-        "a": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+        "q": "دالم بهاس اڤاکه اي برفوڠسي؟",
+        "a": "ڤلاجرن دجان دالم 9 بهاس، دکسن سچارا اوتوماتيک درڤد بوکو يڠ اندا موات نايق — ترماسوق بهاس عرب، سڤنوهڽ کانن ک کيري ڤد سلايد دان لمبرن کرجا. اندا مڠاجر دالم بهاس بوکو اندا، بوکن بهاس لامن ويب کامي."
       },
       "q4": {
-        "q": "Do I get records for my homeschool portfolio or review?",
-        "a": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+        "q": "اداکه ساي مندڤت رکود اونتوق ڤورتفوليو اتاو سماکن homeschool ساي؟",
+        "a": "يا. سموا يڠ دأجر، دتوݢسکن دان دسياڤکن درکودکن سمبيل اندا مڠاجر، دان ساتو بوتڠ مڠيکسڤورت لاڤورن بوليه چيتق باݢي ستياڤ موريد: باب يڠ دليڤوتي باݢي ستياڤ مات ڤلاجرن، کرجا يڠ دسياڤکن دان کڤوتوسن ڤنيلاين، لڠکڤ دڠن تاريخ. کلوارݢ مڠݢوناکنڽ اونتوق سماکن ڤورتفوليو؛ تيوتور مڠهنتر لاڤورن يڠ سام سباݢاي کمس کيني بولنن کڤد ايبو باڤ."
       },
       "q5": {
-        "q": "Can a tutor use it with students from different schools?",
-        "a": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+        "q": "بوليهکه سأورڠ تيوتور مڠݢوناکنڽ دڠن ڤلاجر درڤد سکوله يڠ بربيذا؟",
+        "a": "يا. ستياڤ ڤلاجر مڠکلکن بوکو مريک سنديري، جادي اندا بوليه مموات نايق بوکو تيکس سکوله ستياڤ ڤلاجر دان منجان کرتس لاتيهن برداسرکن سوکتن سبنر ڤلاجر ايت. انم ڤلاجر درڤد امڤت سکوله اياله سوسونن بياسا د سيني."
       },
       "q6": {
-        "q": "What does it cost?",
-        "a": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+        "q": "براڤاکه کوسڽ؟",
+        "a": "اندا بوليه مولا سچارا ڤرچوما دڠن ساتو کيت ڤلاجرن يڠ لڠکڤ — تياد کاد دڤرلوکن. Home Basic اياله $9.99 سبولن اونتوق ساتو دوا مات ڤلاجرن، دان Homeschool اياله $34 سبولن اتاو $340 ستاهون (دوا بولن ڤرچوما) اونتوق کسلوروهن کوريکولوم: 48 جاناءن سبولن، سهيڠݢ 10 موريد دان رکود کماجوان يڠ بوليه دچيتق."
       }
     },
     "cta": {
-      "heading": "Try it on <mark>tomorrow's lesson</mark>",
-      "sub": "Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.",
-      "primary": "Start free",
-      "secondary": "See all pricing",
-      "note": "Questions about homeschooling or tuition use? <a href=\"mailto:hello@sketchcast.app\">Talk to us</a> — a real person answers."
+      "heading": "چوبا ڤد <mark>ڤلاجرن ايسوق</mark>",
+      "sub": "موات نايق ساتو باب دان داڤتکن کيت انم بهاݢين يڠ ڤنوه سچارا ڤرچوما — تياد کاد، تياد ڤماس ڤرچوباءن. جک اي مڽلامتکن ساتو ڤتڠ اندا، ڤلنڽ اد د سان.",
+      "primary": "مولا ڤرچوما",
+      "secondary": "ليهت سموا هرݢ",
+      "note": "اد سوءالن تنتڠ ڤڠݢوناءن اونتوق homeschool اتاو تيوشن؟ <a href=\"mailto:hello@sketchcast.app\">هوبوڠي کامي</a> — اورڠ سبنر يڠ منجاوب."
     }
   },
   "pricing": {
     "meta": {
       "title": "SketchCast — هرݢ",
-      "description": "هرݢ يڠ موده اونتوق ݢورو دان ايبو باڤ — مولا ڤرچوما، نايق تارف اڤابيلا SketchCast مڽلامتکن وقتو ڤتڠ اندا. Teacher Pro، Pro+ دان ڤلن Family، دبيل بولنن اتاو تاهونن دالم USD. سکوله مندڤت سبوت هرݢ خصوص.",
+      "description": "هرݢ يڠ موده — مولا ڤرچوما، نايق تارف اڤابيلا SketchCast مڽلامتکن وقتو ڤتڠ اندا. Teacher Pro دان Pro+ اونتوق بيليق درجه، Home Basic دان Homeschool اونتوق ڤنديديق د رومه دان تيوتور، دبيل بولنن اتاو تاهونن دالم USD. سکوله مندڤت سبوت هرݢ خصوص.",
       "ogTitle": "SketchCast — هرݢ",
-      "ogDescription": "مولا ڤرچوما، نايق تارف اڤابيلا SketchCast مڽلامتکن وقتو ڤتڠ اندا. ڤلن ݢورو دان کلوارݢ دالم USD؛ سکوله مندڤت سبوت هرݢ خصوص."
+      "ogDescription": "مولا ڤرچوما، نايق تارف اڤابيلا SketchCast مڽلامتکن وقتو ڤتڠ اندا. ڤلن ݢورو دان ڤلن رومه دالم USD؛ سکوله مندڤت سبوت هرݢ خصوص."
     },
     "hero": {
       "eyebrow": "هرݢ",
-      "headline": "برڤاتوتن اونتوق ستياڤ <mark>ݢورو</mark>، ايبو باڤ دان سکوله.",
-      "sub": "مولا ڤرچوما — سموا اورڠ اتس بلنجا کامي سڤنجڠ ڤرچوباءن تربوک. اينيله ڤلن اونتوق سلڤس اي تامت: لڠݢنن ݢورو دان ايبو باڤ (دبيل دالم USD)، دان سبوت هرݢ خصوص اونتوق سکوله."
+      "headline": "برڤاتوتن اونتوق ستياڤ <mark>ݢورو</mark>، رومه دان سکوله.",
+      "sub": "مولا ڤرچوما دڠن ساتو بوکو دان ساتو کيت يڠ لڠکڤ. سلڤس ايت: لڠݢنن اونتوق ݢورو بيليق درجه سرتا اونتوق ڤنديديق د رومه دان تيوتور (دبيل دالم USD)، دان سبوت هرݢ خصوص اونتوق سکوله."
     },
     "toggle": {
       "label": "تيمڤوه بيل",
@@ -546,25 +546,25 @@
       "perMonth": " سبولن",
       "perYear": " ستاهون",
       "teacherPanel": "ڤلن ݢورو",
-      "homePanel": "Home plans"
+      "homePanel": "ڤلن رومه"
     },
     "noscript": "هيدوڤکن JavaScript اونتوق مليهت هرݢ ڤلن سچارا لڠسوڠ، اتاو <a href=\"https://app.sketchcast.app/signup\">مولا ڤرچوما</a> دان ڤيليه ڤلن د دالم اڤليکاسي.",
     "free": {
-      "eyebrow": "Start here",
-      "heading": "Free for everyone, teacher or parent.",
-      "sub": "One book, one complete six-piece kit — no card, no timer. Pick a plan below only when you want more.",
-      "panel": "Free plan"
+      "eyebrow": "مولا د سيني",
+      "heading": "ڤرچوما اونتوق سموا، ݢورو ماهوڤون ايبو باڤ.",
+      "sub": "ساتو بوکو، ساتو کيت انم بهاݢين يڠ لڠکڤ — تياد کاد، تياد ڤماس. ڤيليه ڤلن د باوه هاڽ اڤابيلا اندا ماهو لبيه.",
+      "panel": "ڤلن ڤرچوما"
     },
     "teachers": {
       "eyebrow": "اونتوق ݢورو",
       "heading": "هاسيلکن ستياڤ ڤلاجرن، ستياڤ ميڠݢو.",
-      "sub": "Built around a class: rosters, join codes and whole-class progress."
+      "sub": "برتراسکن ساتو کلس: سناراي ڤلاجر، کود سرتاي دان کماجوان سلوروه کلس."
     },
     "home": {
-      "eyebrow": "For home &amp; tutors",
-      "heading": "Teaching at home, or one learner at a time.",
-      "sub": "Built around named learners rather than a class — <a href=\"/homeschool\">see how it works</a>.",
-      "note": "All paid plans are billed in USD. Cancel anytime. Need a heavier month? Credit packs can be added to any paid plan."
+      "eyebrow": "اونتوق رومه &amp; تيوتور",
+      "heading": "مڠاجر د رومه، اتاو سأورڠ موريد ڤد ساتو ماس.",
+      "sub": "برتراسکن موريد برنام، بوکن ساتو کلس — <a href=\"/homeschool\">ليهت چارا اي برفوڠسي</a>.",
+      "note": "سموا ڤلن برباير دبيل دالم USD. باتل بيلا-بيلا ماس. ڤرلوکن بولن يڠ لبيه برت؟ ڤيک کريديت بوليه دتمبه ڤد مان-مان ڤلن برباير."
     },
     "trial": {
       "badge": "ڤرچوباءن ڤرچوما",
@@ -574,13 +574,13 @@
     },
     "plans": {
       "freeAll": {
-        "name": "Free",
-        "tag": "Try it on your next lesson",
-        "cta": "Start free",
-        "f1": "1 book, with the full six-piece kit for one chapter part",
-        "f2": "Narrated video lessons, worksheets, test papers and lesson plans",
-        "f3": "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
-        "f4": "Assign to a learner or a class and track progress"
+        "name": "ڤرچوما",
+        "tag": "چوبا ڤد ڤلاجرن اندا يڠ سترسڽ",
+        "cta": "مولا ڤرچوما",
+        "f1": "1 بوکو، دڠن کيت انم بهاݢين يڠ ڤنوه اونتوق ساتو بهاݢين باب",
+        "f2": "ڤلاجرن ۏيديو برناراسي، لمبرن کرجا، کرتس ڤڤريقساءن دان رنچاڠن ڤڠاجرن",
+        "f3": "9 بهاس ڤلاجرن، دکسن اوتوماتيک درڤد بوکو اندا (بهاس عرب سڤنوهڽ کانن ک کيري)",
+        "f4": "توݢسکن کڤد سأورڠ موريد اتاو ساتو کلس دان جيجق کماجوانڽ"
       },
       "teacherPro": {
         "name": "Teacher Pro",
@@ -592,8 +592,8 @@
         "f2": "ڤلاجرن، رنچاڠن، اکتيۏيتي، لمبرن کرجا، ڤڤريقساءن اتاو کاجين کيس — ستياڤ ساتو دکيرا ساتو جاناءن",
         "f3": "2 بوکو بهارو سبولن",
         "f4": "تيوتور AI",
-        "f5": "باب ڤنجڠ سنتياس دليڤوتي سڤنوهڽ (ۏيديو ببراڤ بهاݢين)",
-        "f6": "کسموا 9 بهاس ڤلاجرن دڠن سوارا يڠ سڤادن",
+        "f5": "سناراي ڤلاجر کلس، کود سرتاي دان کماجوان سلوروه کلس",
+        "f6": "باب ڤنجڠ سنتياس دليڤوتي سڤنوهڽ (ۏيديو بربيلڠ بهاݢين)",
         "f7": "PowerPoint بوليه سونتيڠ دان ايکسڤورت",
         "f8": "ميتر ڤڠݢوناءن ساقسام سچارا لڠسوڠ دالم ڤوستاک اندا — تياد کجوتن"
       },
@@ -610,28 +610,28 @@
       },
       "homeBasic": {
         "name": "Home Basic",
-        "tag": "A subject or two, alongside school",
-        "cta": "Get Home Basic",
-        "saveLabel": "2 months free",
-        "f1": "12 generations a month — about 2 complete lesson kits",
-        "f2": "Up to 2 learners",
-        "f3": "Practice papers in the book's own language (9 supported)",
-        "f4": "Homework help & AI explanations",
-        "f5": "Progress tracking",
-        "f6": "Unused allowance rolls over a month"
+        "tag": "ساتو دوا مات ڤلاجرن، د سمڤيڠ ڤرسکولهن",
+        "cta": "داڤتکن Home Basic",
+        "saveLabel": "2 بولن ڤرچوما",
+        "f1": "12 جاناءن سبولن — کيرا-کيرا 2 کيت ڤلاجرن لڠکڤ",
+        "f2": "سهيڠݢ 2 موريد",
+        "f3": "کرتس لاتيهن دالم بهاس بوکو ايت سنديري (9 دسوکوڠ)",
+        "f4": "بنتوان کرجا رومه & ڤنراڠن AI",
+        "f5": "ڤنجيجقن کماجوان",
+        "f6": "باکي يڠ تيدق دݢوناکن دباوا ک بولن هادڤن"
       },
       "homeschool": {
         "name": "Homeschool",
-        "tag": "The whole curriculum at home — and tutors with a full roster",
-        "badge": "For home educators",
-        "cta": "Choose Homeschool",
-        "saveLabel": "2 months free",
-        "f1": "48 generations a month — about 8 complete lesson kits",
-        "f2": "Up to 10 learners, each with their own books",
-        "f3": "Printable progress records per learner",
-        "f4": "4 new books a month",
-        "f5": "AI study coach for every learner",
-        "f6": "Live fair-use meter — no surprises"
+        "tag": "کسلوروهن کوريکولوم د رومه — دان تيوتور دڠن سناراي ڤلاجر يڠ ڤنوه",
+        "badge": "اونتوق ڤنديديق د رومه",
+        "cta": "ڤيليه Homeschool",
+        "saveLabel": "2 بولن ڤرچوما",
+        "f1": "48 جاناءن سبولن — کيرا-کيرا 8 کيت ڤلاجرن لڠکڤ",
+        "f2": "سهيڠݢ 10 موريد، ماسيڠ-ماسيڠ دڠن بوکو مريک سنديري",
+        "f3": "رکود کماجوان بوليه چيتق باݢي ستياڤ موريد",
+        "f4": "4 بوکو بهارو سبولن",
+        "f5": "جورولاتيه اولڠ کاجي AI اونتوق ستياڤ موريد",
+        "f6": "ميتر ڤڠݢوناءن ساقسام سچارا لڠسوڠ — تياد کجوتن"
       }
     },
     "founding": {

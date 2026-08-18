@@ -7,7 +7,7 @@
   "common": {
     "nav": {
       "how": "ఇది ఎలా పనిచేస్తుంది",
-      "homeschool": "Homeschool",
+      "homeschool": "ఇంటి బోధన",
       "free": "ఉచితంగా ఏమేమి",
       "outcomes": "ఫలితాలు",
       "schools": "పాఠశాలల కోసం",
@@ -88,11 +88,11 @@
       },
       "stat2": {
         "big": "1<em> క్లిక్</em>",
-        "body": "ఒకసారి తయారుచేస్తే = పూర్తి కిట్: వీడియో పాఠం, స్లయిడ్‌లు, ప్రణాళిక, కృత్యాలు, వర్క్‌షీట్, పరీక్ష — పత్రాలు ప్రతి పాఠంతో ఉచితంగా వస్తాయి."
+        "body": "ఒకే క్లిక్ కిట్ మొత్తాన్ని గీస్తుంది: వీడియో పాఠం, స్లయిడ్‌లు, ప్రణాళిక, కృత్యాలు, వర్క్‌షీట్, పరీక్షా పత్రం. ఒక్కో ముక్కా మీ నెలవారీ కోటా నుంచి ఒక తయారీగా లెక్కవుతుంది."
       },
       "stat3": {
         "big": "$0",
-        "body": "ఉచితంగా మొదలుపెట్టండి: బహిరంగ ట్రయల్ కాలంలో మీ మొదటి పాఠాలను ఖర్చు లేకుండా తయారుచేసి అప్పగించండి."
+        "body": "ఉచితంగా మొదలుపెట్టండి: ఒక పుస్తకం, ఒక పూర్తి కిట్ — ఆరు తయారీలు — ఎలాంటి ఖర్చూ లేకుండా."
       }
     },
     "free": {
@@ -343,195 +343,195 @@
   },
   "homeschool": {
     "meta": {
-      "title": "SketchCast — For Homeschool &amp; Tutors",
-      "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
-      "ogTitle": "SketchCast — For Homeschool &amp; Tutors",
-      "ogDescription": "Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records."
+      "title": "SketchCast — ఇంటి బోధన &amp; ట్యూటర్ల కోసం",
+      "description": "మీ దగ్గరున్న పుస్తకాల నుంచే ప్రతి సబ్జెక్టునూ బోధించండి. ఒక పాఠ్యపుస్తకాన్ని అప్‌లోడ్ చేస్తే వ్యాఖ్యానంతో వీడియో పాఠాలు, వర్క్‌షీట్లు, పరీక్షా పత్రాలు, పాఠ ప్రణాళికలు — ప్రతి అభ్యాసకుడికీ విడిగా, ఎవరికైనా ఇవ్వదగిన పురోగతి నివేదికలతో.",
+      "ogTitle": "SketchCast — ఇంటి బోధన &amp; ట్యూటర్ల కోసం",
+      "ogDescription": "ప్రతి సబ్జెక్టూ, మీ సొంత పుస్తకాల నుంచే. ప్రతి అభ్యాసకుడికీ వీడియో పాఠాలు, వర్క్‌షీట్లు, పరీక్షా పత్రాలు — ప్రింట్ చేయదగిన పురోగతి నివేదికలతో."
     },
     "hero": {
-      "eyebrow": "Homeschool &amp; tutors",
-      "headline": "You already have the <mark>books</mark>. Now you have the teacher pack.",
-      "sub": "Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.",
-      "ctaPrimary": "Start free — one full kit",
-      "ctaSecondary": "See plans",
-      "stat": "<b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household"
+      "eyebrow": "ఇంటి బోధన &amp; ట్యూటర్లు",
+      "headline": "<mark>పుస్తకాలు</mark> మీ దగ్గరే ఉన్నాయి. ఇప్పుడు ఉపాధ్యాయ ప్యాక్ కూడా మీదే.",
+      "sub": "మీరు బోధించే పాఠ్యపుస్తకాన్ని అప్‌లోడ్ చేయండి. ఏ అధ్యాయమైనా వ్యాఖ్యానంతో వీడియో పాఠంగా, పాఠ ప్రణాళికగా, వర్క్‌షీట్‌గా, పరీక్షా పత్రంగా, కృత్యాలుగా, కేస్ స్టడీగా మారుతుంది — అల్పాహారానికి ముందే సిద్ధం, మీరు బోధించే భాషలోనే.",
+      "ctaPrimary": "ఉచితంగా మొదలుపెట్టండి — ఒక పూర్తి కిట్",
+      "ctaSecondary": "ప్లాన్లు చూడండి",
+      "stat": "<b>నెలకు 8 కిట్‌లు</b> · <b>10 మంది అభ్యాసకుల వరకు</b> · <b>9 భాషలు</b> — ఇల్లంతటికీ ఒకే సబ్‌స్క్రిప్షన్"
     },
     "learnersCard": {
-      "alt": "A learners panel: two children, each with their own subjects and progress through the chapters taught so far.",
-      "title": "Your learners",
-      "chip": "this term",
+      "alt": "అభ్యాసకుల ప్యానెల్: ఇద్దరు పిల్లలు, ఒక్కొక్కరికీ వారి సొంత సబ్జెక్టులు, ఇప్పటివరకు బోధించిన అధ్యాయాల్లో వారి పురోగతి.",
+      "title": "మీ అభ్యాసకులు",
+      "chip": "ఈ టర్మ్",
       "l1": {
-        "name": "Aisha",
-        "year": "Year 5 · 4 subjects"
+        "name": "ఆయిషా",
+        "year": "5వ తరగతి · 4 సబ్జెక్టులు"
       },
       "l2": {
-        "name": "Yusuf",
-        "year": "Year 3 · 3 subjects"
+        "name": "యూసుఫ్",
+        "year": "3వ తరగతి · 3 సబ్జెక్టులు"
       },
       "subjects": {
-        "science": "Science",
-        "maths": "Maths",
-        "english": "English",
-        "reading": "Reading"
+        "science": "సైన్స్",
+        "maths": "గణితం",
+        "english": "ఇంగ్లిష్",
+        "reading": "పఠనం"
       },
-      "note": "Each learner keeps their own books, assignments and progress — and their own printable record."
+      "note": "ప్రతి అభ్యాసకుడికీ వారి సొంత పుస్తకాలు, అసైన్‌మెంట్లు, పురోగతి — వారి సొంత ప్రింట్ చేయదగిన నివేదిక కూడా."
     },
     "why": {
-      "eyebrow": "Why we built this",
-      "heading": "A school has a staffroom. You have a kitchen table.",
-      "sub": "Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.",
+      "eyebrow": "దీన్ని ఎందుకు తయారుచేశాం",
+      "heading": "పాఠశాలకు స్టాఫ్ రూమ్ ఉంటుంది. మీకు వంటగది బల్ల ఉంటుంది.",
+      "sub": "ప్రతి పాఠ్యపుస్తకంతో పాటు పాఠశాలలు ఉపాధ్యాయ ప్యాక్‌లు కొంటాయి: సాధించి చూపిన ఉదాహరణలు, వర్క్‌షీట్లు, పరీక్షలు, జవాబుల కీలు. ఇంట్లో బోధిస్తున్నప్పుడు — లేదా నాలుగు వేర్వేరు పాఠశాలల పిల్లలకు ట్యూషన్ చెబుతున్నప్పుడు — మీకు దక్కేది పుస్తకం ఒక్కటే. అందుకే ప్రతి వివరణా, ప్రతి సాధన పత్రమూ, ప్రతి పరీక్షా ఒక్కరే తయారుచేసుకోవాలి — సాధారణంగా అర్ధరాత్రి, సబ్జెక్టు తర్వాత సబ్జెక్టు.",
       "c1": {
-        "tag": "The evening tax",
-        "title": "Six subjects, one of you",
-        "body": "Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing."
+        "tag": "సాయంత్రపు పన్ను",
+        "title": "ఆరు సబ్జెక్టులు, మీరు ఒక్కరే",
+        "body": "ఒక వారానికి సరిపడా గణితం, సైన్స్, భాష, మిగిలినవి సిద్ధం చేయడం రెండో ఉద్యోగమే. ఆ సన్నాహాన్ని SketchCast <b>మీ సొంత పుస్తకం</b> నుంచే చేసిపెడుతుంది — మీ సమయం టైపింగ్‌కు కాక బోధనకు మిగులుతుంది."
       },
       "c2": {
-        "tag": "Not generic",
-        "title": "Your curriculum, not a stock one",
-        "body": "Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library."
+        "tag": "మూసలో పోసినది కాదు",
+        "title": "మీ పాఠ్యప్రణాళికే, ఏదో సిద్ధ నమూనా కాదు",
+        "body": "అంతా మీరు అప్‌లోడ్ చేసిన అధ్యాయం నుంచే తయారవుతుంది — మీ అభ్యాసకుడు ఏ సిలబస్, ఏ పదాలు, ఏ ఉదాహరణల మీద పరీక్షించబడతాడో అవే. ఏదో సాధారణ లైబ్రరీ నుంచి కల్పించినది ఏదీ ఉండదు."
       }
     },
     "kit": {
-      "eyebrow": "One chapter in",
-      "heading": "Six pieces out — a full week of one subject",
-      "sub": "Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.",
+      "eyebrow": "లోపలికి ఒక అధ్యాయం",
+      "heading": "బయటకు ఆరు ముక్కలు — ఒక సబ్జెక్టుకు పూర్తి వారం",
+      "sub": "ఒక అధ్యాయం అప్‌లోడ్ చేస్తే SketchCast పూర్తి బోధనా కిట్‌ను ఇస్తుంది. ఎడిట్ చేయగల Word, PowerPoint ఫైళ్లు — బోధించే ముందు దేన్నైనా సరిచేసుకోవచ్చు.",
       "k1": {
-        "tag": "Teach",
-        "title": "Narrated video lesson",
-        "body": "The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling."
+        "tag": "బోధించండి",
+        "title": "వ్యాఖ్యానంతో వీడియో పాఠం",
+        "body": "కదిలే స్లయిడ్‌లపై, నిజమైన గొంతుతో అధ్యాయం వివరణ — మీరు మరో బిడ్డతో పనిచేస్తున్నప్పుడు అభ్యాసకుడు చూడొచ్చు, ఆపొచ్చు, మళ్లీ చూడొచ్చు."
       },
       "k2": {
-        "tag": "Plan",
-        "title": "Lesson plan",
-        "body": "Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter."
+        "tag": "ప్రణాళిక",
+        "title": "పాఠ ప్రణాళిక",
+        "body": "లక్ష్యాలు, కావలసిన సామగ్రి, సమయాల వారీ క్రమం, ముఖ్య పదజాలం — ఒక పాఠశాల ఉపాధ్యాయుడికి అందించే నిర్మాణమే, మీ అధ్యాయానికి రాసినది."
       },
       "k3": {
-        "tag": "Practise",
-        "title": "Worksheet",
-        "body": "Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready."
+        "tag": "సాధన",
+        "title": "వర్క్‌షీట్",
+        "body": "ఖాళీలు పూరించడం, ఒప్పు-తప్పు, జతపరచడం, లఘు సమాధానాలు — జవాబుల కీ విడిగా సొంత పేజీలో, ప్రింట్ చేసి సిద్ధంగా."
       },
       "k4": {
-        "tag": "Assess",
-        "title": "Test paper",
-        "body": "A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself."
+        "tag": "పరీక్షించండి",
+        "title": "పరీక్షా పత్రం",
+        "body": "ప్రతి ప్రశ్నకూ మార్కులు, మార్కుల పథకంతో సక్రమంగా అమర్చిన పత్రం — లేదా దాన్ని ఇంటరాక్టివ్ క్విజ్‌గా పెట్టి తనంతట తానే దిద్దుకోనివ్వండి."
       },
       "k5": {
-        "tag": "Do",
-        "title": "Activities",
-        "body": "Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet."
+        "tag": "చేయండి",
+        "title": "కృత్యాలు",
+        "body": "ఇంట్లో ఇప్పటికే ఉన్న వస్తువులతో చేతితో చేసే పనులు, వాటికి సమయాలు, విజయం ఎలా ఉంటుందో — రోజులో వర్క్‌షీట్ కాకూడని ఆ భాగానికి."
       },
       "k6": {
-        "tag": "Apply",
-        "title": "Case study",
-        "body": "A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page."
+        "tag": "వర్తింపజేయండి",
+        "title": "కేస్ స్టడీ",
+        "body": "చర్చా ప్రశ్నలు, మార్గదర్శక సూచనలతో ఒక నిజ జీవిత సన్నివేశం — అధ్యాయం పేజీ దాటి బయట కూడా నిలిచేలా."
       }
     },
     "learners": {
-      "eyebrow": "Built around learners",
-      "heading": "Named learners, not a class register",
-      "sub": "School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.",
+      "eyebrow": "అభ్యాసకుల చుట్టూ కట్టినది",
+      "heading": "పేరు పేరునా అభ్యాసకులు, తరగతి హాజరు పట్టిక కాదు",
+      "sub": "పాఠశాల సాఫ్ట్‌వేర్ ముప్ఫై మంది విద్యార్థులు, ఒక చేరే కోడ్ ఉంటాయనుకుంటుంది. మీ దగ్గర వేర్వేరు దశల్లో ముగ్గురు పిల్లలు ఉంటారు, లేదా నాలుగు వేర్వేరు పాఠశాలల నుంచి ఆరుగురు విద్యార్థులు. మీరు నిజంగా బోధించే తీరుకు తగ్గట్టే SketchCast కట్టబడింది.",
       "s1": {
-        "title": "Add each learner",
-        "body": "By name, with their own login. Up to ten on the Homeschool plan."
+        "title": "ఒక్కో అభ్యాసకుడినీ చేర్చండి",
+        "body": "పేరుతో, వారి సొంత లాగిన్‌తో. Homeschool ప్లాన్‌లో పదిమంది వరకు."
       },
       "s2": {
-        "title": "Upload their book",
-        "body": "A PDF, or photograph the pages with your phone. Different books per learner is normal here."
+        "title": "వారి పుస్తకాన్ని అప్‌లోడ్ చేయండి",
+        "body": "ఒక PDF, లేదా ఫోన్‌తో పేజీల ఫొటోలు తీయండి. ఒక్కో అభ్యాసకుడికీ వేరే పుస్తకం ఉండటం ఇక్కడ మామూలే."
       },
       "s3": {
-        "title": "Assign the chapter",
-        "body": "Send the lesson, worksheet or quiz to that learner — with a due date if you want one."
+        "title": "అధ్యాయాన్ని అప్పగించండి",
+        "body": "పాఠాన్ని, వర్క్‌షీట్‌ను లేదా క్విజ్‌ను ఆ అభ్యాసకుడికి పంపండి — కావాలంటే గడువు తేదీతో సహా."
       },
       "s4": {
-        "title": "See where they are",
-        "body": "Who watched, who submitted, what they scored, which topics keep tripping them up."
+        "title": "వారు ఎక్కడున్నారో చూడండి",
+        "body": "ఎవరు చూశారు, ఎవరు సమర్పించారు, ఎన్ని మార్కులు వచ్చాయి, ఏ అంశాలు మళ్లీ మళ్లీ తడబెడుతున్నాయి."
       }
     },
     "records": {
-      "eyebrow": "Proof of the work",
-      "heading": "A record you can hand to someone else",
-      "sub": "Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.",
+      "eyebrow": "చేసిన పనికి రుజువు",
+      "heading": "ఎవరికైనా ఇవ్వదగిన నివేదిక",
+      "sub": "బోధించినదీ, పూర్తయినదీ అంతా ఇప్పటికే నమోదవుతూ ఉంటుంది. ఒక్క బటన్ దాన్ని ప్రతి అభ్యాసకుడికీ ప్రింట్ చేయదగిన నివేదికగా మారుస్తుంది — ఏమి కవర్ అయింది, ఎప్పుడు, ఎలా చేశారు.",
       "r1": {
-        "who": "Homeschooling",
-        "title": "For your portfolio or review",
-        "body": "Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates."
+        "who": "ఇంటి బోధన",
+        "title": "మీ పోర్ట్‌ఫోలియో లేదా సమీక్ష కోసం",
+        "body": "ఏడాదిలో ఏమి బోధించారో చూపించాల్సిన కుటుంబాలు చాలా ఉన్నాయి. జ్ఞాపకాల నుంచి తిరిగి కూర్చుకోవడానికి బదులు నివేదికను ఎగుమతి చేయండి: సబ్జెక్టుల వారీగా కవర్ చేసిన అధ్యాయాలు, పూర్తయిన పని, మూల్యాంకన ఫలితాలు — తేదీలతో సహా."
       },
       "r2": {
-        "who": "Tutoring",
-        "title": "For the parent paying you",
-        "body": "The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep."
+        "who": "ట్యూషన్",
+        "title": "మీకు ఫీజు చెల్లించే తల్లిదండ్రుల కోసం",
+        "body": "అదే నివేదిక మీ క్లయింట్ కోరుకునే నెలవారీ సమాచారం: మేము ఇది కవర్ చేశాం, మీ బిడ్డకు ఇన్ని మార్కులు వచ్చాయి, తర్వాత ఇది చేస్తాం. ఒక ట్యూటర్‌ను వదులుకోకుండా చేసేది ఇదే."
       }
     },
     "tutors": {
-      "eyebrow": "Home tuition",
-      "heading": "Six students, four schools, one evening to prepare",
-      "sub": "Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.",
+      "eyebrow": "ఇంటి ట్యూషన్",
+      "heading": "ఆరుగురు విద్యార్థులు, నాలుగు పాఠశాలలు, సిద్ధం కావడానికి ఒకే సాయంత్రం",
+      "sub": "ట్యూషన్ అంటే దాదాపు ప్రతి విద్యార్థికీ వేరే సిలబస్ — పైగా సామగ్రి <em>వాళ్ల</em> పాఠశాలకు సరిపోవాలి, ఏదో సాధారణ పాఠశాలకు కాదు. ఒక్కో విద్యార్థి సొంత పుస్తకాన్ని అప్‌లోడ్ చేసి, దాని నుంచే తయారుచేయండి.",
       "c1": {
-        "tag": "Per student",
-        "title": "Their book, their paper",
-        "body": "Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool."
+        "tag": "ఒక్కో విద్యార్థికీ",
+        "title": "వాళ్ల పుస్తకం, వాళ్ల పత్రం",
+        "body": "ప్రతి విద్యార్థికీ వారి సొంత పుస్తకాలు, అసైన్‌మెంట్లు ఉంటాయి. మంగళవారం విద్యార్థికి ఇచ్చే సాధన పత్రం <b>ఆ మంగళవారం విద్యార్థి అధ్యాయం నుంచే</b> వస్తుంది — అందరికీ ఉమ్మడి నిల్వ నుంచి కాదు."
       },
       "c2": {
-        "tag": "Worth the fee",
-        "title": "Show the progress",
-        "body": "Scores, topic weak spots and a monthly report per student — the difference between \"we did some questions\" and evidence a parent can see."
+        "tag": "ఫీజుకు తగ్గట్టు",
+        "title": "పురోగతిని చూపించండి",
+        "body": "మార్కులు, బలహీనమైన అంశాలు, ప్రతి విద్యార్థికీ నెలవారీ నివేదిక — “కొన్ని ప్రశ్నలు చేశాం” అనడానికీ, తల్లిదండ్రులు కళ్లారా చూడగలిగే సాక్ష్యానికీ మధ్య తేడా ఇదే."
       }
     },
     "plans": {
-      "eyebrow": "What it costs",
-      "heading": "Two plans for teaching at home",
-      "sub": "<b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.",
-      "cta": "See home plans and prices",
-      "ctaFree": "Start free first",
-      "packs": "Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire."
+      "eyebrow": "ఖర్చు ఎంత",
+      "heading": "ఇంట్లో బోధించేవారికి రెండు ప్లాన్లు",
+      "sub": "పాఠశాలతో పాటు ఒకటి రెండు సబ్జెక్టులకు <b>Home Basic</b>, పాఠ్యప్రణాళిక మొత్తానికి — లేదా విద్యార్థుల జాబితా నిండిన ట్యూటర్‌కు — <b>Homeschool</b>. రెండూ పేరు పేరునా అభ్యాసకుల చుట్టూ కట్టినవే, ప్రతి ప్లానూ ఒక ఉచిత కిట్‌తోనే మొదలవుతుంది.",
+      "cta": "ఇంటి ప్లాన్లు, ధరలు చూడండి",
+      "ctaFree": "ముందు ఉచితంగా మొదలుపెట్టండి",
+      "packs": "ఈ నెల పని ఎక్కువా? ఏ చెల్లింపు ప్లాన్‌కైనా <b>క్రెడిట్ ప్యాక్‌లు</b> జోడించుకోవచ్చు, అవి ఎప్పటికీ ముగియవు."
     },
     "faq": {
-      "eyebrow": "FAQ",
-      "heading": "Questions from homeschool families and tutors",
+      "eyebrow": "తరచూ అడిగే ప్రశ్నలు",
+      "heading": "ఇంటి బోధన కుటుంబాలు, ట్యూటర్ల ప్రశ్నలు",
       "q1": {
-        "q": "Can I use my own curriculum books?",
-        "a": "Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+        "q": "నా సొంత పాఠ్యపుస్తకాలు వాడొచ్చా?",
+        "a": "అవును — అదే అసలు ఉద్దేశం. మీరు ఇప్పటికే బోధిస్తున్న పుస్తకాన్ని ఒకే PDF గా అప్‌లోడ్ చేయండి. ఫొటో తీసిన పేజీలూ పనిచేస్తాయి — ఒకే PDF గా కలిపితే చాలు; అంతర్గత పేజీ స్కానర్ మీ ఫోన్ ఫొటోలను సరిగ్గా అలాగే మారుస్తుంది. ప్రతి పాఠమూ, వర్క్‌షీటూ, పరీక్షా పత్రమూ ఆ పుస్తకపు సొంత అధ్యాయాల నుంచే తయారవుతాయి — కాబట్టి సామగ్రి మీ అభ్యాసకుడు నిజంగా అనుసరించే సిలబస్‌కే సరిపోతుంది."
       },
       "q2": {
-        "q": "How many children or students can I teach on one plan?",
-        "a": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+        "q": "ఒకే ప్లాన్‌లో ఎంతమంది పిల్లలకు లేదా విద్యార్థులకు బోధించవచ్చు?",
+        "a": "Home Basic లో 2 మంది అభ్యాసకుల వరకు; Homeschool లో 10 మంది వరకు. ప్రతి అభ్యాసకుడికీ సొంత లాగిన్, సొంత పుస్తకాలు, సొంత పురోగతి నివేదిక — పెద్ద ఇంటి బోధన కుటుంబానికైనా, ఒక ట్యూటర్ విద్యార్థుల జాబితా మొత్తానికైనా సరిపోతుంది."
       },
       "q3": {
-        "q": "Which languages does it work in?",
-        "a": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+        "q": "ఇది ఏయే భాషల్లో పనిచేస్తుంది?",
+        "a": "పాఠాలు 9 భాషల్లో తయారవుతాయి — మీరు అప్‌లోడ్ చేసిన పుస్తకం నుంచే భాష వాటంతట అదే గుర్తించబడుతుంది; అరబిక్ కూడా ఉంది, స్లయిడ్‌లలో, వర్క్‌షీట్లలో పూర్తిగా కుడి-నుంచి-ఎడమకు. మీరు మా వెబ్‌సైట్ భాషలో కాదు, మీ పుస్తకం భాషలోనే బోధిస్తారు."
       },
       "q4": {
-        "q": "Do I get records for my homeschool portfolio or review?",
-        "a": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+        "q": "నా ఇంటి బోధన పోర్ట్‌ఫోలియో లేదా సమీక్ష కోసం నివేదికలు అందుతాయా?",
+        "a": "అవును. బోధించినదీ, అప్పగించినదీ, పూర్తయినదీ అంతా అప్పటికప్పుడే నమోదవుతుంది; ఒక్క బటన్ ప్రతి అభ్యాసకుడికీ ప్రింట్ చేయదగిన నివేదికను ఎగుమతి చేస్తుంది: సబ్జెక్టుల వారీగా కవర్ చేసిన అధ్యాయాలు, పూర్తయిన పని, మూల్యాంకన ఫలితాలు — తేదీలతో సహా. కుటుంబాలు దీన్ని పోర్ట్‌ఫోలియో సమీక్షలకు వాడతారు; ట్యూటర్లు అదే నివేదికను తల్లిదండ్రులకు నెలవారీ సమాచారంగా పంపుతారు."
       },
       "q5": {
-        "q": "Can a tutor use it with students from different schools?",
-        "a": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+        "q": "వేర్వేరు పాఠశాలల విద్యార్థులతో ఒక ట్యూటర్ దీన్ని వాడొచ్చా?",
+        "a": "అవును. ప్రతి విద్యార్థికీ వారి సొంత పుస్తకాలు ఉంటాయి — కాబట్టి ఒక్కో విద్యార్థి సొంత పాఠశాల పాఠ్యపుస్తకాన్ని అప్‌లోడ్ చేసి, ఆ విద్యార్థి అసలు సిలబస్ నుంచే సాధన పత్రాలు తయారుచేయవచ్చు. నాలుగు పాఠశాలల నుంచి ఆరుగురు విద్యార్థులు — ఇక్కడ ఇది మామూలు ఏర్పాటే."
       },
       "q6": {
-        "q": "What does it cost?",
-        "a": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+        "q": "ఖర్చు ఎంత?",
+        "a": "ఒక పూర్తి పాఠ కిట్‌తో ఉచితంగా మొదలుపెట్టవచ్చు — కార్డ్ అవసరం లేదు. ఒకటి రెండు సబ్జెక్టులకు Home Basic నెలకు $9.99; పాఠ్యప్రణాళిక మొత్తానికి Homeschool నెలకు $34 లేదా ఏడాదికి $340 (రెండు నెలలు ఉచితం): నెలకు 48 తయారీలు, 10 మంది అభ్యాసకుల వరకు, ప్రింట్ చేయదగిన పురోగతి నివేదికలు."
       }
     },
     "cta": {
-      "heading": "Try it on <mark>tomorrow's lesson</mark>",
-      "sub": "Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.",
-      "primary": "Start free",
-      "secondary": "See all pricing",
-      "note": "Questions about homeschooling or tuition use? <a href=\"mailto:hello@sketchcast.app\">Talk to us</a> — a real person answers."
+      "heading": "<mark>రేపటి పాఠం</mark> మీద ప్రయత్నించి చూడండి",
+      "sub": "ఒక అధ్యాయం అప్‌లోడ్ చేస్తే ఆరు ముక్కల పూర్తి కిట్ ఉచితంగా — కార్డ్ లేదు, ట్రయల్ గడువు లేదు. అది మీకు ఒక సాయంత్రాన్ని మిగిల్చితే, ప్లాన్లు ఎప్పుడూ అక్కడే ఉన్నాయి.",
+      "primary": "ఉచితంగా మొదలుపెట్టండి",
+      "secondary": "అన్ని ధరలూ చూడండి",
+      "note": "ఇంటి బోధన లేదా ట్యూషన్ వాడకం గురించి సందేహాలా? <a href=\"mailto:hello@sketchcast.app\">మాతో మాట్లాడండి</a> — నిజమైన మనిషే జవాబిస్తారు."
     }
   },
   "pricing": {
     "meta": {
       "title": "SketchCast — ధరలు",
-      "description": "ఉపాధ్యాయులకు, తల్లిదండ్రులకు సరళమైన ధరలు — ఉచితంగా మొదలుపెట్టండి, SketchCast మీ సాయంత్రాలను మిగిల్చినప్పుడు అప్‌గ్రేడ్ చేయండి. Teacher Pro, Pro+ మరియు Family ప్లాన్, నెలవారీ లేదా వార్షిక బిల్లింగ్ USD లో. పాఠశాలలకు ప్రత్యేకంగా తయారుచేసిన కోట్.",
+      "description": "సరళమైన ధరలు — ఉచితంగా మొదలుపెట్టండి, SketchCast మీ సాయంత్రాలను మిగిల్చినప్పుడు అప్‌గ్రేడ్ చేయండి. తరగతి గదులకు Teacher Pro, Pro+; ఇంటి వద్ద బోధించేవారికి, ట్యూటర్లకు Home Basic, Homeschool — నెలవారీ లేదా వార్షిక బిల్లింగ్ USD లో. పాఠశాలలకు ప్రత్యేకంగా తయారుచేసిన కోట్.",
       "ogTitle": "SketchCast — ధరలు",
-      "ogDescription": "ఉచితంగా మొదలుపెట్టండి, SketchCast మీ సాయంత్రాలను మిగిల్చినప్పుడు అప్‌గ్రేడ్ చేయండి. ఉపాధ్యాయ, కుటుంబ ప్లాన్లు USD లో; పాఠశాలలకు ప్రత్యేక కోట్."
+      "ogDescription": "ఉచితంగా మొదలుపెట్టండి, SketchCast మీ సాయంత్రాలను మిగిల్చినప్పుడు అప్‌గ్రేడ్ చేయండి. ఉపాధ్యాయ, ఇంటి ప్లాన్లు USD లో; పాఠశాలలకు ప్రత్యేక కోట్."
     },
     "hero": {
       "eyebrow": "ధరలు",
-      "headline": "ప్రతి <mark>ఉపాధ్యాయుడికీ</mark>, తల్లిదండ్రులకూ, పాఠశాలకూ తగిన ధర.",
-      "sub": "ఉచితంగా మొదలుపెట్టండి — బహిరంగ ట్రయల్ కాలంలో అందరిదీ మా ఖాతాలోనే. అది ముగిశాక వర్తించే ప్లాన్లు ఇవి: ఉపాధ్యాయ, తల్లిదండ్రుల సబ్‌స్క్రిప్షన్లు (బిల్లింగ్ USD లో), పాఠశాలలకు ప్రత్యేకంగా తయారుచేసిన కోట్."
+      "headline": "ప్రతి <mark>ఉపాధ్యాయుడికీ</mark>, ప్రతి ఇంటికీ, ప్రతి పాఠశాలకూ తగిన ధర.",
+      "sub": "ఒక పుస్తకం, ఒక పూర్తి కిట్‌తో ఉచితంగా మొదలుపెట్టండి. ఆ తర్వాత: తరగతి గది ఉపాధ్యాయులకు, ఇంటి వద్ద బోధించేవారికి, ట్యూటర్లకు సబ్‌స్క్రిప్షన్లు (బిల్లింగ్ USD లో), పాఠశాలలకు ప్రత్యేకంగా తయారుచేసిన కోట్."
     },
     "toggle": {
       "label": "బిల్లింగ్ కాలం",
@@ -544,25 +544,25 @@
       "perMonth": "/నెల",
       "perYear": "/సం.",
       "teacherPanel": "ఉపాధ్యాయ ప్లాన్లు",
-      "homePanel": "Home plans"
+      "homePanel": "ఇంటి ప్లాన్లు"
     },
     "noscript": "ప్రత్యక్ష ధరలు చూడటానికి JavaScript ఆన్ చేయండి, లేదా <a href=\"https://app.sketchcast.app/signup\">ఉచితంగా మొదలుపెట్టి</a> యాప్‌లోనే ప్లాన్ ఎంచుకోండి.",
     "free": {
-      "eyebrow": "Start here",
-      "heading": "Free for everyone, teacher or parent.",
-      "sub": "One book, one complete six-piece kit — no card, no timer. Pick a plan below only when you want more.",
-      "panel": "Free plan"
+      "eyebrow": "ఇక్కడ మొదలుపెట్టండి",
+      "heading": "ఉపాధ్యాయులైనా, తల్లిదండ్రులైనా — అందరికీ ఉచితం.",
+      "sub": "ఒక పుస్తకం, ఆరు ముక్కల ఒక పూర్తి కిట్ — కార్డ్ లేదు, గడువు లేదు. ఇంకా ఎక్కువ కావాలనుకున్నప్పుడే కింది ప్లాన్ ఎంచుకోండి.",
+      "panel": "ఉచిత ప్లాన్"
     },
     "teachers": {
       "eyebrow": "ఉపాధ్యాయుల కోసం",
       "heading": "ప్రతి పాఠాన్నీ తయారుచేయండి, ప్రతి వారం.",
-      "sub": "Built around a class: rosters, join codes and whole-class progress."
+      "sub": "తరగతి చుట్టూ కట్టినది: విద్యార్థుల జాబితాలు, చేరే కోడ్‌లు, తరగతి మొత్తం పురోగతి."
     },
     "home": {
-      "eyebrow": "For home &amp; tutors",
-      "heading": "Teaching at home, or one learner at a time.",
-      "sub": "Built around named learners rather than a class — <a href=\"/homeschool\">see how it works</a>.",
-      "note": "All paid plans are billed in USD. Cancel anytime. Need a heavier month? Credit packs can be added to any paid plan."
+      "eyebrow": "ఇంటి కోసం &amp; ట్యూటర్ల కోసం",
+      "heading": "ఇంట్లో బోధన, లేదా ఒక్కో అభ్యాసకుడితో.",
+      "sub": "తరగతి కాక, పేరు పేరునా అభ్యాసకుల చుట్టూ కట్టినది — <a href=\"/homeschool\">ఇది ఎలా పనిచేస్తుందో చూడండి</a>.",
+      "note": "చెల్లింపు ప్లాన్లన్నీ USD లో బిల్ చేయబడతాయి. ఎప్పుడైనా రద్దు చేసుకోవచ్చు. ఈ నెల పని ఎక్కువా? ఏ చెల్లింపు ప్లాన్‌కైనా క్రెడిట్ ప్యాక్‌లు జోడించుకోవచ్చు."
     },
     "trial": {
       "badge": "ఉచిత ట్రయల్",
@@ -572,13 +572,13 @@
     },
     "plans": {
       "freeAll": {
-        "name": "Free",
-        "tag": "Try it on your next lesson",
-        "cta": "Start free",
-        "f1": "1 book, with the full six-piece kit for one chapter part",
-        "f2": "Narrated video lessons, worksheets, test papers and lesson plans",
-        "f3": "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
-        "f4": "Assign to a learner or a class and track progress"
+        "name": "ఉచితం",
+        "tag": "మీ తర్వాతి పాఠంపై ప్రయత్నించండి",
+        "cta": "ఉచితంగా మొదలుపెట్టండి",
+        "f1": "1 పుస్తకం — ఒక అధ్యాయ భాగానికి ఆరు ముక్కల పూర్తి కిట్‌తో",
+        "f2": "వ్యాఖ్యానంతో వీడియో పాఠాలు, వర్క్‌షీట్లు, పరీక్షా పత్రాలు, పాఠ ప్రణాళికలు",
+        "f3": "9 పాఠ భాషలు, మీ పుస్తకం నుంచే వాటంతట అవే గుర్తింపు (అరబిక్ పూర్తిగా కుడి-నుంచి-ఎడమకు)",
+        "f4": "ఒక అభ్యాసకుడికో, ఒక తరగతికో అప్పగించి పురోగతిని గమనించండి"
       },
       "teacherPro": {
         "name": "Teacher Pro",
@@ -590,8 +590,8 @@
         "f2": "పాఠం, ప్రణాళిక, కృత్యాలు, వర్క్‌షీట్, పరీక్ష లేదా కేస్ స్టడీ — ఒక్కొక్కటీ ఒక తయారీగా లెక్కిస్తాం",
         "f3": "నెలకు 2 కొత్త పుస్తకాలు",
         "f4": "AI ట్యూటర్",
-        "f5": "పొడవైన అధ్యాయాలు ఎప్పుడూ పూర్తిగా కవర్ (బహుళ భాగాల వీడియోలు)",
-        "f6": "అన్ని 9 పాఠ భాషలు, సరిపడే గొంతులతో",
+        "f5": "తరగతి విద్యార్థుల జాబితాలు, చేరే కోడ్‌లు, తరగతి మొత్తం పురోగతి",
+        "f6": "పొడవైన అధ్యాయాలు ఎప్పుడూ పూర్తిగా కవర్ (బహుళ భాగాల వీడియోలు)",
         "f7": "ఎడిట్ చేయగల PowerPoint, ఎగుమతులు",
         "f8": "మీ లైబ్రరీలో ప్రత్యక్ష న్యాయ-వినియోగ మీటర్ — ఆశ్చర్యాలు ఉండవు"
       },
@@ -608,28 +608,28 @@
       },
       "homeBasic": {
         "name": "Home Basic",
-        "tag": "A subject or two, alongside school",
-        "cta": "Get Home Basic",
-        "saveLabel": "2 months free",
-        "f1": "12 generations a month — about 2 complete lesson kits",
-        "f2": "Up to 2 learners",
-        "f3": "Practice papers in the book's own language (9 supported)",
-        "f4": "Homework help & AI explanations",
-        "f5": "Progress tracking",
-        "f6": "Unused allowance rolls over a month"
+        "tag": "పాఠశాలతో పాటు ఒకటి రెండు సబ్జెక్టులు",
+        "cta": "Home Basic తీసుకోండి",
+        "saveLabel": "2 నెలలు ఉచితం",
+        "f1": "నెలకు 12 తయారీలు — దాదాపు 2 పూర్తి పాఠ కిట్‌లు",
+        "f2": "2 మంది అభ్యాసకుల వరకు",
+        "f3": "పుస్తకం సొంత భాషలోనే సాధన పత్రాలు (9 భాషలకు మద్దతు)",
+        "f4": "హోంవర్క్ సాయం & AI వివరణలు",
+        "f5": "పురోగతి పర్యవేక్షణ",
+        "f6": "వాడని మిగులు తర్వాతి ఒక నెలకు కలుస్తుంది"
       },
       "homeschool": {
         "name": "Homeschool",
-        "tag": "The whole curriculum at home — and tutors with a full roster",
-        "badge": "For home educators",
-        "cta": "Choose Homeschool",
-        "saveLabel": "2 months free",
-        "f1": "48 generations a month — about 8 complete lesson kits",
-        "f2": "Up to 10 learners, each with their own books",
-        "f3": "Printable progress records per learner",
-        "f4": "4 new books a month",
-        "f5": "AI study coach for every learner",
-        "f6": "Live fair-use meter — no surprises"
+        "tag": "ఇంట్లో పాఠ్యప్రణాళిక మొత్తం — విద్యార్థుల జాబితా నిండిన ట్యూటర్లకూ",
+        "badge": "ఇంటి వద్ద బోధించేవారికి",
+        "cta": "Homeschool ఎంచుకోండి",
+        "saveLabel": "2 నెలలు ఉచితం",
+        "f1": "నెలకు 48 తయారీలు — దాదాపు 8 పూర్తి పాఠ కిట్‌లు",
+        "f2": "10 మంది అభ్యాసకుల వరకు, ఒక్కొక్కరికీ వారి సొంత పుస్తకాలు",
+        "f3": "ప్రతి అభ్యాసకుడికీ ప్రింట్ చేయదగిన పురోగతి నివేదికలు",
+        "f4": "నెలకు 4 కొత్త పుస్తకాలు",
+        "f5": "ప్రతి అభ్యాసకుడికీ AI చదువు కోచ్",
+        "f6": "ప్రత్యక్ష న్యాయ-వినియోగ మీటర్ — ఆశ్చర్యాలు ఉండవు"
       }
     },
     "founding": {

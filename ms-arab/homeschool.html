@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title data-i18n="homeschool.meta.title">SketchCast — For Homeschool &amp; Tutors</title>
-<meta name="description" data-i18n-attr="content:homeschool.meta.description" content="Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over." />
+<title data-i18n="homeschool.meta.title">SketchCast — اونتوق Homeschool &amp; تيوتور</title>
+<meta name="description" data-i18n-attr="content:homeschool.meta.description" content="اجر ستياڤ مات ڤلاجرن درڤد بوکو يڠ اندا سوده ميليقي. موات نايق بوکو کوريکولوم دان داڤتکن ڤلاجرن ۏيديو برناراسي، لمبرن کرجا، کرتس ڤڤريقساءن دان رنچاڠن ڤڠاجرن — باݢي ستياڤ موريد، لڠکڤ دڠن رکود کماجوان يڠ بوليه اندا سراهکن." />
 <link rel="icon" type="image/png" href="/seal.png" />
-<meta property="og:title" data-i18n-attr="content:homeschool.meta.ogTitle" content="SketchCast — For Homeschool &amp; Tutors" />
-<meta property="og:description" data-i18n-attr="content:homeschool.meta.ogDescription" content="Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records." />
+<meta property="og:title" data-i18n-attr="content:homeschool.meta.ogTitle" content="SketchCast — اونتوق Homeschool &amp; تيوتور" />
+<meta property="og:description" data-i18n-attr="content:homeschool.meta.ogDescription" content="ستياڤ مات ڤلاجرن، دأجر درڤد بوکو اندا سنديري. ڤلاجرن ۏيديو، لمبرن کرجا دان کرتس ڤڤريقساءن باݢي ستياڤ موريد — لڠکڤ دڠن رکود کماجوان يڠ بوليه دچيتق." />
 <meta property="og:image" content="https://sketchcast.app/seal.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
@@ -192,20 +192,39 @@
   .faq-item[open] summary::after{content:"−"}
   .faq-item p{padding:0 0 18px;font-size:14.5px;color:var(--graphite);max-width:640px}
 </style>
-<!-- Structured data for search. Three blocks: the Homeschool plan as a Product
-     with its two Offers, the page itself, and the FAQ. The FAQPage text below
-     and the visible FAQ section MUST stay word-for-word identical — Google
-     requires parity between markup and what the reader sees. The build copies
-     these blocks verbatim into every locale (script contents are never
-     translated); all locales currently carry the same English FAQ strings, so
-     parity holds everywhere until real translations land. -->
-<script type="application/ld+json">
+<!-- Structured data for search. Four blocks: the Homeschool plan as a Product
+     with its two Offers, the page itself, the demo video, and the FAQ.
+     The FAQPage text and the visible FAQ section MUST stay word-for-word
+     identical — Google requires parity between markup and what the reader
+     sees, and treats a mismatch as spam rather than as a missing enhancement.
+
+     data-i18n-json is what keeps that promise in ten languages: the build
+     re-serializes each block per locale, pulling every marked field from the
+     SAME strings/<locale>.json keys the visible elements use, so the FAQ in
+     /ar/homeschool.html's JSON-LD is literally its <details> text. Prices,
+     currency, availability, dates and every URL are deliberately NOT marked —
+     they are the same in every language, and the build refuses to translate
+     them even if someone adds a pair for one.
+
+     The VideoObject below is the one block that stays English on purpose: it
+     describes a single English-narrated MP4 that every locale serves. A
+     translated name there would advertise a localized video we do not have. -->
+<script type="application/ld+json"
+        data-i18n-json="description:pricing.plans.homeschool.tag
+                       +pricing.plans.homeschool.f1
+                       +pricing.plans.homeschool.f2
+                       +pricing.plans.homeschool.f3
+                       +pricing.plans.homeschool.f4
+                       +pricing.plans.homeschool.f5">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "The SketchCast Homeschool plan: 48 generations a month (about 8 complete lesson kits), up to 10 learners each with their own books and login, printable progress records per learner, 4 new books a month and an AI study coach for every learner.",
-  "brand": { "@type": "Brand", "name": "SketchCast AI" },
+  "description": "کسلوروهن کوريکولوم د رومه — دان تيوتور دڠن سناراي ڤلاجر يڠ ڤنوه · 48 جاناءن سبولن — کيرا-کيرا 8 کيت ڤلاجرن لڠکڤ · سهيڠݢ 10 موريد، ماسيڠ-ماسيڠ دڠن بوکو مريک سنديري · رکود کماجوان بوليه چيتق باݢي ستياڤ موريد · 4 بوکو بهارو سبولن · جورولاتيه اولڠ کاجي AI اونتوق ستياڤ موريد",
+  "brand": {
+    "@type": "Brand",
+    "name": "SketchCast AI"
+  },
   "image": "https://sketchcast.app/seal.png",
   "url": "https://sketchcast.app/homeschool",
   "offers": [
@@ -228,14 +247,19 @@
   ]
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json"
+        data-i18n-json="name:homeschool.meta.title; description:homeschool.meta.description">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "SketchCast — For Homeschool & Tutors",
+  "name": "SketchCast — اونتوق Homeschool & تيوتور",
   "url": "https://sketchcast.app/homeschool",
-  "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
-  "isPartOf": { "@type": "WebSite", "name": "SketchCast", "url": "https://sketchcast.app" }
+  "description": "اجر ستياڤ مات ڤلاجرن درڤد بوکو يڠ اندا سوده ميليقي. موات نايق بوکو کوريکولوم دان داڤتکن ڤلاجرن ۏيديو برناراسي، لمبرن کرجا، کرتس ڤڤريقساءن دان رنچاڠن ڤڠاجرن — باݢي ستياڤ موريد، لڠکڤ دڠن رکود کماجوان يڠ بوليه اندا سراهکن.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "SketchCast",
+    "url": "https://sketchcast.app"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -250,57 +274,63 @@
   "duration": "PT20S"
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json"
+        data-i18n-json="mainEntity.0.name:homeschool.faq.q1.q; mainEntity.0.acceptedAnswer.text:homeschool.faq.q1.a;
+                        mainEntity.1.name:homeschool.faq.q2.q; mainEntity.1.acceptedAnswer.text:homeschool.faq.q2.a;
+                        mainEntity.2.name:homeschool.faq.q3.q; mainEntity.2.acceptedAnswer.text:homeschool.faq.q3.a;
+                        mainEntity.3.name:homeschool.faq.q4.q; mainEntity.3.acceptedAnswer.text:homeschool.faq.q4.a;
+                        mainEntity.4.name:homeschool.faq.q5.q; mainEntity.4.acceptedAnswer.text:homeschool.faq.q5.a;
+                        mainEntity.5.name:homeschool.faq.q6.q; mainEntity.5.acceptedAnswer.text:homeschool.faq.q6.a">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can I use my own curriculum books?",
+      "name": "بوليهکه ساي مڠݢوناکن بوکو کوريکولوم ساي سنديري؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+        "text": "يا — ايتوله توجواڽ. موات نايق بوکو يڠ اندا سوده ݢوناکن اونتوق مڠاجر سباݢاي ساتو PDF. هلامن يڠ ديفوتو جوݢ بوليه، اسلکن دݢابوڠکن منجادي ساتو PDF — ڤڠيمبس هلامن يڠ تربينا دالم منوکر فوتو تيليفون اندا منجادي تڤت سڤرتي ايت. ستياڤ ڤلاجرن، لمبرن کرجا دان کرتس ڤڤريقساءن دجان درڤد باب بوکو ايت سنديري، جادي بهنڽ سڤادن دڠن سوکتن يڠ بنر-بنر دايکوتي موريد اندا."
       }
     },
     {
       "@type": "Question",
-      "name": "How many children or students can I teach on one plan?",
+      "name": "براڤ راماي انق اتاو ڤلاجر يڠ بوليه ساي اجر دڠن ساتو ڤلن؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+        "text": "Home Basic مرڠکومي سهيڠݢ 2 موريد؛ Homeschool مرڠکومي سهيڠݢ 10. ستياڤ موريد ممڤوڽاءي لوݢ ماسوق سنديري، بوکو سنديري دان رکود کماجوان سنديري — چوکوڤ اونتوق کلوارݢ homeschool يڠ بسر، اتاو سناراي ڤنوه ڤلاجر سأورڠ تيوتور."
       }
     },
     {
       "@type": "Question",
-      "name": "Which languages does it work in?",
+      "name": "دالم بهاس اڤاکه اي برفوڠسي؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+        "text": "ڤلاجرن دجان دالم 9 بهاس، دکسن سچارا اوتوماتيک درڤد بوکو يڠ اندا موات نايق — ترماسوق بهاس عرب، سڤنوهڽ کانن ک کيري ڤد سلايد دان لمبرن کرجا. اندا مڠاجر دالم بهاس بوکو اندا، بوکن بهاس لامن ويب کامي."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I get records for my homeschool portfolio or review?",
+      "name": "اداکه ساي مندڤت رکود اونتوق ڤورتفوليو اتاو سماکن homeschool ساي؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+        "text": "يا. سموا يڠ دأجر، دتوݢسکن دان دسياڤکن درکودکن سمبيل اندا مڠاجر، دان ساتو بوتڠ مڠيکسڤورت لاڤورن بوليه چيتق باݢي ستياڤ موريد: باب يڠ دليڤوتي باݢي ستياڤ مات ڤلاجرن، کرجا يڠ دسياڤکن دان کڤوتوسن ڤنيلاين، لڠکڤ دڠن تاريخ. کلوارݢ مڠݢوناکنڽ اونتوق سماکن ڤورتفوليو؛ تيوتور مڠهنتر لاڤورن يڠ سام سباݢاي کمس کيني بولنن کڤد ايبو باڤ."
       }
     },
     {
       "@type": "Question",
-      "name": "Can a tutor use it with students from different schools?",
+      "name": "بوليهکه سأورڠ تيوتور مڠݢوناکنڽ دڠن ڤلاجر درڤد سکوله يڠ بربيذا؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+        "text": "يا. ستياڤ ڤلاجر مڠکلکن بوکو مريک سنديري، جادي اندا بوليه مموات نايق بوکو تيکس سکوله ستياڤ ڤلاجر دان منجان کرتس لاتيهن برداسرکن سوکتن سبنر ڤلاجر ايت. انم ڤلاجر درڤد امڤت سکوله اياله سوسونن بياسا د سيني."
       }
     },
     {
       "@type": "Question",
-      "name": "What does it cost?",
+      "name": "براڤاکه کوسڽ؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+        "text": "اندا بوليه مولا سچارا ڤرچوما دڠن ساتو کيت ڤلاجرن يڠ لڠکڤ — تياد کاد دڤرلوکن. Home Basic اياله $9.99 سبولن اونتوق ساتو دوا مات ڤلاجرن، دان Homeschool اياله $34 سبولن اتاو $340 ستاهون (دوا بولن ڤرچوما) اونتوق کسلوروهن کوريکولوم: 48 جاناءن سبولن، سهيڠݢ 10 موريد دان رکود کماجوان يڠ بوليه دچيتق."
       }
     }
   ]
@@ -345,7 +375,7 @@
     </a>
     <nav class="nav-links">
       <a href="/ms-arab/#how" data-i18n="common.nav.how">چارا اي برفوڠسي</a>
-      <a href="/ms-arab/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Homeschool</a>
+      <a href="/ms-arab/homeschool" aria-current="page" data-i18n="common.nav.homeschool">سکوله د رومه</a>
       <a href="/ms-arab/schools" data-i18n="common.nav.schools">اونتوق سکوله</a>
       <a href="/ms-arab/pricing" data-i18n="common.nav.pricing">هرݢ</a>
       <a href="/ms-arab/about" data-i18n="common.nav.about">تنتڠ کامي</a>
@@ -403,48 +433,48 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="reveal">
-        <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">Homeschool &amp; tutors</p>
-        <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">You already have the <span class="uline">books<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. Now you have the teacher pack.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.</p>
+        <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">Homeschool &amp; تيوتور</p>
+        <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">اندا سوده اد <span class="uline">بوکوڽ<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. کيني اندا اد ڤيک ݢوروڽ.</h1>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">موات نايق بوکو کوريکولوم يڠ اندا ݢوناکن اونتوق مڠاجر. مان-مان باب منجادي ڤلاجرن ۏيديو برناراسي، رنچاڠن ڤڠاجرن، لمبرن کرجا، کرتس ڤڤريقساءن، اکتيۏيتي دان کاجين کيس — سياڤ سبلوم سراڤن، دالم بهاس يڠ اندا ݢوناکن اونتوق مڠاجر.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">Start free — one full kit</a>
-          <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">See plans</a>
+          <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">مولا ڤرچوما — ساتو کيت ڤنوه</a>
+          <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">ليهت ڤلن</a>
         </div>
-        <p class="hero-stat" data-i18n="homeschool.hero.stat"><b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household</p>
+        <p class="hero-stat" data-i18n="homeschool.hero.stat"><b>8 کيت سبولن</b> · <b>سهيڠݢ 10 موريد</b> · <b>9 بهاس</b> — ساتو لڠݢنن اونتوق سايسي رومه</p>
       </div>
 
       <!-- Learners, drawn as product: the thing a homeschool parent or tutor
            actually opens on a Monday. Every label is a translated key. -->
-      <div class="lc reveal" role="img" data-i18n-attr="aria-label:homeschool.learnersCard.alt" aria-label="A learners panel: two children, each with their own subjects and progress through the chapters taught so far.">
+      <div class="lc reveal" role="img" data-i18n-attr="aria-label:homeschool.learnersCard.alt" aria-label="ڤانيل موريد: دوا اورڠ انق، ماسيڠ-ماسيڠ دڠن مات ڤلاجرن سنديري دان کماجوان منروسي باب يڠ تله دأجر ستاکت اين.">
         <div class="lc-head">
-          <span class="lc-title" data-i18n="homeschool.learnersCard.title">Your learners</span>
-          <span class="lc-chip" data-i18n="homeschool.learnersCard.chip">this term</span>
+          <span class="lc-title" data-i18n="homeschool.learnersCard.title">موريد اندا</span>
+          <span class="lc-chip" data-i18n="homeschool.learnersCard.chip">ڤڠݢل اين</span>
         </div>
 
         <div class="lc-row">
           <div class="lc-name">
-            <b data-i18n="homeschool.learnersCard.l1.name">Aisha</b>
-            <span data-i18n="homeschool.learnersCard.l1.year">Year 5 · 4 subjects</span>
+            <b data-i18n="homeschool.learnersCard.l1.name">عاءيشه</b>
+            <span data-i18n="homeschool.learnersCard.l1.year">تاهون 5 · 4 مات ڤلاجرن</span>
           </div>
           <div class="lc-subs">
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Science</em><span class="lc-bar"><i style="width:78%"></i></span><span class="lc-pct">78%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.maths">Maths</em><span class="lc-bar"><i style="width:54%"></i></span><span class="lc-pct">54%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.english">English</em><span class="lc-bar amber"><i style="width:31%"></i></span><span class="lc-pct">31%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">ساءين</em><span class="lc-bar"><i style="width:78%"></i></span><span class="lc-pct">78%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.maths">متماتيک</em><span class="lc-bar"><i style="width:54%"></i></span><span class="lc-pct">54%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.english">بهاس ايڠݢريس</em><span class="lc-bar amber"><i style="width:31%"></i></span><span class="lc-pct">31%</span></div>
           </div>
         </div>
 
         <div class="lc-row">
           <div class="lc-name">
-            <b data-i18n="homeschool.learnersCard.l2.name">Yusuf</b>
-            <span data-i18n="homeschool.learnersCard.l2.year">Year 3 · 3 subjects</span>
+            <b data-i18n="homeschool.learnersCard.l2.name">يوسوف</b>
+            <span data-i18n="homeschool.learnersCard.l2.year">تاهون 3 · 3 مات ڤلاجرن</span>
           </div>
           <div class="lc-subs">
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Science</em><span class="lc-bar"><i style="width:92%"></i></span><span class="lc-pct">92%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.reading">Reading</em><span class="lc-bar"><i style="width:66%"></i></span><span class="lc-pct">66%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">ساءين</em><span class="lc-bar"><i style="width:92%"></i></span><span class="lc-pct">92%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.reading">باچاءن</em><span class="lc-bar"><i style="width:66%"></i></span><span class="lc-pct">66%</span></div>
           </div>
         </div>
 
-        <p class="lc-note" data-i18n="homeschool.learnersCard.note">Each learner keeps their own books, assignments and progress — and their own printable record.</p>
+        <p class="lc-note" data-i18n="homeschool.learnersCard.note">ستياڤ موريد مڠکلکن بوکو، توݢسن دان کماجوان مريک سنديري — سرتا رکود مريک سنديري يڠ بوليه دچيتق.</p>
       </div>
     </div>
   </section>
@@ -552,21 +582,21 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.why.eyebrow">Why we built this</p>
-        <h2 data-i18n="homeschool.why.heading">A school has a staffroom. You have a kitchen table.</h2>
-        <p class="sub" data-i18n="homeschool.why.sub">Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.</p>
+        <p class="eyebrow" data-i18n="homeschool.why.eyebrow">مڠاڤ کامي ممبيناڽ</p>
+        <h2 data-i18n="homeschool.why.heading">سکوله اد بيليق ݢورو. اندا اد ميجا داڤور.</h2>
+        <p class="sub" data-i18n="homeschool.why.sub">سکوله ممبلي ڤيک ݢورو برسام ستياڤ بوکو تيکس: چونتوه برجواب، لمبرن کرجا، اوجين، سکيم جواڤن. مڠاجر د رومه — اتاو ممبري تيوشن کڤد ڤلاجر درڤد امڤت سکوله بربيذا — اندا داڤت بوکوڽ سهاج، تياد يڠ لاين. جادي ستياڤ ڤنراڠن، ستياڤ لمبرن لاتيهن دان ستياڤ اوجين دبينا اوليه سأورڠ سهاج، سلالوڽ لوات مالم، ساتو مات ڤلاجرن دمي ساتو.</p>
       </div>
 
       <div class="feat">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.why.c1.tag">The evening tax</span>
-          <h3 data-i18n="homeschool.why.c1.title">Six subjects, one of you</h3>
-          <p data-i18n="homeschool.why.c1.body">Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing.</p>
+          <span class="tag" data-i18n="homeschool.why.c1.tag">چوکاي وقتو ڤتڠ</span>
+          <h3 data-i18n="homeschool.why.c1.title">انم مات ڤلاجرن، اندا سأورڠ</h3>
+          <p data-i18n="homeschool.why.c1.body">مڽدياکن بهن سميڠݢو اونتوق متماتيک، ساءين، بهاس دان سلبيهڽ اياله کرجا کدوا. SketchCast ممبوات ڤرسدياءن ايت درڤد <b>بوکو اندا سنديري</b>، سوڤايا ماس اندا ڤرݢي کڤد مڠاجر، بوکن منتايڤ.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.why.c2.tag">Not generic</span>
-          <h3 data-i18n="homeschool.why.c2.title">Your curriculum, not a stock one</h3>
-          <p data-i18n="homeschool.why.c2.body">Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library.</p>
+          <span class="tag" data-i18n="homeschool.why.c2.tag">بوکن ݢنريک</span>
+          <h3 data-i18n="homeschool.why.c2.title">کوريکولوم اندا، بوکن کوريکولوم سياڤ ڤاکاي</h3>
+          <p data-i18n="homeschool.why.c2.body">سݢالاڽ دجان درڤد باب يڠ اندا موات نايق — سوکتن، ايستيله دان چونتوه يڠ سام سڤرتي يڠ دنيلاي ک اتس موريد اندا. تياد اڤ-اڤ دريکا درڤد ڤوستاک ݢنريک.</p>
         </div>
       </div>
     </div>
@@ -576,40 +606,40 @@
   <section class="section">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">One chapter in</p>
-        <h2 data-i18n="homeschool.kit.heading">Six pieces out — a full week of one subject</h2>
-        <p class="sub" data-i18n="homeschool.kit.sub">Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.</p>
+        <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">ساتو باب ماسوق</p>
+        <h2 data-i18n="homeschool.kit.heading">انم بهن کلوار — سميڠݢو ڤنوه باݢي ساتو مات ڤلاجرن</h2>
+        <p class="sub" data-i18n="homeschool.kit.sub">موات نايق ساتو باب دان SketchCast ممولڠکن کيت ڤڠاجرن يڠ لڠکڤ. فايل Word دان PowerPoint يڠ بوليه دسونتيڠ، جادي اندا بوليه اوبه اڤ سهاج سبلوم مڠاجرڽ.</p>
       </div>
       <div class="kit">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k1.tag">Teach</span>
-          <h3 data-i18n="homeschool.kit.k1.title">Narrated video lesson</h3>
-          <p data-i18n="homeschool.kit.k1.body">The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling.</p>
+          <span class="tag" data-i18n="homeschool.kit.k1.tag">اجر</span>
+          <h3 data-i18n="homeschool.kit.k1.title">ڤلاجرن ۏيديو برناراسي</h3>
+          <p data-i18n="homeschool.kit.k1.body">باب ايت دترڠکن ڤد سلايد برانيماسي، دڠن سوارا سبنر — سوڤايا سأورڠ موريد بوليه منونتون، منجدا دان منونتون سمولا سمنتارا اندا مڠاجر اديق-براديقڽ.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k2.tag">Plan</span>
-          <h3 data-i18n="homeschool.kit.k2.title">Lesson plan</h3>
-          <p data-i18n="homeschool.kit.k2.body">Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter.</p>
+          <span class="tag" data-i18n="homeschool.kit.k2.tag">رنچڠ</span>
+          <h3 data-i18n="homeschool.kit.k2.title">رنچاڠن ڤڠاجرن</h3>
+          <p data-i18n="homeschool.kit.k2.body">اوبجيکتيف، بهن، اليرن برجدوال دان کوسا کات اوتام — ستروکتور يڠ سکوله بريکن کڤد ݢوروڽ، دتوليس خصوص اونتوق باب اندا.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k3.tag">Practise</span>
-          <h3 data-i18n="homeschool.kit.k3.title">Worksheet</h3>
-          <p data-i18n="homeschool.kit.k3.body">Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready.</p>
+          <span class="tag" data-i18n="homeschool.kit.k3.tag">برلاتيه</span>
+          <h3 data-i18n="homeschool.kit.k3.title">لمبرن کرجا</h3>
+          <p data-i18n="homeschool.kit.k3.body">ايسي تمڤت کوسوڠ، بتول اتاو ساله، ڤادنن دان جواڤن ڤينديق — دڠن سکيم جواڤن ڤد هلامنڽ سنديري، سياڤ دچيتق.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k4.tag">Assess</span>
-          <h3 data-i18n="homeschool.kit.k4.title">Test paper</h3>
-          <p data-i18n="homeschool.kit.k4.body">A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself.</p>
+          <span class="tag" data-i18n="homeschool.kit.k4.tag">نيلاي</span>
+          <h3 data-i18n="homeschool.kit.k4.title">کرتس ڤڤريقساءن</h3>
+          <p data-i18n="homeschool.kit.k4.body">کرتس يڠ ترسوسون کمس دڠن مرکه باݢي ستياڤ سوءالن دان سکيم ڤمرکهن — اتاو تتڤکنڽ سباݢاي کويز اينترکتيف دان بيارکن اي مڽمق سنديري.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k5.tag">Do</span>
-          <h3 data-i18n="homeschool.kit.k5.title">Activities</h3>
-          <p data-i18n="homeschool.kit.k5.body">Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet.</p>
+          <span class="tag" data-i18n="homeschool.kit.k5.tag">بوات</span>
+          <h3 data-i18n="homeschool.kit.k5.title">اکتيۏيتي</h3>
+          <p data-i18n="homeschool.kit.k5.body">توݢسن عملي مڠݢوناکن بهن يڠ سوده اد د رومه، لڠکڤ دڠن ماس دان چيري کجاياءنڽ — اونتوق بهاݢين هاري يڠ تيدق سڤاتوتڽ منجادي لمبرن کرجا.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k6.tag">Apply</span>
-          <h3 data-i18n="homeschool.kit.k6.title">Case study</h3>
-          <p data-i18n="homeschool.kit.k6.body">A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page.</p>
+          <span class="tag" data-i18n="homeschool.kit.k6.tag">ݢونا</span>
+          <h3 data-i18n="homeschool.kit.k6.title">کاجين کيس</h3>
+          <p data-i18n="homeschool.kit.k6.body">سيناريو دنيا سبنر دڠن سوءالن ڤربينچاڠن دان نوتا ڤندوان، سوڤايا باب ايت برمعنى د لوار هلامن بوکو.</p>
         </div>
       </div>
     </div>
@@ -619,31 +649,31 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.learners.eyebrow">Built around learners</p>
-        <h2 data-i18n="homeschool.learners.heading">Named learners, not a class register</h2>
-        <p class="sub" data-i18n="homeschool.learners.sub">School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.</p>
+        <p class="eyebrow" data-i18n="homeschool.learners.eyebrow">برتراسکن موريد</p>
+        <h2 data-i18n="homeschool.learners.heading">موريد برنام، بوکن سناراي کلس</h2>
+        <p class="sub" data-i18n="homeschool.learners.sub">ڤريسين سکوله مڠڠݢڤ اد تيݢ ڤولوه ڤلاجر دان ساتو کود سرتاي. اندا ڤولا اد تيݢ اورڠ انق ڤد تاهڤ بربيذا، اتاو انم ڤلاجر درڤد امڤت سکوله بربيذا. SketchCast دبينا مڠيکوت چارا اندا بنر-بنر مڠاجر.</p>
       </div>
 
       <div class="day">
         <div class="reveal">
           <p class="n">01</p>
-          <h4 data-i18n="homeschool.learners.s1.title">Add each learner</h4>
-          <p data-i18n="homeschool.learners.s1.body">By name, with their own login. Up to ten on the Homeschool plan.</p>
+          <h4 data-i18n="homeschool.learners.s1.title">تمبه ستياڤ موريد</h4>
+          <p data-i18n="homeschool.learners.s1.body">مڠيکوت نام، دڠن لوݢ ماسوق مريک سنديري. سهيڠݢ سڤولوه اورڠ ڤد ڤلن Homeschool.</p>
         </div>
         <div class="reveal">
           <p class="n">02</p>
-          <h4 data-i18n="homeschool.learners.s2.title">Upload their book</h4>
-          <p data-i18n="homeschool.learners.s2.body">A PDF, or photograph the pages with your phone. Different books per learner is normal here.</p>
+          <h4 data-i18n="homeschool.learners.s2.title">موات نايق بوکو مريک</h4>
+          <p data-i18n="homeschool.learners.s2.body">ساتو PDF، اتاو امبيل ݢمبر هلامنڽ دڠن تيليفون اندا. بوکو يڠ بربيذا باݢي ستياڤ موريد ممڠ ڤرکارا بياسا د سيني.</p>
         </div>
         <div class="reveal">
           <p class="n">03</p>
-          <h4 data-i18n="homeschool.learners.s3.title">Assign the chapter</h4>
-          <p data-i18n="homeschool.learners.s3.body">Send the lesson, worksheet or quiz to that learner — with a due date if you want one.</p>
+          <h4 data-i18n="homeschool.learners.s3.title">توݢسکن بابڽ</h4>
+          <p data-i18n="homeschool.learners.s3.body">هنتر ڤلاجرن، لمبرن کرجا اتاو کويز کڤد موريد ايت — برسرتا تاريخ اخير جک اندا ماهو.</p>
         </div>
         <div class="reveal">
           <p class="n">04</p>
-          <h4 data-i18n="homeschool.learners.s4.title">See where they are</h4>
-          <p data-i18n="homeschool.learners.s4.body">Who watched, who submitted, what they scored, which topics keep tripping them up.</p>
+          <h4 data-i18n="homeschool.learners.s4.title">ليهت د مان مريک برادا</h4>
+          <p data-i18n="homeschool.learners.s4.body">سياڤ يڠ منونتون، سياڤ يڠ مڠهنتر، براڤ مرکه مريک، دان توڤيک مان يڠ سنتياس مڽوکرکن مريک.</p>
         </div>
       </div>
     </div>
@@ -653,20 +683,20 @@
   <section class="section">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.records.eyebrow">Proof of the work</p>
-        <h2 data-i18n="homeschool.records.heading">A record you can hand to someone else</h2>
-        <p class="sub" data-i18n="homeschool.records.sub">Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.</p>
+        <p class="eyebrow" data-i18n="homeschool.records.eyebrow">بوکتي کرجا يڠ دبوات</p>
+        <h2 data-i18n="homeschool.records.heading">رکود يڠ بوليه اندا سراهکن کڤد اورڠ لاين</h2>
+        <p class="sub" data-i18n="homeschool.records.sub">سموا يڠ دأجر دان دسياڤکن سوده ڤون درکودکن. ساتو بوتڠ منوکرکنڽ منجادي لاڤورن بوليه چيتق باݢي ستياڤ موريد — اڤ يڠ دليڤوتي، بيلا، دان باݢايمان ڤنچاڤاين مريک.</p>
       </div>
       <div class="rec">
         <div class="rec-card reveal">
-          <p class="who" data-i18n="homeschool.records.r1.who">Homeschooling</p>
-          <h3 data-i18n="homeschool.records.r1.title">For your portfolio or review</h3>
-          <p data-i18n="homeschool.records.r1.body">Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates.</p>
+          <p class="who" data-i18n="homeschool.records.r1.who">Homeschool</p>
+          <h3 data-i18n="homeschool.records.r1.title">اونتوق ڤورتفوليو اتاو سماکن اندا</h3>
+          <p data-i18n="homeschool.records.r1.body">باڽق کلوارݢ ڤرلو منونجوقکن اڤ يڠ تله دأجر سڤنجڠ تاهون. درڤد مڽوسونڽ سمولا درڤد ايڠتن، ايکسڤورت رکود ايت: باب يڠ دليڤوتي باݢي ستياڤ مات ڤلاجرن، کرجا يڠ دسياڤکن، کڤوتوسن ڤنيلاين، لڠکڤ دڠن تاريخ.</p>
         </div>
         <div class="rec-card reveal">
-          <p class="who" data-i18n="homeschool.records.r2.who">Tutoring</p>
-          <h3 data-i18n="homeschool.records.r2.title">For the parent paying you</h3>
-          <p data-i18n="homeschool.records.r2.body">The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep.</p>
+          <p class="who" data-i18n="homeschool.records.r2.who">تيوشن</p>
+          <h3 data-i18n="homeschool.records.r2.title">اونتوق ايبو باڤ يڠ ممباير اندا</h3>
+          <p data-i18n="homeschool.records.r2.body">لاڤورن يڠ سام ايتوله کمس کيني بولنن يڠ دايڠيني ڤلڠݢن اندا: اينيله يڠ کامي ليڤوتي، اينيله مرکه انق اندا، اينيله لڠکه کامي سترسڽ. ايتوله يڠ ممبواتکن سأورڠ تيوتور موده دککلکن.</p>
         </div>
       </div>
     </div>
@@ -676,20 +706,20 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.tutors.eyebrow">Home tuition</p>
-        <h2 data-i18n="homeschool.tutors.heading">Six students, four schools, one evening to prepare</h2>
-        <p class="sub" data-i18n="homeschool.tutors.sub">Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.</p>
+        <p class="eyebrow" data-i18n="homeschool.tutors.eyebrow">تيوشن د رومه</p>
+        <h2 data-i18n="homeschool.tutors.heading">انم ڤلاجر، امڤت سکوله، ساتو ڤتڠ اونتوق برسديا</h2>
+        <p class="sub" data-i18n="homeschool.tutors.sub">تيوشن برمعنى سوکتن يڠ بربيذا باݢي همڤير ستياڤ ڤلاجر — دان بهن يڠ مستي سڤادن دڠن سکوله <em>مريک</em>، بوکن سکوله ݢنريک. موات نايق بوکو ستياڤ ڤلاجر دان جان درڤد بوکو مريک سنديري.</p>
       </div>
       <div class="feat">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.tutors.c1.tag">Per student</span>
-          <h3 data-i18n="homeschool.tutors.c1.title">Their book, their paper</h3>
-          <p data-i18n="homeschool.tutors.c1.body">Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool.</p>
+          <span class="tag" data-i18n="homeschool.tutors.c1.tag">ستياڤ ڤلاجر</span>
+          <h3 data-i18n="homeschool.tutors.c1.title">بوکو مريک، کرتس مريک</h3>
+          <p data-i18n="homeschool.tutors.c1.body">ستياڤ ڤلاجر مڠکلکن بوکو دان توݢسن مريک سنديري. کرتس لاتيهن اونتوق ڤلاجر هاري سلاس داتڠ درڤد <b>باب ڤلاجر هاري سلاس ايت سنديري</b> — بوکن درڤد کومڤولن بهن يڠ دکوڠسي.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.tutors.c2.tag">Worth the fee</span>
-          <h3 data-i18n="homeschool.tutors.c2.title">Show the progress</h3>
-          <p data-i18n="homeschool.tutors.c2.body">Scores, topic weak spots and a monthly report per student — the difference between "we did some questions" and evidence a parent can see.</p>
+          <span class="tag" data-i18n="homeschool.tutors.c2.tag">بربالوي دڠن يورنڽ</span>
+          <h3 data-i18n="homeschool.tutors.c2.title">تونجوقکن کماجوانڽ</h3>
+          <p data-i18n="homeschool.tutors.c2.body">مرکه، توڤيک يڠ لمه دان لاڤورن بولنن باݢي ستياڤ ڤلاجر — بيذاڽ انتارا “کامي بوات ببراڤ سوءالن” دڠن بوکتي يڠ بوليه دليهت سنديري اوليه ايبو باڤ.</p>
         </div>
       </div>
     </div>
@@ -699,53 +729,55 @@
   <section class="section" id="plans">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.plans.eyebrow">What it costs</p>
-        <h2 data-i18n="homeschool.plans.heading">Two plans for teaching at home</h2>
-        <p class="sub" data-i18n="homeschool.plans.sub"><b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.</p>
+        <p class="eyebrow" data-i18n="homeschool.plans.eyebrow">براڤ کوسڽ</p>
+        <h2 data-i18n="homeschool.plans.heading">دوا ڤلن اونتوق مڠاجر د رومه</h2>
+        <p class="sub" data-i18n="homeschool.plans.sub"><b>Home Basic</b> اونتوق ساتو دوا مات ڤلاجرن د سمڤيڠ ڤرسکولهن، دان <b>Homeschool</b> اونتوق کسلوروهن کوريکولوم — اتاو تيوتور دڠن سناراي ڤلاجر يڠ ڤنوه. کدوا-دواڽ برتراسکن موريد برنام، دان ستياڤ ڤلن برمولا دڠن ساتو کيت ڤرچوما.</p>
       </div>
       <div class="hero-ctas" style="margin-top:30px">
-        <a class="btn btn-primary" href="/ms-arab/pricing#home" data-i18n="homeschool.plans.cta">See home plans and prices</a>
-        <a class="btn btn-ghost" href="https://app.sketchcast.app" data-i18n="homeschool.plans.ctaFree">Start free first</a>
+        <a class="btn btn-primary" href="/ms-arab/pricing#home" data-i18n="homeschool.plans.cta">ليهت ڤلن دان هرݢ اونتوق رومه</a>
+        <a class="btn btn-ghost" href="https://app.sketchcast.app" data-i18n="homeschool.plans.ctaFree">مولا ڤرچوما دهولو</a>
       </div>
-      <p class="packs reveal" style="text-align:start" data-i18n="homeschool.plans.packs">Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire.</p>
+      <p class="packs reveal" style="text-align:start" data-i18n="homeschool.plans.packs">بولن يڠ سيبوق؟ <b>ڤيک کريديت</b> بوليه دتمبه ڤد مان-مان ڤلن برباير، دان اي تيدق لوڤوت.</p>
     </div>
   </section>
 
   <!-- ── FAQ ──────────────────────────────────────────────────────────────
        The visible text here and the FAQPage JSON-LD in <head> must stay
-       word-for-word identical — Google requires parity. Both are English in
-       every locale until real translations land (and the JSON-LD must be
-       translated in step with the strings when they do). ─────────────────── -->
+       word-for-word identical — Google requires parity. They cannot drift:
+       the JSON-LD is generated from these same homeschool.faq.* keys (see the
+       data-i18n-json attribute up there), so translating a question here
+       translates it in the structured data too. Adding a question means adding
+       BOTH a <details> block and a mainEntity entry with its pair. ────────── -->
   <section class="section" id="faq">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.faq.eyebrow">FAQ</p>
-        <h2 data-i18n="homeschool.faq.heading">Questions from homeschool families and tutors</h2>
+        <p class="eyebrow" data-i18n="homeschool.faq.eyebrow">سوءالن لازيم</p>
+        <h2 data-i18n="homeschool.faq.heading">سوءالن درڤد کلوارݢ homeschool دان تيوتور</h2>
       </div>
       <div class="faq">
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q1.q">Can I use my own curriculum books?</summary>
-          <p data-i18n="homeschool.faq.q1.a">Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows.</p>
+          <summary data-i18n="homeschool.faq.q1.q">بوليهکه ساي مڠݢوناکن بوکو کوريکولوم ساي سنديري؟</summary>
+          <p data-i18n="homeschool.faq.q1.a">يا — ايتوله توجواڽ. موات نايق بوکو يڠ اندا سوده ݢوناکن اونتوق مڠاجر سباݢاي ساتو PDF. هلامن يڠ ديفوتو جوݢ بوليه، اسلکن دݢابوڠکن منجادي ساتو PDF — ڤڠيمبس هلامن يڠ تربينا دالم منوکر فوتو تيليفون اندا منجادي تڤت سڤرتي ايت. ستياڤ ڤلاجرن، لمبرن کرجا دان کرتس ڤڤريقساءن دجان درڤد باب بوکو ايت سنديري، جادي بهنڽ سڤادن دڠن سوکتن يڠ بنر-بنر دايکوتي موريد اندا.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q2.q">How many children or students can I teach on one plan?</summary>
-          <p data-i18n="homeschool.faq.q2.a">Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster.</p>
+          <summary data-i18n="homeschool.faq.q2.q">براڤ راماي انق اتاو ڤلاجر يڠ بوليه ساي اجر دڠن ساتو ڤلن؟</summary>
+          <p data-i18n="homeschool.faq.q2.a">Home Basic مرڠکومي سهيڠݢ 2 موريد؛ Homeschool مرڠکومي سهيڠݢ 10. ستياڤ موريد ممڤوڽاءي لوݢ ماسوق سنديري، بوکو سنديري دان رکود کماجوان سنديري — چوکوڤ اونتوق کلوارݢ homeschool يڠ بسر، اتاو سناراي ڤنوه ڤلاجر سأورڠ تيوتور.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q3.q">Which languages does it work in?</summary>
-          <p data-i18n="homeschool.faq.q3.a">Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website.</p>
+          <summary data-i18n="homeschool.faq.q3.q">دالم بهاس اڤاکه اي برفوڠسي؟</summary>
+          <p data-i18n="homeschool.faq.q3.a">ڤلاجرن دجان دالم 9 بهاس، دکسن سچارا اوتوماتيک درڤد بوکو يڠ اندا موات نايق — ترماسوق بهاس عرب، سڤنوهڽ کانن ک کيري ڤد سلايد دان لمبرن کرجا. اندا مڠاجر دالم بهاس بوکو اندا، بوکن بهاس لامن ويب کامي.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q4.q">Do I get records for my homeschool portfolio or review?</summary>
-          <p data-i18n="homeschool.faq.q4.a">Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update.</p>
+          <summary data-i18n="homeschool.faq.q4.q">اداکه ساي مندڤت رکود اونتوق ڤورتفوليو اتاو سماکن homeschool ساي؟</summary>
+          <p data-i18n="homeschool.faq.q4.a">يا. سموا يڠ دأجر، دتوݢسکن دان دسياڤکن درکودکن سمبيل اندا مڠاجر، دان ساتو بوتڠ مڠيکسڤورت لاڤورن بوليه چيتق باݢي ستياڤ موريد: باب يڠ دليڤوتي باݢي ستياڤ مات ڤلاجرن، کرجا يڠ دسياڤکن دان کڤوتوسن ڤنيلاين، لڠکڤ دڠن تاريخ. کلوارݢ مڠݢوناکنڽ اونتوق سماکن ڤورتفوليو؛ تيوتور مڠهنتر لاڤورن يڠ سام سباݢاي کمس کيني بولنن کڤد ايبو باڤ.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q5.q">Can a tutor use it with students from different schools?</summary>
-          <p data-i18n="homeschool.faq.q5.a">Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here.</p>
+          <summary data-i18n="homeschool.faq.q5.q">بوليهکه سأورڠ تيوتور مڠݢوناکنڽ دڠن ڤلاجر درڤد سکوله يڠ بربيذا؟</summary>
+          <p data-i18n="homeschool.faq.q5.a">يا. ستياڤ ڤلاجر مڠکلکن بوکو مريک سنديري، جادي اندا بوليه مموات نايق بوکو تيکس سکوله ستياڤ ڤلاجر دان منجان کرتس لاتيهن برداسرکن سوکتن سبنر ڤلاجر ايت. انم ڤلاجر درڤد امڤت سکوله اياله سوسونن بياسا د سيني.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q6.q">What does it cost?</summary>
-          <p data-i18n="homeschool.faq.q6.a">You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records.</p>
+          <summary data-i18n="homeschool.faq.q6.q">براڤاکه کوسڽ؟</summary>
+          <p data-i18n="homeschool.faq.q6.a">اندا بوليه مولا سچارا ڤرچوما دڠن ساتو کيت ڤلاجرن يڠ لڠکڤ — تياد کاد دڤرلوکن. Home Basic اياله $9.99 سبولن اونتوق ساتو دوا مات ڤلاجرن، دان Homeschool اياله $34 سبولن اتاو $340 ستاهون (دوا بولن ڤرچوما) اونتوق کسلوروهن کوريکولوم: 48 جاناءن سبولن، سهيڠݢ 10 موريد دان رکود کماجوان يڠ بوليه دچيتق.</p>
         </details>
       </div>
     </div>
@@ -754,13 +786,13 @@
   <!-- ── final CTA ────────────────────────────────────────────────────── -->
   <section class="cta band">
     <div class="wrap reveal">
-      <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">Try it on <span class="circle">tomorrow's lesson<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.</p>
+      <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">چوبا ڤد <span class="circle">ڤلاجرن ايسوق<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">موات نايق ساتو باب دان داڤتکن کيت انم بهاݢين يڠ ڤنوه سچارا ڤرچوما — تياد کاد، تياد ڤماس ڤرچوباءن. جک اي مڽلامتکن ساتو ڤتڠ اندا، ڤلنڽ اد د سان.</p>
       <div class="cta-btns">
-        <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">Start free</a>
-        <a class="btn btn-ghost" href="/ms-arab/pricing" data-i18n="homeschool.cta.secondary">See all pricing</a>
+        <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">مولا ڤرچوما</a>
+        <a class="btn btn-ghost" href="/ms-arab/pricing" data-i18n="homeschool.cta.secondary">ليهت سموا هرݢ</a>
       </div>
-      <p class="cta-note" data-i18n="homeschool.cta.note">Questions about homeschooling or tuition use? <a href="mailto:hello@sketchcast.app">Talk to us</a> — a real person answers.</p>
+      <p class="cta-note" data-i18n="homeschool.cta.note">اد سوءالن تنتڠ ڤڠݢوناءن اونتوق homeschool اتاو تيوشن؟ <a href="mailto:hello@sketchcast.app">هوبوڠي کامي</a> — اورڠ سبنر يڠ منجاوب.</p>
     </div>
   </section>
 
@@ -776,7 +808,7 @@
       <div class="foot-links">
         <a href="/ms-arab/" data-i18n="common.nav.home">اوتام</a>
         <a href="/ms-arab/about" data-i18n="common.nav.about">تنتڠ کامي</a>
-        <a href="/ms-arab/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Homeschool</a>
+        <a href="/ms-arab/homeschool" aria-current="page" data-i18n="common.nav.homeschool">سکوله د رومه</a>
         <a href="/ms-arab/schools" data-i18n="common.nav.schools">اونتوق سکوله</a>
         <a href="/ms-arab/pricing" data-i18n="common.nav.pricing">هرݢ</a>
         <a href="/ms-arab/privacy" data-i18n="common.footer.privacy">ڤريۏاسي</a>

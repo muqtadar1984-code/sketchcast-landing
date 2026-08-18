@@ -7,7 +7,7 @@
   "common": {
     "nav": {
       "how": "यह कैसे काम करता है",
-      "homeschool": "Homeschool",
+      "homeschool": "होमस्कूल",
       "free": "मुफ़्त क्या है",
       "outcomes": "नतीजे",
       "schools": "स्कूलों के लिए",
@@ -88,11 +88,11 @@
       },
       "stat2": {
         "big": "1<em> क्लिक</em>",
-        "body": "एक बार बनाइए = पूरी किट: वीडियो पाठ, स्लाइड, पाठ योजना, गतिविधियाँ, वर्कशीट और परीक्षा — दस्तावेज़ हर पाठ के साथ मुफ़्त आते हैं।"
+        "body": "एक क्लिक पूरी किट बना देता है: वीडियो पाठ, स्लाइड, पाठ योजना, गतिविधियाँ, वर्कशीट और प्रश्नपत्र। इनमें से हर एक आपके महीने के हिस्से में से एक निर्माण गिना जाता है।"
       },
       "stat3": {
         "big": "$0",
-        "body": "मुफ़्त शुरू कीजिए: खुले ट्रायल के दौरान अपने पहले पाठ बिना किसी ख़र्च के बनाइए और सौंपिए।"
+        "body": "मुफ़्त शुरू कीजिए: एक किताब और एक पूरी किट — छह निर्माण — बिना किसी ख़र्च के।"
       }
     },
     "free": {
@@ -343,195 +343,195 @@
   },
   "homeschool": {
     "meta": {
-      "title": "SketchCast — For Homeschool &amp; Tutors",
-      "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
-      "ogTitle": "SketchCast — For Homeschool &amp; Tutors",
-      "ogDescription": "Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records."
+      "title": "SketchCast — होमस्कूल &amp; ट्यूटर के लिए",
+      "description": "हर विषय उन्हीं किताबों से पढ़ाइए जो आपके पास पहले से हैं। पाठ्यक्रम की किताब अपलोड कीजिए और पाइए बोलते हुए वीडियो पाठ, वर्कशीट, प्रश्नपत्र और पाठ योजनाएँ — हर शिक्षार्थी के लिए अलग, और साथ में ऐसे प्रगति रिकॉर्ड जो आप किसी को सौंप सकें।",
+      "ogTitle": "SketchCast — होमस्कूल &amp; ट्यूटर के लिए",
+      "ogDescription": "हर विषय, आपकी अपनी किताबों से पढ़ाया हुआ। हर शिक्षार्थी के लिए वीडियो पाठ, वर्कशीट और प्रश्नपत्र — साथ में छपने लायक प्रगति रिकॉर्ड।"
     },
     "hero": {
-      "eyebrow": "Homeschool &amp; tutors",
-      "headline": "You already have the <mark>books</mark>. Now you have the teacher pack.",
-      "sub": "Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.",
-      "ctaPrimary": "Start free — one full kit",
-      "ctaSecondary": "See plans",
-      "stat": "<b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household"
+      "eyebrow": "होमस्कूल &amp; ट्यूटर",
+      "headline": "<mark>किताबें</mark> तो आपके पास हैं ही। अब शिक्षक पैक भी आपका है।",
+      "sub": "जिस पाठ्यक्रम की किताब से आप पढ़ाते हैं, उसे अपलोड कीजिए। कोई भी अध्याय बन जाता है बोलता हुआ वीडियो पाठ, पाठ योजना, वर्कशीट, प्रश्नपत्र, गतिविधियाँ और केस स्टडी — नाश्ते से पहले तैयार, उसी भाषा में जिसमें आप पढ़ाते हैं।",
+      "ctaPrimary": "मुफ़्त शुरू कीजिए — एक पूरी किट",
+      "ctaSecondary": "प्लान देखिए",
+      "stat": "<b>महीने में 8 किट</b> · <b>10 शिक्षार्थी तक</b> · <b>9 भाषाएँ</b> — पूरे घर के लिए एक ही सदस्यता"
     },
     "learnersCard": {
-      "alt": "A learners panel: two children, each with their own subjects and progress through the chapters taught so far.",
-      "title": "Your learners",
-      "chip": "this term",
+      "alt": "शिक्षार्थियों का एक पैनल: दो बच्चे, हर एक के अपने विषय और अब तक पढ़ाए गए अध्यायों में उनकी प्रगति।",
+      "title": "आपके शिक्षार्थी",
+      "chip": "इस सत्र",
       "l1": {
         "name": "Aisha",
-        "year": "Year 5 · 4 subjects"
+        "year": "कक्षा 5 · 4 विषय"
       },
       "l2": {
         "name": "Yusuf",
-        "year": "Year 3 · 3 subjects"
+        "year": "कक्षा 3 · 3 विषय"
       },
       "subjects": {
-        "science": "Science",
-        "maths": "Maths",
-        "english": "English",
-        "reading": "Reading"
+        "science": "विज्ञान",
+        "maths": "गणित",
+        "english": "अंग्रेज़ी",
+        "reading": "पठन"
       },
-      "note": "Each learner keeps their own books, assignments and progress — and their own printable record."
+      "note": "हर शिक्षार्थी की अपनी किताबें, अपने असाइनमेंट और अपनी प्रगति — और अपना छपने लायक रिकॉर्ड।"
     },
     "why": {
-      "eyebrow": "Why we built this",
-      "heading": "A school has a staffroom. You have a kitchen table.",
-      "sub": "Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.",
+      "eyebrow": "हमने यह क्यों बनाया",
+      "heading": "स्कूल के पास स्टाफ़रूम होता है। आपके पास रसोई की मेज़।",
+      "sub": "स्कूल हर पाठ्यपुस्तक के साथ शिक्षक पैक ख़रीदते हैं: हल किए हुए उदाहरण, वर्कशीट, परीक्षाएँ, उत्तर-कुंजियाँ। घर पर पढ़ाइए — या चार अलग-अलग स्कूलों के बच्चों को ट्यूशन दीजिए — तो किताब के अलावा कुछ नहीं मिलता। सो हर व्याख्या, हर अभ्यास पत्र और हर परीक्षा एक ही इंसान बनाता है, अक्सर देर रात, एक के बाद एक विषय।",
       "c1": {
-        "tag": "The evening tax",
-        "title": "Six subjects, one of you",
-        "body": "Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing."
+        "tag": "शामों का टैक्स",
+        "title": "छह विषय, और आप अकेले",
+        "body": "गणित, विज्ञान, भाषा और बाक़ी सबकी एक हफ़्ते की तैयारी अपने आप में दूसरी नौकरी है। SketchCast यह तैयारी <b>आपकी अपनी किताब</b> से कर देता है, ताकि आपका समय टाइप करने में नहीं, पढ़ाने में लगे।"
       },
       "c2": {
-        "tag": "Not generic",
-        "title": "Your curriculum, not a stock one",
-        "body": "Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library."
+        "tag": "घिसा-पिटा नहीं",
+        "title": "आपका पाठ्यक्रम, कोई बना-बनाया नहीं",
+        "body": "सब कुछ उसी अध्याय से बनता है जो आप अपलोड करते हैं — वही पाठ्यक्रम, वही शब्दावली और वही उदाहरण जिन पर आपके शिक्षार्थी की परीक्षा होती है। किसी आम कंटेंट लाइब्रेरी से कुछ गढ़ा नहीं जाता।"
       }
     },
     "kit": {
-      "eyebrow": "One chapter in",
-      "heading": "Six pieces out — a full week of one subject",
-      "sub": "Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.",
+      "eyebrow": "अंदर एक अध्याय",
+      "heading": "बाहर छह चीज़ें — एक विषय का पूरा हफ़्ता",
+      "sub": "एक अध्याय अपलोड कीजिए और SketchCast पूरी शिक्षण-किट लौटा देता है। संपादन-योग्य Word और PowerPoint फ़ाइलें, ताकि पढ़ाने से पहले आप कुछ भी बदल सकें।",
       "k1": {
-        "tag": "Teach",
-        "title": "Narrated video lesson",
-        "body": "The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling."
+        "tag": "पढ़ाएँ",
+        "title": "बोलता हुआ वीडियो पाठ",
+        "body": "अध्याय की व्याख्या चलती-फिरती स्लाइडों पर, असली आवाज़ में — ताकि शिक्षार्थी देख सके, रोक सके और दोबारा देख सके, जब आप उसके भाई-बहन के साथ लगे हों।"
       },
       "k2": {
-        "tag": "Plan",
-        "title": "Lesson plan",
-        "body": "Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter."
+        "tag": "योजना",
+        "title": "पाठ योजना",
+        "body": "उद्देश्य, सामग्री, समय बँटा हुआ क्रम और मुख्य शब्दावली — वही ढाँचा जो स्कूल अपने शिक्षक को थमाता है, आपके अध्याय के लिए लिखा हुआ।"
       },
       "k3": {
-        "tag": "Practise",
-        "title": "Worksheet",
-        "body": "Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready."
+        "tag": "अभ्यास",
+        "title": "वर्कशीट",
+        "body": "ख़ाली जगह भरिए, सही या ग़लत, मिलान और छोटे उत्तर — और उत्तर-कुंजी अपने अलग पन्ने पर, छपी और तैयार।"
       },
       "k4": {
-        "tag": "Assess",
-        "title": "Test paper",
-        "body": "A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself."
+        "tag": "जाँचें",
+        "title": "प्रश्नपत्र",
+        "body": "ढंग से सजा हुआ प्रश्नपत्र, हर सवाल के अंक और अंक-योजना के साथ — या उसे इंटरैक्टिव क्विज़ बनाकर सौंप दीजिए, वह ख़ुद जाँच लेगा।"
       },
       "k5": {
-        "tag": "Do",
-        "title": "Activities",
-        "body": "Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet."
+        "tag": "करें",
+        "title": "गतिविधियाँ",
+        "body": "हाथ से करने वाले काम, उन्हीं चीज़ों से जो घर में पहले से हैं — समय और सफलता की कसौटी के साथ, दिन के उस हिस्से के लिए जो वर्कशीट नहीं होना चाहिए।"
       },
       "k6": {
-        "tag": "Apply",
-        "title": "Case study",
-        "body": "A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page."
+        "tag": "लागू करें",
+        "title": "केस स्टडी",
+        "body": "असल ज़िंदगी की एक स्थिति, चर्चा के सवालों और मार्गदर्शन नोट्स के साथ — ताकि अध्याय पन्ने से बाहर भी कहीं उतरे।"
       }
     },
     "learners": {
-      "eyebrow": "Built around learners",
-      "heading": "Named learners, not a class register",
-      "sub": "School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.",
+      "eyebrow": "शिक्षार्थियों के इर्द-गिर्द बना",
+      "heading": "नाम से जुड़े शिक्षार्थी, कोई कक्षा-रजिस्टर नहीं",
+      "sub": "स्कूल का सॉफ़्टवेयर मान लेता है कि तीस छात्र हैं और एक जॉइन कोड। आपके पास अलग-अलग स्तर के तीन बच्चे हैं, या चार अलग-अलग स्कूलों के छह छात्र। SketchCast वैसे बना है जैसे आप सचमुच पढ़ाते हैं।",
       "s1": {
-        "title": "Add each learner",
-        "body": "By name, with their own login. Up to ten on the Homeschool plan."
+        "title": "हर शिक्षार्थी को जोड़िए",
+        "body": "नाम से, अपने-अपने लॉगिन के साथ। Homeschool प्लान में दस तक।"
       },
       "s2": {
-        "title": "Upload their book",
-        "body": "A PDF, or photograph the pages with your phone. Different books per learner is normal here."
+        "title": "उनकी किताब अपलोड कीजिए",
+        "body": "कोई PDF, या फ़ोन से पन्नों की तस्वीरें। यहाँ हर शिक्षार्थी की अलग किताब होना आम बात है।"
       },
       "s3": {
-        "title": "Assign the chapter",
-        "body": "Send the lesson, worksheet or quiz to that learner — with a due date if you want one."
+        "title": "अध्याय सौंपिए",
+        "body": "पाठ, वर्कशीट या क्विज़ उसी शिक्षार्थी को भेजिए — चाहें तो अंतिम तिथि के साथ।"
       },
       "s4": {
-        "title": "See where they are",
-        "body": "Who watched, who submitted, what they scored, which topics keep tripping them up."
+        "title": "देखिए वे कहाँ तक पहुँचे",
+        "body": "किसने देखा, किसने जमा किया, कितने अंक मिले, और कौन-से विषय बार-बार अटकाते हैं।"
       }
     },
     "records": {
-      "eyebrow": "Proof of the work",
-      "heading": "A record you can hand to someone else",
-      "sub": "Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.",
+      "eyebrow": "किए गए काम का सबूत",
+      "heading": "ऐसा रिकॉर्ड जो आप किसी और को सौंप सकें",
+      "sub": "जो पढ़ाया गया और जो पूरा हुआ, वह सब पहले से दर्ज है। एक बटन उसे हर शिक्षार्थी की छपने लायक रिपोर्ट बना देता है — क्या पढ़ाया गया, कब, और नतीजा कैसा रहा।",
       "r1": {
-        "who": "Homeschooling",
-        "title": "For your portfolio or review",
-        "body": "Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates."
+        "who": "होमस्कूलिंग",
+        "title": "आपके पोर्टफ़ोलियो या समीक्षा के लिए",
+        "body": "कई परिवारों को दिखाना पड़ता है कि साल भर में क्या पढ़ाया गया। याद के सहारे सब दोबारा जोड़ने के बजाय रिकॉर्ड एक्सपोर्ट कीजिए: हर विषय के पढ़ाए गए अध्याय, पूरा हुआ काम, परीक्षा के नतीजे — तारीख़ों के साथ।"
       },
       "r2": {
-        "who": "Tutoring",
-        "title": "For the parent paying you",
-        "body": "The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep."
+        "who": "ट्यूशन",
+        "title": "उस अभिभावक के लिए जो आपको फ़ीस देता है",
+        "body": "यही रिपोर्ट वह मासिक अपडेट है जो आपका ग्राहक चाहता है: हमने इतना पढ़ाया, आपके बच्चे को इतने अंक मिले, और आगे यह करेंगे। यही वह चीज़ है जो ट्यूटर को बनाए रखना आसान बना देती है।"
       }
     },
     "tutors": {
-      "eyebrow": "Home tuition",
-      "heading": "Six students, four schools, one evening to prepare",
-      "sub": "Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.",
+      "eyebrow": "घर पर ट्यूशन",
+      "heading": "छह छात्र, चार स्कूल, तैयारी के लिए एक शाम",
+      "sub": "ट्यूशन का मतलब है लगभग हर छात्र का अलग पाठ्यक्रम — और ऐसी सामग्री जो <em>उसी</em> के स्कूल से मेल खाए, किसी आम स्कूल से नहीं। हर छात्र की अपनी किताब अपलोड कीजिए और उसी से बनाइए।",
       "c1": {
-        "tag": "Per student",
-        "title": "Their book, their paper",
-        "body": "Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool."
+        "tag": "हर छात्र के लिए अलग",
+        "title": "उनकी किताब, उनका प्रश्नपत्र",
+        "body": "हर छात्र की अपनी किताबें और अपने असाइनमेंट रहते हैं। मंगलवार वाले छात्र का अभ्यास प्रश्नपत्र <b>मंगलवार वाले छात्र के अध्याय</b> से बनता है — किसी साझा ढेर से नहीं।"
       },
       "c2": {
-        "tag": "Worth the fee",
-        "title": "Show the progress",
-        "body": "Scores, topic weak spots and a monthly report per student — the difference between \"we did some questions\" and evidence a parent can see."
+        "tag": "फ़ीस वसूल",
+        "title": "प्रगति दिखाइए",
+        "body": "अंक, कमज़ोर विषय और हर छात्र की मासिक रिपोर्ट — “कुछ सवाल करा दिए” और अभिभावक को दिखने वाले सबूत के बीच यही फ़र्क़ है।"
       }
     },
     "plans": {
-      "eyebrow": "What it costs",
-      "heading": "Two plans for teaching at home",
-      "sub": "<b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.",
-      "cta": "See home plans and prices",
-      "ctaFree": "Start free first",
-      "packs": "Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire."
+      "eyebrow": "ख़र्च कितना",
+      "heading": "घर पर पढ़ाने के लिए दो प्लान",
+      "sub": "स्कूल के साथ-साथ एक-दो विषयों के लिए <b>Home Basic</b>, और पूरे पाठ्यक्रम के लिए <b>Homeschool</b> — या ऐसे ट्यूटर के लिए जिसके पास छात्रों की पूरी सूची है। दोनों नाम से जुड़े शिक्षार्थियों के इर्द-गिर्द बने हैं, और हर प्लान की शुरुआत एक मुफ़्त किट से होती है।",
+      "cta": "घर के प्लान और क़ीमतें देखिए",
+      "ctaFree": "पहले मुफ़्त आज़माइए",
+      "packs": "महीना भारी है? किसी भी सशुल्क प्लान में <b>क्रेडिट पैक</b> जोड़े जा सकते हैं, और उनकी कोई समय-सीमा नहीं होती।"
     },
     "faq": {
-      "eyebrow": "FAQ",
-      "heading": "Questions from homeschool families and tutors",
+      "eyebrow": "अक्सर पूछे सवाल",
+      "heading": "होमस्कूल परिवारों और ट्यूटर के सवाल",
       "q1": {
-        "q": "Can I use my own curriculum books?",
-        "a": "Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+        "q": "क्या मैं अपनी पाठ्यक्रम की किताबें इस्तेमाल कर सकता/सकती हूँ?",
+        "a": "हाँ — असल बात यही है। जिस किताब से आप पहले से पढ़ाते हैं, उसे एक ही PDF के रूप में अपलोड कीजिए। तस्वीर खींचे गए पन्ने भी चलते हैं, बशर्ते वे एक PDF में जुड़े हों — और भीतर बना पेज स्कैनर आपके फ़ोन की तस्वीरों को ठीक वही बना देता है। हर पाठ, वर्कशीट और प्रश्नपत्र उसी किताब के अपने अध्यायों से बनता है, इसलिए सामग्री उसी पाठ्यक्रम से मेल खाती है जिसे आपका शिक्षार्थी सचमुच पढ़ रहा है।"
       },
       "q2": {
-        "q": "How many children or students can I teach on one plan?",
-        "a": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+        "q": "एक प्लान में कितने बच्चों या छात्रों को पढ़ाया जा सकता है?",
+        "a": "Home Basic में 2 शिक्षार्थी तक, और Homeschool में 10 तक। हर शिक्षार्थी का अपना लॉगिन, अपनी किताबें और अपना प्रगति रिकॉर्ड होता है — एक बड़े होमस्कूल परिवार के लिए, या किसी ट्यूटर की पूरी छात्र-सूची के लिए काफ़ी।"
       },
       "q3": {
-        "q": "Which languages does it work in?",
-        "a": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+        "q": "यह किन भाषाओं में काम करता है?",
+        "a": "पाठ 9 भाषाओं में बनते हैं, जो आपकी अपलोड की गई किताब से अपने आप पहचानी जाती हैं — अरबी भी, स्लाइडों और वर्कशीट पर पूरी तरह दाएँ-से-बाएँ। आप अपनी किताब की भाषा में पढ़ाते हैं, हमारी वेबसाइट की भाषा में नहीं।"
       },
       "q4": {
-        "q": "Do I get records for my homeschool portfolio or review?",
-        "a": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+        "q": "क्या मुझे अपने होमस्कूल पोर्टफ़ोलियो या समीक्षा के लिए रिकॉर्ड मिलते हैं?",
+        "a": "हाँ। जो पढ़ाया, सौंपा और पूरा किया गया, वह सब साथ-साथ दर्ज होता जाता है, और एक बटन हर शिक्षार्थी की छपने लायक रिपोर्ट एक्सपोर्ट कर देता है: हर विषय के पढ़ाए गए अध्याय, पूरा हुआ काम और परीक्षा के नतीजे — तारीख़ों के साथ। परिवार इसे पोर्टफ़ोलियो समीक्षा में लगाते हैं; ट्यूटर यही रिपोर्ट अभिभावक को मासिक अपडेट के तौर पर भेजते हैं।"
       },
       "q5": {
-        "q": "Can a tutor use it with students from different schools?",
-        "a": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+        "q": "क्या कोई ट्यूटर इसे अलग-अलग स्कूलों के छात्रों के साथ इस्तेमाल कर सकता है?",
+        "a": "हाँ। हर छात्र की अपनी किताबें रहती हैं, इसलिए आप हर छात्र की अपने स्कूल वाली पाठ्यपुस्तक अपलोड करके उसी के असली पाठ्यक्रम से अभ्यास प्रश्नपत्र बना सकते हैं। चार स्कूलों के छह छात्र — यहाँ यह आम बात है।"
       },
       "q6": {
-        "q": "What does it cost?",
-        "a": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+        "q": "इसका ख़र्च कितना है?",
+        "a": "आप एक पूरी पाठ-किट के साथ मुफ़्त शुरू कर सकते हैं — कार्ड की ज़रूरत नहीं। एक-दो विषयों के लिए Home Basic $9.99 प्रति माह है, और पूरे पाठ्यक्रम के लिए Homeschool $34 प्रति माह या $340 प्रति वर्ष (दो महीने मुफ़्त): महीने में 48 निर्माण, 10 शिक्षार्थी तक और छपने लायक प्रगति रिकॉर्ड।"
       }
     },
     "cta": {
-      "heading": "Try it on <mark>tomorrow's lesson</mark>",
-      "sub": "Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.",
-      "primary": "Start free",
-      "secondary": "See all pricing",
-      "note": "Questions about homeschooling or tuition use? <a href=\"mailto:hello@sketchcast.app\">Talk to us</a> — a real person answers."
+      "heading": "इसे <mark>कल के पाठ</mark> पर आज़माइए",
+      "sub": "एक अध्याय अपलोड कीजिए और छह हिस्सों वाली पूरी किट मुफ़्त पाइए — न कार्ड, न ट्रायल की घड़ी। अगर इससे आपकी एक शाम बचती है, तो प्लान तो हैं ही।",
+      "primary": "मुफ़्त शुरू करें",
+      "secondary": "सारी क़ीमतें देखिए",
+      "note": "होमस्कूलिंग या ट्यूशन में इस्तेमाल को लेकर सवाल? <a href=\"mailto:hello@sketchcast.app\">हमसे बात कीजिए</a> — जवाब एक असली इंसान देता है।"
     }
   },
   "pricing": {
     "meta": {
       "title": "SketchCast — क़ीमतें",
-      "description": "शिक्षकों और अभिभावकों के लिए सीधी-सादी क़ीमतें — मुफ़्त शुरू कीजिए, और तब अपग्रेड कीजिए जब SketchCast आपकी शामें बचाने लगे। Teacher Pro, Pro+ और एक Family प्लान, मासिक या वार्षिक बिलिंग USD में। स्कूलों को अलग से तैयार प्रस्ताव मिलता है।",
+      "description": "सीधी-सादी क़ीमतें — मुफ़्त शुरू कीजिए, और तब अपग्रेड कीजिए जब SketchCast आपकी शामें बचाने लगे। कक्षाओं के लिए Teacher Pro और Pro+, घर पर पढ़ाने वालों तथा ट्यूटर के लिए Home Basic और Homeschool — मासिक या वार्षिक बिलिंग USD में। स्कूलों को अलग से तैयार प्रस्ताव मिलता है।",
       "ogTitle": "SketchCast — क़ीमतें",
-      "ogDescription": "मुफ़्त शुरू कीजिए, और तब अपग्रेड कीजिए जब SketchCast आपकी शामें बचाने लगे। शिक्षक और परिवार प्लान USD में; स्कूलों को अलग से तैयार प्रस्ताव।"
+      "ogDescription": "मुफ़्त शुरू कीजिए, और तब अपग्रेड कीजिए जब SketchCast आपकी शामें बचाने लगे। शिक्षक और घर के प्लान USD में; स्कूलों को अलग से तैयार प्रस्ताव।"
     },
     "hero": {
       "eyebrow": "क़ीमतें",
-      "headline": "हर <mark>शिक्षक</mark>, हर अभिभावक और हर स्कूल के लिए एक क़ीमत।",
-      "sub": "मुफ़्त शुरू कीजिए — खुले ट्रायल के दौरान सब हमारी तरफ़ से। ट्रायल ख़त्म होने के बाद के प्लान ये रहे: शिक्षक और अभिभावक सदस्यता (बिलिंग USD में), और स्कूलों के लिए अलग से तैयार प्रस्ताव।"
+      "headline": "हर <mark>शिक्षक</mark>, हर घर और हर स्कूल के लिए एक क़ीमत।",
+      "sub": "एक किताब और एक पूरी किट के साथ मुफ़्त शुरू कीजिए। इसके आगे: कक्षा में पढ़ाने वाले शिक्षकों के लिए, और घर पर पढ़ाने वालों तथा ट्यूटर के लिए सदस्यताएँ (बिलिंग USD में), और स्कूलों के लिए अलग से तैयार प्रस्ताव।"
     },
     "toggle": {
       "label": "बिलिंग अवधि",
@@ -544,25 +544,25 @@
       "perMonth": "/माह",
       "perYear": "/वर्ष",
       "teacherPanel": "शिक्षक प्लान",
-      "homePanel": "Home plans"
+      "homePanel": "घर के प्लान"
     },
     "noscript": "लाइव क़ीमतें देखने के लिए JavaScript चालू कीजिए, या <a href=\"https://app.sketchcast.app/signup\">मुफ़्त शुरू कीजिए</a> और ऐप के भीतर प्लान चुन लीजिए।",
     "free": {
-      "eyebrow": "Start here",
-      "heading": "Free for everyone, teacher or parent.",
-      "sub": "One book, one complete six-piece kit — no card, no timer. Pick a plan below only when you want more.",
-      "panel": "Free plan"
+      "eyebrow": "यहाँ से शुरू कीजिए",
+      "heading": "हर किसी के लिए मुफ़्त — शिक्षक हों या अभिभावक।",
+      "sub": "एक किताब, छह हिस्सों वाली एक पूरी किट — न कार्ड, न घड़ी। नीचे से प्लान तभी चुनिए जब और चाहिए हो।",
+      "panel": "मुफ़्त प्लान"
     },
     "teachers": {
       "eyebrow": "शिक्षकों के लिए",
       "heading": "हर पाठ बनाइए, हर हफ़्ते।",
-      "sub": "Built around a class: rosters, join codes and whole-class progress."
+      "sub": "कक्षा के इर्द-गिर्द बना: छात्र-सूची, जॉइन कोड और पूरी कक्षा की प्रगति।"
     },
     "home": {
-      "eyebrow": "For home &amp; tutors",
-      "heading": "Teaching at home, or one learner at a time.",
-      "sub": "Built around named learners rather than a class — <a href=\"/homeschool\">see how it works</a>.",
-      "note": "All paid plans are billed in USD. Cancel anytime. Need a heavier month? Credit packs can be added to any paid plan."
+      "eyebrow": "घर &amp; ट्यूटर के लिए",
+      "heading": "घर पर पढ़ाना, या एक बार में एक शिक्षार्थी।",
+      "sub": "कक्षा के बजाय नाम से जुड़े शिक्षार्थियों के इर्द-गिर्द बना — <a href=\"/homeschool\">देखिए यह कैसे काम करता है</a>।",
+      "note": "सभी सशुल्क प्लान की बिलिंग USD में होती है। कभी भी रद्द कीजिए। महीना भारी पड़ रहा है? किसी भी सशुल्क प्लान में क्रेडिट पैक जोड़े जा सकते हैं।"
     },
     "trial": {
       "badge": "मुफ़्त ट्रायल",
@@ -572,13 +572,13 @@
     },
     "plans": {
       "freeAll": {
-        "name": "Free",
-        "tag": "Try it on your next lesson",
-        "cta": "Start free",
-        "f1": "1 book, with the full six-piece kit for one chapter part",
-        "f2": "Narrated video lessons, worksheets, test papers and lesson plans",
-        "f3": "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
-        "f4": "Assign to a learner or a class and track progress"
+        "name": "मुफ़्त",
+        "tag": "अपने अगले पाठ पर आज़माइए",
+        "cta": "मुफ़्त शुरू करें",
+        "f1": "1 किताब, और एक अध्याय-भाग के लिए छह हिस्सों वाली पूरी किट",
+        "f2": "बोलते हुए वीडियो पाठ, वर्कशीट, प्रश्नपत्र और पाठ योजनाएँ",
+        "f3": "9 पाठ भाषाएँ, आपकी किताब से अपने आप पहचानी हुईं (अरबी पूरी तरह दाएँ-से-बाएँ)",
+        "f4": "किसी शिक्षार्थी या कक्षा को सौंपिए और प्रगति देखिए"
       },
       "teacherPro": {
         "name": "Teacher Pro",
@@ -586,12 +586,12 @@
         "badge": "सबसे लोकप्रिय",
         "cta": "Teacher Pro चुनें",
         "saveLabel": "साल में $48 बचाइए",
-        "f1": "महीने में 24 बार बनाइए — क़रीब 4 पूरी पाठ-किट",
-        "f2": "पाठ, पाठ योजना, गतिविधियाँ, वर्कशीट, परीक्षा या केस स्टडी — हर एक अलग से एक बार गिना जाता है",
+        "f1": "महीने में 24 निर्माण — क़रीब 4 पूरी पाठ-किट",
+        "f2": "पाठ, पाठ योजना, गतिविधियाँ, वर्कशीट, प्रश्नपत्र या केस स्टडी — इनमें से हर एक अलग निर्माण गिना जाता है",
         "f3": "महीने में 2 नई किताबें",
         "f4": "AI ट्यूटर",
-        "f5": "लंबे अध्याय हमेशा पूरे कवर (कई हिस्सों वाले वीडियो)",
-        "f6": "सभी 9 पाठ भाषाएँ, मिलती-जुलती आवाज़ों के साथ",
+        "f5": "कक्षा की छात्र-सूची, जॉइन कोड और पूरी कक्षा की प्रगति",
+        "f6": "लंबे अध्याय हमेशा पूरे कवर (कई हिस्सों वाले वीडियो)",
         "f7": "संपादन-योग्य PowerPoint और एक्सपोर्ट",
         "f8": "आपकी लाइब्रेरी में लाइव उचित-उपयोग मीटर — कोई चौंकाने वाली बात नहीं"
       },
@@ -601,35 +601,35 @@
         "cta": "Teacher Pro+ चुनें",
         "saveLabel": "साल में $98 बचाइए",
         "f1": "Teacher Pro का सब कुछ, और इसके अलावा:",
-        "f2": "महीने में 48 बार और बनाइए — कुल 72, क़रीब 12 पूरी पाठ-किट",
+        "f2": "48 अतिरिक्त निर्माण — महीने में कुल 72, क़रीब 12 पूरी पाठ-किट",
         "f3": "2 और किताबें — महीने में कुल 4",
         "f4": "प्राथमिकता से निर्माण",
         "f5": "नई सुविधाओं तक पहले पहुँच"
       },
       "homeBasic": {
         "name": "Home Basic",
-        "tag": "A subject or two, alongside school",
-        "cta": "Get Home Basic",
-        "saveLabel": "2 months free",
-        "f1": "12 generations a month — about 2 complete lesson kits",
-        "f2": "Up to 2 learners",
-        "f3": "Practice papers in the book's own language (9 supported)",
-        "f4": "Homework help & AI explanations",
-        "f5": "Progress tracking",
-        "f6": "Unused allowance rolls over a month"
+        "tag": "स्कूल के साथ-साथ एक-दो विषय",
+        "cta": "Home Basic लीजिए",
+        "saveLabel": "2 महीने मुफ़्त",
+        "f1": "महीने में 12 निर्माण — क़रीब 2 पूरी पाठ-किट",
+        "f2": "2 शिक्षार्थी तक",
+        "f3": "अभ्यास प्रश्नपत्र, किताब की अपनी भाषा में (9 भाषाएँ उपलब्ध)",
+        "f4": "होमवर्क में मदद और AI से व्याख्या",
+        "f5": "प्रगति पर नज़र",
+        "f6": "बचा हुआ हिस्सा अगले एक महीने तक चलता है"
       },
       "homeschool": {
         "name": "Homeschool",
-        "tag": "The whole curriculum at home — and tutors with a full roster",
-        "badge": "For home educators",
-        "cta": "Choose Homeschool",
-        "saveLabel": "2 months free",
-        "f1": "48 generations a month — about 8 complete lesson kits",
-        "f2": "Up to 10 learners, each with their own books",
-        "f3": "Printable progress records per learner",
-        "f4": "4 new books a month",
-        "f5": "AI study coach for every learner",
-        "f6": "Live fair-use meter — no surprises"
+        "tag": "घर पर पूरा पाठ्यक्रम — और पूरी छात्र-सूची वाले ट्यूटर",
+        "badge": "घर पर पढ़ाने वालों के लिए",
+        "cta": "Homeschool चुनें",
+        "saveLabel": "2 महीने मुफ़्त",
+        "f1": "महीने में 48 निर्माण — क़रीब 8 पूरी पाठ-किट",
+        "f2": "10 शिक्षार्थी तक, हर एक की अपनी किताबें",
+        "f3": "हर शिक्षार्थी का छपने लायक प्रगति रिकॉर्ड",
+        "f4": "महीने में 4 नई किताबें",
+        "f5": "हर शिक्षार्थी के लिए AI अध्ययन कोच",
+        "f6": "लाइव उचित-उपयोग मीटर — कोई चौंकाने वाली बात नहीं"
       }
     },
     "founding": {

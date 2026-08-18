@@ -192,20 +192,39 @@
   .faq-item[open] summary::after{content:"−"}
   .faq-item p{padding:0 0 18px;font-size:14.5px;color:var(--graphite);max-width:640px}
 </style>
-<!-- Structured data for search. Three blocks: the Homeschool plan as a Product
-     with its two Offers, the page itself, and the FAQ. The FAQPage text below
-     and the visible FAQ section MUST stay word-for-word identical — Google
-     requires parity between markup and what the reader sees. The build copies
-     these blocks verbatim into every locale (script contents are never
-     translated); all locales currently carry the same English FAQ strings, so
-     parity holds everywhere until real translations land. -->
-<script type="application/ld+json">
+<!-- Structured data for search. Four blocks: the Homeschool plan as a Product
+     with its two Offers, the page itself, the demo video, and the FAQ.
+     The FAQPage text and the visible FAQ section MUST stay word-for-word
+     identical — Google requires parity between markup and what the reader
+     sees, and treats a mismatch as spam rather than as a missing enhancement.
+
+     data-i18n-json is what keeps that promise in ten languages: the build
+     re-serializes each block per locale, pulling every marked field from the
+     SAME strings/<locale>.json keys the visible elements use, so the FAQ in
+     /ar/homeschool.html's JSON-LD is literally its <details> text. Prices,
+     currency, availability, dates and every URL are deliberately NOT marked —
+     they are the same in every language, and the build refuses to translate
+     them even if someone adds a pair for one.
+
+     The VideoObject below is the one block that stays English on purpose: it
+     describes a single English-narrated MP4 that every locale serves. A
+     translated name there would advertise a localized video we do not have. -->
+<script type="application/ld+json"
+        data-i18n-json="description:pricing.plans.homeschool.tag
+                       +pricing.plans.homeschool.f1
+                       +pricing.plans.homeschool.f2
+                       +pricing.plans.homeschool.f3
+                       +pricing.plans.homeschool.f4
+                       +pricing.plans.homeschool.f5">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "The SketchCast Homeschool plan: 48 generations a month (about 8 complete lesson kits), up to 10 learners each with their own books and login, printable progress records per learner, 4 new books a month and an AI study coach for every learner.",
-  "brand": { "@type": "Brand", "name": "SketchCast AI" },
+  "description": "The whole curriculum at home — and tutors with a full roster · 48 generations a month — about 8 complete lesson kits · Up to 10 learners, each with their own books · Printable progress records per learner · 4 new books a month · AI study coach for every learner",
+  "brand": {
+    "@type": "Brand",
+    "name": "SketchCast AI"
+  },
   "image": "https://sketchcast.app/seal.png",
   "url": "https://sketchcast.app/homeschool",
   "offers": [
@@ -228,14 +247,19 @@
   ]
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json"
+        data-i18n-json="name:homeschool.meta.title; description:homeschool.meta.description">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "SketchCast — For Homeschool & Tutors",
   "url": "https://sketchcast.app/homeschool",
   "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
-  "isPartOf": { "@type": "WebSite", "name": "SketchCast", "url": "https://sketchcast.app" }
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "SketchCast",
+    "url": "https://sketchcast.app"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -250,7 +274,13 @@
   "duration": "PT20S"
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json"
+        data-i18n-json="mainEntity.0.name:homeschool.faq.q1.q; mainEntity.0.acceptedAnswer.text:homeschool.faq.q1.a;
+                        mainEntity.1.name:homeschool.faq.q2.q; mainEntity.1.acceptedAnswer.text:homeschool.faq.q2.a;
+                        mainEntity.2.name:homeschool.faq.q3.q; mainEntity.2.acceptedAnswer.text:homeschool.faq.q3.a;
+                        mainEntity.3.name:homeschool.faq.q4.q; mainEntity.3.acceptedAnswer.text:homeschool.faq.q4.a;
+                        mainEntity.4.name:homeschool.faq.q5.q; mainEntity.4.acceptedAnswer.text:homeschool.faq.q5.a;
+                        mainEntity.5.name:homeschool.faq.q6.q; mainEntity.5.acceptedAnswer.text:homeschool.faq.q6.a">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -712,9 +742,11 @@
 
   <!-- ── FAQ ──────────────────────────────────────────────────────────────
        The visible text here and the FAQPage JSON-LD in <head> must stay
-       word-for-word identical — Google requires parity. Both are English in
-       every locale until real translations land (and the JSON-LD must be
-       translated in step with the strings when they do). ─────────────────── -->
+       word-for-word identical — Google requires parity. They cannot drift:
+       the JSON-LD is generated from these same homeschool.faq.* keys (see the
+       data-i18n-json attribute up there), so translating a question here
+       translates it in the structured data too. Adding a question means adding
+       BOTH a <details> block and a mainEntity entry with its pair. ────────── -->
   <section class="section" id="faq">
     <div class="wrap">
       <div class="sec-head reveal">

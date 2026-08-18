@@ -9,7 +9,7 @@
   "common": {
     "nav": {
       "how": "كيف يعمل",
-      "homeschool": "Homeschool",
+      "homeschool": "التعليم المنزلي",
       "free": "المزايا المجانية",
       "outcomes": "النتائج",
       "schools": "للمدارس",
@@ -90,11 +90,11 @@
       },
       "stat2": {
         "big": "1<em> نقرة</em>",
-        "body": "إنشاء واحد = الحقيبة كاملة: درس فيديو، وشرائح، وخطة، وأنشطة، وورقة عمل، وامتحان — والمستندات تأتي مجانًا مع كل درس."
+        "body": "نقرة واحدة ترسم الحقيبة كاملة: درس فيديو، وشرائح، وخطة، وأنشطة، وورقة عمل، وامتحان. وكل قطعة منها تُحتسب عملية إنشاء واحدة من رصيدك الشهري."
       },
       "stat3": {
         "big": "$0",
-        "body": "ابدأ مجانًا: أنشئ دروسك الأولى وأسنِدها دون تكلفة خلال الفترة التجريبية المفتوحة."
+        "body": "ابدأ مجانًا: كتاب واحد وحقيبة درس كاملة — ست عمليات إنشاء — دون أي تكلفة."
       }
     },
     "free": {
@@ -345,195 +345,195 @@
   },
   "homeschool": {
     "meta": {
-      "title": "SketchCast — For Homeschool &amp; Tutors",
-      "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
-      "ogTitle": "SketchCast — For Homeschool &amp; Tutors",
-      "ogDescription": "Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records."
+      "title": "SketchCast — للتعليم المنزلي والمدرّسين الخصوصيين",
+      "description": "درِّس كل مادة من الكتب التي تملكها بالفعل. ارفع كتاب المنهج لتحصل على دروس فيديو مصحوبة بالسرد، وأوراق عمل، وامتحانات، وخطط دروس — لكل متعلّم على حدة، مع سجلات تقدّم جاهزة للتسليم.",
+      "ogTitle": "SketchCast — للتعليم المنزلي والمدرّسين الخصوصيين",
+      "ogDescription": "كل مادة، مشروحة من كتبك أنت. دروس فيديو وأوراق عمل وامتحانات لكل متعلّم — مع سجلات تقدّم قابلة للطباعة."
     },
     "hero": {
-      "eyebrow": "Homeschool &amp; tutors",
-      "headline": "You already have the <mark>books</mark>. Now you have the teacher pack.",
-      "sub": "Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.",
-      "ctaPrimary": "Start free — one full kit",
-      "ctaSecondary": "See plans",
-      "stat": "<b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household"
+      "eyebrow": "التعليم المنزلي والمدرّسون الخصوصيون",
+      "headline": "<mark>الكتب</mark> بين يديك أصلًا. وها هي حقيبة المعلم معها.",
+      "sub": "ارفع كتاب المنهج الذي تُدرّس منه. أيّ فصل يصير درس فيديو مصحوبًا بالسرد، وخطة درس، وورقة عمل، وامتحانًا، وأنشطة، ودراسة حالة — جاهزًا قبل الفطور، وباللغة التي تُدرّس بها.",
+      "ctaPrimary": "ابدأ مجانًا — حقيبة كاملة",
+      "ctaSecondary": "اطّلع على الخطط",
+      "stat": "<b>8 حقائب شهريًا</b> · <b>حتى 10 متعلّمين</b> · <b>9 لغات</b> — اشتراك واحد للبيت كله"
     },
     "learnersCard": {
-      "alt": "A learners panel: two children, each with their own subjects and progress through the chapters taught so far.",
-      "title": "Your learners",
-      "chip": "this term",
+      "alt": "لوحة المتعلّمين: طفلان، لكلٍّ منهما مواده وتقدّمه في الفصول التي دُرّست حتى الآن.",
+      "title": "متعلّموك",
+      "chip": "هذا الفصل الدراسي",
       "l1": {
-        "name": "Aisha",
-        "year": "Year 5 · 4 subjects"
+        "name": "عائشة",
+        "year": "السنة 5 · 4 مواد"
       },
       "l2": {
-        "name": "Yusuf",
-        "year": "Year 3 · 3 subjects"
+        "name": "يوسف",
+        "year": "السنة 3 · 3 مواد"
       },
       "subjects": {
-        "science": "Science",
-        "maths": "Maths",
-        "english": "English",
-        "reading": "Reading"
+        "science": "العلوم",
+        "maths": "الرياضيات",
+        "english": "اللغة الإنجليزية",
+        "reading": "القراءة"
       },
-      "note": "Each learner keeps their own books, assignments and progress — and their own printable record."
+      "note": "لكل متعلّم كتبه ومهامه وتقدّمه — وسجلّه الخاص القابل للطباعة."
     },
     "why": {
-      "eyebrow": "Why we built this",
-      "heading": "A school has a staffroom. You have a kitchen table.",
-      "sub": "Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.",
+      "eyebrow": "لماذا صنعنا هذا",
+      "heading": "للمدرسة غرفة معلمين. ولك أنت طاولة المطبخ.",
+      "sub": "تشتري المدارس مع كل كتاب مدرسي حقيبةً للمعلم: أمثلة محلولة، وأوراق عمل، واختبارات، ومفاتيح إجابات. أما حين تُدرّس في البيت — أو تُدرّس خصوصيًا لطلاب من أربع مدارس مختلفة — فليس معك إلا الكتاب وحده. فيصير كل شرح وكل ورقة تدريب وكل اختبار من صنع شخص واحد، في وقت متأخر من الليل غالبًا، مادةً بعد مادة.",
       "c1": {
-        "tag": "The evening tax",
-        "title": "Six subjects, one of you",
-        "body": "Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing."
+        "tag": "ضريبة المساء",
+        "title": "ست مواد، وأنت واحد",
+        "body": "تحضير أسبوع من الرياضيات والعلوم واللغة وبقية المواد وظيفةٌ ثانية. يتولّى SketchCast التحضير من <b>كتابك أنت</b>، فيذهب وقتك إلى التدريس بدل الكتابة."
       },
       "c2": {
-        "tag": "Not generic",
-        "title": "Your curriculum, not a stock one",
-        "body": "Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library."
+        "tag": "لا محتوى جاهزًا",
+        "title": "منهجك أنت، لا منهجًا جاهزًا",
+        "body": "كل شيء يُنشأ من الفصل الذي ترفعه — بالمنهج والمصطلحات والأمثلة نفسها التي يُقيَّم عليها متعلّمك. ولا شيء مُختلَق من مكتبة عامة."
       }
     },
     "kit": {
-      "eyebrow": "One chapter in",
-      "heading": "Six pieces out — a full week of one subject",
-      "sub": "Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.",
+      "eyebrow": "فصلٌ واحد يدخل",
+      "heading": "ست قطع تخرج — أسبوع كامل من مادة واحدة",
+      "sub": "ارفع فصلًا ليعيد لك SketchCast حقيبة تدريس كاملة. ملفات Word وPowerPoint قابلة للتعديل، فتضبط ما تشاء قبل أن تُدرّسه.",
       "k1": {
-        "tag": "Teach",
-        "title": "Narrated video lesson",
-        "body": "The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling."
+        "tag": "درِّس",
+        "title": "درس فيديو مصحوب بالسرد",
+        "body": "الفصل مشروحًا على شرائح متحركة بصوتٍ حقيقي — فيشاهده المتعلّم ويوقفه ويعيده بينما تنشغل أنت مع أخيه."
       },
       "k2": {
-        "tag": "Plan",
-        "title": "Lesson plan",
-        "body": "Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter."
+        "tag": "خطِّط",
+        "title": "خطة الدرس",
+        "body": "الأهداف والمواد وتسلسل زمني والمفردات الأساسية — البنية نفسها التي تسلّمها المدرسة لمعلّميها، مكتوبةً لفصلك أنت."
       },
       "k3": {
-        "tag": "Practise",
-        "title": "Worksheet",
-        "body": "Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready."
+        "tag": "تدرَّب",
+        "title": "ورقة عمل",
+        "body": "أكمل الفراغ، وصح أم خطأ، والتوصيل، وإجابات قصيرة — ومفتاح الإجابات في صفحة مستقلة، مطبوعًا وجاهزًا."
       },
       "k4": {
-        "tag": "Assess",
-        "title": "Test paper",
-        "body": "A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself."
+        "tag": "قيِّم",
+        "title": "امتحان",
+        "body": "ورقة منسّقة كما ينبغي بدرجات لكل سؤال ونموذج تصحيح — أو اجعلها اختبارًا تفاعليًا يصحّح نفسه."
       },
       "k5": {
-        "tag": "Do",
-        "title": "Activities",
-        "body": "Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet."
+        "tag": "نفِّذ",
+        "title": "أنشطة",
+        "body": "مهام عملية بمواد موجودة في بيتك أصلًا، مع التوقيتات وشكل النجاح — لذلك الجزء من اليوم الذي لا ينبغي أن يكون ورقة عمل."
       },
       "k6": {
-        "tag": "Apply",
-        "title": "Case study",
-        "body": "A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page."
+        "tag": "طبِّق",
+        "title": "دراسة حالة",
+        "body": "سيناريو من الواقع بأسئلة نقاش وملاحظات إرشادية، فيحطّ الفصل في مكان أبعد من الصفحة."
       }
     },
     "learners": {
-      "eyebrow": "Built around learners",
-      "heading": "Named learners, not a class register",
-      "sub": "School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.",
+      "eyebrow": "مبنيٌّ حول المتعلّمين",
+      "heading": "متعلّمون بأسمائهم، لا كشف حضور صف",
+      "sub": "تفترض برامج المدارس ثلاثين طالبًا ورمز انضمام. أما أنت فلديك ثلاثة أبناء في مراحل مختلفة، أو ستة طلاب من أربع مدارس. وSketchCast مبنيٌّ على الطريقة التي تُدرّس بها فعلًا.",
       "s1": {
-        "title": "Add each learner",
-        "body": "By name, with their own login. Up to ten on the Homeschool plan."
+        "title": "أضف كل متعلّم",
+        "body": "بالاسم، ولكلٍّ حساب دخول خاص. حتى عشرة في خطة Homeschool."
       },
       "s2": {
-        "title": "Upload their book",
-        "body": "A PDF, or photograph the pages with your phone. Different books per learner is normal here."
+        "title": "ارفع كتابه",
+        "body": "ملف PDF، أو صوّر الصفحات بهاتفك. واختلاف الكتب من متعلّم إلى آخر أمر معتاد هنا."
       },
       "s3": {
-        "title": "Assign the chapter",
-        "body": "Send the lesson, worksheet or quiz to that learner — with a due date if you want one."
+        "title": "أسنِد الفصل",
+        "body": "أرسل الدرس أو ورقة العمل أو الاختبار إلى ذلك المتعلّم — بموعد تسليم إن أردت."
       },
       "s4": {
-        "title": "See where they are",
-        "body": "Who watched, who submitted, what they scored, which topics keep tripping them up."
+        "title": "اعرف أين وصلوا",
+        "body": "من شاهد، ومن سلّم، وكم كانت درجته، وأي المواضيع لا تزال تعثّره."
       }
     },
     "records": {
-      "eyebrow": "Proof of the work",
-      "heading": "A record you can hand to someone else",
-      "sub": "Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.",
+      "eyebrow": "دليل على العمل",
+      "heading": "سجلٌّ تستطيع تسليمه لغيرك",
+      "sub": "كل ما دُرّس وأُنجز مسجَّل أصلًا. وزرٌّ واحد يحوّله إلى تقرير قابل للطباعة لكل متعلّم — ماذا غُطّي، ومتى، وكيف كان أداؤه.",
       "r1": {
-        "who": "Homeschooling",
-        "title": "For your portfolio or review",
-        "body": "Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates."
+        "who": "التعليم المنزلي",
+        "title": "لملف إنجازك أو للمراجعة الرسمية",
+        "body": "كثير من الأسر مُلزَمة بإثبات ما دُرّس خلال العام. وبدل استعادته من الذاكرة، صدّر السجل: الفصول المغطّاة في كل مادة، والأعمال المنجزة، ونتائج التقييم، بتواريخها."
       },
       "r2": {
-        "who": "Tutoring",
-        "title": "For the parent paying you",
-        "body": "The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep."
+        "who": "التدريس الخصوصي",
+        "title": "لولي الأمر الذي يدفع لك",
+        "body": "التقرير نفسه هو التحديث الشهري الذي يريده عميلك: هذا ما غطّيناه، وهذه درجات ابنك، وهذا ما سنفعله تاليًا. وهو ما يجعل بقاء المدرّس أمرًا سهلًا."
       }
     },
     "tutors": {
-      "eyebrow": "Home tuition",
-      "heading": "Six students, four schools, one evening to prepare",
-      "sub": "Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.",
+      "eyebrow": "الدروس الخصوصية",
+      "heading": "ستة طلاب، وأربع مدارس، وأمسية واحدة للتحضير",
+      "sub": "التدريس الخصوصي يعني منهجًا مختلفًا لكل طالب تقريبًا — ومادةً يجب أن تطابق مدرسة <em>هو</em>، لا مدرسةً عامة. ارفع كتاب كل طالب وأنشئ المادة من كتابه هو.",
       "c1": {
-        "tag": "Per student",
-        "title": "Their book, their paper",
-        "body": "Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool."
+        "tag": "لكل طالب",
+        "title": "كتابه هو، وورقته هو",
+        "body": "لكل طالب كتبه ومهامه. وورقة التدريب لطالب الثلاثاء تأتي من <b>فصل طالب الثلاثاء</b> — لا من مخزون مشترك."
       },
       "c2": {
-        "tag": "Worth the fee",
-        "title": "Show the progress",
-        "body": "Scores, topic weak spots and a monthly report per student — the difference between \"we did some questions\" and evidence a parent can see."
+        "tag": "يستحق الأجر",
+        "title": "أظهِر التقدّم",
+        "body": "درجات، ومواطن ضعف في المواضيع، وتقرير شهري لكل طالب — الفرق بين «حللنا بعض الأسئلة» ودليلٍ يراه ولي الأمر بعينه."
       }
     },
     "plans": {
-      "eyebrow": "What it costs",
-      "heading": "Two plans for teaching at home",
-      "sub": "<b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.",
-      "cta": "See home plans and prices",
-      "ctaFree": "Start free first",
-      "packs": "Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire."
+      "eyebrow": "كم يكلّف",
+      "heading": "خطتان للتدريس في البيت",
+      "sub": "<b>Home Basic</b> لمادة أو مادتين إلى جانب المدرسة، و<b>Homeschool</b> للمنهج كاملًا — أو لمدرّس خصوصي بقائمة طلاب كاملة. وكلتاهما مبنيّة حول متعلّمين بأسمائهم، وكل خطة تبدأ بحقيبة مجانية.",
+      "cta": "اطّلع على خطط المنزل وأسعارها",
+      "ctaFree": "ابدأ مجانًا أولًا",
+      "packs": "شهرٌ مزدحم؟ يمكن إضافة <b>باقات الأرصدة</b> إلى أي خطة مدفوعة، ولا تنتهي صلاحيتها."
     },
     "faq": {
-      "eyebrow": "FAQ",
-      "heading": "Questions from homeschool families and tutors",
+      "eyebrow": "الأسئلة الشائعة",
+      "heading": "أسئلة من أسر التعليم المنزلي والمدرّسين الخصوصيين",
       "q1": {
-        "q": "Can I use my own curriculum books?",
-        "a": "Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+        "q": "هل أستطيع استخدام كتب منهجي أنا؟",
+        "a": "نعم — وهذا هو بيت القصيد. ارفع الكتاب الذي تُدرّس منه أصلًا في ملف PDF واحد. والصفحات المصوَّرة تصلح أيضًا متى جُمعت في ملف PDF واحد — وماسح الصفحات المدمج يحوّل صور هاتفك إلى ذلك تمامًا. وكل درس وورقة عمل وامتحان يُنشأ من فصول ذلك الكتاب نفسه، فتطابق المادةُ المنهجَ الذي يتبعه متعلّمك فعلًا."
       },
       "q2": {
-        "q": "How many children or students can I teach on one plan?",
-        "a": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+        "q": "كم عدد الأبناء أو الطلاب الذين أستطيع تدريسهم في خطة واحدة؟",
+        "a": "تغطي Home Basic حتى متعلّمَين اثنين، وتغطي Homeschool حتى عشرة. ولكل متعلّم حساب دخوله وكتبه وسجل تقدّمه — وهو ما يكفي أسرةَ تعليم منزلي كبيرة، أو قائمة طلاب كاملة لمدرّس خصوصي."
       },
       "q3": {
-        "q": "Which languages does it work in?",
-        "a": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+        "q": "بأي اللغات يعمل؟",
+        "a": "تُنشأ الدروس بتسع لغات، تُكتشف تلقائيًا من الكتاب الذي ترفعه — ومنها العربية، من اليمين إلى اليسار بالكامل في الشرائح وأوراق العمل. أنت تُدرّس بلغة كتابك، لا بلغة موقعنا."
       },
       "q4": {
-        "q": "Do I get records for my homeschool portfolio or review?",
-        "a": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+        "q": "هل أحصل على سجلات لملف إنجاز التعليم المنزلي أو للمراجعة؟",
+        "a": "نعم. كل ما يُدرَّس ويُسنَد ويُنجَز يُسجَّل أولًا بأول، وزرٌّ واحد يُصدّر تقريرًا قابلًا للطباعة لكل متعلّم: الفصول المغطّاة في كل مادة، والأعمال المنجزة، ونتائج التقييم، بتواريخها. تستخدمه الأسر في مراجعات ملف الإنجاز، ويرسله المدرّسون الخصوصيون تحديثًا شهريًا لولي الأمر."
       },
       "q5": {
-        "q": "Can a tutor use it with students from different schools?",
-        "a": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+        "q": "هل يستطيع المدرّس الخصوصي استخدامه مع طلاب من مدارس مختلفة؟",
+        "a": "نعم. لكل طالب كتبه الخاصة، فترفع الكتاب المدرسي الخاص بكل طالب وتُنشئ أوراق تدريب على منهجه هو فعلًا. وستة طلاب من أربع مدارس إعدادٌ معتاد هنا."
       },
       "q6": {
-        "q": "What does it cost?",
-        "a": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+        "q": "كم تكلفته؟",
+        "a": "تستطيع البدء مجانًا بحقيبة درس كاملة واحدة — بلا بطاقة. وHome Basic بـ $9.99 شهريًا لمادة أو مادتين، وHomeschool بـ $34 شهريًا أو $340 سنويًا (بشهرين مجانًا) للمنهج كاملًا: 48 عملية إنشاء شهريًا، وحتى 10 متعلّمين، وسجلات تقدّم قابلة للطباعة."
       }
     },
     "cta": {
-      "heading": "Try it on <mark>tomorrow's lesson</mark>",
-      "sub": "Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.",
-      "primary": "Start free",
-      "secondary": "See all pricing",
-      "note": "Questions about homeschooling or tuition use? <a href=\"mailto:hello@sketchcast.app\">Talk to us</a> — a real person answers."
+      "heading": "جرّبه على <mark>درس الغد</mark>",
+      "sub": "ارفع فصلًا واحدًا واحصل على الحقيبة الكاملة من ست قطع مجانًا — بلا بطاقة ولا مؤقّت تجربة. وإن وفّر عليك أمسية، فالخطط في انتظارك.",
+      "primary": "ابدأ مجانًا",
+      "secondary": "اطّلع على كل الأسعار",
+      "note": "لديك سؤال عن التعليم المنزلي أو الاستخدام في الدروس الخصوصية؟ <a href=\"mailto:hello@sketchcast.app\">تحدّث إلينا</a> — يردّ عليك إنسان حقيقي."
     }
   },
   "pricing": {
     "meta": {
       "title": "SketchCast — الأسعار",
-      "description": "أسعار بسيطة للمعلمين وأولياء الأمور — ابدأ مجانًا، وارتقِ حين يوفّر عليك SketchCast أمسياتك. خطط Teacher Pro وPro+ وخطة العائلة، بفوترة شهرية أو سنوية بالدولار الأمريكي. وللمدارس عرض مفصَّل.",
+      "description": "أسعار بسيطة — ابدأ مجانًا، وارتقِ حين يوفّر عليك SketchCast أمسياتك. خطتا Teacher Pro وPro+ للفصول الدراسية، وHome Basic وHomeschool لمعلّمي التعليم المنزلي والمدرّسين الخصوصيين، بفوترة شهرية أو سنوية بالدولار الأمريكي. وللمدارس عرض مفصَّل.",
       "ogTitle": "SketchCast — الأسعار",
-      "ogDescription": "ابدأ مجانًا، وارتقِ حين يوفّر عليك SketchCast أمسياتك. خطط للمعلمين والعائلات بالدولار الأمريكي، وعرض مفصَّل للمدارس."
+      "ogDescription": "ابدأ مجانًا، وارتقِ حين يوفّر عليك SketchCast أمسياتك. خطط للمعلمين وللتعليم المنزلي بالدولار الأمريكي، وعرض مفصَّل للمدارس."
     },
     "hero": {
       "eyebrow": "الأسعار",
-      "headline": "سعرٌ يناسب كل <mark>معلم</mark> وولي أمر ومدرسة.",
-      "sub": "ابدأ مجانًا — الجميع على حسابنا خلال الفترة التجريبية المفتوحة. وهذه هي الخطط بعد انتهائها: اشتراكات للمعلمين وأولياء الأمور (بالدولار الأمريكي)، وعرض مفصَّل للمدارس."
+      "headline": "سعرٌ يناسب كل <mark>معلم</mark>، وكل بيت، وكل مدرسة.",
+      "sub": "ابدأ مجانًا بكتاب واحد وحقيبة درس كاملة. وما بعد ذلك: اشتراكات لمعلّمي الفصول، ولمعلّمي التعليم المنزلي والمدرّسين الخصوصيين (بالدولار الأمريكي)، وعرض مفصَّل للمدارس."
     },
     "toggle": {
       "label": "دورة الفوترة",
@@ -546,25 +546,25 @@
       "perMonth": " شهريًا",
       "perYear": " سنويًا",
       "teacherPanel": "خطط المعلمين",
-      "homePanel": "Home plans"
+      "homePanel": "خطط المنزل"
     },
     "noscript": "فعِّل JavaScript لعرض أسعار الخطط مباشرةً، أو <a href=\"https://app.sketchcast.app/signup\">ابدأ مجانًا</a> واختر خطتك داخل التطبيق.",
     "free": {
-      "eyebrow": "Start here",
-      "heading": "Free for everyone, teacher or parent.",
-      "sub": "One book, one complete six-piece kit — no card, no timer. Pick a plan below only when you want more.",
-      "panel": "Free plan"
+      "eyebrow": "ابدأ من هنا",
+      "heading": "مجاني للجميع، معلمًا كنت أو وليَّ أمر.",
+      "sub": "كتاب واحد، وحقيبة درس كاملة من ست قطع — بلا بطاقة ولا مؤقّت. ولا تختر خطة مما يلي إلا حين تريد المزيد.",
+      "panel": "الخطة المجانية"
     },
     "teachers": {
       "eyebrow": "للمعلمين",
       "heading": "اصنع كل درس، كل أسبوع.",
-      "sub": "Built around a class: rosters, join codes and whole-class progress."
+      "sub": "مبنيّة حول الصف: قوائم الطلاب، ورموز الانضمام، وتقدّم الصف كاملًا."
     },
     "home": {
-      "eyebrow": "For home &amp; tutors",
-      "heading": "Teaching at home, or one learner at a time.",
-      "sub": "Built around named learners rather than a class — <a href=\"/homeschool\">see how it works</a>.",
-      "note": "All paid plans are billed in USD. Cancel anytime. Need a heavier month? Credit packs can be added to any paid plan."
+      "eyebrow": "للمنزل وللمدرّسين الخصوصيين",
+      "heading": "تدريسٌ في البيت، أو متعلّمٌ واحد في كل مرة.",
+      "sub": "مبنيّة حول متعلّمين بأسمائهم لا حول صف — <a href=\"/homeschool\">شاهد كيف تعمل</a>.",
+      "note": "تُفوتَر جميع الخطط المدفوعة بالدولار الأمريكي، ويمكنك الإلغاء في أي وقت. وإن كان شهرك مزدحمًا، فباقات الأرصدة تُضاف إلى أي خطة مدفوعة."
     },
     "trial": {
       "badge": "تجربة مجانية",
@@ -574,13 +574,13 @@
     },
     "plans": {
       "freeAll": {
-        "name": "Free",
-        "tag": "Try it on your next lesson",
-        "cta": "Start free",
-        "f1": "1 book, with the full six-piece kit for one chapter part",
-        "f2": "Narrated video lessons, worksheets, test papers and lesson plans",
-        "f3": "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
-        "f4": "Assign to a learner or a class and track progress"
+        "name": "مجانية",
+        "tag": "جرّبها على درسك القادم",
+        "cta": "ابدأ مجانًا",
+        "f1": "كتاب واحد، مع حقيبة الدرس الكاملة من ست قطع لجزء واحد من فصل",
+        "f2": "دروس فيديو مصحوبة بالسرد، وأوراق عمل، وامتحانات، وخطط دروس",
+        "f3": "9 لغات للدروس تُكتشف تلقائيًا من كتابك (والعربية من اليمين إلى اليسار بالكامل)",
+        "f4": "أسنِدها إلى متعلّم أو إلى صف وتابع التقدّم"
       },
       "teacherPro": {
         "name": "Teacher Pro",
@@ -592,8 +592,8 @@
         "f2": "درس أو خطة أو أنشطة أو ورقة عمل أو امتحان أو دراسة حالة — كلٌّ منها يُحتسب عملية إنشاء واحدة",
         "f3": "كتابان جديدان شهريًا",
         "f4": "معلّم ذكي",
-        "f5": "تغطية كاملة دائمًا للفصول الطويلة (فيديوهات متعددة الأجزاء)",
-        "f6": "لغات الدروس التسع جميعها بأصوات مطابقة",
+        "f5": "قوائم الطلاب، ورموز الانضمام، وتقدّم الصف كاملًا",
+        "f6": "تغطية كاملة دائمًا للفصول الطويلة (فيديوهات متعددة الأجزاء)",
         "f7": "ملفات PowerPoint قابلة للتعديل وتصدير",
         "f8": "مؤشر استخدام عادل مباشر في مكتبتك — بلا مفاجآت"
       },
@@ -610,28 +610,28 @@
       },
       "homeBasic": {
         "name": "Home Basic",
-        "tag": "A subject or two, alongside school",
-        "cta": "Get Home Basic",
-        "saveLabel": "2 months free",
-        "f1": "12 generations a month — about 2 complete lesson kits",
-        "f2": "Up to 2 learners",
-        "f3": "Practice papers in the book's own language (9 supported)",
-        "f4": "Homework help & AI explanations",
-        "f5": "Progress tracking",
-        "f6": "Unused allowance rolls over a month"
+        "tag": "مادة أو مادتان، إلى جانب المدرسة",
+        "cta": "احصل على Home Basic",
+        "saveLabel": "شهران مجانًا",
+        "f1": "12 عملية إنشاء شهريًا — أي نحو حقيبتَي درس كاملتين",
+        "f2": "حتى متعلّمَين اثنين",
+        "f3": "أوراق تدريب بلغة الكتاب نفسها (9 لغات مدعومة)",
+        "f4": "مساعدة في الواجبات وشروح بالذكاء الاصطناعي",
+        "f5": "متابعة التقدّم",
+        "f6": "ما لم تستخدمه من رصيدك ينتقل إلى الشهر التالي"
       },
       "homeschool": {
         "name": "Homeschool",
-        "tag": "The whole curriculum at home — and tutors with a full roster",
-        "badge": "For home educators",
-        "cta": "Choose Homeschool",
-        "saveLabel": "2 months free",
-        "f1": "48 generations a month — about 8 complete lesson kits",
-        "f2": "Up to 10 learners, each with their own books",
-        "f3": "Printable progress records per learner",
-        "f4": "4 new books a month",
-        "f5": "AI study coach for every learner",
-        "f6": "Live fair-use meter — no surprises"
+        "tag": "المنهج كاملًا في البيت — وللمدرّس الخصوصي بقائمة طلاب كاملة",
+        "badge": "لمعلّمي التعليم المنزلي",
+        "cta": "اختر Homeschool",
+        "saveLabel": "شهران مجانًا",
+        "f1": "48 عملية إنشاء شهريًا — أي نحو 8 حقائب دروس كاملة",
+        "f2": "حتى 10 متعلّمين، لكلٍّ منهم كتبه الخاصة",
+        "f3": "سجلات تقدّم قابلة للطباعة لكل متعلّم",
+        "f4": "4 كتب جديدة شهريًا",
+        "f5": "مدرّب دراسي ذكي لكل متعلّم",
+        "f6": "مؤشر استخدام عادل مباشر — بلا مفاجآت"
       }
     },
     "founding": {

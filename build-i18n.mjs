@@ -21,9 +21,22 @@
  *                              plus the hand-drawn SVG stroke lifted from the
  *                              English element, so the ink mark stays in markup
  *                              and never reaches a translator
+ *   data-i18n-json="path:key;…"  on a <script type="application/ld+json">:
+ *                              replace the FIELD at `path` inside that block's
+ *                              JSON with the string — see STRUCTURED DATA below
  *
  * Nothing is guessed from surrounding text: an element without an annotation is
  * never touched, and a key with no home in the markup is reported.
+ *
+ * WHY STRUCTURED DATA NEEDED ITS OWN ANNOTATION. The scanner treats <script> as
+ * RAWTEXT, so before data-i18n-json every JSON-LD block was copied byte-for-byte
+ * into all ten locales. A FAQPage whose questions are English beside a visible
+ * FAQ that is not is not a neutral mismatch — Google requires the markup to
+ * match what the reader sees, and a page that fails that is treated as spam,
+ * not as missing an enhancement. data-i18n-json re-serializes the block per
+ * locale from the SAME keys the visible elements use, so the two cannot drift:
+ * the FAQ answers in /ar/homeschool.html's JSON-LD are the very strings its
+ * <details> elements render, whitespace-collapsed exactly as a browser does.
  *
  * WHAT IT ALSO OWNS. Between <!--i18n:NAME--> … <!--/i18n:NAME--> markers the
  * build writes the parts that MUST agree across sixty pages and would rot if
@@ -242,6 +255,21 @@ function parseAttrs(raw) {
   return out;
 }
 
+/** "target:key; target:key" → [[target, key], …]. The shape both data-i18n-attr
+ * and data-i18n-json are written in: semicolons separate pairs, the FIRST colon
+ * separates target from key (keys never contain one), and newlines are allowed
+ * so a long list can be indented across several lines in the markup. */
+function parsePairs(spec) {
+  return String(spec)
+    .split(";")
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((s) => {
+      const c = s.indexOf(":");
+      return [s.slice(0, c).trim(), s.slice(c + 1).trim()];
+    });
+}
+
 /** A copy of `raw` with one attribute set (replaced in place, or appended). */
 function setAttr(raw, name, value) {
   const v = `${name}="${escapeAttr(value)}"`;
@@ -319,6 +347,120 @@ function markupSignature(value) {
     .map((t) => t.raw.replace(/\s+/g, " ").trim())
     .join("|");
 }
+
+/* ── IS THIS FILE ACTUALLY TRANSLATED? ──────────────────────────────────────
+ *
+ * Every check above this line is a SCHEMA check: the keys are all present, no
+ * key is unknown, the markup signature matches, the placeholders match. A file
+ * can pass all four while being, word for word, English. That is not
+ * hypothetical — the homeschool section shipped into strings/mr.json as raw
+ * English and both this build and the portal's message test stayed green,
+ * because neither one ever compared a VALUE to its English source.
+ *
+ * "No value may equal English" is the obvious rule and it is the wrong one. It
+ * would be red on day one and switched off by the end of the week, because a
+ * large share of identical values are correct: "SketchCast AI", the SKU names
+ * (Teacher Pro, Teacher Pro+, Home Basic, Homeschool, Free), the step numbers
+ * "01"/"02"/"03", "$0", a value that is nothing but placeholders such as
+ * "{points}/{max} ({pct}%)", real cognates like French "Contact", "FAQ" and
+ * "Maths", and the invented names in the mock UI screenshots.
+ *
+ * So measure only the values where sameness is genuinely suspicious — PROSE.
+ * A value counts as prose when it has a space in it AND still has a letter
+ * once inline tags and placeholders are stripped out. That one line removes
+ * almost all of the legitimate cases by construction: "FAQ" and "Maths" and
+ * "$0" have no space, "{points}/{max} ({pct}%)" has no letters left. What it
+ * does NOT remove is brand and SKU phrases ("SketchCast AI", "Teacher Pro"),
+ * and it should not — those are the irreducible floor the threshold pays for.
+ */
+const PROSE_LETTER = /\p{L}/u;
+const isProse = (value) => / /.test(value) && PROSE_LETTER.test(value.replace(/<[^>]*>/g, "").replace(/\{[^{}]*\}/g, ""));
+
+/* THE THRESHOLD, read off the corpus rather than chosen by taste.
+ *
+ * Measured over the 490 prose keys in strings/en.json, every healthy locale —
+ * ar, es, fr, hi, ms, ms-arab, pt, te — repeats English in exactly 6 of them
+ * (1.22%), and all six are the brand/SKU floor described above. The one broken
+ * file, mr.json with its untranslated homeschool section, measured 130 (26.5%).
+ * The portal's catalogue sits in the same place: 0.00%–0.98% healthy, fr
+ * highest at 10 of 1,018.
+ *
+ * 6% is very close to the geometric mean of 1.22 and 26.5 — i.e. the point
+ * furthest from both on a ratio scale. It leaves a healthy locale room to
+ * QUINTUPLE its cognates before anyone sees red, and still catches a failure
+ * four times smaller than the one that actually shipped: on this corpus it
+ * trips at 30 untranslated prose values, well under any section worth adding.
+ * Raise it only with new measurements, never to make a red build go away. */
+const MAX_IDENTICAL_PROSE = 0.06;
+
+/* ══════════════════════════════════════════════════════════════════════════
+   STRUCTURED DATA — the JSON-LD blocks, rebuilt per language
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* The named entities the copy actually uses. A translator writes HTML, so
+ * strings/*.json holds "&amp;" and "&nbsp;" — correct in markup, wrong in JSON,
+ * where the value is text and & is just an ampersand. Anything not in this
+ * table is left exactly as written rather than guessed at: "R&D;" is a
+ * plausible sentence and mangling it would be worse than printing it. */
+const ENTITIES = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+  mdash: "—", ndash: "–", hellip: "…", middot: "·", times: "×",
+  lsquo: "‘", rsquo: "’", ldquo: "“", rdquo: "”",
+};
+
+function decodeEntities(s) {
+  return s.replace(/&(#x[0-9a-fA-F]+|#[0-9]+|[a-zA-Z][a-zA-Z0-9]*);/g, (whole, body) => {
+    if (body[0] === "#") {
+      const cp = body[1] === "x" || body[1] === "X" ? parseInt(body.slice(2), 16) : parseInt(body.slice(1), 10);
+      return Number.isInteger(cp) && cp >= 0 && cp <= 0x10ffff ? String.fromCodePoint(cp) : whole;
+    }
+    return ENTITIES[body.toLowerCase()] ?? whole;
+  });
+}
+
+/** A string from the dictionary as the READER sees it: inline markup removed,
+ * entities resolved, whitespace collapsed the way a browser collapses it. That
+ * last step is what makes JSON-LD and the rendered <p> compare equal — the
+ * markup indents its copy, the browser does not render the indentation. */
+const plainText = (value) => decodeEntities(String(value).replace(/<[^>]*>/g, "")).replace(/\s+/g, " ").trim();
+
+/** Several keys under one field, joined with the separator the copy already
+ * uses between claims (see index/homeschool hero stats). Written key+key+key. */
+const JOIN = " · ";
+
+/** Locate `a.b.0.c` inside a parsed JSON block: the container that holds the
+ * final field, and the property or array index to read/write. Null if the path
+ * does not lead anywhere, which is a typo the build must not paper over. */
+function jsonSlot(root, path) {
+  const parts = path.split(".");
+  let node = root;
+  for (const p of parts.slice(0, -1)) {
+    if (node == null || typeof node !== "object") return null;
+    node = Array.isArray(node) ? node[Number(p)] : node[p];
+  }
+  if (node == null || typeof node !== "object") return null;
+  const last = parts[parts.length - 1];
+  const key = Array.isArray(node) ? Number(last) : last;
+  return Number.isNaN(key) ? null : { parent: node, key };
+}
+
+/* Fields a translation must never reach. Price, currency and every URL are
+ * COMMERCE and IDENTITY, not copy: they are the same number and the same
+ * checkout link in Arabic as in English, and a locale that "translated" one
+ * would be quoting a price we do not charge. Refusing here means the rule
+ * survives the next person adding a pair to the markup. */
+const JSONLD_FROZEN = new Set([
+  "@context", "@type", "price", "priceCurrency", "priceValidUntil", "availability",
+  "url", "image", "contentUrl", "thumbnailUrl", "embedUrl", "sku", "identifier",
+  "uploadDate", "duration", "datePublished", "dateModified",
+]);
+
+/** JSON.stringify, plus the one escape a <script> element needs: the scanner
+ * and the browser both end this block at the first "</script", so a string
+ * containing one would break the page. < is the same character to a JSON
+ * parser and inert to an HTML tokenizer. U+2028/9 are legal JSON and illegal
+ * JavaScript, so they go too. */
+const serializeJsonLd = (obj) => JSON.stringify(obj, null, 2).replace(/[<>\u2028\u2029]/g, (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, "0")}`);
 
 /* ══════════════════════════════════════════════════════════════════════════
    GENERATED BLOCKS
@@ -475,16 +617,36 @@ function planPage(html, file, errors) {
       ops.push({ kind: "content", key: a["data-i18n"], markClass, deco, start: range.start, end: range.end });
     }
     if (a["data-i18n-attr"]) {
-      const pairs = a["data-i18n-attr"]
-        .split(";")
-        .map((s) => s.trim())
-        .filter(Boolean)
-        .map((s) => {
-          const c = s.indexOf(":");
-          return [s.slice(0, c).trim(), s.slice(c + 1).trim()];
-        });
+      const pairs = parsePairs(a["data-i18n-attr"]);
       for (const [, key] of pairs) keys.add(key);
       ops.push({ kind: "attrs", pairs, raw: tok.raw, start: tok.start, end: tok.end });
+    }
+    if (a["data-i18n-json"]) {
+      const where = `${file}: data-i18n-json on <${tok.name}>`;
+      const range = contentRange(tokens, idx);
+      if (!range) {
+        errors.push(`${where} is never closed`);
+        return;
+      }
+      let template;
+      try {
+        template = JSON.parse(html.slice(range.start, range.end));
+      } catch (e) {
+        errors.push(`${where}: the block is not valid JSON — ${e.message}`);
+        return;
+      }
+      const pairs = parsePairs(a["data-i18n-json"]).map(([path, spec]) => [path, spec.split("+").map((k) => k.trim()).filter(Boolean)]);
+      for (const [path, group] of pairs) {
+        const slot = jsonSlot(template, path);
+        const leaf = path.split(".").pop();
+        const value = slot ? slot.parent[slot.key] : undefined;
+        if (!slot || value === undefined) errors.push(`${where}: no field at "${path}" — the path must already exist in the English block`);
+        else if (typeof value !== "string") errors.push(`${where}: "${path}" is not a string field, so a translation cannot replace it`);
+        if (JSONLD_FROZEN.has(leaf)) errors.push(`${where}: "${path}" is a price, date, URL or type — those are identical in every language and must not be translated`);
+        if (!group.length) errors.push(`${where}: "${path}" names no key`);
+        for (const k of group) keys.add(k);
+      }
+      ops.push({ kind: "jsonld", pairs, template, file, start: range.start, end: range.end });
     }
     if (tok.name === "html") ops.push({ kind: "html", raw: tok.raw, start: tok.start, end: tok.end });
   });
@@ -507,6 +669,31 @@ function planPage(html, file, errors) {
   }
 
   return { ops, keys };
+}
+
+/** One JSON-LD block, one language.
+ *
+ * There is deliberately NO fallback to English here. Everywhere else in this
+ * build a missing string quietly borrows the English one, because a page with
+ * one English sentence still reads. Structured data is the opposite: its only
+ * job is to AGREE with the page around it, and a FAQPage answering in English
+ * beside a translated FAQ is precisely the mismatch this exists to prevent —
+ * Google reads that as markup that does not describe the page. So a missing key
+ * stops the build. In practice --check sees it first: every locale is validated
+ * against the English key set before a single file is written. */
+function renderJsonLd(op, locale, dict) {
+  const obj = structuredClone(op.template);
+  for (const [path, group] of op.pairs) {
+    const parts = group.map((key) => {
+      const value = lookup(dict, key);
+      if (value === undefined) throw new Error(`${locale}/${op.file}: JSON-LD field "${path}" needs "${key}", which strings/${locale}.json does not have`);
+      return plainText(value);
+    });
+    const slot = jsonSlot(obj, path);
+    if (!slot) throw new Error(`${locale}/${op.file}: JSON-LD path "${path}" does not exist`);
+    slot.parent[slot.key] = parts.filter(Boolean).join(JOIN);
+  }
+  return serializeJsonLd(obj);
 }
 
 /** One page, one language. */
@@ -539,6 +726,8 @@ function renderPage(html, plan, page, locale, dict, en, active, errors) {
         raw = setAttr(raw, "dir", L.dir);
         return { start: op.start, end: op.end, text: raw };
       }
+      case "jsonld":
+        return { start: op.start, end: op.end, text: `\n${renderJsonLd(op, locale, dict)}\n` };
       case "marker": {
         const body =
           op.name === "head" ? headBlock(locale, page, active)
@@ -671,6 +860,20 @@ for (const l of active) {
     const trVars = (lookup(dict, k)?.match(/\{\w+\}/g) || []).sort().join(",");
     if (enVars !== trVars) errors.push(`strings/${l.code}.json: "${k}" placeholders differ (en: ${enVars || "none"}, ${l.code}: ${trVars || "none"})`);
   }
+
+  // ...and the check none of the above can make: are these values English?
+  // See MAX_IDENTICAL_PROSE for how the threshold was measured.
+  const prose = [...enKeys].filter((k) => isProse(lookup(en, k) ?? ""));
+  const untranslated = prose.filter((k) => lookup(dict, k) === lookup(en, k));
+  const ratio = prose.length ? untranslated.length / prose.length : 0;
+  if (ratio > MAX_IDENTICAL_PROSE) {
+    const examples = untranslated.slice(0, 6).map((k) => `      ${k} = ${JSON.stringify(lookup(en, k))}`).join("\n");
+    errors.push(
+      `strings/${l.code}.json is not translated — ${untranslated.length} of ${prose.length} prose values (${(ratio * 100).toFixed(1)}%) are the English string verbatim, over the ${(MAX_IDENTICAL_PROSE * 100).toFixed(0)}% limit.\n` +
+        `    Every other check passes because the KEYS are all correct; only the values are English. Translate at least these:\n${examples}\n` +
+        `    ...and ${Math.max(0, untranslated.length - 6)} more. Brand and SKU names (SketchCast, Teacher Pro, Home Basic, Homeschool, Free) are expected to match English and are what the ${(MAX_IDENTICAL_PROSE * 100).toFixed(0)}% allowance is for.`,
+    );
+  }
 }
 
 // ── plan every page, and reconcile markup against en.json ──────────────────
@@ -688,7 +891,7 @@ for (const page of PAGES) {
   plans.set(page.file, { html, plan });
   for (const k of plan.keys) {
     used.add(k);
-    if (!enKeys.has(k)) errors.push(`${page.file}: data-i18n="${k}" has no entry in strings/en.json`);
+    if (!enKeys.has(k)) errors.push(`${page.file}: the markup asks for "${k}", which has no entry in strings/en.json`);
   }
   const d = statSync(path).mtime.toISOString().slice(0, 10);
   if (d > lastmod) lastmod = d;
@@ -697,6 +900,50 @@ for (const k of enKeys) {
   if (used.has(k)) continue;
   if (GENERATOR_OWNED.some((p) => k.startsWith(p))) continue;
   warnings.push(`strings/en.json: "${k}" is never used by any page`);
+}
+
+/* AMPERSANDS — reject where an entity actually breaks, normalize nowhere.
+ *
+ * A review flagged that a handful of values carry a bare "&" where the rest of
+ * the corpus writes "&amp;" (en/ms pricing.plans.teacherPro.f7; en/ms/ms-arab/
+ * te/mr pricing.plans.homeBasic.f4) and asked whether the build should
+ * normalize them or reject them. Neither, because the premise is backwards:
+ * on those particular keys the bare "&" is the CORRECT spelling and "&amp;"
+ * would be the bug.
+ *
+ * There are two delivery channels and they want opposite things. Most keys are
+ * substituted into markup by renderPage, and there a value is HTML: "&amp;" is
+ * right, and escapeAttr already upgrades a bare "&" for the attribute path, so
+ * nothing is broken either way. But every pricing.* key is ALSO copied verbatim
+ * into pricing.i18n.js, and the keys with no data-i18n annotation anywhere are
+ * delivered ONLY that way — pricing.html reads them back and prints them
+ * through its own esc(), which escapes "&" unconditionally, or straight into
+ * .textContent. Down that path a stored "&amp;" is escaped a second time and
+ * the reader sees the five literal characters &amp; on the page.
+ *
+ * So: no normalization. Rewriting a translator's value on the way through is
+ * exactly what this file refuses to do elsewhere (see ENTITIES, which prints
+ * "R&D;" rather than guess at it), and here it would have to guess which of
+ * the two channels a key means. Instead, fail on the one combination that is
+ * unambiguously wrong — an HTML entity in a value that only ever reaches a
+ * JavaScript string. That set is empty in all ten locales today, so this costs
+ * nothing now and catches the bug the first time someone "fixes" one of those
+ * bare ampersands for consistency. A bare "&" needs no rule at all: in HTML
+ * text it is an unambiguous literal, escapeAttr handles attributes, and
+ * decodeEntities leaves it alone for JSON-LD. */
+const ENTITY_RE = /&(?:[a-zA-Z][a-zA-Z0-9]*|#[0-9]+|#x[0-9a-fA-F]+);/;
+for (const [code, dict] of dicts) {
+  for (const k of enKeys) {
+    if (!k.startsWith("pricing.") || used.has(k)) continue;
+    const v = lookup(dict, k);
+    const hit = v && ENTITY_RE.exec(v);
+    if (hit) {
+      errors.push(
+        `strings/${code}.json: "${k}" contains the HTML entity ${hit[0]} — ${JSON.stringify(v)}\n` +
+          `    No page annotates this key, so it is delivered only through pricing.i18n.js, where pricing.html escapes it again and renders "${hit[0]}" as visible text. Write the character itself.`,
+      );
+    }
+  }
 }
 
 // DRIFT. The English pages are both the source you edit and the English pages
@@ -709,6 +956,23 @@ for (const page of PAGES) {
   const entry = plans.get(page.file);
   if (!entry) continue;
   for (const op of entry.plan.ops) {
+    if (op.kind === "jsonld") {
+      // Same rule for structured data, and it matters more here: the block a
+      // reviewer reads in the English source is only what ships if it matches
+      // the generated one, and JSON-LD is the part of the page nobody looks at.
+      const current = entry.html.slice(op.start, op.end).trim();
+      let expected;
+      try {
+        expected = renderJsonLd(op, DEFAULT_LOCALE, en);
+      } catch (e) {
+        errors.push(String(e.message));
+        continue;
+      }
+      if (expected !== current) {
+        warnings.push(`${page.file}: the JSON-LD block starting at byte ${op.start} differs from what strings/en.json generates — the build will overwrite it. Move the edit into strings/en.json.`);
+      }
+      continue;
+    }
     if (op.kind !== "content") continue;
     const current = squash(entry.html.slice(op.start, op.end));
     let expected = lookup(en, op.key) ?? "";

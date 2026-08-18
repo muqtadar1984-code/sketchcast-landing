@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title data-i18n="homeschool.meta.title">SketchCast — For Homeschool &amp; Tutors</title>
-<meta name="description" data-i18n-attr="content:homeschool.meta.description" content="Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over." />
+<title data-i18n="homeschool.meta.title">SketchCast — घरशाळा &amp; शिकवणीदारांसाठी</title>
+<meta name="description" data-i18n-attr="content:homeschool.meta.description" content="तुमच्याकडे आधीच असलेल्या पुस्तकांतून प्रत्येक विषय शिकवा. अभ्यासक्रमाचे पुस्तक अपलोड करा आणि मिळवा निवेदनासह व्हिडिओ धडे, कार्यपत्रिका, प्रश्नपत्रिका आणि पाठ नियोजन — प्रत्येक विद्यार्थ्यासाठी वेगळे, आणि दुसऱ्याच्या हाती देता येतील अशा प्रगती-नोंदींसह." />
 <link rel="icon" type="image/png" href="/seal.png" />
-<meta property="og:title" data-i18n-attr="content:homeschool.meta.ogTitle" content="SketchCast — For Homeschool &amp; Tutors" />
-<meta property="og:description" data-i18n-attr="content:homeschool.meta.ogDescription" content="Every subject, taught from your own books. Video lessons, worksheets and test papers per learner — with printable progress records." />
+<meta property="og:title" data-i18n-attr="content:homeschool.meta.ogTitle" content="SketchCast — घरशाळा &amp; शिकवणीदारांसाठी" />
+<meta property="og:description" data-i18n-attr="content:homeschool.meta.ogDescription" content="प्रत्येक विषय, तुमच्याच पुस्तकांतून शिकवलेला. प्रत्येक विद्यार्थ्यासाठी व्हिडिओ धडे, कार्यपत्रिका आणि प्रश्नपत्रिका — छापता येणाऱ्या प्रगती-नोंदींसह." />
 <meta property="og:image" content="https://sketchcast.app/seal.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
@@ -192,20 +192,39 @@
   .faq-item[open] summary::after{content:"−"}
   .faq-item p{padding:0 0 18px;font-size:14.5px;color:var(--graphite);max-width:640px}
 </style>
-<!-- Structured data for search. Three blocks: the Homeschool plan as a Product
-     with its two Offers, the page itself, and the FAQ. The FAQPage text below
-     and the visible FAQ section MUST stay word-for-word identical — Google
-     requires parity between markup and what the reader sees. The build copies
-     these blocks verbatim into every locale (script contents are never
-     translated); all locales currently carry the same English FAQ strings, so
-     parity holds everywhere until real translations land. -->
-<script type="application/ld+json">
+<!-- Structured data for search. Four blocks: the Homeschool plan as a Product
+     with its two Offers, the page itself, the demo video, and the FAQ.
+     The FAQPage text and the visible FAQ section MUST stay word-for-word
+     identical — Google requires parity between markup and what the reader
+     sees, and treats a mismatch as spam rather than as a missing enhancement.
+
+     data-i18n-json is what keeps that promise in ten languages: the build
+     re-serializes each block per locale, pulling every marked field from the
+     SAME strings/<locale>.json keys the visible elements use, so the FAQ in
+     /ar/homeschool.html's JSON-LD is literally its <details> text. Prices,
+     currency, availability, dates and every URL are deliberately NOT marked —
+     they are the same in every language, and the build refuses to translate
+     them even if someone adds a pair for one.
+
+     The VideoObject below is the one block that stays English on purpose: it
+     describes a single English-narrated MP4 that every locale serves. A
+     translated name there would advertise a localized video we do not have. -->
+<script type="application/ld+json"
+        data-i18n-json="description:pricing.plans.homeschool.tag
+                       +pricing.plans.homeschool.f1
+                       +pricing.plans.homeschool.f2
+                       +pricing.plans.homeschool.f3
+                       +pricing.plans.homeschool.f4
+                       +pricing.plans.homeschool.f5">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "The SketchCast Homeschool plan: 48 generations a month (about 8 complete lesson kits), up to 10 learners each with their own books and login, printable progress records per learner, 4 new books a month and an AI study coach for every learner.",
-  "brand": { "@type": "Brand", "name": "SketchCast AI" },
+  "description": "घरचा अख्खा अभ्यासक्रम — आणि भरलेली विद्यार्थी-यादी असलेले शिकवणीदार · महिन्याला 48 निर्मिती — म्हणजे सुमारे 8 संपूर्ण धडा-संच · 10 विद्यार्थ्यांपर्यंत, प्रत्येकाची स्वतःची पुस्तके · प्रत्येक विद्यार्थ्याच्या छापता येणाऱ्या प्रगती-नोंदी · महिन्याला 4 नवी पुस्तके · प्रत्येक विद्यार्थ्यासाठी AI अभ्यास मार्गदर्शक",
+  "brand": {
+    "@type": "Brand",
+    "name": "SketchCast AI"
+  },
   "image": "https://sketchcast.app/seal.png",
   "url": "https://sketchcast.app/homeschool",
   "offers": [
@@ -228,14 +247,19 @@
   ]
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json"
+        data-i18n-json="name:homeschool.meta.title; description:homeschool.meta.description">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "SketchCast — For Homeschool & Tutors",
+  "name": "SketchCast — घरशाळा & शिकवणीदारांसाठी",
   "url": "https://sketchcast.app/homeschool",
-  "description": "Teach every subject from the books you already own. Upload a curriculum book and get narrated video lessons, worksheets, test papers and lesson plans — per learner, with progress records you can hand over.",
-  "isPartOf": { "@type": "WebSite", "name": "SketchCast", "url": "https://sketchcast.app" }
+  "description": "तुमच्याकडे आधीच असलेल्या पुस्तकांतून प्रत्येक विषय शिकवा. अभ्यासक्रमाचे पुस्तक अपलोड करा आणि मिळवा निवेदनासह व्हिडिओ धडे, कार्यपत्रिका, प्रश्नपत्रिका आणि पाठ नियोजन — प्रत्येक विद्यार्थ्यासाठी वेगळे, आणि दुसऱ्याच्या हाती देता येतील अशा प्रगती-नोंदींसह.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "SketchCast",
+    "url": "https://sketchcast.app"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -250,57 +274,63 @@
   "duration": "PT20S"
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json"
+        data-i18n-json="mainEntity.0.name:homeschool.faq.q1.q; mainEntity.0.acceptedAnswer.text:homeschool.faq.q1.a;
+                        mainEntity.1.name:homeschool.faq.q2.q; mainEntity.1.acceptedAnswer.text:homeschool.faq.q2.a;
+                        mainEntity.2.name:homeschool.faq.q3.q; mainEntity.2.acceptedAnswer.text:homeschool.faq.q3.a;
+                        mainEntity.3.name:homeschool.faq.q4.q; mainEntity.3.acceptedAnswer.text:homeschool.faq.q4.a;
+                        mainEntity.4.name:homeschool.faq.q5.q; mainEntity.4.acceptedAnswer.text:homeschool.faq.q5.a;
+                        mainEntity.5.name:homeschool.faq.q6.q; mainEntity.5.acceptedAnswer.text:homeschool.faq.q6.a">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can I use my own curriculum books?",
+      "name": "मी माझीच अभ्यासक्रमाची पुस्तके वापरू शकतो का?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows."
+        "text": "होय — मुद्दाच तो आहे. तुम्ही आधीच ज्यातून शिकवता ते पुस्तक एकाच PDF स्वरूपात अपलोड करा. फोटो काढलेली पानेही चालतात, फक्त ती एकाच PDF मध्ये एकत्र हवीत — ॲपमधला पान-स्कॅनर तुमच्या फोनमधल्या फोटोंचे नेमके तेच करतो. प्रत्येक धडा, कार्यपत्रिका आणि प्रश्नपत्रिका त्याच पुस्तकाच्या प्रकरणांतून तयार होते, त्यामुळे साहित्य तुमचा विद्यार्थी खरोखर ज्या अभ्यासक्रमाला सामोरा जातो त्याच्याशीच जुळते."
       }
     },
     {
       "@type": "Question",
-      "name": "How many children or students can I teach on one plan?",
+      "name": "एका योजनेत मी किती मुलांना किंवा विद्यार्थ्यांना शिकवू शकतो?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster."
+        "text": "Home Basic मध्ये 2 विद्यार्थ्यांपर्यंत, तर Homeschool मध्ये 10 विद्यार्थ्यांपर्यंत. प्रत्येक विद्यार्थ्याचे स्वतःचे लॉगिन, स्वतःची पुस्तके आणि स्वतःची प्रगती-नोंद असते — मोठ्या घरशाळा कुटुंबाला किंवा शिकवणीदाराच्या भरलेल्या विद्यार्थी-यादीला पुरेसे."
       }
     },
     {
       "@type": "Question",
-      "name": "Which languages does it work in?",
+      "name": "हे कोणकोणत्या भाषांत चालते?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website."
+        "text": "धडे 9 भाषांत तयार होतात, आणि भाषा तुम्ही अपलोड केलेल्या पुस्तकावरून आपोआप ओळखली जाते — यात अरबीही आहे, स्लाइड्स व कार्यपत्रिकांवर पूर्णपणे उजवीकडून डावीकडे. तुम्ही तुमच्या पुस्तकाच्या भाषेत शिकवता, आमच्या संकेतस्थळाच्या भाषेत नाही."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I get records for my homeschool portfolio or review?",
+      "name": "घरशाळेच्या पोर्टफोलिओसाठी किंवा तपासणीसाठी मला नोंदी मिळतात का?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update."
+        "text": "होय. शिकवलेले, सोपवलेले आणि पूर्ण झालेले सगळे तुम्ही पुढे जाल तसतसे नोंदवले जाते, आणि एका बटणावर प्रत्येक विद्यार्थ्याचा छापता येणारा अहवाल निर्यात होतो: विषयानुसार झालेली प्रकरणे, पूर्ण झालेली कामे आणि मूल्यमापनाचे निकाल — तारखांसह. कुटुंबे तो पोर्टफोलिओ तपासणीसाठी वापरतात; शिकवणीदार तोच अहवाल पालकांना मासिक आढावा म्हणून पाठवतात."
       }
     },
     {
       "@type": "Question",
-      "name": "Can a tutor use it with students from different schools?",
+      "name": "वेगवेगळ्या शाळांतल्या विद्यार्थ्यांसाठी शिकवणीदार हे वापरू शकतो का?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here."
+        "text": "होय. प्रत्येक विद्यार्थ्याची पुस्तके स्वतंत्र राहतात, त्यामुळे प्रत्येक विद्यार्थ्याचे स्वतःच्या शाळेचे पाठ्यपुस्तक अपलोड करून त्याच विद्यार्थ्याच्या खऱ्या अभ्यासक्रमावर सरावपेपर तयार करता येतात. चार शाळांतले सहा विद्यार्थी ही इथे नेहमीचीच मांडणी आहे."
       }
     },
     {
       "@type": "Question",
-      "name": "What does it cost?",
+      "name": "याची किंमत किती?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+        "text": "एका संपूर्ण धडा-संचासह तुम्ही मोफत सुरू करू शकता — कार्डाची गरज नाही. एक-दोन विषयांसाठी Home Basic महिन्याला $9.99, आणि अख्ख्या अभ्यासक्रमासाठी Homeschool महिन्याला $34 किंवा वर्षाला $340 (दोन महिने मोफत): महिन्याला 48 निर्मिती, 10 विद्यार्थ्यांपर्यंत आणि छापता येणाऱ्या प्रगती-नोंदी."
       }
     }
   ]
@@ -345,7 +375,7 @@
     </a>
     <nav class="nav-links">
       <a href="/mr/#how" data-i18n="common.nav.how">हे कसे चालते</a>
-      <a href="/mr/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Homeschool</a>
+      <a href="/mr/homeschool" aria-current="page" data-i18n="common.nav.homeschool">घरशाळा</a>
       <a href="/mr/schools" data-i18n="common.nav.schools">शाळांसाठी</a>
       <a href="/mr/pricing" data-i18n="common.nav.pricing">किंमती</a>
       <a href="/mr/about" data-i18n="common.nav.about">आमच्याविषयी</a>
@@ -403,48 +433,48 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="reveal">
-        <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">Homeschool &amp; tutors</p>
-        <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">You already have the <span class="uline">books<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. Now you have the teacher pack.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.</p>
+        <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">घरशाळा &amp; शिकवणीदार</p>
+        <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline"><span class="uline">पुस्तके<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span> तुमच्याकडे आहेतच. आता शिक्षक-संचही आहे.</h1>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">तुम्ही ज्यातून शिकवता ते अभ्यासक्रमाचे पुस्तक अपलोड करा. कोणतेही प्रकरण निवेदनासह व्हिडिओ धडा, पाठ नियोजन, कार्यपत्रिका, प्रश्नपत्रिका, कृती आणि केस स्टडी बनते — नाश्त्याच्या आधी तयार, आणि तुम्ही ज्या भाषेत शिकवता त्याच भाषेत.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">Start free — one full kit</a>
-          <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">See plans</a>
+          <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">मोफत सुरू करा — एक संपूर्ण संच</a>
+          <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">योजना पाहा</a>
         </div>
-        <p class="hero-stat" data-i18n="homeschool.hero.stat"><b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household</p>
+        <p class="hero-stat" data-i18n="homeschool.hero.stat"><b>महिन्याला 8 संच</b> · <b>10 विद्यार्थ्यांपर्यंत</b> · <b>9 भाषा</b> — अख्ख्या घरासाठी एकच वर्गणी</p>
       </div>
 
       <!-- Learners, drawn as product: the thing a homeschool parent or tutor
            actually opens on a Monday. Every label is a translated key. -->
-      <div class="lc reveal" role="img" data-i18n-attr="aria-label:homeschool.learnersCard.alt" aria-label="A learners panel: two children, each with their own subjects and progress through the chapters taught so far.">
+      <div class="lc reveal" role="img" data-i18n-attr="aria-label:homeschool.learnersCard.alt" aria-label="विद्यार्थ्यांचा पटल: दोन मुले, प्रत्येकाचे स्वतःचे विषय आणि आतापर्यंत शिकवलेल्या प्रकरणांतील प्रगती.">
         <div class="lc-head">
-          <span class="lc-title" data-i18n="homeschool.learnersCard.title">Your learners</span>
-          <span class="lc-chip" data-i18n="homeschool.learnersCard.chip">this term</span>
+          <span class="lc-title" data-i18n="homeschool.learnersCard.title">तुमचे विद्यार्थी</span>
+          <span class="lc-chip" data-i18n="homeschool.learnersCard.chip">या सत्रात</span>
         </div>
 
         <div class="lc-row">
           <div class="lc-name">
             <b data-i18n="homeschool.learnersCard.l1.name">Aisha</b>
-            <span data-i18n="homeschool.learnersCard.l1.year">Year 5 · 4 subjects</span>
+            <span data-i18n="homeschool.learnersCard.l1.year">इयत्ता 5 · 4 विषय</span>
           </div>
           <div class="lc-subs">
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Science</em><span class="lc-bar"><i style="width:78%"></i></span><span class="lc-pct">78%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.maths">Maths</em><span class="lc-bar"><i style="width:54%"></i></span><span class="lc-pct">54%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.english">English</em><span class="lc-bar amber"><i style="width:31%"></i></span><span class="lc-pct">31%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">विज्ञान</em><span class="lc-bar"><i style="width:78%"></i></span><span class="lc-pct">78%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.maths">गणित</em><span class="lc-bar"><i style="width:54%"></i></span><span class="lc-pct">54%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.english">इंग्रजी</em><span class="lc-bar amber"><i style="width:31%"></i></span><span class="lc-pct">31%</span></div>
           </div>
         </div>
 
         <div class="lc-row">
           <div class="lc-name">
             <b data-i18n="homeschool.learnersCard.l2.name">Yusuf</b>
-            <span data-i18n="homeschool.learnersCard.l2.year">Year 3 · 3 subjects</span>
+            <span data-i18n="homeschool.learnersCard.l2.year">इयत्ता 3 · 3 विषय</span>
           </div>
           <div class="lc-subs">
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">Science</em><span class="lc-bar"><i style="width:92%"></i></span><span class="lc-pct">92%</span></div>
-            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.reading">Reading</em><span class="lc-bar"><i style="width:66%"></i></span><span class="lc-pct">66%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.science">विज्ञान</em><span class="lc-bar"><i style="width:92%"></i></span><span class="lc-pct">92%</span></div>
+            <div class="lc-sub"><em data-i18n="homeschool.learnersCard.subjects.reading">वाचन</em><span class="lc-bar"><i style="width:66%"></i></span><span class="lc-pct">66%</span></div>
           </div>
         </div>
 
-        <p class="lc-note" data-i18n="homeschool.learnersCard.note">Each learner keeps their own books, assignments and progress — and their own printable record.</p>
+        <p class="lc-note" data-i18n="homeschool.learnersCard.note">प्रत्येक विद्यार्थ्याची स्वतःची पुस्तके, कामे आणि प्रगती — आणि स्वतःची छापता येणारी नोंद.</p>
       </div>
     </div>
   </section>
@@ -552,21 +582,21 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.why.eyebrow">Why we built this</p>
-        <h2 data-i18n="homeschool.why.heading">A school has a staffroom. You have a kitchen table.</h2>
-        <p class="sub" data-i18n="homeschool.why.sub">Schools buy teacher packs with every textbook: worked examples, worksheets, tests, answer keys. Teaching at home — or tutoring across four different schools — you get the book and nothing else. So every explanation, every practice sheet and every test gets built by one person, usually late at night, subject after subject.</p>
+        <p class="eyebrow" data-i18n="homeschool.why.eyebrow">आम्ही हे का बांधले</p>
+        <h2 data-i18n="homeschool.why.heading">शाळेला शिक्षक खोली असते. तुमच्याकडे स्वयंपाकघरातले टेबल.</h2>
+        <p class="sub" data-i18n="homeschool.why.sub">शाळा प्रत्येक पाठ्यपुस्तकासोबत शिक्षक-संच विकत घेतात: सोडवलेली उदाहरणे, कार्यपत्रिका, चाचण्या, उत्तरसूची. घरी शिकवताना — किंवा चार वेगवेगळ्या शाळांच्या मुलांची शिकवणी घेताना — तुमच्या हाती फक्त पुस्तक येते, बाकी काहीच नाही. मग प्रत्येक स्पष्टीकरण, प्रत्येक सरावपत्रिका आणि प्रत्येक चाचणी एकाच माणसाला उभी करावी लागते, बहुधा रात्री उशिरा, विषयामागून विषय.</p>
       </div>
 
       <div class="feat">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.why.c1.tag">The evening tax</span>
-          <h3 data-i18n="homeschool.why.c1.title">Six subjects, one of you</h3>
-          <p data-i18n="homeschool.why.c1.body">Preparing a week of maths, science, language and the rest is a second job. SketchCast does the preparation from <b>your own book</b>, so your time goes into teaching rather than typing.</p>
+          <span class="tag" data-i18n="homeschool.why.c1.tag">संध्याकाळचा कर</span>
+          <h3 data-i18n="homeschool.why.c1.title">सहा विषय, आणि तुम्ही एकटे</h3>
+          <p data-i18n="homeschool.why.c1.body">गणित, विज्ञान, भाषा आणि उरलेल्या विषयांची आठवडाभराची तयारी म्हणजे दुसरी नोकरीच. SketchCast ही तयारी <b>तुमच्याच पुस्तकातून</b> करते, म्हणजे तुमचा वेळ टंकलेखनात नाही तर शिकवण्यात जातो.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.why.c2.tag">Not generic</span>
-          <h3 data-i18n="homeschool.why.c2.title">Your curriculum, not a stock one</h3>
-          <p data-i18n="homeschool.why.c2.body">Everything is generated from the chapter you upload — the same syllabus, terms and examples your learner is being assessed on. Nothing is invented from a generic library.</p>
+          <span class="tag" data-i18n="homeschool.why.c2.tag">साचेबद्ध नाही</span>
+          <h3 data-i18n="homeschool.why.c2.title">तुमचा अभ्यासक्रम, कुठलातरी तयार नाही</h3>
+          <p data-i18n="homeschool.why.c2.body">सगळे काही तुम्ही अपलोड केलेल्या प्रकरणातूनच तयार होते — ज्या अभ्यासक्रमावर, संज्ञांवर आणि उदाहरणांवर तुमच्या विद्यार्थ्याचे मूल्यमापन होणार आहे, नेमके त्यावरच. कुठल्यातरी सर्वसाधारण संग्रहातून काहीही रचलेले नसते.</p>
         </div>
       </div>
     </div>
@@ -576,40 +606,40 @@
   <section class="section">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">One chapter in</p>
-        <h2 data-i18n="homeschool.kit.heading">Six pieces out — a full week of one subject</h2>
-        <p class="sub" data-i18n="homeschool.kit.sub">Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.</p>
+        <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">आत एक प्रकरण</p>
+        <h2 data-i18n="homeschool.kit.heading">बाहेर सहा भाग — एका विषयाचा अख्खा आठवडा</h2>
+        <p class="sub" data-i18n="homeschool.kit.sub">एक प्रकरण अपलोड करा आणि SketchCast संपूर्ण अध्यापन-संच परत देते. Word व PowerPoint फाइल्स संपादनयोग्य असतात, म्हणजे शिकवण्याआधी तुम्हाला हवा तो बदल करता येतो.</p>
       </div>
       <div class="kit">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k1.tag">Teach</span>
-          <h3 data-i18n="homeschool.kit.k1.title">Narrated video lesson</h3>
-          <p data-i18n="homeschool.kit.k1.body">The chapter explained on animated slides, in a real voice — so a learner can watch, pause and rewatch while you work with a sibling.</p>
+          <span class="tag" data-i18n="homeschool.kit.k1.tag">शिकवा</span>
+          <h3 data-i18n="homeschool.kit.k1.title">निवेदनासह व्हिडिओ धडा</h3>
+          <p data-i18n="homeschool.kit.k1.body">हलत्या स्लाइड्सवर, खऱ्या आवाजात उलगडलेले प्रकरण — म्हणजे तुम्ही दुसऱ्या भावंडासोबत बसलेले असतानाही विद्यार्थी तो धडा पाहू, थांबवू आणि पुन्हा पाहू शकतो.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k2.tag">Plan</span>
-          <h3 data-i18n="homeschool.kit.k2.title">Lesson plan</h3>
-          <p data-i18n="homeschool.kit.k2.body">Objectives, materials, a timed flow and the key vocabulary — the structure a school would hand a teacher, written for your chapter.</p>
+          <span class="tag" data-i18n="homeschool.kit.k2.tag">नियोजन</span>
+          <h3 data-i18n="homeschool.kit.k2.title">पाठ नियोजन</h3>
+          <p data-i18n="homeschool.kit.k2.body">उद्दिष्टे, लागणारे साहित्य, वेळेनुसार टप्पे आणि महत्त्वाच्या संज्ञा — शाळा शिक्षकाच्या हाती देते तीच मांडणी, तुमच्याच प्रकरणासाठी लिहिलेली.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k3.tag">Practise</span>
-          <h3 data-i18n="homeschool.kit.k3.title">Worksheet</h3>
-          <p data-i18n="homeschool.kit.k3.body">Fill-in-the-blanks, true or false, matching and short answers — with the answer key on its own page, printed and ready.</p>
+          <span class="tag" data-i18n="homeschool.kit.k3.tag">सराव</span>
+          <h3 data-i18n="homeschool.kit.k3.title">कार्यपत्रिका</h3>
+          <p data-i18n="homeschool.kit.k3.body">रिकाम्या जागा भरा, चूक की बरोबर, जोड्या लावा आणि थोडक्यात उत्तरे — उत्तरसूची स्वतंत्र पानावर, छापून तयार.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k4.tag">Assess</span>
-          <h3 data-i18n="homeschool.kit.k4.title">Test paper</h3>
-          <p data-i18n="homeschool.kit.k4.body">A properly laid-out paper with marks per question and a mark scheme — or set it as an interactive quiz and let it mark itself.</p>
+          <span class="tag" data-i18n="homeschool.kit.k4.tag">मूल्यमापन</span>
+          <h3 data-i18n="homeschool.kit.k4.title">प्रश्नपत्रिका</h3>
+          <p data-i18n="homeschool.kit.k4.body">प्रत्येक प्रश्नाला गुण आणि गुणदान योजना असलेला नीट मांडलेला पेपर — किंवा तोच परस्परसंवादी क्विझ म्हणून सोपवा आणि तपासणी आपोआप होऊ द्या.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k5.tag">Do</span>
-          <h3 data-i18n="homeschool.kit.k5.title">Activities</h3>
-          <p data-i18n="homeschool.kit.k5.body">Hands-on tasks with materials you already have at home, timings and what success looks like — for the part of the day that shouldn't be a worksheet.</p>
+          <span class="tag" data-i18n="homeschool.kit.k5.tag">करा</span>
+          <h3 data-i18n="homeschool.kit.k5.title">कृती</h3>
+          <p data-i18n="homeschool.kit.k5.body">घरात आधीच असलेल्या साहित्यातून करता येणारी प्रत्यक्ष कामे, त्यांच्या वेळा आणि यश कशाला म्हणायचे ते — दिवसाच्या ज्या भागात कार्यपत्रिका नकोच, त्या भागासाठी.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.kit.k6.tag">Apply</span>
-          <h3 data-i18n="homeschool.kit.k6.title">Case study</h3>
-          <p data-i18n="homeschool.kit.k6.body">A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page.</p>
+          <span class="tag" data-i18n="homeschool.kit.k6.tag">वापरा</span>
+          <h3 data-i18n="homeschool.kit.k6.title">केस स्टडी</h3>
+          <p data-i18n="homeschool.kit.k6.body">चर्चेचे प्रश्न आणि मार्गदर्शक टिपांसह खऱ्या जगातला एक प्रसंग, म्हणजे प्रकरण पानापुरते न राहता पुढे कुठेतरी पोहोचते.</p>
         </div>
       </div>
     </div>
@@ -619,31 +649,31 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.learners.eyebrow">Built around learners</p>
-        <h2 data-i18n="homeschool.learners.heading">Named learners, not a class register</h2>
-        <p class="sub" data-i18n="homeschool.learners.sub">School software assumes thirty students and a join code. You have three children at different stages, or six students from four different schools. SketchCast is built the way you actually teach.</p>
+        <p class="eyebrow" data-i18n="homeschool.learners.eyebrow">विद्यार्थ्यांभोवती बांधलेले</p>
+        <h2 data-i18n="homeschool.learners.heading">नावानिशी विद्यार्थी, वर्गाची हजेरी नाही</h2>
+        <p class="sub" data-i18n="homeschool.learners.sub">शाळांची सॉफ्टवेअर तीस विद्यार्थी आणि एक जॉईन कोड गृहीत धरतात. तुमच्याकडे मात्र वेगवेगळ्या टप्प्यांवरची तीन मुले असतात, किंवा चार वेगळ्या शाळांतले सहा विद्यार्थी. SketchCast तुम्ही खरोखर ज्या पद्धतीने शिकवता त्याच पद्धतीवर बांधलेले आहे.</p>
       </div>
 
       <div class="day">
         <div class="reveal">
           <p class="n">01</p>
-          <h4 data-i18n="homeschool.learners.s1.title">Add each learner</h4>
-          <p data-i18n="homeschool.learners.s1.body">By name, with their own login. Up to ten on the Homeschool plan.</p>
+          <h4 data-i18n="homeschool.learners.s1.title">प्रत्येक विद्यार्थी जोडा</h4>
+          <p data-i18n="homeschool.learners.s1.body">नावानिशी, प्रत्येकाच्या स्वतःच्या लॉगिनसह. Homeschool योजनेत दहापर्यंत.</p>
         </div>
         <div class="reveal">
           <p class="n">02</p>
-          <h4 data-i18n="homeschool.learners.s2.title">Upload their book</h4>
-          <p data-i18n="homeschool.learners.s2.body">A PDF, or photograph the pages with your phone. Different books per learner is normal here.</p>
+          <h4 data-i18n="homeschool.learners.s2.title">त्यांचे पुस्तक अपलोड करा</h4>
+          <p data-i18n="homeschool.learners.s2.body">PDF द्या, किंवा फोनने पानांचे फोटो काढा. इथे प्रत्येक विद्यार्थ्याचे पुस्तक वेगळे असणे नेहमीचेच आहे.</p>
         </div>
         <div class="reveal">
           <p class="n">03</p>
-          <h4 data-i18n="homeschool.learners.s3.title">Assign the chapter</h4>
-          <p data-i18n="homeschool.learners.s3.body">Send the lesson, worksheet or quiz to that learner — with a due date if you want one.</p>
+          <h4 data-i18n="homeschool.learners.s3.title">प्रकरण सोपवा</h4>
+          <p data-i18n="homeschool.learners.s3.body">धडा, कार्यपत्रिका किंवा क्विझ त्या विद्यार्थ्याला पाठवा — हवी असल्यास अंतिम तारखेसह.</p>
         </div>
         <div class="reveal">
           <p class="n">04</p>
-          <h4 data-i18n="homeschool.learners.s4.title">See where they are</h4>
-          <p data-i18n="homeschool.learners.s4.body">Who watched, who submitted, what they scored, which topics keep tripping them up.</p>
+          <h4 data-i18n="homeschool.learners.s4.title">ते कुठवर आले आहेत ते पाहा</h4>
+          <p data-i18n="homeschool.learners.s4.body">कोणी पाहिले, कोणी जमा केले, किती गुण मिळाले, आणि कोणत्या घटकांत ते वारंवार अडखळतात ते.</p>
         </div>
       </div>
     </div>
@@ -653,20 +683,20 @@
   <section class="section">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.records.eyebrow">Proof of the work</p>
-        <h2 data-i18n="homeschool.records.heading">A record you can hand to someone else</h2>
-        <p class="sub" data-i18n="homeschool.records.sub">Everything taught and completed is already recorded. One button turns it into a printable report per learner — what was covered, when, and how they did.</p>
+        <p class="eyebrow" data-i18n="homeschool.records.eyebrow">केलेल्या कामाचा पुरावा</p>
+        <h2 data-i18n="homeschool.records.heading">दुसऱ्याच्या हाती देता येईल अशी नोंद</h2>
+        <p class="sub" data-i18n="homeschool.records.sub">शिकवलेले आणि पूर्ण झालेले सगळे आधीच नोंदवले जाते. एका बटणावर त्याचा प्रत्येक विद्यार्थ्यासाठी छापता येणारा अहवाल तयार होतो — काय शिकवले, कधी शिकवले आणि कसे झाले.</p>
       </div>
       <div class="rec">
         <div class="rec-card reveal">
-          <p class="who" data-i18n="homeschool.records.r1.who">Homeschooling</p>
-          <h3 data-i18n="homeschool.records.r1.title">For your portfolio or review</h3>
-          <p data-i18n="homeschool.records.r1.body">Many families have to show what was taught over the year. Instead of reconstructing it from memory, export the record: chapters covered per subject, work completed, assessment results, with dates.</p>
+          <p class="who" data-i18n="homeschool.records.r1.who">घरशाळा</p>
+          <h3 data-i18n="homeschool.records.r1.title">तुमच्या पोर्टफोलिओसाठी किंवा तपासणीसाठी</h3>
+          <p data-i18n="homeschool.records.r1.body">वर्षभरात काय शिकवले हे अनेक कुटुंबांना दाखवावे लागते. ते आठवणीतून पुन्हा उभे करण्याऐवजी नोंद निर्यात करा: विषयानुसार झालेली प्रकरणे, पूर्ण झालेली कामे आणि मूल्यमापनाचे निकाल — तारखांसह.</p>
         </div>
         <div class="rec-card reveal">
-          <p class="who" data-i18n="homeschool.records.r2.who">Tutoring</p>
-          <h3 data-i18n="homeschool.records.r2.title">For the parent paying you</h3>
-          <p data-i18n="homeschool.records.r2.body">The same report is the monthly update your client wants: here is what we covered, here is what your child scored, here is what we do next. The thing that makes a tutor easy to keep.</p>
+          <p class="who" data-i18n="homeschool.records.r2.who">शिकवणी</p>
+          <h3 data-i18n="homeschool.records.r2.title">तुम्हाला फी देणाऱ्या पालकांसाठी</h3>
+          <p data-i18n="homeschool.records.r2.body">हाच अहवाल तुमच्या पालक-ग्राहकाला हवा असलेला मासिक आढावा ठरतो: आम्ही हे शिकवले, तुमच्या मुलाला इतके गुण मिळाले, आता पुढे हे करणार आहोत. शिकवणी सुरू ठेवण्याचा निर्णय सोपा करणारी नेमकी हीच गोष्ट.</p>
         </div>
       </div>
     </div>
@@ -676,20 +706,20 @@
   <section class="band">
     <div class="wrap section">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.tutors.eyebrow">Home tuition</p>
-        <h2 data-i18n="homeschool.tutors.heading">Six students, four schools, one evening to prepare</h2>
-        <p class="sub" data-i18n="homeschool.tutors.sub">Tutoring means a different syllabus for nearly every student — and material that has to match <em>their</em> school, not a generic one. Upload each student's own book and generate against theirs.</p>
+        <p class="eyebrow" data-i18n="homeschool.tutors.eyebrow">घरगुती शिकवणी</p>
+        <h2 data-i18n="homeschool.tutors.heading">सहा विद्यार्थी, चार शाळा, तयारीला एकच संध्याकाळ</h2>
+        <p class="sub" data-i18n="homeschool.tutors.sub">शिकवणी म्हणजे जवळपास प्रत्येक विद्यार्थ्याचा वेगळा अभ्यासक्रम — आणि <em>त्याच्याच</em> शाळेशी जुळणारे साहित्य, कुठल्यातरी सर्वसाधारण शाळेशी नाही. प्रत्येक विद्यार्थ्याचे स्वतःचे पुस्तक अपलोड करा आणि त्याच्याच पुस्तकातून तयार करा.</p>
       </div>
       <div class="feat">
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.tutors.c1.tag">Per student</span>
-          <h3 data-i18n="homeschool.tutors.c1.title">Their book, their paper</h3>
-          <p data-i18n="homeschool.tutors.c1.body">Each student keeps their own books and assignments. A practice paper for Tuesday's student comes from <b>Tuesday's student's chapter</b> — not a shared pool.</p>
+          <span class="tag" data-i18n="homeschool.tutors.c1.tag">प्रत्येक विद्यार्थ्यासाठी</span>
+          <h3 data-i18n="homeschool.tutors.c1.title">त्यांचे पुस्तक, त्यांचा पेपर</h3>
+          <p data-i18n="homeschool.tutors.c1.body">प्रत्येक विद्यार्थ्याची पुस्तके आणि कामे स्वतंत्र राहतात. मंगळवारच्या विद्यार्थ्याचा सरावपेपर <b>मंगळवारच्या विद्यार्थ्याच्याच प्रकरणातून</b> येतो — कुठल्या सामाईक साठ्यातून नाही.</p>
         </div>
         <div class="card reveal">
-          <span class="tag" data-i18n="homeschool.tutors.c2.tag">Worth the fee</span>
-          <h3 data-i18n="homeschool.tutors.c2.title">Show the progress</h3>
-          <p data-i18n="homeschool.tutors.c2.body">Scores, topic weak spots and a monthly report per student — the difference between "we did some questions" and evidence a parent can see.</p>
+          <span class="tag" data-i18n="homeschool.tutors.c2.tag">फी वसूल</span>
+          <h3 data-i18n="homeschool.tutors.c2.title">प्रगती दाखवा</h3>
+          <p data-i18n="homeschool.tutors.c2.body">गुण, कच्चे घटक आणि प्रत्येक विद्यार्थ्याचा मासिक अहवाल — “काही प्रश्न सोडवले” असे म्हणणे आणि पालकांना प्रत्यक्ष दिसणारा पुरावा देणे यांतला फरक.</p>
         </div>
       </div>
     </div>
@@ -699,53 +729,55 @@
   <section class="section" id="plans">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.plans.eyebrow">What it costs</p>
-        <h2 data-i18n="homeschool.plans.heading">Two plans for teaching at home</h2>
-        <p class="sub" data-i18n="homeschool.plans.sub"><b>Home Basic</b> for a subject or two alongside school, and <b>Homeschool</b> for the whole curriculum — or a tutor with a full roster of students. Both are built around named learners, and every plan starts with a free kit.</p>
+        <p class="eyebrow" data-i18n="homeschool.plans.eyebrow">किंमत किती</p>
+        <h2 data-i18n="homeschool.plans.heading">घरी शिकवण्यासाठी दोन योजना</h2>
+        <p class="sub" data-i18n="homeschool.plans.sub">शाळेबरोबरीने एक-दोन विषयांसाठी <b>Home Basic</b>, आणि अख्ख्या अभ्यासक्रमासाठी — किंवा भरलेली विद्यार्थी-यादी असलेल्या शिकवणीदारासाठी — <b>Homeschool</b>. दोन्ही योजना नावानिशी विद्यार्थ्यांभोवती बांधलेल्या आहेत, आणि प्रत्येक योजनेची सुरुवात एका मोफत संचाने होते.</p>
       </div>
       <div class="hero-ctas" style="margin-top:30px">
-        <a class="btn btn-primary" href="/mr/pricing#home" data-i18n="homeschool.plans.cta">See home plans and prices</a>
-        <a class="btn btn-ghost" href="https://app.sketchcast.app" data-i18n="homeschool.plans.ctaFree">Start free first</a>
+        <a class="btn btn-primary" href="/mr/pricing#home" data-i18n="homeschool.plans.cta">घरासाठीच्या योजना व किंमती पाहा</a>
+        <a class="btn btn-ghost" href="https://app.sketchcast.app" data-i18n="homeschool.plans.ctaFree">आधी मोफत सुरू करा</a>
       </div>
-      <p class="packs reveal" style="text-align:start" data-i18n="homeschool.plans.packs">Busy month? <b>Credit packs</b> can be added to any paid plan, and they don't expire.</p>
+      <p class="packs reveal" style="text-align:start" data-i18n="homeschool.plans.packs">महिना जास्त गजबजलेला आहे? कोणत्याही सशुल्क योजनेला <b>क्रेडिट पॅक</b> जोडता येतात, आणि ते कधीच कालबाह्य होत नाहीत.</p>
     </div>
   </section>
 
   <!-- ── FAQ ──────────────────────────────────────────────────────────────
        The visible text here and the FAQPage JSON-LD in <head> must stay
-       word-for-word identical — Google requires parity. Both are English in
-       every locale until real translations land (and the JSON-LD must be
-       translated in step with the strings when they do). ─────────────────── -->
+       word-for-word identical — Google requires parity. They cannot drift:
+       the JSON-LD is generated from these same homeschool.faq.* keys (see the
+       data-i18n-json attribute up there), so translating a question here
+       translates it in the structured data too. Adding a question means adding
+       BOTH a <details> block and a mainEntity entry with its pair. ────────── -->
   <section class="section" id="faq">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="homeschool.faq.eyebrow">FAQ</p>
-        <h2 data-i18n="homeschool.faq.heading">Questions from homeschool families and tutors</h2>
+        <p class="eyebrow" data-i18n="homeschool.faq.eyebrow">नेहमीचे प्रश्न</p>
+        <h2 data-i18n="homeschool.faq.heading">घरशाळा चालवणाऱ्या कुटुंबांचे आणि शिकवणीदारांचे प्रश्न</h2>
       </div>
       <div class="faq">
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q1.q">Can I use my own curriculum books?</summary>
-          <p data-i18n="homeschool.faq.q1.a">Yes — that is the point. Upload the book you already teach from as a single PDF. Photographed pages work too once combined into one PDF — the built-in page scanner turns your phone's photos into exactly that. Every lesson, worksheet and test paper is generated from that book's own chapters, so the material matches the syllabus your learner actually follows.</p>
+          <summary data-i18n="homeschool.faq.q1.q">मी माझीच अभ्यासक्रमाची पुस्तके वापरू शकतो का?</summary>
+          <p data-i18n="homeschool.faq.q1.a">होय — मुद्दाच तो आहे. तुम्ही आधीच ज्यातून शिकवता ते पुस्तक एकाच PDF स्वरूपात अपलोड करा. फोटो काढलेली पानेही चालतात, फक्त ती एकाच PDF मध्ये एकत्र हवीत — ॲपमधला पान-स्कॅनर तुमच्या फोनमधल्या फोटोंचे नेमके तेच करतो. प्रत्येक धडा, कार्यपत्रिका आणि प्रश्नपत्रिका त्याच पुस्तकाच्या प्रकरणांतून तयार होते, त्यामुळे साहित्य तुमचा विद्यार्थी खरोखर ज्या अभ्यासक्रमाला सामोरा जातो त्याच्याशीच जुळते.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q2.q">How many children or students can I teach on one plan?</summary>
-          <p data-i18n="homeschool.faq.q2.a">Home Basic covers up to 2 learners; Homeschool covers up to 10. Each learner has their own login, their own books and their own progress record — enough for a big homeschooling family, or a tutor's full student roster.</p>
+          <summary data-i18n="homeschool.faq.q2.q">एका योजनेत मी किती मुलांना किंवा विद्यार्थ्यांना शिकवू शकतो?</summary>
+          <p data-i18n="homeschool.faq.q2.a">Home Basic मध्ये 2 विद्यार्थ्यांपर्यंत, तर Homeschool मध्ये 10 विद्यार्थ्यांपर्यंत. प्रत्येक विद्यार्थ्याचे स्वतःचे लॉगिन, स्वतःची पुस्तके आणि स्वतःची प्रगती-नोंद असते — मोठ्या घरशाळा कुटुंबाला किंवा शिकवणीदाराच्या भरलेल्या विद्यार्थी-यादीला पुरेसे.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q3.q">Which languages does it work in?</summary>
-          <p data-i18n="homeschool.faq.q3.a">Lessons are generated in 9 languages, auto-detected from the book you upload — including Arabic, fully right-to-left on slides and worksheets. You teach in the language of your book, not the language of our website.</p>
+          <summary data-i18n="homeschool.faq.q3.q">हे कोणकोणत्या भाषांत चालते?</summary>
+          <p data-i18n="homeschool.faq.q3.a">धडे 9 भाषांत तयार होतात, आणि भाषा तुम्ही अपलोड केलेल्या पुस्तकावरून आपोआप ओळखली जाते — यात अरबीही आहे, स्लाइड्स व कार्यपत्रिकांवर पूर्णपणे उजवीकडून डावीकडे. तुम्ही तुमच्या पुस्तकाच्या भाषेत शिकवता, आमच्या संकेतस्थळाच्या भाषेत नाही.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q4.q">Do I get records for my homeschool portfolio or review?</summary>
-          <p data-i18n="homeschool.faq.q4.a">Yes. Everything taught, assigned and completed is recorded as you go, and one button exports a printable report per learner: chapters covered per subject, work completed and assessment results, with dates. Families use it for portfolio reviews; tutors send the same report as the monthly parent update.</p>
+          <summary data-i18n="homeschool.faq.q4.q">घरशाळेच्या पोर्टफोलिओसाठी किंवा तपासणीसाठी मला नोंदी मिळतात का?</summary>
+          <p data-i18n="homeschool.faq.q4.a">होय. शिकवलेले, सोपवलेले आणि पूर्ण झालेले सगळे तुम्ही पुढे जाल तसतसे नोंदवले जाते, आणि एका बटणावर प्रत्येक विद्यार्थ्याचा छापता येणारा अहवाल निर्यात होतो: विषयानुसार झालेली प्रकरणे, पूर्ण झालेली कामे आणि मूल्यमापनाचे निकाल — तारखांसह. कुटुंबे तो पोर्टफोलिओ तपासणीसाठी वापरतात; शिकवणीदार तोच अहवाल पालकांना मासिक आढावा म्हणून पाठवतात.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q5.q">Can a tutor use it with students from different schools?</summary>
-          <p data-i18n="homeschool.faq.q5.a">Yes. Each student keeps their own books, so you can upload each student's own school textbook and generate practice papers against that student's actual syllabus. Six students from four schools is a normal setup here.</p>
+          <summary data-i18n="homeschool.faq.q5.q">वेगवेगळ्या शाळांतल्या विद्यार्थ्यांसाठी शिकवणीदार हे वापरू शकतो का?</summary>
+          <p data-i18n="homeschool.faq.q5.a">होय. प्रत्येक विद्यार्थ्याची पुस्तके स्वतंत्र राहतात, त्यामुळे प्रत्येक विद्यार्थ्याचे स्वतःच्या शाळेचे पाठ्यपुस्तक अपलोड करून त्याच विद्यार्थ्याच्या खऱ्या अभ्यासक्रमावर सरावपेपर तयार करता येतात. चार शाळांतले सहा विद्यार्थी ही इथे नेहमीचीच मांडणी आहे.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="homeschool.faq.q6.q">What does it cost?</summary>
-          <p data-i18n="homeschool.faq.q6.a">You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records.</p>
+          <summary data-i18n="homeschool.faq.q6.q">याची किंमत किती?</summary>
+          <p data-i18n="homeschool.faq.q6.a">एका संपूर्ण धडा-संचासह तुम्ही मोफत सुरू करू शकता — कार्डाची गरज नाही. एक-दोन विषयांसाठी Home Basic महिन्याला $9.99, आणि अख्ख्या अभ्यासक्रमासाठी Homeschool महिन्याला $34 किंवा वर्षाला $340 (दोन महिने मोफत): महिन्याला 48 निर्मिती, 10 विद्यार्थ्यांपर्यंत आणि छापता येणाऱ्या प्रगती-नोंदी.</p>
         </details>
       </div>
     </div>
@@ -754,13 +786,13 @@
   <!-- ── final CTA ────────────────────────────────────────────────────── -->
   <section class="cta band">
     <div class="wrap reveal">
-      <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">Try it on <span class="circle">tomorrow's lesson<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.</p>
+      <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle"><span class="circle">उद्याच्या धड्यावर<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span> वापरून पाहा</h2>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">एक प्रकरण अपलोड करा आणि सहा भागांचा संपूर्ण संच मोफत मिळवा — कार्ड नाही, चाचणीचे घड्याळ नाही. त्याने तुमची एक संध्याकाळ वाचली, तर योजना आहेतच.</p>
       <div class="cta-btns">
-        <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">Start free</a>
-        <a class="btn btn-ghost" href="/mr/pricing" data-i18n="homeschool.cta.secondary">See all pricing</a>
+        <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">मोफत सुरू करा</a>
+        <a class="btn btn-ghost" href="/mr/pricing" data-i18n="homeschool.cta.secondary">सर्व किंमती पाहा</a>
       </div>
-      <p class="cta-note" data-i18n="homeschool.cta.note">Questions about homeschooling or tuition use? <a href="mailto:hello@sketchcast.app">Talk to us</a> — a real person answers.</p>
+      <p class="cta-note" data-i18n="homeschool.cta.note">घरशाळेबद्दल किंवा शिकवणीसाठीच्या वापराबद्दल प्रश्न आहेत? <a href="mailto:hello@sketchcast.app">आमच्याशी बोला</a> — उत्तर खराखुरा माणूस देतो.</p>
     </div>
   </section>
 
@@ -776,7 +808,7 @@
       <div class="foot-links">
         <a href="/mr/" data-i18n="common.nav.home">मुख्यपृष्ठ</a>
         <a href="/mr/about" data-i18n="common.nav.about">आमच्याविषयी</a>
-        <a href="/mr/homeschool" aria-current="page" data-i18n="common.nav.homeschool">Homeschool</a>
+        <a href="/mr/homeschool" aria-current="page" data-i18n="common.nav.homeschool">घरशाळा</a>
         <a href="/mr/schools" data-i18n="common.nav.schools">शाळांसाठी</a>
         <a href="/mr/pricing" data-i18n="common.nav.pricing">किंमती</a>
         <a href="/mr/privacy" data-i18n="common.footer.privacy">गोपनीयता</a>
