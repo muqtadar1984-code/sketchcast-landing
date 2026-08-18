@@ -52,6 +52,18 @@
   .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
   .nav-cta a.login:hover{color:var(--ink)}
 
+  /* Full-bleed header (founder, 2026-08-18): brand at the true start edge,
+     Start free at the true end — seven links + the language picker never fit
+     the 1080px wrap (labels wrapped mid-phrase). Logical properties keep the
+     RTL locales mirrored. Middle widths compress before the links hide; the
+     hide threshold is generous because fr/te labels run long. */
+  header .wrap{max-width:none;margin:0;padding-inline:26px}
+  .nav{gap:18px}
+  .nav-links{flex-wrap:nowrap}
+  .nav-links a,.nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
+  @media(max-width:1140px){.nav-links{display:none}}
+
   /* ── hero: thesis = the slide drawing itself ── */
   .hero{padding:72px 0 60px}
   .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center}
