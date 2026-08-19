@@ -569,6 +569,25 @@
       "homePanel": "Home plans"
     },
     "noscript": "Turn on JavaScript to see live plan prices, or <a href=\"https://app.sketchcast.app/signup\">start free</a> and pick a plan inside the app.",
+    "unit": {
+      "lead": "One kit is six pieces.",
+      "sub": "Upload the whole textbook once — each piece counts as one generation, so a kit is six.",
+      "p1": "Narrated video lesson",
+      "p2": "Worksheet",
+      "p3": "Lesson plan",
+      "p4": "Activities",
+      "p5": "Test paper",
+      "p6": "Case study"
+    },
+    "compare": {
+      "heading": "Compare every plan",
+      "included": "Every plan builds from your own textbook, in nine lesson languages auto-detected from the book — Arabic fully right-to-left — and every piece can be assigned to a learner or a class, with progress tracked.",
+      "more": "What's included"
+    },
+    "meter": {
+      "gens": "generations a month",
+      "kits": "about {n} complete kits"
+    },
     "free": {
       "eyebrow": "Start here",
       "heading": "Free for everyone, teacher or parent.",
@@ -584,7 +603,13 @@
       "eyebrow": "For home &amp; tutors",
       "heading": "Teaching at home, or one learner at a time.",
       "sub": "Built around named learners rather than a class — <a href=\"/homeschool\">see how it works</a>.",
-      "note": "All paid plans are billed in USD. Cancel anytime. Need a heavier month? Credit packs can be added to any paid plan."
+      "note": "All paid plans are billed in USD. Cancel anytime."
+    },
+    "topup": {
+      "eyebrow": "Once you are on a plan",
+      "heading": "Running low before the month is over?",
+      "body": "Top up inside SketchCast with one-time credit packs, bought right where the app shows you what is left this month.",
+      "terms": "One-time · Credits never expire · Your monthly allowance is always used first"
     },
     "trial": {
       "badge": "Free trial",
@@ -608,6 +633,7 @@
         "badge": "Most popular",
         "cta": "Choose Teacher Pro",
         "saveLabel": "Save $48 a year",
+        "who": "A whole class",
         "f1": "24 generations a month — about 4 complete lesson kits",
         "f2": "A lesson, plan, activities, worksheet, test paper or case study — each counts as one",
         "f3": "2 new books a month",
@@ -622,6 +648,7 @@
         "tag": "For power users and departments",
         "cta": "Choose Teacher Pro+",
         "saveLabel": "Save $98 a year",
+        "who": "A whole class",
         "f1": "Everything in Teacher Pro, plus:",
         "f2": "48 additional generations — 72 a month, about 12 complete lesson kits",
         "f3": "2 additional books — 4 a month",
@@ -632,6 +659,7 @@
         "name": "Home Basic",
         "tag": "A subject or two, alongside school",
         "cta": "Get Home Basic",
+        "who": "Up to 2 learners",
         "saveLabel": "2 months free",
         "f1": "12 generations a month — about 2 complete lesson kits",
         "f2": "Up to 2 learners",
@@ -645,6 +673,7 @@
         "tag": "The whole curriculum at home — and tutors with a full roster",
         "badge": "For home educators",
         "cta": "Choose Homeschool",
+        "who": "Up to 10 learners, each with their own books",
         "saveLabel": "2 months free",
         "f1": "48 generations a month — about 8 complete lesson kits",
         "f2": "Up to 10 learners, each with their own books",
@@ -659,6 +688,9 @@
       "name": "Founding Teacher",
       "sub": "{plan} at <strong>{price}</strong>, locked for {months} months.",
       "cap": "Only the first {n} teachers.",
+      "capClaimed": "{claimed} of {max} claimed · {left} left",
+      "capLeft": "{left} of {max} places left",
+      "flag": "Founding price {price} with a code",
       "copy": "Copy code",
       "copied": "Copied ✓",
       "copyFailed": "Copy failed",

@@ -547,6 +547,25 @@
       "homePanel": "Offres pour la maison"
     },
     "noscript": "Activez JavaScript pour voir les prix en direct, ou <a href=\"https://app.sketchcast.app/signup\">commencez gratuitement</a> et choisissez une offre dans l'application.",
+    "unit": {
+      "lead": "Un kit, c'est six éléments.",
+      "sub": "Importez tout le manuel une seule fois — chaque élément compte pour une génération, donc un kit en vaut six.",
+      "p1": "Leçon vidéo narrée",
+      "p2": "Fiche d'exercices",
+      "p3": "Fiche de préparation",
+      "p4": "Activités",
+      "p5": "Sujet d'examen",
+      "p6": "Étude de cas"
+    },
+    "compare": {
+      "heading": "Comparer les offres",
+      "included": "Toutes les offres génèrent à partir de votre propre manuel, dans 9 langues d'enseignement détectées automatiquement à partir du livre — l'arabe entièrement de droite à gauche — et chaque élément peut être attribué à un apprenant ou à une classe, avec suivi de la progression.",
+      "more": "Ce qui est inclus"
+    },
+    "meter": {
+      "gens": "générations par mois",
+      "kits": "environ {n} kits complets"
+    },
     "free": {
       "eyebrow": "Commencez ici",
       "heading": "Gratuit pour tout le monde, enseignant ou parent.",
@@ -562,7 +581,13 @@
       "eyebrow": "Pour la maison &amp; les cours particuliers",
       "heading": "Enseigner à la maison, ou un apprenant à la fois.",
       "sub": "Pensé autour d'apprenants nommés plutôt que d'une classe — <a href=\"/homeschool\">voir comment ça marche</a>.",
-      "note": "Toutes les offres payantes sont facturées en USD. Annulation à tout moment. Un mois plus chargé ? Des packs de crédits peuvent être ajoutés à toute offre payante."
+      "note": "Toutes les offres payantes sont facturées en USD. Annulation à tout moment."
+    },
+    "topup": {
+      "eyebrow": "Avec une offre payante",
+      "heading": "À court de crédits avant la fin du mois ?",
+      "body": "Rechargez dans SketchCast avec des packs de crédits ponctuels, achetés là même où l'application vous indique ce qu'il vous reste ce mois-ci.",
+      "terms": "Achat ponctuel · Les crédits n'expirent jamais · Votre quota mensuel est toujours utilisé en premier"
     },
     "trial": {
       "badge": "Essai gratuit",
@@ -586,6 +611,7 @@
         "badge": "Le plus choisi",
         "cta": "Choisir Teacher Pro",
         "saveLabel": "Économisez 48 $ par an",
+        "who": "Toute une classe",
         "f1": "24 générations par mois — soit environ 4 kits pédagogiques complets",
         "f2": "Une leçon, une préparation, des activités, une fiche d'exercices, un sujet d'examen ou une étude de cas — chacun compte pour une génération",
         "f3": "2 nouveaux manuels par mois",
@@ -600,6 +626,7 @@
         "tag": "Pour les gros utilisateurs et les départements",
         "cta": "Choisir Teacher Pro+",
         "saveLabel": "Économisez 98 $ par an",
+        "who": "Toute une classe",
         "f1": "Tout Teacher Pro, et en plus :",
         "f2": "48 générations supplémentaires — 72 par mois, soit environ 12 kits pédagogiques complets",
         "f3": "2 manuels supplémentaires — 4 par mois",
@@ -610,6 +637,7 @@
         "name": "Home Basic",
         "tag": "Une matière ou deux, en parallèle de l'école",
         "cta": "Choisir Home Basic",
+        "who": "Jusqu'à 2 apprenants",
         "saveLabel": "2 mois offerts",
         "f1": "12 générations par mois — soit environ 2 kits pédagogiques complets",
         "f2": "Jusqu'à 2 apprenants",
@@ -623,6 +651,7 @@
         "tag": "Tout le programme à la maison — et les professeurs particuliers au planning bien rempli",
         "badge": "Pour l'école à la maison",
         "cta": "Choisir Homeschool",
+        "who": "Jusqu'à 10 apprenants, chacun avec ses propres livres",
         "saveLabel": "2 mois offerts",
         "f1": "48 générations par mois — soit environ 8 kits pédagogiques complets",
         "f2": "Jusqu'à 10 apprenants, chacun avec ses propres livres",
@@ -637,6 +666,9 @@
       "name": "Enseignant fondateur",
       "sub": "{plan} à <strong>{price}</strong>, bloqué pendant {months} mois.",
       "cap": "Réservé aux {n} premiers enseignants.",
+      "capClaimed": "{claimed} places prises sur {max} · {left} restantes",
+      "capLeft": "{left} places restantes sur {max}",
+      "flag": "Tarif fondateur {price} avec un code",
       "copy": "Copier le code",
       "copied": "Copié ✓",
       "copyFailed": "Échec de la copie",

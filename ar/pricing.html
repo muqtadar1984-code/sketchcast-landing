@@ -38,8 +38,21 @@
   .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
   .btn-marker{background:var(--marker);color:var(--ink)}
   .btn-marker:hover{filter:brightness(.95)}
-  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+  /* --teal-ink, not --teal: the ring must carry 3:1 against the surface it
+     sits on (WCAG 1.4.11), and #1FB8A6 measures 2.48:1 on --paper and only
+     2.29:1 on --mist — which is exactly where the Free rail's button now
+     lives. #0C8175 measures 4.76:1 and 4.39:1 on the same two grounds. */
+  :focus-visible{outline:2px solid var(--teal-ink);outline-offset:2px;border-radius:4px}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  /* The UA rule is [hidden]{display:none} at class-level specificity, so ANY
+     author rule that sets display on the same element beats it — and the author
+     stylesheet wins ties over the UA sheet. .ph-trial{display:flex} did exactly
+     that: the dormant trial banner has been painting as an empty amber box in
+     the hero ever since the promo lapsed, because initTrialBanner() sets
+     box.hidden = true and CSS quietly ignored it. One rule, and every [hidden]
+     element on this page (the banner today, anything the trial re-arm adds
+     later) is actually hidden. */
+  [hidden]{display:none !important}
 
   /* ── ink stroke motif (shared with the homepage) ── */
   .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
@@ -80,13 +93,42 @@
   .foot-legal strong{color:var(--graphite);font-weight:500}
   .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 
-  /* ── pricing hero ── */
-  .ph-hero{padding:60px 0 6px;text-align:center}
-  .ph-hero h1{font-size:44px;max-width:820px;margin:12px auto 0}
+  /* ── pricing hero ──
+     Padding 60->32 and h1 44->40: every pixel spent above the fold is a pixel
+     the four prices are pushed below it, and the whole redesign is an argument
+     that the comparison must be on the first screen. */
+  .ph-hero{padding:26px 0 4px;text-align:center}
+  .ph-hero h1{font-size:40px;max-width:820px;margin:12px auto 0}
   .ph-uline{position:relative;display:inline-block;white-space:nowrap}
   .ph-uline svg{position:absolute;inset-inline:0;bottom:-8px;width:100%;height:12px}
-  .ph-sub{font-size:18px;color:var(--graphite);max-width:600px;margin:22px auto 0}
-  .ph-usd{font-family:var(--mono);font-size:12px;color:var(--graphite);margin-top:6px}
+  /* 700, not the old 600: three lines of lede is 29px of fold budget spent
+     above the prices, and this sentence is a translated key we are not
+     rewriting this round. */
+  .ph-sub{font-size:17.5px;color:var(--graphite);max-width:700px;margin:18px auto 0}
+  .ph-usd{font-family:var(--mono);font-size:12px;color:var(--graphite)}
+
+  /* ── the unit strip ──
+     Deliberately ABOVE the plans. "24 generations a month · about 4 complete
+     kits" is noise until "kit" and "generation" are defined, and a definition
+     placed under the grid arrives one screen after the reader needed it. Six
+     pills rather than a comma list: each is one or two words, so it survives a
+     34%-longer French translation by wrapping instead of overflowing, and the
+     .ph-tiers pill is already this site's idiom for a short labelled set. */
+  .ph-unit{display:flex;flex-direction:column;align-items:center;gap:9px;margin:16px auto 0;padding:12px 20px;background:var(--mist);border:1px solid var(--line);border-radius:14px}
+  .ph-unit-txt{font-size:13.5px;color:var(--graphite)}
+  .ph-unit-lead{font-family:var(--display);font-size:15px;font-weight:600;color:var(--ink)}
+  .ph-chips{list-style:none;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+  .ph-chips li{font-family:var(--mono);font-size:11.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+
+  /* ── sticky billing bar ──
+     The toggle leaves the hero and follows the reader down the comparison, so
+     the annual price is always one click away while scanning. min-height, not a
+     fixed height, and flex-wrap: "Mensuel" + "Annuel · 2 mois offerts" +
+     "Prix en USD" does not hold one line in French, and Telugu line boxes are
+     taller again. z-index 19 sits under the 66px header's 20. */
+  .ph-sticky{position:sticky;top:66px;z-index:19;background:rgba(252,252,250,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .ph-bar{display:flex;align-items:center;justify-content:center;gap:4px 18px;flex-wrap:wrap;padding-block:8px}
+  .ph-bar .ph-toggle{margin:0}
 
   /* free-trial countdown banner */
   .ph-trial{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;max-width:720px;margin:24px auto 0;padding:12px 20px;background:rgba(255,176,32,.12);border:1px solid rgba(255,176,32,.55);border-radius:12px}
@@ -101,45 +143,165 @@
   .ph-toggle button[aria-selected="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 2px rgba(20,24,31,.10)}
   .ph-2mo{font-family:var(--mono);font-size:10px;letter-spacing:.03em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.14);padding:2px 7px;border-radius:999px}
 
-  /* ── plan grids + cards ── */
-  .ph-section{padding:44px 0 8px}
-  .ph-sec-head{text-align:center;margin-bottom:6px}
-  .ph-sec-head h2{font-size:28px;margin-top:8px}
-  .ph-sec-sub{color:var(--graphite);font-size:15px;margin-top:10px;max-width:620px}
-  .ph-sec-sub a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:2px}
-  .ph-grid{display:grid;gap:22px;margin-top:26px;align-items:stretch}
-  .ph-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .ph-grid-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px;margin-left:auto;margin-right:auto}
-  .ph-grid-1{grid-template-columns:minmax(0,1fr);max-width:420px;margin-left:auto;margin-right:auto}
-  .ph-card{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px 26px}
+  /* ══ THE COMPARISON SURFACE ═════════════════════════════════════════════
+     What was here before: five plans in FOUR different card widths (420 alone
+     and centred, 349 x2, 349 x2, 720 centred and grey) spread over 3791px, so a
+     visitor weighing Teacher Pro ($24 / 24 generations) against Homeschool
+     ($34 / 48) had to scroll past a full screen of unrelated content to see
+     both. Everything below exists to put all four paid prices on one axis, in
+     one row of equal columns, inside the first screen. */
+  /* padding-BLOCK only. The old `padding:26px 0 8px` is the four-value
+     shorthand, so it also set padding-inline:0 — and .wrap{padding:0 24px}
+     has the same specificity and loses on source order. Every .wrap.ph-section
+     on this page therefore rendered with NO horizontal gutter: at 375px the
+     card borders sat on the screen edge while the unit strip above them kept
+     its 24px, and at 1280px the four columns measured 298px, not the 286px
+     the comment below computes. Latent in the old file too (its grids were
+     capped at 420/720 and centred, so it never showed); .ph-wide at 1240px is
+     what exposed it, on the schools band as well as here. */
+  .ph-section{padding-block:26px 8px}
+  /* One deliberate escape from the 1080 column — the same one the header
+     already makes — and only for the grid. Stepping back down to 1080 at the
+     founding band usefully marks "personal plans end here". */
+  .ph-wide{max-width:1240px}
+  #home,#schools,#founding{scroll-margin-top:132px} /* 66px header + the sticky bar */
+
+  /* ── the two rails that bracket the grid ──
+     Identical frame, tint and width above and below: once the credit-top-up box
+     is one half of a matched pair, its grey stops reading as "foreign
+     component" and starts reading as "this is the frame around the plans, not
+     one of them". The ONE asymmetry carries the meaning — the top rail has a
+     button, the bottom rail never will. */
+  .ph-rail{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;background:var(--mist);border:1px solid var(--line);border-radius:14px;padding:14px 22px}
+  .ph-rail-txt{flex:1 1 420px}
+  /* An <h3>, not a <p>: these two rails are the Free offer and the credit
+     top-up, and with this section's only <h2> visually hidden a reader
+     navigating by heading could reach neither. line-height is pinned here
+     because the h1,h2,h3 rule sets 1.08, which would shorten the rail. */
+  .ph-rail-lead{font-family:var(--display);font-size:16px;font-weight:600;line-height:1.35;margin-top:3px}
+  .ph-rail-body{font-size:14px;color:var(--graphite);margin-top:3px;max-width:88ch}
+  /* --graphite (5.53:1 on --mist), not --faint (2.44:1). This line carries the
+     free tier's real scope on the top rail and the credit-pack terms on the
+     bottom one — two of the most consequential sentences on the page were
+     the least legible text on it. */
+  .ph-rail-terms{font-family:var(--mono);font-size:11.5px;color:var(--graphite);margin-top:9px}
+  .ph-rail .btn{flex:0 0 auto}
+
+  /* ── the grid ──
+     1240 - 48 padding - 3x16 gap = 1144 / 4 = 286px per card at 1280px.
+     Both audience labels live in THIS grid, each spanning its own pair, so
+     auto-placement mirrors the labels together with their cards. A separate
+     header grid would silently mis-pair in /ar/pricing — the one locale nobody
+     in this repo can hand-test. */
+  .ph-compare{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch;margin-top:14px}
+  /* PLACED BY LINE NUMBER, not by auto-flow. The grid's source order is now
+     the order a phone renders: teachers label · Pro · Pro+ · home label ·
+     Basic · Homeschool. Auto-placement cannot turn that into "both labels on
+     row 1, four cards on row 2", so the labels are pinned to row 1 and the
+     cards to row 2; each still takes its own column in document order, and
+     the whole grid mirrors as a unit in /ar. Doing it this way rather than
+     with `order:` is the point — `order:` would make the visual order
+     disagree with the reading order, which is a different defect. */
+  .ph-compare>.ph-head{grid-column:span 2;grid-row:1;align-self:end;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  .ph-compare>.ph-card{grid-row:2/span 8}
+  .ph-head>p{font-size:13.5px;color:var(--graphite);margin-top:4px;max-width:62ch}
+  .ph-head a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:2px}
+
+  .ph-card{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px 22px}
   .ph-card--featured{border-color:var(--teal);box-shadow:0 1px 2px rgba(20,24,31,.05),0 22px 50px -30px rgba(31,184,166,.55)}
-  .ph-badge{position:absolute;top:-11px;inset-inline-start:26px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--teal-ink);padding:4px 10px;border-radius:999px}
+  .ph-badge{position:absolute;top:-11px;inset-inline-start:22px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--teal-ink);padding:4px 10px;border-radius:999px}
+  /* Row alignment IS the thesis, and min-height cannot deliver it once the
+     strings translate: a two-line English tag is three lines in French at
+     286px. Subgrid puts every card's price on the same baseline in every
+     language, forever. Rows: 1 name · 2 tag · 3 price · 4 save · 5 offer ·
+     6 meter · 7 features · 8 CTA. The absolutely-positioned badge is out of
+     flow and takes no row. */
+  /* BOTH overrides live inside the @supports. Without subgrid the card keeps
+     the base rule's flex column, so no separate fallback block is needed —
+     and, more to the point, `.ph-compare .ph-card>.ph-cta{margin-top:12px}`
+     used to out-specify `.ph-cta{margin-top:auto}` in that fallback and kill
+     the one thing it depends on: the button's push to the card floor.
+     Measured on a forced fallback at 1280px, the CTAs floated 25/153/108/89px
+     above their card bottoms instead of 25/25/25/25. Placement (grid-row)
+     stays outside: the card is a grid ITEM either way. */
+  @supports (grid-template-rows:subgrid){
+    .ph-compare .ph-card{display:grid;grid-template-rows:subgrid}
+    .ph-compare .ph-card>.ph-cta{align-self:end;margin-top:12px}
+  }
   .ph-name{font-size:21px;margin-bottom:4px}
   .ph-tag{color:var(--graphite);font-size:14px;min-height:40px}
-  .ph-price{display:flex;align-items:baseline;gap:5px;margin-top:14px;min-height:46px}
-  .ph-amount{font-family:var(--display);font-weight:600;font-size:40px;letter-spacing:-.02em;line-height:1}
+  .ph-price{display:flex;align-items:baseline;gap:5px;margin-top:12px;min-height:46px}
+  /* <bdi dir="ltr"> on both halves: "$24" + "/mo" are Latin digits and a
+     neutral slash, and in an Arabic paragraph the suffix can flip to the wrong
+     side of the number. Pre-existing defect; fixed while we are in here. */
+  .ph-amount{font-family:var(--display);font-weight:600;font-size:38px;letter-spacing:-.02em;line-height:1}
   .ph-per{font-size:15px;color:var(--graphite)}
-  .ph-save{min-height:22px;font-family:var(--mono);font-size:12px;color:var(--teal-ink);margin-top:6px}
-  .ph-features{list-style:none;margin:18px 0 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .ph-save{min-height:20px;font-family:var(--mono);font-size:12px;color:var(--teal-ink);margin-top:6px}
+  /* Reserved even when empty, so switching Monthly/Annual never reflows the
+     row heights — the same discipline .ph-save already follows. */
+  /* 26px, not 18. The link inside is the page's smallest target (measured
+     218 x 14px), so it takes padding-block to clear 24px — and the ROW has
+     to grow with it, or the reserved height stops doing its job and toggling
+     Monthly/Annual reflows the whole grid by the difference. 11 x 1.4 + 10 =
+     25px, which fits inside 26. */
+  .ph-offer{min-height:26px;font-family:var(--mono);font-size:11px;line-height:1.4;color:var(--teal-ink)}
+  .ph-offer a{display:inline-block;padding-block:5px;text-decoration:underline;text-underline-offset:2px}
+
+  /* ── the meter: the aligned comparison zone ──
+     Every column uses the SAME two label strings, so the rows physically cannot
+     wrap to different heights in French. Alignment by string identity, not by
+     tuned pixels. */
+  .ph-meter{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:12px 0 14px;padding:11px 0;display:flex;flex-direction:column;gap:5px}
+  .ph-meter-lead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .ph-meter-n{font-family:var(--mono);font-size:26px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .ph-meter-l{font-size:13px;line-height:1.3;color:var(--ink)}
+  .ph-meter-row{font-family:var(--mono);font-size:11.5px;line-height:1.4;color:var(--graphite)}
+
+  /* Bullets live in a native <details>. Above 640px the summary is hidden and
+     the disclosure is always open, so it costs the desktop nothing. */
+  .ph-more{margin-top:2px}
+  .ph-more>summary{display:none}
+  .ph-features{list-style:none;display:flex;flex-direction:column;gap:9px}
   .ph-features li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--ink)}
   .ph-features li svg{flex:0 0 16px;height:16px;margin-top:3px}
-  .ph-cta{width:100%;justify-content:center;margin-top:auto}
-  .ph-note{text-align:center;color:var(--graphite);font-size:13px;margin-top:22px}
+  /* white-space:normal so "Choisir Teacher Pro+" wraps inside the shared CTA
+     row instead of overflowing a 242px card interior. */
+  .ph-cta{width:100%;justify-content:center;margin-top:auto;white-space:normal;text-align:center;line-height:1.25}
+  /* Everything TRUE OF ALL FOUR PLANS, said once, under the grid — which is
+     what lets each card drop to 4-6 bullets and the four columns to 286px.
+     Deliberately limited to claims the Free card itself already makes. */
+  /* 20px of bottom margin, the same step .ph-note already uses: with 0 the
+     shared-features paragraph ended 3px above the top-up rail's border and
+     read as falling into the box. */
+  .ph-included{max-width:94ch;margin:18px auto 20px;text-align:center;font-size:13.5px;color:var(--graphite)}
+  .ph-note{text-align:center;color:var(--graphite);font-size:13px;margin-top:20px}
 
-  /* ── founding banner ── */
-  .ph-founding{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:16px;padding:30px 34px;margin:14px 0 0}
-  .ph-founding-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--marker)}
-  .ph-founding-h{font-family:var(--display);font-size:24px;color:#fff;margin:6px 0 6px}
-  .ph-founding-sub{color:#D6DAE0;font-size:15px;max-width:560px}
-  .ph-founding-sub strong{color:var(--marker);font-weight:600}
-  .ph-founding-cap{font-family:var(--mono);font-size:12px;color:#9AA2AC;margin-top:8px}
+  /* ── founding banner ──
+     Restyled, not rebuilt: same DOM, same renderFounding(), same keys. It was a
+     full-width black slab wedged BETWEEN the teacher pair and the home pair —
+     the loudest object on a page whose featured item is a $24 plan, and the
+     single largest cause of the scroll the founder complained about. Now it is
+     paper with a marker rule, and it sits AFTER the whole comparison, because
+     it is a discount code on one plan, not a plan. */
+  .ph-founding{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-inline-start:4px solid var(--marker);border-radius:16px;padding:26px 30px;margin:14px 0 34px}
+  .ph-founding-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .ph-founding-h{font-family:var(--display);font-size:24px;color:var(--ink);margin:6px 0 6px}
+  .ph-founding-sub{color:var(--graphite);font-size:15px;max-width:560px}
+  .ph-founding-sub strong{color:var(--teal-ink);font-weight:600}
+  /* --graphite (6.0:1), not --faint (2.65:1). This line was #9AA2AC on the
+     old black slab = 7.08:1 and passed; restyling the band to paper without
+     re-measuring the colour took it under the 4.5:1 AA floor. */
+  .ph-founding-cap{font-family:var(--mono);font-size:12px;color:var(--graphite);margin-top:8px}
   .ph-founding .ph-cta{width:auto;flex:0 0 auto}
   .ph-code-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}
-  .ph-code{font-family:var(--mono);font-size:16px;letter-spacing:.08em;color:var(--marker);background:rgba(255,255,255,.08);border:1.5px dashed var(--marker);border-radius:9px;padding:9px 16px;user-select:all}
-  .ph-copy{font:inherit;font-size:13px;font-weight:500;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:9px 16px;cursor:pointer;transition:background .15s,border-color .15s}
-  .ph-copy:hover{background:rgba(255,255,255,.10);border-color:#fff}
-  .ph-founding-how{color:#D6DAE0;font-size:13px;margin-top:10px}
-  .ph-founding-how strong{color:#fff}
+  /* dir="ltr" + isolate on the chip: FOUNDINGTEACHER is bare Latin caps sitting
+     in Arabic prose, and without isolation the punctuation around it can be
+     displaced. Also a pre-existing defect. */
+  .ph-code{font-family:var(--mono);font-size:16px;letter-spacing:.08em;color:var(--ink);background:var(--mist);border:1.5px dashed var(--marker);border-radius:9px;padding:9px 16px;user-select:all;unicode-bidi:isolate}
+  .ph-copy{font:inherit;font-size:13px;font-weight:500;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:9px 16px;cursor:pointer;transition:background .15s,border-color .15s}
+  .ph-copy:hover{background:var(--mist);border-color:var(--faint)}
+  .ph-founding-how{color:var(--graphite);font-size:13px;margin-top:10px}
+  .ph-founding-how strong{color:var(--ink)}
 
   /* ── schools contact ── */
   .ph-schools{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
@@ -150,9 +312,31 @@
   .ph-schools .ph-cta{width:auto;flex:0 0 auto}
   .ph-schools-ctas{display:flex;gap:12px;flex-wrap:wrap;flex:0 0 auto}
 
+  /* The old .ph-topup lived here: a 720px centred grey CARD in a page of
+     349px left-aligned white ones. Its geometry announced "different kind of
+     thing" before anyone read a word, and "different kind of thing" reads as
+     "bolted on". It is now the lower .ph-rail — same frame, same tint, same
+     width as the Free rail above the grid — so the tint reads as a frame
+     rather than as a fifth product. Nothing else about it changed. */
+
   .ph-noscript{max-width:1080px;margin:0 auto;padding:14px 24px;text-align:center;color:var(--graphite);font-size:14px}
   .ph-noscript a{color:var(--teal-ink);font-weight:500}
 
+  @media(max-width:1080px){
+    /* The labels STAY. display:none here deleted both audience headings, both
+       descriptive sentences and the page's only in-context link to
+       /homeschool from every phone and tablet — content loss on reflow (WCAG
+       1.4.10). The header's own Homeschool link is already hidden below
+       1140px, so the footer was the last one standing. Now each label simply
+       stops spanning a pair and becomes a full-width rule over the two cards
+       that follow it in the source; the row pinning above is released so
+       ordinary auto-flow stacks label · pair · label · pair. The id that
+       /homeschool's CTA targets still lives on the SECTION, which is the
+       right place for it regardless. */
+    .ph-compare{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .ph-compare>.ph-head{grid-column:1/-1;grid-row:auto}
+    .ph-compare>.ph-card{grid-row:auto/span 8}
+  }
   @media(max-width:860px){
     .nav-links{display:none}
     .nav{gap:10px}
@@ -160,10 +344,46 @@
     .nav-cta{gap:10px;font-size:14px}
     .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
     .ph-hero h1{font-size:34px}
-    .ph-grid-3,.ph-grid-2,.ph-grid-1{grid-template-columns:1fr}
+    /* A 62px sticky bar on a 667px viewport is 9% of the screen for a control
+       with two options. It renders exactly where the toggle sat before. */
+    .ph-sticky{position:static;background:transparent;border:0;backdrop-filter:none}
+    .ph-bar{padding-block:0}
+    .ph-bar .ph-toggle{margin:22px 0 6px}
+    .ph-unit{align-items:flex-start;text-align:start}
+    /* flex-basis follows the MAIN axis: the moment the rail becomes a column,
+       .ph-rail-txt's `flex:1 1 420px` stops meaning "at least 420px wide" and
+       starts meaning "420px TALL", which inflated both rails to 515px on a
+       phone. Reset the children explicitly rather than tuning the basis. */
+    .ph-rail{flex-direction:column;align-items:flex-start;text-align:start}
+    .ph-rail>*{flex:0 0 auto;width:100%}
+    .ph-chips{justify-content:flex-start}
+    .ph-rail .btn{width:100%;justify-content:center}
     .ph-founding,.ph-schools{flex-direction:column;align-items:flex-start;text-align:start}
     .ph-founding .ph-cta,.ph-schools .ph-cta{width:100%;justify-content:center}
     .ph-schools .ph-schools-ctas{width:100%}
+    #home,#schools,#founding{scroll-margin-top:78px}
+  }
+  @media(max-width:640px){
+    .ph-compare{grid-template-columns:1fr}
+    /* Bullets fold into a native <details> so a thumb can pass four prices and
+       four allowances in about two swipes, with the CTA left OUTSIDE the
+       disclosure — every plan stays one tap from checkout without expanding
+       anything. <details> is tap-native: no control on this page depends on
+       hover, which this repo has a recorded bug class about. */
+    .ph-more>summary{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;list-style:none;font-size:13.5px;font-weight:500;color:var(--ink);padding:10px 0;border-top:1px solid var(--line)}
+    .ph-more>summary::-webkit-details-marker{display:none}
+    .ph-more>summary::after{content:"+";font-family:var(--mono);font-size:16px;color:var(--teal-ink)}
+    .ph-more[open]>summary::after{content:"\2212"}
+  }
+  @media(max-width:560px){
+    /* Equal halves with wrapping labels, never a horizontally scrolling track:
+       the French annual label is "Annuel · 2 mois offerts" and a scrolling
+       track drops an option off the inline edge in exactly the verbose
+       languages — and off the WRONG edge in ar / ms-arab. */
+    .ph-toggle{display:grid;grid-template-columns:1fr 1fr;width:100%;border-radius:14px}
+    .ph-toggle button{justify-content:center;text-align:center;white-space:normal;line-height:1.25;flex-wrap:wrap}
+    .ph-sub{font-size:16px}
+    .ph-chips li{font-size:11px;padding:4px 9px}
   }
   @media(prefers-reduced-motion:reduce){
     .ink path{stroke-dashoffset:0 !important;animation:none !important}
@@ -268,51 +488,204 @@
       <h1 data-i18n="pricing.hero.headline" data-i18n-mark="ph-uline">سعرٌ يناسب كل <span class="ph-uline">معلم<svg class="ink in" viewBox="0 0 240 12" preserveAspectRatio="none" fill="none" style="--l:290"><path d="M3 8 C 46 3, 96 11, 150 6 S 214 4, 237 7" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--d:.5s"/></svg></span>، وكل بيت، وكل مدرسة.</h1>
       <p class="ph-sub" data-i18n="pricing.hero.sub">ابدأ مجانًا بكتاب واحد وحقيبة درس كاملة. وما بعد ذلك: اشتراكات لمعلّمي الفصول، ولمعلّمي التعليم المنزلي والمدرّسين الخصوصيين (بالدولار الأمريكي)، وعرض مفصَّل للمدارس.</p>
 
+      <!-- Dormant, NOT deleted. The promo lapsed on 2026-08-14, so trialActive
+           is false and initTrialBanner() leaves this hidden — but the whole
+           machinery (config trial{}, the checkout bypass in wireCard, the
+           countdown, the four pricing.trial.* strings) is intact and re-arms on
+           one date. It keeps its position in the hero so a re-arm needs no
+           layout work. See also [hidden]{display:none !important} in the CSS:
+           without it this empty box paints. -->
       <div class="ph-trial" id="trial-banner" hidden></div>
 
+      <!-- THE UNIT, stated before any number. "24 generations a month · about
+           4 complete kits" is noise until a reader knows what a generation and
+           a kit are, so the definition cannot sit below the grid where they
+           first meet the figures. Note the upload unit: the WHOLE TEXTBOOK,
+           never "a chapter" — a recorded past mistake in this repo's copy. -->
+      <div class="ph-unit">
+        <p class="ph-unit-txt"><span class="ph-unit-lead" data-i18n="pricing.unit.lead">الحقيبة الواحدة ستّ قطع.</span> <span class="ph-unit-sub" data-i18n="pricing.unit.sub">ارفع الكتاب المدرسي كاملًا مرةً واحدة — وكل قطعة تُحتسب عملية إنشاء واحدة، فالحقيبة ستّ عمليات.</span></p>
+        <ul class="ph-chips">
+          <li data-i18n="pricing.unit.p1">درس فيديو مصحوب بالسرد</li>
+          <li data-i18n="pricing.unit.p2">ورقة عمل</li>
+          <li data-i18n="pricing.unit.p3">خطة الدرس</li>
+          <li data-i18n="pricing.unit.p4">أنشطة</li>
+          <li data-i18n="pricing.unit.p5">امتحان</li>
+          <li data-i18n="pricing.unit.p6">دراسة حالة</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- The billing toggle leaves the hero and follows the reader down the
+       comparison, so the annual price is one click away wherever they are in
+       the grid. Same tablist, same roving tabindex, same keyboard handler, same
+       live region — the most carefully built control on this page gets exactly
+       one edit: aria-controls now names the single grid. Static below 861px. -->
+  <!-- The wrapper is the whole point: position:sticky is bounded by its
+       PARENT's box, and the bar's parent was <main> — so a control that only
+       drives the four plan prices stayed pinned over the founding band (a
+       fixed $10/mo the toggle does not touch) and the schools band (no public
+       price at all), costing 133px of permanent chrome, 17% of an 800px
+       viewport, for the last ~640px of the page. Nothing about the static
+       layout changes: the bar already sat immediately above this section. -->
+  <div class="ph-priced">
+  <div class="ph-sticky">
+    <div class="wrap ph-bar">
       <div class="ph-toggle" role="tablist" data-i18n-attr="aria-label:pricing.toggle.label" aria-label="دورة الفوترة">
-        <button type="button" role="tab" id="tab-monthly" data-cycle="monthly" aria-selected="true" aria-controls="teacher-grid home-grid" tabindex="0" data-i18n="pricing.toggle.monthly">شهري</button>
-        <button type="button" role="tab" id="tab-annual" data-cycle="annual" aria-selected="false" aria-controls="teacher-grid home-grid" tabindex="-1"><span data-i18n="pricing.toggle.annual">سنوي</span> <span class="ph-2mo" data-i18n="pricing.toggle.annualSaving">شهران مجانًا</span></button>
+        <button type="button" role="tab" id="tab-monthly" data-cycle="monthly" aria-selected="true" aria-controls="compare-grid" tabindex="0" data-i18n="pricing.toggle.monthly">شهري</button>
+        <button type="button" role="tab" id="tab-annual" data-cycle="annual" aria-selected="false" aria-controls="compare-grid" tabindex="-1"><span data-i18n="pricing.toggle.annual">سنوي</span> <span class="ph-2mo" data-i18n="pricing.toggle.annualSaving">شهران مجانًا</span></button>
       </div>
       <p class="ph-usd" data-i18n="pricing.toggle.usd">الأسعار بالدولار الأمريكي.</p>
       <span class="sr-only" aria-live="polite" id="cycle-status"></span>
     </div>
-  </section>
+  </div>
 
   <noscript>
     <p class="ph-noscript" data-i18n="pricing.noscript">فعِّل JavaScript لعرض أسعار الخطط مباشرةً، أو <a href="https://app.sketchcast.app/signup">ابدأ مجانًا</a> واختر خطتك داخل التطبيق.</p>
   </noscript>
 
-  <section class="wrap ph-section" aria-labelledby="free-h">
-    <div class="ph-sec-head">
-      <p class="eyebrow" data-i18n="pricing.free.eyebrow">ابدأ من هنا</p>
-      <h2 id="free-h" data-i18n="pricing.free.heading">مجاني للجميع، معلمًا كنت أو وليَّ أمر.</h2>
-      <p class="ph-sec-sub" data-i18n="pricing.free.sub">كتاب واحد، وحقيبة درس كاملة من ست قطع — بلا بطاقة ولا مؤقّت. ولا تختر خطة مما يلي إلا حين تريد المزيد.</p>
-    </div>
-    <div class="ph-grid ph-grid-1" id="free-grid" data-i18n-attr="aria-label:pricing.free.panel" aria-label="الخطة المجانية"></div>
-  </section>
+  <!-- ══ ONE COMPARISON SURFACE ═══════════════════════════════════════════
+       Five sections became one. The Free card (420px, alone, centred) is the
+       rail that opens it; the credit-top-up box (720px, centred, grey) is the
+       matching rail that closes it; the two audience section-heads span their
+       own pair inside the same grid as the cards.
 
-  <section class="wrap ph-section" aria-labelledby="teacher-h">
-    <div class="ph-sec-head">
-      <p class="eyebrow" data-i18n="pricing.teachers.eyebrow">للمعلمين</p>
-      <h2 id="teacher-h" data-i18n="pricing.teachers.heading">اصنع كل درس، كل أسبوع.</h2>
-      <p class="ph-sec-sub" data-i18n="pricing.teachers.sub">مبنيّة حول الصف: قوائم الطلاب، ورموز الانضمام، وتقدّم الصف كاملًا.</p>
-    </div>
-    <div class="ph-grid ph-grid-2" id="teacher-grid" role="tabpanel" data-i18n-attr="aria-label:pricing.toggle.teacherPanel" aria-label="خطط المعلمين"></div>
-  </section>
+       WHY id="home" IS ON THE SECTION AND NOT ON THE HOME LABEL.
+       /pricing#home is not decorative: homeschool.html makes it the primary
+       CTA ("See home plans and prices") AND names it as the `url` on BOTH
+       schema.org Offers — a field the build freezes and refuses to translate.
+       Five inbound links, and nothing in this build validates a fragment, so a
+       dead #home would fail silently. The obvious home for the id is the "For
+       home & tutors" label, but that label is display:none below 1080px and an
+       anchor cannot scroll to a display:none element. The section is present at
+       every width, in every locale, with JS off. scroll-margin-top keeps the
+       sticky header and billing bar from swallowing the landing. -->
+  <section class="wrap ph-wide ph-section" id="home" aria-labelledby="compare-h">
+    <h2 id="compare-h" class="sr-only" data-i18n="pricing.compare.heading">قارن بين الخطط كلّها</h2>
 
+    <!-- Free: a rail, not a column. It has no price to compare, and its CTA is
+         the same "Start free" already in the header; as a fifth column it would
+         widen the wall and narrow the four plans that need the room. The button
+         is rendered from pricing.config.js (never hard-coded here). -->
+    <div class="ph-rail" role="group" data-i18n-attr="aria-label:pricing.free.panel" aria-label="الخطة المجانية">
+      <div class="ph-rail-txt">
+        <p class="eyebrow" data-i18n="pricing.free.eyebrow">ابدأ من هنا</p>
+        <h3 class="ph-rail-lead" data-i18n="pricing.free.heading">مجاني للجميع، معلمًا كنت أو وليَّ أمر.</h3>
+        <p class="ph-rail-body" data-i18n="pricing.free.sub">كتاب واحد، وحقيبة درس كاملة من ست قطع — بلا بطاقة ولا مؤقّت. ولا تختر خطة مما يلي إلا حين تريد المزيد.</p>
+        <!-- The scope line is written by renderFreeRail() from the config's own
+             free.features[0], not typed here — see the comment there. -->
+      </div>
+      <div id="free-cta"></div>
+    </div>
+
+    <!-- The two audience labels are cells of THIS grid, each spanning two
+         columns, so auto-placement mirrors them together with their cards in
+         RTL. They are NOT aria-hidden: the home label contains a real link to
+         /homeschool, and hiding focusable content from assistive technology is
+         a defect, not a tidy-up. The four cards are appended after them. -->
+    <div class="ph-compare" id="compare-grid" role="tabpanel" aria-labelledby="compare-h">
+      <!-- The audience label IS the heading. The old marketing headlines
+           ("Make every lesson, every week.") were a third line each, 43px of
+           fold budget above the prices — and a spanning label over two columns
+           wants to say who the pair is FOR, which the eyebrow string already
+           does. pricing.teachers.heading and pricing.home.heading retire here;
+           they cannot be deleted from en.json while the nine locales still
+           carry them (that is a hard "unknown key" error), so they go in the
+           same commit as the translation round. -->
+      <div class="ph-head" id="head-teachers">
+        <h3 class="eyebrow" data-i18n="pricing.teachers.eyebrow">للمعلمين</h3>
+        <p data-i18n="pricing.teachers.sub">مبنيّة حول الصف: قوائم الطلاب، ورموز الانضمام، وتقدّم الصف كاملًا.</p>
+      </div>
+      <!-- The two teacher cards are inserted BEFORE this label, so the grid's
+           source order is label · pair · label · pair — which is what a phone
+           renders and what a screen reader reads. The four-column desktop row
+           is restored by explicit grid placement, never by `order:`. -->
+      <div class="ph-head" id="head-home">
+        <h3 class="eyebrow" data-i18n="pricing.home.eyebrow">للمنزل وللمدرّسين الخصوصيين</h3>
+        <p data-i18n="pricing.home.sub">مبنيّة حول متعلّمين بأسمائهم لا حول صف — <a href="/ar/homeschool">شاهد كيف تعمل</a>.</p>
+      </div>
+    </div>
+
+    <!-- Everything the four cards used to repeat, said once. This is what pays
+         for 286px columns: the cards drop from 8/5/6/6 bullets to 6/4/4/4.
+         Every claim here is one the FREE card already makes (config
+         freeAll.f2/f3/f4), so the page never promises a paid feature to a free
+         reader — the config gates editable exports, multi-part video and the
+         fair-use meter to Teacher Pro, and those stay on the cards. -->
+    <p class="ph-included" data-i18n="pricing.compare.included">كل خطة تبني من كتابك المدرسي أنت، بتسع لغات للدروس تُكتشف من الكتاب تلقائيًا — والعربية من اليمين إلى اليسار بالكامل — وكل قطعة يمكن إسنادها إلى متعلّم أو إلى صف مع متابعة التقدّم.</p>
+
+    <!-- In-app credit top-ups — INFORMATIONAL, deliberately not a checkout.
+         Founder, 2026-08-19: "credits purchase is not mentioned on the pricing
+         webpage as no one would buy credits at the intro. we can add a box
+         informing that users can buy in app credits if needed." So there is no
+         price table, no pack sizes and no buy button here. The packs are sold
+         on exactly ONE surface — the fair-use meter inside the app — because
+         that is the only place the reader can see how much of this month's
+         allowance is left, and a top-up bought without that number in front of
+         you is a guess. A second checkout here would also split the purchase
+         path the app's BuyCreditsReturn refresh depends on.
+
+         WHY A RAIL AND NOT A CARD. The old box failed for a structural reason,
+         not a copy one: 720px, centred and grey among 349px left-aligned white
+         cards, its geometry said "different kind of thing" before anyone read a
+         word. As one half of a matched pair with the Free rail above the grid,
+         the same grey reads as the frame around the plans rather than a fifth
+         product — and the one asymmetry carries the founder's instruction in
+         layout: the top rail has a button, this one has none.
+
+         WHY HERE. "What if a month runs long?" is the question the grid has
+         just manufactured by putting four monthly allowances in one row, so the
+         answer sits 40px under it. It cannot go earlier (a top-up has nothing
+         to be a top-up OF) and must not go after the schools band, which speaks
+         to a different buyer entirely.
+
+         NOT in JSON-LD: this page has none, and renderJsonLd has no English
+         fallback — a key a locale lacks THROWS and blocks the build for all ten
+         languages. Visible prose is the safe place for copy that ships before
+         the nine translations.
+
+         WHY THE COPY NAMES NO IN-APP CONTROL. An earlier draft read "the
+         fair-use meter in your Library has a Buy credits button". Every one of
+         those names is a translated string in the OTHER repo — the button is
+         app fairUse.buyTitle ("شراء أرصدة" in Arabic, "Acheter des crédits" in
+         French), "Library" is a translated nav label — and nothing connects the
+         two catalogues. Describing what the reader will see instead of quoting
+         a label stays true in every locale and survives any future rename.
+
+         The body lost its opening sentence ("Every paid plan includes a monthly
+         generation allowance") because the meter row now states that as a
+         number in all four cards. That reword was free at the time because the
+         pricing.topup.* keys existed only in English. They are TRANSLATED IN
+         ALL NINE LOCALES as of 2026-08-19, so any further edit to this copy now
+         costs nine re-translations and silently leaves the old wording live in
+         every other language until they land. -->
+    <div class="ph-rail">
+      <div class="ph-rail-txt">
+        <p class="eyebrow" data-i18n="pricing.topup.eyebrow">بعد اشتراكك في خطة</p>
+        <h3 class="ph-rail-lead" data-i18n="pricing.topup.heading">قارب رصيدك على النفاد قبل نهاية الشهر؟</h3>
+        <p class="ph-rail-body" data-i18n="pricing.topup.body">اشحن رصيدك داخل SketchCast بباقات أرصدة لمرة واحدة، تشتريها من المكان نفسه الذي يعرض لك فيه التطبيق ما تبقّى لك هذا الشهر.</p>
+        <p class="ph-rail-terms" data-i18n="pricing.topup.terms">شراء لمرة واحدة · أرصدة لا تنتهي صلاحيتها · ورصيدك الشهري يُستهلَك أولًا دائمًا</p>
+      </div>
+    </div>
+
+    <!-- ⚠️ THE NINE LOCALE FILES STILL CARRY A LONGER pricing.home.note, ending
+         "Need a heavier month? Credit packs can be added to any paid plan." —
+         correct for them TODAY, because their /pricing pages have no top-up
+         copy at all (the four pricing.topup.* keys are untranslated, and
+         build-i18n.mjs writes nothing while a key is missing). The moment those
+         keys land, pricing.home.note must be trimmed in the SAME round or all
+         nine pages inherit the duplication this edit removed from English. -->
+    <p class="ph-note" data-i18n="pricing.home.note">تُفوتَر جميع الخطط المدفوعة بالدولار الأمريكي، ويمكنك الإلغاء في أي وقت.</p>
+  </section>
+  </div><!-- /.ph-priced — the sticky billing bar is released here -->
+
+  <!-- Founding Teacher is a discount CODE on Teacher Pro, not a plan, so it
+       cannot be a column — and it must not sit between the teacher pair and the
+       home pair the way it used to, which was the single largest interruption
+       in the old scroll. It is now a quiet paper band after the whole
+       comparison, with a one-line flag on the Teacher Pro card pointing here. -->
   <section class="wrap">
     <div class="ph-founding" id="founding"></div>
-  </section>
-
-  <section class="wrap ph-section" id="home" aria-labelledby="home-h">
-    <div class="ph-sec-head">
-      <p class="eyebrow" data-i18n="pricing.home.eyebrow">للمنزل وللمدرّسين الخصوصيين</p>
-      <h2 id="home-h" data-i18n="pricing.home.heading">تدريسٌ في البيت، أو متعلّمٌ واحد في كل مرة.</h2>
-      <p class="ph-sec-sub" data-i18n="pricing.home.sub">مبنيّة حول متعلّمين بأسمائهم لا حول صف — <a href="/ar/homeschool">شاهد كيف تعمل</a>.</p>
-    </div>
-    <div class="ph-grid ph-grid-2" id="home-grid" role="tabpanel" data-i18n-attr="aria-label:pricing.toggle.homePanel" aria-label="خطط المنزل"></div>
-    <p class="ph-note" data-i18n="pricing.home.note">تُفوتَر جميع الخطط المدفوعة بالدولار الأمريكي، ويمكنك الإلغاء في أي وقت. وإن كان شهرك مزدحمًا، فباقات الأرصدة تُضاف إلى أي خطة مدفوعة.</p>
   </section>
 
   <section class="band">
@@ -379,6 +752,11 @@
     // that failed to load) renders English words rather than a blank card.
     var DICT = window.SKETCHCAST_I18N || {};
     var LOCALE = window.SKETCHCAST_I18N_LOCALE || "en";
+    // Which of DICT's keys are English standing in for a missing translation.
+    // build-i18n.mjs knows this exactly (it did the filling) and now says so;
+    // see upgradeFoundingCap, the one place that must not mistake one for the
+    // other. `null` means an older generated file that predates the list.
+    var FALLBACK = window.SKETCHCAST_I18N_FALLBACK || null;
     function T(key, fallback){ var v = DICT[key]; return (typeof v === "string" && v) ? v : fallback; }
     function TP(plan, leaf, fallback){ return plan.i18n ? T("pricing.plans." + plan.i18n + "." + leaf, fallback) : fallback; }
     // "Part {n}" style placeholders — the same single-brace convention as the
@@ -413,15 +791,57 @@
       var tag = '<p class="ph-tag">' + (plan.tag ? esc(TP(plan, "tag", plan.tag)) : "") + '</p>';
       // Features are keyed f1…fN so a dropped or reordered bullet is a loud key
       // mismatch at build time, not a silently missing line on the card.
-      var feats = (plan.features || []).map(function(f, i){ return '<li>' + CHECK + '<span>' + esc(TP(plan, "f" + (i + 1), f)) + '</span></li>'; }).join("");
+      //
+      // `skipFeatures` stops a bullet RENDERING; it never edits, deletes or
+      // renumbers an fN value, and the map runs over the ORIGINAL index so f3
+      // stays f3. That distinction is load-bearing: homeschool.html's Product
+      // JSON-LD builds its `description` by concatenating
+      // pricing.plans.homeschool.tag + f1..f5, and renderJsonLd has NO English
+      // fallback — a renamed or missing key there throws and blocks the build
+      // for all ten languages. The two bullets skipped on each card are the
+      // ones the meter and the "who" line below now state better.
+      var skip = plan.skipFeatures || [];
+      var feats = (plan.features || []).map(function(f, i){
+        if (skip.indexOf(i) !== -1) return "";
+        return '<li>' + CHECK + '<span>' + esc(TP(plan, "f" + (i + 1), f)) + '</span></li>';
+      }).join("");
+
+      // THE METER — the aligned comparison zone, and the reason the grid works.
+      // Same two label strings in every column, so the rows cannot wrap to
+      // different heights in French; the kit count is COMPUTED from generations
+      // and never stored, so "4 kits" can never drift from 24 generations.
+      // <bdi dir="ltr"> on the numeral: Latin digits beside Arabic text.
+      var gens = plan.generations;
+      var kits = (gens != null && P.kitSize) ? Math.round(gens / P.kitSize) : null;
+      var meter = '<div class="ph-meter">'
+        + (gens == null ? "" :
+            '<p class="ph-meter-lead"><bdi class="ph-meter-n" dir="ltr">' + esc(String(gens)) + '</bdi>'
+            + ' <span class="ph-meter-l">' + esc(T("pricing.meter.gens", "generations a month")) + '</span></p>')
+        + (kits ? '<p class="ph-meter-row">' + esc(fill(T("pricing.meter.kits", "about {n} complete kits"), { n: String(kits) })) + '</p>' : "")
+        + (plan.who ? '<p class="ph-meter-row">' + esc(TP(plan, "who", plan.who)) + '</p>' : "")
+        + '</div>';
+
+      // The bullets sit in a native <details>. Above 640px the summary is
+      // display:none and the disclosure is forced open, so the desktop pays
+      // nothing for it; on a phone it folds four cards into two swipes. The CTA
+      // is deliberately OUTSIDE, so every plan stays one tap from checkout, and
+      // <details> is tap-native — nothing here needs hover.
+      var more = '<details class="ph-more"><summary>' + esc(T("pricing.compare.more", "What's included")) + '</summary>'
+        + '<ul class="ph-features">' + feats + '</ul></details>';
+
       var btnClass = plan.featured ? "btn-primary" : "btn-ghost";
+      // Exactly eight in-flow children — the eight subgrid rows. The badge is
+      // position:absolute and takes no row. Adding a ninth child without
+      // bumping `grid-row: span 8` in the CSS silently un-aligns the cards.
       return '<article class="ph-card' + featured + '" data-key="' + esc(plan.key) + '">'
         + badge
         + '<h3 class="ph-name">' + esc(TP(plan, "name", plan.name)) + '</h3>'
         + tag
-        + '<div class="ph-price"><span class="ph-amount"></span><span class="ph-per"></span></div>'
+        + '<div class="ph-price"><bdi class="ph-amount" dir="ltr"></bdi><bdi class="ph-per" dir="ltr"></bdi></div>'
         + '<p class="ph-save"></p>'
-        + '<ul class="ph-features">' + feats + '</ul>'
+        + '<p class="ph-offer"></p>'
+        + meter
+        + more
         + '<a class="btn ' + btnClass + ' ph-cta"></a>'
         + '</article>';
     }
@@ -430,6 +850,7 @@
       var amount = card.querySelector(".ph-amount");
       var per = card.querySelector(".ph-per");
       var save = card.querySelector(".ph-save");
+      var offer = card.querySelector(".ph-offer");
       var cta = card.querySelector(".ph-cta");
       var isFree = plan.monthly === 0 && plan.annual === 0;
       // During the free trial every paid CTA sends the visitor into the app for
@@ -455,15 +876,98 @@
         amount.textContent = money(price);
         per.textContent = cy === "annual" ? T("pricing.toggle.perYear", "/yr") : T("pricing.toggle.perMonth", "/mo");
         save.textContent = (cy === "annual" && plan.saveLabel) ? TP(plan, "saveLabel", plan.saveLabel) : "";
+        renderOffer(offer, plan, cy);
       });
     }
 
-    function mountCards(gridId, plans){
-      var grid = document.getElementById(gridId);
-      if (!grid) return;
-      grid.innerHTML = plans.map(planCardHTML).join("");
-      var cards = grid.querySelectorAll(".ph-card");
-      plans.forEach(function(plan, i){ if (cards[i]) wireCard(cards[i], plan); });
+    /** The Founding Teacher flag — one line on the Teacher Pro card, linking
+     *  down to the band. MONTHLY ONLY, because the code applies at the monthly
+     *  checkout, and never during the trial, where the band's own howTrial copy
+     *  already handles the case. The row keeps a reserved min-height so
+     *  toggling the cycle never reflows the grid. */
+    function renderOffer(offer, plan, cy){
+      if (!offer) return;
+      var f = P.founding;
+      if (!f || trialActive || cy !== "monthly" || !f.planKey || f.planKey !== plan.key){ offer.textContent = ""; return; }
+      var priceStr = "$" + f.price + T("pricing.toggle.perMonth", "/mo");
+      offer.innerHTML = '<a href="#founding">'
+        + esc(fill(T("pricing.founding.flag", "Founding price {price} with a code"), { price: priceStr }))
+        + '</a>';
+      var link = offer.querySelector("a");
+      if (link) link.addEventListener("click", function(){ track("pricing_cta", { plan: "founding_flag", cycle: cy }, true); });
+    }
+
+    /** Inserts, never replaces: the two audience labels are markup (so the
+     *  build translates them and a crawler sees them) and live in the same grid
+     *  as the cards, which is what keeps a label paired with its two columns
+     *  when the whole grid mirrors in Arabic.
+     *
+     *  `before` is the reference node to insert ahead of — the home label — so
+     *  the teacher cards land BETWEEN the two labels and the grid's source order
+     *  is label · pair · label · pair at every width. That is the order a phone
+     *  stacks and the order a screen reader reads; the desktop's single header
+     *  row is put back by explicit grid-row placement in the CSS, not by
+     *  `order:`, which would set the two orders against each other. */
+    function mountCards(grid, plans, before){
+      if (!grid || !plans || !plans.length) return;
+      plans.forEach(function(plan){
+        var holder = document.createElement("div");
+        holder.innerHTML = planCardHTML(plan);
+        var card = holder.firstElementChild;
+        if (!card) return;
+        if (before) grid.insertBefore(card, before); else grid.appendChild(card);
+        wireCard(card, plan);
+      });
+    }
+
+    /** The Free plan as the rail that opens the comparison, not a fifth column.
+     *  Only the button is built here — its words and its URL are the config's,
+     *  so no checkout link is ever written in markup. */
+    function renderFreeRail(plan){
+      var slot = document.getElementById("free-cta");
+      if (!slot || !plan) return;
+
+      // THE SCOPE OF THE FREE TIER, printed from the config's own features[0] —
+      // "1 book, with the full six-piece kit for one chapter part". The rail's
+      // lede says "one book, one complete six-piece kit", and the hero says
+      // "one book and one complete kit"; both pair the two in a single clause,
+      // so the natural reading is that the free kit covers the whole book. It
+      // does not — the server-side trial pin (migration 0057) gives one book
+      // plus ONE CHAPTER PART's kit. When the Free plan was a card this line
+      // was its first bullet; the rail rendered only the button, which quietly
+      // dropped the single claim a teacher would otherwise discover after
+      // signing up. Rendered through TP() from pricing.plans.freeAll.f1, which
+      // is already translated in all nine locales, so it costs no new key — and
+      // built here rather than typed into the markup, so the number is still
+      // written exactly once, in pricing.config.js.
+      var txt = slot.parentNode ? slot.parentNode.querySelector(".ph-rail-txt") : null;
+      var scope = (plan.features || [])[0];
+      if (txt && scope){
+        var terms = document.createElement("p");
+        terms.className = "ph-rail-terms";
+        terms.textContent = TP(plan, "f1", scope);
+        txt.appendChild(terms);
+      }
+
+      var a = document.createElement("a");
+      a.className = "btn btn-ghost";
+      a.textContent = TP(plan, "cta", plan.cta);
+      a.setAttribute("href", plan.checkout || signup);
+      a.addEventListener("click", function(){ track("pricing_cta", { plan: plan.key, cycle: cycle }, true); });
+      slot.appendChild(a);
+    }
+
+    /** Above 640px every card's bullet list is open and its summary hidden, so
+     *  the disclosure exists only on phones. Re-synced on resize/rotate. */
+    var wide = window.matchMedia("(min-width:641px)");
+    var wasWide = null;
+    function syncDisclosures(){
+      // Only on a CROSSING, never on every resize: a phone's URL bar
+      // collapsing fires resize, and slamming shut a card the reader just
+      // opened is worse than any layout bug this guards against.
+      if (wide.matches === wasWide) return;
+      wasWide = wide.matches;
+      Array.prototype.forEach.call(document.querySelectorAll(".ph-more"), function(d){ d.open = wide.matches; });
     }
 
     function renderFounding(f){
@@ -479,7 +983,7 @@
       // string (the build checks it survives), so it is filled in unescaped.
       var codeRow = f.code
         ? '<div class="ph-code-row">'
-          + '<code class="ph-code" id="founding-code">' + esc(f.code) + '</code>'
+          + '<code class="ph-code" id="founding-code" dir="ltr">' + esc(f.code) + '</code>'
           + '<button type="button" class="ph-copy" aria-label="' + esc(fill(T("pricing.founding.copyAria", "Copy code {code}"), { code: f.code })) + '">' + esc(T("pricing.founding.copy", "Copy code")) + '</button>'
           + '<span class="sr-only" role="status" id="copy-status"></span>'
           + '</div>'
@@ -517,6 +1021,147 @@
           }
         });
       }
+      upgradeFoundingCap(f, box.querySelector(".ph-founding-cap"));
+    }
+
+    /** THE LIVE FOUNDING COUNTER — a strict upgrade to the cap line above.
+     *
+     * WHAT IT REPLACES. renderFounding has already printed the static claim
+     * ("Only the first 50 teachers.") into this element. If JavaScript is off,
+     * if fetch is unavailable, if the network fails, if the endpoint is down,
+     * if it answers {status:"unknown"}, or if anything here throws — that
+     * sentence is what the reader keeps. There is no placeholder, no spinner
+     * and no empty slot waiting to be filled: the page is complete before this
+     * function runs, and this function's only power is to say the same thing
+     * with measured numbers in it.
+     *
+     * WHY IT IS FETCHED AND NOT WRITTEN DOWN. FOUNDINGTEACHER is a Lemon
+     * Squeezy discount with max_redemptions=50 — LS refuses the 51st teacher
+     * itself. Only LS knows how many have gone, and asking LS needs a server
+     * key this repo must never hold (see the header of pricing.config.js). So
+     * the app answers instead, cross-origin, and the count is measured or it is
+     * simply not shown. A number typed into this file would be invented
+     * scarcity on the page where a teacher decides whether to pay.
+     *
+     * NO LAYOUT JUMP, GUARANTEED RATHER THAN HOPED. The band is a flex row with
+     * the CTA as a centred sibling, so one extra line in this text column moves
+     * the button — the exact "content arrived and shoved the thing you were
+     * about to click" defect. Two things prevent it. First, the replacement is
+     * a SENTENCE SWAP inside one element that already exists and is already
+     * one line — nothing is appended and no element is added. Second, the swap
+     * is measured: if the new text needs more height than the old at this
+     * width (a narrow phone, a long translation), it is reverted in the same
+     * synchronous task, before the browser can paint it. The invariant is not
+     * "the counter usually fits" but "the counter may never make this element
+     * taller". */
+    function upgradeFoundingCap(f, capEl){
+      // No element means cap:null — the founder removed the scarcity line, so
+      // there is nothing to upgrade and nothing to add back.
+      if (!capEl || !f || !f.countUrl || f.counter === "off") return;
+      // Progressive enhancement's floor: an old browser keeps the static line
+      // rather than being handed a promise it cannot make.
+      if (typeof window.fetch !== "function") return;
+
+      var ctrl = (typeof window.AbortController === "function") ? new window.AbortController() : null;
+      // 4s and then give up. Nothing is blocked on this — the timeout only
+      // stops a hung request lingering, since a request that never resolves
+      // simply leaves the page exactly as the reader already has it.
+      var giveUp = ctrl ? setTimeout(function(){ try { ctrl.abort(); } catch (e) {} }, 4000) : null;
+
+      // credentials:"omit" is deliberate and load-bearing: this is a
+      // cross-site request to app.sketchcast.app, and a marketing page has no
+      // business carrying a reader's session cookie to it. It also keeps the
+      // response cacheable and the CORS contract simple (no credentials, so no
+      // Access-Control-Allow-Credentials on the other side).
+      window.fetch(f.countUrl, {
+        method: "GET",
+        mode: "cors",
+        credentials: "omit",
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function(res){
+        if (!res || !res.ok) throw new Error("bad status");
+        return res.json();
+      }).then(function(d){
+        if (giveUp) clearTimeout(giveUp);
+        if (!d || d.status !== "ok") return;              // {status:"unknown"} → keep the static line
+
+        // A count is a count only if it is a real non-negative whole number.
+        // Anything else — null, undefined, "0", NaN — is treated as no answer,
+        // which is what stops an unknown response ever rendering as "0 of 50".
+        var claimed = d.claimed;
+        if (typeof claimed !== "number" || !isFinite(claimed) || claimed < 0 || claimed % 1 !== 0) return;
+
+        // PREFER THE CAP THE ENDPOINT READ FROM LEMON SQUEEZY. `f.cap` is our
+        // offline copy of the same public claim; when LS has been reached, LS
+        // wins, so the counter and the cap sentence can never contradict each
+        // other. `f.cap` is the fallback for the endpoint's DB-only path,
+        // which knows counts but not caps.
+        var max = (typeof d.max === "number" && isFinite(d.max) && d.max > 0) ? Math.floor(d.max) : f.cap;
+        if (typeof max !== "number" || !isFinite(max) || max <= 0) return;
+
+        // A COUNT ABOVE ITS OWN CAP IS NOT A NUMBER TO PRINT. Reachable two
+        // ways: the endpoint's DB fallback counts founding subscriptions, which
+        // nothing stops a comped or manually-flagged account pushing past
+        // `f.cap`; and the founder can lower max_redemptions in Lemon Squeezy
+        // after redemptions have happened. Both produce a true pair that cannot
+        // be said in one sentence — "51 of 50 claimed · 0 left" — so the reader
+        // keeps the static line, which is still correct. Degrading is the whole
+        // contract of this function; printing a self-contradiction is not.
+        if (claimed > max) return;
+
+        var left = Math.max(0, max - claimed);
+        // Presentation is a config switch, not a code decision — see
+        // pricing.config.js `counter`. Both phrasings state the same measured
+        // pair; which one flatters the current number is the founder's call.
+        var key = (f.counter === "left") ? "pricing.founding.capLeft" : "pricing.founding.capClaimed";
+        var EN = {
+          "pricing.founding.capLeft": "{left} of {max} places left",
+          "pricing.founding.capClaimed": "{claimed} of {max} claimed · {left} left"
+        };
+
+        // ⚠️ TRANSLATION GUARD — the one case where the upgrade declines to run.
+        // These two keys are English-only for now (added with the counter; the
+        // nine locale files are not touched by this change). build-i18n.mjs
+        // fills a missing key with the ENGLISH value when it generates each
+        // locale's pricing.i18n.js, so without this check every non-English
+        // /pricing would swap its already-TRANSLATED "Only the first 50
+        // teachers." for an English sentence. A missing translation is a gap;
+        // replacing a good translation with English is a regression, and the
+        // second is worse. So: English always, other locales only once a real
+        // capClaimed/capLeft lands in their strings file — the counter switches
+        // itself on, locale by locale, as translations arrive, with no further
+        // code change.
+        //
+        // WHY IT ASKS THE BUILD RATHER THAN COMPARING STRINGS. The obvious test
+        // — "is this value still the English one?" — needs a copy of the English
+        // sentence here to compare against, and that copy silently rots: reword
+        // the key in strings/en.json without making the identical edit below
+        // and the comparison stops matching, the guard stops firing, and an
+        // English counter lands on all nine translated pages. So the build,
+        // which is the thing that actually did the English-filling, publishes
+        // the list of keys it filled and this just reads it. An older generated
+        // file with no list at all is treated as untranslated (FALLBACK null ⇒
+        // decline): a missing counter is the safe direction, and the EN
+        // literals below are then only a rendering default, never an oracle.
+        if (LOCALE !== "en" && (!FALLBACK || FALLBACK.indexOf(key) > -1)) return;
+
+        var text = fill(T(key, EN[key]), { claimed: claimed, max: max, left: left });
+
+        // The measured swap. textContent, not innerHTML: these strings are pure
+        // prose with substituted digits and must never be parsed as markup.
+        var before = capEl.getBoundingClientRect().height;
+        var prev = capEl.textContent;
+        capEl.textContent = text;
+        // > before + 0.5 tolerates sub-pixel rounding; anything larger is a
+        // real extra line, so put the original sentence back. Both writes are
+        // in one task, so the reader never sees the rejected state.
+        if (capEl.getBoundingClientRect().height > before + 0.5) capEl.textContent = prev;
+      }).catch(function(){
+        if (giveUp) clearTimeout(giveUp);
+        // Deliberately silent. Every failure path — offline, CORS, 5xx, abort,
+        // malformed JSON — lands here, and the correct response to all of them
+        // is the sentence already on the page.
+      });
     }
 
     function legacyCopy(text){
@@ -589,12 +1234,20 @@
     }
 
     // ── build ──
-    mountCards("free-grid", P.free ? [P.free] : []);
-    mountCards("teacher-grid", P.teacher || []);
-    mountCards("home-grid", P.home || []);
+    // One grid, four paid plans, ascending within each audience pair:
+    // Teacher Pro, Teacher Pro+ | Home Basic, Homeschool.
+    renderFreeRail(P.free);
+    var compareGrid = document.getElementById("compare-grid");
+    var homeHead = document.getElementById("head-home");
+    mountCards(compareGrid, P.teacher || [], homeHead); // between the two labels
+    mountCards(compareGrid, P.home || [], null);        // after the home label
     renderFounding(P.founding);
     renderSchools(P.schools);
     initTrialBanner();
+    syncDisclosures();
+    if (wide.addEventListener) wide.addEventListener("change", syncDisclosures);
+    else if (wide.addListener) wide.addListener(syncDisclosures); // Safari < 14
+    addEventListener("resize", syncDisclosures); // belt and braces; the crossing guard makes it free
 
     // ── toggle (tablist) ──
     var tabs = [document.getElementById("tab-monthly"), document.getElementById("tab-annual")].filter(Boolean);

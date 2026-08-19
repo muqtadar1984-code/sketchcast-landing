@@ -547,6 +547,25 @@
       "homePanel": "Pelan rumah"
     },
     "noscript": "Hidupkan JavaScript untuk melihat harga pelan secara langsung, atau <a href=\"https://app.sketchcast.app/signup\">mula percuma</a> dan pilih pelan di dalam aplikasi.",
+    "unit": {
+      "lead": "Satu kit ialah enam bahagian.",
+      "sub": "Muat naik seluruh buku teks sekali sahaja — setiap bahagian dikira satu janaan, jadi satu kit ialah enam.",
+      "p1": "Pelajaran video bernarasi",
+      "p2": "Lembaran kerja",
+      "p3": "Rancangan pengajaran",
+      "p4": "Aktiviti",
+      "p5": "Kertas peperiksaan",
+      "p6": "Kajian kes"
+    },
+    "compare": {
+      "heading": "Bandingkan setiap pelan",
+      "included": "Setiap pelan membina bahannya daripada buku teks anda sendiri, dalam sembilan bahasa pelajaran yang dikesan automatik daripada buku itu — bahasa Arab sepenuhnya kanan ke kiri — dan setiap bahagian boleh ditugaskan kepada seorang murid atau satu kelas, lengkap dengan penjejakan kemajuan.",
+      "more": "Yang disertakan"
+    },
+    "meter": {
+      "gens": "janaan sebulan",
+      "kits": "kira-kira {n} kit lengkap"
+    },
     "free": {
       "eyebrow": "Mula di sini",
       "heading": "Percuma untuk semua, guru mahupun ibu bapa.",
@@ -562,7 +581,13 @@
       "eyebrow": "Untuk rumah &amp; tutor",
       "heading": "Mengajar di rumah, atau seorang murid pada satu masa.",
       "sub": "Berteraskan murid bernama, bukan satu kelas — <a href=\"/homeschool\">lihat cara ia berfungsi</a>.",
-      "note": "Semua pelan berbayar dibil dalam USD. Batal bila-bila masa. Perlukan bulan yang lebih berat? Pek kredit boleh ditambah pada mana-mana pelan berbayar."
+      "note": "Semua pelan berbayar dibil dalam USD. Batal bila-bila masa."
+    },
+    "topup": {
+      "eyebrow": "Setelah anda melanggan satu pelan",
+      "heading": "Baki hampir habis sebelum bulan berakhir?",
+      "body": "Tambah nilai di dalam SketchCast dengan pek kredit sekali beli, terus di tempat aplikasi menunjukkan baki anda bulan ini.",
+      "terms": "Sekali beli · Kredit tidak luput · Peruntukan bulanan anda sentiasa digunakan dahulu"
     },
     "trial": {
       "badge": "Percubaan percuma",
@@ -586,6 +611,7 @@
         "badge": "Paling popular",
         "cta": "Pilih Teacher Pro",
         "saveLabel": "Jimat $48 setahun",
+        "who": "Satu kelas penuh",
         "f1": "24 janaan sebulan — kira-kira 4 kit pelajaran lengkap",
         "f2": "Pelajaran, rancangan, aktiviti, lembaran kerja, kertas peperiksaan atau kajian kes — setiap satu dikira satu janaan",
         "f3": "2 buku baharu sebulan",
@@ -600,6 +626,7 @@
         "tag": "Untuk pengguna berat dan panitia",
         "cta": "Pilih Teacher Pro+",
         "saveLabel": "Jimat $98 setahun",
+        "who": "Satu kelas penuh",
         "f1": "Semua dalam Teacher Pro, serta:",
         "f2": "48 janaan tambahan — 72 sebulan, kira-kira 12 kit pelajaran lengkap",
         "f3": "2 buku tambahan — 4 sebulan",
@@ -610,6 +637,7 @@
         "name": "Home Basic",
         "tag": "Satu dua mata pelajaran, di samping persekolahan",
         "cta": "Dapatkan Home Basic",
+        "who": "Sehingga 2 murid",
         "saveLabel": "2 bulan percuma",
         "f1": "12 janaan sebulan — kira-kira 2 kit pelajaran lengkap",
         "f2": "Sehingga 2 murid",
@@ -623,6 +651,7 @@
         "tag": "Keseluruhan kurikulum di rumah — dan tutor dengan senarai pelajar yang penuh",
         "badge": "Untuk pendidik di rumah",
         "cta": "Pilih Homeschool",
+        "who": "Sehingga 10 murid, masing-masing dengan buku mereka sendiri",
         "saveLabel": "2 bulan percuma",
         "f1": "48 janaan sebulan — kira-kira 8 kit pelajaran lengkap",
         "f2": "Sehingga 10 murid, masing-masing dengan buku mereka sendiri",
@@ -637,6 +666,9 @@
       "name": "Guru Perintis",
       "sub": "{plan} pada <strong>{price}</strong>, dikunci selama {months} bulan.",
       "cap": "Hanya untuk {n} guru yang pertama.",
+      "capClaimed": "{claimed} daripada {max} telah dituntut · tinggal {left}",
+      "capLeft": "Tinggal {left} daripada {max} tempat",
+      "flag": "Harga perintis {price} dengan satu kod",
       "copy": "Salin kod",
       "copied": "Disalin ✓",
       "copyFailed": "Salinan gagal",

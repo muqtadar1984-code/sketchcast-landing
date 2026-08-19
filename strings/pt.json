@@ -547,6 +547,25 @@
       "homePanel": "Planos para casa"
     },
     "noscript": "Ative o JavaScript para ver os preços ao vivo, ou <a href=\"https://app.sketchcast.app/signup\">comece grátis</a> e escolha um plano dentro do aplicativo.",
+    "unit": {
+      "lead": "Um kit são seis peças.",
+      "sub": "Envie o livro didático inteiro uma única vez — cada peça conta como uma geração, então um kit são seis.",
+      "p1": "Videoaula narrada",
+      "p2": "Exercícios",
+      "p3": "Plano de aula",
+      "p4": "Atividades",
+      "p5": "Prova",
+      "p6": "Estudo de caso"
+    },
+    "compare": {
+      "heading": "Compare todos os planos",
+      "included": "Todo plano é montado a partir do seu próprio livro didático, em nove idiomas de aula detectados automaticamente do livro — com o árabe totalmente da direita para a esquerda — e cada peça pode ser atribuída a um estudante ou a uma turma, com o progresso acompanhado.",
+      "more": "O que está incluído"
+    },
+    "meter": {
+      "gens": "gerações por mês",
+      "kits": "cerca de {n} kits completos"
+    },
     "free": {
       "eyebrow": "Comece por aqui",
       "heading": "Grátis para todo mundo, professor ou responsável.",
@@ -562,7 +581,13 @@
       "eyebrow": "Para casa &amp; professores particulares",
       "heading": "Ensinando em casa, ou um estudante de cada vez.",
       "sub": "Feito em torno de estudantes com nome, e não de uma turma — <a href=\"/homeschool\">veja como funciona</a>.",
-      "note": "Todos os planos pagos são cobrados em USD. Cancele quando quiser. Precisa de um mês mais puxado? Pacotes de créditos podem ser adicionados a qualquer plano pago."
+      "note": "Todos os planos pagos são cobrados em USD. Cancele quando quiser."
+    },
+    "topup": {
+      "eyebrow": "Quando você já tiver um plano",
+      "heading": "Ficando sem créditos antes de o mês acabar?",
+      "body": "Recarregue dentro do SketchCast com pacotes de créditos avulsos, comprados bem ali onde o aplicativo mostra o que ainda resta neste mês.",
+      "terms": "Compra avulsa · Os créditos não expiram · Sua cota mensal é sempre usada primeiro"
     },
     "trial": {
       "badge": "Teste grátis",
@@ -586,6 +611,7 @@
         "badge": "Mais escolhido",
         "cta": "Escolher Teacher Pro",
         "saveLabel": "Economize $48 por ano",
+        "who": "Uma turma inteira",
         "f1": "24 gerações por mês — cerca de 4 kits de aula completos",
         "f2": "Aula, plano, atividades, exercícios, prova ou estudo de caso — cada um conta como uma geração",
         "f3": "2 livros novos por mês",
@@ -600,6 +626,7 @@
         "tag": "Para quem usa muito e para departamentos",
         "cta": "Escolher Teacher Pro+",
         "saveLabel": "Economize $98 por ano",
+        "who": "Uma turma inteira",
         "f1": "Tudo do Teacher Pro, e mais:",
         "f2": "48 gerações adicionais — 72 por mês, cerca de 12 kits de aula completos",
         "f3": "2 livros adicionais — 4 por mês",
@@ -610,6 +637,7 @@
         "name": "Home Basic",
         "tag": "Uma matéria ou duas, ao lado da escola",
         "cta": "Assinar o Home Basic",
+        "who": "Até 2 estudantes",
         "saveLabel": "2 meses grátis",
         "f1": "12 gerações por mês — cerca de 2 kits de aula completos",
         "f2": "Até 2 estudantes",
@@ -623,6 +651,7 @@
         "tag": "O currículo inteiro em casa — e professores particulares com a agenda cheia",
         "badge": "Para quem ensina em casa",
         "cta": "Escolher Homeschool",
+        "who": "Até 10 estudantes, cada um com os próprios livros",
         "saveLabel": "2 meses grátis",
         "f1": "48 gerações por mês — cerca de 8 kits de aula completos",
         "f2": "Até 10 estudantes, cada um com os próprios livros",
@@ -637,6 +666,9 @@
       "name": "Professor fundador",
       "sub": "{plan} por <strong>{price}</strong>, travado por {months} meses.",
       "cap": "Somente para os {n} primeiros professores.",
+      "capClaimed": "{claimed} de {max} garantidos · restam {left}",
+      "capLeft": "Restam {left} de {max} vagas",
+      "flag": "Preço de fundador {price} com um código",
       "copy": "Copiar código",
       "copied": "Copiado ✓",
       "copyFailed": "Não foi possível copiar",
