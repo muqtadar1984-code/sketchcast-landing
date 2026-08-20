@@ -676,7 +676,7 @@
       "copyFailedAnnounce": "No se pudo copiar — seleccione el código y cópielo manualmente.",
       "copyAria": "Copiar el código {code}",
       "howTrial": "Su primer mes es gratis: empiece ahora y pegue este código al pagar para dejar fijado <strong>{price}</strong> cuando se suscriba.",
-      "howNormal": "Al pagar, elija <strong>Mensual</strong> y pegue este código en el campo de descuento.",
+      "howNormal": "Este botón abre directamente la página de pago <strong>mensual</strong>: pegue ahí este código en el campo de descuento.",
       "cta": "Conseguir el precio fundador"
     },
     "schools": {

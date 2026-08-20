@@ -676,7 +676,7 @@
       "copyFailedAnnounce": "Salinan gagal — pilih kod itu dan salin secara manual.",
       "copyAria": "Salin kod {code}",
       "howTrial": "Bulan pertama anda percuma — mula sekarang, kemudian tampal kod ini semasa pembayaran untuk mengunci <strong>{price}</strong> apabila anda melanggan.",
-      "howNormal": "Semasa pembayaran, pilih <strong>Bulanan</strong> dan tampal kod ini dalam medan diskaun.",
+      "howNormal": "Butang ini terus membuka halaman pembayaran <strong>bulanan</strong> — tampal kod ini dalam medan diskaun di situ.",
       "cta": "Tuntut harga perintis"
     },
     "schools": {
