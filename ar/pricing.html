@@ -846,6 +846,33 @@
         + '</article>';
     }
 
+    /** THE ONE PLACE A CHECKOUT URL IS CHOSEN.
+     *
+     *  A Lemon Squeezy link is VARIANT-LOCKED: /checkout/buy/<slug> opens one
+     *  variant at one price and shows no billing-cycle chooser. So every paid
+     *  plan in pricing.config.js carries `checkout: {monthly, annual}` and the
+     *  cycle must be applied HERE, at read time — never captured once at
+     *  render time, which is exactly the bug this replaces.
+     *
+     *  A plain string is still valid and is returned as-is: the two CTAs with
+     *  a single destination and no cycle (the Free rail's sign-up link, the
+     *  founding band's fixed monthly link) legitimately have one URL. Anything
+     *  missing degrades to app sign-up rather than rendering a dead button.
+     *
+     *  NEVER FALL BACK ACROSS CYCLES. If the requested cycle's link is absent
+     *  this returns sign-up, NOT the other cycle's link. Borrowing
+     *  `c.monthly` for a missing `c.annual` would show $240 on a button that
+     *  charges $24/month — the exact defect this function exists to prevent,
+     *  reintroduced silently and with no error anywhere. Sign-up is a visibly
+     *  wrong destination someone will notice and fix; the wrong variant is an
+     *  invisible one that just takes the wrong money. */
+    function checkoutFor(plan, cy){
+      var c = plan && plan.checkout;
+      if (!c) return signup;
+      if (typeof c === "string") return c;
+      return c[cy] || signup;
+    }
+
     function wireCard(card, plan){
       var amount = card.querySelector(".ph-amount");
       var per = card.querySelector(".ph-per");
@@ -853,20 +880,37 @@
       var offer = card.querySelector(".ph-offer");
       var cta = card.querySelector(".ph-cta");
       var isFree = plan.monthly === 0 && plan.annual === 0;
-      // During the free trial every paid CTA sends the visitor into the app for
-      // the free month instead of Lemon Squeezy checkout (free plans already go
-      // to sign-up). After the trial, the normal per-plan checkout link is used —
-      // one LS product URL serves both cycles, so the href never changes with the
-      // toggle.
-      if (trialActive && !isFree){
-        cta.textContent = T("pricing.trial.cta", trial.cta || "Start free trial");
-        cta.setAttribute("href", trialUrl);
-      } else {
-        cta.textContent = TP(plan, "cta", plan.cta);
-        cta.setAttribute("href", plan.checkout || signup);
+
+      /** Words AND destination, written together. THE HREF IS CYCLE-DEPENDENT
+       *  and belongs to the same update as the price above it — a Lemon
+       *  Squeezy link is variant-locked, so switching the toggle to Annual
+       *  while the button still points at the monthly variant means the
+       *  visitor reads $240, clicks, and is billed $24 a month. Nothing
+       *  errors; the wrong variant simply charges. Setting the href once at
+       *  wire time (as this did) was that bug. Now the price and the link can
+       *  only ever be written by the same call, for the same cycle.
+       *
+       *  During the free trial every paid CTA bypasses Lemon Squeezy entirely
+       *  and sends the visitor into the app for the free month (free plans
+       *  already go to sign-up), so no cycle enters into it — the bypass is
+       *  unchanged and still wins over everything below. */
+      function paintCta(cy){
+        if (trialActive && !isFree){
+          cta.textContent = T("pricing.trial.cta", trial.cta || "Start free trial");
+          cta.setAttribute("href", trialUrl);
+        } else {
+          cta.textContent = TP(plan, "cta", plan.cta);
+          cta.setAttribute("href", checkoutFor(plan, cy));
+        }
       }
+      // Paint once for the tab that is markup-selected (aria-selected="true" on
+      // #tab-monthly), so the button is never hrefless even for the instant
+      // before setCycle("monthly") runs — and stays correct if it never does.
+      paintCta("monthly");
+
       cta.addEventListener("click", function(){ track("pricing_cta", { plan: plan.key, cycle: cycle }, true); });
       updaters.push(function(cy){
+        paintCta(cy);
         if (isFree){
           amount.textContent = "$0"; per.textContent = "";
           save.textContent = "";
@@ -952,7 +996,10 @@
       var a = document.createElement("a");
       a.className = "btn btn-ghost";
       a.textContent = TP(plan, "cta", plan.cta);
-      a.setAttribute("href", plan.checkout || signup);
+      // Free has one destination and no billing cycle, so it is not in
+      // `updaters` and the toggle never touches it; checkoutFor() returns its
+      // plain-string checkout unchanged.
+      a.setAttribute("href", checkoutFor(plan, "monthly"));
       a.addEventListener("click", function(){ track("pricing_cta", { plan: plan.key, cycle: cycle }, true); });
       slot.appendChild(a);
     }
@@ -975,10 +1022,19 @@
       if (!box || !f){ if (box) box.style.display = "none"; return; }
       var priceStr = "$" + f.price + T("pricing.toggle.perMonth", "/mo");
       var cap = (f.cap != null) ? '<p class="ph-founding-cap">' + fill(esc(T("pricing.founding.cap", "Only the first {n} teachers.")), { n: esc(String(f.cap)) }) + '</p>' : "";
-      var href = trialActive ? trialUrl : (f.checkout || signup); // trial → app; else Lemon Squeezy
-      // The founding price is unlocked by a DISCOUNT CODE on the plain Teacher
-      // Pro checkout — without the visible code a teacher lands on the full
-      // price. So the code + copy button are the heart of this banner.
+      // trial → app; else the Teacher Pro MONTHLY variant. The band is outside
+      // the billing toggle's reach (a fixed $10/mo), and the config gives it a
+      // single-string `checkout` for that reason — but it goes through
+      // checkoutFor() anyway so there is exactly one function in this file that
+      // turns a plan into a URL.
+      var href = trialActive ? trialUrl : checkoutFor(f, "monthly");
+      // The founding price is unlocked by a DISCOUNT CODE on the Teacher Pro
+      // MONTHLY checkout — without the visible code a teacher lands on the full
+      // price. So the code + copy button are the heart of this banner. The
+      // reader is NOT asked to pick a cycle: FOUNDINGTEACHER is $14 off the $24
+      // monthly variant, the link is variant-locked to it, and a checkout page
+      // with no cycle chooser cannot honour an instruction to choose one (the
+      // howNormal string said "choose Monthly" until the store went live).
       // The <strong> inside the two "how" sentences is part of the translated
       // string (the build checks it survives), so it is filled in unescaped.
       var codeRow = f.code
@@ -989,7 +1045,7 @@
           + '</div>'
           + (trialActive
               ? '<p class="ph-founding-how">' + fill(T("pricing.founding.howTrial", "Your first month is free — start now, then paste this code at checkout to lock <strong>{price}</strong> when you subscribe."), { price: esc(priceStr) }) + '</p>'
-              : '<p class="ph-founding-how">' + T("pricing.founding.howNormal", "At checkout, choose <strong>Monthly</strong> and paste this code in the discount field.") + '</p>')
+              : '<p class="ph-founding-how">' + T("pricing.founding.howNormal", "This button opens the <strong>monthly</strong> checkout — paste this code in the discount field there.") + '</p>')
         : "";
       box.innerHTML =
         '<div>'

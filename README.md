@@ -34,13 +34,22 @@ is two months free — the whole-dollar teacher plans are exactly monthly × 10
   runtime env, and Lemon Squeezy hosted-checkout URLs are public (any visitor
   can see them) — so they belong in code. **No secrets exist in this repo**;
   billing secrets (API keys, webhook signing secrets) live in the separate app.
-- **One product URL serves both cycles.** Lemon Squeezy shows the monthly and
-  annual variant on the same checkout page, so the toggle changes displayed
-  prices only — the customer picks the cycle at checkout.
-- **Founding offer is code-driven.** The banner links to the plain Teacher Pro
-  checkout and displays the discount code (with a copy button); the teacher
-  chooses Monthly and pastes the code in the discount field. The "first N" cap
-  is a single config value (`founding.cap`, set `null` to remove the line).
+- **A checkout link is variant-locked — one link per cycle.**
+  `/checkout/buy/<slug>` is a *variant's* share link: it opens that one variant
+  at its own price, with no billing-cycle chooser on the page. Every paid plan
+  therefore carries `checkout: { monthly, annual }`, and the Monthly/Annual
+  toggle re-points each CTA's `href` in the same update that re-renders its
+  price. This bullet used to claim one URL served both cycles; it never did,
+  and while it stood a visitor could toggle to Annual, read $240, click, and be
+  billed $24 a month. Nothing errors when a link opens the wrong variant — the
+  buyer is simply charged by whatever it opens — so **verify any repoint by
+  fetching the URL and reading the subtotal it renders.**
+- **Founding offer is code-driven.** The banner links to the Teacher Pro
+  **monthly** checkout and displays the discount code (with a copy button); the
+  teacher pastes it in the discount field there. It cannot ask the reader to
+  pick a cycle (there is none to pick), and FOUNDINGTEACHER is $14 off the $24
+  monthly variant, so the cycle is baked into the link. The "first N" cap is a
+  single config value (`founding.cap`, set `null` to remove the line).
 - **Schools have no public price** — the schools block is a sales enquiry only.
   No student-facing purchase surface exists.
 - A missing/blank link degrades gracefully (paid CTAs fall back to sign-up), so

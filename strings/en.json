@@ -698,7 +698,7 @@
       "copyFailedAnnounce": "Copy failed — select the code and copy it manually.",
       "copyAria": "Copy code {code}",
       "howTrial": "Your first month is free — start now, then paste this code at checkout to lock <strong>{price}</strong> when you subscribe.",
-      "howNormal": "At checkout, choose <strong>Monthly</strong> and paste this code in the discount field.",
+      "howNormal": "This button opens the <strong>monthly</strong> checkout — paste this code in the discount field there.",
       "cta": "Claim founding price"
     },
     "schools": {
