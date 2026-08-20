@@ -1,3 +1,12 @@
+# The REPOSITORY ITSELF. `assets.directory` is "." — the whole folder — so
+# without this line wrangler uploads .git/ as public files, and it did: the
+# 2026-08-20 deploy served /.git/config, /.git/HEAD and every loose object at
+# sketchcast.app, which is enough to clone the full history off the marketing
+# site. Nothing secret was exposed (this repo holds no secrets by design and the
+# GitHub mirror is public), but it is 700-odd files of pure surface, and the day
+# a secret does land in history this would publish it.
+.git
+
 wrangler.jsonc
 .gitignore
 .assetsignore
