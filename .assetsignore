@@ -7,6 +7,15 @@
 # a secret does land in history this would publish it.
 .git
 
+# Tooling state that lives in this folder and is not the site. Same reason as
+# .git: assets.directory is "." so anything here ships unless named. Both were
+# caught SERVING on 2026-08-22 — /.wrangler/tmp/…/no-op-worker.js.map and
+# /.pytest_cache/CACHEDIR.TAG both returned 200 from sketchcast.app. Neither is
+# secret; both are pure surface, and .wrangler is where wrangler keeps local
+# state, which is not a directory to publish on principle.
+.wrangler
+.pytest_cache
+
 wrangler.jsonc
 .gitignore
 .assetsignore
