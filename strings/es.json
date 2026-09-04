@@ -137,8 +137,8 @@
       "eyebrow": "Para colegios",
       "headline": "<mark>Todo su colegio</mark>, enseñando desde un mismo lugar.",
       "sub": "El equipo directivo ve el colegio con claridad, los profesores reciben clases hechas con sus propios libros, el horario se escribe y se cubre solo, y las familias siguen informadas — cada uno tras su propio acceso, viendo únicamente lo suyo.",
-      "ctaPrimary": "Hablar con ventas",
-      "ctaSecondary": "Ver precios",
+      "ctaPrimary": "Empezar una prueba gratis para su colegio",
+      "ctaSecondary": "Hablar con ventas",
       "stat": "<b>5 roles</b> · <b>9 idiomas</b> · <b>1 portal</b> — con la dirección propia de su colegio"
     },
     "timetableCard": {
@@ -332,13 +332,13 @@
     },
     "cta": {
       "heading": "¿Lo va a implantar en <mark>su colegio</mark>?",
-      "sub": "Sin lista de precios pública: preparamos un presupuesto a la medida de su tamaño y sus necesidades, y configuramos las funciones con usted durante la puesta en marcha.",
+      "sub": "30 días gratis para todo su colegio, sin tarjeta de crédito. El precio se ajusta a su tamaño y sus necesidades, y configuramos las funciones con usted durante la puesta en marcha.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "primary": "Hablar con ventas",
+      "primary": "Empezar una prueba gratis para su colegio",
       "secondary": "Precios para profesores y familias",
-      "note": "¿Prefiere probarlo antes? Cualquier profesor puede <a href=\"https://app.sketchcast.app\">empezar gratis</a> hoy mismo."
+      "note": "¿Prefiere hablarlo primero? <a href=\"mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school\">Hablar con ventas</a>. Cualquier profesor también puede <a href=\"https://app.sketchcast.app\">empezar gratis</a> hoy mismo."
     }
   },
   "homeschool": {
@@ -682,11 +682,11 @@
     "schools": {
       "eyebrow": "Para colegios",
       "heading": "¿Lo va a implantar en un colegio?",
-      "sub": "Niveles Essentials, Professional y Enterprise, con precio según su tamaño y sus necesidades. Sin precio público: preparamos un presupuesto a la medida de su centro.",
+      "sub": "30 días gratis para todo su colegio, sin tarjeta de crédito. Después, Essentials, Professional o Enterprise, con precio según su tamaño y sus necesidades — preparamos un presupuesto a la medida de su centro.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "cta": "Hablar con ventas",
+      "cta": "Empezar una prueba gratis para su colegio",
       "learn": "Ver qué reciben los colegios"
     }
   },

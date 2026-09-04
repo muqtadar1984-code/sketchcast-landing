@@ -137,8 +137,8 @@
       "eyebrow": "Untuk sekolah",
       "headline": "<mark>Seluruh sekolah</mark> anda, mengajar dari satu tempat.",
       "sub": "Kepimpinan melihat sekolah dengan jelas, guru mendapat pelajaran yang dibuat daripada buku teks mereka sendiri, jadual waktu menulis dan mengganti dirinya sendiri, dan ibu bapa sentiasa dimaklumkan — masing-masing di sebalik log masuk sendiri, hanya melihat apa yang menjadi haknya.",
-      "ctaPrimary": "Hubungi jualan",
-      "ctaSecondary": "Lihat harga",
+      "ctaPrimary": "Mula percubaan sekolah percuma",
+      "ctaSecondary": "Hubungi jualan",
       "stat": "<b>5 peranan</b> · <b>9 bahasa</b> · <b>1 portal</b> — alamat sekolah anda sendiri"
     },
     "timetableCard": {
@@ -332,13 +332,13 @@
     },
     "cta": {
       "heading": "Melaksanakannya untuk <mark>sekolah anda</mark>?",
-      "sub": "Tiada senarai harga awam — kami menyesuaikan sebut harga mengikut saiz dan keperluan anda, dan menyediakan ciri-cirinya bersama anda semasa permulaan.",
+      "sub": "30 hari percuma untuk seluruh sekolah anda, tiada kad kredit. Harga disesuaikan mengikut saiz dan keperluan anda, dan kami menyediakan ciri-cirinya bersama anda semasa permulaan.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "primary": "Hubungi jualan",
+      "primary": "Mula percubaan sekolah percuma",
       "secondary": "Harga guru &amp; ibu bapa",
-      "note": "Mahu cuba dahulu? Mana-mana guru boleh <a href=\"https://app.sketchcast.app\">mula percuma</a> hari ini."
+      "note": "Mahu berbual dahulu? <a href=\"mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school\">Hubungi jualan</a>. Mana-mana guru juga boleh <a href=\"https://app.sketchcast.app\">mula percuma</a> hari ini."
     }
   },
   "homeschool": {
@@ -682,11 +682,11 @@
     "schools": {
       "eyebrow": "Untuk sekolah",
       "heading": "Melaksanakannya untuk sebuah sekolah?",
-      "sub": "Peringkat Essentials, Professional dan Enterprise, berharga mengikut saiz dan keperluan anda. Tiada harga awam — kami menyesuaikan sebut harga untuk sekolah anda.",
+      "sub": "30 hari percuma untuk seluruh sekolah anda, tiada kad kredit. Selepas itu, Essentials, Professional atau Enterprise, berharga mengikut saiz dan keperluan anda — kami menyesuaikan sebut harga untuk sekolah anda.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "cta": "Hubungi jualan",
+      "cta": "Mula percubaan sekolah percuma",
       "learn": "Lihat apa yang sekolah dapat"
     }
   },

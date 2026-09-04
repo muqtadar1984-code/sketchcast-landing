@@ -159,8 +159,8 @@
       "eyebrow": "For schools",
       "headline": "Your <mark>whole school</mark>, teaching from one place.",
       "sub": "Leadership sees the school clearly, teachers get lessons made from their own textbooks, the timetable writes and covers itself, and parents stay in the loop — each behind their own login, seeing only what's theirs.",
-      "ctaPrimary": "Contact sales",
-      "ctaSecondary": "See pricing",
+      "ctaPrimary": "Start a free school trial",
+      "ctaSecondary": "Contact sales",
       "stat": "<b>5 roles</b> · <b>9 languages</b> · <b>1 portal</b> — your school's own address"
     },
     "timetableCard": {
@@ -354,13 +354,13 @@
     },
     "cta": {
       "heading": "Rolling it out for <mark>your school</mark>?",
-      "sub": "No public price list — we tailor a quote to your size and needs, and set your features up with you during onboarding.",
+      "sub": "30 days free for your whole school, no credit card. Pricing is tailored to your size and needs, and we set your features up with you during onboarding.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "primary": "Contact sales",
+      "primary": "Start a free school trial",
       "secondary": "Teacher &amp; parent pricing",
-      "note": "Prefer to try it first? Any teacher can <a href=\"https://app.sketchcast.app\">start free</a> today."
+      "note": "Prefer a conversation first? <a href=\"mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school\">Contact sales</a>. Any teacher can also <a href=\"https://app.sketchcast.app\">start free</a> today."
     }
   },
   "homeschool": {
@@ -704,11 +704,11 @@
     "schools": {
       "eyebrow": "For schools",
       "heading": "Rolling it out for a school?",
-      "sub": "Essentials, Professional and Enterprise tiers, priced to your size and needs. No public price — we tailor a quote to your school.",
+      "sub": "30 days free for your whole school, no credit card. Then Essentials, Professional or Enterprise, priced to your size and needs — we tailor a quote to your school.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "cta": "Contact sales",
+      "cta": "Start a free school trial",
       "learn": "See what schools get"
     }
   },

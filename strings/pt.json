@@ -137,8 +137,8 @@
       "eyebrow": "Para escolas",
       "headline": "<mark>Sua escola inteira</mark>, ensinando a partir de um só lugar.",
       "sub": "A gestão enxerga a escola com clareza, os professores recebem aulas feitas com os próprios livros, o horário se escreve e se cobre sozinho, e as famílias ficam por dentro — cada um atrás do seu acesso, vendo apenas o que é seu.",
-      "ctaPrimary": "Falar com vendas",
-      "ctaSecondary": "Ver preços",
+      "ctaPrimary": "Começar um teste grátis para a sua escola",
+      "ctaSecondary": "Falar com vendas",
       "stat": "<b>5 perfis</b> · <b>9 idiomas</b> · <b>1 portal</b> — no endereço da sua própria escola"
     },
     "timetableCard": {
@@ -332,13 +332,13 @@
     },
     "cta": {
       "heading": "Vai implantar na <mark>sua escola</mark>?",
-      "sub": "Sem tabela de preços pública — montamos uma proposta sob medida para o seu tamanho e suas necessidades, e configuramos os recursos com você na implantação.",
+      "sub": "30 dias grátis para toda a sua escola, sem cartão de crédito. O preço é sob medida para o seu tamanho e suas necessidades, e configuramos os recursos com você na implantação.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "primary": "Falar com vendas",
+      "primary": "Começar um teste grátis para a sua escola",
       "secondary": "Preços para professores &amp; famílias",
-      "note": "Prefere testar antes? Qualquer professor pode <a href=\"https://app.sketchcast.app\">começar grátis</a> hoje."
+      "note": "Prefere conversar antes? <a href=\"mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school\">Falar com vendas</a>. Qualquer professor também pode <a href=\"https://app.sketchcast.app\">começar grátis</a> hoje."
     }
   },
   "homeschool": {
@@ -682,11 +682,11 @@
     "schools": {
       "eyebrow": "Para escolas",
       "heading": "Vai implantar numa escola?",
-      "sub": "Níveis Essentials, Professional e Enterprise, com preço conforme seu tamanho e suas necessidades. Sem preço público — montamos uma proposta sob medida para a sua escola.",
+      "sub": "30 dias grátis para toda a sua escola, sem cartão de crédito. Depois, Essentials, Professional ou Enterprise, com preço conforme seu tamanho e suas necessidades — montamos uma proposta sob medida para a sua escola.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "cta": "Falar com vendas",
+      "cta": "Começar um teste grátis para a sua escola",
       "learn": "Veja o que as escolas recebem"
     }
   },

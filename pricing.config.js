@@ -71,7 +71,9 @@
     }
   };
   var APP_SIGNUP = "https://app.sketchcast.app/signup"; // TODO: confirm real sign-up path
-  var SCHOOLS_ENQUIRY = "mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school"; // TODO: swap to the sales form URL if one exists
+  // Schools register themselves now (a 30-day trial, then a tailored quote);
+  // the sales mailbox stays on the /schools page as the second door.
+  var SCHOOLS_ENQUIRY = "https://app.sketchcast.app/schoolsignup";
 
   window.SKETCHCAST_PRICING = {
     currency: "USD",
@@ -344,11 +346,12 @@
       checkout: CHECKOUT.teacherPro.monthly // the $24/mo variant the code discounts
     },
 
-    // Schools never see a public price — sales enquiry only. The feature
-    // showcase lives at /schools (learnHref renders a second, ghost button).
+    // Schools never see a public price — they start a 30-day trial and get a
+    // tailored quote. The feature showcase lives at /schools (learnHref renders
+    // a second, ghost button).
     schools: {
       tiers: ["Essentials", "Professional", "Enterprise"],
-      cta: "Contact sales",
+      cta: "Start a free school trial",
       href: SCHOOLS_ENQUIRY,
       learnHref: "/schools",
       learnLabel: "See what schools get"
