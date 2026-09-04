@@ -8,6 +8,17 @@
   "assets": {
     "directory": "."
   },
+  // Both hostnames are Workers CUSTOM DOMAINS (Cloudflare creates and owns the
+  // DNS records). The apex was attached in the dashboard; www was not, so it
+  // answered 522 on every path while nothing on the site linked to it
+  // (2026-09-04). Declaring both here makes the intended set explicit, and
+  // every page's <link rel="canonical"> already names the apex, so serving the
+  // same site on www is safe for search. Applied with `wrangler triggers
+  // deploy`; Workers Builds re-applies it on every push.
+  "routes": [
+    { "pattern": "sketchcast.app", "custom_domain": true },
+    { "pattern": "www.sketchcast.app", "custom_domain": true }
+  ],
   "compatibility_flags": [
     "nodejs_compat"
   ]
