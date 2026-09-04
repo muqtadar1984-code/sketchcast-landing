@@ -268,83 +268,18 @@
       }
     ],
 
-    // Founding-teacher offer — CODE-driven, not a special link. The CTA opens
-    // the Teacher Pro MONTHLY checkout and the teacher pastes the code in the
-    // discount field there. The visible code (+ copy button) is therefore
-    // essential, not decoration.
-    //
-    // MONTHLY IS BUILT INTO THE LINK, NOT ASKED OF THE READER. FOUNDINGTEACHER
-    // is $14 off, repeating for 24 months — it is priced against the $24
-    // monthly variant ($24 − $14 = the $10 below), and a variant-locked link
-    // offers no cycle chooser, so the reader cannot "choose Monthly" and must
-    // not be asked to. `checkout` is therefore the single monthly URL (a
-    // string, like free.checkout — not a {monthly, annual} pair), and the
-    // billing toggle above never touches this band.
-    // Set `cap` to null to remove the "first N" line entirely.
-    founding: {
-      name: "Founding Teacher",
-      plan: "Teacher Pro",
-      // Which plan card carries the one-line "Founding price $10/mo with a
-      // code" flag. A KEY, not the display name: `plan` above is prose that a
-      // rename would break, and the flag must point at the same product the
-      // checkout does.
-      planKey: "pro",
-      price: 10, // USD / month at checkout with the code (not affected by the toggle)
-      lockMonths: 24,
-
-      // ── THE CAP, AND WHY 50 IS STILL WRITTEN HERE ────────────────────────
-      // 50 is not our number. FOUNDINGTEACHER is a Lemon Squeezy discount with
-      // is_limited_redemptions=true and max_redemptions=50, so LS REFUSES the
-      // 51st teacher at checkout — "Only the first 50" is a mechanism, not an
-      // honour system, and LS is the system that knows it.
-      //
-      // So why is it also here? Because this site must be CORRECT WITH
-      // JAVASCRIPT OFF and correct when the network fails, and neither state
-      // can ask Lemon Squeezy anything. `cap` is the offline copy of a public
-      // claim — the sentence a reader gets when nothing is fetched. It is not
-      // the enforcing value and nothing is gated on it.
-      //
-      // The number is therefore written in exactly two places on purpose: in
-      // Lemon Squeezy (which enforces it) and here (which states it when we
-      // cannot ask). The app repo, which does the asking, holds NO cap literal
-      // at all — /api/public/founding-places reports max_redemptions as LS
-      // states it. And when that endpoint answers, pricing.html PREFERS the
-      // max it returns over this one, so if the two ever disagree the reader
-      // sees LS's truth and not our stale copy.
-      cap: 50,
-
-      // ── THE LIVE COUNTER ────────────────────────────────────────────────
-      // A public JSON endpoint on the app (server-side; the Lemon Squeezy API
-      // key lives there and never here — see the header of this file). It
-      // answers {status:"ok",claimed,max,remaining,...} or {status:"unknown"},
-      // and the page treats anything else as unknown. Set to null to stop the
-      // page fetching at all.
-      //
-      // NO NUMBER IS EVER WRITTEN INTO THIS FILE OR THE MARKUP. A hardcoded
-      // "37 claimed" would be invented scarcity shown to someone deciding
-      // whether to pay. The counter is measured or it is absent.
-      countUrl: "https://app.sketchcast.app/api/public/founding-places",
-
-      // How a measured count is PHRASED. A presentation switch, on purpose:
-      // the live number today is 0, and "0 of 50 claimed" advertises that
-      // nobody has bought — which may read worse than saying nothing at all.
-      // Rather than bake that judgement into code, flip it here.
-      //   "claimed" → "0 of 50 claimed · 50 left"   (both figures, as asked)
-      //   "left"    → "50 of 50 places left"        (same facts, availability
-      //                framing — recommended while the count is 0)
-      //   "off"     → never fetch; keep the plain "Only the first 50 teachers."
-      // Whatever this says, the STATIC line is what renders until a real
-      // number arrives, and what stays if one never does.
-      // Founder decision, 2026-08-19: "left". Same two measured numbers as
-      // "claimed", framed as availability rather than as absence — revisit once
-      // real redemptions exist and "N of 50 claimed" carries social proof
-      // instead of costing it.
-      counter: "left",
-
-      code: "FOUNDINGTEACHER",
-      cta: "Claim founding price",
-      checkout: CHECKOUT.teacherPro.monthly // the $24/mo variant the code discounts
-    },
+    // ── FOUNDING-TEACHER OFFER: OFF THE SITE ──────────────────────────────
+    // Founder decision, 2026-09-04: the offer is no longer advertised here.
+    // The FOUNDINGTEACHER discount ($14 off the $24 Teacher Pro monthly, 24
+    // months, capped at 50 by Lemon Squeezy) stays ACTIVE in Lemon Squeezy for
+    // anyone who already holds the code, and the app keeps counting its
+    // redemptions; only the public band, the Teacher Pro card's flag and the
+    // live counter are gone. `null` is the whole switch: pricing.html hides
+    // the #founding box and the card flag when there is no founding entry.
+    // To bring it back, restore the block from git history (commit before this
+    // one) — name, planKey "pro", price 10, lockMonths 24, cap 50, countUrl,
+    // counter "left", code, cta, checkout = CHECKOUT.teacherPro.monthly.
+    founding: null,
 
     // Schools never see a public price — they start a 30-day trial and get a
     // tailored quote. The feature showcase lives at /schools (learnHref renders
