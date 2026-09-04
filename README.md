@@ -44,12 +44,10 @@ is two months free — the whole-dollar teacher plans are exactly monthly × 10
   billed $24 a month. Nothing errors when a link opens the wrong variant — the
   buyer is simply charged by whatever it opens — so **verify any repoint by
   fetching the URL and reading the subtotal it renders.**
-- **Founding offer is code-driven.** The banner links to the Teacher Pro
-  **monthly** checkout and displays the discount code (with a copy button); the
-  teacher pastes it in the discount field there. It cannot ask the reader to
-  pick a cycle (there is none to pick), and FOUNDINGTEACHER is $14 off the $24
-  monthly variant, so the cycle is baked into the link. The "first N" cap is a
-  single config value (`founding.cap`, set `null` to remove the line).
+- **Founding offer is OFF the site** (founder, 2026-09-04): `founding: null` in
+  pricing.config.js hides the band, the Teacher Pro card's flag and the live
+  counter. The FOUNDINGTEACHER code stays active in Lemon Squeezy; restore the
+  config block from git history to advertise it again.
 - **Schools have no public price** — the schools block is a sales enquiry only.
   No student-facing purchase surface exists.
 - A missing/blank link degrades gracefully (paid CTAs fall back to sign-up), so
