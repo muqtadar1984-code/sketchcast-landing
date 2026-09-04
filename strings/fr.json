@@ -137,8 +137,8 @@
       "eyebrow": "Pour les écoles",
       "headline": "<mark>Tout votre établissement</mark> enseigne depuis un seul endroit.",
       "sub": "La direction voit l'établissement clairement, les enseignants reçoivent des leçons tirées de leurs propres manuels, l'emploi du temps s'écrit et se remplace tout seul, et les parents restent informés — chacun derrière son identifiant, ne voyant que ce qui le concerne.",
-      "ctaPrimary": "Contacter le service commercial",
-      "ctaSecondary": "Voir les tarifs",
+      "ctaPrimary": "Démarrer un essai gratuit pour votre école",
+      "ctaSecondary": "Contacter le service commercial",
       "stat": "<b>5 rôles</b> · <b>9 langues</b> · <b>1 portail</b> — à l'adresse de votre établissement"
     },
     "timetableCard": {
@@ -332,13 +332,13 @@
     },
     "cta": {
       "heading": "Vous le déployez pour <mark>votre établissement</mark> ?",
-      "sub": "Pas de grille tarifaire publique — nous établissons un devis adapté à votre taille et à vos besoins, et nous configurons vos fonctionnalités avec vous lors de la mise en route.",
+      "sub": "30 jours gratuits pour tout votre établissement, sans carte bancaire. Le tarif est adapté à votre taille et à vos besoins, et nous configurons vos fonctionnalités avec vous lors de la mise en route.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "primary": "Contacter le service commercial",
+      "primary": "Démarrer un essai gratuit pour votre école",
       "secondary": "Tarifs enseignants &amp; parents",
-      "note": "Vous préférez essayer d'abord ? N'importe quel enseignant peut <a href=\"https://app.sketchcast.app\">commencer gratuitement</a> dès aujourd'hui."
+      "note": "Vous préférez d'abord en discuter ? <a href=\"mailto:sales@sketchcast.app?subject=SketchCast%20for%20our%20school\">Contacter le service commercial</a>. N'importe quel enseignant peut aussi <a href=\"https://app.sketchcast.app\">commencer gratuitement</a> dès aujourd'hui."
     }
   },
   "homeschool": {
@@ -682,11 +682,11 @@
     "schools": {
       "eyebrow": "Pour les écoles",
       "heading": "Vous le déployez pour un établissement ?",
-      "sub": "Des niveaux Essentials, Professional et Enterprise, tarifés selon votre taille et vos besoins. Pas de prix public — nous établissons un devis adapté à votre école.",
+      "sub": "30 jours gratuits pour tout votre établissement, sans carte bancaire. Ensuite, Essentials, Professional ou Enterprise, tarifés selon votre taille et vos besoins — nous établissons un devis adapté à votre école.",
       "tier1": "Essentials",
       "tier2": "Professional",
       "tier3": "Enterprise",
-      "cta": "Contacter le service commercial",
+      "cta": "Démarrer un essai gratuit pour votre école",
       "learn": "Voir ce que reçoivent les écoles"
     }
   },
