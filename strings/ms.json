@@ -38,14 +38,14 @@
   "index": {
     "meta": {
       "title": "SketchCast AI — Satu bab buku teks, terus diajar",
-      "description": "Muat naik seluruh buku teks; SketchCast mengesan bab-babnya. Satu klik melukis kit pelajaran penuh untuk satu bab — video bernarasi, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja dan peperiksaan. Percuma untuk guru dan pelajar.",
+      "description": "Muat naik seluruh buku teks; SketchCast mengesan bab-babnya. Satu klik melukis kit pelajaran penuh untuk satu bab — video bernarasi, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja, peperiksaan dan kajian kes. Percuma untuk guru dan pelajar.",
       "ogTitle": "SketchCast AI — Satu bab buku teks, terus diajar",
-      "ogDescription": "Muat naik seluruh buku teks; satu klik menukar mana-mana bab menjadi kit penuh — video bernarasi, slaid boleh sunting, rancangan, lembaran kerja dan peperiksaan. Percuma untuk guru dan pelajar."
+      "ogDescription": "Muat naik seluruh buku teks; satu klik menukar mana-mana bab menjadi kit penuh — video bernarasi, slaid boleh sunting, rancangan, lembaran kerja, peperiksaan dan kajian kes. Percuma untuk guru dan pelajar."
     },
     "hero": {
       "eyebrow": "PDF buku teks → pelajaran bernarasi",
       "headline": "Satu bab buku teks yang <mark>mengajar dirinya</mark>.",
-      "sub": "Muat naik seluruh buku teks sekali sahaja. Selepas itu, satu klik menukar mana-mana bab menjadi kit penuh — video bernarasi yang melukis dirinya sendiri, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja dan peperiksaan — kemudian tugaskannya dan lihat siapa sudah selesai. Beberapa minit, bukan sepetang suntuk.",
+      "sub": "Muat naik seluruh buku teks sekali sahaja. Selepas itu, satu klik menukar mana-mana bab menjadi kit penuh — video bernarasi yang melukis dirinya sendiri, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja, peperiksaan dan kajian kes — kemudian tugaskannya dan lihat siapa sudah selesai. Beberapa minit, bukan sepetang suntuk.",
       "ctaPrimary": "Mula percuma",
       "ctaSecondary": "Lihat cara ia berfungsi",
       "stat": "<b>Tiada</b> persediaan &nbsp;·&nbsp; <b>beberapa minit</b> untuk menjana &nbsp;·&nbsp; <b>$0</b> untuk mula"
@@ -71,7 +71,7 @@
       "step2": {
         "num": "02",
         "title": "Pilih satu bab",
-        "body": "Pilih satu daripada senarai. Satu klik melukis seluruh kit sekali gus — video, slaid, rancangan, aktiviti, lembaran kerja dan peperiksaan."
+        "body": "Pilih satu daripada senarai. Satu klik melukis seluruh kit sekali gus — video, slaid, rancangan, aktiviti, lembaran kerja, peperiksaan dan kajian kes."
       },
       "step3": {
         "num": "03",
@@ -88,11 +88,11 @@
       },
       "stat2": {
         "big": "1<em> klik</em>",
-        "body": "Satu klik melukis seluruh kit: pelajaran video, slaid, rancangan, aktiviti, lembaran kerja dan kertas peperiksaan. Setiap bahagian dikira satu janaan daripada peruntukan bulanan anda."
+        "body": "Satu klik melukis seluruh kit: pelajaran video, slaid, rancangan, aktiviti, lembaran kerja, kertas peperiksaan dan kajian kes. Enam daripadanya dikira satu janaan setiap satu daripada peruntukan bulanan anda; slaid itu percuma."
       },
       "stat3": {
         "big": "$0",
-        "body": "Mula percuma: satu buku dan satu kit yang lengkap — enam janaan — tanpa sebarang kos."
+        "body": "Mula percuma: satu buku dan satu kit lengkap tujuh bahagian — tanpa sebarang kos."
       }
     },
     "free": {
@@ -251,8 +251,8 @@
       "sub": "Enjin yang sama yang digemari guru persendirian, kini pada skala sekolah: muat naik buku yang sekolah anda benar-benar ajar, dan setiap bab menjadi kit yang lengkap.",
       "kit": {
         "tag": "kit penuh",
-        "title": "Enam bahagian, satu klik",
-        "body": "Setiap janaan menghasilkan kit lengkap sekali gus — pelajaran video bernarasi yang melukis dirinya, slaid boleh sunting, rancangan pengajaran, aktiviti, lembaran kerja dan kertas peperiksaan — <b>berpaksikan bab itu sendiri</b>, bukan internet."
+        "title": "Tujuh bahagian, satu klik",
+        "body": "Setiap janaan menghasilkan kit lengkap sekali gus — pelajaran video bernarasi yang melukis dirinya, slaid boleh sunting, rancangan pengajaran, aktiviti, lembaran kerja, kertas peperiksaan dan kajian kes — <b>berpaksikan bab itu sendiri</b>, bukan internet."
       },
       "parts": {
         "tag": "bab panjang",
@@ -351,7 +351,7 @@
     "hero": {
       "eyebrow": "Homeschool &amp; tutor",
       "headline": "Anda sudah ada <mark>bukunya</mark>. Kini anda ada pek gurunya.",
-      "sub": "Muat naik buku kurikulum yang anda gunakan untuk mengajar. Mana-mana bab menjadi pelajaran video bernarasi, rancangan pengajaran, lembaran kerja, kertas peperiksaan, aktiviti dan kajian kes — siap sebelum sarapan, dalam bahasa yang anda gunakan untuk mengajar.",
+      "sub": "Muat naik buku kurikulum yang anda gunakan untuk mengajar. Mana-mana bab menjadi pelajaran video bernarasi, slaid boleh sunting, rancangan pengajaran, lembaran kerja, kertas peperiksaan, aktiviti dan kajian kes — siap sebelum sarapan, dalam bahasa yang anda gunakan untuk mengajar.",
       "ctaPrimary": "Mula percuma — satu kit penuh",
       "ctaSecondary": "Lihat pelan",
       "stat": "<b>8 kit sebulan</b> · <b>sehingga 10 murid</b> · <b>9 bahasa</b> — satu langganan untuk seisi rumah"
@@ -393,7 +393,7 @@
     },
     "kit": {
       "eyebrow": "Satu bab masuk",
-      "heading": "Enam bahan keluar — seminggu penuh bagi satu mata pelajaran",
+      "heading": "Tujuh bahan keluar — seminggu penuh bagi satu mata pelajaran",
       "sub": "Muat naik satu bab dan SketchCast memulangkan kit pengajaran yang lengkap. Fail Word dan PowerPoint yang boleh disunting, jadi anda boleh ubah apa sahaja sebelum mengajarnya.",
       "k1": {
         "tag": "Ajar",
@@ -424,6 +424,11 @@
         "tag": "Guna",
         "title": "Kajian kes",
         "body": "Senario dunia sebenar dengan soalan perbincangan dan nota panduan, supaya bab itu bermakna di luar halaman buku."
+      },
+      "k7": {
+        "tag": "Bentang",
+        "title": "Slaid boleh sunting",
+        "body": "Pelajaran yang sama dalam bentuk slaid yang boleh anda buka dan sunting — dengan nota Socratic di bawah setiapnya, untuk hari-hari anda lebih suka mengajar sendiri daripada memainkan video."
       }
     },
     "learners": {
@@ -510,12 +515,12 @@
       },
       "q6": {
         "q": "Berapakah kosnya?",
-        "a": "Anda boleh mula secara percuma dengan satu kit pelajaran yang lengkap — tiada kad diperlukan. Home Basic ialah $9.99 sebulan untuk satu dua mata pelajaran, dan Homeschool ialah $34 sebulan atau $340 setahun (dua bulan percuma) untuk keseluruhan kurikulum: 48 janaan sebulan, sehingga 10 murid dan rekod kemajuan yang boleh dicetak."
+        "a": "Anda boleh mula secara percuma dengan satu kit pelajaran yang lengkap — tiada kad diperlukan. Home Basic ialah $9.99 sebulan untuk satu dua mata pelajaran, dan Homeschool ialah $34 sebulan atau $340 setahun (dua bulan percuma) untuk keseluruhan kurikulum: 56 janaan sebulan, sehingga 10 murid dan rekod kemajuan yang boleh dicetak."
       }
     },
     "cta": {
       "heading": "Cuba pada <mark>pelajaran esok</mark>",
-      "sub": "Muat naik satu bab dan dapatkan kit enam bahagian yang penuh secara percuma — tiada kad, tiada pemasa percubaan. Jika ia menyelamatkan satu petang anda, pelannya ada di sana.",
+      "sub": "Muat naik satu bab dan dapatkan kit tujuh bahagian yang penuh secara percuma — tiada kad, tiada pemasa percubaan. Jika ia menyelamatkan satu petang anda, pelannya ada di sana.",
       "primary": "Mula percuma",
       "secondary": "Lihat semua harga",
       "note": "Ada soalan tentang penggunaan untuk homeschool atau tuisyen? <a href=\"mailto:hello@sketchcast.app\">Hubungi kami</a> — orang sebenar yang menjawab."
@@ -548,14 +553,15 @@
     },
     "noscript": "Hidupkan JavaScript untuk melihat harga pelan secara langsung, atau <a href=\"https://app.sketchcast.app/signup\">mula percuma</a> dan pilih pelan di dalam aplikasi.",
     "unit": {
-      "lead": "Satu kit ialah enam bahagian.",
-      "sub": "Muat naik seluruh buku teks sekali sahaja — setiap bahagian dikira satu janaan, jadi satu kit ialah enam.",
+      "lead": "Satu kit ialah tujuh bahagian.",
+      "sub": "Muat naik seluruh buku teks sekali sahaja — enam daripada tujuh dikira satu janaan setiap satu, dan slaid itu percuma.",
       "p1": "Pelajaran video bernarasi",
       "p2": "Lembaran kerja",
       "p3": "Rancangan pengajaran",
       "p4": "Aktiviti",
       "p5": "Kertas peperiksaan",
-      "p6": "Kajian kes"
+      "p6": "Kajian kes",
+      "p7": "Slaid boleh sunting"
     },
     "compare": {
       "heading": "Bandingkan setiap pelan",
@@ -569,7 +575,7 @@
     "free": {
       "eyebrow": "Mula di sini",
       "heading": "Percuma untuk semua, guru mahupun ibu bapa.",
-      "sub": "Satu buku, satu kit enam bahagian yang lengkap — tiada kad, tiada pemasa. Pilih pelan di bawah hanya apabila anda mahu lebih.",
+      "sub": "Satu buku, satu kit tujuh bahagian yang lengkap — tiada kad, tiada pemasa. Pilih pelan di bawah hanya apabila anda mahu lebih.",
       "panel": "Pelan percuma"
     },
     "teachers": {
@@ -600,7 +606,7 @@
         "name": "Percuma",
         "tag": "Cuba pada pelajaran anda yang seterusnya",
         "cta": "Mula percuma",
-        "f1": "1 buku, dengan kit enam bahagian yang penuh untuk satu bahagian bab",
+        "f1": "1 buku, dengan kit tujuh bahagian yang penuh untuk satu bahagian bab",
         "f2": "Pelajaran video bernarasi, lembaran kerja, kertas peperiksaan dan rancangan pengajaran",
         "f3": "9 bahasa pelajaran, dikesan automatik daripada buku anda (bahasa Arab sepenuhnya kanan ke kiri)",
         "f4": "Tugaskan kepada seorang murid atau satu kelas dan jejak kemajuannya"
@@ -612,7 +618,7 @@
         "cta": "Pilih Teacher Pro",
         "saveLabel": "Jimat $48 setahun",
         "who": "Satu kelas penuh",
-        "f1": "24 janaan sebulan — kira-kira 4 kit pelajaran lengkap",
+        "f1": "28 janaan sebulan — kira-kira 4 kit pelajaran lengkap",
         "f2": "Pelajaran, rancangan, aktiviti, lembaran kerja, kertas peperiksaan atau kajian kes — setiap satu dikira satu janaan",
         "f3": "2 buku baharu sebulan",
         "f4": "Tutor AI",
@@ -628,7 +634,7 @@
         "saveLabel": "Jimat $98 setahun",
         "who": "Satu kelas penuh",
         "f1": "Semua dalam Teacher Pro, serta:",
-        "f2": "48 janaan tambahan — 72 sebulan, kira-kira 12 kit pelajaran lengkap",
+        "f2": "56 janaan tambahan — 84 sebulan, kira-kira 12 kit pelajaran lengkap",
         "f3": "2 buku tambahan — 4 sebulan",
         "f4": "Janaan keutamaan",
         "f5": "Akses awal kepada ciri baharu"
@@ -639,7 +645,7 @@
         "cta": "Dapatkan Home Basic",
         "who": "Sehingga 2 murid",
         "saveLabel": "2 bulan percuma",
-        "f1": "12 janaan sebulan — kira-kira 2 kit pelajaran lengkap",
+        "f1": "14 janaan sebulan — kira-kira 2 kit pelajaran lengkap",
         "f2": "Sehingga 2 murid",
         "f3": "Kertas latihan dalam bahasa buku itu sendiri (9 disokong)",
         "f4": "Bantuan kerja rumah & penerangan AI",
@@ -653,7 +659,7 @@
         "cta": "Pilih Homeschool",
         "who": "Sehingga 10 murid, masing-masing dengan buku mereka sendiri",
         "saveLabel": "2 bulan percuma",
-        "f1": "48 janaan sebulan — kira-kira 8 kit pelajaran lengkap",
+        "f1": "56 janaan sebulan — kira-kira 8 kit pelajaran lengkap",
         "f2": "Sehingga 10 murid, masing-masing dengan buku mereka sendiri",
         "f3": "Rekod kemajuan boleh cetak bagi setiap murid",
         "f4": "4 buku baharu sebulan",

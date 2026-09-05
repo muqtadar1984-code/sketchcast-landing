@@ -38,14 +38,14 @@
   "index": {
     "meta": {
       "title": "SketchCast AI — Un chapitre de manuel, enseigné",
-      "description": "Importez tout le manuel : SketchCast en détecte les chapitres. En un clic, il dessine le kit pédagogique complet d'un chapitre — une vidéo narrée, un diaporama modifiable avec des notes socratiques, une fiche de préparation, des activités, une fiche d'exercices et un examen. Gratuit pour les enseignants et les élèves.",
+      "description": "Importez tout le manuel : SketchCast en détecte les chapitres. En un clic, il dessine le kit pédagogique complet d'un chapitre — une vidéo narrée, un diaporama modifiable avec des notes socratiques, une fiche de préparation, des activités, une fiche d'exercices, un examen et une étude de cas. Gratuit pour les enseignants et les élèves.",
       "ogTitle": "SketchCast AI — Un chapitre de manuel, enseigné",
-      "ogDescription": "Importez tout le manuel ; un clic génère le kit complet de n'importe quel chapitre — vidéo narrée, diaporama modifiable, préparation, fiches d'exercices et examen. Gratuit pour les enseignants et les élèves."
+      "ogDescription": "Importez tout le manuel ; un clic génère le kit complet de n'importe quel chapitre — vidéo narrée, diaporama modifiable, préparation, fiches d'exercices, examen et étude de cas. Gratuit pour les enseignants et les élèves."
     },
     "hero": {
       "eyebrow": "PDF du manuel → leçon narrée",
       "headline": "Un chapitre de manuel qui <mark>fait cours tout seul</mark>.",
-      "sub": "Importez tout le manuel une seule fois. Ensuite, un clic génère le kit complet de n'importe quel chapitre — une vidéo narrée qui se dessine sous les yeux des élèves, un diaporama modifiable avec des notes socratiques, une fiche de préparation, des activités, une fiche d'exercices et un examen — puis attribuez-le et voyez qui a terminé. Des minutes, pas des soirées.",
+      "sub": "Importez tout le manuel une seule fois. Ensuite, un clic génère le kit complet de n'importe quel chapitre — une vidéo narrée qui se dessine sous les yeux des élèves, un diaporama modifiable avec des notes socratiques, une fiche de préparation, des activités, une fiche d'exercices, un examen et une étude de cas — puis attribuez-le et voyez qui a terminé. Des minutes, pas des soirées.",
       "ctaPrimary": "Commencer gratuitement",
       "ctaSecondary": "Voir comment ça marche",
       "stat": "<b>0</b> paramétrage &nbsp;·&nbsp; <b>quelques minutes</b> pour générer &nbsp;·&nbsp; <b>0 $</b> pour commencer"
@@ -71,7 +71,7 @@
       "step2": {
         "num": "02",
         "title": "Choisissez un chapitre",
-        "body": "Sélectionnez-en un dans la liste. Un clic dessine tout le kit d'un seul tenant — vidéo, diaporama, préparation, activités, fiche d'exercices et examen."
+        "body": "Sélectionnez-en un dans la liste. Un clic dessine tout le kit d'un seul tenant — vidéo, diaporama, préparation, activités, fiche d'exercices, examen et étude de cas."
       },
       "step3": {
         "num": "03",
@@ -88,11 +88,11 @@
       },
       "stat2": {
         "big": "1<em> clic</em>",
-        "body": "Un clic dessine tout le kit : leçon vidéo, diaporama, préparation, activités, fiche d'exercices et sujet d'examen. Chaque élément compte pour une génération de votre quota mensuel."
+        "body": "Un clic dessine tout le kit : leçon vidéo, diaporama, préparation, activités, fiche d'exercices, sujet d'examen et étude de cas. Six d'entre eux comptent chacun pour une génération de votre quota mensuel ; le diaporama est gratuit."
       },
       "stat3": {
         "big": "0 $",
-        "body": "Commencez gratuitement : un livre et un kit complet — six générations — sans rien payer."
+        "body": "Commencez gratuitement : un livre et un kit complet de sept éléments — sans rien payer."
       }
     },
     "free": {
@@ -251,8 +251,8 @@
       "sub": "Le moteur que les enseignants adorent, à l'échelle de l'établissement : importez les manuels dont votre école se sert vraiment, et chaque chapitre devient un kit complet.",
       "kit": {
         "tag": "kit complet",
-        "title": "Six pièces, un clic",
-        "body": "Chaque génération produit le kit complet d'un seul tenant — une leçon vidéo narrée qui se dessine, un diaporama modifiable, une fiche de préparation, des activités, une fiche d'exercices et un sujet d'examen — <b>ancrés dans le chapitre</b>, pas dans Internet."
+        "title": "Sept pièces, un clic",
+        "body": "Chaque génération produit le kit complet d'un seul tenant — une leçon vidéo narrée qui se dessine, un diaporama modifiable, une fiche de préparation, des activités, une fiche d'exercices, un sujet d'examen et une étude de cas — <b>ancrés dans le chapitre</b>, pas dans Internet."
       },
       "parts": {
         "tag": "chapitres longs",
@@ -351,7 +351,7 @@
     "hero": {
       "eyebrow": "École à la maison &amp; cours particuliers",
       "headline": "Vous avez déjà les <mark>livres</mark>. Il ne manquait que le guide du professeur.",
-      "sub": "Importez le manuel sur lequel vous enseignez. N'importe quel chapitre devient une leçon vidéo narrée, une fiche de préparation, une fiche d'exercices, un sujet d'examen, des activités et une étude de cas — prêts avant le petit-déjeuner, dans la langue dans laquelle vous enseignez.",
+      "sub": "Importez le manuel sur lequel vous enseignez. N'importe quel chapitre devient une leçon vidéo narrée, un diaporama modifiable, une fiche de préparation, une fiche d'exercices, un sujet d'examen, des activités et une étude de cas — prêts avant le petit-déjeuner, dans la langue dans laquelle vous enseignez.",
       "ctaPrimary": "Commencer gratuitement — un kit complet",
       "ctaSecondary": "Voir les offres",
       "stat": "<b>8 kits par mois</b> · <b>jusqu'à 10 apprenants</b> · <b>9 langues</b> — un seul abonnement pour tout le foyer"
@@ -393,7 +393,7 @@
     },
     "kit": {
       "eyebrow": "Un chapitre en entrée",
-      "heading": "Six éléments en sortie — une semaine entière dans une matière",
+      "heading": "Sept éléments en sortie — une semaine entière dans une matière",
       "sub": "Importez un chapitre et SketchCast vous rend un kit pédagogique complet. Des fichiers Word et PowerPoint modifiables, pour ajuster ce que vous voulez avant de l'enseigner.",
       "k1": {
         "tag": "enseigner",
@@ -424,6 +424,11 @@
         "tag": "appliquer",
         "title": "Étude de cas",
         "body": "Un scénario tiré du réel, avec des questions de discussion et des notes d'accompagnement, pour que le chapitre trouve un prolongement hors du livre."
+      },
+      "k7": {
+        "tag": "présenter",
+        "title": "Diaporama modifiable",
+        "body": "La même leçon en diapositives que vous pouvez ouvrir et modifier — avec des notes socratiques sous chacune, pour les jours où vous préférez enseigner vous-même plutôt que lancer la vidéo."
       }
     },
     "learners": {
@@ -510,12 +515,12 @@
       },
       "q6": {
         "q": "Combien ça coûte ?",
-        "a": "Vous pouvez commencer gratuitement avec un kit pédagogique complet — sans carte bancaire. Home Basic coûte 9,99 $ par mois pour une matière ou deux, et Homeschool 34 $ par mois ou 340 $ par an (deux mois offerts) pour tout le programme : 48 générations par mois, jusqu'à 10 apprenants et des relevés de progression imprimables."
+        "a": "Vous pouvez commencer gratuitement avec un kit pédagogique complet — sans carte bancaire. Home Basic coûte 9,99 $ par mois pour une matière ou deux, et Homeschool 34 $ par mois ou 340 $ par an (deux mois offerts) pour tout le programme : 56 générations par mois, jusqu'à 10 apprenants et des relevés de progression imprimables."
       }
     },
     "cta": {
       "heading": "Essayez-le sur <mark>la leçon de demain</mark>",
-      "sub": "Importez un chapitre et recevez gratuitement le kit complet en six éléments — sans carte bancaire, sans compte à rebours. Si cela vous fait gagner une soirée, les offres sont là.",
+      "sub": "Importez un chapitre et recevez gratuitement le kit complet en sept éléments — sans carte bancaire, sans compte à rebours. Si cela vous fait gagner une soirée, les offres sont là.",
       "primary": "Commencer gratuitement",
       "secondary": "Voir tous les tarifs",
       "note": "Des questions sur l'école à la maison ou les cours particuliers ? <a href=\"mailto:hello@sketchcast.app\">Écrivez-nous</a> — une vraie personne répond."
@@ -548,14 +553,15 @@
     },
     "noscript": "Activez JavaScript pour voir les prix en direct, ou <a href=\"https://app.sketchcast.app/signup\">commencez gratuitement</a> et choisissez une offre dans l'application.",
     "unit": {
-      "lead": "Un kit, c'est six éléments.",
-      "sub": "Importez tout le manuel une seule fois — chaque élément compte pour une génération, donc un kit en vaut six.",
+      "lead": "Un kit, c'est sept éléments.",
+      "sub": "Importez tout le manuel une seule fois — six des sept éléments comptent chacun pour une génération, et le diaporama est gratuit.",
       "p1": "Leçon vidéo narrée",
       "p2": "Fiche d'exercices",
       "p3": "Fiche de préparation",
       "p4": "Activités",
       "p5": "Sujet d'examen",
-      "p6": "Étude de cas"
+      "p6": "Étude de cas",
+      "p7": "Diaporama modifiable"
     },
     "compare": {
       "heading": "Comparer les offres",
@@ -569,7 +575,7 @@
     "free": {
       "eyebrow": "Commencez ici",
       "heading": "Gratuit pour tout le monde, enseignant ou parent.",
-      "sub": "Un livre, un kit complet en six éléments — sans carte bancaire, sans compte à rebours. Choisissez une offre ci-dessous seulement quand vous en voudrez plus.",
+      "sub": "Un livre, un kit complet en sept éléments — sans carte bancaire, sans compte à rebours. Choisissez une offre ci-dessous seulement quand vous en voudrez plus.",
       "panel": "Offre gratuite"
     },
     "teachers": {
@@ -600,7 +606,7 @@
         "name": "Gratuit",
         "tag": "Essayez-le sur votre prochaine leçon",
         "cta": "Commencer gratuitement",
-        "f1": "1 livre, avec le kit complet en six éléments pour une partie de chapitre",
+        "f1": "1 livre, avec le kit complet en sept éléments pour une partie de chapitre",
         "f2": "Leçons vidéo narrées, fiches d'exercices, sujets d'examen et fiches de préparation",
         "f3": "9 langues d'enseignement, détectées automatiquement à partir de votre livre (arabe entièrement de droite à gauche)",
         "f4": "Attribuez à un apprenant ou à une classe et suivez la progression"
@@ -612,7 +618,7 @@
         "cta": "Choisir Teacher Pro",
         "saveLabel": "Économisez 48 $ par an",
         "who": "Toute une classe",
-        "f1": "24 générations par mois — soit environ 4 kits pédagogiques complets",
+        "f1": "28 générations par mois — soit environ 4 kits pédagogiques complets",
         "f2": "Une leçon, une préparation, des activités, une fiche d'exercices, un sujet d'examen ou une étude de cas — chacun compte pour une génération",
         "f3": "2 nouveaux manuels par mois",
         "f4": "Tuteur IA",
@@ -628,7 +634,7 @@
         "saveLabel": "Économisez 98 $ par an",
         "who": "Toute une classe",
         "f1": "Tout Teacher Pro, et en plus :",
-        "f2": "48 générations supplémentaires — 72 par mois, soit environ 12 kits pédagogiques complets",
+        "f2": "56 générations supplémentaires — 84 par mois, soit environ 12 kits pédagogiques complets",
         "f3": "2 manuels supplémentaires — 4 par mois",
         "f4": "Génération prioritaire",
         "f5": "Accès anticipé aux nouveautés"
@@ -639,7 +645,7 @@
         "cta": "Choisir Home Basic",
         "who": "Jusqu'à 2 apprenants",
         "saveLabel": "2 mois offerts",
-        "f1": "12 générations par mois — soit environ 2 kits pédagogiques complets",
+        "f1": "14 générations par mois — soit environ 2 kits pédagogiques complets",
         "f2": "Jusqu'à 2 apprenants",
         "f3": "Sujets d'entraînement dans la langue du livre (9 prises en charge)",
         "f4": "Aide aux devoirs et explications par l'IA",
@@ -653,7 +659,7 @@
         "cta": "Choisir Homeschool",
         "who": "Jusqu'à 10 apprenants, chacun avec ses propres livres",
         "saveLabel": "2 mois offerts",
-        "f1": "48 générations par mois — soit environ 8 kits pédagogiques complets",
+        "f1": "56 générations par mois — soit environ 8 kits pédagogiques complets",
         "f2": "Jusqu'à 10 apprenants, chacun avec ses propres livres",
         "f3": "Relevés de progression imprimables par apprenant",
         "f4": "4 nouveaux manuels par mois",

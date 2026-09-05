@@ -110,6 +110,8 @@
 
   /* ── cards ── */
   .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  /* Seven cards in three columns leave one alone on the last row; centre it. */
+  .kit>:last-child{grid-column:2}
   .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
   .band .card{background:var(--canvas)}
@@ -166,6 +168,7 @@
   @media(max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .kit,.plans{grid-template-columns:1fr}
+    .kit>:last-child{grid-column:auto}
     .feat,.rec{grid-template-columns:1fr}
     .day{grid-template-columns:1fr 1fr}
     .day div:nth-child(3){border-inline-start:0}
@@ -220,7 +223,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "Todo el currículo en casa — y tutores con la agenda llena · 48 generaciones al mes — unos 8 kits de clase completos · Hasta 10 estudiantes, cada uno con sus propios libros · Informes de progreso imprimibles por estudiante · 4 libros nuevos al mes · Tutor de estudio con IA para cada estudiante",
+  "description": "Todo el currículo en casa — y tutores con la agenda llena · 56 generaciones al mes — unos 8 kits de clase completos · Hasta 10 estudiantes, cada uno con sus propios libros · Informes de progreso imprimibles por estudiante · 4 libros nuevos al mes · Tutor de estudio con IA para cada estudiante",
   "brand": {
     "@type": "Brand",
     "name": "SketchCast AI"
@@ -330,7 +333,7 @@
       "name": "¿Cuánto cuesta?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Puede empezar gratis con un kit de clase completo — sin tarjeta. Home Basic cuesta $9.99 al mes para una o dos materias, y Homeschool cuesta $34 al mes o $340 al año (dos meses gratis) para todo el currículo: 48 generaciones al mes, hasta 10 estudiantes e informes de progreso imprimibles."
+        "text": "Puede empezar gratis con un kit de clase completo — sin tarjeta. Home Basic cuesta $9.99 al mes para una o dos materias, y Homeschool cuesta $34 al mes o $340 al año (dos meses gratis) para todo el currículo: 56 generaciones al mes, hasta 10 estudiantes e informes de progreso imprimibles."
       }
     }
   ]
@@ -434,7 +437,7 @@
       <div class="reveal">
         <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">Educación en casa &amp; tutores</p>
         <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">Ya tiene los <span class="uline">libros<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. Ahora tiene el material del profesor.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">Suba el libro del currículo con el que enseña. Cualquier capítulo se convierte en una videolección narrada, un plan de clase, una hoja de trabajo, un examen, actividades y un caso práctico — listos antes del desayuno, en el idioma en que usted enseña.</p>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">Suba el libro del currículo con el que enseña. Cualquier capítulo se convierte en una videolección narrada, unas diapositivas editables, un plan de clase, una hoja de trabajo, un examen, actividades y un caso práctico — listos antes del desayuno, en el idioma en que usted enseña.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">Empiece gratis — un kit completo</a>
           <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">Ver planes</a>
@@ -606,7 +609,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">Entra un capítulo</p>
-        <h2 data-i18n="homeschool.kit.heading">Salen seis piezas — una semana entera de una materia</h2>
+        <h2 data-i18n="homeschool.kit.heading">Salen siete piezas — una semana entera de una materia</h2>
         <p class="sub" data-i18n="homeschool.kit.sub">Suba un capítulo y SketchCast le devuelve un kit de enseñanza completo. Archivos de Word y PowerPoint editables, para que pueda ajustar lo que quiera antes de dar la clase.</p>
       </div>
       <div class="kit">
@@ -639,6 +642,11 @@
           <span class="tag" data-i18n="homeschool.kit.k6.tag">Aplicar</span>
           <h3 data-i18n="homeschool.kit.k6.title">Caso práctico</h3>
           <p data-i18n="homeschool.kit.k6.body">Una situación del mundo real con preguntas de discusión y notas de orientación, para que el capítulo aterrice más allá de la página.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k7.tag">Presentar</span>
+          <h3 data-i18n="homeschool.kit.k7.title">Diapositivas editables</h3>
+          <p data-i18n="homeschool.kit.k7.body">La misma clase en diapositivas que puede abrir y editar — con notas socráticas debajo de cada una, para los días en que prefiera explicarla usted en vez de poner el video.</p>
         </div>
       </div>
     </div>
@@ -776,7 +784,7 @@
         </details>
         <details class="faq-item">
           <summary data-i18n="homeschool.faq.q6.q">¿Cuánto cuesta?</summary>
-          <p data-i18n="homeschool.faq.q6.a">Puede empezar gratis con un kit de clase completo — sin tarjeta. Home Basic cuesta $9.99 al mes para una o dos materias, y Homeschool cuesta $34 al mes o $340 al año (dos meses gratis) para todo el currículo: 48 generaciones al mes, hasta 10 estudiantes e informes de progreso imprimibles.</p>
+          <p data-i18n="homeschool.faq.q6.a">Puede empezar gratis con un kit de clase completo — sin tarjeta. Home Basic cuesta $9.99 al mes para una o dos materias, y Homeschool cuesta $34 al mes o $340 al año (dos meses gratis) para todo el currículo: 56 generaciones al mes, hasta 10 estudiantes e informes de progreso imprimibles.</p>
         </details>
       </div>
     </div>
@@ -786,7 +794,7 @@
   <section class="cta band">
     <div class="wrap reveal">
       <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">Pruébelo con la <span class="circle">clase de mañana<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">Suba un capítulo y reciba gratis el kit completo de seis piezas — sin tarjeta y sin reloj de prueba. Si le ahorra una tarde, ahí están los planes.</p>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">Suba un capítulo y reciba gratis el kit completo de siete piezas — sin tarjeta y sin reloj de prueba. Si le ahorra una tarde, ahí están los planes.</p>
       <div class="cta-btns">
         <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">Empezar gratis</a>
         <a class="btn btn-ghost" href="/es/pricing" data-i18n="homeschool.cta.secondary">Ver todos los precios</a>

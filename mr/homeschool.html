@@ -110,6 +110,8 @@
 
   /* ── cards ── */
   .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  /* Seven cards in three columns leave one alone on the last row; centre it. */
+  .kit>:last-child{grid-column:2}
   .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
   .band .card{background:var(--canvas)}
@@ -166,6 +168,7 @@
   @media(max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .kit,.plans{grid-template-columns:1fr}
+    .kit>:last-child{grid-column:auto}
     .feat,.rec{grid-template-columns:1fr}
     .day{grid-template-columns:1fr 1fr}
     .day div:nth-child(3){border-inline-start:0}
@@ -220,7 +223,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "घरचा अख्खा अभ्यासक्रम — आणि भरलेली विद्यार्थी-यादी असलेले शिकवणीदार · महिन्याला 48 निर्मिती — म्हणजे सुमारे 8 संपूर्ण धडा-संच · 10 विद्यार्थ्यांपर्यंत, प्रत्येकाची स्वतःची पुस्तके · प्रत्येक विद्यार्थ्याच्या छापता येणाऱ्या प्रगती-नोंदी · महिन्याला 4 नवी पुस्तके · प्रत्येक विद्यार्थ्यासाठी AI अभ्यास मार्गदर्शक",
+  "description": "घरचा अख्खा अभ्यासक्रम — आणि भरलेली विद्यार्थी-यादी असलेले शिकवणीदार · महिन्याला 56 निर्मिती — म्हणजे सुमारे 8 संपूर्ण धडा-संच · 10 विद्यार्थ्यांपर्यंत, प्रत्येकाची स्वतःची पुस्तके · प्रत्येक विद्यार्थ्याच्या छापता येणाऱ्या प्रगती-नोंदी · महिन्याला 4 नवी पुस्तके · प्रत्येक विद्यार्थ्यासाठी AI अभ्यास मार्गदर्शक",
   "brand": {
     "@type": "Brand",
     "name": "SketchCast AI"
@@ -330,7 +333,7 @@
       "name": "याची किंमत किती?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "एका संपूर्ण धडा-संचासह तुम्ही मोफत सुरू करू शकता — कार्डाची गरज नाही. एक-दोन विषयांसाठी Home Basic महिन्याला $9.99, आणि अख्ख्या अभ्यासक्रमासाठी Homeschool महिन्याला $34 किंवा वर्षाला $340 (दोन महिने मोफत): महिन्याला 48 निर्मिती, 10 विद्यार्थ्यांपर्यंत आणि छापता येणाऱ्या प्रगती-नोंदी."
+        "text": "एका संपूर्ण धडा-संचासह तुम्ही मोफत सुरू करू शकता — कार्डाची गरज नाही. एक-दोन विषयांसाठी Home Basic महिन्याला $9.99, आणि अख्ख्या अभ्यासक्रमासाठी Homeschool महिन्याला $34 किंवा वर्षाला $340 (दोन महिने मोफत): महिन्याला 56 निर्मिती, 10 विद्यार्थ्यांपर्यंत आणि छापता येणाऱ्या प्रगती-नोंदी."
       }
     }
   ]
@@ -435,7 +438,7 @@
       <div class="reveal">
         <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">घरशाळा &amp; शिकवणीदार</p>
         <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline"><span class="uline">पुस्तके<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span> तुमच्याकडे आहेतच. आता शिक्षक-संचही आहे.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">तुम्ही ज्यातून शिकवता ते अभ्यासक्रमाचे पुस्तक अपलोड करा. कोणतेही प्रकरण निवेदनासह व्हिडिओ धडा, पाठ नियोजन, कार्यपत्रिका, प्रश्नपत्रिका, कृती आणि केस स्टडी बनते — नाश्त्याच्या आधी तयार, आणि तुम्ही ज्या भाषेत शिकवता त्याच भाषेत.</p>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">तुम्ही ज्यातून शिकवता ते अभ्यासक्रमाचे पुस्तक अपलोड करा. कोणतेही प्रकरण निवेदनासह व्हिडिओ धडा, संपादनयोग्य स्लाइड्स, पाठ नियोजन, कार्यपत्रिका, प्रश्नपत्रिका, कृती आणि केस स्टडी बनते — नाश्त्याच्या आधी तयार, आणि तुम्ही ज्या भाषेत शिकवता त्याच भाषेत.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">मोफत सुरू करा — एक संपूर्ण संच</a>
           <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">योजना पाहा</a>
@@ -607,7 +610,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">आत एक प्रकरण</p>
-        <h2 data-i18n="homeschool.kit.heading">बाहेर सहा भाग — एका विषयाचा अख्खा आठवडा</h2>
+        <h2 data-i18n="homeschool.kit.heading">बाहेर सात भाग — एका विषयाचा अख्खा आठवडा</h2>
         <p class="sub" data-i18n="homeschool.kit.sub">एक प्रकरण अपलोड करा आणि SketchCast संपूर्ण अध्यापन-संच परत देते. Word व PowerPoint फाइल्स संपादनयोग्य असतात, म्हणजे शिकवण्याआधी तुम्हाला हवा तो बदल करता येतो.</p>
       </div>
       <div class="kit">
@@ -640,6 +643,11 @@
           <span class="tag" data-i18n="homeschool.kit.k6.tag">वापरा</span>
           <h3 data-i18n="homeschool.kit.k6.title">केस स्टडी</h3>
           <p data-i18n="homeschool.kit.k6.body">चर्चेचे प्रश्न आणि मार्गदर्शक टिपांसह खऱ्या जगातला एक प्रसंग, म्हणजे प्रकरण पानापुरते न राहता पुढे कुठेतरी पोहोचते.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k7.tag">सादर करा</span>
+          <h3 data-i18n="homeschool.kit.k7.title">संपादनयोग्य स्लाइड्स</h3>
+          <p data-i18n="homeschool.kit.k7.body">तोच धडा तुम्ही उघडून बदलू शकाल अशा स्लाइड्सच्या रूपात — प्रत्येकीखाली सुकरात-शैलीच्या टिपांसह, व्हिडिओ लावण्याऐवजी तुम्हीच शिकवावे वाटेल त्या दिवसांसाठी.</p>
         </div>
       </div>
     </div>
@@ -777,7 +785,7 @@
         </details>
         <details class="faq-item">
           <summary data-i18n="homeschool.faq.q6.q">याची किंमत किती?</summary>
-          <p data-i18n="homeschool.faq.q6.a">एका संपूर्ण धडा-संचासह तुम्ही मोफत सुरू करू शकता — कार्डाची गरज नाही. एक-दोन विषयांसाठी Home Basic महिन्याला $9.99, आणि अख्ख्या अभ्यासक्रमासाठी Homeschool महिन्याला $34 किंवा वर्षाला $340 (दोन महिने मोफत): महिन्याला 48 निर्मिती, 10 विद्यार्थ्यांपर्यंत आणि छापता येणाऱ्या प्रगती-नोंदी.</p>
+          <p data-i18n="homeschool.faq.q6.a">एका संपूर्ण धडा-संचासह तुम्ही मोफत सुरू करू शकता — कार्डाची गरज नाही. एक-दोन विषयांसाठी Home Basic महिन्याला $9.99, आणि अख्ख्या अभ्यासक्रमासाठी Homeschool महिन्याला $34 किंवा वर्षाला $340 (दोन महिने मोफत): महिन्याला 56 निर्मिती, 10 विद्यार्थ्यांपर्यंत आणि छापता येणाऱ्या प्रगती-नोंदी.</p>
         </details>
       </div>
     </div>
@@ -787,7 +795,7 @@
   <section class="cta band">
     <div class="wrap reveal">
       <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle"><span class="circle">उद्याच्या धड्यावर<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span> वापरून पाहा</h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">एक प्रकरण अपलोड करा आणि सहा भागांचा संपूर्ण संच मोफत मिळवा — कार्ड नाही, चाचणीचे घड्याळ नाही. त्याने तुमची एक संध्याकाळ वाचली, तर योजना आहेतच.</p>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">एक प्रकरण अपलोड करा आणि सात भागांचा संपूर्ण संच मोफत मिळवा — कार्ड नाही, चाचणीचे घड्याळ नाही. त्याने तुमची एक संध्याकाळ वाचली, तर योजना आहेतच.</p>
       <div class="cta-btns">
         <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">मोफत सुरू करा</a>
         <a class="btn btn-ghost" href="/mr/pricing" data-i18n="homeschool.cta.secondary">सर्व किंमती पाहा</a>

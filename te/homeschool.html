@@ -110,6 +110,8 @@
 
   /* ── cards ── */
   .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  /* Seven cards in three columns leave one alone on the last row; centre it. */
+  .kit>:last-child{grid-column:2}
   .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
   .band .card{background:var(--canvas)}
@@ -166,6 +168,7 @@
   @media(max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .kit,.plans{grid-template-columns:1fr}
+    .kit>:last-child{grid-column:auto}
     .feat,.rec{grid-template-columns:1fr}
     .day{grid-template-columns:1fr 1fr}
     .day div:nth-child(3){border-inline-start:0}
@@ -220,7 +223,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "ఇంట్లో పాఠ్యప్రణాళిక మొత్తం — విద్యార్థుల జాబితా నిండిన ట్యూటర్లకూ · నెలకు 48 తయారీలు — దాదాపు 8 పూర్తి పాఠ కిట్‌లు · 10 మంది అభ్యాసకుల వరకు, ఒక్కొక్కరికీ వారి సొంత పుస్తకాలు · ప్రతి అభ్యాసకుడికీ ప్రింట్ చేయదగిన పురోగతి నివేదికలు · నెలకు 4 కొత్త పుస్తకాలు · ప్రతి అభ్యాసకుడికీ AI చదువు కోచ్",
+  "description": "ఇంట్లో పాఠ్యప్రణాళిక మొత్తం — విద్యార్థుల జాబితా నిండిన ట్యూటర్లకూ · నెలకు 56 తయారీలు — దాదాపు 8 పూర్తి పాఠ కిట్‌లు · 10 మంది అభ్యాసకుల వరకు, ఒక్కొక్కరికీ వారి సొంత పుస్తకాలు · ప్రతి అభ్యాసకుడికీ ప్రింట్ చేయదగిన పురోగతి నివేదికలు · నెలకు 4 కొత్త పుస్తకాలు · ప్రతి అభ్యాసకుడికీ AI చదువు కోచ్",
   "brand": {
     "@type": "Brand",
     "name": "SketchCast AI"
@@ -330,7 +333,7 @@
       "name": "ఖర్చు ఎంత?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ఒక పూర్తి పాఠ కిట్‌తో ఉచితంగా మొదలుపెట్టవచ్చు — కార్డ్ అవసరం లేదు. ఒకటి రెండు సబ్జెక్టులకు Home Basic నెలకు $9.99; పాఠ్యప్రణాళిక మొత్తానికి Homeschool నెలకు $34 లేదా ఏడాదికి $340 (రెండు నెలలు ఉచితం): నెలకు 48 తయారీలు, 10 మంది అభ్యాసకుల వరకు, ప్రింట్ చేయదగిన పురోగతి నివేదికలు."
+        "text": "ఒక పూర్తి పాఠ కిట్‌తో ఉచితంగా మొదలుపెట్టవచ్చు — కార్డ్ అవసరం లేదు. ఒకటి రెండు సబ్జెక్టులకు Home Basic నెలకు $9.99; పాఠ్యప్రణాళిక మొత్తానికి Homeschool నెలకు $34 లేదా ఏడాదికి $340 (రెండు నెలలు ఉచితం): నెలకు 56 తయారీలు, 10 మంది అభ్యాసకుల వరకు, ప్రింట్ చేయదగిన పురోగతి నివేదికలు."
       }
     }
   ]
@@ -435,7 +438,7 @@
       <div class="reveal">
         <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">ఇంటి బోధన &amp; ట్యూటర్లు</p>
         <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline"><span class="uline">పుస్తకాలు<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span> మీ దగ్గరే ఉన్నాయి. ఇప్పుడు ఉపాధ్యాయ ప్యాక్ కూడా మీదే.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">మీరు బోధించే పాఠ్యపుస్తకాన్ని అప్‌లోడ్ చేయండి. ఏ అధ్యాయమైనా వ్యాఖ్యానంతో వీడియో పాఠంగా, పాఠ ప్రణాళికగా, వర్క్‌షీట్‌గా, పరీక్షా పత్రంగా, కృత్యాలుగా, కేస్ స్టడీగా మారుతుంది — అల్పాహారానికి ముందే సిద్ధం, మీరు బోధించే భాషలోనే.</p>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">మీరు బోధించే పాఠ్యపుస్తకాన్ని అప్‌లోడ్ చేయండి. ఏ అధ్యాయమైనా వ్యాఖ్యానంతో వీడియో పాఠంగా, ఎడిట్ చేయగల స్లయిడ్‌లుగా, పాఠ ప్రణాళికగా, వర్క్‌షీట్‌గా, పరీక్షా పత్రంగా, కృత్యాలుగా, కేస్ స్టడీగా మారుతుంది — అల్పాహారానికి ముందే సిద్ధం, మీరు బోధించే భాషలోనే.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">ఉచితంగా మొదలుపెట్టండి — ఒక పూర్తి కిట్</a>
           <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">ప్లాన్లు చూడండి</a>
@@ -607,7 +610,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">లోపలికి ఒక అధ్యాయం</p>
-        <h2 data-i18n="homeschool.kit.heading">బయటకు ఆరు ముక్కలు — ఒక సబ్జెక్టుకు పూర్తి వారం</h2>
+        <h2 data-i18n="homeschool.kit.heading">బయటకు ఏడు ముక్కలు — ఒక సబ్జెక్టుకు పూర్తి వారం</h2>
         <p class="sub" data-i18n="homeschool.kit.sub">ఒక అధ్యాయం అప్‌లోడ్ చేస్తే SketchCast పూర్తి బోధనా కిట్‌ను ఇస్తుంది. ఎడిట్ చేయగల Word, PowerPoint ఫైళ్లు — బోధించే ముందు దేన్నైనా సరిచేసుకోవచ్చు.</p>
       </div>
       <div class="kit">
@@ -640,6 +643,11 @@
           <span class="tag" data-i18n="homeschool.kit.k6.tag">వర్తింపజేయండి</span>
           <h3 data-i18n="homeschool.kit.k6.title">కేస్ స్టడీ</h3>
           <p data-i18n="homeschool.kit.k6.body">చర్చా ప్రశ్నలు, మార్గదర్శక సూచనలతో ఒక నిజ జీవిత సన్నివేశం — అధ్యాయం పేజీ దాటి బయట కూడా నిలిచేలా.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k7.tag">ప్రదర్శించండి</span>
+          <h3 data-i18n="homeschool.kit.k7.title">ఎడిట్ చేయగల స్లయిడ్‌లు</h3>
+          <p data-i18n="homeschool.kit.k7.body">అదే పాఠం మీరు తెరిచి మార్చుకోగల స్లయిడ్‌ల రూపంలో — ప్రతి దాని కింద సోక్రటిక్ నోట్లతో, వీడియో పెట్టడం కంటే మీరే చెప్పాలనుకున్న రోజుల కోసం.</p>
         </div>
       </div>
     </div>
@@ -777,7 +785,7 @@
         </details>
         <details class="faq-item">
           <summary data-i18n="homeschool.faq.q6.q">ఖర్చు ఎంత?</summary>
-          <p data-i18n="homeschool.faq.q6.a">ఒక పూర్తి పాఠ కిట్‌తో ఉచితంగా మొదలుపెట్టవచ్చు — కార్డ్ అవసరం లేదు. ఒకటి రెండు సబ్జెక్టులకు Home Basic నెలకు $9.99; పాఠ్యప్రణాళిక మొత్తానికి Homeschool నెలకు $34 లేదా ఏడాదికి $340 (రెండు నెలలు ఉచితం): నెలకు 48 తయారీలు, 10 మంది అభ్యాసకుల వరకు, ప్రింట్ చేయదగిన పురోగతి నివేదికలు.</p>
+          <p data-i18n="homeschool.faq.q6.a">ఒక పూర్తి పాఠ కిట్‌తో ఉచితంగా మొదలుపెట్టవచ్చు — కార్డ్ అవసరం లేదు. ఒకటి రెండు సబ్జెక్టులకు Home Basic నెలకు $9.99; పాఠ్యప్రణాళిక మొత్తానికి Homeschool నెలకు $34 లేదా ఏడాదికి $340 (రెండు నెలలు ఉచితం): నెలకు 56 తయారీలు, 10 మంది అభ్యాసకుల వరకు, ప్రింట్ చేయదగిన పురోగతి నివేదికలు.</p>
         </details>
       </div>
     </div>
@@ -787,7 +795,7 @@
   <section class="cta band">
     <div class="wrap reveal">
       <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle"><span class="circle">రేపటి పాఠం<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span> మీద ప్రయత్నించి చూడండి</h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">ఒక అధ్యాయం అప్‌లోడ్ చేస్తే ఆరు ముక్కల పూర్తి కిట్ ఉచితంగా — కార్డ్ లేదు, ట్రయల్ గడువు లేదు. అది మీకు ఒక సాయంత్రాన్ని మిగిల్చితే, ప్లాన్లు ఎప్పుడూ అక్కడే ఉన్నాయి.</p>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">ఒక అధ్యాయం అప్‌లోడ్ చేస్తే ఏడు ముక్కల పూర్తి కిట్ ఉచితంగా — కార్డ్ లేదు, ట్రయల్ గడువు లేదు. అది మీకు ఒక సాయంత్రాన్ని మిగిల్చితే, ప్లాన్లు ఎప్పుడూ అక్కడే ఉన్నాయి.</p>
       <div class="cta-btns">
         <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">ఉచితంగా మొదలుపెట్టండి</a>
         <a class="btn btn-ghost" href="/te/pricing" data-i18n="homeschool.cta.secondary">అన్ని ధరలూ చూడండి</a>
