@@ -108,9 +108,9 @@
   .ph-usd{font-family:var(--mono);font-size:12px;color:var(--graphite)}
 
   /* ── the unit strip ──
-     Deliberately ABOVE the plans. "24 generations a month · about 4 complete
+     Deliberately ABOVE the plans. "28 generations a month · about 4 complete
      kits" is noise until "kit" and "generation" are defined, and a definition
-     placed under the grid arrives one screen after the reader needed it. Six
+     placed under the grid arrives one screen after the reader needed it. Seven
      pills rather than a comma list: each is one or two words, so it survives a
      34%-longer French translation by wrapping instead of overflowing, and the
      .ph-tiers pill is already this site's idiom for a short labelled set. */
@@ -146,8 +146,8 @@
   /* ══ THE COMPARISON SURFACE ═════════════════════════════════════════════
      What was here before: five plans in FOUR different card widths (420 alone
      and centred, 349 x2, 349 x2, 720 centred and grey) spread over 3791px, so a
-     visitor weighing Teacher Pro ($24 / 24 generations) against Homeschool
-     ($34 / 48) had to scroll past a full screen of unrelated content to see
+     visitor weighing Teacher Pro ($24 / 28 generations) against Homeschool
+     ($34 / 56) had to scroll past a full screen of unrelated content to see
      both. Everything below exists to put all four paid prices on one axis, in
      one row of equal columns, inside the first screen. */
   /* padding-BLOCK only. The old `padding:26px 0 8px` is the four-value
@@ -497,13 +497,13 @@
            without it this empty box paints. -->
       <div class="ph-trial" id="trial-banner" hidden></div>
 
-      <!-- THE UNIT, stated before any number. "24 generations a month · about
+      <!-- THE UNIT, stated before any number. "28 generations a month · about
            4 complete kits" is noise until a reader knows what a generation and
            a kit are, so the definition cannot sit below the grid where they
            first meet the figures. Note the upload unit: the WHOLE TEXTBOOK,
            never "a chapter" — a recorded past mistake in this repo's copy. -->
       <div class="ph-unit">
-        <p class="ph-unit-txt"><span class="ph-unit-lead" data-i18n="pricing.unit.lead">ساتو کيت اياله انم بهاݢين.</span> <span class="ph-unit-sub" data-i18n="pricing.unit.sub">موات نايق سلوروه بوکو تيکس سکالي سهاج — ستياڤ بهاݢين دکيرا ساتو جاناءن، جادي ساتو کيت اياله انم.</span></p>
+        <p class="ph-unit-txt"><span class="ph-unit-lead" data-i18n="pricing.unit.lead">ساتو کيت اياله توجوه بهاݢين.</span> <span class="ph-unit-sub" data-i18n="pricing.unit.sub">موات نايق سلوروه بوکو تيکس سکالي سهاج — انم درڤد توجوه دکيرا ساتو جاناءن ستياڤ ساتو، دان سلايد ايت ڤرچوما.</span></p>
         <ul class="ph-chips">
           <li data-i18n="pricing.unit.p1">ڤلاجرن ۏيديو برناراسي</li>
           <li data-i18n="pricing.unit.p2">لمبرن کرجا</li>
@@ -511,6 +511,7 @@
           <li data-i18n="pricing.unit.p4">اکتيۏيتي</li>
           <li data-i18n="pricing.unit.p5">کرتس ڤڤريقساءن</li>
           <li data-i18n="pricing.unit.p6">کاجين کيس</li>
+          <li data-i18n="pricing.unit.p7">سلايد بوليه سونتيڠ</li>
         </ul>
       </div>
     </div>
@@ -571,7 +572,7 @@
       <div class="ph-rail-txt">
         <p class="eyebrow" data-i18n="pricing.free.eyebrow">مولا د سيني</p>
         <h3 class="ph-rail-lead" data-i18n="pricing.free.heading">ڤرچوما اونتوق سموا، ݢورو ماهوڤون ايبو باڤ.</h3>
-        <p class="ph-rail-body" data-i18n="pricing.free.sub">ساتو بوکو، ساتو کيت انم بهاݢين يڠ لڠکڤ — تياد کاد، تياد ڤماس. ڤيليه ڤلن د باوه هاڽ اڤابيلا اندا ماهو لبيه.</p>
+        <p class="ph-rail-body" data-i18n="pricing.free.sub">ساتو بوکو، ساتو کيت توجوه بهاݢين يڠ لڠکڤ — تياد کاد، تياد ڤماس. ڤيليه ڤلن د باوه هاڽ اڤابيلا اندا ماهو لبيه.</p>
         <!-- The scope line is written by renderFreeRail() from the config's own
              free.features[0], not typed here — see the comment there. -->
       </div>
@@ -809,7 +810,7 @@
       // THE METER — the aligned comparison zone, and the reason the grid works.
       // Same two label strings in every column, so the rows cannot wrap to
       // different heights in French; the kit count is COMPUTED from generations
-      // and never stored, so "4 kits" can never drift from 24 generations.
+      // and never stored, so "4 kits" can never drift from 28 generations.
       // <bdi dir="ltr"> on the numeral: Latin digits beside Arabic text.
       var gens = plan.generations;
       var kits = (gens != null && P.kitSize) ? Math.round(gens / P.kitSize) : null;
@@ -972,8 +973,8 @@
       if (!slot || !plan) return;
 
       // THE SCOPE OF THE FREE TIER, printed from the config's own features[0] —
-      // "1 book, with the full six-piece kit for one chapter part". The rail's
-      // lede says "one book, one complete six-piece kit", and the hero says
+      // "1 book, with the full seven-piece kit for one chapter part". The rail's
+      // lede says "one book, one complete seven-piece kit", and the hero says
       // "one book and one complete kit"; both pair the two in a single clause,
       // so the natural reading is that the free kit covers the whole book. It
       // does not — the server-side trial pin (migration 0057) gives one book

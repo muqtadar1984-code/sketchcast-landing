@@ -110,6 +110,8 @@
 
   /* ── cards ── */
   .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  /* Seven cards in three columns leave one alone on the last row; centre it. */
+  .kit>:last-child{grid-column:2}
   .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
   .band .card{background:var(--canvas)}
@@ -166,6 +168,7 @@
   @media(max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .kit,.plans{grid-template-columns:1fr}
+    .kit>:last-child{grid-column:auto}
     .feat,.rec{grid-template-columns:1fr}
     .day{grid-template-columns:1fr 1fr}
     .day div:nth-child(3){border-inline-start:0}
@@ -220,7 +223,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "المنهج كاملًا في البيت — وللمدرّس الخصوصي بقائمة طلاب كاملة · 48 عملية إنشاء شهريًا — أي نحو 8 حقائب دروس كاملة · حتى 10 متعلّمين، لكلٍّ منهم كتبه الخاصة · سجلات تقدّم قابلة للطباعة لكل متعلّم · 4 كتب جديدة شهريًا · مدرّب دراسي ذكي لكل متعلّم",
+  "description": "المنهج كاملًا في البيت — وللمدرّس الخصوصي بقائمة طلاب كاملة · 56 عملية إنشاء شهريًا — أي نحو 8 حقائب دروس كاملة · حتى 10 متعلّمين، لكلٍّ منهم كتبه الخاصة · سجلات تقدّم قابلة للطباعة لكل متعلّم · 4 كتب جديدة شهريًا · مدرّب دراسي ذكي لكل متعلّم",
   "brand": {
     "@type": "Brand",
     "name": "SketchCast AI"
@@ -330,7 +333,7 @@
       "name": "كم تكلفته؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "تستطيع البدء مجانًا بحقيبة درس كاملة واحدة — بلا بطاقة. وHome Basic بـ $9.99 شهريًا لمادة أو مادتين، وHomeschool بـ $34 شهريًا أو $340 سنويًا (بشهرين مجانًا) للمنهج كاملًا: 48 عملية إنشاء شهريًا، وحتى 10 متعلّمين، وسجلات تقدّم قابلة للطباعة."
+        "text": "تستطيع البدء مجانًا بحقيبة درس كاملة واحدة — بلا بطاقة. وHome Basic بـ $9.99 شهريًا لمادة أو مادتين، وHomeschool بـ $34 شهريًا أو $340 سنويًا (بشهرين مجانًا) للمنهج كاملًا: 56 عملية إنشاء شهريًا، وحتى 10 متعلّمين، وسجلات تقدّم قابلة للطباعة."
       }
     }
   ]
@@ -435,7 +438,7 @@
       <div class="reveal">
         <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">التعليم المنزلي والمدرّسون الخصوصيون</p>
         <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline"><span class="uline">الكتب<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span> بين يديك أصلًا. وها هي حقيبة المعلم معها.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">ارفع كتاب المنهج الذي تُدرّس منه. أيّ فصل يصير درس فيديو مصحوبًا بالسرد، وخطة درس، وورقة عمل، وامتحانًا، وأنشطة، ودراسة حالة — جاهزًا قبل الفطور، وباللغة التي تُدرّس بها.</p>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">ارفع كتاب المنهج الذي تُدرّس منه. أيّ فصل يصير درس فيديو مصحوبًا بالسرد، وشرائح قابلة للتعديل، وخطة درس، وورقة عمل، وامتحانًا، وأنشطة، ودراسة حالة — جاهزًا قبل الفطور، وباللغة التي تُدرّس بها.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">ابدأ مجانًا — حقيبة كاملة</a>
           <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">اطّلع على الخطط</a>
@@ -607,7 +610,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">فصلٌ واحد يدخل</p>
-        <h2 data-i18n="homeschool.kit.heading">ست قطع تخرج — أسبوع كامل من مادة واحدة</h2>
+        <h2 data-i18n="homeschool.kit.heading">سبع قطع تخرج — أسبوع كامل من مادة واحدة</h2>
         <p class="sub" data-i18n="homeschool.kit.sub">ارفع فصلًا ليعيد لك SketchCast حقيبة تدريس كاملة. ملفات Word وPowerPoint قابلة للتعديل، فتضبط ما تشاء قبل أن تُدرّسه.</p>
       </div>
       <div class="kit">
@@ -640,6 +643,11 @@
           <span class="tag" data-i18n="homeschool.kit.k6.tag">طبِّق</span>
           <h3 data-i18n="homeschool.kit.k6.title">دراسة حالة</h3>
           <p data-i18n="homeschool.kit.k6.body">سيناريو من الواقع بأسئلة نقاش وملاحظات إرشادية، فيحطّ الفصل في مكان أبعد من الصفحة.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k7.tag">اعرض</span>
+          <h3 data-i18n="homeschool.kit.k7.title">شرائح قابلة للتعديل</h3>
+          <p data-i18n="homeschool.kit.k7.body">الدرس نفسه في صورة شرائح تفتحها وتعدّلها — مع ملاحظات سقراطية تحت كل شريحة، لأيامٍ تفضّل فيها أن تشرح بنفسك بدل تشغيل الفيديو.</p>
         </div>
       </div>
     </div>
@@ -777,7 +785,7 @@
         </details>
         <details class="faq-item">
           <summary data-i18n="homeschool.faq.q6.q">كم تكلفته؟</summary>
-          <p data-i18n="homeschool.faq.q6.a">تستطيع البدء مجانًا بحقيبة درس كاملة واحدة — بلا بطاقة. وHome Basic بـ $9.99 شهريًا لمادة أو مادتين، وHomeschool بـ $34 شهريًا أو $340 سنويًا (بشهرين مجانًا) للمنهج كاملًا: 48 عملية إنشاء شهريًا، وحتى 10 متعلّمين، وسجلات تقدّم قابلة للطباعة.</p>
+          <p data-i18n="homeschool.faq.q6.a">تستطيع البدء مجانًا بحقيبة درس كاملة واحدة — بلا بطاقة. وHome Basic بـ $9.99 شهريًا لمادة أو مادتين، وHomeschool بـ $34 شهريًا أو $340 سنويًا (بشهرين مجانًا) للمنهج كاملًا: 56 عملية إنشاء شهريًا، وحتى 10 متعلّمين، وسجلات تقدّم قابلة للطباعة.</p>
         </details>
       </div>
     </div>
@@ -787,7 +795,7 @@
   <section class="cta band">
     <div class="wrap reveal">
       <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">جرّبه على <span class="circle">درس الغد<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">ارفع فصلًا واحدًا واحصل على الحقيبة الكاملة من ست قطع مجانًا — بلا بطاقة ولا مؤقّت تجربة. وإن وفّر عليك أمسية، فالخطط في انتظارك.</p>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">ارفع فصلًا واحدًا واحصل على الحقيبة الكاملة من سبع قطع مجانًا — بلا بطاقة ولا مؤقّت تجربة. وإن وفّر عليك أمسية، فالخطط في انتظارك.</p>
       <div class="cta-btns">
         <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">ابدأ مجانًا</a>
         <a class="btn btn-ghost" href="/ar/pricing" data-i18n="homeschool.cta.secondary">اطّلع على كل الأسعار</a>

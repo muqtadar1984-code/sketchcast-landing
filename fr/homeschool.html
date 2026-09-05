@@ -110,6 +110,8 @@
 
   /* ── cards ── */
   .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  /* Seven cards in three columns leave one alone on the last row; centre it. */
+  .kit>:last-child{grid-column:2}
   .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
   .band .card{background:var(--canvas)}
@@ -166,6 +168,7 @@
   @media(max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .kit,.plans{grid-template-columns:1fr}
+    .kit>:last-child{grid-column:auto}
     .feat,.rec{grid-template-columns:1fr}
     .day{grid-template-columns:1fr 1fr}
     .day div:nth-child(3){border-inline-start:0}
@@ -220,7 +223,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "Tout le programme à la maison — et les professeurs particuliers au planning bien rempli · 48 générations par mois — soit environ 8 kits pédagogiques complets · Jusqu'à 10 apprenants, chacun avec ses propres livres · Relevés de progression imprimables par apprenant · 4 nouveaux manuels par mois · Coach de révision IA pour chaque apprenant",
+  "description": "Tout le programme à la maison — et les professeurs particuliers au planning bien rempli · 56 générations par mois — soit environ 8 kits pédagogiques complets · Jusqu'à 10 apprenants, chacun avec ses propres livres · Relevés de progression imprimables par apprenant · 4 nouveaux manuels par mois · Coach de révision IA pour chaque apprenant",
   "brand": {
     "@type": "Brand",
     "name": "SketchCast AI"
@@ -330,7 +333,7 @@
       "name": "Combien ça coûte ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Vous pouvez commencer gratuitement avec un kit pédagogique complet — sans carte bancaire. Home Basic coûte 9,99 $ par mois pour une matière ou deux, et Homeschool 34 $ par mois ou 340 $ par an (deux mois offerts) pour tout le programme : 48 générations par mois, jusqu'à 10 apprenants et des relevés de progression imprimables."
+        "text": "Vous pouvez commencer gratuitement avec un kit pédagogique complet — sans carte bancaire. Home Basic coûte 9,99 $ par mois pour une matière ou deux, et Homeschool 34 $ par mois ou 340 $ par an (deux mois offerts) pour tout le programme : 56 générations par mois, jusqu'à 10 apprenants et des relevés de progression imprimables."
       }
     }
   ]
@@ -434,7 +437,7 @@
       <div class="reveal">
         <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">École à la maison &amp; cours particuliers</p>
         <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">Vous avez déjà les <span class="uline">livres<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. Il ne manquait que le guide du professeur.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">Importez le manuel sur lequel vous enseignez. N'importe quel chapitre devient une leçon vidéo narrée, une fiche de préparation, une fiche d'exercices, un sujet d'examen, des activités et une étude de cas — prêts avant le petit-déjeuner, dans la langue dans laquelle vous enseignez.</p>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">Importez le manuel sur lequel vous enseignez. N'importe quel chapitre devient une leçon vidéo narrée, un diaporama modifiable, une fiche de préparation, une fiche d'exercices, un sujet d'examen, des activités et une étude de cas — prêts avant le petit-déjeuner, dans la langue dans laquelle vous enseignez.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">Commencer gratuitement — un kit complet</a>
           <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">Voir les offres</a>
@@ -606,7 +609,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">Un chapitre en entrée</p>
-        <h2 data-i18n="homeschool.kit.heading">Six éléments en sortie — une semaine entière dans une matière</h2>
+        <h2 data-i18n="homeschool.kit.heading">Sept éléments en sortie — une semaine entière dans une matière</h2>
         <p class="sub" data-i18n="homeschool.kit.sub">Importez un chapitre et SketchCast vous rend un kit pédagogique complet. Des fichiers Word et PowerPoint modifiables, pour ajuster ce que vous voulez avant de l'enseigner.</p>
       </div>
       <div class="kit">
@@ -639,6 +642,11 @@
           <span class="tag" data-i18n="homeschool.kit.k6.tag">appliquer</span>
           <h3 data-i18n="homeschool.kit.k6.title">Étude de cas</h3>
           <p data-i18n="homeschool.kit.k6.body">Un scénario tiré du réel, avec des questions de discussion et des notes d'accompagnement, pour que le chapitre trouve un prolongement hors du livre.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k7.tag">présenter</span>
+          <h3 data-i18n="homeschool.kit.k7.title">Diaporama modifiable</h3>
+          <p data-i18n="homeschool.kit.k7.body">La même leçon en diapositives que vous pouvez ouvrir et modifier — avec des notes socratiques sous chacune, pour les jours où vous préférez enseigner vous-même plutôt que lancer la vidéo.</p>
         </div>
       </div>
     </div>
@@ -776,7 +784,7 @@
         </details>
         <details class="faq-item">
           <summary data-i18n="homeschool.faq.q6.q">Combien ça coûte ?</summary>
-          <p data-i18n="homeschool.faq.q6.a">Vous pouvez commencer gratuitement avec un kit pédagogique complet — sans carte bancaire. Home Basic coûte 9,99 $ par mois pour une matière ou deux, et Homeschool 34 $ par mois ou 340 $ par an (deux mois offerts) pour tout le programme : 48 générations par mois, jusqu'à 10 apprenants et des relevés de progression imprimables.</p>
+          <p data-i18n="homeschool.faq.q6.a">Vous pouvez commencer gratuitement avec un kit pédagogique complet — sans carte bancaire. Home Basic coûte 9,99 $ par mois pour une matière ou deux, et Homeschool 34 $ par mois ou 340 $ par an (deux mois offerts) pour tout le programme : 56 générations par mois, jusqu'à 10 apprenants et des relevés de progression imprimables.</p>
         </details>
       </div>
     </div>
@@ -786,7 +794,7 @@
   <section class="cta band">
     <div class="wrap reveal">
       <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">Essayez-le sur <span class="circle">la leçon de demain<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">Importez un chapitre et recevez gratuitement le kit complet en six éléments — sans carte bancaire, sans compte à rebours. Si cela vous fait gagner une soirée, les offres sont là.</p>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">Importez un chapitre et recevez gratuitement le kit complet en sept éléments — sans carte bancaire, sans compte à rebours. Si cela vous fait gagner une soirée, les offres sont là.</p>
       <div class="cta-btns">
         <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">Commencer gratuitement</a>
         <a class="btn btn-ghost" href="/fr/pricing" data-i18n="homeschool.cta.secondary">Voir tous les tarifs</a>

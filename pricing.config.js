@@ -80,30 +80,66 @@
     appSignupUrl: APP_SIGNUP,
 
     // ── THE UNIT ────────────────────────────────────────────────────────────
-    // A GENERATION is one artefact and costs one credit; a KIT is six of them
-    // (narrated lesson + worksheet + lesson plan + activities + test paper +
-    // case study). The pricing page's meter shows both numbers per plan, and it
-    // DERIVES the kit count as generations / kitSize — "4 kits" is never stored
-    // anywhere, so it cannot drift from "24 generations". All five allowances
-    // divide exactly: 6, 12, 24, 48, 72 → 1, 2, 4, 8, 12.
+    // A KIT is seven artefacts (narrated lesson + slide deck + worksheet +
+    // lesson plan + activities + test paper + case study). SIX of them are
+    // GENERATIONS — the slide deck rides free on its lesson's credit, because
+    // app-side migration 0103 deliberately left 'deck' out of the billable
+    // kinds (credit_ledger_write, fair_use_used, fair_use_used_since). So a kit
+    // is seven pieces and costs SIX generations, and no copy on this site may
+    // say the deck is charged. Do NOT "fix" that by charging for the deck.
     //
-    // ⚠️ kitSize IS NOT THE ONLY PLACE THE NUMBER SIX APPEARS. It is the only
+    // kitSize is therefore NOT "what a kit costs" — it is the divisor behind
+    // the ADVERTISED kit count, and it is deliberately the larger of the two
+    // numbers (7, not 6) so the page can only ever UNDERSTATE what a plan buys:
+    //   advertised = generations / 7 → 1, 2, 4, 8, 12
+    //   actually buildable = generations / 6 → 1, 2, 4 (+4 spare), 9, 14
+    // The meter DERIVES its kit count as generations / kitSize — "4 kits" is
+    // never stored anywhere, so it cannot drift from "28 generations". All five
+    // allowances divide exactly by 7: 7, 14, 28, 56, 84 → 1, 2, 4, 8, 12.
+    //
+    // ⚠️ ORDER OF OPERATIONS. The generation numbers below (7 / 14 / 28 / 56 /
+    // 84) are the caps in app-side migration 0107_seven_piece_kit_allowances,
+    // which the FOUNDER applies by hand. Until it is applied, the live caps are
+    // still 6 / 12 / 24 / 48 / 72 and every figure here overstates the
+    // allowance by a sixth. This repo has no CI and deploys on push to main, so
+    // 0107 must be applied BEFORE this branch is merged, not after.
+    //
+    // ⚠️ kitSize IS NOT THE ONLY PLACE THE KIT'S SIZE APPEARS. It is the only
     // authority for anything DERIVED (the per-plan kit count), but the page
     // also states it in prose, and prose cannot be derived from a config value
     // without either printing "{n}" to readers with JavaScript off or moving
-    // six translated pill labels out of the crawlable markup. So if the kit
-    // ever stops being six pieces, these change WITH this line, in all ten
+    // seven translated pill labels out of the crawlable markup. So if the kit
+    // ever stops being seven pieces, these change WITH this line, in all ten
     // languages, in the same commit:
-    //   strings/*.json  pricing.unit.lead  "One kit is six pieces."
-    //   strings/*.json  pricing.unit.sub   "…so a kit is six."
-    //   strings/*.json  pricing.free.sub   "one complete six-piece kit"
-    //   strings/*.json  pricing.unit.p1…p6 — one pill per piece; the pill
+    //   strings/*.json  pricing.unit.lead  "One kit is seven pieces."
+    //   strings/*.json  pricing.unit.sub   "six of the seven count as one
+    //                   generation each, and the slide deck is free" — this is
+    //                   the ONE sentence that states BOTH numbers; it must keep
+    //                   saying six-of-seven, never "a kit is seven generations"
+    //   strings/*.json  pricing.free.sub   "one complete seven-piece kit"
+    //   strings/*.json  pricing.unit.p1…p7 — one pill per piece; the pill
     //                   COUNT is the definition the reader actually counts
-    //   pricing.html    the six <li> elements carrying those pills
+    //   pricing.html    the seven <li> elements carrying those pills
+    //   strings/*.json  homeschool.kit.k1…k7 — a SECOND grid whose card count
+    //                   is just as much the definition; homeschool.html holds
+    //                   the cards, and .kit's 3-column grid means the count
+    //                   also decides whether the last row is left ragged
+    //   strings/*.json  the prose that states it outside the pricing page:
+    //                   pricing.plans.freeAll.f1, index.outcomes.stat3.body,
+    //                   homeschool.cta.sub, schools.lessons.kit.title,
+    //                   homeschool.kit.heading
+    //   strings/*.json  the piece LISTS, which name the pieces instead of
+    //                   counting them: index.meta.description,
+    //                   index.meta.ogDescription, index.hero.sub,
+    //                   index.how.step2.body, index.outcomes.stat2.body,
+    //                   schools.lessons.kit.body, homeschool.hero.sub
+    //                   (that last one sits 200px above the seven-card grid on
+    //                   the same page, so a list short of a piece is a reader
+    //                   counting six in one place and seven in the other)
     // (pricing.free.sub is already translated in nine locales, so the number
     // is unavoidably in prose today whatever this file does — which is why
     // this is a checklist and not a refactor.)
-    kitSize: 6,
+    kitSize: 7,
 
     // ── FREE-TRIAL MODE ──────────────────────────────────────────────────────
     // While `enabled` and the current time is before `endsAt`, every paid CTA
@@ -126,8 +162,9 @@
     },
 
     // ── ONE free tier, shared by teachers and home educators alike ─────────
-    // The trial is a single complete kit from a single book (6 generations),
-    // enforced server-side by the trial pin — the same shape whoever you are.
+    // The trial is a single complete kit from a single book — seven pieces
+    // costing six generations against a cap of 7 (the deck rides free) —
+    // enforced server-side by the trial pin, the same shape whoever you are.
     free: {
       key: "free",
       i18n: "freeAll",
@@ -142,7 +179,7 @@
       // (here and the founding band) stay one URL each.
       checkout: APP_SIGNUP,
       features: [
-        "1 book, with the full six-piece kit for one chapter part",
+        "1 book, with the full seven-piece kit for one chapter part",
         "Narrated video lessons, worksheets, test papers and lesson plans",
         "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
         "Assign to a learner or a class and track progress"
@@ -169,7 +206,7 @@
         // French. `skipFeatures` are 0-based indices the card does not RENDER —
         // the features array itself is never edited, so f-numbering is stable
         // and homeschool.html's JSON-LD (tag + f1..f5) is untouched. Here: f1
-        // ("24 generations a month…") and f2 ("each counts as one") are exactly
+        // ("28 generations a month…") and f2 ("each counts as one") are exactly
         // what the meter and the unit strip now say better, and f5 ('Class
         // rosters, join codes and whole-class progress') is word-for-word what
         // the 'For teachers' label above this pair already says, on the same
@@ -178,11 +215,11 @@
         // row, and with subgrid that list sizes the shared feature row for all
         // four cards: every bullet Teacher Pro does not render is dead white
         // space removed from the three cards that have fewer.
-        generations: 24,
+        generations: 28,
         who: "A whole class",
         skipFeatures: [0, 1, 4],
         features: [
-          "24 generations a month — about 4 complete lesson kits",
+          "28 generations a month — about 4 complete lesson kits",
           "A lesson, plan, activities, worksheet, test paper or case study — each counts as one",
           "2 new books a month",
           "AI Tutor",
@@ -204,12 +241,12 @@
         checkout: CHECKOUT.teacherProPlus,
         // f1 ("Everything in Teacher Pro, plus:") stays — the card sits next to
         // Teacher Pro. Only f2, the allowance sentence, is skipped.
-        generations: 72,
+        generations: 84,
         who: "A whole class",
         skipFeatures: [1],
         features: [
           "Everything in Teacher Pro, plus:",
-          "48 additional generations — 72 a month, about 12 complete lesson kits",
+          "56 additional generations — 84 a month, about 12 complete lesson kits",
           "2 additional books — 4 a month",
           "Priority generation",
           "Early access to new features"
@@ -230,11 +267,11 @@
         saveLabel: "2 months free",
         cta: "Get Home Basic",
         checkout: CHECKOUT.homeBasic,
-        generations: 12,
+        generations: 14,
         who: "Up to 2 learners",
         skipFeatures: [0, 1], // the meter states the allowance; `who` states the learners
         features: [
-          "12 generations a month — about 2 complete lesson kits",
+          "14 generations a month — about 2 complete lesson kits",
           "Up to 2 learners",
           "Practice papers in the book's own language (9 supported)",
           "Homework help & AI explanations",
@@ -254,11 +291,11 @@
         saveLabel: "2 months free",
         cta: "Choose Homeschool",
         checkout: CHECKOUT.homeschool,
-        generations: 48,
+        generations: 56,
         who: "Up to 10 learners, each with their own books",
         skipFeatures: [0, 1],
         features: [
-          "48 generations a month — about 8 complete lesson kits",
+          "56 generations a month — about 8 complete lesson kits",
           "Up to 10 learners, each with their own books",
           "Printable progress records per learner",
           "4 new books a month",

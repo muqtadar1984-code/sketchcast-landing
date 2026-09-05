@@ -38,14 +38,14 @@
   "index": {
     "meta": {
       "title": "SketchCast AI — Un capítulo del libro, ya explicado",
-      "description": "Suba el libro de texto entero y SketchCast encuentra los capítulos. Elija uno y un solo clic dibuja el kit completo de la clase: un video narrado, diapositivas editables con notas socráticas, plan de clase, actividades, hoja de trabajo y examen. Gratis para profesores y alumnos.",
+      "description": "Suba el libro de texto entero y SketchCast encuentra los capítulos. Elija uno y un solo clic dibuja el kit completo de la clase: un video narrado, diapositivas editables con notas socráticas, plan de clase, actividades, hoja de trabajo, examen y caso práctico. Gratis para profesores y alumnos.",
       "ogTitle": "SketchCast AI — Un capítulo del libro, ya explicado",
-      "ogDescription": "Suba el libro de texto entero; un clic convierte cualquier capítulo en el kit completo: video narrado, diapositivas editables, plan, hojas de trabajo y examen. Gratis para profesores y alumnos."
+      "ogDescription": "Suba el libro de texto entero; un clic convierte cualquier capítulo en el kit completo: video narrado, diapositivas editables, plan, hojas de trabajo, examen y caso práctico. Gratis para profesores y alumnos."
     },
     "hero": {
       "eyebrow": "PDF del libro → clase narrada",
       "headline": "Un capítulo del libro que <mark>se explica solo</mark>.",
-      "sub": "Suba el libro de texto entero una sola vez. A partir de ahí, un clic convierte cualquier capítulo en el kit completo — un video narrado que se dibuja solo, diapositivas editables con notas socráticas, un plan de clase, actividades, una hoja de trabajo y un examen — y después asígnelo y vea quién lo ha terminado. Minutos, no tardes enteras.",
+      "sub": "Suba el libro de texto entero una sola vez. A partir de ahí, un clic convierte cualquier capítulo en el kit completo — un video narrado que se dibuja solo, diapositivas editables con notas socráticas, un plan de clase, actividades, una hoja de trabajo, un examen y un caso práctico — y después asígnelo y vea quién lo ha terminado. Minutos, no tardes enteras.",
       "ctaPrimary": "Empezar gratis",
       "ctaSecondary": "Ver cómo funciona",
       "stat": "<b>0</b> configuración &nbsp;·&nbsp; <b>minutos</b> para generar &nbsp;·&nbsp; <b>$0</b> para empezar"
@@ -71,7 +71,7 @@
       "step2": {
         "num": "02",
         "title": "Elija un capítulo",
-        "body": "Elija uno de la lista. Un clic dibuja el kit entero: video, diapositivas, plan, actividades, hoja de trabajo y examen, todo junto."
+        "body": "Elija uno de la lista. Un clic dibuja el kit entero: video, diapositivas, plan, actividades, hoja de trabajo, examen y caso práctico, todo junto."
       },
       "step3": {
         "num": "03",
@@ -88,11 +88,11 @@
       },
       "stat2": {
         "big": "1<em> clic</em>",
-        "body": "Un clic dibuja el kit completo: videolección, diapositivas, plan, actividades, hoja de trabajo y examen. Cada pieza cuenta como una generación de su asignación mensual."
+        "body": "Un clic dibuja el kit completo: videolección, diapositivas, plan, actividades, hoja de trabajo, examen y caso práctico. Seis de ellos cuentan como una generación cada uno de su asignación mensual; las diapositivas son gratis."
       },
       "stat3": {
         "big": "$0",
-        "body": "Empiece gratis: un libro y un kit completo — seis generaciones — sin pagar nada."
+        "body": "Empiece gratis: un libro y un kit completo de siete piezas — sin pagar nada."
       }
     },
     "free": {
@@ -251,8 +251,8 @@
       "sub": "El mismo motor que enamora a los profesores particulares, a escala de colegio: suba los libros con los que su centro enseña de verdad y cada capítulo se convierte en un kit completo.",
       "kit": {
         "tag": "kit completo",
-        "title": "Seis piezas, un clic",
-        "body": "Cada generación produce el kit completo de una vez — una videolección narrada que se dibuja sola, diapositivas editables, un plan de clase, actividades, una hoja de trabajo y un examen — <b>anclados en el capítulo</b>, no en internet."
+        "title": "Siete piezas, un clic",
+        "body": "Cada generación produce el kit completo de una vez — una videolección narrada que se dibuja sola, diapositivas editables, un plan de clase, actividades, una hoja de trabajo, un examen y un caso práctico — <b>anclados en el capítulo</b>, no en internet."
       },
       "parts": {
         "tag": "capítulos largos",
@@ -351,7 +351,7 @@
     "hero": {
       "eyebrow": "Educación en casa &amp; tutores",
       "headline": "Ya tiene los <mark>libros</mark>. Ahora tiene el material del profesor.",
-      "sub": "Suba el libro del currículo con el que enseña. Cualquier capítulo se convierte en una videolección narrada, un plan de clase, una hoja de trabajo, un examen, actividades y un caso práctico — listos antes del desayuno, en el idioma en que usted enseña.",
+      "sub": "Suba el libro del currículo con el que enseña. Cualquier capítulo se convierte en una videolección narrada, unas diapositivas editables, un plan de clase, una hoja de trabajo, un examen, actividades y un caso práctico — listos antes del desayuno, en el idioma en que usted enseña.",
       "ctaPrimary": "Empiece gratis — un kit completo",
       "ctaSecondary": "Ver planes",
       "stat": "<b>8 kits al mes</b> · <b>hasta 10 estudiantes</b> · <b>9 idiomas</b> — una sola suscripción para toda la casa"
@@ -393,7 +393,7 @@
     },
     "kit": {
       "eyebrow": "Entra un capítulo",
-      "heading": "Salen seis piezas — una semana entera de una materia",
+      "heading": "Salen siete piezas — una semana entera de una materia",
       "sub": "Suba un capítulo y SketchCast le devuelve un kit de enseñanza completo. Archivos de Word y PowerPoint editables, para que pueda ajustar lo que quiera antes de dar la clase.",
       "k1": {
         "tag": "Enseñar",
@@ -424,6 +424,11 @@
         "tag": "Aplicar",
         "title": "Caso práctico",
         "body": "Una situación del mundo real con preguntas de discusión y notas de orientación, para que el capítulo aterrice más allá de la página."
+      },
+      "k7": {
+        "tag": "Presentar",
+        "title": "Diapositivas editables",
+        "body": "La misma clase en diapositivas que puede abrir y editar — con notas socráticas debajo de cada una, para los días en que prefiera explicarla usted en vez de poner el video."
       }
     },
     "learners": {
@@ -510,12 +515,12 @@
       },
       "q6": {
         "q": "¿Cuánto cuesta?",
-        "a": "Puede empezar gratis con un kit de clase completo — sin tarjeta. Home Basic cuesta $9.99 al mes para una o dos materias, y Homeschool cuesta $34 al mes o $340 al año (dos meses gratis) para todo el currículo: 48 generaciones al mes, hasta 10 estudiantes e informes de progreso imprimibles."
+        "a": "Puede empezar gratis con un kit de clase completo — sin tarjeta. Home Basic cuesta $9.99 al mes para una o dos materias, y Homeschool cuesta $34 al mes o $340 al año (dos meses gratis) para todo el currículo: 56 generaciones al mes, hasta 10 estudiantes e informes de progreso imprimibles."
       }
     },
     "cta": {
       "heading": "Pruébelo con la <mark>clase de mañana</mark>",
-      "sub": "Suba un capítulo y reciba gratis el kit completo de seis piezas — sin tarjeta y sin reloj de prueba. Si le ahorra una tarde, ahí están los planes.",
+      "sub": "Suba un capítulo y reciba gratis el kit completo de siete piezas — sin tarjeta y sin reloj de prueba. Si le ahorra una tarde, ahí están los planes.",
       "primary": "Empezar gratis",
       "secondary": "Ver todos los precios",
       "note": "¿Dudas sobre el uso en educación en casa o en clases particulares? <a href=\"mailto:hello@sketchcast.app\">Escríbanos</a> — le responde una persona de verdad."
@@ -548,14 +553,15 @@
     },
     "noscript": "Active JavaScript para ver los precios en vivo, o <a href=\"https://app.sketchcast.app/signup\">empiece gratis</a> y elija plan dentro de la aplicación.",
     "unit": {
-      "lead": "Un kit son seis piezas.",
-      "sub": "Suba el libro de texto entero una sola vez — cada pieza cuenta como una generación, así que un kit son seis.",
+      "lead": "Un kit son siete piezas.",
+      "sub": "Suba el libro de texto entero una sola vez — seis de las siete piezas cuentan como una generación cada una, y las diapositivas son gratis.",
       "p1": "Videolección narrada",
       "p2": "Hoja de trabajo",
       "p3": "Plan de clase",
       "p4": "Actividades",
       "p5": "Examen",
-      "p6": "Caso práctico"
+      "p6": "Caso práctico",
+      "p7": "Diapositivas editables"
     },
     "compare": {
       "heading": "Compare todos los planes",
@@ -569,7 +575,7 @@
     "free": {
       "eyebrow": "Empiece aquí",
       "heading": "Gratis para todos, profesor o padre de familia.",
-      "sub": "Un libro, un kit completo de seis piezas — sin tarjeta y sin reloj. Elija un plan de abajo solo cuando quiera más.",
+      "sub": "Un libro, un kit completo de siete piezas — sin tarjeta y sin reloj. Elija un plan de abajo solo cuando quiera más.",
       "panel": "Plan gratuito"
     },
     "teachers": {
@@ -600,7 +606,7 @@
         "name": "Gratis",
         "tag": "Pruébelo con su próxima clase",
         "cta": "Empezar gratis",
-        "f1": "1 libro, con el kit completo de seis piezas para una parte de un capítulo",
+        "f1": "1 libro, con el kit completo de siete piezas para una parte de un capítulo",
         "f2": "Videolecciones narradas, hojas de trabajo, exámenes y planes de clase",
         "f3": "9 idiomas de clase, detectados automáticamente de su libro (árabe completamente de derecha a izquierda)",
         "f4": "Asigne a un estudiante o a una clase y siga el progreso"
@@ -612,7 +618,7 @@
         "cta": "Elegir Teacher Pro",
         "saveLabel": "Ahorre $48 al año",
         "who": "Una clase entera",
-        "f1": "24 generaciones al mes — unos 4 kits de clase completos",
+        "f1": "28 generaciones al mes — unos 4 kits de clase completos",
         "f2": "Videolección, plan, actividades, hoja de trabajo, examen o caso práctico: cada uno cuenta como una generación",
         "f3": "2 libros nuevos al mes",
         "f4": "Tutor con IA",
@@ -628,7 +634,7 @@
         "saveLabel": "Ahorre $98 al año",
         "who": "Una clase entera",
         "f1": "Todo lo de Teacher Pro, y además:",
-        "f2": "48 generaciones adicionales — 72 al mes, unos 12 kits de clase completos",
+        "f2": "56 generaciones adicionales — 84 al mes, unos 12 kits de clase completos",
         "f3": "2 libros adicionales — 4 al mes",
         "f4": "Generación prioritaria",
         "f5": "Acceso anticipado a las novedades"
@@ -639,7 +645,7 @@
         "cta": "Elegir Home Basic",
         "who": "Hasta 2 estudiantes",
         "saveLabel": "2 meses gratis",
-        "f1": "12 generaciones al mes — unos 2 kits de clase completos",
+        "f1": "14 generaciones al mes — unos 2 kits de clase completos",
         "f2": "Hasta 2 estudiantes",
         "f3": "Exámenes de práctica en el idioma del propio libro (9 admitidos)",
         "f4": "Ayuda con la tarea y explicaciones con IA",
@@ -653,7 +659,7 @@
         "cta": "Elegir Homeschool",
         "who": "Hasta 10 estudiantes, cada uno con sus propios libros",
         "saveLabel": "2 meses gratis",
-        "f1": "48 generaciones al mes — unos 8 kits de clase completos",
+        "f1": "56 generaciones al mes — unos 8 kits de clase completos",
         "f2": "Hasta 10 estudiantes, cada uno con sus propios libros",
         "f3": "Informes de progreso imprimibles por estudiante",
         "f4": "4 libros nuevos al mes",

@@ -110,6 +110,8 @@
 
   /* ── cards ── */
   .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  /* Seven cards in three columns leave one alone on the last row; centre it. */
+  .kit>:last-child{grid-column:2}
   .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
   .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
   .band .card{background:var(--canvas)}
@@ -166,6 +168,7 @@
   @media(max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .kit,.plans{grid-template-columns:1fr}
+    .kit>:last-child{grid-column:auto}
     .feat,.rec{grid-template-columns:1fr}
     .day{grid-template-columns:1fr 1fr}
     .day div:nth-child(3){border-inline-start:0}
@@ -220,7 +223,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "SketchCast Homeschool",
-  "description": "کسلوروهن کوريکولوم د رومه — دان تيوتور دڠن سناراي ڤلاجر يڠ ڤنوه · 48 جاناءن سبولن — کيرا-کيرا 8 کيت ڤلاجرن لڠکڤ · سهيڠݢ 10 موريد، ماسيڠ-ماسيڠ دڠن بوکو مريک سنديري · رکود کماجوان بوليه چيتق باݢي ستياڤ موريد · 4 بوکو بهارو سبولن · جورولاتيه اولڠ کاجي AI اونتوق ستياڤ موريد",
+  "description": "کسلوروهن کوريکولوم د رومه — دان تيوتور دڠن سناراي ڤلاجر يڠ ڤنوه · 56 جاناءن سبولن — کيرا-کيرا 8 کيت ڤلاجرن لڠکڤ · سهيڠݢ 10 موريد، ماسيڠ-ماسيڠ دڠن بوکو مريک سنديري · رکود کماجوان بوليه چيتق باݢي ستياڤ موريد · 4 بوکو بهارو سبولن · جورولاتيه اولڠ کاجي AI اونتوق ستياڤ موريد",
   "brand": {
     "@type": "Brand",
     "name": "SketchCast AI"
@@ -330,7 +333,7 @@
       "name": "براڤاکه کوسڽ؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "اندا بوليه مولا سچارا ڤرچوما دڠن ساتو کيت ڤلاجرن يڠ لڠکڤ — تياد کاد دڤرلوکن. Home Basic اياله $9.99 سبولن اونتوق ساتو دوا مات ڤلاجرن، دان Homeschool اياله $34 سبولن اتاو $340 ستاهون (دوا بولن ڤرچوما) اونتوق کسلوروهن کوريکولوم: 48 جاناءن سبولن، سهيڠݢ 10 موريد دان رکود کماجوان يڠ بوليه دچيتق."
+        "text": "اندا بوليه مولا سچارا ڤرچوما دڠن ساتو کيت ڤلاجرن يڠ لڠکڤ — تياد کاد دڤرلوکن. Home Basic اياله $9.99 سبولن اونتوق ساتو دوا مات ڤلاجرن، دان Homeschool اياله $34 سبولن اتاو $340 ستاهون (دوا بولن ڤرچوما) اونتوق کسلوروهن کوريکولوم: 56 جاناءن سبولن، سهيڠݢ 10 موريد دان رکود کماجوان يڠ بوليه دچيتق."
       }
     }
   ]
@@ -435,7 +438,7 @@
       <div class="reveal">
         <p class="eyebrow" data-i18n="homeschool.hero.eyebrow">Homeschool &amp; تيوتور</p>
         <h1 data-i18n="homeschool.hero.headline" data-i18n-mark="uline">اندا سوده اد <span class="uline">بوکوڽ<svg class="ink" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 9 C 44 3, 100 3, 177 7" stroke="#1FB8A6" stroke-width="3.2" stroke-linecap="round" style="--l:190"/></svg></span>. کيني اندا اد ڤيک ݢوروڽ.</h1>
-        <p class="hero-sub" data-i18n="homeschool.hero.sub">موات نايق بوکو کوريکولوم يڠ اندا ݢوناکن اونتوق مڠاجر. مان-مان باب منجادي ڤلاجرن ۏيديو برناراسي، رنچاڠن ڤڠاجرن، لمبرن کرجا، کرتس ڤڤريقساءن، اکتيۏيتي دان کاجين کيس — سياڤ سبلوم سراڤن، دالم بهاس يڠ اندا ݢوناکن اونتوق مڠاجر.</p>
+        <p class="hero-sub" data-i18n="homeschool.hero.sub">موات نايق بوکو کوريکولوم يڠ اندا ݢوناکن اونتوق مڠاجر. مان-مان باب منجادي ڤلاجرن ۏيديو برناراسي، سلايد بوليه سونتيڠ، رنچاڠن ڤڠاجرن، لمبرن کرجا، کرتس ڤڤريقساءن، اکتيۏيتي دان کاجين کيس — سياڤ سبلوم سراڤن، دالم بهاس يڠ اندا ݢوناکن اونتوق مڠاجر.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.hero.ctaPrimary">مولا ڤرچوما — ساتو کيت ڤنوه</a>
           <a class="btn btn-ghost" href="#plans" data-i18n="homeschool.hero.ctaSecondary">ليهت ڤلن</a>
@@ -607,7 +610,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="homeschool.kit.eyebrow">ساتو باب ماسوق</p>
-        <h2 data-i18n="homeschool.kit.heading">انم بهن کلوار — سميڠݢو ڤنوه باݢي ساتو مات ڤلاجرن</h2>
+        <h2 data-i18n="homeschool.kit.heading">توجوه بهن کلوار — سميڠݢو ڤنوه باݢي ساتو مات ڤلاجرن</h2>
         <p class="sub" data-i18n="homeschool.kit.sub">موات نايق ساتو باب دان SketchCast ممولڠکن کيت ڤڠاجرن يڠ لڠکڤ. فايل Word دان PowerPoint يڠ بوليه دسونتيڠ، جادي اندا بوليه اوبه اڤ سهاج سبلوم مڠاجرڽ.</p>
       </div>
       <div class="kit">
@@ -640,6 +643,11 @@
           <span class="tag" data-i18n="homeschool.kit.k6.tag">ݢونا</span>
           <h3 data-i18n="homeschool.kit.k6.title">کاجين کيس</h3>
           <p data-i18n="homeschool.kit.k6.body">سيناريو دنيا سبنر دڠن سوءالن ڤربينچاڠن دان نوتا ڤندوان، سوڤايا باب ايت برمعنى د لوار هلامن بوکو.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag" data-i18n="homeschool.kit.k7.tag">بنتڠ</span>
+          <h3 data-i18n="homeschool.kit.k7.title">سلايد بوليه سونتيڠ</h3>
+          <p data-i18n="homeschool.kit.k7.body">ڤلاجرن يڠ سام دالم بنتوق سلايد يڠ بوليه اندا بوک دان سونتيڠ — دڠن نوتا سوکراتيک د باوه ستياڤڽ، اونتوق هاري-هاري اندا لبيه سوک مڠاجر سنديري درڤد ماءينکن ۏيديو.</p>
         </div>
       </div>
     </div>
@@ -777,7 +785,7 @@
         </details>
         <details class="faq-item">
           <summary data-i18n="homeschool.faq.q6.q">براڤاکه کوسڽ؟</summary>
-          <p data-i18n="homeschool.faq.q6.a">اندا بوليه مولا سچارا ڤرچوما دڠن ساتو کيت ڤلاجرن يڠ لڠکڤ — تياد کاد دڤرلوکن. Home Basic اياله $9.99 سبولن اونتوق ساتو دوا مات ڤلاجرن، دان Homeschool اياله $34 سبولن اتاو $340 ستاهون (دوا بولن ڤرچوما) اونتوق کسلوروهن کوريکولوم: 48 جاناءن سبولن، سهيڠݢ 10 موريد دان رکود کماجوان يڠ بوليه دچيتق.</p>
+          <p data-i18n="homeschool.faq.q6.a">اندا بوليه مولا سچارا ڤرچوما دڠن ساتو کيت ڤلاجرن يڠ لڠکڤ — تياد کاد دڤرلوکن. Home Basic اياله $9.99 سبولن اونتوق ساتو دوا مات ڤلاجرن، دان Homeschool اياله $34 سبولن اتاو $340 ستاهون (دوا بولن ڤرچوما) اونتوق کسلوروهن کوريکولوم: 56 جاناءن سبولن، سهيڠݢ 10 موريد دان رکود کماجوان يڠ بوليه دچيتق.</p>
         </details>
       </div>
     </div>
@@ -787,7 +795,7 @@
   <section class="cta band">
     <div class="wrap reveal">
       <h2 data-i18n="homeschool.cta.heading" data-i18n-mark="circle">چوبا ڤد <span class="circle">ڤلاجرن ايسوق<svg class="ink" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 6 C 60 2, 10 14, 8 37 C 6 62, 70 71, 152 69 C 240 67, 293 56, 291 34 C 289 13, 220 4, 165 5" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--l:760"/></svg></span></h2>
-      <p class="cta-sub" data-i18n="homeschool.cta.sub">موات نايق ساتو باب دان داڤتکن کيت انم بهاݢين يڠ ڤنوه سچارا ڤرچوما — تياد کاد، تياد ڤماس ڤرچوباءن. جک اي مڽلامتکن ساتو ڤتڠ اندا، ڤلنڽ اد د سان.</p>
+      <p class="cta-sub" data-i18n="homeschool.cta.sub">موات نايق ساتو باب دان داڤتکن کيت توجوه بهاݢين يڠ ڤنوه سچارا ڤرچوما — تياد کاد، تياد ڤماس ڤرچوباءن. جک اي مڽلامتکن ساتو ڤتڠ اندا، ڤلنڽ اد د سان.</p>
       <div class="cta-btns">
         <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="homeschool.cta.primary">مولا ڤرچوما</a>
         <a class="btn btn-ghost" href="/ms-arab/pricing" data-i18n="homeschool.cta.secondary">ليهت سموا هرݢ</a>

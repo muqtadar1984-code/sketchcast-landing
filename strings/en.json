@@ -60,14 +60,14 @@
   "index": {
     "meta": {
       "title": "SketchCast AI — A textbook chapter, taught",
-      "description": "Upload the whole textbook; SketchCast finds the chapters. One click draws a chapter's full lesson kit — a narrated video, editable deck with Socratic notes, plan, activities, worksheet and exam. Free for teachers and students.",
+      "description": "Upload the whole textbook; SketchCast finds the chapters. One click draws a chapter's full lesson kit — a narrated video, editable deck with Socratic notes, plan, activities, worksheet, exam and case study. Free for teachers and students.",
       "ogTitle": "SketchCast AI — A textbook chapter, taught",
-      "ogDescription": "Upload the whole textbook; one click turns any chapter into the full kit — narrated video, editable deck, plan, worksheets and exam. Free for teachers and students."
+      "ogDescription": "Upload the whole textbook; one click turns any chapter into the full kit — narrated video, editable deck, plan, worksheets, exam and case study. Free for teachers and students."
     },
     "hero": {
       "eyebrow": "Textbook PDF → narrated lesson",
       "headline": "A textbook chapter that <mark>teaches itself</mark>.",
-      "sub": "Upload the whole textbook once. After that, one click turns any chapter into the full kit — a narrated video that draws itself, an editable deck with Socratic notes, a lesson plan, activities, a worksheet and an exam — then assign it and see who's done. Minutes, not evenings.",
+      "sub": "Upload the whole textbook once. After that, one click turns any chapter into the full kit — a narrated video that draws itself, an editable deck with Socratic notes, a lesson plan, activities, a worksheet, an exam and a case study — then assign it and see who's done. Minutes, not evenings.",
       "ctaPrimary": "Start free",
       "ctaSecondary": "See how it works",
       "stat": "<b>0</b> setup &nbsp;·&nbsp; <b>minutes</b> to generate &nbsp;·&nbsp; <b>$0</b> to start"
@@ -93,7 +93,7 @@
       "step2": {
         "num": "02",
         "title": "Pick a chapter",
-        "body": "Choose one from the list. One click draws the whole kit together — video, deck, plan, activities, worksheet and exam."
+        "body": "Choose one from the list. One click draws the whole kit together — video, deck, plan, activities, worksheet, exam and case study."
       },
       "step3": {
         "num": "03",
@@ -110,11 +110,11 @@
       },
       "stat2": {
         "big": "1<em> click</em>",
-        "body": "One click draws the whole kit: video lesson, deck, plan, activities, worksheet and test paper. Each piece counts as one generation from your monthly allowance."
+        "body": "One click draws the whole kit: video lesson, deck, plan, activities, worksheet, test paper and case study. Six of them count as one generation each from your monthly allowance; the deck is free."
       },
       "stat3": {
         "big": "$0",
-        "body": "Start free: one book and one complete kit — six generations — at no cost."
+        "body": "Start free: one book and one complete seven-piece kit — at no cost."
       }
     },
     "free": {
@@ -273,8 +273,8 @@
       "sub": "The same engine individual teachers love, at school scale: upload the books your school actually teaches from, and every chapter becomes a complete kit.",
       "kit": {
         "tag": "full kit",
-        "title": "Six pieces, one click",
-        "body": "Every generate produces the complete kit together — a narrated video lesson that draws itself, an editable deck, a lesson plan, activities, a worksheet and an exam paper — <b>grounded in the chapter</b>, not the internet."
+        "title": "Seven pieces, one click",
+        "body": "Every generate produces the complete kit together — a narrated video lesson that draws itself, an editable deck, a lesson plan, activities, a worksheet, an exam paper and a case study — <b>grounded in the chapter</b>, not the internet."
       },
       "parts": {
         "tag": "long chapters",
@@ -373,7 +373,7 @@
     "hero": {
       "eyebrow": "Homeschool &amp; tutors",
       "headline": "You already have the <mark>books</mark>. Now you have the teacher pack.",
-      "sub": "Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.",
+      "sub": "Upload the curriculum book you teach from. Any chapter becomes a narrated video lesson, an editable slide deck, a lesson plan, a worksheet, a test paper, activities and a case study — ready before breakfast, in the language you teach in.",
       "ctaPrimary": "Start free — one full kit",
       "ctaSecondary": "See plans",
       "stat": "<b>8 kits a month</b> · <b>up to 10 learners</b> · <b>9 languages</b> — one subscription for the whole household"
@@ -415,7 +415,7 @@
     },
     "kit": {
       "eyebrow": "One chapter in",
-      "heading": "Six pieces out — a full week of one subject",
+      "heading": "Seven pieces out — a full week of one subject",
       "sub": "Upload a chapter and SketchCast returns a complete teaching kit. Editable Word and PowerPoint files, so you can adjust anything before you teach it.",
       "k1": {
         "tag": "Teach",
@@ -446,6 +446,11 @@
         "tag": "Apply",
         "title": "Case study",
         "body": "A real-world scenario with discussion questions and guidance notes, so the chapter lands somewhere beyond the page."
+      },
+      "k7": {
+        "tag": "Present",
+        "title": "Editable slide deck",
+        "body": "The same lesson as slides you can open and edit — with Socratic notes under each one, for the days you would rather teach it yourself than play the video."
       }
     },
     "learners": {
@@ -532,12 +537,12 @@
       },
       "q6": {
         "q": "What does it cost?",
-        "a": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 48 generations a month, up to 10 learners and printable progress records."
+        "a": "You can start free with one complete lesson kit — no card needed. Home Basic is $9.99 a month for a subject or two, and Homeschool is $34 a month or $340 a year (two months free) for the whole curriculum: 56 generations a month, up to 10 learners and printable progress records."
       }
     },
     "cta": {
       "heading": "Try it on <mark>tomorrow's lesson</mark>",
-      "sub": "Upload one chapter and get the full six-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.",
+      "sub": "Upload one chapter and get the full seven-piece kit free — no card, no trial timer. If it saves you an evening, the plans are there.",
       "primary": "Start free",
       "secondary": "See all pricing",
       "note": "Questions about homeschooling or tuition use? <a href=\"mailto:hello@sketchcast.app\">Talk to us</a> — a real person answers."
@@ -570,14 +575,15 @@
     },
     "noscript": "Turn on JavaScript to see live plan prices, or <a href=\"https://app.sketchcast.app/signup\">start free</a> and pick a plan inside the app.",
     "unit": {
-      "lead": "One kit is six pieces.",
-      "sub": "Upload the whole textbook once — each piece counts as one generation, so a kit is six.",
+      "lead": "One kit is seven pieces.",
+      "sub": "Upload the whole textbook once — six of the seven count as one generation each, and the slide deck is free.",
       "p1": "Narrated video lesson",
       "p2": "Worksheet",
       "p3": "Lesson plan",
       "p4": "Activities",
       "p5": "Test paper",
-      "p6": "Case study"
+      "p6": "Case study",
+      "p7": "Editable slide deck"
     },
     "compare": {
       "heading": "Compare every plan",
@@ -591,7 +597,7 @@
     "free": {
       "eyebrow": "Start here",
       "heading": "Free for everyone, teacher or parent.",
-      "sub": "One book, one complete six-piece kit — no card, no timer. Pick a plan below only when you want more.",
+      "sub": "One book, one complete seven-piece kit — no card, no timer. Pick a plan below only when you want more.",
       "panel": "Free plan"
     },
     "teachers": {
@@ -622,7 +628,7 @@
         "name": "Free",
         "tag": "Try it on your next lesson",
         "cta": "Start free",
-        "f1": "1 book, with the full six-piece kit for one chapter part",
+        "f1": "1 book, with the full seven-piece kit for one chapter part",
         "f2": "Narrated video lessons, worksheets, test papers and lesson plans",
         "f3": "9 lesson languages, auto-detected from your book (Arabic fully right-to-left)",
         "f4": "Assign to a learner or a class and track progress"
@@ -634,7 +640,7 @@
         "cta": "Choose Teacher Pro",
         "saveLabel": "Save $48 a year",
         "who": "A whole class",
-        "f1": "24 generations a month — about 4 complete lesson kits",
+        "f1": "28 generations a month — about 4 complete lesson kits",
         "f2": "A lesson, plan, activities, worksheet, test paper or case study — each counts as one",
         "f3": "2 new books a month",
         "f4": "AI Tutor",
@@ -650,7 +656,7 @@
         "saveLabel": "Save $98 a year",
         "who": "A whole class",
         "f1": "Everything in Teacher Pro, plus:",
-        "f2": "48 additional generations — 72 a month, about 12 complete lesson kits",
+        "f2": "56 additional generations — 84 a month, about 12 complete lesson kits",
         "f3": "2 additional books — 4 a month",
         "f4": "Priority generation",
         "f5": "Early access to new features"
@@ -661,7 +667,7 @@
         "cta": "Get Home Basic",
         "who": "Up to 2 learners",
         "saveLabel": "2 months free",
-        "f1": "12 generations a month — about 2 complete lesson kits",
+        "f1": "14 generations a month — about 2 complete lesson kits",
         "f2": "Up to 2 learners",
         "f3": "Practice papers in the book's own language (9 supported)",
         "f4": "Homework help & AI explanations",
@@ -675,7 +681,7 @@
         "cta": "Choose Homeschool",
         "who": "Up to 10 learners, each with their own books",
         "saveLabel": "2 months free",
-        "f1": "48 generations a month — about 8 complete lesson kits",
+        "f1": "56 generations a month — about 8 complete lesson kits",
         "f2": "Up to 10 learners, each with their own books",
         "f3": "Printable progress records per learner",
         "f4": "4 new books a month",
