@@ -26,7 +26,8 @@
       "contact": "Hubungi",
       "linkedIn": "Aethel Twin di LinkedIn",
       "legal": "Produk <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Status Malaysia Digital MD/0002997",
-      "legalPlain": "Produk Aethel Twin Sdn. Bhd. (202601012908) · Status Malaysia Digital MD/0002997"
+      "legalPlain": "Produk Aethel Twin Sdn. Bhd. (202601012908) · Status Malaysia Digital MD/0002997",
+      "youtube": "SketchCast juga menerbitkan pelajaran percuma daripada perpustakaan topiknya di <a href=\"https://www.youtube.com/@Sketchcast-AI-app\" target=\"_blank\" rel=\"noopener\">saluran YouTube SketchCast</a>. Cara kami menggunakan Perkhidmatan API Google untuk tujuan itu dijelaskan dalam <a href=\"/privacy#google-api\">Dasar Privasi kami (§7)</a>."
     },
     "lang": {
       "choose": "Pilih bahasa anda"
@@ -822,7 +823,10 @@
       "resend": "Menghantar e-mel akaun dan sokongan",
       "stripe": "Pembayaran bagi pelan sekolah",
       "lemonSqueezy": "Pembayaran bagi pelan ibu bapa/guru (sebagai Merchant of Record)",
-      "p2": "Kami akan mengemas kini senarai ini dan memberi notis kepada sekolah tentang perubahan ketara pada sub-pemproses yang mengendalikan data pelajar sebelum ia berkuat kuasa."
+      "p2": "Kami akan mengemas kini senarai ini dan memberi notis kepada sekolah tentang perubahan ketara pada sub-pemproses yang mengendalikan data pelajar sebelum ia berkuat kuasa.",
+      "googleApiH": "Perkhidmatan API Google dan YouTube",
+      "googleApiP1": "SketchCast menerbitkan video pelajarannya sendiri di saluran YouTube SketchCast. Untuk itu, pekerja bahagian belakang kami menggunakan YouTube Data API dengan kebenaran pemilik saluran (skop “youtube.upload” dan “youtube.force-ssl”) untuk memuat naik video yang kami hasilkan, melampirkan sari kata dan lakaran kecil, serta menambahkannya ke senarai main. Akses ini hanya bertindak pada saluran SketchCast sendiri: ia tidak membaca, menyimpan atau berkongsi data Google atau YouTube orang lain, dan tiada data anda dihantar ke Google melaluinya.",
+      "googleApiP2": "Penggunaan maklumat yang diterima daripada API Google oleh SketchCast mematuhi <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener\">Dasar Data Pengguna Perkhidmatan API Google</a>, termasuk keperluan Penggunaan Terhad. Oleh sebab SketchCast menggunakan Perkhidmatan API YouTube, <a href=\"https://www.youtube.com/t/terms\" target=\"_blank\" rel=\"noopener\">Terma Perkhidmatan YouTube</a> juga terpakai, dan pengurusan data oleh Google tertakluk kepada <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">Dasar Privasi Google</a>. Pemilik saluran boleh membatalkan akses SketchCast pada bila-bila masa melalui <a href=\"https://myaccount.google.com/permissions\" target=\"_blank\" rel=\"noopener\">halaman kebenaran akaun Google</a>."
     },
     "s8": {
       "h": "8. Pemindahan data antarabangsa",

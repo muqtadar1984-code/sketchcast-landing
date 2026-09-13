@@ -48,7 +48,8 @@
       "contact": "Contact",
       "linkedIn": "Aethel Twin on LinkedIn",
       "legal": "A product of <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Malaysia Digital status MD/0002997",
-      "legalPlain": "A product of Aethel Twin Sdn. Bhd. (202601012908) · Malaysia Digital status MD/0002997"
+      "legalPlain": "A product of Aethel Twin Sdn. Bhd. (202601012908) · Malaysia Digital status MD/0002997",
+      "youtube": "SketchCast also publishes free lessons from its topic library on the <a href=\"https://www.youtube.com/@Sketchcast-AI-app\" target=\"_blank\" rel=\"noopener\">SketchCast YouTube channel</a>. How we use Google API Services to do that is explained in our <a href=\"/privacy#google-api\">Privacy Policy (§7)</a>."
     },
     "lang": {
       "choose": "Choose your language"
@@ -844,7 +845,10 @@
       "resend": "Sends account and support emails",
       "stripe": "Payments for school plans",
       "lemonSqueezy": "Payments for parent/teacher plans (as Merchant of Record)",
-      "p2": "We will keep this list current and give schools notice of material changes to sub-processors that handle student data before they take effect."
+      "p2": "We will keep this list current and give schools notice of material changes to sub-processors that handle student data before they take effect.",
+      "googleApiH": "Google API Services and YouTube",
+      "googleApiP1": "SketchCast publishes its own lesson videos on the SketchCast YouTube channel. To do this, our back-end worker uses the YouTube Data API with the channel owner’s permission (the “youtube.upload” and “youtube.force-ssl” scopes) to upload videos we generated, attach captions and thumbnails, and add them to playlists. This access acts only on SketchCast’s own channel: it does not read, store or share any other person’s Google or YouTube data, and none of your data is sent to Google through it.",
+      "googleApiP2": "SketchCast’s use of information received from Google APIs adheres to the <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener\">Google API Services User Data Policy</a>, including its Limited Use requirements. Because SketchCast uses YouTube API Services, the <a href=\"https://www.youtube.com/t/terms\" target=\"_blank\" rel=\"noopener\">YouTube Terms of Service</a> also apply, and Google’s handling of data is governed by the <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">Google Privacy Policy</a>. The channel owner can revoke SketchCast’s access at any time from the <a href=\"https://myaccount.google.com/permissions\" target=\"_blank\" rel=\"noopener\">Google account permissions page</a>."
     },
     "s8": {
       "h": "8. International data transfers",

@@ -28,7 +28,8 @@
       "contact": "هوبوڠي",
       "linkedIn": "Aethel Twin د LinkedIn",
       "legal": "ڤرودوق <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · ستاتوس Malaysia Digital نومبور MD/0002997",
-      "legalPlain": "ڤرودوق Aethel Twin Sdn. Bhd. (202601012908) · ستاتوس Malaysia Digital نومبور MD/0002997"
+      "legalPlain": "ڤرودوق Aethel Twin Sdn. Bhd. (202601012908) · ستاتوس Malaysia Digital نومبور MD/0002997",
+      "youtube": "SketchCast جوݢ منربيتکن ڤلاجرن ڤرچوما درڤد ڤرڤوستاکاءن توڤيقڽ د <a href=\"https://www.youtube.com/@Sketchcast-AI-app\" target=\"_blank\" rel=\"noopener\">سالورن YouTube SketchCast</a>. چارا کامي مڠݢوناکن ڤرخدمتن API Google اونتوق توجوان ايت دجلسکن دالم <a href=\"/privacy#google-api\">داسر ڤريۏاسي کامي (§7)</a>."
     },
     "lang": {
       "choose": "ڤيليه بهاس اندا"
@@ -824,7 +825,10 @@
       "resend": "مڠهنتر اي-ميل اکاءون دان سوکوڠن",
       "stripe": "ڤمبايرن باݢي ڤلن سکوله",
       "lemonSqueezy": "ڤمبايرن باݢي ڤلن ايبو باڤ/ݢورو (سباݢاي Merchant of Record)",
-      "p2": "کامي اکن مڠکسکينيکن سنراي اين دان ممبري نوتيس کڤد سکوله تنتڠ ڤروبهن ڤنتيڠ ڤد سوب-ڤمڤروسيس يڠ مڠنداليکن داتا ڤلاجر سبلوم اي برکوات کواس."
+      "p2": "کامي اکن مڠکسکينيکن سنراي اين دان ممبري نوتيس کڤد سکوله تنتڠ ڤروبهن ڤنتيڠ ڤد سوب-ڤمڤروسيس يڠ مڠنداليکن داتا ڤلاجر سبلوم اي برکوات کواس.",
+      "googleApiH": "ڤرخدمتن API Google دان YouTube",
+      "googleApiP1": "SketchCast منربيتکن ۏيديو ڤلاجرنڽ سنديري د سالورن YouTube SketchCast. اونتوق ايت، ڤکرجا بهاݢين بلاکڠ کامي مڠݢوناکن YouTube Data API دڠن کبنرن ڤميليق سالورن (سکوڤ “youtube.upload” دان “youtube.force-ssl”) اونتوق مموات نايق ۏيديو يڠ کامي حاصيلکن، ملمڤيرکن ساري کات دان لاکرن کچيل، سرتا منمبهکنڽ ک سناراي ماءين. اکسيس اين هاڽ برتيندق ڤد سالورن SketchCast سنديري: اي تيدق ممباچ، مڽيمڤن اتاو برکوڠسي داتا Google اتاو YouTube اورڠ لاين، دان تيادا داتا اندا دهنتر ک Google ملالوءيڽ.",
+      "googleApiP2": "ڤڠݢوناءن معلومت يڠ دتريما درڤد API Google اوليه SketchCast ممتوهي <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener\">داسر داتا ڤڠݢونا ڤرخدمتن API Google</a>، ترماسوق کڤرلوان ڤڠݢوناءن ترحد. اوليه سبب SketchCast مڠݢوناکن ڤرخدمتن API YouTube، <a href=\"https://www.youtube.com/t/terms\" target=\"_blank\" rel=\"noopener\">ترما ڤرخدمتن YouTube</a> جوݢ ترڤاکاي، دان ڤڠوروسن داتا اوليه Google ترتعلوق کڤد <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">داسر ڤريۏاسي Google</a>. ڤميليق سالورن بوليه ممبطلکن اکسيس SketchCast ڤد بيلا-بيلا ماس ملالوءي <a href=\"https://myaccount.google.com/permissions\" target=\"_blank\" rel=\"noopener\">حالمن کبنرن اکاءون Google</a>."
     },
     "s8": {
       "h": "8. ڤميندهن داتا انتارابڠسا",
