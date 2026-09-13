@@ -26,7 +26,8 @@
       "contact": "संपर्क",
       "linkedIn": "LinkedIn वर Aethel Twin",
       "legal": "<strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) चे उत्पादन · Malaysia Digital दर्जा MD/0002997",
-      "legalPlain": "Aethel Twin Sdn. Bhd. (202601012908) चे उत्पादन · Malaysia Digital दर्जा MD/0002997"
+      "legalPlain": "Aethel Twin Sdn. Bhd. (202601012908) चे उत्पादन · Malaysia Digital दर्जा MD/0002997",
+      "youtube": "SketchCast आपल्या विषय ग्रंथालयातील मोफत पाठ <a href=\"https://www.youtube.com/@Sketchcast-AI-app\" target=\"_blank\" rel=\"noopener\">SketchCast YouTube चॅनेल</a>वरही प्रकाशित करते. यासाठी आम्ही Google API सेवा कशा वापरतो हे आमच्या <a href=\"/privacy#google-api\">गोपनीयता धोरणात (§7)</a> स्पष्ट केले आहे."
     },
     "lang": {
       "choose": "तुमची भाषा निवडा"
@@ -822,7 +823,10 @@
       "resend": "खाते व सहाय्य ईमेल पाठवणे",
       "stripe": "शाळा योजनांची देयके",
       "lemonSqueezy": "पालक/शिक्षक योजनांची देयके (Merchant of Record म्हणून)",
-      "p2": "ही यादी आम्ही अद्ययावत ठेवू, आणि विद्यार्थी-माहिती हाताळणाऱ्या उप-प्रक्रियादारांतील मोठ्या बदलांची सूचना शाळांना ते अंमलात येण्याआधी देऊ."
+      "p2": "ही यादी आम्ही अद्ययावत ठेवू, आणि विद्यार्थी-माहिती हाताळणाऱ्या उप-प्रक्रियादारांतील मोठ्या बदलांची सूचना शाळांना ते अंमलात येण्याआधी देऊ.",
+      "googleApiH": "Google API सेवा आणि YouTube",
+      "googleApiP1": "SketchCast स्वतःच्या पाठांचे व्हिडिओ SketchCast च्या YouTube चॅनेलवर प्रकाशित करते. यासाठी आमचा बॅक-एंड वर्कर चॅनेल मालकाच्या परवानगीने YouTube Data API (“youtube.upload” आणि “youtube.force-ssl” स्कोप) वापरतो, जेणेकरून आम्ही तयार केलेले व्हिडिओ अपलोड करता येतील, त्यांना कॅप्शन व थंबनेल जोडता येतील आणि ते प्लेलिस्टमध्ये ठेवता येतील. हा प्रवेश केवळ SketchCast च्या स्वतःच्या चॅनेलवर काम करतो: तो इतर कोणाचाही Google किंवा YouTube डेटा वाचत, साठवत किंवा शेअर करत नाही, आणि त्याद्वारे तुमचा कोणताही डेटा Google ला पाठवला जात नाही.",
+      "googleApiP2": "Google API कडून मिळालेल्या माहितीचा SketchCast चा वापर <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener\">Google API सेवा वापरकर्ता डेटा धोरण</a> (त्यातील मर्यादित वापराच्या अटींसह) पाळतो. SketchCast YouTube API सेवा वापरत असल्याने <a href=\"https://www.youtube.com/t/terms\" target=\"_blank\" rel=\"noopener\">YouTube च्या सेवा शर्ती</a> देखील लागू होतात, आणि Google द्वारे डेटाची हाताळणी <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">Google च्या गोपनीयता धोरणा</a>नुसार होते. चॅनेल मालक कधीही <a href=\"https://myaccount.google.com/permissions\" target=\"_blank\" rel=\"noopener\">Google खाते परवानग्या पृष्ठा</a>वरून SketchCast चा प्रवेश रद्द करू शकतो."
     },
     "s8": {
       "h": "8. आंतरराष्ट्रीय माहिती हस्तांतरण",

@@ -26,7 +26,8 @@
       "contact": "సంప్రదించండి",
       "linkedIn": "LinkedIn లో Aethel Twin",
       "legal": "<strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) ఉత్పత్తి · Malaysia Digital హోదా MD/0002997",
-      "legalPlain": "Aethel Twin Sdn. Bhd. (202601012908) ఉత్పత్తి · Malaysia Digital హోదా MD/0002997"
+      "legalPlain": "Aethel Twin Sdn. Bhd. (202601012908) ఉత్పత్తి · Malaysia Digital హోదా MD/0002997",
+      "youtube": "SketchCast తన అంశాల లైబ్రరీ నుంచి ఉచిత పాఠాలను <a href=\"https://www.youtube.com/@Sketchcast-AI-app\" target=\"_blank\" rel=\"noopener\">SketchCast YouTube ఛానెల్</a>లోనూ ప్రచురిస్తుంది. దీనికోసం మేము Google API సేవలను ఎలా ఉపయోగిస్తామో మా <a href=\"/privacy#google-api\">గోప్యతా విధానం (§7)</a>లో వివరించాం."
     },
     "lang": {
       "choose": "మీ భాషను ఎంచుకోండి"
@@ -822,7 +823,10 @@
       "resend": "ఖాతా, మద్దతు ఇమెయిళ్లు పంపడం",
       "stripe": "పాఠశాల ప్లాన్ల చెల్లింపులు",
       "lemonSqueezy": "తల్లిదండ్రుల/ఉపాధ్యాయ ప్లాన్ల చెల్లింపులు (Merchant of Record గా)",
-      "p2": "ఈ జాబితాను మేము తాజాగా ఉంచుతాం, విద్యార్థి డేటాను నిర్వహించే ఉప-ప్రాసెసర్లలో ముఖ్యమైన మార్పులు అమల్లోకి రాకముందే పాఠశాలలకు తెలియజేస్తాం."
+      "p2": "ఈ జాబితాను మేము తాజాగా ఉంచుతాం, విద్యార్థి డేటాను నిర్వహించే ఉప-ప్రాసెసర్లలో ముఖ్యమైన మార్పులు అమల్లోకి రాకముందే పాఠశాలలకు తెలియజేస్తాం.",
+      "googleApiH": "Google API సేవలు మరియు YouTube",
+      "googleApiP1": "SketchCast తన సొంత పాఠ వీడియోలను SketchCast YouTube ఛానెల్‌లో ప్రచురిస్తుంది. దీనికోసం మా బ్యాక్-ఎండ్ వర్కర్ ఛానెల్ యజమాని అనుమతితో YouTube Data API (“youtube.upload” మరియు “youtube.force-ssl” స్కోప్‌లు) ఉపయోగించి, మేము తయారు చేసిన వీడియోలను అప్‌లోడ్ చేస్తుంది, క్యాప్షన్లు మరియు థంబ్‌నెయిల్‌లను జతచేస్తుంది, ప్లేలిస్ట్‌లలో చేర్చుతుంది. ఈ యాక్సెస్ SketchCast సొంత ఛానెల్‌పైనే పనిచేస్తుంది: ఇది మరెవరి Google లేదా YouTube డేటాను చదవదు, నిల్వ చేయదు, పంచుకోదు; దీని ద్వారా మీ డేటా ఏదీ Googleకు పంపబడదు.",
+      "googleApiP2": "Google APIల నుంచి పొందిన సమాచారాన్ని SketchCast <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener\">Google API సేవల వినియోగదారు డేటా విధానం</a>కు (అందులోని పరిమిత వినియోగ నిబంధనలతో సహా) అనుగుణంగా ఉపయోగిస్తుంది. SketchCast YouTube API సేవలను ఉపయోగిస్తున్నందున <a href=\"https://www.youtube.com/t/terms\" target=\"_blank\" rel=\"noopener\">YouTube సేవా నిబంధనలు</a> కూడా వర్తిస్తాయి, మరియు Google డేటాను నిర్వహించే విధానం <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">Google గోప్యతా విధానం</a> ప్రకారం ఉంటుంది. ఛానెల్ యజమాని ఎప్పుడైనా <a href=\"https://myaccount.google.com/permissions\" target=\"_blank\" rel=\"noopener\">Google ఖాతా అనుమతుల పేజీ</a> నుంచి SketchCast యాక్సెస్‌ను రద్దు చేయవచ్చు."
     },
     "s8": {
       "h": "8. అంతర్జాతీయ డేటా బదిలీలు",

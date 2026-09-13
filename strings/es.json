@@ -26,7 +26,8 @@
       "contact": "Contacto",
       "linkedIn": "Aethel Twin en LinkedIn",
       "legal": "Un producto de <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Estatus Malaysia Digital MD/0002997",
-      "legalPlain": "Un producto de Aethel Twin Sdn. Bhd. (202601012908) · Estatus Malaysia Digital MD/0002997"
+      "legalPlain": "Un producto de Aethel Twin Sdn. Bhd. (202601012908) · Estatus Malaysia Digital MD/0002997",
+      "youtube": "SketchCast también publica lecciones gratuitas de su biblioteca de temas en el <a href=\"https://www.youtube.com/@Sketchcast-AI-app\" target=\"_blank\" rel=\"noopener\">canal de YouTube de SketchCast</a>. Cómo usamos los servicios de API de Google para ello se explica en nuestra <a href=\"/privacy#google-api\">Política de privacidad (§7)</a>."
     },
     "lang": {
       "choose": "Elija su idioma"
@@ -822,7 +823,10 @@
       "resend": "Envía correos de cuenta y de soporte",
       "stripe": "Pagos de los planes de colegio",
       "lemonSqueezy": "Pagos de los planes de familias y profesores (como Merchant of Record)",
-      "p2": "Mantendremos esta lista al día y avisaremos a los colegios de cualquier cambio material en los subencargados que traten datos de alumnos antes de que surta efecto."
+      "p2": "Mantendremos esta lista al día y avisaremos a los colegios de cualquier cambio material en los subencargados que traten datos de alumnos antes de que surta efecto.",
+      "googleApiH": "Servicios de API de Google y YouTube",
+      "googleApiP1": "SketchCast publica sus propios vídeos de lecciones en el canal de YouTube de SketchCast. Para ello, nuestro sistema interno utiliza la YouTube Data API con el permiso del propietario del canal (los ámbitos «youtube.upload» y «youtube.force-ssl») para subir los vídeos que generamos, añadir subtítulos y miniaturas, e incluirlos en listas de reproducción. Este acceso actúa únicamente sobre el canal de SketchCast: no lee, almacena ni comparte datos de Google o YouTube de ninguna otra persona, y ningún dato tuyo se envía a Google a través de él.",
+      "googleApiP2": "El uso que hace SketchCast de la información recibida de las API de Google se ajusta a la <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener\">Política de datos de usuario de los servicios de API de Google</a>, incluidos sus requisitos de uso limitado. Como SketchCast utiliza los servicios de la API de YouTube, también se aplican las <a href=\"https://www.youtube.com/t/terms\" target=\"_blank\" rel=\"noopener\">Condiciones del servicio de YouTube</a>, y el tratamiento de datos por parte de Google se rige por la <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">Política de privacidad de Google</a>. El propietario del canal puede revocar el acceso de SketchCast en cualquier momento desde la <a href=\"https://myaccount.google.com/permissions\" target=\"_blank\" rel=\"noopener\">página de permisos de la cuenta de Google</a>."
     },
     "s8": {
       "h": "8. Transferencias internacionales de datos",
