@@ -834,7 +834,7 @@
     },
     "s9": {
       "h": "9. Cookies y rastreo",
-      "p": "Usamos una única cookie esencial: la de sesión que mantiene su acceso. <strong>No</strong> usamos cookies publicitarias, cookies analíticas, rastreadores entre sitios ni técnicas que burlen la señal «Do Not Track». Como solo usamos una cookie esencial, no hace falta banner de consentimiento, pero puede borrarla en cualquier momento cerrando la sesión. También contamos las visitas a las páginas en nuestros propios servidores —la página, el sitio de origen, el país y el tipo de dispositivo— sin cookies y sin conservar la dirección IP."
+      "p": "Usamos una única cookie esencial: la de sesión que mantiene su acceso. <strong>No</strong> usamos cookies publicitarias, cookies analíticas, rastreadores entre sitios ni técnicas que burlen la señal «Do Not Track». Como solo usamos una cookie esencial, no hace falta banner de consentimiento, pero puede borrarla en cualquier momento cerrando la sesión. Nuestro proveedor de alojamiento, Cloudflare, nos facilita estadísticas agregadas de tráfico de este sitio —páginas vistas, número aproximado de visitantes y países— como parte de servirlo; no instalamos ningún script ni cookie de análisis para ello, y no vemos a ningún visitante individual."
     },
     "s10": {
       "h": "10. Conservación y supresión",
