@@ -834,7 +834,7 @@
     },
     "s9": {
       "h": "9. Cookies &amp; traçage",
-      "p": "Nous utilisons un seul cookie essentiel : le cookie de session qui vous garde connecté. Nous n'utilisons <strong>pas</strong> de cookies publicitaires, de cookies de mesure d'audience, de traceurs inter-sites, ni de techniques contournant le signal « Do Not Track ». Comme nous n'utilisons qu'un cookie essentiel, aucune bannière de consentement n'est requise, mais vous pouvez effacer ce cookie à tout moment en vous déconnectant. Nous comptons aussi les visites de pages sur nos propres serveurs — la page, le site d'origine, le pays et le type d'appareil — sans cookie et sans conserver l'adresse IP."
+      "p": "Nous utilisons un seul cookie essentiel : le cookie de session qui vous garde connecté. Nous n'utilisons <strong>pas</strong> de cookies publicitaires, de cookies de mesure d'audience, de traceurs inter-sites, ni de techniques contournant le signal « Do Not Track ». Comme nous n'utilisons qu'un cookie essentiel, aucune bannière de consentement n'est requise, mais vous pouvez effacer ce cookie à tout moment en vous déconnectant. Notre hébergeur, Cloudflare, nous fournit des statistiques de fréquentation agrégées pour ce site — pages vues, nombre approximatif de visiteurs et pays — dans le cadre de sa diffusion ; nous n'installons pour cela aucun script ni cookie de mesure d'audience, et nous ne voyons aucun visiteur individuel."
     },
     "s10": {
       "h": "10. Conservation &amp; suppression",
