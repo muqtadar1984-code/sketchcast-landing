@@ -834,7 +834,7 @@
     },
     "s9": {
       "h": "9. Cookies &amp; rastreamento",
-      "p": "Usamos um único cookie essencial — o cookie de sessão que mantém seu login. <strong>Não</strong> usamos cookies de publicidade, cookies de análise, rastreadores entre sites nem técnicas que burlem o sinal “Do Not Track”. Como usamos apenas um cookie essencial, não é necessário banner de consentimento, mas você pode limpar o cookie quando quiser saindo da conta."
+      "p": "Usamos um único cookie essencial — o cookie de sessão que mantém seu login. <strong>Não</strong> usamos cookies de publicidade, cookies de análise, rastreadores entre sites nem técnicas que burlem o sinal “Do Not Track”. Como usamos apenas um cookie essencial, não é necessário banner de consentimento, mas você pode limpar o cookie quando quiser saindo da conta. Também contamos as visitas às páginas em nossos próprios servidores — a página, o site de origem, o país e o tipo de dispositivo — sem cookie e sem guardar o endereço IP."
     },
     "s10": {
       "h": "10. Retenção &amp; exclusão",
