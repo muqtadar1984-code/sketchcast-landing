@@ -856,7 +856,7 @@
     },
     "s9": {
       "h": "9. Cookies &amp; tracking",
-      "p": "We use a single essential cookie — the session cookie that keeps you signed in. We do <strong>not</strong> use advertising cookies, analytics cookies, cross-site trackers, or “Do Not Track”-defeating techniques. Because we use only an essential cookie, no cookie-consent banner is required, but you can clear the cookie at any time by signing out."
+      "p": "We use a single essential cookie — the session cookie that keeps you signed in. We do <strong>not</strong> use advertising cookies, analytics cookies, cross-site trackers, or “Do Not Track”-defeating techniques. Because we use only an essential cookie, no cookie-consent banner is required, but you can clear the cookie at any time by signing out. We also count page visits on our own servers — the page, the referring site, the country and the type of device — with no cookie and no IP address kept."
     },
     "s10": {
       "h": "10. Retention &amp; deletion",
