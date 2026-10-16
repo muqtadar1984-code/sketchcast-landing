@@ -579,7 +579,9 @@
     },
     "meter": {
       "gens": "janaan sebulan",
-      "kits": "kira-kira {n} kit lengkap"
+      "kits": "kira-kira {n} kit lengkap",
+      "weeklyKitOne": "1 kit sedia guna seminggu",
+      "weeklyKits": "{n} kit sedia guna seminggu"
     },
     "free": {
       "eyebrow": "Mula di sini",

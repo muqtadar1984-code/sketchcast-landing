@@ -579,7 +579,9 @@
     },
     "meter": {
       "gens": "generaciones al mes",
-      "kits": "unos {n} kits completos"
+      "kits": "unos {n} kits completos",
+      "weeklyKitOne": "1 kit listo para usar a la semana",
+      "weeklyKits": "{n} kits listos para usar a la semana"
     },
     "free": {
       "eyebrow": "Empiece aquí",
