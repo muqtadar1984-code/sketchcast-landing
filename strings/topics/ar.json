@@ -47,5 +47,16 @@
   "kit.case_study": "دراسة حالة",
   "kit.questions": "بنك الأسئلة: {n} سؤالًا للتدريب",
   "kit.assessment": "تقييم إلكتروني يُصحَّح تلقائيًا",
-  "kit.exam": "مجموعة الاستعداد للامتحان"
+  "kit.exam": "مجموعة الاستعداد للامتحان",
+  "strip.eyebrow": "دروس مجانية",
+  "strip.title": "شاهد درسًا مجانيًا",
+  "strip.lead": "{n} درسًا قصيرًا على السبورة البيضاء في العلوم والرياضيات، مجانًا على YouTube. اختر واحدًا.",
+  "strip.subject": "المادة",
+  "strip.lesson": "الدرس",
+  "strip.all": "كل المواد",
+  "strip.watch": "شاهد على YouTube",
+  "strip.read": "اقرأ الشرح الكامل",
+  "strip.browse": "تصفح كل الدروس ({n})",
+  "strip.kitSoon": "حقيبة تدريس مجانية: قريبًا",
+  "strip.play": "تشغيل على YouTube: {title}"
 }

@@ -228,7 +228,7 @@ function page(code, { route, title, description, ogType = "website", jsonLd = []
   middle = middle
     .replace("</head>", `<style id="topics-css">${CSS}</style>\n</head>`)
     .replace(/ aria-current="page"/g, "")
-    .replace(/(<a href="[^"]*\/topics" )(data-i18n="common\.nav\.lessons")/, '$1aria-current="page" $2');
+    .replace(/(<a [^>]*href="[^"]*\/topics" )(data-i18n="common\.nav\.lessons")/g, '$1aria-current="page" $2');
 
   // Language switcher: every language links to THIS page in that language.
   let sw = s.html.slice(s.swStart, s.swEnd);
@@ -643,6 +643,103 @@ for (const l of LOCALES) {
     writeFileSync(join(base, "topics", `${topic.slug}.html`), html, "utf8");
     written++;
   }
+}
+
+/* ── the homepage lesson strip ────────────────────────────────────────── */
+// Founder, 2026-10-16: a dropdown on the homepage; the chosen lesson's
+// YouTube thumbnail opens the video ON YOUTUBE (new tab). A random lesson
+// each visit. Written per language between <!--topics:strip--> markers in
+// the BUILT homepage (index.html is both source and the English page).
+
+const STRIP_CSS = `
+.lstrip{padding:56px 0 60px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lstrip-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:44px;align-items:center}
+@media(max-width:860px){.lstrip{padding:44px 0 48px}.lstrip-grid{grid-template-columns:minmax(0,1fr);gap:26px}}
+.lstrip h2{font-size:34px;margin:10px 0 12px}
+.lstrip-lead{color:var(--graphite);font-size:17px;max-width:460px}
+.lstrip-pick{display:grid;gap:12px;margin-top:22px;max-width:460px}
+.lstrip-pick label{display:grid;gap:5px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+.lstrip-pick select{font:inherit;font-size:15px;color:var(--ink);padding:10px 36px 10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--canvas) no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6470' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-position:right 12px center;background-size:16px;appearance:none;-webkit-appearance:none;width:100%;letter-spacing:0;text-transform:none;font-family:var(--sans)}
+[dir=rtl] .lstrip-pick select{padding:10px 12px 10px 36px;background-position:left 12px center}
+.lstrip-pick select:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.lstrip-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:15px}
+.lstrip-links a{color:var(--teal-ink);font-weight:500}.lstrip-links a:hover{text-decoration:underline}
+.lstrip-soon{margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+.lstrip-soon span{display:inline-block;background:#FFF1D6;color:#8A5A00;border-radius:5px;padding:1px 7px;margin-inline-end:6px;letter-spacing:.04em}
+.lstrip-video{display:block;position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--mist);box-shadow:0 1px 2px rgba(20,24,31,.04),0 24px 60px -28px rgba(20,24,31,.35);transition:transform .15s,box-shadow .15s}
+.lstrip-video:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(20,24,31,.04),0 30px 64px -26px rgba(20,24,31,.45)}
+.lstrip-video img{width:100%;height:100%;object-fit:cover;display:block}
+.lstrip-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.lstrip-play svg{width:68px;height:48px;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35))}
+.lstrip-cap{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:12px;font-size:14.5px}
+.lstrip-cap b{font-family:var(--display);font-weight:600;color:var(--ink);font-size:16px}
+.lstrip-cap span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+`;
+
+function stripHtml(code, all) {
+  const t = strings[code];
+  const loc = LOCALES.find((l) => l.code === code);
+  const subjects = [...new Set(all.map((x) => x.subject))].sort();
+  const data = all
+    .filter((x) => (x.videos || []).length)
+    .map((x) => ({ s: x.slug, t: x.title, y: x.videos[0].youtube_video_id, j: x.subject }));
+  const first = data[0];
+  const n = data.length;
+  const opt = (x) => `<option value="${esc(x.s)}" lang="en">${esc(x.t)}</option>`;
+  return `<style id="lstrip-css">${STRIP_CSS}</style>
+<section class="lstrip" id="lessons" aria-labelledby="lstrip-h">
+  <div class="wrap lstrip-grid">
+    <div>
+      <p class="eyebrow">${esc(t["strip.eyebrow"])}</p>
+      <h2 id="lstrip-h">${esc(t["strip.title"])}</h2>
+      <p class="lstrip-lead">${esc(fill(t["strip.lead"], { n }))}</p>
+      <div class="lstrip-pick">
+        <label>${esc(t["strip.subject"])}<select id="lstrip-subject"><option value="">${esc(t["strip.all"])}</option>${subjects.map((s) => `<option value="${esc(s)}">${esc(subjectLabel(t, s))}</option>`).join("")}</select></label>
+        <label>${esc(t["strip.lesson"])}<select id="lstrip-lesson" lang="en" dir="ltr">${data.map(opt).join("")}</select></label>
+      </div>
+      <p class="lstrip-links"><a id="lstrip-read" href="${prefix(code)}/topics/${esc(first.s)}">${esc(t["strip.read"])} →</a><a href="${prefix(code)}/topics">${esc(fill(t["strip.browse"], { n }))}</a></p>
+      <p class="lstrip-soon"><span>${esc(strings[code]["kit.comingSoon"])}</span>${esc(t["strip.kitSoon"])}</p>
+    </div>
+    <div>
+      <a id="lstrip-video" class="lstrip-video" href="${watchUrl(first.y)}" target="_blank" rel="noopener" aria-label="${esc(fill(t["strip.play"], { title: first.t }))}" data-play="${esc(t["strip.play"])}">
+        <img id="lstrip-img" src="${thumb(first.y)}" alt="" width="480" height="360" loading="lazy" />
+        <span class="lstrip-play" aria-hidden="true"><svg viewBox="0 0 68 48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#FF0000"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+      </a>
+      <p class="lstrip-cap"><b id="lstrip-title" lang="en">${esc(first.t)}</b><span id="lstrip-subj">${esc(subjectLabel(t, first.j))}</span></p>
+    </div>
+  </div>
+</section>
+<script type="application/json" id="lstrip-data">${JSON.stringify({ prefix: prefix(code), labels: Object.fromEntries(subjects.map((s) => [s, subjectLabel(t, s)])), lessons: data }).replace(/</g, "\\u003c")}</script>
+<script>
+(function(){
+  var el=document.getElementById('lstrip-data');if(!el)return;
+  var D=JSON.parse(el.textContent),subj=document.getElementById('lstrip-subject'),sel=document.getElementById('lstrip-lesson');
+  var a=document.getElementById('lstrip-video'),img=document.getElementById('lstrip-img'),ttl=document.getElementById('lstrip-title'),sj=document.getElementById('lstrip-subj'),read=document.getElementById('lstrip-read');
+  function show(x){a.href='https://www.youtube.com/watch?v='+encodeURIComponent(x.y);a.setAttribute('aria-label',a.getAttribute('data-play').replace('{title}',x.t));img.src='https://i.ytimg.com/vi/'+encodeURIComponent(x.y)+'/hqdefault.jpg';ttl.textContent=x.t;sj.textContent=D.labels[x.j]||x.j;read.href=D.prefix+'/topics/'+x.s;}
+  function fillList(filter,keep){var list=D.lessons.filter(function(x){return !filter||x.j===filter});sel.innerHTML='';list.forEach(function(x){var o=document.createElement('option');o.value=x.s;o.textContent=x.t;o.lang='en';sel.appendChild(o);});var pick=list.find(function(x){return x.s===keep})||list[Math.floor(Math.random()*list.length)];sel.value=pick.s;show(pick);}
+  // A random lesson each visit (founder, 2026-10-16).
+  fillList('',null);
+  subj.addEventListener('change',function(){fillList(subj.value,null);});
+  sel.addEventListener('change',function(){var x=D.lessons.find(function(y){return y.s===sel.value});if(x)show(x);});
+})();
+</script>`;
+}
+
+{
+  const OPEN = "<!--topics:strip-->", CLOSE = "<!--/topics:strip-->";
+  let stripped = 0;
+  for (const l of LOCALES) {
+    const file = join(ROOT, ...(l.code === DEFAULT ? [] : [l.code]), "index.html");
+    if (!existsSync(file)) continue;
+    const html = readFileSync(file, "utf8");
+    const a = html.indexOf(OPEN), b = html.indexOf(CLOSE);
+    if (a < 0 || b < 0) { if (l.code === DEFAULT) throw new Error("index.html has no <!--topics:strip--> markers"); continue; }
+    const eol = html.includes("\r\n") ? "\r\n" : "\n";
+    const body = stripHtml(l.code, catalogue).replace(/\n/g, eol);
+    writeFileSync(file, html.slice(0, a + OPEN.length) + eol + body + eol + html.slice(b), "utf8");
+    stripped++;
+  }
+  console.log(`✓ lesson strip written into ${stripped} homepage(s)`);
 }
 
 // Sitemap: indexable (English) pages only; build-i18n.mjs points robots.txt at it.

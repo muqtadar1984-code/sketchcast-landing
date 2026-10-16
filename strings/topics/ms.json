@@ -47,5 +47,16 @@
   "kit.case_study": "Kajian kes",
   "kit.questions": "Bank soalan: {n} soalan latihan",
   "kit.assessment": "Penilaian dalam talian, ditanda secara automatik",
-  "kit.exam": "Set persediaan peperiksaan"
+  "kit.exam": "Set persediaan peperiksaan",
+  "strip.eyebrow": "Pelajaran percuma",
+  "strip.title": "Tonton pelajaran percuma",
+  "strip.lead": "{n} pelajaran papan putih ringkas dalam Sains dan Matematik, percuma di YouTube. Pilih satu.",
+  "strip.subject": "Subjek",
+  "strip.lesson": "Pelajaran",
+  "strip.all": "Semua subjek",
+  "strip.watch": "Tonton di YouTube",
+  "strip.read": "Baca penerangan penuh",
+  "strip.browse": "Lihat semua {n} pelajaran",
+  "strip.kitSoon": "Kit pengajaran percuma: akan datang",
+  "strip.play": "Mainkan di YouTube: {title}"
 }

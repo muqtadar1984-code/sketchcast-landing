@@ -65,6 +65,28 @@
   .nav-links a,.nav-cta a{white-space:nowrap}
   @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
   @media(max-width:1140px){.nav-links{display:none}}
+  /* Hamburger drawer (2026-10-16): every menu item, on every width. */
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);cursor:pointer;flex:0 0 auto;padding:0}
+  .menu-btn:hover{border-color:var(--faint);background:var(--mist)}
+  .menu-btn svg{width:18px;height:18px}
+  /* The button sits beside the brand; links and the end group keep their places (the row was space-between across three children; with four, the brand drifted). */
+  header .nav{justify-content:flex-start}
+  header .nav-links{margin-inline-start:auto}
+  header .nav-cta{margin-inline-start:auto}
+  .drawer-back{position:fixed;inset:0;background:rgba(20,24,31,.35);z-index:48;opacity:0;pointer-events:none;transition:opacity .2s}
+  .drawer{position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(320px,86vw);background:var(--canvas);border-inline-end:1px solid var(--line);box-shadow:0 20px 60px -20px rgba(20,24,31,.5);z-index:49;padding:18px 18px 28px;overflow-y:auto;transform:translateX(calc(-100% - 20px));transition:transform .25s cubic-bezier(.65,0,.35,1);display:flex;flex-direction:column;gap:4px}
+  [dir=rtl] .drawer{transform:translateX(calc(100% + 20px))}
+  body.drawer-open .drawer{transform:none}
+  body.drawer-open .drawer-back{opacity:1;pointer-events:auto}
+  body.drawer-open{overflow:hidden}
+  .drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .drawer-top .brand{font-size:17px}
+  .drawer a.item{display:block;padding:11px 12px;border-radius:9px;font-size:16px;color:var(--ink)}
+  .drawer a.item:hover{background:var(--mist)}
+  .drawer a.item[aria-current="page"]{font-weight:500;background:var(--mist)}
+  .drawer hr{border:0;border-top:1px solid var(--line);margin:10px 0}
+  .drawer .btn{justify-content:center;margin-top:6px}
+  @media(prefers-reduced-motion:reduce){.drawer,.drawer-back{transition:none}}
   /* Phones (2026-10-16): the header's end side (language picker, Log in, Start
      free) never wrapped, and translated labels run long ("Se connecter" +
      "Commencer gratuitement"), so at 375px EVERY translated page scrolled
@@ -86,6 +108,10 @@
     header .brand .mark{width:28px;height:28px}
     header .nav-cta .btn{padding:6px 10px !important}
     main,body>section{overflow-x:clip} /* decorative ink strokes are drawn ~118% wide on purpose; clip (not hidden) on the content, never on body: body overflow propagates to the viewport */
+  }
+  /* Tiny phones: the hamburger now stands beside the brand, so the brand keeps its icon only (fr/te labels pushed the row to 354px at 320px). */
+  @media(max-width:360px){
+    header .brand{font-size:0;gap:0}
   }
   footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
   .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
@@ -218,6 +244,7 @@
 
 <header>
   <div class="wrap nav">
+    <button type="button" class="menu-btn" aria-label="मेनू" data-i18n-attr="aria-label:common.nav.menu" aria-expanded="false" aria-controls="site-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <a class="brand" href="/mr/">
       <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
       SketchCast <span>AI</span>
@@ -255,6 +282,37 @@
     </div>
   </div>
 </header>
+<div class="drawer-back" hidden></div>
+<nav id="site-menu" class="drawer" aria-label="मेनू" data-i18n-attr="aria-label:common.nav.menu" hidden>
+  <div class="drawer-top">
+    <a class="brand" href="/mr/">SketchCast <span>AI</span></a>
+    <button type="button" class="menu-btn drawer-close" aria-label="मेनू बंद करा" data-i18n-attr="aria-label:common.nav.closeMenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <a class="item" href="/mr/#how" data-i18n="common.nav.how">हे कसे चालते</a>
+  <a class="item" href="/mr/topics" data-i18n="common.nav.lessons">पाठ</a>
+  <a class="item" href="/mr/homeschool" data-i18n="common.nav.homeschool">घरशाळा</a>
+  <a class="item" href="/mr/#free" data-i18n="common.nav.free">मोफत काय आहे</a>
+  <a class="item" href="/mr/#outcomes" data-i18n="common.nav.outcomes">परिणाम</a>
+  <a class="item" href="/mr/schools" aria-current="page" data-i18n="common.nav.schools">शाळांसाठी</a>
+  <a class="item" href="/mr/pricing" data-i18n="common.nav.pricing">किंमती</a>
+  <a class="item" href="/mr/about" data-i18n="common.nav.about">आमच्याविषयी</a>
+  <hr />
+  <a class="item" href="https://app.sketchcast.app" data-i18n="common.nav.login">लॉग इन</a>
+  <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="common.nav.startFree">मोफत सुरू करा</a>
+</nav>
+<script>
+(function(){
+  var body=document.body,menu=document.getElementById('site-menu'),back=document.querySelector('.drawer-back'),btn=document.querySelector('header .menu-btn');
+  if(!menu||!btn)return;
+  function open(){menu.hidden=false;back.hidden=false;requestAnimationFrame(function(){body.classList.add('drawer-open');});btn.setAttribute('aria-expanded','true');var f=menu.querySelector('a');if(f)f.focus();}
+  function close(){body.classList.remove('drawer-open');btn.setAttribute('aria-expanded','false');setTimeout(function(){if(!body.classList.contains('drawer-open')){menu.hidden=true;back.hidden=true;}},260);btn.focus();}
+  btn.addEventListener('click',open);
+  menu.querySelector('.drawer-close').addEventListener('click',close);
+  back.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&body.classList.contains('drawer-open'))close();});
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))close();});
+})();
+</script>
 <script>
 (function(){
   // Locale-proof header fit: hide the middle links only when the row REALLY

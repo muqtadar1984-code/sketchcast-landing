@@ -47,5 +47,16 @@
   "kit.case_study": "केस स्टडी",
   "kit.questions": "प्रश्नसंच: {n} सराव प्रश्न",
   "kit.assessment": "आपोआप तपासली जाणारी ऑनलाइन चाचणी",
-  "kit.exam": "परीक्षा तयारी संच"
+  "kit.exam": "परीक्षा तयारी संच",
+  "strip.eyebrow": "मोफत पाठ",
+  "strip.title": "एक मोफत पाठ पाहा",
+  "strip.lead": "विज्ञान आणि गणितातील {n} छोटे व्हाइटबोर्ड पाठ, YouTube वर मोफत. एक निवडा.",
+  "strip.subject": "विषय",
+  "strip.lesson": "पाठ",
+  "strip.all": "सर्व विषय",
+  "strip.watch": "YouTube वर पाहा",
+  "strip.read": "संपूर्ण स्पष्टीकरण वाचा",
+  "strip.browse": "सर्व {n} पाठ पाहा",
+  "strip.kitSoon": "मोफत अध्यापन किट: लवकरच",
+  "strip.play": "YouTube वर चालू करा: {title}"
 }

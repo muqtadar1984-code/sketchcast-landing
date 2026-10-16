@@ -47,5 +47,16 @@
   "kit.case_study": "केस स्टडी",
   "kit.questions": "प्रश्न बैंक: {n} अभ्यास प्रश्न",
   "kit.assessment": "अपने-आप जाँचा जाने वाला ऑनलाइन मूल्यांकन",
-  "kit.exam": "परीक्षा तैयारी सेट"
+  "kit.exam": "परीक्षा तैयारी सेट",
+  "strip.eyebrow": "मुफ़्त पाठ",
+  "strip.title": "एक मुफ़्त पाठ देखें",
+  "strip.lead": "विज्ञान और गणित के {n} छोटे व्हाइटबोर्ड पाठ, YouTube पर मुफ़्त। एक चुनें।",
+  "strip.subject": "विषय",
+  "strip.lesson": "पाठ",
+  "strip.all": "सभी विषय",
+  "strip.watch": "YouTube पर देखें",
+  "strip.read": "पूरी व्याख्या पढ़ें",
+  "strip.browse": "सभी {n} पाठ देखें",
+  "strip.kitSoon": "मुफ़्त शिक्षण किट: जल्द आ रही है",
+  "strip.play": "YouTube पर चलाएँ: {title}"
 }

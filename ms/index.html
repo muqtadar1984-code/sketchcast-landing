@@ -63,6 +63,28 @@
   .nav-links a,.nav-cta a{white-space:nowrap}
   @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
   @media(max-width:1140px){.nav-links{display:none}}
+  /* Hamburger drawer (2026-10-16): every menu item, on every width. */
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);cursor:pointer;flex:0 0 auto;padding:0}
+  .menu-btn:hover{border-color:var(--faint);background:var(--mist)}
+  .menu-btn svg{width:18px;height:18px}
+  /* The button sits beside the brand; links and the end group keep their places (the row was space-between across three children; with four, the brand drifted). */
+  header .nav{justify-content:flex-start}
+  header .nav-links{margin-inline-start:auto}
+  header .nav-cta{margin-inline-start:auto}
+  .drawer-back{position:fixed;inset:0;background:rgba(20,24,31,.35);z-index:48;opacity:0;pointer-events:none;transition:opacity .2s}
+  .drawer{position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(320px,86vw);background:var(--canvas);border-inline-end:1px solid var(--line);box-shadow:0 20px 60px -20px rgba(20,24,31,.5);z-index:49;padding:18px 18px 28px;overflow-y:auto;transform:translateX(calc(-100% - 20px));transition:transform .25s cubic-bezier(.65,0,.35,1);display:flex;flex-direction:column;gap:4px}
+  [dir=rtl] .drawer{transform:translateX(calc(100% + 20px))}
+  body.drawer-open .drawer{transform:none}
+  body.drawer-open .drawer-back{opacity:1;pointer-events:auto}
+  body.drawer-open{overflow:hidden}
+  .drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .drawer-top .brand{font-size:17px}
+  .drawer a.item{display:block;padding:11px 12px;border-radius:9px;font-size:16px;color:var(--ink)}
+  .drawer a.item:hover{background:var(--mist)}
+  .drawer a.item[aria-current="page"]{font-weight:500;background:var(--mist)}
+  .drawer hr{border:0;border-top:1px solid var(--line);margin:10px 0}
+  .drawer .btn{justify-content:center;margin-top:6px}
+  @media(prefers-reduced-motion:reduce){.drawer,.drawer-back{transition:none}}
   /* Phones (2026-10-16): the header's end side (language picker, Log in, Start
      free) never wrapped, and translated labels run long ("Se connecter" +
      "Commencer gratuitement"), so at 375px EVERY translated page scrolled
@@ -84,6 +106,10 @@
     header .brand .mark{width:28px;height:28px}
     header .nav-cta .btn{padding:6px 10px !important}
     main,body>section{overflow-x:clip} /* decorative ink strokes are drawn ~118% wide on purpose; clip (not hidden) on the content, never on body: body overflow propagates to the viewport */
+  }
+  /* Tiny phones: the hamburger now stands beside the brand, so the brand keeps its icon only (fr/te labels pushed the row to 354px at 320px). */
+  @media(max-width:360px){
+    header .brand{font-size:0;gap:0}
   }
 
   /* ── hero: thesis = the slide drawing itself ── */
@@ -243,6 +269,7 @@
 
 <header>
   <div class="wrap nav">
+    <button type="button" class="menu-btn" aria-label="Menu" data-i18n-attr="aria-label:common.nav.menu" aria-expanded="false" aria-controls="site-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <div class="brand">
       <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
       SketchCast <span>AI</span>
@@ -280,6 +307,37 @@
     </div>
   </div>
 </header>
+<div class="drawer-back" hidden></div>
+<nav id="site-menu" class="drawer" aria-label="Menu" data-i18n-attr="aria-label:common.nav.menu" hidden>
+  <div class="drawer-top">
+    <a class="brand" href="/ms/">SketchCast <span>AI</span></a>
+    <button type="button" class="menu-btn drawer-close" aria-label="Tutup menu" data-i18n-attr="aria-label:common.nav.closeMenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <a class="item" href="#how" data-i18n="common.nav.how">Cara ia berfungsi</a>
+  <a class="item" href="/ms/topics" data-i18n="common.nav.lessons">Pelajaran</a>
+  <a class="item" href="/ms/homeschool" data-i18n="common.nav.homeschool">Sekolah di rumah</a>
+  <a class="item" href="#free" data-i18n="common.nav.free">Yang percuma</a>
+  <a class="item" href="#outcomes" data-i18n="common.nav.outcomes">Hasilnya</a>
+  <a class="item" href="/ms/schools" data-i18n="common.nav.schools">Untuk sekolah</a>
+  <a class="item" href="/ms/pricing" data-i18n="common.nav.pricing">Harga</a>
+  <a class="item" href="/ms/about" data-i18n="common.nav.about">Tentang kami</a>
+  <hr />
+  <a class="item" href="https://app.sketchcast.app" data-i18n="common.nav.login">Log masuk</a>
+  <a class="btn btn-primary" href="https://app.sketchcast.app" data-i18n="common.nav.startFree">Mula percuma</a>
+</nav>
+<script>
+(function(){
+  var body=document.body,menu=document.getElementById('site-menu'),back=document.querySelector('.drawer-back'),btn=document.querySelector('header .menu-btn');
+  if(!menu||!btn)return;
+  function open(){menu.hidden=false;back.hidden=false;requestAnimationFrame(function(){body.classList.add('drawer-open');});btn.setAttribute('aria-expanded','true');var f=menu.querySelector('a');if(f)f.focus();}
+  function close(){body.classList.remove('drawer-open');btn.setAttribute('aria-expanded','false');setTimeout(function(){if(!body.classList.contains('drawer-open')){menu.hidden=true;back.hidden=true;}},260);btn.focus();}
+  btn.addEventListener('click',open);
+  menu.querySelector('.drawer-close').addEventListener('click',close);
+  back.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&body.classList.contains('drawer-open'))close();});
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))close();});
+})();
+</script>
 <script>
 (function(){
   // Locale-proof header fit: hide the middle links only when the row REALLY
@@ -335,6 +393,71 @@
     </div>
   </div>
 </section>
+
+<!-- FREE LESSONS strip — generated per language by build-topics.mjs from the
+     catalogue (public_catalogue()). Do not edit between the markers. -->
+<!--topics:strip-->
+<style id="lstrip-css">
+.lstrip{padding:56px 0 60px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lstrip-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:44px;align-items:center}
+@media(max-width:860px){.lstrip{padding:44px 0 48px}.lstrip-grid{grid-template-columns:minmax(0,1fr);gap:26px}}
+.lstrip h2{font-size:34px;margin:10px 0 12px}
+.lstrip-lead{color:var(--graphite);font-size:17px;max-width:460px}
+.lstrip-pick{display:grid;gap:12px;margin-top:22px;max-width:460px}
+.lstrip-pick label{display:grid;gap:5px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+.lstrip-pick select{font:inherit;font-size:15px;color:var(--ink);padding:10px 36px 10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--canvas) no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6470' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-position:right 12px center;background-size:16px;appearance:none;-webkit-appearance:none;width:100%;letter-spacing:0;text-transform:none;font-family:var(--sans)}
+[dir=rtl] .lstrip-pick select{padding:10px 12px 10px 36px;background-position:left 12px center}
+.lstrip-pick select:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.lstrip-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:15px}
+.lstrip-links a{color:var(--teal-ink);font-weight:500}.lstrip-links a:hover{text-decoration:underline}
+.lstrip-soon{margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+.lstrip-soon span{display:inline-block;background:#FFF1D6;color:#8A5A00;border-radius:5px;padding:1px 7px;margin-inline-end:6px;letter-spacing:.04em}
+.lstrip-video{display:block;position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--mist);box-shadow:0 1px 2px rgba(20,24,31,.04),0 24px 60px -28px rgba(20,24,31,.35);transition:transform .15s,box-shadow .15s}
+.lstrip-video:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(20,24,31,.04),0 30px 64px -26px rgba(20,24,31,.45)}
+.lstrip-video img{width:100%;height:100%;object-fit:cover;display:block}
+.lstrip-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.lstrip-play svg{width:68px;height:48px;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35))}
+.lstrip-cap{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:12px;font-size:14.5px}
+.lstrip-cap b{font-family:var(--display);font-weight:600;color:var(--ink);font-size:16px}
+.lstrip-cap span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+</style>
+<section class="lstrip" id="lessons" aria-labelledby="lstrip-h">
+  <div class="wrap lstrip-grid">
+    <div>
+      <p class="eyebrow">Pelajaran percuma</p>
+      <h2 id="lstrip-h">Tonton pelajaran percuma</h2>
+      <p class="lstrip-lead">51 pelajaran papan putih ringkas dalam Sains dan Matematik, percuma di YouTube. Pilih satu.</p>
+      <div class="lstrip-pick">
+        <label>Subjek<select id="lstrip-subject"><option value="">Semua subjek</option><option value="Mathematics">Matematik</option><option value="Science">Sains</option></select></label>
+        <label>Pelajaran<select id="lstrip-lesson" lang="en" dir="ltr"><option value="algebraic-fractions-simplifying-adding-and-subtracting" lang="en">Algebraic Fractions: Simplifying, Adding and Subtracting</option><option value="algebraic-identities-squares-of-binomials-and-the-difference-of-two-squares" lang="en">Algebraic Identities: Squares of Binomials and the Difference of Two Squares</option><option value="area-of-trapeziums-and-compound-shapes" lang="en">Area of Trapeziums and Compound Shapes</option><option value="circumference-and-area-of-a-circle" lang="en">Circumference and Area of a Circle</option><option value="coordinates-and-plotting-linear-graphs" lang="en">Coordinates and Plotting Linear Graphs</option><option value="expanding-double-brackets" lang="en">Expanding Double Brackets</option><option value="expanding-single-brackets" lang="en">Expanding Single Brackets</option><option value="factorising-by-taking-out-a-common-factor" lang="en">Factorising by Taking Out a Common Factor</option><option value="forming-and-solving-equations-from-word-problems" lang="en">Forming and Solving Equations from Word Problems</option><option value="formulae-substituting-and-changing-the-subject" lang="en">Formulae: Substituting and Changing the Subject</option><option value="gradient-and-intercept-of-a-straight-line" lang="en">Gradient and Intercept of a Straight Line</option><option value="laws-of-indices-with-algebraic-terms" lang="en">Laws of Indices with Algebraic Terms</option><option value="linear-inequalities-and-their-solutions-on-a-number-line" lang="en">Linear Inequalities and Their Solutions on a Number Line</option><option value="perimeter-and-area-of-rectangles-triangles-and-parallelograms" lang="en">Perimeter and Area of Rectangles, Triangles and Parallelograms</option><option value="pythagoras-theorem-in-right-angled-triangles" lang="en">Pythagoras' Theorem in Right-Angled Triangles</option><option value="quadratic-expressions-and-factorising-trinomials" lang="en">Quadratic Expressions and Factorising Trinomials</option><option value="sequences-and-the-nth-term" lang="en">Sequences and the nth Term</option><option value="simplifying-expressions-by-collecting-like-terms" lang="en">Simplifying Expressions by Collecting Like Terms</option><option value="simultaneous-linear-equations" lang="en">Simultaneous Linear Equations</option><option value="solving-linear-equations-with-brackets-and-unknowns-on-both-sides" lang="en">Solving Linear Equations with Brackets and Unknowns on Both Sides</option><option value="solving-one-step-and-two-step-linear-equations" lang="en">Solving One-Step and Two-Step Linear Equations</option><option value="substitution-evaluating-algebraic-expressions" lang="en">Substitution: Evaluating Algebraic Expressions</option><option value="surface-area-and-volume-of-cuboids-prisms-and-cylinders" lang="en">Surface Area and Volume of Cuboids, Prisms and Cylinders</option><option value="terms-coefficients-and-like-terms" lang="en">Terms, Coefficients and Like Terms</option><option value="types-of-angles-angles-on-a-straight-line-and-around-a-point" lang="en">Types of Angles: Angles on a Straight Line and Around a Point</option><option value="variables-constants-and-algebraic-expressions" lang="en">Variables, Constants and Algebraic Expressions</option><option value="a-balanced-diet" lang="en">A Balanced Diet</option><option value="acids-alkalis-and-the-ph-scale" lang="en">Acids, Alkalis and the pH Scale</option><option value="aerobic-respiration" lang="en">Aerobic Respiration</option><option value="blood-and-its-components" lang="en">Blood and Its Components</option><option value="cells" lang="en">Cells</option><option value="classification-of-elements-and-the-periodic-table" lang="en">Classification of Elements and the Periodic Table</option><option value="elements-compounds-and-mixtures" lang="en">Elements, Compounds and Mixtures</option><option value="food-chains-food-webs-and-decomposers" lang="en">Food Chains, Food Webs, Decomposers and Ecosystem Dynamics</option><option value="forces-and-motion" lang="en">Forces, Motion and Turning Forces</option><option value="heat-transfer-conduction-convection-and-radiation" lang="en">Heat Transfer: Conduction, Convection and Radiation</option><option value="inheritance-and-variation" lang="en">Inheritance and Variation</option><option value="joints-and-antagonistic-muscles" lang="en">Joints and Antagonistic Muscles</option><option value="photosynthesis" lang="en">Photosynthesis</option><option value="plant-and-animal-cells-compared" lang="en">Plant and Animal Cells Compared</option><option value="pressure-in-solids-liquids-and-gases" lang="en">Pressure in Solids, Liquids and Gases</option><option value="reactivity-of-metals" lang="en">Reactivity of Metals</option><option value="reflection-and-refraction-of-light" lang="en">Reflection and Refraction of Light</option><option value="separating-mixtures" lang="en">Separating Mixtures</option><option value="sound-waves" lang="en">Sound Waves</option><option value="specialised-cells" lang="en">Specialised Cells and Tissues</option><option value="states-of-matter-and-the-particle-model" lang="en">States of Matter and the Particle Model</option><option value="structure-of-the-atom" lang="en">Structure of the Atom</option><option value="the-human-respiratory-system" lang="en">The Human Respiratory System</option><option value="transport-in-plants" lang="en">Transport in Plants</option><option value="weather-and-climate" lang="en">Weather and Climate</option></select></label>
+      </div>
+      <p class="lstrip-links"><a id="lstrip-read" href="/ms/topics/algebraic-fractions-simplifying-adding-and-subtracting">Baca penerangan penuh →</a><a href="/ms/topics">Lihat semua 51 pelajaran</a></p>
+      <p class="lstrip-soon"><span>Akan datang</span>Kit pengajaran percuma: akan datang</p>
+    </div>
+    <div>
+      <a id="lstrip-video" class="lstrip-video" href="https://www.youtube.com/watch?v=EiS0kCf51BE" target="_blank" rel="noopener" aria-label="Mainkan di YouTube: Algebraic Fractions: Simplifying, Adding and Subtracting" data-play="Mainkan di YouTube: {title}">
+        <img id="lstrip-img" src="https://i.ytimg.com/vi/EiS0kCf51BE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" />
+        <span class="lstrip-play" aria-hidden="true"><svg viewBox="0 0 68 48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#FF0000"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+      </a>
+      <p class="lstrip-cap"><b id="lstrip-title" lang="en">Algebraic Fractions: Simplifying, Adding and Subtracting</b><span id="lstrip-subj">Matematik</span></p>
+    </div>
+  </div>
+</section>
+<script type="application/json" id="lstrip-data">{"prefix":"/ms","labels":{"Mathematics":"Matematik","Science":"Sains"},"lessons":[{"s":"algebraic-fractions-simplifying-adding-and-subtracting","t":"Algebraic Fractions: Simplifying, Adding and Subtracting","y":"EiS0kCf51BE","j":"Mathematics"},{"s":"algebraic-identities-squares-of-binomials-and-the-difference-of-two-squares","t":"Algebraic Identities: Squares of Binomials and the Difference of Two Squares","y":"4CSrJEyGRH8","j":"Mathematics"},{"s":"area-of-trapeziums-and-compound-shapes","t":"Area of Trapeziums and Compound Shapes","y":"2tRmqwAsgzI","j":"Mathematics"},{"s":"circumference-and-area-of-a-circle","t":"Circumference and Area of a Circle","y":"GrA8qFUz1dA","j":"Mathematics"},{"s":"coordinates-and-plotting-linear-graphs","t":"Coordinates and Plotting Linear Graphs","y":"Pjy2vXnfNbM","j":"Mathematics"},{"s":"expanding-double-brackets","t":"Expanding Double Brackets","y":"h4Vv4ofMnPw","j":"Mathematics"},{"s":"expanding-single-brackets","t":"Expanding Single Brackets","y":"9HB2dYcK6Ys","j":"Mathematics"},{"s":"factorising-by-taking-out-a-common-factor","t":"Factorising by Taking Out a Common Factor","y":"W9fqugTxzUY","j":"Mathematics"},{"s":"forming-and-solving-equations-from-word-problems","t":"Forming and Solving Equations from Word Problems","y":"RFoonyIA5DM","j":"Mathematics"},{"s":"formulae-substituting-and-changing-the-subject","t":"Formulae: Substituting and Changing the Subject","y":"BUFtmaYxSWs","j":"Mathematics"},{"s":"gradient-and-intercept-of-a-straight-line","t":"Gradient and Intercept of a Straight Line","y":"L8y7F5wYQS4","j":"Mathematics"},{"s":"laws-of-indices-with-algebraic-terms","t":"Laws of Indices with Algebraic Terms","y":"nZEInHT9cXw","j":"Mathematics"},{"s":"linear-inequalities-and-their-solutions-on-a-number-line","t":"Linear Inequalities and Their Solutions on a Number Line","y":"P5qvkkwd5PA","j":"Mathematics"},{"s":"perimeter-and-area-of-rectangles-triangles-and-parallelograms","t":"Perimeter and Area of Rectangles, Triangles and Parallelograms","y":"sp2Z366GW40","j":"Mathematics"},{"s":"pythagoras-theorem-in-right-angled-triangles","t":"Pythagoras' Theorem in Right-Angled Triangles","y":"w6FwnAOAPD4","j":"Mathematics"},{"s":"quadratic-expressions-and-factorising-trinomials","t":"Quadratic Expressions and Factorising Trinomials","y":"mbkAPpqb2_A","j":"Mathematics"},{"s":"sequences-and-the-nth-term","t":"Sequences and the nth Term","y":"ykDD2U14Fds","j":"Mathematics"},{"s":"simplifying-expressions-by-collecting-like-terms","t":"Simplifying Expressions by Collecting Like Terms","y":"x91SEMddmBE","j":"Mathematics"},{"s":"simultaneous-linear-equations","t":"Simultaneous Linear Equations","y":"7Hukrz4jTb0","j":"Mathematics"},{"s":"solving-linear-equations-with-brackets-and-unknowns-on-both-sides","t":"Solving Linear Equations with Brackets and Unknowns on Both Sides","y":"vGkOsF8bFbA","j":"Mathematics"},{"s":"solving-one-step-and-two-step-linear-equations","t":"Solving One-Step and Two-Step Linear Equations","y":"QiXm4gzqtPg","j":"Mathematics"},{"s":"substitution-evaluating-algebraic-expressions","t":"Substitution: Evaluating Algebraic Expressions","y":"l1rDd8Gdg38","j":"Mathematics"},{"s":"surface-area-and-volume-of-cuboids-prisms-and-cylinders","t":"Surface Area and Volume of Cuboids, Prisms and Cylinders","y":"635OubkLYTQ","j":"Mathematics"},{"s":"terms-coefficients-and-like-terms","t":"Terms, Coefficients and Like Terms","y":"kLAqbMAicFo","j":"Mathematics"},{"s":"types-of-angles-angles-on-a-straight-line-and-around-a-point","t":"Types of Angles: Angles on a Straight Line and Around a Point","y":"cBOV6VAm8Uw","j":"Mathematics"},{"s":"variables-constants-and-algebraic-expressions","t":"Variables, Constants and Algebraic Expressions","y":"QgShPtHYgcw","j":"Mathematics"},{"s":"a-balanced-diet","t":"A Balanced Diet","y":"WzKtNmxUe1w","j":"Science"},{"s":"acids-alkalis-and-the-ph-scale","t":"Acids, Alkalis and the pH Scale","y":"izw9rsR3JmU","j":"Science"},{"s":"aerobic-respiration","t":"Aerobic Respiration","y":"FPT96igGPK8","j":"Science"},{"s":"blood-and-its-components","t":"Blood and Its Components","y":"Iaaj9jR7g9k","j":"Science"},{"s":"cells","t":"Cells","y":"-Qm-tfg1yJ4","j":"Science"},{"s":"classification-of-elements-and-the-periodic-table","t":"Classification of Elements and the Periodic Table","y":"F-TwnP0ORlQ","j":"Science"},{"s":"elements-compounds-and-mixtures","t":"Elements, Compounds and Mixtures","y":"-3FnkvQ2JtQ","j":"Science"},{"s":"food-chains-food-webs-and-decomposers","t":"Food Chains, Food Webs, Decomposers and Ecosystem Dynamics","y":"7A2cF9dlZnA","j":"Science"},{"s":"forces-and-motion","t":"Forces, Motion and Turning Forces","y":"fCs9F7Fqz5w","j":"Science"},{"s":"heat-transfer-conduction-convection-and-radiation","t":"Heat Transfer: Conduction, Convection and Radiation","y":"9mYAFJcmyC4","j":"Science"},{"s":"inheritance-and-variation","t":"Inheritance and Variation","y":"WHC4RFx1jpI","j":"Science"},{"s":"joints-and-antagonistic-muscles","t":"Joints and Antagonistic Muscles","y":"KbBPLbBfjbc","j":"Science"},{"s":"photosynthesis","t":"Photosynthesis","y":"FkEZ-oiQSnA","j":"Science"},{"s":"plant-and-animal-cells-compared","t":"Plant and Animal Cells Compared","y":"oWJ8NmG3Oig","j":"Science"},{"s":"pressure-in-solids-liquids-and-gases","t":"Pressure in Solids, Liquids and Gases","y":"z0uAxQcjbY8","j":"Science"},{"s":"reactivity-of-metals","t":"Reactivity of Metals","y":"mhA03YieTz0","j":"Science"},{"s":"reflection-and-refraction-of-light","t":"Reflection and Refraction of Light","y":"rliMV0kHsVk","j":"Science"},{"s":"separating-mixtures","t":"Separating Mixtures","y":"kdXQB5UWAXs","j":"Science"},{"s":"sound-waves","t":"Sound Waves","y":"rywpHCvIw5o","j":"Science"},{"s":"specialised-cells","t":"Specialised Cells and Tissues","y":"jBdreQmxwCY","j":"Science"},{"s":"states-of-matter-and-the-particle-model","t":"States of Matter and the Particle Model","y":"vk6pGi9fPdQ","j":"Science"},{"s":"structure-of-the-atom","t":"Structure of the Atom","y":"B41WpWfxE4A","j":"Science"},{"s":"the-human-respiratory-system","t":"The Human Respiratory System","y":"X0IbCYoQ7Fk","j":"Science"},{"s":"transport-in-plants","t":"Transport in Plants","y":"37fN00zREP8","j":"Science"},{"s":"weather-and-climate","t":"Weather and Climate","y":"bVgF1Msv4vw","j":"Science"}]}</script>
+<script>
+(function(){
+  var el=document.getElementById('lstrip-data');if(!el)return;
+  var D=JSON.parse(el.textContent),subj=document.getElementById('lstrip-subject'),sel=document.getElementById('lstrip-lesson');
+  var a=document.getElementById('lstrip-video'),img=document.getElementById('lstrip-img'),ttl=document.getElementById('lstrip-title'),sj=document.getElementById('lstrip-subj'),read=document.getElementById('lstrip-read');
+  function show(x){a.href='https://www.youtube.com/watch?v='+encodeURIComponent(x.y);a.setAttribute('aria-label',a.getAttribute('data-play').replace('{title}',x.t));img.src='https://i.ytimg.com/vi/'+encodeURIComponent(x.y)+'/hqdefault.jpg';ttl.textContent=x.t;sj.textContent=D.labels[x.j]||x.j;read.href=D.prefix+'/topics/'+x.s;}
+  function fillList(filter,keep){var list=D.lessons.filter(function(x){return !filter||x.j===filter});sel.innerHTML='';list.forEach(function(x){var o=document.createElement('option');o.value=x.s;o.textContent=x.t;o.lang='en';sel.appendChild(o);});var pick=list.find(function(x){return x.s===keep})||list[Math.floor(Math.random()*list.length)];sel.value=pick.s;show(pick);}
+  // A random lesson each visit (founder, 2026-10-16).
+  fillList('',null);
+  subj.addEventListener('change',function(){fillList(subj.value,null);});
+  sel.addEventListener('change',function(){var x=D.lessons.find(function(y){return y.s===sel.value});if(x)show(x);});
+})();
+</script>
+<!--/topics:strip-->
 
 <!-- 19-SECOND PRODUCT DEMO — a real MP4, click to play, with sound.
      preload="metadata" fetches only the ~21 KB index, so the homepage stays

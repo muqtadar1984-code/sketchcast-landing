@@ -47,5 +47,16 @@
   "kit.case_study": "కేస్ స్టడీ",
   "kit.questions": "ప్రశ్నల బ్యాంక్: {n} సాధన ప్రశ్నలు",
   "kit.assessment": "ఆటోమేటిక్‌గా మార్కులు వేసే ఆన్‌లైన్ పరీక్ష",
-  "kit.exam": "పరీక్షా సన్నద్ధత సెట్"
+  "kit.exam": "పరీక్షా సన్నద్ధత సెట్",
+  "strip.eyebrow": "ఉచిత పాఠాలు",
+  "strip.title": "ఒక ఉచిత పాఠం చూడండి",
+  "strip.lead": "సైన్స్, గణితంలో {n} చిన్న వైట్‌బోర్డ్ పాఠాలు, YouTubeలో ఉచితం. ఒకటి ఎంచుకోండి.",
+  "strip.subject": "విషయం",
+  "strip.lesson": "పాఠం",
+  "strip.all": "అన్ని విషయాలు",
+  "strip.watch": "YouTubeలో చూడండి",
+  "strip.read": "పూర్తి వివరణ చదవండి",
+  "strip.browse": "మొత్తం {n} పాఠాలు చూడండి",
+  "strip.kitSoon": "ఉచిత బోధనా కిట్: త్వరలో",
+  "strip.play": "YouTubeలో ప్లే చేయండి: {title}"
 }

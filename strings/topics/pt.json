@@ -47,5 +47,16 @@
   "kit.case_study": "Estudo de caso",
   "kit.questions": "Banco de perguntas: {n} perguntas de prática",
   "kit.assessment": "Avaliação online com correção automática",
-  "kit.exam": "Preparação para o exame"
+  "kit.exam": "Preparação para o exame",
+  "strip.eyebrow": "Aulas gratuitas",
+  "strip.title": "Veja uma aula gratuita",
+  "strip.lead": "{n} aulas curtas no quadro branco de Ciências e Matemática, grátis no YouTube. Escolha uma.",
+  "strip.subject": "Disciplina",
+  "strip.lesson": "Aula",
+  "strip.all": "Todas as disciplinas",
+  "strip.watch": "Ver no YouTube",
+  "strip.read": "Ler a explicação completa",
+  "strip.browse": "Ver as {n} aulas",
+  "strip.kitSoon": "Kit pedagógico gratuito: em breve",
+  "strip.play": "Reproduzir no YouTube: {title}"
 }
