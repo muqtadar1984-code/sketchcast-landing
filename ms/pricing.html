@@ -82,6 +82,28 @@
   .nav-links a,.nav-cta a{white-space:nowrap}
   @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
   @media(max-width:1140px){.nav-links{display:none}}
+  /* Phones (2026-10-16): the header's end side (language picker, Log in, Start
+     free) never wrapped, and translated labels run long ("Se connecter" +
+     "Commencer gratuitement"), so at 375px EVERY translated page scrolled
+     sideways (fr by 147px; ar/ms-arab off the start edge). Log in and Start free
+     open the same URL (the app's page offers both), so Log in steps aside and
+     Start free may wrap to two lines instead of widening the page. */
+  @media(max-width:560px){
+    header .wrap{padding-inline:16px}
+    header .nav{gap:10px}
+    header .brand{font-size:17px;gap:8px;flex:0 0 auto}
+    header .nav-cta{gap:8px;min-width:0}
+    header .nav-cta a.login{display:none}
+    header .nav-cta .btn{padding:7px 12px !important;font-size:13px !important;white-space:normal;line-height:1.2;text-align:center;max-width:150px}
+    h1 .uline{white-space:normal}
+  }
+  @media(max-width:380px){
+    header .wrap{padding-inline:12px}
+    header .brand{font-size:15px;gap:7px}
+    header .brand .mark{width:28px;height:28px}
+    header .nav-cta .btn{padding:6px 10px !important}
+    main,body>section{overflow-x:clip} /* decorative ink strokes are drawn ~118% wide on purpose; clip (not hidden) on the content, never on body: body overflow propagates to the viewport */
+  }
   footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
   .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
