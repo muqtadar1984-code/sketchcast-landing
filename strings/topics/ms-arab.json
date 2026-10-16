@@ -58,5 +58,15 @@
   "strip.read": "باچ ڤنرڠن ڤنوه",
   "strip.browse": "ليهت سموا {n} ڤلاجرن",
   "strip.kitSoon": "کيت ڤڠاجرن ڤرچوما: اکن داتڠ",
-  "strip.play": "ماءينکن د YouTube: {title}"
+  "strip.play": "ماءينکن د YouTube: {title}",
+  "branch.algebra": "الجبر",
+  "branch.geometry": "ݢيومتري",
+  "branch.physics": "فيزيک",
+  "branch.chemistry": "کيميا",
+  "branch.biology": "بيولوݢي",
+  "branch.earth": "بومي & اڠکاسا",
+  "subjectAll": "{subject} (سموا)",
+  "curriculum.label": "کوريکولوم",
+  "curriculum.all": "سموا کوريکولوم",
+  "strip.curriculum": "کوريکولوم"
 }

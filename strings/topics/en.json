@@ -59,5 +59,15 @@
   "strip.read": "Read the full explanation",
   "strip.browse": "Browse all {n} lessons",
   "strip.kitSoon": "Free teaching kit: coming soon",
-  "strip.play": "Play on YouTube: {title}"
+  "strip.play": "Play on YouTube: {title}",
+  "branch.algebra": "Algebra",
+  "branch.geometry": "Geometry",
+  "branch.physics": "Physics",
+  "branch.chemistry": "Chemistry",
+  "branch.biology": "Biology",
+  "branch.earth": "Earth & space",
+  "subjectAll": "{subject} (all)",
+  "curriculum.label": "Curriculum",
+  "curriculum.all": "All curricula",
+  "strip.curriculum": "Curriculum"
 }

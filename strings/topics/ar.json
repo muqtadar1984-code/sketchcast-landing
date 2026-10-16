@@ -58,5 +58,15 @@
   "strip.read": "اقرأ الشرح الكامل",
   "strip.browse": "تصفح كل الدروس ({n})",
   "strip.kitSoon": "حقيبة تدريس مجانية: قريبًا",
-  "strip.play": "تشغيل على YouTube: {title}"
+  "strip.play": "تشغيل على YouTube: {title}",
+  "branch.algebra": "الجبر",
+  "branch.geometry": "الهندسة",
+  "branch.physics": "الفيزياء",
+  "branch.chemistry": "الكيمياء",
+  "branch.biology": "الأحياء",
+  "branch.earth": "الأرض والفضاء",
+  "subjectAll": "{subject} (الكل)",
+  "curriculum.label": "المنهج",
+  "curriculum.all": "كل المناهج",
+  "strip.curriculum": "المنهج"
 }

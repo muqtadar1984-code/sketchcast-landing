@@ -256,6 +256,58 @@ function stageOf(topic) {
   return grades;
 }
 
+/* Branch (founder, 2026-10-16): Mathematics splits into Algebra / Geometry,
+ * Science into Physics / Chemistry / Biology (+ Earth & space for the one
+ * climate lesson). Derived from the curriculum nodes' strands (migration
+ * 0131 exposes them): Cambridge strands map directly; CBSE's own strand
+ * names map onto the same five. A topic with several strands takes the
+ * majority. The two unmapped geometry lessons fall back to title keywords. */
+const BRANCH_OF_STRAND = {
+  Algebra: "algebra",
+  "Coordinate Geometry": "geometry", "Geometry and measure": "geometry", Mensuration: "geometry",
+  Biology: "biology", "The World of the Living": "biology", "Natural Resources": "biology",
+  Chemistry: "chemistry", Materials: "chemistry",
+  Physics: "physics", "Natural Phenomena": "physics", "Moving Things, People and Ideas": "physics",
+  "Earth and Space": "earth",
+};
+const BRANCHES = { Mathematics: ["algebra", "geometry"], Science: ["physics", "chemistry", "biology", "earth"] };
+function branchOf(topic) {
+  const votes = {};
+  for (const c of topic.curriculum || []) {
+    const b = BRANCH_OF_STRAND[c.strand];
+    if (b && (BRANCHES[topic.subject] || []).includes(b)) votes[b] = (votes[b] || 0) + 1;
+  }
+  const best = Object.entries(votes).sort((a, b) => b[1] - a[1])[0];
+  if (best) return best[0];
+  if (topic.subject === "Mathematics") {
+    return /\b(angles?|triangles?|areas?|perimeters?|circles?|pythagoras|volumes?|shapes?|polygons?|symmetry|surface)\b/i.test(topic.title) ? "geometry" : "algebra";
+  }
+  return null;
+}
+
+/* Curriculum filter keys: "<family>:<grade>" (e.g. cambridge:7, cbse:9) from
+ * the mapped nodes; a topic mapped to both boards carries both. */
+const familyOf = (code) => (String(code || "").startsWith("cambridge") ? "cambridge" : String(code || "").startsWith("cbse") ? "cbse" : null);
+const FAMILY_NAME = { cambridge: "Cambridge", cbse: "CBSE" };
+function curriculaOf(topic) {
+  const keys = new Set();
+  for (const c of topic.curriculum || []) {
+    const f = familyOf(c.curriculum_code);
+    if (f && c.grade) keys.add(`${f}:${c.grade}`);
+  }
+  return [...keys].sort();
+}
+// Family first, then grade as a NUMBER (so Grade 6 precedes Grade 10).
+const sortCur = (keys) => [...new Set(keys)].sort((a, b) => {
+  const [fa, ga] = a.split(":"), [fb, gb] = b.split(":");
+  return fa.localeCompare(fb) || Number(ga) - Number(gb);
+});
+const curriculumLabel = (t, key) => {
+  const [f, g] = key.split(":");
+  return `${FAMILY_NAME[f] || f} ${fill(t.grade, { g })}`;
+};
+const branchLabel = (t, b) => t[`branch.${b}`] || b;
+
 function curriculumSummary(topic) {
   const by = new Map();
   for (const c of topic.curriculum || []) {
@@ -433,11 +485,13 @@ function card(topic, code) {
   const t = strings[code];
   const v = (topic.videos || [])[0];
   const codes = [...new Set((topic.curriculum || []).map((c) => String(c.code).replace(/^cbse:/, "")))].slice(0, 3);
-  const text = `${topic.title} ${topic.summary || ""} ${topic.subject} ${codes.join(" ")}`.toLowerCase();
-  return `<a class="t-cardlink" href="${prefix(code)}/topics/${topic.slug}" data-subject="${esc(topic.subject)}" data-text="${esc(text)}">
+  const branch = branchOf(topic);
+  const curs = curriculaOf(topic);
+  const text = `${topic.title} ${topic.summary || ""} ${topic.subject} ${branch || ""} ${codes.join(" ")} ${curs.map((k) => curriculumLabel(t, k)).join(" ")}`.toLowerCase();
+  return `<a class="t-cardlink" href="${prefix(code)}/topics/${topic.slug}" data-subject="${esc(topic.subject)}" data-branch="${esc(branch || "")}" data-cur="${esc(curs.join(" "))}" data-text="${esc(text)}">
       ${v ? `<span class="t-thumb"><img src="${thumb(v.youtube_video_id)}" alt="" width="480" height="360" loading="lazy" /></span>` : ""}
       <span class="t-card-body">
-        <span class="eyebrow">${esc(subjectLabel(t, topic.subject))}</span>
+        <span class="eyebrow">${esc(subjectLabel(t, topic.subject))}${branch ? ` · ${esc(branchLabel(t, branch))}` : ""}</span>
         <span class="t-card-title" lang="en">${esc(topic.title)}</span>
         ${topic.summary ? `<span class="t-card-sum" lang="en">${inline(clip(plain(topic.summary), 140))}</span>` : ""}
         ${codes.length ? `<span class="t-codes">${codes.map((c) => `<code>${esc(c)}</code>`).join("")}</span>` : ""}
@@ -457,10 +511,21 @@ function indexMain(all, code) {
     </div>
     <div class="t-filters" role="search">
       <div class="t-chips" role="group" aria-label="${esc(t.subject)}">
-        <button type="button" class="t-chip" aria-pressed="true" data-subject="">${esc(t.all)} <span>${all.length}</span></button>
-        ${subjects.map((s) => `<button type="button" class="t-chip" aria-pressed="false" data-subject="${esc(s)}">${esc(subjectLabel(t, s))} <span>${all.filter((x) => x.subject === s).length}</span></button>`).join("")}
+        <button type="button" class="t-chip" aria-pressed="true" data-subject="" data-branch="">${esc(t.all)} <span>${all.length}</span></button>
+        ${subjects.map((s) => {
+          const inS = all.filter((x) => x.subject === s);
+          const chips = [`<button type="button" class="t-chip t-chip-subject" aria-pressed="false" data-subject="${esc(s)}" data-branch="">${esc(fill(t.subjectAll, { subject: subjectLabel(t, s) }))} <span>${inS.length}</span></button>`];
+          for (const b of BRANCHES[s] || []) {
+            const n = inS.filter((x) => branchOf(x) === b).length;
+            if (n) chips.push(`<button type="button" class="t-chip" aria-pressed="false" data-subject="${esc(s)}" data-branch="${b}">${esc(branchLabel(t, b))} <span>${n}</span></button>`);
+          }
+          return chips.join("");
+        }).join("")}
       </div>
-      <input class="t-search" type="search" placeholder="${esc(t.search)}" aria-label="${esc(t.search)}" />
+      <div class="t-filters-row">
+        <label class="t-curpick">${esc(t["curriculum.label"])}<select class="t-cur"><option value="">${esc(t["curriculum.all"])}</option>${sortCur(all.flatMap(curriculaOf)).map((k) => `<option value="${esc(k)}">${esc(curriculumLabel(t, k))} <span>(${all.filter((x) => curriculaOf(x).includes(k)).length})</span></option>`).join("").replace(/ <span>\((\d+)\)<\/span>/g, " ($1)")}</select></label>
+        <input class="t-search" type="search" placeholder="${esc(t.search)}" aria-label="${esc(t.search)}" />
+      </div>
     </div>
     <div class="t-cards" id="t-cards">${all.map((x) => card(x, code)).join("")}</div>
     <p class="t-empty" hidden>${esc(t.noResults)}</p>
@@ -559,7 +624,13 @@ sup{font-size:.72em;line-height:0}
 .t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
 .t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
 .t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
-.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-filters{display:grid;gap:12px;margin:0 0 22px}
+.t-filters-row{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;justify-content:space-between}
+.t-curpick{display:grid;gap:4px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+.t-cur{font:inherit;font-family:var(--sans);font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink);padding:9px 36px 9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper) no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6470' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-position:right 12px center;background-size:16px;appearance:none;-webkit-appearance:none;min-width:220px}
+[dir=rtl] .t-cur{padding:9px 12px 9px 36px;background-position:left 12px center}
+.t-chip-subject{font-weight:500;color:var(--ink);margin-inline-start:6px}
+.t-chip-subject:first-of-type{margin-inline-start:0}
 .t-chips{display:flex;flex-wrap:wrap;gap:8px}
 .t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
 .t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
@@ -582,22 +653,27 @@ const JS = `<script>
       b.parentNode.replaceChild(f,b);
     });
   });
-  // Index filters: subject chips + text search.
+  // Index filters: subject/branch chips AND curriculum AND text search. Each
+  // filter has an "all" state, so any combination works.
   var cards=document.getElementById('t-cards');if(!cards)return;
-  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    var term=(q.value||'').trim().toLowerCase(),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
-      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      var ok=(!subject||c.getAttribute('data-subject')===subject)
+        &&(!branch||c.getAttribute('data-branch')===branch)
+        &&(!ck||(' '+c.getAttribute('data-cur')+' ').indexOf(' '+ck+' ')>=0)
+        &&(!term||c.getAttribute('data-text').indexOf(term)>=0);
       c.hidden=!ok;if(ok)shown++;
     });
     empty.hidden=shown>0;
   }
   chips.forEach(function(ch){ch.addEventListener('click',function(){
-    subject=ch.getAttribute('data-subject');
+    subject=ch.getAttribute('data-subject');branch=ch.getAttribute('data-branch');
     chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
   });});
   q.addEventListener('input',apply);
+  if(cur)cur.addEventListener('change',apply);
 })();
 </script>`;
 
@@ -682,10 +758,16 @@ function stripHtml(code, all) {
   const subjects = [...new Set(all.map((x) => x.subject))].sort();
   const data = all
     .filter((x) => (x.videos || []).length)
-    .map((x) => ({ s: x.slug, t: x.title, y: x.videos[0].youtube_video_id, j: x.subject }));
+    .map((x) => ({ s: x.slug, t: x.title, y: x.videos[0].youtube_video_id, j: x.subject, b: branchOf(x) || "", c: curriculaOf(x) }));
   const first = data[0];
   const n = data.length;
   const opt = (x) => `<option value="${esc(x.s)}" lang="en">${esc(x.t)}</option>`;
+  const curKeys = sortCur(data.flatMap((x) => x.c));
+  // Subject dropdown: "Mathematics (all)" then its branches, same for Science.
+  const subjectOptions = subjects.map((s) =>
+    `<optgroup label="${esc(subjectLabel(t, s))}"><option value="${esc(s)}">${esc(fill(t.subjectAll, { subject: subjectLabel(t, s) }))}</option>${(BRANCHES[s] || [])
+      .filter((b) => data.some((x) => x.j === s && x.b === b))
+      .map((b) => `<option value="${esc(s)}|${b}">${esc(branchLabel(t, b))}</option>`).join("")}</optgroup>`).join("");
   return `<style id="lstrip-css">${STRIP_CSS}</style>
 <section class="lstrip" id="lessons" aria-labelledby="lstrip-h">
   <div class="wrap lstrip-grid">
@@ -694,7 +776,8 @@ function stripHtml(code, all) {
       <h2 id="lstrip-h">${esc(t["strip.title"])}</h2>
       <p class="lstrip-lead">${esc(fill(t["strip.lead"], { n }))}</p>
       <div class="lstrip-pick">
-        <label>${esc(t["strip.subject"])}<select id="lstrip-subject"><option value="">${esc(t["strip.all"])}</option>${subjects.map((s) => `<option value="${esc(s)}">${esc(subjectLabel(t, s))}</option>`).join("")}</select></label>
+        <label>${esc(t["strip.subject"])}<select id="lstrip-subject"><option value="">${esc(t["strip.all"])}</option>${subjectOptions}</select></label>
+        <label>${esc(t["strip.curriculum"])}<select id="lstrip-cur"><option value="">${esc(t["curriculum.all"])}</option>${curKeys.map((k) => `<option value="${esc(k)}">${esc(curriculumLabel(t, k))}</option>`).join("")}</select></label>
         <label>${esc(t["strip.lesson"])}<select id="lstrip-lesson" lang="en" dir="ltr">${data.map(opt).join("")}</select></label>
       </div>
       <p class="lstrip-links"><a id="lstrip-read" href="${prefix(code)}/topics/${esc(first.s)}">${esc(t["strip.read"])} →</a><a href="${prefix(code)}/topics">${esc(fill(t["strip.browse"], { n }))}</a></p>
@@ -709,17 +792,23 @@ function stripHtml(code, all) {
     </div>
   </div>
 </section>
-<script type="application/json" id="lstrip-data">${JSON.stringify({ prefix: prefix(code), labels: Object.fromEntries(subjects.map((s) => [s, subjectLabel(t, s)])), lessons: data }).replace(/</g, "\\u003c")}</script>
+<script type="application/json" id="lstrip-data">${JSON.stringify({ prefix: prefix(code), labels: Object.fromEntries(subjects.map((s) => [s, subjectLabel(t, s)])), branches: Object.fromEntries(Object.values(BRANCHES).flat().map((b) => [b, branchLabel(t, b)])), none: t.noResults, lessons: data }).replace(/</g, "\\u003c")}</script>
 <script>
 (function(){
   var el=document.getElementById('lstrip-data');if(!el)return;
-  var D=JSON.parse(el.textContent),subj=document.getElementById('lstrip-subject'),sel=document.getElementById('lstrip-lesson');
+  var D=JSON.parse(el.textContent),subj=document.getElementById('lstrip-subject'),cur=document.getElementById('lstrip-cur'),sel=document.getElementById('lstrip-lesson');
   var a=document.getElementById('lstrip-video'),img=document.getElementById('lstrip-img'),ttl=document.getElementById('lstrip-title'),sj=document.getElementById('lstrip-subj'),read=document.getElementById('lstrip-read');
-  function show(x){a.href='https://www.youtube.com/watch?v='+encodeURIComponent(x.y);a.setAttribute('aria-label',a.getAttribute('data-play').replace('{title}',x.t));img.src='https://i.ytimg.com/vi/'+encodeURIComponent(x.y)+'/hqdefault.jpg';ttl.textContent=x.t;sj.textContent=D.labels[x.j]||x.j;read.href=D.prefix+'/topics/'+x.s;}
-  function fillList(filter,keep){var list=D.lessons.filter(function(x){return !filter||x.j===filter});sel.innerHTML='';list.forEach(function(x){var o=document.createElement('option');o.value=x.s;o.textContent=x.t;o.lang='en';sel.appendChild(o);});var pick=list.find(function(x){return x.s===keep})||list[Math.floor(Math.random()*list.length)];sel.value=pick.s;show(pick);}
+  function show(x){a.href='https://www.youtube.com/watch?v='+encodeURIComponent(x.y);a.setAttribute('aria-label',a.getAttribute('data-play').replace('{title}',x.t));img.src='https://i.ytimg.com/vi/'+encodeURIComponent(x.y)+'/hqdefault.jpg';ttl.textContent=x.t;sj.textContent=(D.labels[x.j]||x.j)+(x.b&&D.branches[x.b]?' · '+D.branches[x.b]:'');read.href=D.prefix+'/topics/'+x.s;}
+  // Subject value is "Subject" or "Subject|branch"; curriculum value is "family:grade". Both AND together; either may be "all".
+  function fillList(keep){var sv=subj.value.split('|'),s=sv[0],b=sv[1]||'',ck=cur.value;
+    var list=D.lessons.filter(function(x){return (!s||x.j===s)&&(!b||x.b===b)&&(!ck||x.c.indexOf(ck)>=0)});
+    sel.innerHTML='';sel.disabled=!list.length;if(!list.length){var o=document.createElement('option');o.textContent=D.none;sel.appendChild(o);return;}
+    list.forEach(function(x){var o=document.createElement('option');o.value=x.s;o.textContent=x.t;o.lang='en';sel.appendChild(o);});
+    var pick=list.find(function(x){return x.s===keep})||list[Math.floor(Math.random()*list.length)];sel.value=pick.s;show(pick);}
   // A random lesson each visit (founder, 2026-10-16).
-  fillList('',null);
-  subj.addEventListener('change',function(){fillList(subj.value,null);});
+  fillList(null);
+  subj.addEventListener('change',function(){fillList(null);});
+  cur.addEventListener('change',function(){fillList(null);});
   sel.addEventListener('change',function(){var x=D.lessons.find(function(y){return y.s===sel.value});if(x)show(x);});
 })();
 </script>`;

@@ -58,5 +58,15 @@
   "strip.read": "संपूर्ण स्पष्टीकरण वाचा",
   "strip.browse": "सर्व {n} पाठ पाहा",
   "strip.kitSoon": "मोफत अध्यापन किट: लवकरच",
-  "strip.play": "YouTube वर चालू करा: {title}"
+  "strip.play": "YouTube वर चालू करा: {title}",
+  "branch.algebra": "बीजगणित",
+  "branch.geometry": "भूमिती",
+  "branch.physics": "भौतिकशास्त्र",
+  "branch.chemistry": "रसायनशास्त्र",
+  "branch.biology": "जीवशास्त्र",
+  "branch.earth": "पृथ्वी व अवकाश",
+  "subjectAll": "{subject} (सर्व)",
+  "curriculum.label": "अभ्यासक्रम",
+  "curriculum.all": "सर्व अभ्यासक्रम",
+  "strip.curriculum": "अभ्यासक्रम"
 }

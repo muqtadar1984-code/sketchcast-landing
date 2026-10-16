@@ -58,5 +58,15 @@
   "strip.read": "Baca penerangan penuh",
   "strip.browse": "Lihat semua {n} pelajaran",
   "strip.kitSoon": "Kit pengajaran percuma: akan datang",
-  "strip.play": "Mainkan di YouTube: {title}"
+  "strip.play": "Mainkan di YouTube: {title}",
+  "branch.algebra": "Algebra",
+  "branch.geometry": "Geometri",
+  "branch.physics": "Fizik",
+  "branch.chemistry": "Kimia",
+  "branch.biology": "Biologi",
+  "branch.earth": "Bumi & angkasa",
+  "subjectAll": "{subject} (semua)",
+  "curriculum.label": "Kurikulum",
+  "curriculum.all": "Semua kurikulum",
+  "strip.curriculum": "Kurikulum"
 }

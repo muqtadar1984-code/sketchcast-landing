@@ -58,5 +58,15 @@
   "strip.read": "पूरी व्याख्या पढ़ें",
   "strip.browse": "सभी {n} पाठ देखें",
   "strip.kitSoon": "मुफ़्त शिक्षण किट: जल्द आ रही है",
-  "strip.play": "YouTube पर चलाएँ: {title}"
+  "strip.play": "YouTube पर चलाएँ: {title}",
+  "branch.algebra": "बीजगणित",
+  "branch.geometry": "ज्यामिति",
+  "branch.physics": "भौतिकी",
+  "branch.chemistry": "रसायन विज्ञान",
+  "branch.biology": "जीव विज्ञान",
+  "branch.earth": "पृथ्वी और अंतरिक्ष",
+  "subjectAll": "{subject} (सभी)",
+  "curriculum.label": "पाठ्यक्रम",
+  "curriculum.all": "सभी पाठ्यक्रम",
+  "strip.curriculum": "पाठ्यक्रम"
 }

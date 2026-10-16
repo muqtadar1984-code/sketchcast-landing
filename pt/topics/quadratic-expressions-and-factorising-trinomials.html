@@ -292,7 +292,13 @@ sup{font-size:.72em;line-height:0}
 .t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
 .t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
 .t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
-.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-filters{display:grid;gap:12px;margin:0 0 22px}
+.t-filters-row{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;justify-content:space-between}
+.t-curpick{display:grid;gap:4px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+.t-cur{font:inherit;font-family:var(--sans);font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink);padding:9px 36px 9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper) no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6470' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-position:right 12px center;background-size:16px;appearance:none;-webkit-appearance:none;min-width:220px}
+[dir=rtl] .t-cur{padding:9px 12px 9px 36px;background-position:left 12px center}
+.t-chip-subject{font-weight:500;color:var(--ink);margin-inline-start:6px}
+.t-chip-subject:first-of-type{margin-inline-start:0}
 .t-chips{display:flex;flex-wrap:wrap;gap:8px}
 .t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
 .t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
@@ -469,50 +475,50 @@ sup{font-size:.72em;line-height:0}
     </aside></div>
     </div>
 
-    <section class="t-related"><h2>Mais aulas de Matemática</h2><div class="t-cards"><a class="t-cardlink" href="/pt/topics/algebraic-fractions-simplifying-adding-and-subtracting" data-subject="Mathematics" data-text="algebraic fractions: simplifying, adding and subtracting cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator. mathematics 9ae.02">
+    <section class="t-related"><h2>Mais aulas de Matemática</h2><div class="t-cards"><a class="t-cardlink" href="/pt/topics/algebraic-fractions-simplifying-adding-and-subtracting" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:9" data-text="algebraic fractions: simplifying, adding and subtracting cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator. mathematics algebra 9ae.02 cambridge ano 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/EiS0kCf51BE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">Matemática</span>
+        <span class="eyebrow">Matemática · Álgebra</span>
         <span class="t-card-title" lang="en">Algebraic Fractions: Simplifying, Adding and Subtracting</span>
         <span class="t-card-sum" lang="en">Cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator.</span>
         <span class="t-codes"><code>9Ae.02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/pt/topics/algebraic-identities-squares-of-binomials-and-the-difference-of-two-squares" data-subject="Mathematics" data-text="algebraic identities: squares of binomials and the difference of two squares the identities for (a + b)^2, (a - b)^2 and a^2 - b^2, where they come from, and how they speed up expansion and factorising. mathematics 8:alg:02 8:alg:03 9:u2:01">
+    </a><a class="t-cardlink" href="/pt/topics/algebraic-identities-squares-of-binomials-and-the-difference-of-two-squares" data-subject="Mathematics" data-branch="algebra" data-cur="cbse:8 cbse:9" data-text="algebraic identities: squares of binomials and the difference of two squares the identities for (a + b)^2, (a - b)^2 and a^2 - b^2, where they come from, and how they speed up expansion and factorising. mathematics algebra 8:alg:02 8:alg:03 9:u2:01 cbse ano 8 cbse ano 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/4CSrJEyGRH8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">Matemática</span>
+        <span class="eyebrow">Matemática · Álgebra</span>
         <span class="t-card-title" lang="en">Algebraic Identities: Squares of Binomials and the Difference of Two Squares</span>
         <span class="t-card-sum" lang="en">The identities for (a + b)<sup>2</sup>, (a - b)<sup>2</sup> and a<sup>2</sup> - b<sup>2</sup>, where they come from, and how they speed up expansion and factorising.</span>
         <span class="t-codes"><code>8:ALG:02</code><code>8:ALG:03</code><code>9:U2:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/pt/topics/area-of-trapeziums-and-compound-shapes" data-subject="Mathematics" data-text="area of trapeziums and compound shapes the area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles and adding or subtracting areas. mathematics 9:u5:01">
+    </a><a class="t-cardlink" href="/pt/topics/area-of-trapeziums-and-compound-shapes" data-subject="Mathematics" data-branch="geometry" data-cur="cbse:9" data-text="area of trapeziums and compound shapes the area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles and adding or subtracting areas. mathematics geometry 9:u5:01 cbse ano 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/2tRmqwAsgzI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">Matemática</span>
+        <span class="eyebrow">Matemática · Geometria</span>
         <span class="t-card-title" lang="en">Area of Trapeziums and Compound Shapes</span>
         <span class="t-card-sum" lang="en">The area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles…</span>
         <span class="t-codes"><code>9:U5:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/pt/topics/circumference-and-area-of-a-circle" data-subject="Mathematics" data-text="circumference and area of a circle radius, diameter and pi; circumference = pi x d and area = pi x r^2; answers in terms of pi and to a given accuracy; semicircles and quarter circles. mathematics 9gg.01">
+    </a><a class="t-cardlink" href="/pt/topics/circumference-and-area-of-a-circle" data-subject="Mathematics" data-branch="geometry" data-cur="cambridge:9" data-text="circumference and area of a circle radius, diameter and pi; circumference = pi x d and area = pi x r^2; answers in terms of pi and to a given accuracy; semicircles and quarter circles. mathematics geometry 9gg.01 cambridge ano 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/GrA8qFUz1dA/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">Matemática</span>
+        <span class="eyebrow">Matemática · Geometria</span>
         <span class="t-card-title" lang="en">Circumference and Area of a Circle</span>
         <span class="t-card-sum" lang="en">Radius, diameter and pi; circumference = pi x d and area = pi x r<sup>2</sup>; answers in terms of pi and to a given accuracy; semicircles and…</span>
         <span class="t-codes"><code>9Gg.01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/pt/topics/coordinates-and-plotting-linear-graphs" data-subject="Mathematics" data-text="coordinates and plotting linear graphs coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph. mathematics 7as.04 7as.05 7as.06">
+    </a><a class="t-cardlink" href="/pt/topics/coordinates-and-plotting-linear-graphs" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cambridge:8 cambridge:9 cbse:8 cbse:9" data-text="coordinates and plotting linear graphs coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph. mathematics algebra 7as.04 7as.05 7as.06 cambridge ano 7 cambridge ano 8 cambridge ano 9 cbse ano 8 cbse ano 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/Pjy2vXnfNbM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">Matemática</span>
+        <span class="eyebrow">Matemática · Álgebra</span>
         <span class="t-card-title" lang="en">Coordinates and Plotting Linear Graphs</span>
         <span class="t-card-sum" lang="en">Coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph.</span>
         <span class="t-codes"><code>7As.04</code><code>7As.05</code><code>7As.06</code></span>
       </span>
-    </a><a class="t-cardlink" href="/pt/topics/expanding-double-brackets" data-subject="Mathematics" data-text="expanding double brackets multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution. mathematics 9ae.02 8:alg:02">
+    </a><a class="t-cardlink" href="/pt/topics/expanding-double-brackets" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:9 cbse:8" data-text="expanding double brackets multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution. mathematics algebra 9ae.02 8:alg:02 cambridge ano 9 cbse ano 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/h4Vv4ofMnPw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">Matemática</span>
+        <span class="eyebrow">Matemática · Álgebra</span>
         <span class="t-card-title" lang="en">Expanding Double Brackets</span>
         <span class="t-card-sum" lang="en">Multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution.</span>
         <span class="t-codes"><code>9Ae.02</code><code>8:ALG:02</code></span>
@@ -583,22 +589,27 @@ sup{font-size:.72em;line-height:0}
       b.parentNode.replaceChild(f,b);
     });
   });
-  // Index filters: subject chips + text search.
+  // Index filters: subject/branch chips AND curriculum AND text search. Each
+  // filter has an "all" state, so any combination works.
   var cards=document.getElementById('t-cards');if(!cards)return;
-  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    var term=(q.value||'').trim().toLowerCase(),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
-      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      var ok=(!subject||c.getAttribute('data-subject')===subject)
+        &&(!branch||c.getAttribute('data-branch')===branch)
+        &&(!ck||(' '+c.getAttribute('data-cur')+' ').indexOf(' '+ck+' ')>=0)
+        &&(!term||c.getAttribute('data-text').indexOf(term)>=0);
       c.hidden=!ok;if(ok)shown++;
     });
     empty.hidden=shown>0;
   }
   chips.forEach(function(ch){ch.addEventListener('click',function(){
-    subject=ch.getAttribute('data-subject');
+    subject=ch.getAttribute('data-subject');branch=ch.getAttribute('data-branch');
     chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
   });});
   q.addEventListener('input',apply);
+  if(cur)cur.addEventListener('change',apply);
 })();
 </script>
 </body>

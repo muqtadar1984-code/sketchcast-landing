@@ -58,5 +58,15 @@
   "strip.read": "Ler a explicação completa",
   "strip.browse": "Ver as {n} aulas",
   "strip.kitSoon": "Kit pedagógico gratuito: em breve",
-  "strip.play": "Reproduzir no YouTube: {title}"
+  "strip.play": "Reproduzir no YouTube: {title}",
+  "branch.algebra": "Álgebra",
+  "branch.geometry": "Geometria",
+  "branch.physics": "Física",
+  "branch.chemistry": "Química",
+  "branch.biology": "Biologia",
+  "branch.earth": "Terra e espaço",
+  "subjectAll": "{subject} (tudo)",
+  "curriculum.label": "Currículo",
+  "curriculum.all": "Todos os currículos",
+  "strip.curriculum": "Currículo"
 }

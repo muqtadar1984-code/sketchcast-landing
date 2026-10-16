@@ -293,7 +293,13 @@ sup{font-size:.72em;line-height:0}
 .t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
 .t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
 .t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
-.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-filters{display:grid;gap:12px;margin:0 0 22px}
+.t-filters-row{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;justify-content:space-between}
+.t-curpick{display:grid;gap:4px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+.t-cur{font:inherit;font-family:var(--sans);font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink);padding:9px 36px 9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper) no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6470' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-position:right 12px center;background-size:16px;appearance:none;-webkit-appearance:none;min-width:220px}
+[dir=rtl] .t-cur{padding:9px 12px 9px 36px;background-position:left 12px center}
+.t-chip-subject{font-weight:500;color:var(--ink);margin-inline-start:6px}
+.t-chip-subject:first-of-type{margin-inline-start:0}
 .t-chips{display:flex;flex-wrap:wrap;gap:8px}
 .t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
 .t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
@@ -410,415 +416,418 @@ sup{font-size:.72em;line-height:0}
     </div>
     <div class="t-filters" role="search">
       <div class="t-chips" role="group" aria-label="المادة">
-        <button type="button" class="t-chip" aria-pressed="true" data-subject="">الكل <span>51</span></button>
-        <button type="button" class="t-chip" aria-pressed="false" data-subject="Mathematics">الرياضيات <span>26</span></button><button type="button" class="t-chip" aria-pressed="false" data-subject="Science">العلوم <span>25</span></button>
+        <button type="button" class="t-chip" aria-pressed="true" data-subject="" data-branch="">الكل <span>51</span></button>
+        <button type="button" class="t-chip t-chip-subject" aria-pressed="false" data-subject="Mathematics" data-branch="">الرياضيات (الكل) <span>26</span></button><button type="button" class="t-chip" aria-pressed="false" data-subject="Mathematics" data-branch="algebra">الجبر <span>20</span></button><button type="button" class="t-chip" aria-pressed="false" data-subject="Mathematics" data-branch="geometry">الهندسة <span>6</span></button><button type="button" class="t-chip t-chip-subject" aria-pressed="false" data-subject="Science" data-branch="">العلوم (الكل) <span>25</span></button><button type="button" class="t-chip" aria-pressed="false" data-subject="Science" data-branch="physics">الفيزياء <span>5</span></button><button type="button" class="t-chip" aria-pressed="false" data-subject="Science" data-branch="chemistry">الكيمياء <span>7</span></button><button type="button" class="t-chip" aria-pressed="false" data-subject="Science" data-branch="biology">الأحياء <span>12</span></button><button type="button" class="t-chip" aria-pressed="false" data-subject="Science" data-branch="earth">الأرض والفضاء <span>1</span></button>
       </div>
-      <input class="t-search" type="search" placeholder="ابحث في الدروس" aria-label="ابحث في الدروس" />
+      <div class="t-filters-row">
+        <label class="t-curpick">المنهج<select class="t-cur"><option value="">كل المناهج</option><option value="cambridge:7">Cambridge الصف 7 (20)</option><option value="cambridge:8">Cambridge الصف 8 (23)</option><option value="cambridge:9">Cambridge الصف 9 (23)</option><option value="cbse:6">CBSE الصف 6 (2)</option><option value="cbse:7">CBSE الصف 7 (14)</option><option value="cbse:8">CBSE الصف 8 (14)</option><option value="cbse:9">CBSE الصف 9 (14)</option><option value="cbse:10">CBSE الصف 10 (6)</option></select></label>
+        <input class="t-search" type="search" placeholder="ابحث في الدروس" aria-label="ابحث في الدروس" />
+      </div>
     </div>
-    <div class="t-cards" id="t-cards"><a class="t-cardlink" href="/ar/topics/algebraic-fractions-simplifying-adding-and-subtracting" data-subject="Mathematics" data-text="algebraic fractions: simplifying, adding and subtracting cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator. mathematics 9ae.02">
+    <div class="t-cards" id="t-cards"><a class="t-cardlink" href="/ar/topics/algebraic-fractions-simplifying-adding-and-subtracting" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:9" data-text="algebraic fractions: simplifying, adding and subtracting cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator. mathematics algebra 9ae.02 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/EiS0kCf51BE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Algebraic Fractions: Simplifying, Adding and Subtracting</span>
         <span class="t-card-sum" lang="en">Cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator.</span>
         <span class="t-codes"><code>9Ae.02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/algebraic-identities-squares-of-binomials-and-the-difference-of-two-squares" data-subject="Mathematics" data-text="algebraic identities: squares of binomials and the difference of two squares the identities for (a + b)^2, (a - b)^2 and a^2 - b^2, where they come from, and how they speed up expansion and factorising. mathematics 8:alg:02 8:alg:03 9:u2:01">
+    </a><a class="t-cardlink" href="/ar/topics/algebraic-identities-squares-of-binomials-and-the-difference-of-two-squares" data-subject="Mathematics" data-branch="algebra" data-cur="cbse:8 cbse:9" data-text="algebraic identities: squares of binomials and the difference of two squares the identities for (a + b)^2, (a - b)^2 and a^2 - b^2, where they come from, and how they speed up expansion and factorising. mathematics algebra 8:alg:02 8:alg:03 9:u2:01 cbse الصف 8 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/4CSrJEyGRH8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Algebraic Identities: Squares of Binomials and the Difference of Two Squares</span>
         <span class="t-card-sum" lang="en">The identities for (a + b)<sup>2</sup>, (a - b)<sup>2</sup> and a<sup>2</sup> - b<sup>2</sup>, where they come from, and how they speed up expansion and factorising.</span>
         <span class="t-codes"><code>8:ALG:02</code><code>8:ALG:03</code><code>9:U2:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/area-of-trapeziums-and-compound-shapes" data-subject="Mathematics" data-text="area of trapeziums and compound shapes the area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles and adding or subtracting areas. mathematics 9:u5:01">
+    </a><a class="t-cardlink" href="/ar/topics/area-of-trapeziums-and-compound-shapes" data-subject="Mathematics" data-branch="geometry" data-cur="cbse:9" data-text="area of trapeziums and compound shapes the area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles and adding or subtracting areas. mathematics geometry 9:u5:01 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/2tRmqwAsgzI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الهندسة</span>
         <span class="t-card-title" lang="en">Area of Trapeziums and Compound Shapes</span>
         <span class="t-card-sum" lang="en">The area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles…</span>
         <span class="t-codes"><code>9:U5:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/circumference-and-area-of-a-circle" data-subject="Mathematics" data-text="circumference and area of a circle radius, diameter and pi; circumference = pi x d and area = pi x r^2; answers in terms of pi and to a given accuracy; semicircles and quarter circles. mathematics 9gg.01">
+    </a><a class="t-cardlink" href="/ar/topics/circumference-and-area-of-a-circle" data-subject="Mathematics" data-branch="geometry" data-cur="cambridge:9" data-text="circumference and area of a circle radius, diameter and pi; circumference = pi x d and area = pi x r^2; answers in terms of pi and to a given accuracy; semicircles and quarter circles. mathematics geometry 9gg.01 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/GrA8qFUz1dA/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الهندسة</span>
         <span class="t-card-title" lang="en">Circumference and Area of a Circle</span>
         <span class="t-card-sum" lang="en">Radius, diameter and pi; circumference = pi x d and area = pi x r<sup>2</sup>; answers in terms of pi and to a given accuracy; semicircles and…</span>
         <span class="t-codes"><code>9Gg.01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/coordinates-and-plotting-linear-graphs" data-subject="Mathematics" data-text="coordinates and plotting linear graphs coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph. mathematics 7as.04 7as.05 7as.06">
+    </a><a class="t-cardlink" href="/ar/topics/coordinates-and-plotting-linear-graphs" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cambridge:8 cambridge:9 cbse:8 cbse:9" data-text="coordinates and plotting linear graphs coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph. mathematics algebra 7as.04 7as.05 7as.06 cambridge الصف 7 cambridge الصف 8 cambridge الصف 9 cbse الصف 8 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/Pjy2vXnfNbM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Coordinates and Plotting Linear Graphs</span>
         <span class="t-card-sum" lang="en">Coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph.</span>
         <span class="t-codes"><code>7As.04</code><code>7As.05</code><code>7As.06</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/expanding-double-brackets" data-subject="Mathematics" data-text="expanding double brackets multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution. mathematics 9ae.02 8:alg:02">
+    </a><a class="t-cardlink" href="/ar/topics/expanding-double-brackets" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:9 cbse:8" data-text="expanding double brackets multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution. mathematics algebra 9ae.02 8:alg:02 cambridge الصف 9 cbse الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/h4Vv4ofMnPw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Expanding Double Brackets</span>
         <span class="t-card-sum" lang="en">Multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution.</span>
         <span class="t-codes"><code>9Ae.02</code><code>8:ALG:02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/expanding-single-brackets" data-subject="Mathematics" data-text="expanding single brackets multiplying a bracket by a number or a term using the distributive law, and simplifying the result. mathematics 7ae.03 8ae.03 8:alg:02">
+    </a><a class="t-cardlink" href="/ar/topics/expanding-single-brackets" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cambridge:8 cbse:8" data-text="expanding single brackets multiplying a bracket by a number or a term using the distributive law, and simplifying the result. mathematics algebra 7ae.03 8ae.03 8:alg:02 cambridge الصف 7 cambridge الصف 8 cbse الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/9HB2dYcK6Ys/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Expanding Single Brackets</span>
         <span class="t-card-sum" lang="en">Multiplying a bracket by a number or a term using the distributive law, and simplifying the result.</span>
         <span class="t-codes"><code>7Ae.03</code><code>8Ae.03</code><code>8:ALG:02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/factorising-by-taking-out-a-common-factor" data-subject="Mathematics" data-text="factorising by taking out a common factor reversing expansion by finding the highest common factor of the terms and writing the expression as a product. mathematics 8ae.03 8:alg:03">
+    </a><a class="t-cardlink" href="/ar/topics/factorising-by-taking-out-a-common-factor" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:8 cbse:8" data-text="factorising by taking out a common factor reversing expansion by finding the highest common factor of the terms and writing the expression as a product. mathematics algebra 8ae.03 8:alg:03 cambridge الصف 8 cbse الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/W9fqugTxzUY/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Factorising by Taking Out a Common Factor</span>
         <span class="t-card-sum" lang="en">Reversing expansion by finding the highest common factor of the terms and writing the expression as a product.</span>
         <span class="t-codes"><code>8Ae.03</code><code>8:ALG:03</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/forming-and-solving-equations-from-word-problems" data-subject="Mathematics" data-text="forming and solving equations from word problems turning a written situation into an equation, choosing what the variable stands for, solving it, and interpreting the answer. mathematics 7ae.06 8ae.06 9ae.05">
+    </a><a class="t-cardlink" href="/ar/topics/forming-and-solving-equations-from-word-problems" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cambridge:8 cambridge:9 cbse:7 cbse:8" data-text="forming and solving equations from word problems turning a written situation into an equation, choosing what the variable stands for, solving it, and interpreting the answer. mathematics algebra 7ae.06 8ae.06 9ae.05 cambridge الصف 7 cambridge الصف 8 cambridge الصف 9 cbse الصف 7 cbse الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/RFoonyIA5DM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Forming and Solving Equations from Word Problems</span>
         <span class="t-card-sum" lang="en">Turning a written situation into an equation, choosing what the variable stands for, solving it, and interpreting the answer.</span>
         <span class="t-codes"><code>7Ae.06</code><code>8Ae.06</code><code>9Ae.05</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/formulae-substituting-and-changing-the-subject" data-subject="Mathematics" data-text="formulae: substituting and changing the subject using formulae from science and everyday life, substituting values, and rearranging a formula to make a different variable the subject. mathematics 7ae.05 8ae.05 9ae.04">
+    </a><a class="t-cardlink" href="/ar/topics/formulae-substituting-and-changing-the-subject" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cambridge:8 cambridge:9" data-text="formulae: substituting and changing the subject using formulae from science and everyday life, substituting values, and rearranging a formula to make a different variable the subject. mathematics algebra 7ae.05 8ae.05 9ae.04 cambridge الصف 7 cambridge الصف 8 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/BUFtmaYxSWs/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Formulae: Substituting and Changing the Subject</span>
         <span class="t-card-sum" lang="en">Using formulae from science and everyday life, substituting values, and rearranging a formula to make a different variable the subject.</span>
         <span class="t-codes"><code>7Ae.05</code><code>8Ae.05</code><code>9Ae.04</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/gradient-and-intercept-of-a-straight-line" data-subject="Mathematics" data-text="gradient and intercept of a straight line reading gradient and y-intercept from a graph and from y = mx + c, and writing the equation of a line from its features. mathematics 8as.06 9as.06">
+    </a><a class="t-cardlink" href="/ar/topics/gradient-and-intercept-of-a-straight-line" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:8 cambridge:9" data-text="gradient and intercept of a straight line reading gradient and y-intercept from a graph and from y = mx + c, and writing the equation of a line from its features. mathematics algebra 8as.06 9as.06 cambridge الصف 8 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/L8y7F5wYQS4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Gradient and Intercept of a Straight Line</span>
         <span class="t-card-sum" lang="en">Reading gradient and y-intercept from a graph and from y = mx + c, and writing the equation of a line from its features.</span>
         <span class="t-codes"><code>8As.06</code><code>9As.06</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/laws-of-indices-with-algebraic-terms" data-subject="Mathematics" data-text="laws of indices with algebraic terms multiplying and dividing powers of the same base, raising a power to a power, and the zero and negative indices with algebraic terms. mathematics 9ae.01 9ae.02 7:alg:03">
+    </a><a class="t-cardlink" href="/ar/topics/laws-of-indices-with-algebraic-terms" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:9 cbse:7 cbse:8" data-text="laws of indices with algebraic terms multiplying and dividing powers of the same base, raising a power to a power, and the zero and negative indices with algebraic terms. mathematics algebra 9ae.01 9ae.02 7:alg:03 cambridge الصف 9 cbse الصف 7 cbse الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/nZEInHT9cXw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Laws of Indices with Algebraic Terms</span>
         <span class="t-card-sum" lang="en">Multiplying and dividing powers of the same base, raising a power to a power, and the zero and negative indices with algebraic terms.</span>
         <span class="t-codes"><code>9Ae.01</code><code>9Ae.02</code><code>7:ALG:03</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/linear-inequalities-and-their-solutions-on-a-number-line" data-subject="Mathematics" data-text="linear inequalities and their solutions on a number line solving linear inequalities, what happens when multiplying or dividing by a negative, and showing solution sets on a number line. mathematics 7ae.07 8ae.07 9ae.07">
+    </a><a class="t-cardlink" href="/ar/topics/linear-inequalities-and-their-solutions-on-a-number-line" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cambridge:8 cambridge:9" data-text="linear inequalities and their solutions on a number line solving linear inequalities, what happens when multiplying or dividing by a negative, and showing solution sets on a number line. mathematics algebra 7ae.07 8ae.07 9ae.07 cambridge الصف 7 cambridge الصف 8 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/P5qvkkwd5PA/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Linear Inequalities and Their Solutions on a Number Line</span>
         <span class="t-card-sum" lang="en">Solving linear inequalities, what happens when multiplying or dividing by a negative, and showing solution sets on a number line.</span>
         <span class="t-codes"><code>7Ae.07</code><code>8Ae.07</code><code>9Ae.07</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/perimeter-and-area-of-rectangles-triangles-and-parallelograms" data-subject="Mathematics" data-text="perimeter and area of rectangles, triangles and parallelograms perimeter as the distance around a shape; area of a rectangle, a triangle (half base times height) and a parallelogram (base times perpendicular height); choosing the right height. mathematics 9:u5:01">
+    </a><a class="t-cardlink" href="/ar/topics/perimeter-and-area-of-rectangles-triangles-and-parallelograms" data-subject="Mathematics" data-branch="geometry" data-cur="cbse:9" data-text="perimeter and area of rectangles, triangles and parallelograms perimeter as the distance around a shape; area of a rectangle, a triangle (half base times height) and a parallelogram (base times perpendicular height); choosing the right height. mathematics geometry 9:u5:01 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/sp2Z366GW40/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الهندسة</span>
         <span class="t-card-title" lang="en">Perimeter and Area of Rectangles, Triangles and Parallelograms</span>
         <span class="t-card-sum" lang="en">Perimeter as the distance around a shape; area of a rectangle, a triangle (half base times height) and a parallelogram (base times…</span>
         <span class="t-codes"><code>9:U5:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/pythagoras-theorem-in-right-angled-triangles" data-subject="Mathematics" data-text="pythagoras' theorem in right-angled triangles in a right-angled triangle the square on the hypotenuse equals the sum of the squares on the other two sides; finding the hypotenuse, finding a shorter side, and checking whether a triangle is right-angled. mathematics ">
+    </a><a class="t-cardlink" href="/ar/topics/pythagoras-theorem-in-right-angled-triangles" data-subject="Mathematics" data-branch="geometry" data-cur="" data-text="pythagoras' theorem in right-angled triangles in a right-angled triangle the square on the hypotenuse equals the sum of the squares on the other two sides; finding the hypotenuse, finding a shorter side, and checking whether a triangle is right-angled. mathematics geometry  ">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/w6FwnAOAPD4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الهندسة</span>
         <span class="t-card-title" lang="en">Pythagoras' Theorem in Right-Angled Triangles</span>
         <span class="t-card-sum" lang="en">In a right-angled triangle the square on the hypotenuse equals the sum of the squares on the other two sides; finding the hypotenuse,…</span>
         
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/quadratic-expressions-and-factorising-trinomials" data-subject="Mathematics" data-text="quadratic expressions and factorising trinomials recognising quadratic expressions, factorising x^2 + bx + c by finding two numbers, and using the factors to solve simple quadratic equations. mathematics 9ae.02 8:alg:03 9:u2:01">
+    </a><a class="t-cardlink" href="/ar/topics/quadratic-expressions-and-factorising-trinomials" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:9 cbse:8 cbse:9" data-text="quadratic expressions and factorising trinomials recognising quadratic expressions, factorising x^2 + bx + c by finding two numbers, and using the factors to solve simple quadratic equations. mathematics algebra 9ae.02 8:alg:03 9:u2:01 cambridge الصف 9 cbse الصف 8 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/mbkAPpqb2_A/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Quadratic Expressions and Factorising Trinomials</span>
         <span class="t-card-sum" lang="en">Recognising quadratic expressions, factorising x<sup>2</sup> + bx + c by finding two numbers, and using the factors to solve simple quadratic…</span>
         <span class="t-codes"><code>9Ae.02</code><code>8:ALG:03</code><code>9:U2:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/sequences-and-the-nth-term" data-subject="Mathematics" data-text="sequences and the nth term term-to-term and position-to-term rules, finding the nth term of an arithmetic sequence, and using it to generate and test terms. mathematics 7as.01 7as.02 8as.01">
+    </a><a class="t-cardlink" href="/ar/topics/sequences-and-the-nth-term" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cambridge:8 cambridge:9" data-text="sequences and the nth term term-to-term and position-to-term rules, finding the nth term of an arithmetic sequence, and using it to generate and test terms. mathematics algebra 7as.01 7as.02 8as.01 cambridge الصف 7 cambridge الصف 8 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/ykDD2U14Fds/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Sequences and the nth Term</span>
         <span class="t-card-sum" lang="en">Term-to-term and position-to-term rules, finding the nth term of an arithmetic sequence, and using it to generate and test terms.</span>
         <span class="t-codes"><code>7As.01</code><code>7As.02</code><code>8As.01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/simplifying-expressions-by-collecting-like-terms" data-subject="Mathematics" data-text="simplifying expressions by collecting like terms adding and subtracting like terms to write an expression in its simplest form, including terms with negative coefficients. mathematics 7ae.02 7ae.03 7:alg:02">
+    </a><a class="t-cardlink" href="/ar/topics/simplifying-expressions-by-collecting-like-terms" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cbse:7 cbse:8" data-text="simplifying expressions by collecting like terms adding and subtracting like terms to write an expression in its simplest form, including terms with negative coefficients. mathematics algebra 7ae.02 7ae.03 7:alg:02 cambridge الصف 7 cbse الصف 7 cbse الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/x91SEMddmBE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Simplifying Expressions by Collecting Like Terms</span>
         <span class="t-card-sum" lang="en">Adding and subtracting like terms to write an expression in its simplest form, including terms with negative coefficients.</span>
         <span class="t-codes"><code>7Ae.02</code><code>7Ae.03</code><code>7:ALG:02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/simultaneous-linear-equations" data-subject="Mathematics" data-text="simultaneous linear equations solving a pair of linear equations by elimination and by substitution, and reading the solution as the crossing point of two lines. mathematics 9ae.06">
+    </a><a class="t-cardlink" href="/ar/topics/simultaneous-linear-equations" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:9" data-text="simultaneous linear equations solving a pair of linear equations by elimination and by substitution, and reading the solution as the crossing point of two lines. mathematics algebra 9ae.06 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/7Hukrz4jTb0/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Simultaneous Linear Equations</span>
         <span class="t-card-sum" lang="en">Solving a pair of linear equations by elimination and by substitution, and reading the solution as the crossing point of two lines.</span>
         <span class="t-codes"><code>9Ae.06</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/solving-linear-equations-with-brackets-and-unknowns-on-both-sides" data-subject="Mathematics" data-text="solving linear equations with brackets and unknowns on both sides expanding brackets, collecting the unknown on one side, and solving equations that have the variable on both sides. mathematics 8ae.06 8:alg:01">
+    </a><a class="t-cardlink" href="/ar/topics/solving-linear-equations-with-brackets-and-unknowns-on-both-sides" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:8 cbse:8" data-text="solving linear equations with brackets and unknowns on both sides expanding brackets, collecting the unknown on one side, and solving equations that have the variable on both sides. mathematics algebra 8ae.06 8:alg:01 cambridge الصف 8 cbse الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/vGkOsF8bFbA/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Solving Linear Equations with Brackets and Unknowns on Both Sides</span>
         <span class="t-card-sum" lang="en">Expanding brackets, collecting the unknown on one side, and solving equations that have the variable on both sides.</span>
         <span class="t-codes"><code>8Ae.06</code><code>8:ALG:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/solving-one-step-and-two-step-linear-equations" data-subject="Mathematics" data-text="solving one-step and two-step linear equations keeping an equation balanced, undoing operations in the right order, and checking a solution by substitution. mathematics 7ae.06 7:alg:01">
+    </a><a class="t-cardlink" href="/ar/topics/solving-one-step-and-two-step-linear-equations" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cbse:7" data-text="solving one-step and two-step linear equations keeping an equation balanced, undoing operations in the right order, and checking a solution by substitution. mathematics algebra 7ae.06 7:alg:01 cambridge الصف 7 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/QiXm4gzqtPg/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Solving One-Step and Two-Step Linear Equations</span>
         <span class="t-card-sum" lang="en">Keeping an equation balanced, undoing operations in the right order, and checking a solution by substitution.</span>
         <span class="t-codes"><code>7Ae.06</code><code>7:ALG:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/substitution-evaluating-algebraic-expressions" data-subject="Mathematics" data-text="substitution: evaluating algebraic expressions replacing variables with numbers, applying the order of operations, and evaluating expressions with negative and fractional values. mathematics 7ae.05 7as.03 7:alg:02">
+    </a><a class="t-cardlink" href="/ar/topics/substitution-evaluating-algebraic-expressions" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cbse:7" data-text="substitution: evaluating algebraic expressions replacing variables with numbers, applying the order of operations, and evaluating expressions with negative and fractional values. mathematics algebra 7ae.05 7as.03 7:alg:02 cambridge الصف 7 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/l1rDd8Gdg38/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Substitution: Evaluating Algebraic Expressions</span>
         <span class="t-card-sum" lang="en">Replacing variables with numbers, applying the order of operations, and evaluating expressions with negative and fractional values.</span>
         <span class="t-codes"><code>7Ae.05</code><code>7As.03</code><code>7:ALG:02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/surface-area-and-volume-of-cuboids-prisms-and-cylinders" data-subject="Mathematics" data-text="surface area and volume of cuboids, prisms and cylinders finding the volume of a cuboid, a triangular prism and a cylinder as cross-section area times length, and their surface area as the sum of their faces, from the solid's drawing and from its net. mathematics 9gg.04 9gg.05 9:u5:02">
+    </a><a class="t-cardlink" href="/ar/topics/surface-area-and-volume-of-cuboids-prisms-and-cylinders" data-subject="Mathematics" data-branch="geometry" data-cur="cambridge:9 cbse:9" data-text="surface area and volume of cuboids, prisms and cylinders finding the volume of a cuboid, a triangular prism and a cylinder as cross-section area times length, and their surface area as the sum of their faces, from the solid's drawing and from its net. mathematics geometry 9gg.04 9gg.05 9:u5:02 cambridge الصف 9 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/635OubkLYTQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الهندسة</span>
         <span class="t-card-title" lang="en">Surface Area and Volume of Cuboids, Prisms and Cylinders</span>
         <span class="t-card-sum" lang="en">Finding the volume of a cuboid, a triangular prism and a cylinder as cross-section area times length, and their surface area as the sum of…</span>
         <span class="t-codes"><code>9Gg.04</code><code>9Gg.05</code><code>9:U5:02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/terms-coefficients-and-like-terms" data-subject="Mathematics" data-text="terms, coefficients and like terms breaking an expression into its terms, identifying coefficients and constants, and recognising which terms are like terms. mathematics 7ae.03 7:alg:02 8:alg:02">
+    </a><a class="t-cardlink" href="/ar/topics/terms-coefficients-and-like-terms" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cbse:7 cbse:8 cbse:9" data-text="terms, coefficients and like terms breaking an expression into its terms, identifying coefficients and constants, and recognising which terms are like terms. mathematics algebra 7ae.03 7:alg:02 8:alg:02 cambridge الصف 7 cbse الصف 7 cbse الصف 8 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/kLAqbMAicFo/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Terms, Coefficients and Like Terms</span>
         <span class="t-card-sum" lang="en">Breaking an expression into its terms, identifying coefficients and constants, and recognising which terms are like terms.</span>
         <span class="t-codes"><code>7Ae.03</code><code>7:ALG:02</code><code>8:ALG:02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/types-of-angles-angles-on-a-straight-line-and-around-a-point" data-subject="Mathematics" data-text="types of angles: angles on a straight line and around a point acute, right, obtuse and reflex angles; angles on a straight line add to 180 degrees and angles around a point add to 360 degrees; vertically opposite angles are equal. mathematics ">
+    </a><a class="t-cardlink" href="/ar/topics/types-of-angles-angles-on-a-straight-line-and-around-a-point" data-subject="Mathematics" data-branch="geometry" data-cur="" data-text="types of angles: angles on a straight line and around a point acute, right, obtuse and reflex angles; angles on a straight line add to 180 degrees and angles around a point add to 360 degrees; vertically opposite angles are equal. mathematics geometry  ">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/cBOV6VAm8Uw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الهندسة</span>
         <span class="t-card-title" lang="en">Types of Angles: Angles on a Straight Line and Around a Point</span>
         <span class="t-card-sum" lang="en">Acute, right, obtuse and reflex angles; angles on a straight line add to 180 degrees and angles around a point add to 360 degrees;…</span>
         
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/variables-constants-and-algebraic-expressions" data-subject="Mathematics" data-text="variables, constants and algebraic expressions what a variable stands for, how letters and numbers combine into expressions, and how to read and write expressions from words. mathematics 7ae.01 7ae.04 8ae.01">
+    </a><a class="t-cardlink" href="/ar/topics/variables-constants-and-algebraic-expressions" data-subject="Mathematics" data-branch="algebra" data-cur="cambridge:7 cambridge:8 cambridge:9 cbse:7" data-text="variables, constants and algebraic expressions what a variable stands for, how letters and numbers combine into expressions, and how to read and write expressions from words. mathematics algebra 7ae.01 7ae.04 8ae.01 cambridge الصف 7 cambridge الصف 8 cambridge الصف 9 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/QgShPtHYgcw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">الرياضيات</span>
+        <span class="eyebrow">الرياضيات · الجبر</span>
         <span class="t-card-title" lang="en">Variables, Constants and Algebraic Expressions</span>
         <span class="t-card-sum" lang="en">What a variable stands for, how letters and numbers combine into expressions, and how to read and write expressions from words.</span>
         <span class="t-codes"><code>7Ae.01</code><code>7Ae.04</code><code>8Ae.01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/a-balanced-diet" data-subject="Science" data-text="a balanced diet proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it. science 8bp.01 6:ch03">
+    </a><a class="t-cardlink" href="/ar/topics/a-balanced-diet" data-subject="Science" data-branch="biology" data-cur="cambridge:8 cbse:6" data-text="a balanced diet proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it. science biology 8bp.01 6:ch03 cambridge الصف 8 cbse الصف 6">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/WzKtNmxUe1w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">A Balanced Diet</span>
         <span class="t-card-sum" lang="en">Proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it.</span>
         <span class="t-codes"><code>8Bp.01</code><code>6:ch03</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/acids-alkalis-and-the-ph-scale" data-subject="Science" data-text="acids, alkalis and the ph scale acidity and alkalinity as chemical properties, the ph scale, indicators, and neutralisation. science 7cp.02 7cp.03 7cc.04">
+    </a><a class="t-cardlink" href="/ar/topics/acids-alkalis-and-the-ph-scale" data-subject="Science" data-branch="chemistry" data-cur="cambridge:7 cbse:10 cbse:7" data-text="acids, alkalis and the ph scale acidity and alkalinity as chemical properties, the ph scale, indicators, and neutralisation. science chemistry 7cp.02 7cp.03 7cc.04 cambridge الصف 7 cbse الصف 10 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/izw9rsR3JmU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الكيمياء</span>
         <span class="t-card-title" lang="en">Acids, Alkalis and the pH Scale</span>
         <span class="t-card-sum" lang="en">Acidity and alkalinity as chemical properties, the pH scale, indicators, and neutralisation.</span>
         <span class="t-codes"><code>7Cp.02</code><code>7Cp.03</code><code>7Cc.04</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/aerobic-respiration" data-subject="Science" data-text="aerobic respiration energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing. science 8bp.04 8bp.05 10:u2:01">
+    </a><a class="t-cardlink" href="/ar/topics/aerobic-respiration" data-subject="Science" data-branch="biology" data-cur="cambridge:8 cbse:10" data-text="aerobic respiration energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing. science biology 8bp.04 8bp.05 10:u2:01 cambridge الصف 8 cbse الصف 10">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/FPT96igGPK8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Aerobic Respiration</span>
         <span class="t-card-sum" lang="en">Energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing.</span>
         <span class="t-codes"><code>8Bp.04</code><code>8Bp.05</code><code>10:U2:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/blood-and-its-components" data-subject="Science" data-text="blood and its components plasma, red blood cells, white blood cells and platelets, and what each transports or protects. science 8bs.02 7:ch09">
+    </a><a class="t-cardlink" href="/ar/topics/blood-and-its-components" data-subject="Science" data-branch="biology" data-cur="cambridge:8 cbse:7" data-text="blood and its components plasma, red blood cells, white blood cells and platelets, and what each transports or protects. science biology 8bs.02 7:ch09 cambridge الصف 8 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/Iaaj9jR7g9k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Blood and Its Components</span>
         <span class="t-card-sum" lang="en">Plasma, red blood cells, white blood cells and platelets, and what each transports or protects.</span>
         <span class="t-codes"><code>8Bs.02</code><code>7:ch09</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/cells" data-subject="Science" data-text="cells the cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems. science 7bs.01 7bs.02 7bs.03">
+    </a><a class="t-cardlink" href="/ar/topics/cells" data-subject="Science" data-branch="biology" data-cur="cambridge:7 cbse:9" data-text="cells the cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems. science biology 7bs.01 7bs.02 7bs.03 cambridge الصف 7 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/-Qm-tfg1yJ4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Cells</span>
         <span class="t-card-sum" lang="en">The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build…</span>
         <span class="t-codes"><code>7Bs.01</code><code>7Bs.02</code><code>7Bs.03</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/classification-of-elements-and-the-periodic-table" data-subject="Science" data-text="classification of elements and the periodic table why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the trends down group 1. science 7cm.01 7cm.02 7cm.03">
+    </a><a class="t-cardlink" href="/ar/topics/classification-of-elements-and-the-periodic-table" data-subject="Science" data-branch="chemistry" data-cur="cambridge:7 cambridge:9" data-text="classification of elements and the periodic table why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the trends down group 1. science chemistry 7cm.01 7cm.02 7cm.03 cambridge الصف 7 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/F-TwnP0ORlQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الكيمياء</span>
         <span class="t-card-title" lang="en">Classification of Elements and the Periodic Table</span>
         <span class="t-card-sum" lang="en">Why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the…</span>
         <span class="t-codes"><code>7Cm.01</code><code>7Cm.02</code><code>7Cm.03</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/elements-compounds-and-mixtures" data-subject="Science" data-text="elements, compounds and mixtures atoms and elements, compounds and mixtures including alloys, represented with the particle model. science 7cm.04 7cm.07 9:u1:02">
+    </a><a class="t-cardlink" href="/ar/topics/elements-compounds-and-mixtures" data-subject="Science" data-branch="chemistry" data-cur="cambridge:7 cbse:8 cbse:9" data-text="elements, compounds and mixtures atoms and elements, compounds and mixtures including alloys, represented with the particle model. science chemistry 7cm.04 7cm.07 9:u1:02 cambridge الصف 7 cbse الصف 8 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/-3FnkvQ2JtQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الكيمياء</span>
         <span class="t-card-title" lang="en">Elements, Compounds and Mixtures</span>
         <span class="t-card-sum" lang="en">Atoms and elements, compounds and mixtures including alloys, represented with the particle model.</span>
         <span class="t-codes"><code>7Cm.04</code><code>7Cm.07</code><code>9:U1:02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/food-chains-food-webs-and-decomposers" data-subject="Science" data-text="food chains, food webs, decomposers and ecosystem dynamics producers, consumers and decomposers; constructing and reading food chains and webs; energy flow in an ecosystem. science 7be.01 7be.02 10:u5:01">
+    </a><a class="t-cardlink" href="/ar/topics/food-chains-food-webs-and-decomposers" data-subject="Science" data-branch="biology" data-cur="cambridge:7 cbse:10" data-text="food chains, food webs, decomposers and ecosystem dynamics producers, consumers and decomposers; constructing and reading food chains and webs; energy flow in an ecosystem. science biology 7be.01 7be.02 10:u5:01 cambridge الصف 7 cbse الصف 10">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/7A2cF9dlZnA/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Food Chains, Food Webs, Decomposers and Ecosystem Dynamics</span>
         <span class="t-card-sum" lang="en">Producers, consumers and decomposers; constructing and reading food chains and webs; energy flow in an ecosystem.</span>
         <span class="t-codes"><code>7Be.01</code><code>7Be.02</code><code>10:U5:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/forces-and-motion" data-subject="Science" data-text="forces, motion and turning forces balanced and unbalanced forces and their effect on motion, and turning forces (moments). science 8pf.03 8pf.04">
+    </a><a class="t-cardlink" href="/ar/topics/forces-and-motion" data-subject="Science" data-branch="physics" data-cur="cambridge:8" data-text="forces, motion and turning forces balanced and unbalanced forces and their effect on motion, and turning forces (moments). science physics 8pf.03 8pf.04 cambridge الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/fCs9F7Fqz5w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الفيزياء</span>
         <span class="t-card-title" lang="en">Forces, Motion and Turning Forces</span>
         <span class="t-card-sum" lang="en">Balanced and unbalanced forces and their effect on motion, and turning forces (moments).</span>
         <span class="t-codes"><code>8Pf.03</code><code>8Pf.04</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/heat-transfer-conduction-convection-and-radiation" data-subject="Science" data-text="heat transfer: conduction, convection and radiation heat versus temperature, and the three ways thermal energy moves from hotter to colder places. science 9pf.02 9pf.05 7:ch07">
+    </a><a class="t-cardlink" href="/ar/topics/heat-transfer-conduction-convection-and-radiation" data-subject="Science" data-branch="physics" data-cur="cambridge:9 cbse:7" data-text="heat transfer: conduction, convection and radiation heat versus temperature, and the three ways thermal energy moves from hotter to colder places. science physics 9pf.02 9pf.05 7:ch07 cambridge الصف 9 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/9mYAFJcmyC4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الفيزياء</span>
         <span class="t-card-title" lang="en">Heat Transfer: Conduction, Convection and Radiation</span>
         <span class="t-card-sum" lang="en">Heat versus temperature, and the three ways thermal energy moves from hotter to colder places.</span>
         <span class="t-codes"><code>9Pf.02</code><code>9Pf.05</code><code>7:ch07</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/inheritance-and-variation" data-subject="Science" data-text="inheritance and variation chromosomes, genes and dna; inheritance of sex through xx and xy; variation within a species and its genetic basis. science 9bp.02 9bp.03 10:u2:04">
+    </a><a class="t-cardlink" href="/ar/topics/inheritance-and-variation" data-subject="Science" data-branch="biology" data-cur="cambridge:9 cbse:10" data-text="inheritance and variation chromosomes, genes and dna; inheritance of sex through xx and xy; variation within a species and its genetic basis. science biology 9bp.02 9bp.03 10:u2:04 cambridge الصف 9 cbse الصف 10">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/WHC4RFx1jpI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Inheritance and Variation</span>
         <span class="t-card-sum" lang="en">Chromosomes, genes and DNA; inheritance of sex through XX and XY; variation within a species and its genetic basis.</span>
         <span class="t-codes"><code>9Bp.02</code><code>9Bp.03</code><code>10:U2:04</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/joints-and-antagonistic-muscles" data-subject="Science" data-text="joints and antagonistic muscles ball-and-socket and hinge joints, and how pairs of muscles such as biceps and triceps move bones. science 8bs.01">
+    </a><a class="t-cardlink" href="/ar/topics/joints-and-antagonistic-muscles" data-subject="Science" data-branch="biology" data-cur="cambridge:8" data-text="joints and antagonistic muscles ball-and-socket and hinge joints, and how pairs of muscles such as biceps and triceps move bones. science biology 8bs.01 cambridge الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/KbBPLbBfjbc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Joints and Antagonistic Muscles</span>
         <span class="t-card-sum" lang="en">Ball-and-socket and hinge joints, and how pairs of muscles such as biceps and triceps move bones.</span>
         <span class="t-codes"><code>8Bs.01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/photosynthesis" data-subject="Science" data-text="photosynthesis how plants make food in chloroplasts, and the word equation for photosynthesis. science 9bp.06 9bp.07">
+    </a><a class="t-cardlink" href="/ar/topics/photosynthesis" data-subject="Science" data-branch="biology" data-cur="cambridge:9" data-text="photosynthesis how plants make food in chloroplasts, and the word equation for photosynthesis. science biology 9bp.06 9bp.07 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/FkEZ-oiQSnA/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Photosynthesis</span>
         <span class="t-card-sum" lang="en">How plants make food in chloroplasts, and the word equation for photosynthesis.</span>
         <span class="t-codes"><code>9Bp.06</code><code>9Bp.07</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/plant-and-animal-cells-compared" data-subject="Science" data-text="plant and animal cells compared cell membrane, cytoplasm, nucleus, mitochondria, cell wall, chloroplasts and vacuole — what plant and animal cells share and where they differ. science 7bs.04 9:u2:01">
+    </a><a class="t-cardlink" href="/ar/topics/plant-and-animal-cells-compared" data-subject="Science" data-branch="biology" data-cur="cambridge:7 cbse:9" data-text="plant and animal cells compared cell membrane, cytoplasm, nucleus, mitochondria, cell wall, chloroplasts and vacuole — what plant and animal cells share and where they differ. science biology 7bs.04 9:u2:01 cambridge الصف 7 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/oWJ8NmG3Oig/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Plant and Animal Cells Compared</span>
         <span class="t-card-sum" lang="en">Cell membrane, cytoplasm, nucleus, mitochondria, cell wall, chloroplasts and vacuole — what plant and animal cells share and where they…</span>
         <span class="t-codes"><code>7Bs.04</code><code>9:U2:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/pressure-in-solids-liquids-and-gases" data-subject="Science" data-text="pressure in solids, liquids and gases pressure as force over area, and particle theory explaining pressure in liquids and gases. science 8pf.05 8pf.06 8:ch06">
+    </a><a class="t-cardlink" href="/ar/topics/pressure-in-solids-liquids-and-gases" data-subject="Science" data-branch="physics" data-cur="cambridge:8 cbse:8" data-text="pressure in solids, liquids and gases pressure as force over area, and particle theory explaining pressure in liquids and gases. science physics 8pf.05 8pf.06 8:ch06 cambridge الصف 8 cbse الصف 8">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/z0uAxQcjbY8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الفيزياء</span>
         <span class="t-card-title" lang="en">Pressure in Solids, Liquids and Gases</span>
         <span class="t-card-sum" lang="en">Pressure as force over area, and particle theory explaining pressure in liquids and gases.</span>
         <span class="t-codes"><code>8Pf.05</code><code>8Pf.06</code><code>8:ch06</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/reactivity-of-metals" data-subject="Science" data-text="reactivity of metals the reactivity series; metals with oxygen, water and dilute acids; displacement reactions. science 8cc.03 9cc.02 10:u1:03">
+    </a><a class="t-cardlink" href="/ar/topics/reactivity-of-metals" data-subject="Science" data-branch="chemistry" data-cur="cambridge:8 cambridge:9 cbse:10 cbse:7" data-text="reactivity of metals the reactivity series; metals with oxygen, water and dilute acids; displacement reactions. science chemistry 8cc.03 9cc.02 10:u1:03 cambridge الصف 8 cambridge الصف 9 cbse الصف 10 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/mhA03YieTz0/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الكيمياء</span>
         <span class="t-card-title" lang="en">Reactivity of Metals</span>
         <span class="t-card-sum" lang="en">The reactivity series; metals with oxygen, water and dilute acids; displacement reactions.</span>
         <span class="t-codes"><code>8Cc.03</code><code>9Cc.02</code><code>10:U1:03</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/reflection-and-refraction-of-light" data-subject="Science" data-text="reflection and refraction of light the law of reflection at plane surfaces, refraction at air-glass and air-water boundaries, and dispersion through a prism. science 8ps.01 8ps.02 8ps.03">
+    </a><a class="t-cardlink" href="/ar/topics/reflection-and-refraction-of-light" data-subject="Science" data-branch="physics" data-cur="cambridge:8 cbse:10 cbse:7" data-text="reflection and refraction of light the law of reflection at plane surfaces, refraction at air-glass and air-water boundaries, and dispersion through a prism. science physics 8ps.01 8ps.02 8ps.03 cambridge الصف 8 cbse الصف 10 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/rliMV0kHsVk/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الفيزياء</span>
         <span class="t-card-title" lang="en">Reflection and Refraction of Light</span>
         <span class="t-card-sum" lang="en">The law of reflection at plane surfaces, refraction at air-glass and air-water boundaries, and dispersion through a prism.</span>
         <span class="t-codes"><code>8Ps.01</code><code>8Ps.02</code><code>8Ps.03</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/separating-mixtures" data-subject="Science" data-text="separating mixtures filtration, evaporation, crystallisation and paper chromatography — which separation suits which mixture and why. science 8cp.02 9cc.03 6:ch09">
+    </a><a class="t-cardlink" href="/ar/topics/separating-mixtures" data-subject="Science" data-branch="chemistry" data-cur="cambridge:8 cambridge:9 cbse:6" data-text="separating mixtures filtration, evaporation, crystallisation and paper chromatography — which separation suits which mixture and why. science chemistry 8cp.02 9cc.03 6:ch09 cambridge الصف 8 cambridge الصف 9 cbse الصف 6">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/kdXQB5UWAXs/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الكيمياء</span>
         <span class="t-card-title" lang="en">Separating Mixtures</span>
         <span class="t-card-sum" lang="en">Filtration, evaporation, crystallisation and paper chromatography — which separation suits which mixture and why.</span>
         <span class="t-codes"><code>8Cp.02</code><code>9Cc.03</code><code>6:ch09</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/sound-waves" data-subject="Science" data-text="sound waves vibrations, why sound needs a medium, echoes, and waveforms: amplitude and loudness, frequency and pitch. science 7ps.01 7ps.02 9ps.01">
+    </a><a class="t-cardlink" href="/ar/topics/sound-waves" data-subject="Science" data-branch="physics" data-cur="cambridge:7 cambridge:9 cbse:9" data-text="sound waves vibrations, why sound needs a medium, echoes, and waveforms: amplitude and loudness, frequency and pitch. science physics 7ps.01 7ps.02 9ps.01 cambridge الصف 7 cambridge الصف 9 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/rywpHCvIw5o/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الفيزياء</span>
         <span class="t-card-title" lang="en">Sound Waves</span>
         <span class="t-card-sum" lang="en">Vibrations, why sound needs a medium, echoes, and waveforms: amplitude and loudness, frequency and pitch.</span>
         <span class="t-codes"><code>7Ps.01</code><code>7Ps.02</code><code>9Ps.01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/specialised-cells" data-subject="Science" data-text="specialised cells and tissues how red blood cells, neurones, ciliated cells, root hair cells and palisade cells are shaped for their jobs, and how cells build tissues and organs. science 7bs.03 9:u2:02">
+    </a><a class="t-cardlink" href="/ar/topics/specialised-cells" data-subject="Science" data-branch="biology" data-cur="cambridge:7 cbse:9" data-text="specialised cells and tissues how red blood cells, neurones, ciliated cells, root hair cells and palisade cells are shaped for their jobs, and how cells build tissues and organs. science biology 7bs.03 9:u2:02 cambridge الصف 7 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/jBdreQmxwCY/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Specialised Cells and Tissues</span>
         <span class="t-card-sum" lang="en">How red blood cells, neurones, ciliated cells, root hair cells and palisade cells are shaped for their jobs, and how cells build tissues…</span>
         <span class="t-codes"><code>7Bs.03</code><code>9:U2:02</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/states-of-matter-and-the-particle-model" data-subject="Science" data-text="states of matter and the particle model solids, liquids and gases in terms of particle arrangement, separation and motion; changes of state; diffusion. science 7cm.06 8pf.07 9:u1:01">
+    </a><a class="t-cardlink" href="/ar/topics/states-of-matter-and-the-particle-model" data-subject="Science" data-branch="chemistry" data-cur="cambridge:7 cambridge:8 cbse:8 cbse:9" data-text="states of matter and the particle model solids, liquids and gases in terms of particle arrangement, separation and motion; changes of state; diffusion. science chemistry 7cm.06 8pf.07 9:u1:01 cambridge الصف 7 cambridge الصف 8 cbse الصف 8 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/vk6pGi9fPdQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الكيمياء</span>
         <span class="t-card-title" lang="en">States of Matter and the Particle Model</span>
         <span class="t-card-sum" lang="en">Solids, liquids and gases in terms of particle arrangement, separation and motion; changes of state; diffusion.</span>
         <span class="t-codes"><code>7Cm.06</code><code>8Pf.07</code><code>9:U1:01</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/structure-of-the-atom" data-subject="Science" data-text="structure of the atom the rutherford model: nucleus of protons and neutrons, electrons in shells, charges, and how atoms hold together. science 8cm.01 8cm.02 9:u1:04">
+    </a><a class="t-cardlink" href="/ar/topics/structure-of-the-atom" data-subject="Science" data-branch="chemistry" data-cur="cambridge:8 cbse:9" data-text="structure of the atom the rutherford model: nucleus of protons and neutrons, electrons in shells, charges, and how atoms hold together. science chemistry 8cm.01 8cm.02 9:u1:04 cambridge الصف 8 cbse الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/B41WpWfxE4A/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الكيمياء</span>
         <span class="t-card-title" lang="en">Structure of the Atom</span>
         <span class="t-card-sum" lang="en">The Rutherford model: nucleus of protons and neutrons, electrons in shells, charges, and how atoms hold together.</span>
         <span class="t-codes"><code>8Cm.01</code><code>8Cm.02</code><code>9:U1:04</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/the-human-respiratory-system" data-subject="Science" data-text="the human respiratory system lungs, airways, alveoli, diaphragm and intercostal muscles; breathing versus respiration; gas exchange by diffusion. science 8bs.03 8bs.04 7:ch09">
+    </a><a class="t-cardlink" href="/ar/topics/the-human-respiratory-system" data-subject="Science" data-branch="biology" data-cur="cambridge:8 cbse:7" data-text="the human respiratory system lungs, airways, alveoli, diaphragm and intercostal muscles; breathing versus respiration; gas exchange by diffusion. science biology 8bs.03 8bs.04 7:ch09 cambridge الصف 8 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/X0IbCYoQ7Fk/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">The Human Respiratory System</span>
         <span class="t-card-sum" lang="en">Lungs, airways, alveoli, diaphragm and intercostal muscles; breathing versus respiration; gas exchange by diffusion.</span>
         <span class="t-codes"><code>8Bs.03</code><code>8Bs.04</code><code>7:ch09</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/transport-in-plants" data-subject="Science" data-text="transport in plants water and minerals from root hair cells through xylem to the leaves, transpiration, and the minerals plants need. science 9bs.01 9bp.05 7:ch10">
+    </a><a class="t-cardlink" href="/ar/topics/transport-in-plants" data-subject="Science" data-branch="biology" data-cur="cambridge:9 cbse:7" data-text="transport in plants water and minerals from root hair cells through xylem to the leaves, transpiration, and the minerals plants need. science biology 9bs.01 9bp.05 7:ch10 cambridge الصف 9 cbse الصف 7">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/37fN00zREP8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأحياء</span>
         <span class="t-card-title" lang="en">Transport in Plants</span>
         <span class="t-card-sum" lang="en">Water and minerals from root hair cells through xylem to the leaves, transpiration, and the minerals plants need.</span>
         <span class="t-codes"><code>9Bs.01</code><code>9Bp.05</code><code>7:ch10</code></span>
       </span>
-    </a><a class="t-cardlink" href="/ar/topics/weather-and-climate" data-subject="Science" data-text="weather and climate the difference between weather and climate, natural climate cycles, and atmospheric change. science 8esc.01 8esc.02 8esc.03">
+    </a><a class="t-cardlink" href="/ar/topics/weather-and-climate" data-subject="Science" data-branch="earth" data-cur="cambridge:8 cambridge:9" data-text="weather and climate the difference between weather and climate, natural climate cycles, and atmospheric change. science earth 8esc.01 8esc.02 8esc.03 cambridge الصف 8 cambridge الصف 9">
       <span class="t-thumb"><img src="https://i.ytimg.com/vi/bVgF1Msv4vw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
       <span class="t-card-body">
-        <span class="eyebrow">العلوم</span>
+        <span class="eyebrow">العلوم · الأرض والفضاء</span>
         <span class="t-card-title" lang="en">Weather and Climate</span>
         <span class="t-card-sum" lang="en">The difference between weather and climate, natural climate cycles, and atmospheric change.</span>
         <span class="t-codes"><code>8ESc.01</code><code>8ESc.02</code><code>8ESc.03</code></span>
@@ -896,22 +905,27 @@ sup{font-size:.72em;line-height:0}
       b.parentNode.replaceChild(f,b);
     });
   });
-  // Index filters: subject chips + text search.
+  // Index filters: subject/branch chips AND curriculum AND text search. Each
+  // filter has an "all" state, so any combination works.
   var cards=document.getElementById('t-cards');if(!cards)return;
-  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    var term=(q.value||'').trim().toLowerCase(),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
-      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      var ok=(!subject||c.getAttribute('data-subject')===subject)
+        &&(!branch||c.getAttribute('data-branch')===branch)
+        &&(!ck||(' '+c.getAttribute('data-cur')+' ').indexOf(' '+ck+' ')>=0)
+        &&(!term||c.getAttribute('data-text').indexOf(term)>=0);
       c.hidden=!ok;if(ok)shown++;
     });
     empty.hidden=shown>0;
   }
   chips.forEach(function(ch){ch.addEventListener('click',function(){
-    subject=ch.getAttribute('data-subject');
+    subject=ch.getAttribute('data-subject');branch=ch.getAttribute('data-branch');
     chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
   });});
   q.addEventListener('input',apply);
+  if(cur)cur.addEventListener('change',apply);
 })();
 </script>
 </body>
