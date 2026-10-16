@@ -48,9 +48,6 @@
   .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
   .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
   .brand span{color:var(--teal-ink)}
-  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
-  .nav-links a:hover{color:var(--ink)}
-  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
   .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
   .nav-cta a.login:hover{color:var(--ink)}
 
@@ -61,17 +58,14 @@
      hide threshold is generous because fr/te labels run long. */
   header .wrap{max-width:none;margin:0;padding-inline:26px}
   .nav{gap:18px}
-  .nav-links{flex-wrap:nowrap}
-  .nav-links a,.nav-cta a{white-space:nowrap}
-  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
-  @media(max-width:1140px){.nav-links{display:none}}
+  .nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-cta{gap:11px}}
   /* Hamburger drawer (2026-10-16): every menu item, on every width. */
   .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);cursor:pointer;flex:0 0 auto;padding:0}
   .menu-btn:hover{border-color:var(--faint);background:var(--mist)}
   .menu-btn svg{width:18px;height:18px}
   /* The button sits beside the brand; links and the end group keep their places (the row was space-between across three children; with four, the brand drifted). */
   header .nav{justify-content:flex-start}
-  header .nav-links{margin-inline-start:auto}
   header .nav-cta{margin-inline-start:auto}
   .drawer-back{position:fixed;inset:0;background:rgba(20,24,31,.35);z-index:48;opacity:0;pointer-events:none;transition:opacity .2s}
   .drawer{position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(320px,86vw);background:var(--canvas);border-inline-end:1px solid var(--line);box-shadow:0 20px 60px -20px rgba(20,24,31,.5);z-index:49;padding:18px 18px 28px;overflow-y:auto;transform:translateX(calc(-100% - 20px));transition:transform .25s cubic-bezier(.65,0,.35,1);display:flex;flex-direction:column;gap:4px}
@@ -193,7 +187,6 @@
   .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
 
   @media(max-width:860px){
-    .nav-links{display:none}
     .nav{gap:10px}
     .brand{font-size:17px;gap:8px}
     .nav-cta{gap:10px;font-size:14px}
@@ -249,16 +242,6 @@
       <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
       SketchCast <span>AI</span>
     </a>
-    <nav class="nav-links">
-      <a href="/mr/#how" data-i18n="common.nav.how">हे कसे चालते</a>
-      <a href="/mr/topics" data-i18n="common.nav.lessons">पाठ</a>
-      <a href="/mr/homeschool" data-i18n="common.nav.homeschool">घरशाळा</a>
-      <a href="/mr/#free" data-i18n="common.nav.free">मोफत काय आहे</a>
-      <a href="/mr/#outcomes" data-i18n="common.nav.outcomes">परिणाम</a>
-      <a href="/mr/schools" aria-current="page" data-i18n="common.nav.schools">शाळांसाठी</a>
-      <a href="/mr/pricing" data-i18n="common.nav.pricing">किंमती</a>
-      <a href="/mr/about" data-i18n="common.nav.about">आमच्याविषयी</a>
-    </nav>
     <div class="nav-cta">
       <!--i18n:switcher-->
   <details class="i18n-lang">
@@ -311,29 +294,6 @@
   back.addEventListener('click',close);
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&body.classList.contains('drawer-open'))close();});
   menu.addEventListener('click',function(e){if(e.target.closest('a'))close();});
-})();
-</script>
-<script>
-(function(){
-  // Locale-proof header fit: hide the middle links only when the row REALLY
-  // overflows (French/Telugu labels run long; breakpoints can't know that).
-  // Hysteresis: re-show only 40px past where it last overflowed.
-  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
-  if(!nav||!links)return;
-  var hiddenAt=0;
-  function fit(){
-    var w=nav.clientWidth;
-    if(links.style.display!=='none'){
-      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
-    }else if(w>hiddenAt+40){
-      links.style.display='';
-      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
-    }
-  }
-  fit();
-  addEventListener('resize',fit);
-  // Web fonts can widen labels after first paint — re-measure when they land.
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
 
