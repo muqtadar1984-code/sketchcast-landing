@@ -146,7 +146,7 @@
     // Home Basic 5, Homeschool 10; schools unlimited). The meter row renders
     // only while `kitsReleased` is true — flip it together with the app's
     // catalogue_release switch (0130) and build-topics.mjs's KITS_RELEASED.
-    kitsReleased: false,
+    kitsReleased: true,
 
     // ── FREE-TRIAL MODE ──────────────────────────────────────────────────────
     // While `enabled` and the current time is before `endsAt`, every paid CTA
