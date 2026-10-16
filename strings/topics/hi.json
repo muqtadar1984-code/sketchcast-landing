@@ -71,5 +71,12 @@
   "curriculum.all": "सभी पाठ्यक्रम",
   "strip.curriculum": "पाठ्यक्रम",
   "strip.find": "पाठ खोजें",
-  "strip.findHint": "जैसे: कोशिका, भिन्न, प्रकाश"
+  "strip.findHint": "जैसे: कोशिका, भिन्न, प्रकाश",
+  "preview.heading": "किट की एक झलक",
+  "preview.deck": "स्लाइड डेक — शीर्षक स्लाइड",
+  "preview.deck2": "स्लाइड डेक — पहली स्लाइड",
+  "preview.plan": "पाठ योजना — पृष्ठ 1",
+  "preview.worksheet": "वर्कशीट — पृष्ठ 1",
+  "preview.alt": "{title}: {piece} (पूर्वावलोकन)",
+  "preview.note": "कम रिज़ॉल्यूशन के पूर्वावलोकन। मुफ़्त खाते से पूरी किट आपकी।"
 }

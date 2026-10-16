@@ -71,5 +71,12 @@
   "curriculum.all": "Todos os currículos",
   "strip.curriculum": "Currículo",
   "strip.find": "Encontrar uma aula",
-  "strip.findHint": "ex.: células, frações, luz"
+  "strip.findHint": "ex.: células, frações, luz",
+  "preview.heading": "Um olhar dentro do kit",
+  "preview.deck": "Slides — slide de título",
+  "preview.deck2": "Slides — primeiro slide",
+  "preview.plan": "Plano de aula — página 1",
+  "preview.worksheet": "Ficha de exercícios — página 1",
+  "preview.alt": "{title}: {piece} (pré-visualização)",
+  "preview.note": "Pré-visualizações em baixa resolução. O kit completo é seu com uma conta gratuita."
 }

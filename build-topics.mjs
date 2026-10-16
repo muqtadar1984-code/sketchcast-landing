@@ -33,6 +33,8 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
+/** slug → [{kind, file}] of downloaded preview cards; filled in main() before any page renders. */
+let PREVIEWS = new Map();
 const ORIGIN = "https://sketchcast.app";
 const APP = "https://app.sketchcast.app";
 
@@ -383,6 +385,56 @@ function videoBlock(topic, t) {
     .join("\n");
 }
 
+/* ── preview cards (plan §4.4) ───────────────────────────────────────────
+   The worker renders low-resolution, "PREVIEW"-watermarked cards of the deck's
+   title and first content slide, page 1 of the lesson plan and page 1 of the
+   student worksheet (catalogue/previews.py); public_catalogue() hands their
+   public URLs over as `previews`. They are copied into the site at build time
+   so the pages never hot-link the bucket, and a card that fails to download
+   is simply left out. */
+const PREVIEW_DIR = join(ROOT, "assets", "previews");
+const PREVIEW_LABEL = { "deck-1": "preview.deck", "deck-2": "preview.deck2", "plan-1": "preview.plan", "worksheet-1": "preview.worksheet" };
+
+async function fetchPreviews(topics) {
+  const out = new Map(); // slug → [{kind, file}]
+  for (const topic of topics) {
+    const list = Array.isArray(topic.previews) ? topic.previews : [];
+    if (!list.length) continue;
+    const dir = join(PREVIEW_DIR, topic.slug);
+    const kept = [];
+    for (const p of list) {
+      const kind = String(p?.kind || "");
+      const url = String(p?.url || "");
+      if (!/^[a-z0-9-]{1,32}$/.test(kind) || !url.startsWith("https://")) continue;
+      try {
+        const res = await fetch(url);
+        if (!res.ok) continue;
+        const buf = Buffer.from(await res.arrayBuffer());
+        if (!buf.length) continue;
+        mkdirSync(dir, { recursive: true });
+        writeFileSync(join(dir, `${kind}.png`), buf);
+        kept.push({ kind, file: `/assets/previews/${topic.slug}/${kind}.png` });
+      } catch {
+        // a missing card is not a missing page
+      }
+    }
+    if (kept.length) out.set(topic.slug, kept);
+  }
+  return out;
+}
+
+function previewStrip(topic, t, previews) {
+  const cards = previews.get(topic.slug) || [];
+  if (!cards.length) return "";
+  return `<section class="t-previews" aria-labelledby="prev-h">
+      <h2 id="prev-h">${esc(t["preview.heading"])}</h2>
+      <div class="t-prev-grid">${cards
+        .map((c) => `<figure class="t-prev"><img src="${esc(c.file)}" alt="${esc(fill(t["preview.alt"], { title: topic.title, piece: t[PREVIEW_LABEL[c.kind] || "preview.deck"] }))}" loading="lazy" width="640" height="360" /><figcaption>${esc(t[PREVIEW_LABEL[c.kind] || "preview.deck"])}</figcaption></figure>`)
+        .join("")}</div>
+      <p class="t-prev-note">${esc(t["preview.note"])}</p>
+    </section>`;
+}
+
 function kitBox(topic, t) {
   const items = kitItems(topic, t);
   const cta = KITS_RELEASED
@@ -432,6 +484,7 @@ function topicMain(topic, all, code) {
     <div class="t-grid">
       <div class="t-body"${contentAttrs}>
         <section aria-label="${esc(t.video)}">${videoBlock(topic, t)}</section>
+        ${previewStrip(topic, t, PREVIEWS)}
 
         ${objectives.length ? `<section class="t-card"><h2>${esc(t.objectives)}</h2><ul class="t-ticks">${objectives.map((o) => `<li>${inline(o)}</li>`).join("")}</ul></section>` : ""}
 
@@ -635,6 +688,12 @@ sup{font-size:.72em;line-height:0}
 .t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
 .t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
 .t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-previews{margin-top:36px}.t-previews h2{font-size:22px;margin-bottom:12px}
+.t-prev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.t-prev{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+.t-prev img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.t-prev figcaption{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--graphite);padding:8px 12px}
+.t-prev-note{margin-top:10px;font-size:14px;color:var(--graphite)}
 .t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
 .t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
 .t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
@@ -716,6 +775,8 @@ const catalogue = (await loadCatalogue())
   .sort((a, b) => a.subject.localeCompare(b.subject) || a.title.localeCompare(b.title));
 if (catalogue.length === 0) throw new Error("public_catalogue returned no topics — refusing to wipe the pages");
 const redirects = await loadRedirects();
+PREVIEWS = await fetchPreviews(catalogue);
+console.log("✓ preview cards for " + PREVIEWS.size + " topic(s)");
 
 // Clean rebuild of the generated folders only.
 for (const l of LOCALES) {

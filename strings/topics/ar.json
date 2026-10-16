@@ -71,5 +71,12 @@
   "curriculum.all": "كل المناهج",
   "strip.curriculum": "المنهج",
   "strip.find": "ابحث عن درس",
-  "strip.findHint": "مثل: الخلايا، الكسور، الضوء"
+  "strip.findHint": "مثل: الخلايا، الكسور، الضوء",
+  "preview.heading": "نظرة داخل الحقيبة",
+  "preview.deck": "الشرائح — شريحة العنوان",
+  "preview.deck2": "الشرائح — الشريحة الأولى",
+  "preview.plan": "خطة الدرس — الصفحة 1",
+  "preview.worksheet": "ورقة العمل — الصفحة 1",
+  "preview.alt": "{title}: {piece} (معاينة)",
+  "preview.note": "معاينات منخفضة الدقة. الحقيبة الكاملة لك بحساب مجاني."
 }

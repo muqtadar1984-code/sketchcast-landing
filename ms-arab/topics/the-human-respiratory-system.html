@@ -266,6 +266,12 @@ sup{font-size:.72em;line-height:0}
 .t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
 .t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
 .t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-previews{margin-top:36px}.t-previews h2{font-size:22px;margin-bottom:12px}
+.t-prev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.t-prev{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+.t-prev img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.t-prev figcaption{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--graphite);padding:8px 12px}
+.t-prev-note{margin-top:10px;font-size:14px;color:var(--graphite)}
 .t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
 .t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
 .t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
@@ -388,6 +394,7 @@ sup{font-size:.72em;line-height:0}
       </div>
       <p class="t-yt"><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk" target="_blank" rel="noopener">تونتون د YouTube ↗</a></p>
       <details class="t-chapters"><summary>باب دالم ۏيديو اين</summary><ol><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk" target="_blank" rel="noopener"><span class="t-time">0:00</span> The Journey of a Breath</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=34s" target="_blank" rel="noopener"><span class="t-time">0:34</span> Preparing the Air</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=69s" target="_blank" rel="noopener"><span class="t-time">1:09</span> The Throat and the Trapdoor</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=99s" target="_blank" rel="noopener"><span class="t-time">1:39</span> The Reinforced Windpipe</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=138s" target="_blank" rel="noopener"><span class="t-time">2:18</span> The Branching Airways</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=171s" target="_blank" rel="noopener"><span class="t-time">2:51</span> Inside the Spongy Lungs</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=209s" target="_blank" rel="noopener"><span class="t-time">3:29</span> The Alveoli and Capillaries</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=252s" target="_blank" rel="noopener"><span class="t-time">4:12</span> Gas Exchange by Diffusion</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=304s" target="_blank" rel="noopener"><span class="t-time">5:04</span> The Mechanics of Inhalation</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=346s" target="_blank" rel="noopener"><span class="t-time">5:46</span> The Mechanics of Exhalation</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=385s" target="_blank" rel="noopener"><span class="t-time">6:25</span> Breathing vs. Respiration</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=440s" target="_blank" rel="noopener"><span class="t-time">7:20</span> A Mountain-High Question</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=466s" target="_blank" rel="noopener"><span class="t-time">7:46</span> Summary of the System</a></li><li><a href="https://www.youtube.com/watch?v=X0IbCYoQ7Fk&t=506s" target="_blank" rel="noopener"><span class="t-time">8:26</span> Notice Your Breathing</a></li></ol></details></section>
+        
 
         <section class="t-card"><h2>اڤ يڠ اندا اکن ڤلاجري</h2><ul class="t-ticks"><li>Describe the main structures of the human respiratory system and their specific functions in ventilation and gas exchange.</li><li>Explain the physical mechanics of breathing through the coordinated actions of the diaphragm and intercostal muscles.</li><li>Distinguish clearly between the physical process of breathing and the chemical process of respiration.</li><li>Describe the process of gaseous exchange via diffusion within the alveoli between the alveolar air and the pulmonary capillaries.</li></ul></section>
 
@@ -430,7 +437,7 @@ sup{font-size:.72em;line-height:0}
       <p class="eyebrow"><span class="t-soon">اکن داتڠ</span></p>
       <h2 id="kit-h">کيت ڤڠاجرن لڠکڤ</h2>
       <p>بهن سديا ݢونا يڠ دبينا درڤد ڤلاجرن اين. دفتر اکاٴون ڤرچوما دان اندا اکن منجادي يڠ ڤرتام تاهو اڤابيلا اي دبوک.</p>
-      <ul class="t-kit-list"><li>رنچڠن ڤڠاجرن</li><li>سلايد ڤمبنتڠن</li><li>لمبرن کرجا دڠن سکيم جاوڤن</li><li>اکتيۏيتي کلس</li><li>کاجين کيس</li><li>بڠک سوالن: 30 سوالن لاتيهن</li><li>ڤنيلاين دالم تالين، دتندا سچارا اوتوماتيک</li></ul>
+      <ul class="t-kit-list"><li>رنچڠن ڤڠاجرن</li><li>سلايد ڤمبنتڠن</li><li>لمبرن کرجا دڠن سکيم جاوڤن</li><li>اکتيۏيتي کلس</li><li>کاجين کيس</li><li>بڠک سوءالن بوليه چيتق دڠن سکيما جواڤن: 30 سوءالن</li><li>ڤنيلاين دالم تالين، دتندا سچارا اوتوماتيک</li></ul>
       <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=the-human-respiratory-system">دفتر اکاٴون ڤرچوما</a>
     </aside></div>
     </div>

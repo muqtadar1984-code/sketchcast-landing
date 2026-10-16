@@ -71,5 +71,12 @@
   "curriculum.all": "Semua kurikulum",
   "strip.curriculum": "Kurikulum",
   "strip.find": "Cari pelajaran",
-  "strip.findHint": "cth. sel, pecahan, cahaya"
+  "strip.findHint": "cth. sel, pecahan, cahaya",
+  "preview.heading": "Intipan ke dalam kit",
+  "preview.deck": "Slaid — slaid tajuk",
+  "preview.deck2": "Slaid — slaid pertama",
+  "preview.plan": "Rancangan pengajaran — muka surat 1",
+  "preview.worksheet": "Lembaran kerja — muka surat 1",
+  "preview.alt": "{title}: {piece} (pratonton)",
+  "preview.note": "Pratonton resolusi rendah. Kit penuh menjadi milik anda dengan akaun percuma."
 }

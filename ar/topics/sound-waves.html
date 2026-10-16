@@ -266,6 +266,12 @@ sup{font-size:.72em;line-height:0}
 .t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
 .t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
 .t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-previews{margin-top:36px}.t-previews h2{font-size:22px;margin-bottom:12px}
+.t-prev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.t-prev{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+.t-prev img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.t-prev figcaption{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--graphite);padding:8px 12px}
+.t-prev-note{margin-top:10px;font-size:14px;color:var(--graphite)}
 .t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
 .t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
 .t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
@@ -388,6 +394,7 @@ sup{font-size:.72em;line-height:0}
       </div>
       <p class="t-yt"><a href="https://www.youtube.com/watch?v=rywpHCvIw5o" target="_blank" rel="noopener">شاهد على YouTube ↗</a></p>
       <details class="t-chapters"><summary>فصول هذا الفيديو</summary><ol><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o" target="_blank" rel="noopener"><span class="t-time">0:00</span> How Sound Begins</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=32s" target="_blank" rel="noopener"><span class="t-time">0:32</span> The Longitudinal Wave</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=62s" target="_blank" rel="noopener"><span class="t-time">1:02</span> Sound Needs a Medium</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=98s" target="_blank" rel="noopener"><span class="t-time">1:38</span> The Speed of Sound</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=142s" target="_blank" rel="noopener"><span class="t-time">2:22</span> Graphing a Sound Wave</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=167s" target="_blank" rel="noopener"><span class="t-time">2:47</span> Amplitude and Loudness</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=194s" target="_blank" rel="noopener"><span class="t-time">3:14</span> Frequency, Pitch, and Wavelength</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=231s" target="_blank" rel="noopener"><span class="t-time">3:51</span> Wave Superposition</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=266s" target="_blank" rel="noopener"><span class="t-time">4:26</span> Destructive Cancellation</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=287s" target="_blank" rel="noopener"><span class="t-time">4:47</span> Echoes and Reflection</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=314s" target="_blank" rel="noopener"><span class="t-time">5:14</span> Calculating Echo Distance</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=341s" target="_blank" rel="noopener"><span class="t-time">5:41</span> Beyond Human Hearing</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=358s" target="_blank" rel="noopener"><span class="t-time">5:58</span> Applications of Ultrasound</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=386s" target="_blank" rel="noopener"><span class="t-time">6:26</span> Explore the Sound Around You</a></li></ol></details></section>
+        
 
         <section class="t-card"><h2>ما ستتعلمه</h2><ul class="t-ticks"><li>Describe how sound is produced by vibrations and propagates through various material media as longitudinal waves.</li><li>Explain why sound requires a material medium and cannot travel through a vacuum.</li><li>Draw and interpret waveforms, recognizing the link between loudness and amplitude, and pitch and frequency.</li><li>Calculate the speed of sound, distance, and time using the reflection of sound and echoes.</li><li>Describe the human hearing range, ultrasound applications, and waveform superposition phenomena.</li></ul></section>
 
@@ -426,7 +433,7 @@ sup{font-size:.72em;line-height:0}
       <p class="eyebrow"><span class="t-soon">قريبًا</span></p>
       <h2 id="kit-h">حقيبة التدريس الكاملة</h2>
       <p>موارد جاهزة مبنية على هذا الدرس. أنشئ حسابًا مجانيًا وستكون أول من يعلم عند إتاحتها.</p>
-      <ul class="t-kit-list"><li>خطة الدرس</li><li>عرض تقديمي</li><li>ورقة عمل مع مفتاح الإجابة</li><li>نشاط صفي</li><li>دراسة حالة</li><li>بنك الأسئلة: 30 سؤالًا للتدريب</li><li>تقييم إلكتروني يُصحَّح تلقائيًا</li></ul>
+      <ul class="t-kit-list"><li>خطة الدرس</li><li>عرض تقديمي</li><li>ورقة عمل مع مفتاح الإجابة</li><li>نشاط صفي</li><li>دراسة حالة</li><li>بنك أسئلة قابل للطباعة مع مفتاح الإجابة: 30 سؤالًا</li><li>تقييم إلكتروني يُصحَّح تلقائيًا</li></ul>
       <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=sound-waves">أنشئ حسابًا مجانيًا</a>
     </aside></div>
     </div>
