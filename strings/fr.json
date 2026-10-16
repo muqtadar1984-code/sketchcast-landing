@@ -63,6 +63,11 @@
       "node1": "Lumière du soleil",
       "node2": "Sucre + O&#8322;"
     },
+    "film": {
+      "eyebrow": "Voyez comment ça marche",
+      "heading": "SketchCast en 19 secondes",
+      "sub": "Un vrai chapitre qui devient une leçon, du début à la fin. Puis essayez une leçon gratuite ci-dessous."
+    },
     "how": {
       "eyebrow": "Comment ça marche",
       "heading": "Un manuel entre, des leçons sortent.",

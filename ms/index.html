@@ -370,7 +370,7 @@
       <p data-i18n="index.hero.sub">Muat naik seluruh buku teks sekali sahaja. Selepas itu, satu klik menukar mana-mana bab menjadi kit penuh — video bernarasi yang melukis dirinya sendiri, slaid boleh sunting dengan nota Socratic, rancangan pengajaran, aktiviti, lembaran kerja, peperiksaan dan kajian kes — kemudian tugaskannya dan lihat siapa sudah selesai. Beberapa minit, bukan sepetang suntuk.</p>
       <div class="hero-cta">
         <a href="https://app.sketchcast.app" class="btn btn-primary" data-i18n="index.hero.ctaPrimary">Mula percuma</a>
-        <a href="#how" class="btn btn-ghost" data-i18n="index.hero.ctaSecondary">Lihat cara ia berfungsi</a>
+        <a href="#film" class="btn btn-ghost" data-i18n="index.hero.ctaSecondary">Lihat cara ia berfungsi</a>
       </div>
       <p class="hero-stat" data-i18n="index.hero.stat"><b>Tiada</b> persediaan &nbsp;·&nbsp; <b>beberapa minit</b> untuk menjana &nbsp;·&nbsp; <b>$0</b> untuk mula</p>
     </div>
@@ -393,6 +393,158 @@
     </div>
   </div>
 </section>
+
+<!-- 19-SECOND PRODUCT DEMO — a real MP4, click to play, with sound.
+     preload="metadata" fetches only the ~21 KB index, so the homepage stays
+     32 KB-ish for everyone who scrolls past. The 1.8 MB body is warmed when the
+     visitor shows intent — hover, touch or keyboard focus — and, on a fast
+     unmetered connection only, once it has settled in view. See the script
+     below; the connection gate is why a teacher on 3G is never made to pay for
+     a video they merely scrolled past.
+
+     720p / 0.80 Mbps, down from 1080p / 1.85 Mbps. The resolution matters less
+     than the bitrate: at 0.80 Mbps the film streams SLOWER than almost any
+     connection it will meet, so playback starts on the first buffer and never
+     stalls. At 1.85 it outran modest mobile links and had to be waited for.
+     The frame renders about 1100px wide at most, so 720p is already above what
+     the layout can show — the 1080p rows were being thrown away on resize.
+
+     Why not autoplay: no browser will autoplay audio, only muted video. This
+     cut was scored with music, and an autoplay that mutes it throws away the
+     reason it exists. Motion would buy more passive attention — that trade was
+     considered and declined.
+
+     The file must be FAST-START — `moov` ahead of `mdat` — or a browser has to
+     pull nearly the whole 1.8 MB before it can show frame one, which would make
+     even click-to-play feel broken. This export arrived that way already; the
+     1080p one did not and had its moov relocated by hand, every one of its
+     chunk offsets rewritten (they are ABSOLUTE file offsets, so moving the box
+     invalidates all of them). CHECK ANY REPLACEMENT: box order must read
+     ftyp, moov, ..., mdat. scratchpad/faststart.py does the fix if it does not.
+
+     Native <video controls> does the work: real play/scrub/volume, keyboard
+     support and captions plumbing for free. The overlay button exists only
+     because a bare poster with a thin control bar reads as an image, not a
+     film — it hides the moment playback starts, however it was started.
+
+     Placed BELOW the hero, not inside it. The hero has its own slide, and that
+     one is TRANSLATED in all ten locales; this is English and shows the real
+     product.
+
+     Placed ABOVE the free-lessons strip (founder, 2026-10-16). It used to sit
+     below the strip with no heading and read as an orphan; now it follows the
+     hero's promise directly, under a "See how it works" heading, and the hero's
+     ghost button jumps here. The strip then offers the first thing to try. -->
+<style>
+  .demo-film{margin-top:2px;padding-bottom:0}
+  .demo-film .sec-head{margin-bottom:22px}
+  .demo-film .frame{position:relative;aspect-ratio:16/9;border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;background:#0A0E0D;
+    box-shadow:0 1px 2px rgba(20,24,31,.04),0 24px 60px -28px rgba(20,24,31,.28)}
+  .demo-film video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#0A0E0D}
+  .demo-film .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;padding:0;border:0;
+    background:none;cursor:pointer;transition:transform .18s ease,opacity .18s ease}
+  .demo-film .play svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
+  .demo-film .play:hover,.demo-film .play:focus-visible{transform:scale(1.07)}
+  .demo-film .play:focus-visible{outline:2px solid #1FB8A6;outline-offset:4px;border-radius:50%}
+  .demo-film .dur{position:absolute;bottom:12px;inset-inline-end:14px;font-family:var(--mono);
+    font-size:11px;letter-spacing:.04em;color:#fff;background:rgba(10,14,13,.62);
+    padding:3px 8px;border-radius:6px;pointer-events:none;transition:opacity .18s ease}
+  .demo-film.playing .play,.demo-film.playing .dur{opacity:0;pointer-events:none}
+  @media(prefers-reduced-motion:reduce){.demo-film .play,.demo-film .dur{transition:none}}
+
+  /* Scroll-driven reveal: the panel rises and fades in as it scrolls into view,
+     and falls away again as you carry on past it. Pure CSS — animation-timeline
+     runs on the compositor, so it cannot jank the way a scroll listener does.
+
+     LONGHANDS, NOT the `animation` shorthand, on purpose: the shorthand RESETS
+     animation-timeline to auto, so the shorthand form only works while those
+     lines stay in order. Someone reordering them later would silently get a
+     time-based animation that fires once on load. Longhands cannot break so.
+
+     Degrades twice, both keeping the demo: no scroll-timeline support skips the
+     @supports block, and reduced-motion skips the whole @media. Either way the
+     panel is simply always visible — only the movement is lost. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      @keyframes filmScroll {
+        entry 0%   { opacity: 0; transform: translateY(34px) scale(.985); }
+        entry 90%  { opacity: 1; transform: none; }
+        exit 10%   { opacity: 1; transform: none; }
+        exit 100%  { opacity: 0; transform: translateY(-34px) scale(.985); }
+      }
+      .demo-film .frame {
+        animation-name: filmScroll;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+      }
+    }
+  }
+</style>
+<section class="section demo-film" id="film" aria-labelledby="film-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-i18n="index.film.eyebrow">Lihat cara ia berfungsi</p>
+      <h2 id="film-h" data-i18n="index.film.heading">SketchCast dalam 19 saat</h2>
+      <p data-i18n="index.film.sub">Sebuah bab sebenar menjadi pelajaran, dari mula hingga akhir. Kemudian cuba pelajaran percuma di bawah.</p>
+    </div>
+    <div class="frame">
+      <video src="assets/demo/demo-19s.mp4" poster="assets/demo/demo-19s-poster.jpg"
+             preload="metadata" controls playsinline
+             title="SketchCast in 19 seconds"></video>
+      <button type="button" class="play" aria-label="Play the 19 second SketchCast demo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11.1" fill="rgba(10,14,13,.55)" stroke="#fff" stroke-width="1.3"/><path d="M9.9 8.3 L16.3 12 L9.9 15.7 Z" fill="#fff"/></svg></button>
+      <span class="dur">19s</span>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var s=document.querySelector('.demo-film');
+  if(!s)return;
+  var v=s.querySelector('video'), b=s.querySelector('.play'), f=s.querySelector('.frame');
+  if(!v||!b)return;
+
+  // WARM THE BUFFER BEFORE THE CLICK.
+  // preload="metadata" already fetches the ~21 KB index, so the browser knows
+  // the file's layout and can ask for media data in one hop instead of two.
+  // This escalates to a real download at the first sign the visitor intends to
+  // watch — a hover, a touch, or a keyboard focus — so the wait overlaps with
+  // the half-second they spend reaching for the button instead of following it.
+  var warmed=false;
+  function warm(){
+    if(warmed||v.readyState>2)return;   // already buffering or ready enough
+    warmed=true;
+    v.preload='auto';
+    v.load();
+  }
+  ['pointerenter','touchstart','focusin'].forEach(function(e){
+    f.addEventListener(e,warm,{once:true,passive:true});
+  });
+
+  // On a fast, unmetered connection, start warming once it has actually settled
+  // in view — by the time anyone decides to click it is already buffered. Gated
+  // on effectiveType and saveData so a teacher on 3G or with data-saver on is
+  // never made to pay 1.8 MB for something they only scrolled past. Where the
+  // Network Information API is missing (Safari, Firefox) we do NOT assume fast:
+  // those visitors keep intent-only warming.
+  var c=navigator.connection;
+  if(c && c.effectiveType==='4g' && !c.saveData && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ setTimeout(warm,1200); io.disconnect(); }
+      });
+    },{threshold:.4});
+    io.observe(f);
+  }
+
+  b.addEventListener('click',function(){ v.play(); });
+  // Listen on the VIDEO, not the button: playback can also start from the
+  // native controls, and the overlay has to get out of the way either way.
+  v.addEventListener('play',function(){ s.classList.add('playing'); });
+  v.addEventListener('ended',function(){ s.classList.remove('playing'); });
+})();
+</script>
 
 <!-- FREE LESSONS strip — generated per language by build-topics.mjs from the
      catalogue (public_catalogue()). Do not edit between the markers. -->
@@ -470,147 +622,6 @@
 })();
 </script>
 <!--/topics:strip-->
-
-<!-- 19-SECOND PRODUCT DEMO — a real MP4, click to play, with sound.
-     preload="metadata" fetches only the ~21 KB index, so the homepage stays
-     32 KB-ish for everyone who scrolls past. The 1.8 MB body is warmed when the
-     visitor shows intent — hover, touch or keyboard focus — and, on a fast
-     unmetered connection only, once it has settled in view. See the script
-     below; the connection gate is why a teacher on 3G is never made to pay for
-     a video they merely scrolled past.
-
-     720p / 0.80 Mbps, down from 1080p / 1.85 Mbps. The resolution matters less
-     than the bitrate: at 0.80 Mbps the film streams SLOWER than almost any
-     connection it will meet, so playback starts on the first buffer and never
-     stalls. At 1.85 it outran modest mobile links and had to be waited for.
-     The frame renders about 1100px wide at most, so 720p is already above what
-     the layout can show — the 1080p rows were being thrown away on resize.
-
-     Why not autoplay: no browser will autoplay audio, only muted video. This
-     cut was scored with music, and an autoplay that mutes it throws away the
-     reason it exists. Motion would buy more passive attention — that trade was
-     considered and declined.
-
-     The file must be FAST-START — `moov` ahead of `mdat` — or a browser has to
-     pull nearly the whole 1.8 MB before it can show frame one, which would make
-     even click-to-play feel broken. This export arrived that way already; the
-     1080p one did not and had its moov relocated by hand, every one of its
-     chunk offsets rewritten (they are ABSOLUTE file offsets, so moving the box
-     invalidates all of them). CHECK ANY REPLACEMENT: box order must read
-     ftyp, moov, ..., mdat. scratchpad/faststart.py does the fix if it does not.
-
-     Native <video controls> does the work: real play/scrub/volume, keyboard
-     support and captions plumbing for free. The overlay button exists only
-     because a bare poster with a thin control bar reads as an image, not a
-     film — it hides the moment playback starts, however it was started.
-
-     Placed BELOW the hero, not inside it. The hero has its own slide, and that
-     one is TRANSLATED in all ten locales; this is English and shows the real
-     product. -->
-<style>
-  .demo-film{margin-top:2px}
-  .demo-film .frame{position:relative;aspect-ratio:16/9;border:1px solid var(--line);
-    border-radius:14px;overflow:hidden;background:#0A0E0D;
-    box-shadow:0 1px 2px rgba(20,24,31,.04),0 24px 60px -28px rgba(20,24,31,.28)}
-  .demo-film video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#0A0E0D}
-  .demo-film .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;padding:0;border:0;
-    background:none;cursor:pointer;transition:transform .18s ease,opacity .18s ease}
-  .demo-film .play svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
-  .demo-film .play:hover,.demo-film .play:focus-visible{transform:scale(1.07)}
-  .demo-film .play:focus-visible{outline:2px solid #1FB8A6;outline-offset:4px;border-radius:50%}
-  .demo-film .dur{position:absolute;bottom:12px;inset-inline-end:14px;font-family:var(--mono);
-    font-size:11px;letter-spacing:.04em;color:#fff;background:rgba(10,14,13,.62);
-    padding:3px 8px;border-radius:6px;pointer-events:none;transition:opacity .18s ease}
-  .demo-film.playing .play,.demo-film.playing .dur{opacity:0;pointer-events:none}
-  @media(prefers-reduced-motion:reduce){.demo-film .play,.demo-film .dur{transition:none}}
-
-  /* Scroll-driven reveal: the panel rises and fades in as it scrolls into view,
-     and falls away again as you carry on past it. Pure CSS — animation-timeline
-     runs on the compositor, so it cannot jank the way a scroll listener does.
-
-     LONGHANDS, NOT the `animation` shorthand, on purpose: the shorthand RESETS
-     animation-timeline to auto, so the shorthand form only works while those
-     lines stay in order. Someone reordering them later would silently get a
-     time-based animation that fires once on load. Longhands cannot break so.
-
-     Degrades twice, both keeping the demo: no scroll-timeline support skips the
-     @supports block, and reduced-motion skips the whole @media. Either way the
-     panel is simply always visible — only the movement is lost. */
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      @keyframes filmScroll {
-        entry 0%   { opacity: 0; transform: translateY(34px) scale(.985); }
-        entry 90%  { opacity: 1; transform: none; }
-        exit 10%   { opacity: 1; transform: none; }
-        exit 100%  { opacity: 0; transform: translateY(-34px) scale(.985); }
-      }
-      .demo-film .frame {
-        animation-name: filmScroll;
-        animation-timing-function: linear;
-        animation-fill-mode: both;
-        animation-timeline: view();
-      }
-    }
-  }
-</style>
-<section class="section demo-film">
-  <div class="wrap">
-    <div class="frame">
-      <video src="assets/demo/demo-19s.mp4" poster="assets/demo/demo-19s-poster.jpg"
-             preload="metadata" controls playsinline
-             title="SketchCast in 19 seconds"></video>
-      <button type="button" class="play" aria-label="Play the 19 second SketchCast demo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11.1" fill="rgba(10,14,13,.55)" stroke="#fff" stroke-width="1.3"/><path d="M9.9 8.3 L16.3 12 L9.9 15.7 Z" fill="#fff"/></svg></button>
-      <span class="dur">19s</span>
-    </div>
-  </div>
-</section>
-<script>
-(function(){
-  var s=document.querySelector('.demo-film');
-  if(!s)return;
-  var v=s.querySelector('video'), b=s.querySelector('.play'), f=s.querySelector('.frame');
-  if(!v||!b)return;
-
-  // WARM THE BUFFER BEFORE THE CLICK.
-  // preload="metadata" already fetches the ~21 KB index, so the browser knows
-  // the file's layout and can ask for media data in one hop instead of two.
-  // This escalates to a real download at the first sign the visitor intends to
-  // watch — a hover, a touch, or a keyboard focus — so the wait overlaps with
-  // the half-second they spend reaching for the button instead of following it.
-  var warmed=false;
-  function warm(){
-    if(warmed||v.readyState>2)return;   // already buffering or ready enough
-    warmed=true;
-    v.preload='auto';
-    v.load();
-  }
-  ['pointerenter','touchstart','focusin'].forEach(function(e){
-    f.addEventListener(e,warm,{once:true,passive:true});
-  });
-
-  // On a fast, unmetered connection, start warming once it has actually settled
-  // in view — by the time anyone decides to click it is already buffered. Gated
-  // on effectiveType and saveData so a teacher on 3G or with data-saver on is
-  // never made to pay 1.8 MB for something they only scrolled past. Where the
-  // Network Information API is missing (Safari, Firefox) we do NOT assume fast:
-  // those visitors keep intent-only warming.
-  var c=navigator.connection;
-  if(c && c.effectiveType==='4g' && !c.saveData && 'IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){ setTimeout(warm,1200); io.disconnect(); }
-      });
-    },{threshold:.4});
-    io.observe(f);
-  }
-
-  b.addEventListener('click',function(){ v.play(); });
-  // Listen on the VIDEO, not the button: playback can also start from the
-  // native controls, and the overlay has to get out of the way either way.
-  v.addEventListener('play',function(){ s.classList.add('playing'); });
-  v.addEventListener('ended',function(){ s.classList.remove('playing'); });
-})();
-</script>
 
 <section class="band">
   <div class="wrap section" id="how">
