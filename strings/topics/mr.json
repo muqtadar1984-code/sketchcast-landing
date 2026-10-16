@@ -71,5 +71,12 @@
   "curriculum.all": "सर्व अभ्यासक्रम",
   "strip.curriculum": "अभ्यासक्रम",
   "strip.find": "पाठ शोधा",
-  "strip.findHint": "उदा. पेशी, अपूर्णांक, प्रकाश"
+  "strip.findHint": "उदा. पेशी, अपूर्णांक, प्रकाश",
+  "preview.heading": "किटची एक झलक",
+  "preview.deck": "स्लाइड डेक — शीर्षक स्लाइड",
+  "preview.deck2": "स्लाइड डेक — पहिली स्लाइड",
+  "preview.plan": "पाठ योजना — पान 1",
+  "preview.worksheet": "वर्कशीट — पान 1",
+  "preview.alt": "{title}: {piece} (पूर्वावलोकन)",
+  "preview.note": "कमी रिझोल्यूशनचे पूर्वावलोकन. मोफत खात्याने संपूर्ण किट तुमची."
 }

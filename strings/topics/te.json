@@ -71,5 +71,12 @@
   "curriculum.all": "అన్ని పాఠ్యప్రణాళికలు",
   "strip.curriculum": "పాఠ్యప్రణాళిక",
   "strip.find": "పాఠం వెతకండి",
-  "strip.findHint": "ఉదా. కణాలు, భిన్నాలు, కాంతి"
+  "strip.findHint": "ఉదా. కణాలు, భిన్నాలు, కాంతి",
+  "preview.heading": "కిట్‌లోకి ఒక చూపు",
+  "preview.deck": "స్లయిడ్ డెక్ — శీర్షిక స్లయిడ్",
+  "preview.deck2": "స్లయిడ్ డెక్ — మొదటి స్లయిడ్",
+  "preview.plan": "పాఠ ప్రణాళిక — పేజీ 1",
+  "preview.worksheet": "వర్క్‌షీట్ — పేజీ 1",
+  "preview.alt": "{title}: {piece} (ప్రివ్యూ)",
+  "preview.note": "తక్కువ రిజల్యూషన్ ప్రివ్యూలు. ఉచిత ఖాతాతో పూర్తి కిట్ మీది."
 }

@@ -71,5 +71,12 @@
   "curriculum.all": "Tous les programmes",
   "strip.curriculum": "Programme",
   "strip.find": "Trouver une leçon",
-  "strip.findHint": "ex. cellules, fractions, lumière"
+  "strip.findHint": "ex. cellules, fractions, lumière",
+  "preview.heading": "Un aperçu du kit",
+  "preview.deck": "Diaporama — diapositive de titre",
+  "preview.deck2": "Diaporama — première diapositive",
+  "preview.plan": "Plan de leçon — page 1",
+  "preview.worksheet": "Fiche d'exercices — page 1",
+  "preview.alt": "{title} : {piece} (aperçu)",
+  "preview.note": "Aperçus en basse résolution. Le kit complet est à vous avec un compte gratuit."
 }
