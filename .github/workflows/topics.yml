@@ -15,6 +15,11 @@ name: topics
 #   - on demand from the Actions tab (`workflow_dispatch`), on any branch. On
 #     a branch it commits to THAT branch, which is how the workflow is tested
 #     without touching main;
+#   - on a push to any branch BUT main that changes a generator, the check or
+#     this file (`push` + `paths`): a PR that touches the build gets a trial
+#     run that commits the regenerated pages to the PR branch, so the output
+#     a reviewer reads is the output the new generator makes. The bot's own
+#     push does not start another run (GITHUB_TOKEN pushes never do);
 #   - when the app asks (`repository_dispatch`, event `catalogue-changed`):
 #     the staff console sends it after an action that changes what the public
 #     catalogue shows. Optional — the app needs a token for it (sketchcast-app,
@@ -45,6 +50,14 @@ name: topics
 on:
   schedule:
     - cron: "40 2 * * *"
+  push:
+    branches-ignore: [main]
+    paths:
+      - .github/workflows/topics.yml
+      - build-i18n.mjs
+      - build-topics.mjs
+      - check-topics.mjs
+      - strings/topics/*.json
   workflow_dispatch:
     inputs:
       allow_shrink:
