@@ -1,0 +1,124 @@
+name: topics
+
+# The free-lesson pages (/topics) follow the catalogue by themselves.
+#
+# WHAT THIS DOES. Runs the two generators in their required order
+# (build-i18n.mjs, then build-topics.mjs), checks the output mechanically
+# (check-topics.mjs), and commits + pushes ONLY the generated topic files when
+# they changed. A push to main is what deploys the site (Cloudflare Workers
+# Builds), so a lesson approved, published, withdrawn or retired in the staff
+# console reaches sketchcast.app without anyone running the build by hand.
+#
+# WHEN IT RUNS.
+#   - nightly (02:40 UTC, see `schedule`; change the cron to run more often —
+#     a run that finds nothing to commit costs nothing and deploys nothing);
+#   - on demand from the Actions tab (`workflow_dispatch`), on any branch. On
+#     a branch it commits to THAT branch, which is how the workflow is tested
+#     without touching main;
+#   - when the app asks (`repository_dispatch`, event `catalogue-changed`):
+#     the staff console sends it after an action that changes what the public
+#     catalogue shows. Optional — the app needs a token for it (sketchcast-app,
+#     docs/LIBRARY-PORTAL.md, "The public pages follow the catalogue"); without
+#     one the nightly run still covers everything.
+#
+# WHAT IT WILL NOT DO.
+#   - Wipe the pages: build-topics.mjs refuses an empty catalogue, and
+#     check-topics.mjs refuses one that lost more than a fifth of its topics
+#     since the last commit (a half-answered RPC must not unpublish forty
+#     lessons overnight). A real cull is accepted by dispatching with
+#     `allow_shrink`.
+#   - Commit anything but the generated topic files. sitemap.xml's <lastmod>
+#     comes from file mtimes and would differ on every checkout; an i18n page
+#     whose English source was edited without re-running the generator is the
+#     editor's to regenerate and commit, and the run only warns about it.
+#   - Fight a human. If main moved while the build ran, the push is retried
+#     once on a rebase and otherwise fails; the next run starts from the new
+#     main. Two runs never overlap (`concurrency`), so a burst of console
+#     actions collapses into one queued rebuild.
+#
+# IDENTITY. Commits are authored by github-actions[bot] with the workflow's
+# own GITHUB_TOKEN (`permissions: contents: write` — the repo's default
+# workflow permission is read-only). A push made with that token does not
+# start other Actions workflows, which is fine: nothing else runs on push
+# here, and Cloudflare's GitHub App still receives the push event.
+
+on:
+  schedule:
+    - cron: "40 2 * * *"
+  workflow_dispatch:
+    inputs:
+      allow_shrink:
+        description: "Accept a catalogue that lost more than a fifth of its topics since the last commit"
+        type: boolean
+        default: false
+  repository_dispatch:
+    types: [catalogue-changed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: topics-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Keep the committed sitemap for the shrink check
+        run: cp sitemap-topics.xml "$RUNNER_TEMP/sitemap-topics.before.xml"
+
+      # The site has no dependencies: both generators are plain Node scripts.
+      - name: Build the translated pages
+        run: node build-i18n.mjs --quiet
+
+      - name: Build the topic pages from public_catalogue()
+        run: node build-topics.mjs
+
+      - name: Check the output
+        env:
+          ALLOW_SHRINK: ${{ inputs.allow_shrink == true && '--allow-shrink' || '' }}
+        run: node check-topics.mjs --before "$RUNNER_TEMP/sitemap-topics.before.xml" --summary "$RUNNER_TEMP/commit-msg.txt" $ALLOW_SHRINK
+
+      - name: Stage the generated topic files only
+        id: stage
+        run: |
+          set -euo pipefail
+          git add -A -- topics.html sitemap-topics.xml topics ':(glob)*/topics.html' ':(glob)*/topics/**'
+          if [ -e _redirects ]; then git add -A -- _redirects; fi
+          other=$(git diff --name-only)
+          if [ -n "$other" ]; then
+            echo "::warning title=Not committed::build-i18n.mjs changed files this workflow leaves alone (sitemap.xml's lastmod is mtime-based; anything else means an English page was edited without 'npm run i18n' — regenerate and commit locally): $(echo "$other" | tr '\n' ' ')"
+            git checkout -- .
+          fi
+          if git diff --cached --quiet; then
+            echo "Topic pages are up to date; nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git diff --cached --stat | tail -n 1
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.stage.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --quiet -F "$RUNNER_TEMP/commit-msg.txt"
+          # The branch may have moved while we built. One rebase, then push or
+          # fail — the next run starts from whatever the branch is by then.
+          if ! git push origin "HEAD:${GITHUB_REF_NAME}"; then
+            git fetch origin "$GITHUB_REF_NAME"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+          echo "Pushed $(git rev-parse --short HEAD) to ${GITHUB_REF_NAME}:"
+          head -n 1 "$RUNNER_TEMP/commit-msg.txt"

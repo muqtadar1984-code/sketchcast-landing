@@ -145,7 +145,40 @@ switch).
   canonical on the English page.
 - Writes `topics.html`, `topics/*.html`, `<locale>/topics…`, `sitemap-topics.xml`
   (listed in robots.txt) and, when a topic was renamed, `_redirects`.
-- Re-run whenever a lesson is approved, published or withdrawn.
+- Re-run whenever a lesson is approved, published or withdrawn — or let the
+  workflow do it (next section).
+
+### The pages rebuild themselves
+
+**`.github/workflows/topics.yml`** runs both generators, checks the output
+with **`check-topics.mjs`**, and commits + pushes *only the generated topic
+files* when they changed — which deploys the site. It runs:
+
+- **nightly** at 02:40 UTC (one line in the workflow to run more often; a run
+  that finds nothing to commit deploys nothing);
+- **on demand** — Actions → *topics* → *Run workflow*, on any branch. On a
+  branch it commits to that branch, which is how to test it without touching
+  `main`;
+- **when the app asks** — the staff console sends a `repository_dispatch`
+  (`catalogue-changed`) after an action that changes what the public
+  catalogue shows (see the app's `docs/LIBRARY-PORTAL.md`). Optional: it
+  needs a token on the app side; without one, nightly covers everything. A
+  publish finishes in the worker minutes after the click, so a *new* lesson
+  may still wait for the nightly run.
+
+What it refuses: an empty catalogue (`build-topics.mjs`), and one that lost
+more than a fifth of its topics since the last commit (`check-topics.mjs` —
+a half-answered RPC must not unpublish forty lessons overnight; a real cull
+passes when dispatched with *allow_shrink*). What it leaves alone: everything
+`build-i18n.mjs` touched — `sitemap.xml`'s `<lastmod>` is mtime-based and
+would differ on every checkout, and an English page edited without
+`npm run i18n` is yours to regenerate and commit (the run warns, naming the
+files). Commits are by `github-actions[bot]`; if `main` moved during the
+build the push is retried once on a rebase, then fails and the next run
+starts from the new `main`.
+
+Locally, `npm run topics` is the same three steps in order (i18n → topics →
+check); `npm run topics:check` is the check alone.
 
 ## Deploy
 
