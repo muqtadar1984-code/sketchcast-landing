@@ -58,5 +58,17 @@
   "strip.read": "Leer la explicación completa",
   "strip.browse": "Ver las {n} lecciones",
   "strip.kitSoon": "Kit didáctico gratuito: próximamente",
-  "strip.play": "Reproducir en YouTube: {title}"
+  "strip.play": "Reproducir en YouTube: {title}",
+  "branch.algebra": "Álgebra",
+  "branch.geometry": "Geometría",
+  "branch.physics": "Física",
+  "branch.chemistry": "Química",
+  "branch.biology": "Biología",
+  "branch.earth": "Tierra y espacio",
+  "subjectAll": "{subject} (todo)",
+  "curriculum.label": "Currículo",
+  "curriculum.all": "Todos los currículos",
+  "strip.curriculum": "Currículo",
+  "strip.find": "Buscar una lección",
+  "strip.findHint": "p. ej. células, fracciones, luz"
 }
