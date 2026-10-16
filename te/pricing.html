@@ -865,6 +865,12 @@
             + ' <span class="ph-meter-l">' + esc(T("pricing.meter.gens", "generations a month")) + '</span></p>')
         + (kits ? '<p class="ph-meter-row">' + esc(fill(T("pricing.meter.kits", "about {n} complete kits"), { n: String(kits) })) + '</p>' : "")
         + (plan.who ? '<p class="ph-meter-row">' + esc(TP(plan, "who", plan.who)) + '</p>' : "")
+        // Ready-made kits a week (catalogue): the same string in every column,
+        // shown only once the kits are released (pricing.config.js kitsReleased).
+        + (P.kitsReleased && plan.weeklyKits
+            ? '<p class="ph-meter-row">' + esc(fill(T(plan.weeklyKits === 1 ? "pricing.meter.weeklyKitOne" : "pricing.meter.weeklyKits",
+                plan.weeklyKits === 1 ? "1 ready-made kit a week" : "{n} ready-made kits a week"), { n: String(plan.weeklyKits) })) + '</p>'
+            : "")
         + '</div>';
 
       // The bullets sit in a native <details>. Above 640px the summary is
@@ -1037,6 +1043,15 @@
         terms.className = "ph-rail-terms";
         terms.textContent = TP(plan, "f1", scope);
         txt.appendChild(terms);
+      }
+      // The free weekly ready-made kit (catalogue), once released — the same
+      // gate and strings as the paid cards' meter row.
+      if (txt && P.kitsReleased && plan.weeklyKits){
+        var kitLine = document.createElement("p");
+        kitLine.className = "ph-rail-terms";
+        kitLine.textContent = fill(T(plan.weeklyKits === 1 ? "pricing.meter.weeklyKitOne" : "pricing.meter.weeklyKits",
+          plan.weeklyKits === 1 ? "1 ready-made kit a week" : "{n} ready-made kits a week"), { n: String(plan.weeklyKits) });
+        txt.appendChild(kitLine);
       }
 
       var a = document.createElement("a");

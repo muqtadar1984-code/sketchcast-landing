@@ -601,7 +601,9 @@
     },
     "meter": {
       "gens": "generations a month",
-      "kits": "about {n} complete kits"
+      "kits": "about {n} complete kits",
+      "weeklyKitOne": "1 ready-made kit a week",
+      "weeklyKits": "{n} ready-made kits a week"
     },
     "free": {
       "eyebrow": "Start here",

@@ -140,6 +140,13 @@
     // is unavoidably in prose today whatever this file does — which is why
     // this is a checklist and not a refactor.)
     kitSize: 7,
+    // READY-MADE KITS (catalogue Phase C/E). Each plan's `weeklyKits` is the
+    // number of catalogue kits it may unlock a week (the app's
+    // catalogue_weekly_cap, migration 0128: free 1, Teacher Pro 5, Pro+ 10,
+    // Home Basic 5, Homeschool 10; schools unlimited). The meter row renders
+    // only while `kitsReleased` is true — flip it together with the app's
+    // catalogue_release switch (0130) and build-topics.mjs's KITS_RELEASED.
+    kitsReleased: false,
 
     // ── FREE-TRIAL MODE ──────────────────────────────────────────────────────
     // While `enabled` and the current time is before `endsAt`, every paid CTA
@@ -178,6 +185,7 @@
       // accepts either shape, so the two single-destination CTAs on this page
       // (here and the founding band) stay one URL each.
       checkout: APP_SIGNUP,
+      weeklyKits: 1,
       features: [
         "1 book, with the full seven-piece kit for one chapter part",
         "Narrated video lessons, worksheets, test papers and lesson plans",
@@ -216,6 +224,7 @@
         // four cards: every bullet Teacher Pro does not render is dead white
         // space removed from the three cards that have fewer.
         generations: 28,
+        weeklyKits: 5,
         who: "A whole class",
         skipFeatures: [0, 1, 4],
         features: [
@@ -242,6 +251,7 @@
         // f1 ("Everything in Teacher Pro, plus:") stays — the card sits next to
         // Teacher Pro. Only f2, the allowance sentence, is skipped.
         generations: 84,
+        weeklyKits: 10,
         who: "A whole class",
         skipFeatures: [1],
         features: [
@@ -268,6 +278,7 @@
         cta: "Get Home Basic",
         checkout: CHECKOUT.homeBasic,
         generations: 14,
+        weeklyKits: 5,
         who: "Up to 2 learners",
         skipFeatures: [0, 1], // the meter states the allowance; `who` states the learners
         features: [
@@ -292,6 +303,7 @@
         cta: "Choose Homeschool",
         checkout: CHECKOUT.homeschool,
         generations: 56,
+        weeklyKits: 10,
         who: "Up to 10 learners, each with their own books",
         skipFeatures: [0, 1],
         features: [
