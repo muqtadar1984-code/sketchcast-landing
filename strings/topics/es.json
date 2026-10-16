@@ -68,5 +68,7 @@
   "subjectAll": "{subject} (todo)",
   "curriculum.label": "Currículo",
   "curriculum.all": "Todos los currículos",
-  "strip.curriculum": "Currículo"
+  "strip.curriculum": "Currículo",
+  "strip.find": "Buscar una lección",
+  "strip.findHint": "p. ej. células, fracciones, luz"
 }

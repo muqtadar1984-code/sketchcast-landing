@@ -68,5 +68,7 @@
   "subjectAll": "{subject} (semua)",
   "curriculum.label": "Kurikulum",
   "curriculum.all": "Semua kurikulum",
-  "strip.curriculum": "Kurikulum"
+  "strip.curriculum": "Kurikulum",
+  "strip.find": "Cari pelajaran",
+  "strip.findHint": "cth. sel, pecahan, cahaya"
 }

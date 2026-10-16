@@ -68,5 +68,7 @@
   "subjectAll": "{subject} (सभी)",
   "curriculum.label": "पाठ्यक्रम",
   "curriculum.all": "सभी पाठ्यक्रम",
-  "strip.curriculum": "पाठ्यक्रम"
+  "strip.curriculum": "पाठ्यक्रम",
+  "strip.find": "पाठ खोजें",
+  "strip.findHint": "जैसे: कोशिका, भिन्न, प्रकाश"
 }

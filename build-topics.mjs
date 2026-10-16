@@ -308,6 +308,34 @@ const curriculumLabel = (t, key) => {
 };
 const branchLabel = (t, b) => t[`branch.${b}`] || b;
 
+/* Free-text search (founder, 2026-10-16: "cells" finds every lesson with
+ * cells in the title, description or article). Each lesson carries a
+ * de-duplicated, lower-cased word list rather than its full text, so the
+ * index page stays light; the browser then requires every typed word to be a
+ * PREFIX of some word in the list ("cell" matches cells/cellular/cellulose).
+ * `full` adds the article body, worked examples and misconceptions (used on
+ * /topics); the homepage strip uses the lighter list (title, summary,
+ * objectives, key terms, section headings). */
+function searchTokens(topic, full) {
+  const parts = [topic.title, topic.summary, topic.subject];
+  for (const o of topic.objectives || []) parts.push(typeof o === "string" ? o : o.text);
+  for (const g of topic.key_concepts || []) parts.push(g.term, full ? g.definition : "");
+  for (const s of topic.sections || []) parts.push(s.heading, full ? s.body_md : "");
+  if (full) {
+    for (const w of topic.worked_examples || []) parts.push(w.problem, w.solution_md);
+    for (const m of topic.misconceptions || []) parts.push(m.misconception, m.correction);
+  }
+  for (const c of topic.curriculum || []) parts.push(c.title, String(c.code || "").replace(/^cbse:/, ""));
+  const words = new Set();
+  for (const p of parts) {
+    for (const w of String(p || "").toLowerCase().replace(/[*_#|`]/g, " ").split(/[^\p{L}\p{N}'’.-]+/u)) {
+      const t = w.replace(/^[.'’-]+|[.'’-]+$/g, "");
+      if (t.length >= 2) words.add(t);
+    }
+  }
+  return [...words].join(" ");
+}
+
 function curriculumSummary(topic) {
   const by = new Map();
   for (const c of topic.curriculum || []) {
@@ -487,7 +515,7 @@ function card(topic, code) {
   const codes = [...new Set((topic.curriculum || []).map((c) => String(c.code).replace(/^cbse:/, "")))].slice(0, 3);
   const branch = branchOf(topic);
   const curs = curriculaOf(topic);
-  const text = `${topic.title} ${topic.summary || ""} ${topic.subject} ${branch || ""} ${codes.join(" ")} ${curs.map((k) => curriculumLabel(t, k)).join(" ")}`.toLowerCase();
+  const text = `${searchTokens(topic, true)} ${branch || ""} ${curs.map((k) => curriculumLabel(t, k)).join(" ").toLowerCase()}`;
   return `<a class="t-cardlink" href="${prefix(code)}/topics/${topic.slug}" data-subject="${esc(topic.subject)}" data-branch="${esc(branch || "")}" data-cur="${esc(curs.join(" "))}" data-text="${esc(text)}">
       ${v ? `<span class="t-thumb"><img src="${thumb(v.youtube_video_id)}" alt="" width="480" height="360" loading="lazy" /></span>` : ""}
       <span class="t-card-body">
@@ -658,12 +686,13 @@ const JS = `<script>
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var term=(q.value||'').trim().toLowerCase(),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().split(/\\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)
         &&(!branch||c.getAttribute('data-branch')===branch)
         &&(!ck||(' '+c.getAttribute('data-cur')+' ').indexOf(' '+ck+' ')>=0)
-        &&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+        &&words.every(function(w){return text.indexOf(' '+w)>=0;});
       c.hidden=!ok;if(ok)shown++;
     });
     empty.hidden=shown>0;
@@ -738,6 +767,8 @@ const STRIP_CSS = `
 .lstrip-pick select{font:inherit;font-size:15px;color:var(--ink);padding:10px 36px 10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--canvas) no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6470' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-position:right 12px center;background-size:16px;appearance:none;-webkit-appearance:none;width:100%;letter-spacing:0;text-transform:none;font-family:var(--sans)}
 [dir=rtl] .lstrip-pick select{padding:10px 12px 10px 36px;background-position:left 12px center}
 .lstrip-pick select:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.lstrip-pick input{font:inherit;font-family:var(--sans);font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink);padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--canvas);width:100%}
+.lstrip-pick input:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .lstrip-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:15px}
 .lstrip-links a{color:var(--teal-ink);font-weight:500}.lstrip-links a:hover{text-decoration:underline}
 .lstrip-soon{margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--faint)}
@@ -758,7 +789,7 @@ function stripHtml(code, all) {
   const subjects = [...new Set(all.map((x) => x.subject))].sort();
   const data = all
     .filter((x) => (x.videos || []).length)
-    .map((x) => ({ s: x.slug, t: x.title, y: x.videos[0].youtube_video_id, j: x.subject, b: branchOf(x) || "", c: curriculaOf(x) }));
+    .map((x) => ({ s: x.slug, t: x.title, y: x.videos[0].youtube_video_id, j: x.subject, b: branchOf(x) || "", c: curriculaOf(x), k: searchTokens(x, false) }));
   const first = data[0];
   const n = data.length;
   const opt = (x) => `<option value="${esc(x.s)}" lang="en">${esc(x.t)}</option>`;
@@ -778,6 +809,7 @@ function stripHtml(code, all) {
       <div class="lstrip-pick">
         <label>${esc(t["strip.subject"])}<select id="lstrip-subject"><option value="">${esc(t["strip.all"])}</option>${subjectOptions}</select></label>
         <label>${esc(t["strip.curriculum"])}<select id="lstrip-cur"><option value="">${esc(t["curriculum.all"])}</option>${curKeys.map((k) => `<option value="${esc(k)}">${esc(curriculumLabel(t, k))}</option>`).join("")}</select></label>
+        <label>${esc(t["strip.find"])}<input id="lstrip-q" type="search" placeholder="${esc(t["strip.findHint"])}" autocomplete="off" /></label>
         <label>${esc(t["strip.lesson"])}<select id="lstrip-lesson" lang="en" dir="ltr">${data.map(opt).join("")}</select></label>
       </div>
       <p class="lstrip-links"><a id="lstrip-read" href="${prefix(code)}/topics/${esc(first.s)}">${esc(t["strip.read"])} →</a><a href="${prefix(code)}/topics">${esc(fill(t["strip.browse"], { n }))}</a></p>
@@ -796,19 +828,21 @@ function stripHtml(code, all) {
 <script>
 (function(){
   var el=document.getElementById('lstrip-data');if(!el)return;
-  var D=JSON.parse(el.textContent),subj=document.getElementById('lstrip-subject'),cur=document.getElementById('lstrip-cur'),sel=document.getElementById('lstrip-lesson');
+  var D=JSON.parse(el.textContent),subj=document.getElementById('lstrip-subject'),cur=document.getElementById('lstrip-cur'),q=document.getElementById('lstrip-q'),sel=document.getElementById('lstrip-lesson');
   var a=document.getElementById('lstrip-video'),img=document.getElementById('lstrip-img'),ttl=document.getElementById('lstrip-title'),sj=document.getElementById('lstrip-subj'),read=document.getElementById('lstrip-read');
   function show(x){a.href='https://www.youtube.com/watch?v='+encodeURIComponent(x.y);a.setAttribute('aria-label',a.getAttribute('data-play').replace('{title}',x.t));img.src='https://i.ytimg.com/vi/'+encodeURIComponent(x.y)+'/hqdefault.jpg';ttl.textContent=x.t;sj.textContent=(D.labels[x.j]||x.j)+(x.b&&D.branches[x.b]?' · '+D.branches[x.b]:'');read.href=D.prefix+'/topics/'+x.s;}
   // Subject value is "Subject" or "Subject|branch"; curriculum value is "family:grade". Both AND together; either may be "all".
-  function fillList(keep){var sv=subj.value.split('|'),s=sv[0],b=sv[1]||'',ck=cur.value;
-    var list=D.lessons.filter(function(x){return (!s||x.j===s)&&(!b||x.b===b)&&(!ck||x.c.indexOf(ck)>=0)});
+  function fillList(keep){var sv=subj.value.split('|'),s=sv[0],b=sv[1]||'',ck=cur.value,words=(q.value||'').trim().toLowerCase().split(/\\s+/).filter(Boolean);
+    var list=D.lessons.filter(function(x){var text=' '+x.k;return (!s||x.j===s)&&(!b||x.b===b)&&(!ck||x.c.indexOf(ck)>=0)&&words.every(function(w){return text.indexOf(' '+w)>=0;})});
     sel.innerHTML='';sel.disabled=!list.length;if(!list.length){var o=document.createElement('option');o.textContent=D.none;sel.appendChild(o);return;}
     list.forEach(function(x){var o=document.createElement('option');o.value=x.s;o.textContent=x.t;o.lang='en';sel.appendChild(o);});
-    var pick=list.find(function(x){return x.s===keep})||list[Math.floor(Math.random()*list.length)];sel.value=pick.s;show(pick);}
+    var pick=list.find(function(x){return x.s===keep})||(keep==='__first__'?list[0]:list[Math.floor(Math.random()*list.length)]);sel.value=pick.s;show(pick);}
   // A random lesson each visit (founder, 2026-10-16).
   fillList(null);
   subj.addEventListener('change',function(){fillList(null);});
   cur.addEventListener('change',function(){fillList(null);});
+  // Typing keeps the current pick while it still matches; otherwise the first match.
+  q.addEventListener('input',function(){var k=sel.value;var sv=subj.value.split('|'),ws=(q.value||'').trim().toLowerCase().split(/\\s+/).filter(Boolean);var cur0=D.lessons.find(function(x){return x.s===k});var still=cur0&&ws.every(function(w){return (' '+cur0.k).indexOf(' '+w)>=0});fillList(still?k:'__first__');});
   sel.addEventListener('change',function(){var x=D.lessons.find(function(y){return y.s===sel.value});if(x)show(x);});
 })();
 </script>`;

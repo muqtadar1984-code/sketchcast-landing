@@ -68,5 +68,7 @@
   "subjectAll": "{subject} (سموا)",
   "curriculum.label": "کوريکولوم",
   "curriculum.all": "سموا کوريکولوم",
-  "strip.curriculum": "کوريکولوم"
+  "strip.curriculum": "کوريکولوم",
+  "strip.find": "چاري ڤلاجرن",
+  "strip.findHint": "چونتوه: سيل، ڤچاهن، چهاي"
 }

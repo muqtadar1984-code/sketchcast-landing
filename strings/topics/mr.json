@@ -68,5 +68,7 @@
   "subjectAll": "{subject} (सर्व)",
   "curriculum.label": "अभ्यासक्रम",
   "curriculum.all": "सर्व अभ्यासक्रम",
-  "strip.curriculum": "अभ्यासक्रम"
+  "strip.curriculum": "अभ्यासक्रम",
+  "strip.find": "पाठ शोधा",
+  "strip.findHint": "उदा. पेशी, अपूर्णांक, प्रकाश"
 }

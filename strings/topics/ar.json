@@ -68,5 +68,7 @@
   "subjectAll": "{subject} (الكل)",
   "curriculum.label": "المنهج",
   "curriculum.all": "كل المناهج",
-  "strip.curriculum": "المنهج"
+  "strip.curriculum": "المنهج",
+  "strip.find": "ابحث عن درس",
+  "strip.findHint": "مثل: الخلايا، الكسور، الضوء"
 }

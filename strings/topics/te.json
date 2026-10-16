@@ -68,5 +68,7 @@
   "subjectAll": "{subject} (అన్నీ)",
   "curriculum.label": "పాఠ్యప్రణాళిక",
   "curriculum.all": "అన్ని పాఠ్యప్రణాళికలు",
-  "strip.curriculum": "పాఠ్యప్రణాళిక"
+  "strip.curriculum": "పాఠ్యప్రణాళిక",
+  "strip.find": "పాఠం వెతకండి",
+  "strip.findHint": "ఉదా. కణాలు, భిన్నాలు, కాంతి"
 }

@@ -68,5 +68,7 @@
   "subjectAll": "{subject} (tout)",
   "curriculum.label": "Programme",
   "curriculum.all": "Tous les programmes",
-  "strip.curriculum": "Programme"
+  "strip.curriculum": "Programme",
+  "strip.find": "Trouver une leçon",
+  "strip.findHint": "ex. cellules, fractions, lumière"
 }

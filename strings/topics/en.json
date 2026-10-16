@@ -69,5 +69,7 @@
   "subjectAll": "{subject} (all)",
   "curriculum.label": "Curriculum",
   "curriculum.all": "All curricula",
-  "strip.curriculum": "Curriculum"
+  "strip.curriculum": "Curriculum",
+  "strip.find": "Find a lesson",
+  "strip.findHint": "e.g. cells, fractions, light"
 }
