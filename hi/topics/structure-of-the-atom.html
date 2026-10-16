@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Structure of the Atom — मुफ़्त वीडियो पाठ | SketchCast</title>
+<meta name="description" content="The Rutherford model: nucleus of protons and neutrons, electrons in shells, charges, and how atoms hold together." />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="Structure of the Atom — मुफ़्त वीडियो पाठ | SketchCast" />
+<meta property="og:description" content="The Rutherford model: nucleus of protons and neutrons, electrons in shells, charges, and how atoms hold together." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+
+  /* Full-bleed header (founder, 2026-08-18): brand at the true start edge,
+     Start free at the true end — seven links + the language picker never fit
+     the 1080px wrap (labels wrapped mid-phrase). Logical properties keep the
+     RTL locales mirrored. Middle widths compress before the links hide; the
+     hide threshold is generous because fr/te labels run long. */
+  header .wrap{max-width:none;margin:0;padding-inline:26px}
+  .nav{gap:18px}
+  .nav-links{flex-wrap:nowrap}
+  .nav-links a,.nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
+  @media(max-width:1140px){.nav-links{display:none}}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/topics/structure-of-the-atom" />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:url" content="https://sketchcast.app/topics/structure-of-the-atom" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}:root{--display:"Noto Sans Devanagari","Space Grotesk",ui-sans-serif,system-ui,sans-serif;--sans:"Noto Sans Devanagari","Inter",ui-sans-serif,system-ui,sans-serif;--mono:"Noto Sans Devanagari",ui-monospace,monospace}body{font-family:var(--sans);line-height:1.8}h1,h2,h3{font-family:var(--display)}*,*::before,*::after{letter-spacing:normal!important;text-transform:none!important}</style>
+<!--/i18n:head-->
+<style id="topics-css">
+.t-page{padding-top:28px;padding-bottom:72px}
+.t-crumbs{font-size:14px;color:var(--graphite);margin-bottom:18px}.t-crumbs a{color:var(--teal-ink)}.t-crumbs a:hover{text-decoration:underline}
+.t-note{margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-inline-start:3px solid var(--marker);border-radius:9px;background:#fff;font-size:14px;color:var(--graphite)}
+.t-hero{margin-bottom:26px;max-width:820px}.t-hero h1{font-size:clamp(32px,4.6vw,50px);margin:10px 0 14px}
+.t-lead{font-size:18px;color:var(--graphite);line-height:1.55}
+.t-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+@media(max-width:960px){.t-grid{grid-template-columns:minmax(0,1fr)}}
+.t-side{position:sticky;top:90px}
+@media(max-width:960px){.t-side{position:static}}
+.t-body>section,.t-article{margin-bottom:34px}
+.t-body h2{font-size:26px;margin:0 0 14px}
+.t-video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px -26px rgba(20,24,31,.5)}
+.t-play{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.t-play img{width:100%;height:100%;object-fit:cover;display:block}
+.t-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-play:hover .t-play-icon,.t-play:focus-visible .t-play-icon{transform:scale(1.08)}
+.t-play:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.t-video iframe{width:100%;height:100%;border:0;display:block}
+.t-yt{margin:10px 0 6px;font-size:14px}.t-yt a{color:var(--teal-ink);font-weight:500}.t-yt a:hover{text-decoration:underline}
+.t-part{font-size:18px;margin:22px 0 10px}
+.t-chapters{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px;font-size:14.5px}
+.t-chapters summary{cursor:pointer;font-weight:500}
+.t-chapters ol{list-style:none;margin:10px 0 2px;display:grid;gap:4px}
+.t-chapters a{display:flex;gap:10px;padding:3px 0;color:var(--ink)}.t-chapters a:hover{color:var(--teal-ink)}
+.t-time{font-family:var(--mono);font-size:12.5px;color:var(--graphite);min-width:42px}
+.t-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.t-ticks{list-style:none;display:grid;gap:9px}
+.t-ticks li{position:relative;padding-inline-start:28px}
+.t-ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:14px;height:8px;border-inline-start:2.4px solid var(--teal);border-bottom:2.4px solid var(--teal);transform:rotate(-45deg)}
+.t-toc{margin-bottom:28px}.t-toc ol{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:3px;font-size:15px}.t-toc a{color:var(--teal-ink)}.t-toc a:hover{text-decoration:underline}
+.t-article h3{font-size:21px;margin:28px 0 10px;scroll-margin-top:90px}
+.t-article p,.t-ex-a p{margin:0 0 12px;font-size:16.5px;line-height:1.7}
+.t-article ul,.t-article ol,.t-ex-a ul,.t-ex-a ol{margin:0 0 14px;padding-inline-start:24px;display:grid;gap:5px;font-size:16.5px}
+.t-table{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:10px}
+.t-table table{border-collapse:collapse;width:100%;font-size:15px;background:var(--paper)}
+.t-table th,.t-table td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.t-table th{background:var(--mist);font-weight:500}.t-table tr:last-child td{border-bottom:0}
+sup{font-size:.72em;line-height:0}
+.t-terms{display:grid;gap:12px}.t-terms div{display:grid;gap:2px}.t-terms dt{font-weight:600;font-family:var(--display)}.t-terms dd{color:var(--graphite)}
+.t-example{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;margin-bottom:12px}
+.t-ex-q{display:flex;gap:12px;font-weight:500;margin:0}
+.t-ex-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.t-example details{margin-top:12px}.t-example summary{cursor:pointer;color:var(--teal-ink);font-weight:500;font-size:15px}
+.t-ex-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.t-misc{display:grid;gap:12px}
+.t-misc-item{border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:14px 18px}
+.t-myth,.t-fact{margin:0;font-size:15.5px}.t-fact{margin-top:8px;color:var(--ink-soft)}
+.t-myth span,.t-fact span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-inline-end:6px}
+.t-myth span{background:#FFF1D6;color:#8A5A00}.t-fact span{background:#DDF5F1;color:var(--teal-ink)}
+.t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
+.t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
+.t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
+.t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
+.t-kit .eyebrow{color:#9AA3AD}
+.t-soon{display:inline-block;background:var(--marker);color:var(--ink);border-radius:6px;padding:2px 8px;font-weight:500}
+.t-kit-list{list-style:none;display:grid;gap:7px;margin:0 0 18px;font-size:14.5px}
+.t-kit-list li{position:relative;padding-inline-start:22px;color:#E9ECEF}
+.t-kit-list li::before{content:"";position:absolute;inset-inline-start:2px;top:.5em;width:10px;height:6px;border-inline-start:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.t-kit .btn-primary{background:#fff;color:var(--ink)}.t-kit .btn-primary:hover{background:var(--mist)}
+.t-kit-wide{margin-top:48px;max-width:760px}
+.t-related{margin-top:56px}.t-related h2{font-size:24px;margin-bottom:16px}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.t-cardlink{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .06s,border-color .15s}
+.t-cardlink:hover{border-color:var(--faint);box-shadow:0 16px 34px -24px rgba(20,24,31,.45)}
+.t-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--mist)}
+.t-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.t-card-body{display:grid;gap:6px;padding:14px 16px 16px}
+.t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
+.t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-chips{display:flex;flex-wrap:wrap;gap:8px}
+.t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
+.t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
+.t-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.t-chip[aria-pressed="true"] span{color:#9AA3AD}
+.t-search{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;min-width:240px;background:var(--paper)}
+@media(max-width:560px){.t-search{min-width:0;width:100%}}
+.t-empty{color:var(--graphite);padding:20px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/hi/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/hi/#how" data-i18n="common.nav.how">यह कैसे काम करता है</a>
+      <a href="/hi/topics" aria-current="page" data-i18n="common.nav.lessons">पाठ</a>
+      <a href="/hi/homeschool" data-i18n="common.nav.homeschool">होमस्कूल</a>
+      <a href="/hi/schools" data-i18n="common.nav.schools">स्कूलों के लिए</a>
+      <a href="/hi/pricing" data-i18n="common.nav.pricing">क़ीमतें</a>
+      <a href="/hi/about" data-i18n="common.nav.about">हमारे बारे में</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="अपनी भाषा चुनें"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="hi" dir="ltr">हिन्दी (Hindi)</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/topics/structure-of-the-atom" lang="en" hreflang="en" dir="ltr">English</a></li>
+      <li><a href="https://sketchcast.app/ms/topics/structure-of-the-atom" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/topics/structure-of-the-atom" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/topics/structure-of-the-atom" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/topics/structure-of-the-atom" lang="es" hreflang="es" dir="ltr">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/topics/structure-of-the-atom" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/topics/structure-of-the-atom" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/topics/structure-of-the-atom" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/topics/structure-of-the-atom" lang="hi" hreflang="hi" dir="ltr" aria-current="true">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/topics/structure-of-the-atom" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">लॉग इन</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">मुफ़्त शुरू करें</a>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  // Locale-proof header fit: hide the middle links only when the row REALLY
+  // overflows (French/Telugu labels run long; breakpoints can't know that).
+  // Hysteresis: re-show only 40px past where it last overflowed.
+  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!links)return;
+  var hiddenAt=0;
+  function fit(){
+    var w=nav.clientWidth;
+    if(links.style.display!=='none'){
+      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
+    }else if(w>hiddenAt+40){
+      links.style.display='';
+      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
+    }
+  }
+  fit();
+  addEventListener('resize',fit);
+  // Web fonts can widen labels after first paint — re-measure when they land.
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+
+<main>
+
+  <div class="wrap t-page">
+    <nav class="t-crumbs" aria-label="Breadcrumb"><a href="/hi/topics">पाठ</a> <span aria-hidden="true">›</span> <span>विज्ञान</span></nav>
+    <p class="t-note">यह पाठ अंग्रेज़ी में है।</p>
+    <div class="t-hero" lang="en" dir="ltr">
+      <p class="eyebrow">विज्ञान · कक्षा 8, 9</p>
+      <h1>Structure of the Atom</h1>
+      <p class="t-lead">The Rutherford model: nucleus of protons and neutrons, electrons in shells, charges, and how atoms hold together.</p>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-body" lang="en" dir="ltr">
+        <section aria-label="वीडियो पाठ">
+      <div class="t-video">
+        <button type="button" class="t-play" data-yt="B41WpWfxE4A" aria-label="वीडियो चलाएँ: Structure of the Atom">
+          <img src="https://i.ytimg.com/vi/B41WpWfxE4A/hqdefault.jpg" alt="" width="480" height="360" loading="eager" />
+          <span class="t-play-icon" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#14181F"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+        </button>
+      </div>
+      <p class="t-yt"><a href="https://www.youtube.com/watch?v=B41WpWfxE4A" target="_blank" rel="noopener">YouTube पर देखें ↗</a></p>
+      <details class="t-chapters"><summary>इस वीडियो के अध्याय</summary><ol><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A" target="_blank" rel="noopener"><span class="t-time">0:00</span> The Building Blocks of Matter</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=33s" target="_blank" rel="noopener"><span class="t-time">0:33</span> Properties of Sub-Atomic Particles</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=62s" target="_blank" rel="noopener"><span class="t-time">1:02</span> Balancing the Atomic Charges</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=86s" target="_blank" rel="noopener"><span class="t-time">1:26</span> The Plum Pudding Model</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=118s" target="_blank" rel="noopener"><span class="t-time">1:58</span> Rutherford's Scattering Experiment</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=145s" target="_blank" rel="noopener"><span class="t-time">2:25</span> The Rutherford Nuclear Model</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=175s" target="_blank" rel="noopener"><span class="t-time">2:55</span> Atomic Number (Z)</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=201s" target="_blank" rel="noopener"><span class="t-time">3:21</span> Mass Number (A) and Nucleons</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=230s" target="_blank" rel="noopener"><span class="t-time">3:50</span> Bohr-Bury Electronic Configuration</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=263s" target="_blank" rel="noopener"><span class="t-time">4:23</span> Valency and Outer Shell Stability</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=296s" target="_blank" rel="noopener"><span class="t-time">4:56</span> Calculating Valency</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=326s" target="_blank" rel="noopener"><span class="t-time">5:26</span> Isotopes: Same Element, Different Mass</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=357s" target="_blank" rel="noopener"><span class="t-time">5:57</span> Isobars: Different Elements, Same Mass</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=381s" target="_blank" rel="noopener"><span class="t-time">6:21</span> Summary of Atomic Structure</a></li><li><a href="https://www.youtube.com/watch?v=B41WpWfxE4A&t=403s" target="_blank" rel="noopener"><span class="t-time">6:43</span> Test Your Understanding</a></li></ol></details></section>
+
+        <section class="t-card"><h2>आप क्या सीखेंगे</h2><ul class="t-ticks"><li>Describe the sub-atomic particles of an atom including their relative masses, charges, and locations.</li><li>Explain the historical development of atomic models, with specific emphasis on the Rutherford nuclear model.</li><li>Calculate and determine atomic numbers, mass numbers, numbers of protons, neutrons, and electrons for given atoms.</li><li>Define and differentiate between isotopes and isobars based on their atomic and mass numbers.</li><li>Determine the valency of elements based on their electronic configuration in various shells.</li></ul></section>
+
+        <nav class="t-toc" aria-label="इस पाठ में"><p class="eyebrow">इस पाठ में</p><ol><li><a href="#introduction-to-sub-atomic-particles">Introduction to Sub-Atomic Particles</a></li><li><a href="#models-of-the-atom-and-the-rutherford-discovery">Models of the Atom and the Rutherford Discovery</a></li><li><a href="#atomic-number-mass-number-and-electronic-configuration">Atomic Number, Mass Number, and Electronic Configuration</a></li><li><a href="#valency">Valency</a></li><li><a href="#isotopes-and-isobars">Isotopes and Isobars</a></li></ol></nav>
+
+        <article class="t-article">
+          <h2 class="t-article-h">व्याख्या</h2>
+          <section id="introduction-to-sub-atomic-particles"><h3>Introduction to Sub-Atomic Particles</h3><p>Matter is composed of fundamental building blocks known as atoms. For a long time, atoms were considered indivisible, but scientific discoveries through the late nineteenth and early twentieth centuries revealed that atoms are themselves made up of smaller entities called <strong>sub-atomic particles</strong>. These particles are the <strong>electron</strong>, the <strong>proton</strong>, and the <strong>neutron</strong>.</p>
+<p>The electron was discovered by J.J. Thomson through cathode ray tube experiments, identifying a particle with a negative charge. Protons were subsequently identified, carrying a positive charge equal in magnitude to the negative charge of an electron. Neutrons, discovered by James Chadwick, possess no electric charge and have a mass nearly equal to that of a proton.</p>
+<p>Each sub-atomic particle possesses distinct properties regarding its mass and electrical charge:</p>
+<ul><li><strong>Electron</strong>: Carries a relative electric charge of negative one (-1) and has an extremely small mass, considered negligible when calculating the total mass of an atom.</li><li><strong>Proton</strong>: Carries a relative electric charge of positive one (+1) and has a relative mass of one unified atomic mass unit.</li><li><strong>Neutron</strong>: Carries zero electric charge (neutral) and has a relative mass of one unified atomic mass unit.</li></ul>
+<p>In a neutral atom, the number of negatively charged electrons equals the number of positively charged protons, ensuring that the net electrical charge of the entire atom is zero. These particles are not distributed uniformly throughout the volume of the atom; instead, they are segregated into distinct regions, forming the complex internal architecture of the atomic structure.</p></section>
+<section id="models-of-the-atom-and-the-rutherford-discovery"><h3>Models of the Atom and the Rutherford Discovery</h3><p>Understanding how these sub-atomic particles are arranged required a series of theoretical models proposed by various scientists. J.J. Thomson first proposed the plum pudding model, suggesting that an atom consisted of a positively charged sphere with negatively charged electrons embedded within it, much like dried fruit in a Christmas pudding.</p>
+<p>This model was tested and disproved by Ernest Rutherford and his coworkers through the famous <strong>alpha-particle scattering experiment</strong>. In this experiment, fast-moving alpha particles, which are doubly charged helium ions, were directed at a very thin gold foil sheet. Based on Thomson's model, the alpha particles were expected to pass straight through the foil with minor deflections because the positive charge was thought to be spread out evenly.</p>
+<p>However, the results revealed three distinct observations:</p>
+<ol><li>Most of the fast-moving alpha particles passed straight through the gold foil without any deflection, indicating that the interior of an atom is mostly empty space.</li><li>A small fraction of the alpha particles was deflected by small angles, showing that the positive charge of the atom occupies a very concentrated region.</li><li>A very few alpha particles rebounded completely, retracing their path, which demonstrated that all the positive charge and mass of the atom are concentrated in an extremely small volume at the centre.</li></ol>
+<p>From these observations, Rutherford proposed the <strong>Rutherford model of the atom</strong>, also known as the nuclear model. This model states that:</p>
+<ul><li>There is a positively charged centre in an atom called the <strong>nucleus</strong>, where nearly all the mass of the atom is concentrated.</li><li>Electrons revolve around the nucleus in circular paths.</li><li>The size of the nucleus is extremely small compared to the total size of the atom.</li></ul></section>
+<section id="atomic-number-mass-number-and-electronic-configuration"><h3>Atomic Number, Mass Number, and Electronic Configuration</h3><p>To distinguish one element from another, scientists use quantitative measures based on the particles inside the nucleus. The <strong>atomic number</strong> of an element, denoted by the symbol Z, is defined as the total number of protons present in the nucleus of an atom. Since atoms are electrically neutral, the atomic number also equals the number of electrons in a neutral atom. For example, hydrogen has an atomic number of 1, meaning every neutral hydrogen atom has one proton and one electron.</p>
+<p>The total mass of an atom is concentrated primarily in its nucleus due to the presence of protons and neutrons. These two particles are collectively referred to as <strong>nucleons</strong>. The <strong>mass number</strong>, denoted by the symbol A, is defined as the total number of protons and neutrons present in the nucleus of an atom.</p>
+<p>Mass Number (A) = Number of protons (Z) + Number of neutrons (n)</p>
+<p>For instance, a carbon atom has 6 protons and 6 neutrons, giving it an atomic number of 6 and a mass number of 12. If the atomic number and mass number of an element are known, the number of neutrons can be calculated easily by subtracting the atomic number from the mass number.</p>
+<p>Regarding the arrangement of electrons outside the nucleus, the Bohr-Bury scheme dictates how electrons are distributed into different energy levels or <strong>shells</strong>, designated by the letters K, L, M, N, and so on. The maximum number of electrons accommodated in any shell is given by the formula 2n squared, where n is the orbit number or energy level index. The outermost shell of an atom is called the <strong>valence shell</strong>. Electrons cannot accommodate in a given shell unless the inner shells are filled completely, following a step-by-step filling order.</p></section>
+<section id="valency"><h3>Valency</h3><p>The chemical reactivity of an element is determined by the number of electrons residing in its outermost shell. Atoms tend to attain a fully stable configuration of eight electrons in their outermost shell, known as an octet, or two electrons in the case of the innermost shell (K shell) if it is the only shell. This drive for stability dictates the <strong>valency</strong> of an element.</p>
+<p>Valency is defined as the combining capacity of an atom, representing the number of electrons gained, lost, or shared to achieve a stable electronic configuration. For elements with 1, 2, 3, or 4 valence electrons, the valency is generally equal to the number of valence electrons. For instance, sodium has an electronic configuration of 2, 8, 1; its valence electron is 1, so its valency is 1.</p>
+<p>For elements with 5, 6, or 7 valence electrons in their outermost shell, the valency is calculated by subtracting the number of valence electrons from eight. For example, chlorine has an electronic configuration of 2, 8, 7. It has 7 valence electrons, so its valency is 8 minus 7, which equals 1. Elements that already possess a complete octet, such as helium, neon, and argon, have a valency of zero and are chemically inert.</p></section>
+<section id="isotopes-and-isobars"><h3>Isotopes and Isobars</h3><p>While all atoms of a specific element share the same atomic number, they do not always possess the exact same mass. Atoms of the same element that have the same atomic number but different mass numbers are called <strong>isotopes</strong>. This difference in mass number occurs because isotopes have varying numbers of neutrons in their nuclei.</p>
+<p>A classic example is hydrogen, which exists as three distinct isotopes: protium (one proton, zero neutrons), deuterium (one proton, one neutron), and tritium (one proton, two neutrons). Another prominent example is carbon, which exists as carbon-12 and carbon-14. Because chemical properties are dictated primarily by the number of electrons and protons, isotopes of the same element exhibit identical chemical properties, though their physical properties may vary slightly due to mass differences.</p>
+<p>In contrast, <strong>isobars</strong> are atoms of different chemical elements that have different atomic numbers but the same mass number. Because they belong to different elements, isobars have different numbers of protons and different numbers of electrons, yet their total sum of protons and neutrons remains identical. An example of a pair of isobars is calcium (atomic number 20, mass number 40) and argon (atomic number 18, mass number 40). Both possess a mass number of 40, despite having completely different chemical characteristics and elemental identities.</p></section>
+        </article>
+
+        <section class="t-card"><h2>मुख्य शब्द</h2><dl class="t-terms"><div><dt>Atom</dt><dd>The basic building block of matter consisting of a dense central nucleus surrounded by electrons.</dd></div><div><dt>Electron</dt><dd>A sub-atomic particle with a negative electrical charge and negligible mass, orbiting the nucleus.</dd></div><div><dt>Proton</dt><dd>A sub-atomic particle with a positive electrical charge, located within the atomic nucleus.</dd></div><div><dt>Neutron</dt><dd>A sub-atomic particle with zero electrical charge and a mass similar to a proton, located within the nucleus.</dd></div><div><dt>Nucleus</dt><dd>The dense, positively charged central core of an atom containing protons and neutrons.</dd></div><div><dt>Atomic Number</dt><dd>The total number of protons found in the nucleus of an atom, represented by the symbol Z.</dd></div><div><dt>Mass Number</dt><dd>The total sum of protons and neutrons in the nucleus of an atom, represented by the symbol A.</dd></div><div><dt>Valency</dt><dd>The combining capacity of an atom, determined by the number of electrons lost, gained, or shared to achieve stability.</dd></div><div><dt>Isotopes</dt><dd>Atoms of the same element that have the same atomic number but different mass numbers due to varying numbers of neutrons.</dd></div><div><dt>Isobars</dt><dd>Atoms of different elements that have different atomic numbers but the same mass number.</dd></div></dl></section>
+
+        <section><h2>हल किए गए उदाहरण</h2><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">1</span>An atom of an element has an atomic number of 11 and a mass number of 23. Calculate the number of protons, electrons, and neutrons in this atom, write its electronic configuration, and determine its valency.</p><details><summary>हल दिखाएँ</summary><div class="t-ex-a"><p><strong>Step 1:</strong> Identify the number of protons. The atomic number (Z) is 11, so the number of protons is 11.</p>
+<p><strong>Step 2:</strong> Determine the number of electrons. In a neutral atom, the number of electrons equals the number of protons, so there are 11 electrons.</p>
+<p><strong>Step 3:</strong> Calculate the number of neutrons. Subtract the atomic number from the mass number: neutrons = Mass Number - Protons = 23 - 11 = 12 neutrons.</p>
+<p><strong>Step 4:</strong> Determine the electronic configuration. Distribute 11 electrons into shells following the 2n squared rule: K shell holds 2, L shell holds 8, leaving 1 electron for the M shell. Configuration is 2, 8, 1.</p>
+<p><strong>Step 5:</strong> Find the valency. The outermost shell (M shell) has 1 valence electron. Since this is less than 4, the valency is equal to the number of valence electrons, which is 1.</p></div></details></div><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">2</span>Calculate the number of neutrons in an atom of chlorine-35, given that its atomic number is 17.</p><details><summary>हल दिखाएँ</summary><div class="t-ex-a"><p><strong>Step 1:</strong> Identify the given values from the problem statement. The atomic number (number of protons) is 17, and the mass number is 35.</p>
+<p><strong>Step 2:</strong> Recall the formula relating mass number, protons, and neutrons: Mass Number = Protons + Neutrons.</p>
+<p><strong>Step 3:</strong> Rearrange the formula to solve for neutrons: Neutrons = Mass Number - Protons.</p>
+<p><strong>Step 4:</strong> Substitute the values: Neutrons = 35 - 17 = 18.</p>
+<p><strong>Step 5:</strong> State the final answer clearly: The chlorine-35 atom contains 18 neutrons.</p></div></details></div></section>
+
+        <section><h2>आम ग़लतफ़हमियाँ</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> Electrons are located inside the nucleus alongside protons and neutrons.</p><p class="t-fact"><span>असल में</span> Electrons exist entirely outside the nucleus, revolving in specific energy shells or orbitals, while protons and neutrons are strictly confined to the nucleus.</p></div><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> Atoms are solid, hard spheres with matter distributed uniformly throughout their volume.</p><p class="t-fact"><span>असल में</span> Atoms are composed mostly of empty space, with all their positive charge and mass concentrated in a tiny central nucleus.</p></div><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> Isotopes of an element have different chemical properties because they have different masses.</p><p class="t-fact"><span>असल में</span> Isotopes share identical chemical properties because chemical reactivity depends on the number and arrangement of electrons, which remain the same for a given element.</p></div><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> The mass number of an atom is equal to the number of protons only.</p><p class="t-fact"><span>असल में</span> The mass number is the total sum of both protons and neutrons in the nucleus.</p></div></div></section>
+
+        <section class="t-card"><h2>पाठ्यक्रम से मेल</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Cm.01</code> Describe the Rutherford model of the structure of an atom.</li><li><code>8Cm.02</code> Know that electrons have negative charge, protons have positive charge and neutrons have no charge.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U1:04</code> Structure of atom</li></ul></section>
+      </div>
+
+      <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
+      <p class="eyebrow"><span class="t-soon">जल्द आ रहा है</span></p>
+      <h2 id="kit-h">पूरी शिक्षण किट</h2>
+      <p>इस पाठ से बनी तैयार सामग्री। मुफ़्त खाता बनाएँ — उपलब्ध होते ही सबसे पहले आपको पता चलेगा।</p>
+      <ul class="t-kit-list"><li>पाठ योजना</li><li>स्लाइड</li><li>उत्तर कुंजी के साथ वर्कशीट</li><li>कक्षा गतिविधि</li><li>केस स्टडी</li><li>प्रश्न बैंक: 58 अभ्यास प्रश्न</li><li>अपने-आप जाँचा जाने वाला ऑनलाइन मूल्यांकन</li></ul>
+      <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=structure-of-the-atom">मुफ़्त खाता बनाएँ</a>
+    </aside></div>
+    </div>
+
+    <section class="t-related"><h2>विज्ञान के और पाठ</h2><div class="t-cards"><a class="t-cardlink" href="/hi/topics/a-balanced-diet" data-subject="Science" data-text="a balanced diet proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it. science 8bp.01 6:ch03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/WzKtNmxUe1w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">विज्ञान</span>
+        <span class="t-card-title" lang="en">A Balanced Diet</span>
+        <span class="t-card-sum" lang="en">Proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it.</span>
+        <span class="t-codes"><code>8Bp.01</code><code>6:ch03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/hi/topics/acids-alkalis-and-the-ph-scale" data-subject="Science" data-text="acids, alkalis and the ph scale acidity and alkalinity as chemical properties, the ph scale, indicators, and neutralisation. science 7cp.02 7cp.03 7cc.04">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/izw9rsR3JmU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">विज्ञान</span>
+        <span class="t-card-title" lang="en">Acids, Alkalis and the pH Scale</span>
+        <span class="t-card-sum" lang="en">Acidity and alkalinity as chemical properties, the pH scale, indicators, and neutralisation.</span>
+        <span class="t-codes"><code>7Cp.02</code><code>7Cp.03</code><code>7Cc.04</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/hi/topics/aerobic-respiration" data-subject="Science" data-text="aerobic respiration energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing. science 8bp.04 8bp.05 10:u2:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/FPT96igGPK8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">विज्ञान</span>
+        <span class="t-card-title" lang="en">Aerobic Respiration</span>
+        <span class="t-card-sum" lang="en">Energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing.</span>
+        <span class="t-codes"><code>8Bp.04</code><code>8Bp.05</code><code>10:U2:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/hi/topics/blood-and-its-components" data-subject="Science" data-text="blood and its components plasma, red blood cells, white blood cells and platelets, and what each transports or protects. science 8bs.02 7:ch09">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/Iaaj9jR7g9k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">विज्ञान</span>
+        <span class="t-card-title" lang="en">Blood and Its Components</span>
+        <span class="t-card-sum" lang="en">Plasma, red blood cells, white blood cells and platelets, and what each transports or protects.</span>
+        <span class="t-codes"><code>8Bs.02</code><code>7:ch09</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/hi/topics/cells" data-subject="Science" data-text="cells the cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems. science 7bs.01 7bs.02 7bs.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/-Qm-tfg1yJ4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">विज्ञान</span>
+        <span class="t-card-title" lang="en">Cells</span>
+        <span class="t-card-sum" lang="en">The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build…</span>
+        <span class="t-codes"><code>7Bs.01</code><code>7Bs.02</code><code>7Bs.03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/hi/topics/classification-of-elements-and-the-periodic-table" data-subject="Science" data-text="classification of elements and the periodic table why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the trends down group 1. science 7cm.01 7cm.02 7cm.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/F-TwnP0ORlQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">विज्ञान</span>
+        <span class="t-card-title" lang="en">Classification of Elements and the Periodic Table</span>
+        <span class="t-card-sum" lang="en">Why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the…</span>
+        <span class="t-codes"><code>7Cm.01</code><code>7Cm.02</code><code>7Cm.03</code></span>
+      </span>
+    </a></div></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — एक अध्याय, पूरा पढ़ाया हुआ" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/hi/" data-i18n="common.nav.home">होम</a>
+        <a href="/hi/about" data-i18n="common.nav.about">हमारे बारे में</a>
+        <a href="/hi/topics" data-i18n="common.nav.lessons">पाठ</a>
+        <a href="/hi/homeschool" data-i18n="common.nav.homeschool">होमस्कूल</a>
+        <a href="/hi/schools" data-i18n="common.nav.schools">स्कूलों के लिए</a>
+        <a href="/hi/pricing" data-i18n="common.nav.pricing">क़ीमतें</a>
+        <a href="/hi/privacy" data-i18n="common.footer.privacy">निजता</a>
+        <a href="/hi/terms" data-i18n="common.footer.terms">शर्तें</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">संपर्क</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="LinkedIn पर Aethel Twin">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="foot-legal" data-i18n="common.footer.legal"><strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) का उत्पाद · Malaysia Digital दर्जा MD/0002997</p>
+    <p class="foot-legal" data-i18n="common.footer.youtube">SketchCast अपनी विषय लाइब्रेरी के मुफ़्त पाठ <a href="https://www.youtube.com/@Sketchcast-AI-app" target="_blank" rel="noopener">SketchCast YouTube चैनल</a> पर भी प्रकाशित करता है। इसके लिए हम Google API सेवाओं का उपयोग कैसे करते हैं, यह हमारी <a href="/hi/privacy#google-api">गोपनीयता नीति (§7)</a> में बताया गया है।</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script defer src="/assets/handoff.js"></script>
+<script>
+(function(){
+  // Click-to-play: the YouTube player loads only when asked (privacy, speed).
+  document.querySelectorAll('.t-play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0';
+      f.title=b.getAttribute('aria-label')||'Video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      b.parentNode.replaceChild(f,b);
+    });
+  });
+  // Index filters: subject chips + text search.
+  var cards=document.getElementById('t-cards');if(!cards)return;
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      c.hidden=!ok;if(ok)shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    subject=ch.getAttribute('data-subject');
+    chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
+  });});
+  q.addEventListener('input',apply);
+})();
+</script>
+</body>
+</html>

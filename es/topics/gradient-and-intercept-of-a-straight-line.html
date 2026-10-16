@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gradient and Intercept of a Straight Line — lección en vídeo gratuita | SketchCast</title>
+<meta name="description" content="Reading gradient and y-intercept from a graph and from y = mx + c, and writing the equation of a line from its features." />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="Gradient and Intercept of a Straight Line — lección en vídeo gratuita | SketchCast" />
+<meta property="og:description" content="Reading gradient and y-intercept from a graph and from y = mx + c, and writing the equation of a line from its features." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+
+  /* Full-bleed header (founder, 2026-08-18): brand at the true start edge,
+     Start free at the true end — seven links + the language picker never fit
+     the 1080px wrap (labels wrapped mid-phrase). Logical properties keep the
+     RTL locales mirrored. Middle widths compress before the links hide; the
+     hide threshold is generous because fr/te labels run long. */
+  header .wrap{max-width:none;margin:0;padding-inline:26px}
+  .nav{gap:18px}
+  .nav-links{flex-wrap:nowrap}
+  .nav-links a,.nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
+  @media(max-width:1140px){.nav-links{display:none}}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/topics/gradient-and-intercept-of-a-straight-line" />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:url" content="https://sketchcast.app/topics/gradient-and-intercept-of-a-straight-line" />
+
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}</style>
+<!--/i18n:head-->
+<style id="topics-css">
+.t-page{padding-top:28px;padding-bottom:72px}
+.t-crumbs{font-size:14px;color:var(--graphite);margin-bottom:18px}.t-crumbs a{color:var(--teal-ink)}.t-crumbs a:hover{text-decoration:underline}
+.t-note{margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-inline-start:3px solid var(--marker);border-radius:9px;background:#fff;font-size:14px;color:var(--graphite)}
+.t-hero{margin-bottom:26px;max-width:820px}.t-hero h1{font-size:clamp(32px,4.6vw,50px);margin:10px 0 14px}
+.t-lead{font-size:18px;color:var(--graphite);line-height:1.55}
+.t-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+@media(max-width:960px){.t-grid{grid-template-columns:minmax(0,1fr)}}
+.t-side{position:sticky;top:90px}
+@media(max-width:960px){.t-side{position:static}}
+.t-body>section,.t-article{margin-bottom:34px}
+.t-body h2{font-size:26px;margin:0 0 14px}
+.t-video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px -26px rgba(20,24,31,.5)}
+.t-play{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.t-play img{width:100%;height:100%;object-fit:cover;display:block}
+.t-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-play:hover .t-play-icon,.t-play:focus-visible .t-play-icon{transform:scale(1.08)}
+.t-play:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.t-video iframe{width:100%;height:100%;border:0;display:block}
+.t-yt{margin:10px 0 6px;font-size:14px}.t-yt a{color:var(--teal-ink);font-weight:500}.t-yt a:hover{text-decoration:underline}
+.t-part{font-size:18px;margin:22px 0 10px}
+.t-chapters{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px;font-size:14.5px}
+.t-chapters summary{cursor:pointer;font-weight:500}
+.t-chapters ol{list-style:none;margin:10px 0 2px;display:grid;gap:4px}
+.t-chapters a{display:flex;gap:10px;padding:3px 0;color:var(--ink)}.t-chapters a:hover{color:var(--teal-ink)}
+.t-time{font-family:var(--mono);font-size:12.5px;color:var(--graphite);min-width:42px}
+.t-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.t-ticks{list-style:none;display:grid;gap:9px}
+.t-ticks li{position:relative;padding-inline-start:28px}
+.t-ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:14px;height:8px;border-inline-start:2.4px solid var(--teal);border-bottom:2.4px solid var(--teal);transform:rotate(-45deg)}
+.t-toc{margin-bottom:28px}.t-toc ol{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:3px;font-size:15px}.t-toc a{color:var(--teal-ink)}.t-toc a:hover{text-decoration:underline}
+.t-article h3{font-size:21px;margin:28px 0 10px;scroll-margin-top:90px}
+.t-article p,.t-ex-a p{margin:0 0 12px;font-size:16.5px;line-height:1.7}
+.t-article ul,.t-article ol,.t-ex-a ul,.t-ex-a ol{margin:0 0 14px;padding-inline-start:24px;display:grid;gap:5px;font-size:16.5px}
+.t-table{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:10px}
+.t-table table{border-collapse:collapse;width:100%;font-size:15px;background:var(--paper)}
+.t-table th,.t-table td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.t-table th{background:var(--mist);font-weight:500}.t-table tr:last-child td{border-bottom:0}
+sup{font-size:.72em;line-height:0}
+.t-terms{display:grid;gap:12px}.t-terms div{display:grid;gap:2px}.t-terms dt{font-weight:600;font-family:var(--display)}.t-terms dd{color:var(--graphite)}
+.t-example{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;margin-bottom:12px}
+.t-ex-q{display:flex;gap:12px;font-weight:500;margin:0}
+.t-ex-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.t-example details{margin-top:12px}.t-example summary{cursor:pointer;color:var(--teal-ink);font-weight:500;font-size:15px}
+.t-ex-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.t-misc{display:grid;gap:12px}
+.t-misc-item{border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:14px 18px}
+.t-myth,.t-fact{margin:0;font-size:15.5px}.t-fact{margin-top:8px;color:var(--ink-soft)}
+.t-myth span,.t-fact span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-inline-end:6px}
+.t-myth span{background:#FFF1D6;color:#8A5A00}.t-fact span{background:#DDF5F1;color:var(--teal-ink)}
+.t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
+.t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
+.t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
+.t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
+.t-kit .eyebrow{color:#9AA3AD}
+.t-soon{display:inline-block;background:var(--marker);color:var(--ink);border-radius:6px;padding:2px 8px;font-weight:500}
+.t-kit-list{list-style:none;display:grid;gap:7px;margin:0 0 18px;font-size:14.5px}
+.t-kit-list li{position:relative;padding-inline-start:22px;color:#E9ECEF}
+.t-kit-list li::before{content:"";position:absolute;inset-inline-start:2px;top:.5em;width:10px;height:6px;border-inline-start:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.t-kit .btn-primary{background:#fff;color:var(--ink)}.t-kit .btn-primary:hover{background:var(--mist)}
+.t-kit-wide{margin-top:48px;max-width:760px}
+.t-related{margin-top:56px}.t-related h2{font-size:24px;margin-bottom:16px}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.t-cardlink{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .06s,border-color .15s}
+.t-cardlink:hover{border-color:var(--faint);box-shadow:0 16px 34px -24px rgba(20,24,31,.45)}
+.t-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--mist)}
+.t-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.t-card-body{display:grid;gap:6px;padding:14px 16px 16px}
+.t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
+.t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-chips{display:flex;flex-wrap:wrap;gap:8px}
+.t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
+.t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
+.t-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.t-chip[aria-pressed="true"] span{color:#9AA3AD}
+.t-search{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;min-width:240px;background:var(--paper)}
+@media(max-width:560px){.t-search{min-width:0;width:100%}}
+.t-empty{color:var(--graphite);padding:20px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/es/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/es/#how" data-i18n="common.nav.how">Cómo funciona</a>
+      <a href="/es/topics" aria-current="page" data-i18n="common.nav.lessons">Lecciones</a>
+      <a href="/es/homeschool" data-i18n="common.nav.homeschool">Educación en casa</a>
+      <a href="/es/schools" data-i18n="common.nav.schools">Para colegios</a>
+      <a href="/es/pricing" data-i18n="common.nav.pricing">Precios</a>
+      <a href="/es/about" data-i18n="common.nav.about">Quiénes somos</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="Elija su idioma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="es" dir="ltr">Español</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/topics/gradient-and-intercept-of-a-straight-line" lang="en" hreflang="en" dir="ltr">English</a></li>
+      <li><a href="https://sketchcast.app/ms/topics/gradient-and-intercept-of-a-straight-line" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/topics/gradient-and-intercept-of-a-straight-line" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/topics/gradient-and-intercept-of-a-straight-line" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/topics/gradient-and-intercept-of-a-straight-line" lang="es" hreflang="es" dir="ltr" aria-current="true">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/topics/gradient-and-intercept-of-a-straight-line" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/topics/gradient-and-intercept-of-a-straight-line" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/topics/gradient-and-intercept-of-a-straight-line" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/topics/gradient-and-intercept-of-a-straight-line" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/topics/gradient-and-intercept-of-a-straight-line" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">Iniciar sesión</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">Empezar gratis</a>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  // Locale-proof header fit: hide the middle links only when the row REALLY
+  // overflows (French/Telugu labels run long; breakpoints can't know that).
+  // Hysteresis: re-show only 40px past where it last overflowed.
+  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!links)return;
+  var hiddenAt=0;
+  function fit(){
+    var w=nav.clientWidth;
+    if(links.style.display!=='none'){
+      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
+    }else if(w>hiddenAt+40){
+      links.style.display='';
+      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
+    }
+  }
+  fit();
+  addEventListener('resize',fit);
+  // Web fonts can widen labels after first paint — re-measure when they land.
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+
+<main>
+
+  <div class="wrap t-page">
+    <nav class="t-crumbs" aria-label="Breadcrumb"><a href="/es/topics">Lecciones</a> <span aria-hidden="true">›</span> <span>Matemáticas</span></nav>
+    <p class="t-note">Esta lección está en inglés.</p>
+    <div class="t-hero" lang="en" dir="ltr">
+      <p class="eyebrow">Matemáticas · Curso 8, 9</p>
+      <h1>Gradient and Intercept of a Straight Line</h1>
+      <p class="t-lead">Reading gradient and y-intercept from a graph and from y = mx + c, and writing the equation of a line from its features.</p>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-body" lang="en" dir="ltr">
+        <section aria-label="Lección en vídeo">
+      <div class="t-video">
+        <button type="button" class="t-play" data-yt="L8y7F5wYQS4" aria-label="Reproducir el vídeo: Gradient and Intercept of a Straight Line">
+          <img src="https://i.ytimg.com/vi/L8y7F5wYQS4/hqdefault.jpg" alt="" width="480" height="360" loading="eager" />
+          <span class="t-play-icon" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#14181F"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+        </button>
+      </div>
+      <p class="t-yt"><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4" target="_blank" rel="noopener">Ver en YouTube ↗</a></p>
+      <details class="t-chapters"><summary>Capítulos de este vídeo</summary><ol><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4" target="_blank" rel="noopener"><span class="t-time">0:00</span> Gradient and Intercept of a Straight Line</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=77s" target="_blank" rel="noopener"><span class="t-time">1:17</span> Example 1: Find the equation of the straight line with a gr…</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=140s" target="_blank" rel="noopener"><span class="t-time">2:20</span> The graph of y = 3x + 5</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=149s" target="_blank" rel="noopener"><span class="t-time">2:29</span> Example 2: Find the gradient and y-intercept of the line gi…</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=223s" target="_blank" rel="noopener"><span class="t-time">3:43</span> The lines cross at (0, 4)</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=234s" target="_blank" rel="noopener"><span class="t-time">3:54</span> Example 3:</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=280s" target="_blank" rel="noopener"><span class="t-time">4:40</span> Example 4: A line passes through the points A(0, 3) and B(4…</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=377s" target="_blank" rel="noopener"><span class="t-time">6:17</span> The lines cross at (0, 3)</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=389s" target="_blank" rel="noopener"><span class="t-time">6:29</span> Common mistakes</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=415s" target="_blank" rel="noopener"><span class="t-time">6:55</span> Try it</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=435s" target="_blank" rel="noopener"><span class="t-time">7:15</span> Try it: Find the equation of the straight line with gradien…</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=468s" target="_blank" rel="noopener"><span class="t-time">7:48</span> The lines cross at (0, -2)</a></li><li><a href="https://www.youtube.com/watch?v=L8y7F5wYQS4&t=482s" target="_blank" rel="noopener"><span class="t-time">8:02</span> Gradient and Intercept of a Straight Line</a></li></ol></details></section>
+
+        <section class="t-card"><h2>Lo que aprenderás</h2><ul class="t-ticks"><li>Identify and calculate the gradient of a straight line from a graph using a right-angled triangle.</li><li>Determine the y-intercept of a straight line from its graphical representation.</li><li>Interpret the parameters m and c in the linear equation y = mx + c.</li><li>Write the equation of a straight line given its gradient and y-intercept, or from a graph.</li></ul></section>
+
+        <nav class="t-toc" aria-label="En esta lección"><p class="eyebrow">En esta lección</p><ol><li><a href="#introduction-to-linear-relationships">Introduction to Linear Relationships</a></li><li><a href="#understanding-the-gradient">Understanding the Gradient</a></li><li><a href="#finding-the-y-intercept">Finding the Y-Intercept</a></li><li><a href="#the-equation-of-a-straight-line-y-mx-c">The Equation of a Straight Line: y = mx + c</a></li><li><a href="#worked-examples">Worked Examples</a></li><li><a href="#common-misconceptions-and-errors">Common Misconceptions and Errors</a></li></ol></nav>
+
+        <article class="t-article">
+          <h2 class="t-article-h">La explicación</h2>
+          <section id="introduction-to-linear-relationships"><h3>Introduction to Linear Relationships</h3><p>Linear relationships appear constantly in mathematics and everyday life whenever two quantities change together at a constant rate. For example, if a car travels at a steady speed of sixty kilometres per hour, the distance travelled increases by a fixed amount for every single hour that passes. When such a relationship is plotted on a Cartesian coordinate plane, the resulting points form a straight line. Investigating this straight line requires understanding two fundamental numerical properties: how steep the line is, and where the line crosses the vertical axis.</p>
+<p>Every straight line on the coordinate plane can be described using an algebraic equation containing two variables, usually x and y. The variable x represents the horizontal coordinate, and the variable y represents the vertical coordinate. The simplest straight lines are horizontal or vertical, but most lines slant upwards or downwards as they move from left to right. To analyse any sloped line completely, two pieces of geometric information are necessary: the gradient, which measures the steepness and direction of the slope, and the y-intercept, which marks the exact height where the line intersects the vertical y-axis. Grasping these two concepts transforms a simple geometric drawing into a powerful algebraic tool, allowing predictions and calculations about the underlying real-world scenario.</p></section>
+<section id="understanding-the-gradient"><h3>Understanding the Gradient</h3><p>The gradient of a straight line measures its steepness and whether it rises or falls from left to right. Formally, the gradient is defined as the change in the vertical coordinate divided by the change in the horizontal coordinate between any two distinct points on the line. This ratio is often summarised in mathematical language as rise over run. To calculate the gradient of a line from a graph, one must select two points where the line crosses the grid intersections cleanly. By drawing a right-angled triangle underneath or above the line between these two points, the vertical height of the triangle gives the rise, and the horizontal width gives the run.</p>
+<p>When a line slopes upwards from left to right, the vertical coordinate increases as the horizontal coordinate increases, resulting in a positive gradient. When a line slopes downwards from left to right, the vertical coordinate decreases as the horizontal coordinate increases, resulting in a negative gradient. A horizontal line has a zero gradient because the rise is zero regardless of the run. A vertical line has an undefined gradient because the run is zero, meaning division by zero occurs, which is mathematically impossible. The numerical value of the gradient dictates the rate of change; a gradient of three means that for every single unit moved to the right, the line moves three units upwards. A fractional gradient, such as one over two, indicates a gentler slope where the line moves up by one unit for every two units moved to the right. Calculating this value accurately forms the foundation of coordinate geometry.</p></section>
+<section id="finding-the-y-intercept"><h3>Finding the Y-Intercept</h3><p>The y-intercept of a straight line is the exact point where the line crosses the vertical axis, known as the y-axis. At this specific location, the horizontal coordinate x is always equal to zero. Identifying the y-intercept from a graph is a straightforward visual task: one simply looks at the vertical axis and finds the coordinate where the line intersects it. This value is conventionally denoted by the letter c in algebraic expressions.</p>
+<p>The y-intercept acts as the starting value or initial position of the linear relationship. For instance, if a linear model describes the total cost of hiring a plumber, the y-intercept represents the fixed call-out fee charged before any hours of work begin. If the line passes through the origin, which is the point zero comma zero, the y-intercept is zero, meaning there is no initial value. When examining an equation in the standard linear form, the constant term that stands alone without an x attached is always the y-intercept. Understanding both the gradient and the y-intercept allows any straight line to be fully categorised and reconstructed algebraically.</p></section>
+<section id="the-equation-of-a-straight-line-y-mx-c"><h3>The Equation of a Straight Line: y = mx + c</h3><p>The equation y = mx + c is the standard slope-intercept form for the equation of a straight line. In this universal formula, y represents the vertical coordinate of any point on the line, and x represents the horizontal coordinate of that same point. The letter m stands for the gradient of the line, determining its steepness and direction. The letter c stands for the y-intercept, determining where the line crosses the vertical axis. Any linear equation can be rearranged into this exact format to reveal its key geometric features instantly.</p>
+<p>Given the gradient and the y-intercept of a line, writing its equation is a direct substitution task. If a line has a gradient of four and a y-intercept of negative two, substituting these values into the template yields the equation y = 4x - 2. Conversely, if an equation is presented in a different arrangement, such as 2x + y = 6, algebraic manipulation is required to isolate y on the left side. Subtracting 2x from both sides transforms the equation into y = -2x + 6, immediately exposing a gradient of negative two and a y-intercept of positive six. This algebraic flexibility allows mathematicians to switch effortlessly between visual graphs and algebraic formulas.</p></section>
+<section id="worked-examples"><h3>Worked Examples</h3><p>Applying the concepts of gradient and y-intercept requires methodical steps, whether reading from a graph or manipulating an algebraic equation. The following worked examples demonstrate standard problem-solving techniques for lower-secondary mathematics.</p>
+<p>Example one involves calculating the gradient and y-intercept from a given graph and writing the equation of the line. Consider a line that crosses the y-axis at the point zero comma three and passes through the grid intersection point four comma eleven. To find the gradient, use the two points zero comma three and four comma eleven. The rise is the difference in y-coordinates, which is eleven minus three, equalling eight. The run is the difference in x-coordinates, which is four minus zero, equalling four. The gradient m is the rise divided by the run, so eight divided by four equals two. The y-intercept c is read directly from the y-axis intersection, which is positive three. Substituting these values into the general form gives the equation y = 2x + 3.</p>
+<p>Example two involves rearranging a non-standard linear equation into slope-intercept form and identifying its features. Consider the equation 3x - 2y = 12. To find the gradient and y-intercept, y must be isolated. First, subtract 3x from both sides of the equation, resulting in negative 2y equals negative 3x plus twelve. Next, divide every term in the equation by negative two to isolate y entirely. Dividing negative 2y by negative two leaves y. Dividing negative 3x by negative two gives positive three over two times x. Dividing positive twelve by negative two gives negative six. The resulting equation is y = (3/2)x - 6. From this final form, the gradient m is three over two, and the y-intercept c is negative six.</p>
+<p>Example three involves writing the equation of a line when given the gradient and a specific point. Find the equation of a line with a gradient of negative four that passes through the point one comma five. The general form is y = mx + c. Substitute the known gradient m equals negative four into the equation, giving y = -4x + c. To find the unknown y-intercept c, substitute the coordinates of the given point, where x is one and y is five, into the equation. This substitution yields five equals negative four multiplied by one plus c, which simplifies to five equals negative four plus c. Adding four to both sides gives c equals nine. Therefore, the complete equation of the line is y = -4x + 9.</p></section>
+<section id="common-misconceptions-and-errors"><h3>Common Misconceptions and Errors</h3><p>Learners studying linear relationships frequently encounter specific pitfalls that lead to incorrect calculations or misunderstandings of graphs. Awareness of these common errors helps in building robust mathematical habits.</p>
+<p>One frequent mistake involves confusing the rise and the run during gradient calculations, placing the horizontal change over the vertical change instead of vertical over horizontal. This inversion flips the gradient value, turning a steep line into a shallow one or vice versa, and distorts the correct interpretation of the rate of change. Another common error occurs with negative signs when calculating rise and run. When a line slopes downwards, learners often forget that the change in y or x is negative, leading to an incorrect positive gradient for a declining line. Careful attention to the direction of movement along the coordinate axes prevents this sign error.</p>
+<p>A third misconception relates to the y-intercept. Some learners assume that the y-intercept is always a positive number or that it is located where the line crosses the horizontal x-axis. In reality, the y-intercept is found exclusively on the vertical y-axis, and its value can be positive, negative, or zero. Finally, when rearranging equations into the form y = mx + c, learners often make arithmetic errors with signs when dividing or moving terms across the equals sign, particularly losing track of negative coefficients associated with the y variable. Methodical step-by-step algebra eliminates these avoidable mistakes.</p></section>
+        </article>
+
+        <section class="t-card"><h2>Términos clave</h2><dl class="t-terms"><div><dt>Gradient</dt><dd>A numerical measure of the steepness and direction of a straight line, calculated as the rise divided by the run.</dd></div><div><dt>Y-intercept</dt><dd>The point where a straight line crosses the vertical y-axis, representing the initial value of the linear relationship where x is zero.</dd></div><div><dt>Rise</dt><dd>The vertical distance between two points on a line.</dd></div><div><dt>Run</dt><dd>The horizontal distance between two points on a line.</dd></div><div><dt>Linear Equation</dt><dd>An algebraic equation in which each term is either a constant or the product of a constant and a single variable, forming a straight line when graphed.</dd></div><div><dt>Slope-intercept form</dt><dd>The linear equation written in the standard format y = mx + c, where m is the gradient and c is the y-intercept.</dd></div></dl></section>
+
+        <section><h2>Ejemplos resueltos</h2><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">1</span>Find the gradient and y-intercept of the line passing through the points zero comma three and four comma eleven, and write its equation.</p><details><summary>Mostrar la solución</summary><div class="t-ex-a"><p><strong>Step 1:</strong> Identify the two points: (0, 3) and (4, 11).</p>
+<p><strong>Step 2:</strong> Calculate the rise by finding the difference in the y-coordinates: 11 minus 3 equals 8.</p>
+<p><strong>Step 3:</strong> Calculate the run by finding the difference in the x-coordinates: 4 minus 0 equals 4.</p>
+<p><strong>Step 4:</strong> Calculate the gradient m by dividing the rise by the run: m = 8 / 4 = 2.</p>
+<p><strong>Step 5:</strong> Identify the y-intercept c from the point (0, 3), where c equals 3.</p>
+<p><strong>Step 6:</strong> Substitute m and c into the slope-intercept form y = mx + c to get the final equation: y = 2x + 3.</p>
+<p>Graph: the line y = 2x + 3.</p></div></details></div><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">2</span>Rearrange the equation 3x - 2y = 12 into slope-intercept form and state its gradient and y-intercept.</p><details><summary>Mostrar la solución</summary><div class="t-ex-a"><p><strong>Step 1:</strong> Write the original equation: 3x - 2y = 12.</p>
+<p><strong>Step 2:</strong> Subtract 3x from both sides to isolate the y term: -2y = -3x + 12.</p>
+<p><strong>Step 3:</strong> Divide every term by -2 to isolate y: y = (-3/-2)x + (12/-2).</p>
+<p><strong>Step 4:</strong> Simplify the fractions and signs: y = (3/2)x - 6.</p>
+<p><strong>Step 5:</strong> State the gradient m, which is the coefficient of x: m = 3/2.</p>
+<p><strong>Step 6:</strong> State the y-intercept c, which is the constant term: c = -6.</p>
+<p>Graph: the line 3x - 2y = 12.</p></div></details></div></section>
+
+        <section><h2>Ideas erróneas frecuentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Error común</span> The gradient is calculated by dividing the run by the rise.</p><p class="t-fact"><span>En realidad</span> The gradient is always calculated as the rise divided by the run. Dividing horizontal change by vertical change inverts the true slope value.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> The y-intercept is the point where the line crosses the horizontal x-axis.</p><p class="t-fact"><span>En realidad</span> The y-intercept is located where the line crosses the vertical y-axis. The point where the line crosses the x-axis is called the x-intercept.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> A line that slopes downwards from left to right has a positive gradient.</p><p class="t-fact"><span>En realidad</span> A line sloping downwards has a negative gradient because the vertical coordinate decreases as the horizontal coordinate increases.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> In the equation y = mx + c, the letter c represents the gradient.</p><p class="t-fact"><span>En realidad</span> The letter m represents the gradient, while the letter c represents the y-intercept.</p></div></div></section>
+
+        <section class="t-card"><h2>Alineación con el currículo</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>8As.06</code> Recognise that equations of the form y = mx + c correspond to straight-line graphs, where m is the gradient and c is the y-intercept (integer values of m).</li><li><code>9As.06</code> Understand that straight-line graphs can be represented by equations. Find the equation in the form y = mx + c or where y is given implicitly in terms of x (fractional, positive and negative gradients).</li></ul></section>
+      </div>
+
+      <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
+      <p class="eyebrow"><span class="t-soon">Próximamente</span></p>
+      <h2 id="kit-h">El kit didáctico completo</h2>
+      <p>Recursos listos para usar creados a partir de esta lección. Crea una cuenta gratuita y serás el primero en saber cuándo estén disponibles.</p>
+      <ul class="t-kit-list"><li>Plan de clase</li><li>Presentación</li><li>Ficha de trabajo con solucionario</li><li>Actividad de clase</li><li>Estudio de caso</li><li>Banco de preguntas: 30 preguntas de práctica</li><li>Evaluación en línea con corrección automática</li></ul>
+      <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=gradient-and-intercept-of-a-straight-line">Crear una cuenta gratuita</a>
+    </aside></div>
+    </div>
+
+    <section class="t-related"><h2>Más lecciones de Matemáticas</h2><div class="t-cards"><a class="t-cardlink" href="/es/topics/algebraic-fractions-simplifying-adding-and-subtracting" data-subject="Mathematics" data-text="algebraic fractions: simplifying, adding and subtracting cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator. mathematics 9ae.02">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/EiS0kCf51BE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Matemáticas</span>
+        <span class="t-card-title" lang="en">Algebraic Fractions: Simplifying, Adding and Subtracting</span>
+        <span class="t-card-sum" lang="en">Cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator.</span>
+        <span class="t-codes"><code>9Ae.02</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/algebraic-identities-squares-of-binomials-and-the-difference-of-two-squares" data-subject="Mathematics" data-text="algebraic identities: squares of binomials and the difference of two squares the identities for (a + b)^2, (a - b)^2 and a^2 - b^2, where they come from, and how they speed up expansion and factorising. mathematics 8:alg:02 8:alg:03 9:u2:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/4CSrJEyGRH8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Matemáticas</span>
+        <span class="t-card-title" lang="en">Algebraic Identities: Squares of Binomials and the Difference of Two Squares</span>
+        <span class="t-card-sum" lang="en">The identities for (a + b)<sup>2</sup>, (a - b)<sup>2</sup> and a<sup>2</sup> - b<sup>2</sup>, where they come from, and how they speed up expansion and factorising.</span>
+        <span class="t-codes"><code>8:ALG:02</code><code>8:ALG:03</code><code>9:U2:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/area-of-trapeziums-and-compound-shapes" data-subject="Mathematics" data-text="area of trapeziums and compound shapes the area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles and adding or subtracting areas. mathematics 9:u5:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/2tRmqwAsgzI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Matemáticas</span>
+        <span class="t-card-title" lang="en">Area of Trapeziums and Compound Shapes</span>
+        <span class="t-card-sum" lang="en">The area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles…</span>
+        <span class="t-codes"><code>9:U5:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/circumference-and-area-of-a-circle" data-subject="Mathematics" data-text="circumference and area of a circle radius, diameter and pi; circumference = pi x d and area = pi x r^2; answers in terms of pi and to a given accuracy; semicircles and quarter circles. mathematics 9gg.01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/GrA8qFUz1dA/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Matemáticas</span>
+        <span class="t-card-title" lang="en">Circumference and Area of a Circle</span>
+        <span class="t-card-sum" lang="en">Radius, diameter and pi; circumference = pi x d and area = pi x r<sup>2</sup>; answers in terms of pi and to a given accuracy; semicircles and…</span>
+        <span class="t-codes"><code>9Gg.01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/coordinates-and-plotting-linear-graphs" data-subject="Mathematics" data-text="coordinates and plotting linear graphs coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph. mathematics 7as.04 7as.05 7as.06">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/Pjy2vXnfNbM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Matemáticas</span>
+        <span class="t-card-title" lang="en">Coordinates and Plotting Linear Graphs</span>
+        <span class="t-card-sum" lang="en">Coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph.</span>
+        <span class="t-codes"><code>7As.04</code><code>7As.05</code><code>7As.06</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/expanding-double-brackets" data-subject="Mathematics" data-text="expanding double brackets multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution. mathematics 9ae.02 8:alg:02">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/h4Vv4ofMnPw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Matemáticas</span>
+        <span class="t-card-title" lang="en">Expanding Double Brackets</span>
+        <span class="t-card-sum" lang="en">Multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution.</span>
+        <span class="t-codes"><code>9Ae.02</code><code>8:ALG:02</code></span>
+      </span>
+    </a></div></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — un capítulo, ya explicado" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/es/" data-i18n="common.nav.home">Inicio</a>
+        <a href="/es/about" data-i18n="common.nav.about">Quiénes somos</a>
+        <a href="/es/topics" data-i18n="common.nav.lessons">Lecciones</a>
+        <a href="/es/homeschool" data-i18n="common.nav.homeschool">Educación en casa</a>
+        <a href="/es/schools" data-i18n="common.nav.schools">Para colegios</a>
+        <a href="/es/pricing" data-i18n="common.nav.pricing">Precios</a>
+        <a href="/es/privacy" data-i18n="common.footer.privacy">Privacidad</a>
+        <a href="/es/terms" data-i18n="common.footer.terms">Términos</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">Contacto</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="Aethel Twin en LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="foot-legal" data-i18n="common.footer.legal">Un producto de <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Estatus Malaysia Digital MD/0002997</p>
+    <p class="foot-legal" data-i18n="common.footer.youtube">SketchCast también publica lecciones gratuitas de su biblioteca de temas en el <a href="https://www.youtube.com/@Sketchcast-AI-app" target="_blank" rel="noopener">canal de YouTube de SketchCast</a>. Cómo usamos los servicios de API de Google para ello se explica en nuestra <a href="/es/privacy#google-api">Política de privacidad (§7)</a>.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script defer src="/assets/handoff.js"></script>
+<script>
+(function(){
+  // Click-to-play: the YouTube player loads only when asked (privacy, speed).
+  document.querySelectorAll('.t-play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0';
+      f.title=b.getAttribute('aria-label')||'Video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      b.parentNode.replaceChild(f,b);
+    });
+  });
+  // Index filters: subject chips + text search.
+  var cards=document.getElementById('t-cards');if(!cards)return;
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      c.hidden=!ok;if(ok)shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    subject=ch.getAttribute('data-subject');
+    chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
+  });});
+  q.addEventListener('input',apply);
+})();
+</script>
+</body>
+</html>

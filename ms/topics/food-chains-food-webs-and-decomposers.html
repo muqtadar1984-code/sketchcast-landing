@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ms" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Food Chains, Food Webs, Decomposers and Ecosystem Dynamics — pelajaran video percuma | SketchCast</title>
+<meta name="description" content="Producers, consumers and decomposers; constructing and reading food chains and webs; energy flow in an ecosystem." />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="Food Chains, Food Webs, Decomposers and Ecosystem Dynamics — pelajaran video percuma | SketchCast" />
+<meta property="og:description" content="Producers, consumers and decomposers; constructing and reading food chains and webs; energy flow in an ecosystem." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+
+  /* Full-bleed header (founder, 2026-08-18): brand at the true start edge,
+     Start free at the true end — seven links + the language picker never fit
+     the 1080px wrap (labels wrapped mid-phrase). Logical properties keep the
+     RTL locales mirrored. Middle widths compress before the links hide; the
+     hide threshold is generous because fr/te labels run long. */
+  header .wrap{max-width:none;margin:0;padding-inline:26px}
+  .nav{gap:18px}
+  .nav-links{flex-wrap:nowrap}
+  .nav-links a,.nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
+  @media(max-width:1140px){.nav-links{display:none}}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/topics/food-chains-food-webs-and-decomposers" />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:url" content="https://sketchcast.app/topics/food-chains-food-webs-and-decomposers" />
+
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}</style>
+<!--/i18n:head-->
+<style id="topics-css">
+.t-page{padding-top:28px;padding-bottom:72px}
+.t-crumbs{font-size:14px;color:var(--graphite);margin-bottom:18px}.t-crumbs a{color:var(--teal-ink)}.t-crumbs a:hover{text-decoration:underline}
+.t-note{margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-inline-start:3px solid var(--marker);border-radius:9px;background:#fff;font-size:14px;color:var(--graphite)}
+.t-hero{margin-bottom:26px;max-width:820px}.t-hero h1{font-size:clamp(32px,4.6vw,50px);margin:10px 0 14px}
+.t-lead{font-size:18px;color:var(--graphite);line-height:1.55}
+.t-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+@media(max-width:960px){.t-grid{grid-template-columns:minmax(0,1fr)}}
+.t-side{position:sticky;top:90px}
+@media(max-width:960px){.t-side{position:static}}
+.t-body>section,.t-article{margin-bottom:34px}
+.t-body h2{font-size:26px;margin:0 0 14px}
+.t-video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px -26px rgba(20,24,31,.5)}
+.t-play{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.t-play img{width:100%;height:100%;object-fit:cover;display:block}
+.t-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-play:hover .t-play-icon,.t-play:focus-visible .t-play-icon{transform:scale(1.08)}
+.t-play:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.t-video iframe{width:100%;height:100%;border:0;display:block}
+.t-yt{margin:10px 0 6px;font-size:14px}.t-yt a{color:var(--teal-ink);font-weight:500}.t-yt a:hover{text-decoration:underline}
+.t-part{font-size:18px;margin:22px 0 10px}
+.t-chapters{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px;font-size:14.5px}
+.t-chapters summary{cursor:pointer;font-weight:500}
+.t-chapters ol{list-style:none;margin:10px 0 2px;display:grid;gap:4px}
+.t-chapters a{display:flex;gap:10px;padding:3px 0;color:var(--ink)}.t-chapters a:hover{color:var(--teal-ink)}
+.t-time{font-family:var(--mono);font-size:12.5px;color:var(--graphite);min-width:42px}
+.t-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.t-ticks{list-style:none;display:grid;gap:9px}
+.t-ticks li{position:relative;padding-inline-start:28px}
+.t-ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:14px;height:8px;border-inline-start:2.4px solid var(--teal);border-bottom:2.4px solid var(--teal);transform:rotate(-45deg)}
+.t-toc{margin-bottom:28px}.t-toc ol{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:3px;font-size:15px}.t-toc a{color:var(--teal-ink)}.t-toc a:hover{text-decoration:underline}
+.t-article h3{font-size:21px;margin:28px 0 10px;scroll-margin-top:90px}
+.t-article p,.t-ex-a p{margin:0 0 12px;font-size:16.5px;line-height:1.7}
+.t-article ul,.t-article ol,.t-ex-a ul,.t-ex-a ol{margin:0 0 14px;padding-inline-start:24px;display:grid;gap:5px;font-size:16.5px}
+.t-table{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:10px}
+.t-table table{border-collapse:collapse;width:100%;font-size:15px;background:var(--paper)}
+.t-table th,.t-table td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.t-table th{background:var(--mist);font-weight:500}.t-table tr:last-child td{border-bottom:0}
+sup{font-size:.72em;line-height:0}
+.t-terms{display:grid;gap:12px}.t-terms div{display:grid;gap:2px}.t-terms dt{font-weight:600;font-family:var(--display)}.t-terms dd{color:var(--graphite)}
+.t-example{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;margin-bottom:12px}
+.t-ex-q{display:flex;gap:12px;font-weight:500;margin:0}
+.t-ex-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.t-example details{margin-top:12px}.t-example summary{cursor:pointer;color:var(--teal-ink);font-weight:500;font-size:15px}
+.t-ex-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.t-misc{display:grid;gap:12px}
+.t-misc-item{border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:14px 18px}
+.t-myth,.t-fact{margin:0;font-size:15.5px}.t-fact{margin-top:8px;color:var(--ink-soft)}
+.t-myth span,.t-fact span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-inline-end:6px}
+.t-myth span{background:#FFF1D6;color:#8A5A00}.t-fact span{background:#DDF5F1;color:var(--teal-ink)}
+.t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
+.t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
+.t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
+.t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
+.t-kit .eyebrow{color:#9AA3AD}
+.t-soon{display:inline-block;background:var(--marker);color:var(--ink);border-radius:6px;padding:2px 8px;font-weight:500}
+.t-kit-list{list-style:none;display:grid;gap:7px;margin:0 0 18px;font-size:14.5px}
+.t-kit-list li{position:relative;padding-inline-start:22px;color:#E9ECEF}
+.t-kit-list li::before{content:"";position:absolute;inset-inline-start:2px;top:.5em;width:10px;height:6px;border-inline-start:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.t-kit .btn-primary{background:#fff;color:var(--ink)}.t-kit .btn-primary:hover{background:var(--mist)}
+.t-kit-wide{margin-top:48px;max-width:760px}
+.t-related{margin-top:56px}.t-related h2{font-size:24px;margin-bottom:16px}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.t-cardlink{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .06s,border-color .15s}
+.t-cardlink:hover{border-color:var(--faint);box-shadow:0 16px 34px -24px rgba(20,24,31,.45)}
+.t-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--mist)}
+.t-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.t-card-body{display:grid;gap:6px;padding:14px 16px 16px}
+.t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
+.t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-chips{display:flex;flex-wrap:wrap;gap:8px}
+.t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
+.t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
+.t-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.t-chip[aria-pressed="true"] span{color:#9AA3AD}
+.t-search{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;min-width:240px;background:var(--paper)}
+@media(max-width:560px){.t-search{min-width:0;width:100%}}
+.t-empty{color:var(--graphite);padding:20px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/ms/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/ms/#how" data-i18n="common.nav.how">Cara ia berfungsi</a>
+      <a href="/ms/topics" aria-current="page" data-i18n="common.nav.lessons">Pelajaran</a>
+      <a href="/ms/homeschool" data-i18n="common.nav.homeschool">Sekolah di rumah</a>
+      <a href="/ms/schools" data-i18n="common.nav.schools">Untuk sekolah</a>
+      <a href="/ms/pricing" data-i18n="common.nav.pricing">Harga</a>
+      <a href="/ms/about" data-i18n="common.nav.about">Tentang kami</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="Pilih bahasa anda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="ms" dir="ltr">Bahasa Melayu</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/topics/food-chains-food-webs-and-decomposers" lang="en" hreflang="en" dir="ltr">English</a></li>
+      <li><a href="https://sketchcast.app/ms/topics/food-chains-food-webs-and-decomposers" lang="ms" hreflang="ms" dir="ltr" aria-current="true">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/topics/food-chains-food-webs-and-decomposers" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/topics/food-chains-food-webs-and-decomposers" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/topics/food-chains-food-webs-and-decomposers" lang="es" hreflang="es" dir="ltr">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/topics/food-chains-food-webs-and-decomposers" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/topics/food-chains-food-webs-and-decomposers" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/topics/food-chains-food-webs-and-decomposers" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/topics/food-chains-food-webs-and-decomposers" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/topics/food-chains-food-webs-and-decomposers" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">Log masuk</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">Mula percuma</a>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  // Locale-proof header fit: hide the middle links only when the row REALLY
+  // overflows (French/Telugu labels run long; breakpoints can't know that).
+  // Hysteresis: re-show only 40px past where it last overflowed.
+  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!links)return;
+  var hiddenAt=0;
+  function fit(){
+    var w=nav.clientWidth;
+    if(links.style.display!=='none'){
+      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
+    }else if(w>hiddenAt+40){
+      links.style.display='';
+      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
+    }
+  }
+  fit();
+  addEventListener('resize',fit);
+  // Web fonts can widen labels after first paint — re-measure when they land.
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+
+<main>
+
+  <div class="wrap t-page">
+    <nav class="t-crumbs" aria-label="Breadcrumb"><a href="/ms/topics">Pelajaran</a> <span aria-hidden="true">›</span> <span>Sains</span></nav>
+    <p class="t-note">Pelajaran ini dalam bahasa Inggeris.</p>
+    <div class="t-hero" lang="en" dir="ltr">
+      <p class="eyebrow">Sains · Tahun 7, 10</p>
+      <h1>Food Chains, Food Webs, Decomposers and Ecosystem Dynamics</h1>
+      <p class="t-lead">Producers, consumers and decomposers; constructing and reading food chains and webs; energy flow in an ecosystem.</p>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-body" lang="en" dir="ltr">
+        <section aria-label="Pelajaran video">
+      <div class="t-video">
+        <button type="button" class="t-play" data-yt="7A2cF9dlZnA" aria-label="Mainkan video: Food Chains, Food Webs, Decomposers and Ecosystem Dynamics">
+          <img src="https://i.ytimg.com/vi/7A2cF9dlZnA/hqdefault.jpg" alt="" width="480" height="360" loading="eager" />
+          <span class="t-play-icon" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#14181F"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+        </button>
+      </div>
+      <p class="t-yt"><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA" target="_blank" rel="noopener">Tonton di YouTube ↗</a></p>
+      <details class="t-chapters"><summary>Bab dalam video ini</summary><ol><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA" target="_blank" rel="noopener"><span class="t-time">0:00</span> What is an Ecosystem?</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=32s" target="_blank" rel="noopener"><span class="t-time">0:32</span> Producers and Solar Energy</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=56s" target="_blank" rel="noopener"><span class="t-time">0:56</span> The Consumer Hierarchy</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=82s" target="_blank" rel="noopener"><span class="t-time">1:22</span> The Ten Percent Law</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=109s" target="_blank" rel="noopener"><span class="t-time">1:49</span> Limits of the Food Chain</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=126s" target="_blank" rel="noopener"><span class="t-time">2:06</span> Biomagnification of Toxins</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=163s" target="_blank" rel="noopener"><span class="t-time">2:43</span> Linear Food Chains</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=188s" target="_blank" rel="noopener"><span class="t-time">3:08</span> Food Webs and Stability</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=221s" target="_blank" rel="noopener"><span class="t-time">3:41</span> Decomposers and Detritivores</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=252s" target="_blank" rel="noopener"><span class="t-time">4:12</span> Waste Classification</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=283s" target="_blank" rel="noopener"><span class="t-time">4:43</span> Waste Solutions</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=298s" target="_blank" rel="noopener"><span class="t-time">4:58</span> The Protective Ozone Layer</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=323s" target="_blank" rel="noopener"><span class="t-time">5:23</span> CFCs and Ozone Depletion</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=354s" target="_blank" rel="noopener"><span class="t-time">5:54</span> Reflecting on Our Impact</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=376s" target="_blank" rel="noopener"><span class="t-time">6:16</span> Synthesizing Ecosystem Dynamics</a></li><li><a href="https://www.youtube.com/watch?v=7A2cF9dlZnA&t=395s" target="_blank" rel="noopener"><span class="t-time">6:35</span> A Connected World</a></li></ol></details></section>
+
+        <section class="t-card"><h2>Apa yang anda akan pelajari</h2><ul class="t-ticks"><li>Define an ecosystem and describe the flow of energy through producers, consumers, and decomposers.</li><li>Construct and interpret food chains and food webs, identifying specific trophic levels and the ecological role of microorganisms.</li><li>Explain biological magnification and how non-biodegradable pollutants accumulate along a food chain.</li><li>Distinguish between biodegradable and non-biodegradable substances and evaluate environmental problems such as waste accumulation and ozone depletion.</li></ul></section>
+
+        <nav class="t-toc" aria-label="Dalam pelajaran ini"><p class="eyebrow">Dalam pelajaran ini</p><ol><li><a href="#ecosystem-structure-and-energy-flow">Ecosystem Structure and Energy Flow</a></li><li><a href="#food-chains-food-webs-and-trophic-levels">Food Chains, Food Webs and Trophic Levels</a></li><li><a href="#biodegradable-and-non-biodegradable-substances">Biodegradable and Non-Biodegradable Substances</a></li><li><a href="#environmental-problems-ozone-depletion-and-waste-solutions">Environmental Problems: Ozone Depletion and Waste Solutions</a></li></ol></nav>
+
+        <article class="t-article">
+          <h2 class="t-article-h">Penerangan</h2>
+          <section id="ecosystem-structure-and-energy-flow"><h3>Ecosystem Structure and Energy Flow</h3><p>An <strong>ecosystem</strong> is a self-sustaining structural and functional unit of the biosphere consisting of a community of living organisms interacting with one another and with their physical environment. Ecosystems are broadly classified into natural ecosystems, such as forests, ponds, lakes, and oceans, and artificial ecosystems, such as crop fields, aquariums, and gardens. Every ecosystem depends on a continuous supply of energy to maintain its complex organization against the universal tendency towards disorder.</p>
+<p>Energy flow in an ecosystem is unidirectional and follows the laws of thermodynamics. Solar energy is the primary source of energy for almost all ecosystems on Earth. <strong>Producers</strong>, also known as autotrophs, capture a minute fraction of solar energy—typically less than one percent—and convert it into chemical energy through the process of photosynthesis. These include green plants, phytoplankton, and cyanobacteria. Producers synthesize organic molecules like glucose from simple inorganic substances such as carbon dioxide and water.</p>
+<p>Organisms that depend directly or indirectly on producers for food are called <strong>consumers</strong> or heterotrophs. Consumers are categorized based on their feeding habits. Primary consumers, or herbivores, feed directly on producers; examples include cows, rabbits, grasshoppers, and zooplankton. Secondary consumers are carnivores that feed on primary consumers, such as frogs, small fish, and snakes. Tertiary consumers are higher-level carnivores that feed on secondary consumers, such as hawks, lions, and large sharks. Omnivores, such as humans, bears, and crows, consume both plant and animal matter.</p>
+<p>Energy transfer between trophic levels is highly inefficient. According to the ten percent law proposed by Raymond Lindeman, only about 10 percent of the energy entering a particular trophic level is available for transfer to the next trophic level. The remaining 90 percent is lost to the environment as heat during respiration, metabolic processes, and movement. Because of this steep exponential decrease in available energy, food chains rarely exceed four or five trophic levels. If a food chain were longer, the amount of energy remaining at the final trophic level would be insufficient to sustain an organism.</p>
+<p>In addition to energy loss, toxic substances can accumulate within living organisms along a food chain through a process known as <strong>biomagnification</strong> or biological magnification. Non-biodegradable chemicals, such as synthetic pesticides (for example, DDT) and heavy metals (such as mercury and lead), cannot be broken down by biological processes. When primary producers absorb these toxins from soil or water, the concentration of the toxin multiplies at each successive trophic level. Because apex consumers must ingest vast amounts of lower-level biomass to meet their metabolic needs, they accumulate dangerously high concentrations of these toxic substances, which can cause severe physiological and reproductive failure.</p></section>
+<section id="food-chains-food-webs-and-trophic-levels"><h3>Food Chains, Food Webs and Trophic Levels</h3><p>A <strong>food chain</strong> is a linear sequence of organisms through which energy and nutrients pass as one organism eats another. Each step or level in a food chain represents a <strong>trophic level</strong>. The first trophic level is always occupied by producers, the second by primary consumers, the third by secondary consumers, and the fourth by tertiary consumers. For example, in a terrestrial grassland ecosystem, a simple food chain might run from grasses to grasshoppers to frogs to snakes, and finally to hawks.</p>
+<p>In natural environments, organisms rarely rely on a single food source, and most predators consume multiple prey species. Consequently, linear food chains intertwine to form complex networks called <strong>food webs</strong>. A <strong>food web</strong> consists of multiple interconnected food chains within an ecosystem. Food webs provide alternative pathways for energy flow, increasing the ecological stability of the ecosystem. If a disease wipes out a particular primary consumer species in a food web, predators can shift to alternative prey, preventing immediate ecosystem collapse.</p>
+<p>Microorganisms play an essential ecological role as <strong>decomposers</strong> within both food chains and food webs. <strong>Decomposers</strong>, primarily consisting of saprophytic bacteria and fungi, secrete extracellular enzymes onto dead organic matter, breaking down complex organic molecules into simpler inorganic substances. These inorganic nutrients are released back into the soil and water, where they are absorbed by producers, thereby completing the nutrient cycle. <strong>Detritivores</strong>, such as earthworms, dung beetles, and woodlice, complement decomposers by ingesting dead organic matter and breaking it down into smaller fragments, increasing the surface area for microbial action.</p></section>
+<section id="biodegradable-and-non-biodegradable-substances"><h3>Biodegradable and Non-Biodegradable Substances</h3><p>Human activities generate vast quantities of waste, which can be broadly classified into <strong>biodegradable substances</strong> and <strong>non-biodegradable substances</strong>. <strong>Biodegradable substances</strong> are organic materials that can be broken down into harmless simpler inorganic substances by the biological action of microorganisms and other living organisms over a relatively short period. Examples include fruit and vegetable peels, paper, wood, cotton, and animal wastes. When managed correctly, biodegradable waste enriches the soil through composting.</p>
+<p>In contrast, <strong>non-biodegradable substances</strong> are synthetic or persistent materials that cannot be broken down by biological agents and remain in the environment for hundreds or thousands of years without degradation. Examples include plastics, synthetic polymers, glass, polyethylene bags, and electronic waste. Because these substances persist indefinitely, they accumulate in landfills, clog waterways, choke terrestrial and marine wildlife, and leach hazardous chemicals into groundwater tables.</p>
+<p>The accumulation of domestic and industrial waste poses severe environmental and health hazards. Sustainable waste management requires reducing, reusing, and recycling materials, as well as segregating waste at the source into biodegradable and non-biodegradable streams. Incineration, sanitary landfills, and composting are standard engineering solutions employed to mitigate the impact of municipal solid waste.</p></section>
+<section id="environmental-problems-ozone-depletion-and-waste-solutions"><h3>Environmental Problems: Ozone Depletion and Waste Solutions</h3><p>Human industrial activity has introduced profound environmental challenges that threaten global ecological equilibrium, notably ozone depletion and large-scale pollution. The ozone layer is a protective shield located in the stratosphere, roughly 15 to 50 kilometres above the Earth's surface, that absorbs harmful ultraviolet (UV-B and UV-C) radiation emitted by the sun. Without the ozone layer, intense ultraviolet radiation would reach the Earth's surface, causing skin cancers, cataracts, and immune system suppression in humans, as well as destroying phytoplankton and crops.</p>
+<p>The depletion of the ozone layer is primarily caused by the release of synthetic chemical compounds known as chlorofluorocarbons (CFCs), which were historically used as refrigerants, propellants in aerosol sprays, and cleaning solvents. When CFC molecules rise into the stratosphere, ultraviolet radiation breaks them down, releasing reactive chlorine atoms. A single chlorine atom can catalytically destroy hundreds of thousands of ozone molecules by converting them into oxygen gas, creating regional thinnings commonly referred to as the ozone hole. To combat this global crisis, international agreements such as the Montreal Protocol have successfully phased out the production and consumption of ozone-depleting substances worldwide.</p>
+<p>Addressing environmental problems requires comprehensive municipal and industrial solutions. Waste production must be controlled through circular economy principles, strict bans on single-use plastics, and the adoption of eco-friendly packaging materials. By understanding the intricate balance of energy flow, nutrient recycling, and pollution management, human societies can minimize their ecological footprint and preserve functional ecosystems for future generations.</p></section>
+        </article>
+
+        <section class="t-card"><h2>Istilah utama</h2><dl class="t-terms"><div><dt>Ecosystem</dt><dd>A self-sustaining biological community of interacting organisms and their physical environment.</dd></div><div><dt>Producer</dt><dd>An autotrophic organism, such as a green plant or alga, that synthesizes its own organic food from sunlight.</dd></div><div><dt>Consumer</dt><dd>A heterotrophic organism that obtains energy by feeding on other living or dead organisms.</dd></div><div><dt>Decomposer</dt><dd>A microorganism, such as a bacterium or fungus, that breaks down dead organic matter into simple inorganic nutrients.</dd></div><div><dt>Detritivore</dt><dd>An animal that feeds on dead organic debris, accelerating decomposition by fragmenting the material.</dd></div><div><dt>Food Chain</dt><dd>A linear sequence of organisms showing the transfer of food energy from one trophic level to the next.</dd></div><div><dt>Food Web</dt><dd>An intricate network of interconnected food chains within a specific ecosystem.</dd></div><div><dt>Biodegradable Substance</dt><dd>An organic substance that can be broken down into simpler compounds by biological microorganisms.</dd></div><div><dt>Non-Biodegradable Substance</dt><dd>A synthetic or persistent substance that cannot be broken down by microorganisms and remains in the environment.</dd></div><div><dt>Biomagnification</dt><dd>The progressive accumulation and concentration of non-biodegradable toxins at higher trophic levels in a food chain.</dd></div></dl></section>
+
+        <section><h2>Contoh berjawapan</h2><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">1</span>Calculate the energy available to a tertiary consumer in a food chain if the primary producer captures 10,000 Joules of solar energy, assuming the standard 10 percent energy transfer law between trophic levels.</p><details><summary>Tunjukkan jawapan</summary><div class="t-ex-a"><p><strong>Step 1:</strong> Identify the trophic levels. The primary producer (Level 1) captures 10,000 J.</p>
+<p><strong>Step 2:</strong> Calculate energy at the primary consumer level (Level 2).</p>
+<p>10 percent of 10,000 J = (10 / 100) * 10,000 = 1,000 J.</p>
+<p><strong>Step 3:</strong> Calculate energy at the secondary consumer level (Level 3).</p>
+<p>10 percent of 1,000 J = (10 / 100) * 1,000 = 100 J.</p>
+<p><strong>Step 4:</strong> Calculate energy at the tertiary consumer level (Level 4).</p>
+<p>10 percent of 100 J = (10 / 100) * 100 = 10 J.</p>
+<p>Final Answer: The tertiary consumer receives 10 Joules of energy.</p></div></details></div></section>
+
+        <section><h2>Salah faham biasa</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> Energy is recycled endlessly within an ecosystem just like nutrients.</p><p class="t-fact"><span>Sebenarnya</span> Energy flows in a single direction and is ultimately dissipated as heat, whereas mineral nutrients are continuously recycled between biotic and abiotic components.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> Decomposers are simply consumers that happen to eat dead animals.</p><p class="t-fact"><span>Sebenarnya</span> Decomposers are specifically microscopic saprotrophs that secrete extracellular enzymes to absorb nutrients externally, whereas detritivores ingest solid dead matter.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> All animals belong to only one trophic level in an ecosystem.</p><p class="t-fact"><span>Sebenarnya</span> Many animals, especially omnivores, feed at multiple trophic levels simultaneously depending on their food source.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> Non-biodegradable waste disappears over time if left in a landfill.</p><p class="t-fact"><span>Sebenarnya</span> Non-biodegradable waste persists indefinitely and breaks down only into smaller microscopic particles rather than harmless natural molecules.</p></div></div></section>
+
+        <section class="t-card"><h2>Penjajaran kurikulum</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>7Be.01</code> Know and describe the ecological role some microorganisms have as decomposers.</li><li><code>7Be.02</code> Construct and interpret food chains and webs which include microorganisms as decomposers.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>10:U5:01</code> Our environment</li></ul></section>
+      </div>
+
+      <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
+      <p class="eyebrow"><span class="t-soon">Akan datang</span></p>
+      <h2 id="kit-h">Kit pengajaran lengkap</h2>
+      <p>Bahan sedia guna yang dibina daripada pelajaran ini. Daftar akaun percuma dan anda akan menjadi yang pertama tahu apabila ia dibuka.</p>
+      <ul class="t-kit-list"><li>Rancangan pengajaran</li><li>Slaid pembentangan</li><li>Lembaran kerja dengan skema jawapan</li><li>Aktiviti kelas</li><li>Kajian kes</li><li>Bank soalan: 81 soalan latihan</li><li>Penilaian dalam talian, ditanda secara automatik</li></ul>
+      <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=food-chains-food-webs-and-decomposers">Daftar akaun percuma</a>
+    </aside></div>
+    </div>
+
+    <section class="t-related"><h2>Lagi pelajaran Sains</h2><div class="t-cards"><a class="t-cardlink" href="/ms/topics/a-balanced-diet" data-subject="Science" data-text="a balanced diet proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it. science 8bp.01 6:ch03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/WzKtNmxUe1w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Sains</span>
+        <span class="t-card-title" lang="en">A Balanced Diet</span>
+        <span class="t-card-sum" lang="en">Proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it.</span>
+        <span class="t-codes"><code>8Bp.01</code><code>6:ch03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ms/topics/acids-alkalis-and-the-ph-scale" data-subject="Science" data-text="acids, alkalis and the ph scale acidity and alkalinity as chemical properties, the ph scale, indicators, and neutralisation. science 7cp.02 7cp.03 7cc.04">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/izw9rsR3JmU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Sains</span>
+        <span class="t-card-title" lang="en">Acids, Alkalis and the pH Scale</span>
+        <span class="t-card-sum" lang="en">Acidity and alkalinity as chemical properties, the pH scale, indicators, and neutralisation.</span>
+        <span class="t-codes"><code>7Cp.02</code><code>7Cp.03</code><code>7Cc.04</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ms/topics/aerobic-respiration" data-subject="Science" data-text="aerobic respiration energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing. science 8bp.04 8bp.05 10:u2:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/FPT96igGPK8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Sains</span>
+        <span class="t-card-title" lang="en">Aerobic Respiration</span>
+        <span class="t-card-sum" lang="en">Energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing.</span>
+        <span class="t-codes"><code>8Bp.04</code><code>8Bp.05</code><code>10:U2:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ms/topics/blood-and-its-components" data-subject="Science" data-text="blood and its components plasma, red blood cells, white blood cells and platelets, and what each transports or protects. science 8bs.02 7:ch09">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/Iaaj9jR7g9k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Sains</span>
+        <span class="t-card-title" lang="en">Blood and Its Components</span>
+        <span class="t-card-sum" lang="en">Plasma, red blood cells, white blood cells and platelets, and what each transports or protects.</span>
+        <span class="t-codes"><code>8Bs.02</code><code>7:ch09</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ms/topics/cells" data-subject="Science" data-text="cells the cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems. science 7bs.01 7bs.02 7bs.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/-Qm-tfg1yJ4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Sains</span>
+        <span class="t-card-title" lang="en">Cells</span>
+        <span class="t-card-sum" lang="en">The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build…</span>
+        <span class="t-codes"><code>7Bs.01</code><code>7Bs.02</code><code>7Bs.03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ms/topics/classification-of-elements-and-the-periodic-table" data-subject="Science" data-text="classification of elements and the periodic table why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the trends down group 1. science 7cm.01 7cm.02 7cm.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/F-TwnP0ORlQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Sains</span>
+        <span class="t-card-title" lang="en">Classification of Elements and the Periodic Table</span>
+        <span class="t-card-sum" lang="en">Why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the…</span>
+        <span class="t-codes"><code>7Cm.01</code><code>7Cm.02</code><code>7Cm.03</code></span>
+      </span>
+    </a></div></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — satu bab, terus diajar" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/ms/" data-i18n="common.nav.home">Utama</a>
+        <a href="/ms/about" data-i18n="common.nav.about">Tentang kami</a>
+        <a href="/ms/topics" data-i18n="common.nav.lessons">Pelajaran</a>
+        <a href="/ms/homeschool" data-i18n="common.nav.homeschool">Sekolah di rumah</a>
+        <a href="/ms/schools" data-i18n="common.nav.schools">Untuk sekolah</a>
+        <a href="/ms/pricing" data-i18n="common.nav.pricing">Harga</a>
+        <a href="/ms/privacy" data-i18n="common.footer.privacy">Privasi</a>
+        <a href="/ms/terms" data-i18n="common.footer.terms">Terma</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">Hubungi</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="Aethel Twin di LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="foot-legal" data-i18n="common.footer.legal">Produk <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Status Malaysia Digital MD/0002997</p>
+    <p class="foot-legal" data-i18n="common.footer.youtube">SketchCast juga menerbitkan pelajaran percuma daripada perpustakaan topiknya di <a href="https://www.youtube.com/@Sketchcast-AI-app" target="_blank" rel="noopener">saluran YouTube SketchCast</a>. Cara kami menggunakan Perkhidmatan API Google untuk tujuan itu dijelaskan dalam <a href="/ms/privacy#google-api">Dasar Privasi kami (§7)</a>.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script defer src="/assets/handoff.js"></script>
+<script>
+(function(){
+  // Click-to-play: the YouTube player loads only when asked (privacy, speed).
+  document.querySelectorAll('.t-play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0';
+      f.title=b.getAttribute('aria-label')||'Video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      b.parentNode.replaceChild(f,b);
+    });
+  });
+  // Index filters: subject chips + text search.
+  var cards=document.getElementById('t-cards');if(!cards)return;
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      c.hidden=!ok;if(ok)shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    subject=ch.getAttribute('data-subject');
+    chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
+  });});
+  q.addEventListener('input',apply);
+})();
+</script>
+</body>
+</html>

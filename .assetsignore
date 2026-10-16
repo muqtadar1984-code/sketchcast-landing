@@ -25,6 +25,7 @@ README*
 # Build-time only — the generator, its inputs and its tooling never ship.
 # (Its OUTPUT — the <locale>/ folders, sitemap.xml, robots.txt — does.)
 build-i18n.mjs
+build-topics.mjs
 strings
 package.json
 package-lock.json

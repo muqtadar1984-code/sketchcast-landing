@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cells — free video lesson | SketchCast</title>
+<meta name="description" content="The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ…" />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="Cells — free video lesson | SketchCast" />
+<meta property="og:description" content="The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ…" />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+
+  /* Full-bleed header (founder, 2026-08-18): brand at the true start edge,
+     Start free at the true end — seven links + the language picker never fit
+     the 1080px wrap (labels wrapped mid-phrase). Logical properties keep the
+     RTL locales mirrored. Middle widths compress before the links hide; the
+     hide threshold is generous because fr/te labels run long. */
+  header .wrap{max-width:none;margin:0;padding-inline:26px}
+  .nav{gap:18px}
+  .nav-links{flex-wrap:nowrap}
+  .nav-links a,.nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
+  @media(max-width:1140px){.nav-links{display:none}}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/topics/cells" />
+  <meta property="og:url" content="https://sketchcast.app/topics/cells" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Cells","description":"The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems.","url":"https://sketchcast.app/topics/cells","inLanguage":"en","isAccessibleForFree":true,"learningResourceType":"Video lesson","about":"Science","educationalLevel":"Grade 7, 9","teaches":["Identify and describe the cell as the basic unit of life for all organisms.","Distinguish between prokaryotic and eukaryotic cells, and unicellular and multicellular organisms.","Identify and describe the functions of major cell structures and organelles in both plant and animal cells.","Compare and contrast the structures of plant and animal cells.","Explain how the structure of specialised cells is related to their specific functions.","Understand how cells are organised into tissues, organs, and organ systems in multicellular organisms."],"educationalAlignment":[{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"Cambridge Lower Secondary Science 0893","targetName":"7Bs.01","targetDescription":"Understand that all organisms are made of cells and microorganisms are typically single celled."},{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"Cambridge Lower Secondary Science 0893","targetName":"7Bs.02","targetDescription":"Identify and describe the functions of cell structures (limited to cell membrane, cytoplasm, nucleus, cell wall, chloroplast, mitochondria and sap vacuole)."},{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"Cambridge Lower Secondary Science 0893","targetName":"7Bs.03","targetDescription":"Explain how the structures of some specialised cells are related to their functions (including red blood cells, neurones, ciliated cells, root hair cells and palisade cells)."},{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"Cambridge Lower Secondary Science 0893","targetName":"7Bs.04","targetDescription":"Describe the similarities and differences between the structures of plant and animal cells."},{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"Cambridge Lower Secondary Science 0893","targetName":"7Bs.05","targetDescription":"Understand that cells can be grouped together to form tissues, organs and organ systems."},{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"CBSE Science (Class 6-10)","targetName":"cbse:9:U2:01","targetDescription":"Cell - Basic Unit of life"}],"provider":{"@type":"Organization","name":"SketchCast AI","url":"https://sketchcast.app"},"hasPart":[{"@type":"VideoObject","name":"Cells","description":"The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems.","thumbnailUrl":"https://i.ytimg.com/vi/-Qm-tfg1yJ4/hqdefault.jpg","uploadDate":"2026-09-29","embedUrl":"https://www.youtube-nocookie.com/embed/-Qm-tfg1yJ4","url":"https://www.youtube.com/watch?v=-Qm-tfg1yJ4"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Lessons","item":"https://sketchcast.app/topics"},{"@type":"ListItem","position":2,"name":"Cells","item":"https://sketchcast.app/topics/cells"}]}</script>
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}</style>
+<!--/i18n:head-->
+<style id="topics-css">
+.t-page{padding-top:28px;padding-bottom:72px}
+.t-crumbs{font-size:14px;color:var(--graphite);margin-bottom:18px}.t-crumbs a{color:var(--teal-ink)}.t-crumbs a:hover{text-decoration:underline}
+.t-note{margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-inline-start:3px solid var(--marker);border-radius:9px;background:#fff;font-size:14px;color:var(--graphite)}
+.t-hero{margin-bottom:26px;max-width:820px}.t-hero h1{font-size:clamp(32px,4.6vw,50px);margin:10px 0 14px}
+.t-lead{font-size:18px;color:var(--graphite);line-height:1.55}
+.t-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+@media(max-width:960px){.t-grid{grid-template-columns:minmax(0,1fr)}}
+.t-side{position:sticky;top:90px}
+@media(max-width:960px){.t-side{position:static}}
+.t-body>section,.t-article{margin-bottom:34px}
+.t-body h2{font-size:26px;margin:0 0 14px}
+.t-video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px -26px rgba(20,24,31,.5)}
+.t-play{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.t-play img{width:100%;height:100%;object-fit:cover;display:block}
+.t-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-play:hover .t-play-icon,.t-play:focus-visible .t-play-icon{transform:scale(1.08)}
+.t-play:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.t-video iframe{width:100%;height:100%;border:0;display:block}
+.t-yt{margin:10px 0 6px;font-size:14px}.t-yt a{color:var(--teal-ink);font-weight:500}.t-yt a:hover{text-decoration:underline}
+.t-part{font-size:18px;margin:22px 0 10px}
+.t-chapters{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px;font-size:14.5px}
+.t-chapters summary{cursor:pointer;font-weight:500}
+.t-chapters ol{list-style:none;margin:10px 0 2px;display:grid;gap:4px}
+.t-chapters a{display:flex;gap:10px;padding:3px 0;color:var(--ink)}.t-chapters a:hover{color:var(--teal-ink)}
+.t-time{font-family:var(--mono);font-size:12.5px;color:var(--graphite);min-width:42px}
+.t-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.t-ticks{list-style:none;display:grid;gap:9px}
+.t-ticks li{position:relative;padding-inline-start:28px}
+.t-ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:14px;height:8px;border-inline-start:2.4px solid var(--teal);border-bottom:2.4px solid var(--teal);transform:rotate(-45deg)}
+.t-toc{margin-bottom:28px}.t-toc ol{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:3px;font-size:15px}.t-toc a{color:var(--teal-ink)}.t-toc a:hover{text-decoration:underline}
+.t-article h3{font-size:21px;margin:28px 0 10px;scroll-margin-top:90px}
+.t-article p,.t-ex-a p{margin:0 0 12px;font-size:16.5px;line-height:1.7}
+.t-article ul,.t-article ol,.t-ex-a ul,.t-ex-a ol{margin:0 0 14px;padding-inline-start:24px;display:grid;gap:5px;font-size:16.5px}
+.t-table{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:10px}
+.t-table table{border-collapse:collapse;width:100%;font-size:15px;background:var(--paper)}
+.t-table th,.t-table td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.t-table th{background:var(--mist);font-weight:500}.t-table tr:last-child td{border-bottom:0}
+sup{font-size:.72em;line-height:0}
+.t-terms{display:grid;gap:12px}.t-terms div{display:grid;gap:2px}.t-terms dt{font-weight:600;font-family:var(--display)}.t-terms dd{color:var(--graphite)}
+.t-example{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;margin-bottom:12px}
+.t-ex-q{display:flex;gap:12px;font-weight:500;margin:0}
+.t-ex-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.t-example details{margin-top:12px}.t-example summary{cursor:pointer;color:var(--teal-ink);font-weight:500;font-size:15px}
+.t-ex-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.t-misc{display:grid;gap:12px}
+.t-misc-item{border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:14px 18px}
+.t-myth,.t-fact{margin:0;font-size:15.5px}.t-fact{margin-top:8px;color:var(--ink-soft)}
+.t-myth span,.t-fact span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-inline-end:6px}
+.t-myth span{background:#FFF1D6;color:#8A5A00}.t-fact span{background:#DDF5F1;color:var(--teal-ink)}
+.t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
+.t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
+.t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
+.t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
+.t-kit .eyebrow{color:#9AA3AD}
+.t-soon{display:inline-block;background:var(--marker);color:var(--ink);border-radius:6px;padding:2px 8px;font-weight:500}
+.t-kit-list{list-style:none;display:grid;gap:7px;margin:0 0 18px;font-size:14.5px}
+.t-kit-list li{position:relative;padding-inline-start:22px;color:#E9ECEF}
+.t-kit-list li::before{content:"";position:absolute;inset-inline-start:2px;top:.5em;width:10px;height:6px;border-inline-start:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.t-kit .btn-primary{background:#fff;color:var(--ink)}.t-kit .btn-primary:hover{background:var(--mist)}
+.t-kit-wide{margin-top:48px;max-width:760px}
+.t-related{margin-top:56px}.t-related h2{font-size:24px;margin-bottom:16px}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.t-cardlink{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .06s,border-color .15s}
+.t-cardlink:hover{border-color:var(--faint);box-shadow:0 16px 34px -24px rgba(20,24,31,.45)}
+.t-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--mist)}
+.t-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.t-card-body{display:grid;gap:6px;padding:14px 16px 16px}
+.t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
+.t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-chips{display:flex;flex-wrap:wrap;gap:8px}
+.t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
+.t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
+.t-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.t-chip[aria-pressed="true"] span{color:#9AA3AD}
+.t-search{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;min-width:240px;background:var(--paper)}
+@media(max-width:560px){.t-search{min-width:0;width:100%}}
+.t-empty{color:var(--graphite);padding:20px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/#how" data-i18n="common.nav.how">How it works</a>
+      <a href="/topics" aria-current="page" data-i18n="common.nav.lessons">Lessons</a>
+      <a href="/homeschool" data-i18n="common.nav.homeschool">Homeschool</a>
+      <a href="/schools" data-i18n="common.nav.schools">For schools</a>
+      <a href="/pricing" data-i18n="common.nav.pricing">Pricing</a>
+      <a href="/about" data-i18n="common.nav.about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="Choose your language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="en" dir="ltr">English</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/topics/cells" lang="en" hreflang="en" dir="ltr" aria-current="true">English</a></li>
+      <li><a href="https://sketchcast.app/ms/topics/cells" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/topics/cells" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/topics/cells" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/topics/cells" lang="es" hreflang="es" dir="ltr">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/topics/cells" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/topics/cells" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/topics/cells" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/topics/cells" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/topics/cells" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">Log in</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">Start free</a>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  // Locale-proof header fit: hide the middle links only when the row REALLY
+  // overflows (French/Telugu labels run long; breakpoints can't know that).
+  // Hysteresis: re-show only 40px past where it last overflowed.
+  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!links)return;
+  var hiddenAt=0;
+  function fit(){
+    var w=nav.clientWidth;
+    if(links.style.display!=='none'){
+      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
+    }else if(w>hiddenAt+40){
+      links.style.display='';
+      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
+    }
+  }
+  fit();
+  addEventListener('resize',fit);
+  // Web fonts can widen labels after first paint — re-measure when they land.
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+
+<main>
+
+  <div class="wrap t-page">
+    <nav class="t-crumbs" aria-label="Breadcrumb"><a href="/topics">Lessons</a> <span aria-hidden="true">›</span> <span>Science</span></nav>
+    
+    <div class="t-hero">
+      <p class="eyebrow">Science · Grade 7, 9</p>
+      <h1>Cells</h1>
+      <p class="t-lead">The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems.</p>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-body">
+        <section aria-label="Video lesson">
+      <div class="t-video">
+        <button type="button" class="t-play" data-yt="-Qm-tfg1yJ4" aria-label="Play the video: Cells">
+          <img src="https://i.ytimg.com/vi/-Qm-tfg1yJ4/hqdefault.jpg" alt="" width="480" height="360" loading="eager" />
+          <span class="t-play-icon" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#14181F"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+        </button>
+      </div>
+      <p class="t-yt"><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4" target="_blank" rel="noopener">Watch on YouTube ↗</a></p>
+      <details class="t-chapters"><summary>Chapters in this video</summary><ol><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4" target="_blank" rel="noopener"><span class="t-time">0:00</span> The Basic Unit of Life</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=27s" target="_blank" rel="noopener"><span class="t-time">0:27</span> One Cell vs. Many</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=59s" target="_blank" rel="noopener"><span class="t-time">0:59</span> The Studio Apartment Cell</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=92s" target="_blank" rel="noopener"><span class="t-time">1:32</span> The Multi-Room Cell</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=128s" target="_blank" rel="noopener"><span class="t-time">2:08</span> The Cell Head Office</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=156s" target="_blank" rel="noopener"><span class="t-time">2:36</span> The Cell Powerhouse</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=179s" target="_blank" rel="noopener"><span class="t-time">2:59</span> Manufacturing and Shipping</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=213s" target="_blank" rel="noopener"><span class="t-time">3:33</span> Plant Cell Upgrades</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=257s" target="_blank" rel="noopener"><span class="t-time">4:17</span> Plant vs. Animal Cells</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=286s" target="_blank" rel="noopener"><span class="t-time">4:46</span> Specialized Cellular Designs</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=322s" target="_blank" rel="noopener"><span class="t-time">5:22</span> Levels of Organization</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=359s" target="_blank" rel="noopener"><span class="t-time">5:59</span> The Architecture of a Heartbeat</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=375s" target="_blank" rel="noopener"><span class="t-time">6:15</span> The Symphony of Life</a></li><li><a href="https://www.youtube.com/watch?v=-Qm-tfg1yJ4&t=395s" target="_blank" rel="noopener"><span class="t-time">6:35</span> Look Inside Your World</a></li></ol></details></section>
+
+        <section class="t-card"><h2>What you'll learn</h2><ul class="t-ticks"><li>Identify and describe the cell as the basic unit of life for all organisms.</li><li>Distinguish between prokaryotic and eukaryotic cells, and unicellular and multicellular organisms.</li><li>Identify and describe the functions of major cell structures and organelles in both plant and animal cells.</li><li>Compare and contrast the structures of plant and animal cells.</li><li>Explain how the structure of specialised cells is related to their specific functions.</li><li>Understand how cells are organised into tissues, organs, and organ systems in multicellular organisms.</li></ul></section>
+
+        <nav class="t-toc" aria-label="In this lesson"><p class="eyebrow">In this lesson</p><ol><li><a href="#the-cell-basic-unit-of-life">The Cell: Basic Unit of Life</a></li><li><a href="#prokaryotic-vs-eukaryotic-cells">Prokaryotic vs. Eukaryotic Cells</a></li><li><a href="#common-cell-structures-and-organelles">Common Cell Structures and Organelles</a></li><li><a href="#plant-cell-specific-structures-and-comparisons">Plant Cell Specific Structures and Comparisons</a></li><li><a href="#specialised-cells-and-their-functions">Specialised Cells and Their Functions</a></li><li><a href="#organisation-of-cells-tissues-organs-and-systems">Organisation of Cells: Tissues, Organs, and Systems</a></li></ol></nav>
+
+        <article class="t-article">
+          <h2 class="t-article-h">The explanation</h2>
+          <section id="the-cell-basic-unit-of-life"><h3>The Cell: Basic Unit of Life</h3><p>The cell is the fundamental structural and functional unit of all known living organisms. All living things, from the smallest bacteria to the largest whales, are composed of one or more cells. Organisms can be broadly categorised based on the number of cells they possess. <strong>Unicellular organisms</strong> consist of a single cell, which carries out all life processes. Examples include bacteria and amoebae. <strong>Multicellular organisms</strong>, on the other hand, are composed of many cells working together. Humans, animals, and plants are all multicellular organisms.</p>
+<p>Cells are incredibly diverse in size, shape, and function, yet they share common characteristics and essential components that enable them to perform life-sustaining activities like obtaining nutrients, growing, and reproducing.</p></section>
+<section id="prokaryotic-vs-eukaryotic-cells"><h3>Prokaryotic vs. Eukaryotic Cells</h3><p>Living cells are classified into two main types: prokaryotic and eukaryotic cells. The primary distinction lies in the presence or absence of a membrane-bound nucleus and other membrane-bound organelles.</p>
+<p><strong>Prokaryotic cells</strong> are generally simpler and smaller. They lack a true nucleus, meaning their genetic material (DNA) is not enclosed within a membrane but floats freely in the cytoplasm in a region called the nucleoid. Prokaryotic cells also lack other membrane-bound organelles. Bacteria and archaea are examples of prokaryotic organisms.</p>
+<p><strong>Eukaryotic cells</strong> are typically larger and more complex. They possess a true nucleus, which houses the genetic material within a nuclear envelope. Eukaryotic cells also contain various membrane-bound organelles, each with specialised functions. Examples of eukaryotic organisms include plants, animals, fungi, and protists.</p>
+<p>Despite their differences, both prokaryotic and eukaryotic cells share some common features, such as a cell membrane, cytoplasm, and ribosomes.</p></section>
+<section id="common-cell-structures-and-organelles"><h3>Common Cell Structures and Organelles</h3><p>Both plant and animal cells, as eukaryotic cells, share several key structures and organelles, each performing vital functions:</p>
+<ul><li><strong>Cell membrane (Plasma membrane):</strong> This outer boundary of the cell is a selectively permeable barrier that controls the movement of substances into and out of the cell. It is composed of a lipid bilayer with embedded proteins.</li><li><strong>Cytoplasm:</strong> The jelly-like substance that fills the cell, enclosing the organelles. It is the site of many metabolic reactions.</li><li><strong>Nucleus:</strong> A large, usually spherical organelle that contains the cell's genetic material (chromosomes) in the form of DNA. It controls cell activities by regulating gene expression. The nucleus is enclosed by a double membrane called the nuclear envelope.</li><li><strong>Chromosomes:</strong> Thread-like structures located inside the nucleus, composed of DNA tightly coiled around proteins. They carry genetic information in the form of genes.</li><li><strong>Mitochondria (singular: mitochondrion):</strong> Often called the 'powerhouses' of the cell, mitochondria are responsible for cellular respiration, the process of converting nutrients into adenosine triphosphate (ATP), the cell's main energy currency.</li><li><strong>Endoplasmic Reticulum (ER):</strong> A network of membranes that forms sacs and tubules throughout the cytoplasm. It plays a role in protein and lipid synthesis. There are two types: <strong>Rough ER</strong> (studded with ribosomes) involved in protein synthesis and modification, and <strong>Smooth ER</strong> (lacks ribosomes) involved in lipid synthesis, detoxification, and calcium storage.</li><li><strong>Ribosomes:</strong> Small organelles responsible for protein synthesis. They can be found free in the cytoplasm or attached to the rough ER.</li><li><strong>Golgi apparatus (Golgi complex/body):</strong> A stack of flattened membrane-bound sacs (cisternae) involved in modifying, sorting, and packaging proteins and lipids for secretion or delivery to other organelles.</li><li><strong>Vacuoles:</strong> Membrane-bound sacs that can store water, nutrients, waste products, and other substances. Their size and function vary significantly between plant and animal cells.</li></ul></section>
+<section id="plant-cell-specific-structures-and-comparisons"><h3>Plant Cell Specific Structures and Comparisons</h3><p>Plant cells possess several unique structures not found in animal cells, which are crucial for their specific functions, particularly photosynthesis and structural support. These differences highlight the distinct evolutionary paths and functional roles of plant and animal life.</p>
+<p><strong>Structures unique to plant cells:</strong></p>
+<ul><li><strong>Cell wall:</strong> A rigid outer layer found outside the cell membrane, primarily composed of cellulose. It provides structural support and protection to the plant cell, maintains its shape, and prevents excessive water uptake.</li><li><strong>Chloroplasts:</strong> Oval-shaped organelles containing the green pigment chlorophyll. Chloroplasts are the sites of <strong>photosynthesis</strong>, the process by which light energy is converted into chemical energy (sugars).</li><li><strong>Large central vacuole (Sap vacuole):</strong> A prominent, single, large membrane-bound sac that can occupy up to 90% of the cell volume. It stores water, nutrients, and waste products, maintains turgor pressure against the cell wall, and helps in cell growth.</li></ul>
+<p><strong>Similarities between plant and animal cells:</strong></p>
+<p>Both plant and animal cells are eukaryotic and share fundamental organelles such as the cell membrane, cytoplasm, nucleus, mitochondria, endoplasmic reticulum, Golgi apparatus, and ribosomes.</p>
+<p><strong>Differences between plant and animal cells:</strong></p>
+<div class="t-table"><table><thead><tr><th>Feature</th><th>Plant Cell</th><th>Animal Cell</th></tr></thead><tbody><tr><td>Cell Wall</td><td>Present, rigid, made of cellulose</td><td>Absent</td></tr><tr><td>Chloroplasts</td><td>Present, site of photosynthesis</td><td>Absent</td></tr><tr><td>Large Central Vacuole</td><td>Present, large, single</td><td>Usually absent, or small, temporary, multiple</td></tr><tr><td>Centrioles</td><td>Absent</td><td>Present (involved in cell division)</td></tr><tr><td>Shape</td><td>Often fixed, rectangular due to cell wall</td><td>Irregular, flexible</td></tr><tr><td>Storage</td><td>Starch granules, oils</td><td>Glycogen granules, fats</td></tr><tr><td>Plasmodesmata</td><td>Present (channels between cells)</td><td>Absent (tight junctions, desmosomes)</td></tr></tbody></table></div>
+<p>These structural differences underpin the distinct ways plants and animals interact with their environments and carry out life processes.</p></section>
+<section id="specialised-cells-and-their-functions"><h3>Specialised Cells and Their Functions</h3><p>In multicellular organisms, cells often undergo <strong>differentiation</strong> to become <strong>specialised cells</strong>, meaning they develop specific structures that enable them to perform particular functions more efficiently. This specialisation is crucial for the formation of tissues, organs, and organ systems.</p>
+<p>Examples of specialised cells and their structure-function relationships:</p>
+<ul><li><strong>Red blood cells (Erythrocytes):</strong> These cells are biconcave discs, which increases their surface area for oxygen absorption and allows them to squeeze through narrow capillaries. They lack a nucleus and mitochondria in mammals, freeing up space for <strong>haemoglobin</strong>, a protein that binds to and transports oxygen.</li><li><strong>Neurones (Nerve cells):</strong> Characterised by a cell body, dendrites (branching extensions that receive signals), and a long axon (transmits signals over long distances). Their elongated structure and ability to generate electrical impulses allow for rapid communication throughout the body.</li><li><strong>Ciliated cells:</strong> Found in the lining of the respiratory tract, these cells have hair-like projections called <strong>cilia</strong> on their surface. The rhythmic beating of cilia sweeps mucus, dust, and pathogens out of the airways, protecting the lungs.</li><li><strong>Root hair cells:</strong> Located on the surface of plant roots, these cells have a long, thin extension called a <strong>root hair</strong> that greatly increases the surface area for efficient absorption of water and mineral ions from the soil. They also lack chloroplasts as they are underground.</li><li><strong>Palisade cells:</strong> Found in the upper layer of plant leaves, these cells are elongated and tightly packed. They contain a large number of <strong>chloroplasts</strong>, which are arranged to maximise light absorption for photosynthesis.</li></ul></section>
+<section id="organisation-of-cells-tissues-organs-and-systems"><h3>Organisation of Cells: Tissues, Organs, and Systems</h3><p>In multicellular organisms, cells are organised into higher levels of complexity to perform coordinated functions. This hierarchical organisation ensures the efficient functioning of the entire organism.</p>
+<ol><li><strong>Cells:</strong> The basic building blocks. Specialised cells perform specific tasks.</li><li><strong>Tissues:</strong> A group of similar cells that work together to perform a specific function. For example, muscle tissue (for contraction), nervous tissue (for communication), epithelial tissue (for lining and protection), and connective tissue (for support and binding).</li><li><strong>Organs:</strong> A structure made up of different types of tissues that work together to perform a more complex function. Examples include the heart (made of cardiac muscle, nervous, and connective tissues to pump blood), the stomach (made of muscle, epithelial, and nervous tissues for digestion), and a leaf (made of palisade, spongy, and vascular tissues for photosynthesis).</li><li><strong>Organ Systems:</strong> A group of organs that work together to perform major functions necessary for the survival of the organism. Examples include the digestive system (mouth, oesophagus, stomach, intestines), respiratory system (lungs, trachea), and circulatory system (heart, blood vessels, blood).</li></ol>
+<p>This intricate organisation from cells to organ systems allows complex multicellular organisms to carry out diverse and sophisticated life processes.</p></section>
+        </article>
+
+        <section class="t-card"><h2>Key terms</h2><dl class="t-terms"><div><dt>Cell</dt><dd>The fundamental structural and functional unit of all known living organisms.</dd></div><div><dt>Unicellular organism</dt><dd>An organism consisting of a single cell that carries out all life processes.</dd></div><div><dt>Multicellular organism</dt><dd>An organism composed of many cells working together to perform various functions.</dd></div><div><dt>Prokaryotic cell</dt><dd>A cell that lacks a true membrane-bound nucleus and other membrane-bound organelles.</dd></div><div><dt>Eukaryotic cell</dt><dd>A cell that possesses a true membrane-bound nucleus and other membrane-bound organelles.</dd></div><div><dt>Cell membrane</dt><dd>A selectively permeable outer boundary of the cell that controls the movement of substances.</dd></div><div><dt>Cytoplasm</dt><dd>The jelly-like substance that fills the cell and contains the organelles, where many metabolic reactions occur.</dd></div><div><dt>Nucleus</dt><dd>A large organelle in eukaryotic cells that contains the genetic material (chromosomes) and controls cell activities.</dd></div><div><dt>Chromosomes</dt><dd>Thread-like structures within the nucleus, made of DNA and protein, carrying genetic information.</dd></div><div><dt>Mitochondria</dt><dd>Organelles responsible for cellular respiration, producing ATP (energy) for the cell.</dd></div><div><dt>Endoplasmic Reticulum (ER)</dt><dd>A network of membranes involved in protein and lipid synthesis and transport within the cell.</dd></div><div><dt>Ribosomes</dt><dd>Small organelles responsible for synthesising proteins.</dd></div><div><dt>Golgi apparatus</dt><dd>An organelle that modifies, sorts, and packages proteins and lipids for secretion or delivery within the cell.</dd></div><div><dt>Vacuoles</dt><dd>Membrane-bound sacs that store water, nutrients, and waste products, maintaining cell turgor in plants.</dd></div><div><dt>Cell wall</dt><dd>A rigid outer layer in plant cells, made primarily of cellulose, providing structural support and protection.</dd></div><div><dt>Chloroplasts</dt><dd>Organelles in plant cells that contain chlorophyll and are the sites of photosynthesis.</dd></div><div><dt>Photosynthesis</dt><dd>The process by which plants convert light energy into chemical energy (sugars) using chlorophyll.</dd></div><div><dt>Specialised cells</dt><dd>Cells that have developed specific structures to perform particular functions more efficiently in multicellular organisms.</dd></div><div><dt>Haemoglobin</dt><dd>A protein in red blood cells that binds to and transports oxygen.</dd></div><div><dt>Cilia</dt><dd>Hair-like projections on the surface of some cells, used for movement or sweeping substances.</dd></div><div><dt>Tissue</dt><dd>A group of similar cells working together to perform a specific function.</dd></div><div><dt>Organ</dt><dd>A structure made of different types of tissues working together to perform a more complex function.</dd></div><div><dt>Organ System</dt><dd>A group of organs that work together to perform major functions necessary for the survival of the organism.</dd></div></dl></section>
+
+        
+
+        <section><h2>Common misconceptions</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Myth</span> All cells are the same shape and size.</p><p class="t-fact"><span>In fact</span> Cells exhibit a wide variety of shapes and sizes, which are adapted to their specific functions. For example, nerve cells are long and branched for signal transmission, while red blood cells are disc-shaped for oxygen transport.</p></div><div class="t-misc-item"><p class="t-myth"><span>Myth</span> Plants only have plant cells, and animals only have animal cells.</p><p class="t-fact"><span>In fact</span> While plants and animals have distinct cell types (plant cells and animal cells, respectively), both are types of eukaryotic cells. Furthermore, complex organisms often contain various specialised cells within their bodies, all derived from a common eukaryotic cell plan.</p></div><div class="t-misc-item"><p class="t-myth"><span>Myth</span> The cell wall is the same as the cell membrane.</p><p class="t-fact"><span>In fact</span> The cell wall and cell membrane are distinct structures. The cell wall is a rigid outer layer found only in plant cells (and some other organisms like fungi and bacteria), providing structural support. The cell membrane is a selectively permeable barrier found in all cells (plant, animal, prokaryotic) located just inside the cell wall in plants, or as the outermost boundary in animal cells.</p></div><div class="t-misc-item"><p class="t-myth"><span>Myth</span> All organisms have a nucleus.</p><p class="t-fact"><span>In fact</span> Only eukaryotic cells (found in plants, animals, fungi, and protists) have a true nucleus that encloses their genetic material. Prokaryotic cells (bacteria and archaea) lack a membrane-bound nucleus; their genetic material is located in the cytoplasm.</p></div><div class="t-misc-item"><p class="t-myth"><span>Myth</span> Chloroplasts are in all cells.</p><p class="t-fact"><span>In fact</span> Chloroplasts are specific to plant cells and some other photosynthetic organisms. They are the sites of photosynthesis. Animal cells do not contain chloroplasts as they obtain energy by consuming other organisms rather than performing photosynthesis.</p></div></div></section>
+
+        <section class="t-card"><h2>Curriculum alignment</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>7Bs.01</code> Understand that all organisms are made of cells and microorganisms are typically single celled.</li><li><code>7Bs.02</code> Identify and describe the functions of cell structures (limited to cell membrane, cytoplasm, nucleus, cell wall, chloroplast, mitochondria and sap vacuole).</li><li><code>7Bs.03</code> Explain how the structures of some specialised cells are related to their functions (including red blood cells, neurones, ciliated cells, root hair cells and palisade cells).</li><li><code>7Bs.04</code> Describe the similarities and differences between the structures of plant and animal cells.</li><li><code>7Bs.05</code> Understand that cells can be grouped together to form tissues, organs and organ systems.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U2:01</code> Cell - Basic Unit of life</li></ul></section>
+      </div>
+
+      <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
+      <p class="eyebrow"><span class="t-soon">Coming soon</span></p>
+      <h2 id="kit-h">The full teaching kit</h2>
+      <p>Ready-made resources built from this lesson. Create a free account and you'll be the first to know when they open.</p>
+      <ul class="t-kit-list"><li>Lesson plan</li><li>Slide deck</li><li>Worksheet with answer key</li><li>Class activity</li><li>Case study</li><li>Question bank: 289 practice questions</li><li>Online assessment, marked automatically</li><li>Exam preparation set</li></ul>
+      <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=cells">Create a free account</a>
+    </aside></div>
+    </div>
+
+    <section class="t-related"><h2>More Science lessons</h2><div class="t-cards"><a class="t-cardlink" href="/topics/a-balanced-diet" data-subject="Science" data-text="a balanced diet proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it. science 8bp.01 6:ch03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/WzKtNmxUe1w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Science</span>
+        <span class="t-card-title" lang="en">A Balanced Diet</span>
+        <span class="t-card-sum" lang="en">Proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it.</span>
+        <span class="t-codes"><code>8Bp.01</code><code>6:ch03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/topics/acids-alkalis-and-the-ph-scale" data-subject="Science" data-text="acids, alkalis and the ph scale acidity and alkalinity as chemical properties, the ph scale, indicators, and neutralisation. science 7cp.02 7cp.03 7cc.04">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/izw9rsR3JmU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Science</span>
+        <span class="t-card-title" lang="en">Acids, Alkalis and the pH Scale</span>
+        <span class="t-card-sum" lang="en">Acidity and alkalinity as chemical properties, the pH scale, indicators, and neutralisation.</span>
+        <span class="t-codes"><code>7Cp.02</code><code>7Cp.03</code><code>7Cc.04</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/topics/aerobic-respiration" data-subject="Science" data-text="aerobic respiration energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing. science 8bp.04 8bp.05 10:u2:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/FPT96igGPK8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Science</span>
+        <span class="t-card-title" lang="en">Aerobic Respiration</span>
+        <span class="t-card-sum" lang="en">Energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing.</span>
+        <span class="t-codes"><code>8Bp.04</code><code>8Bp.05</code><code>10:U2:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/topics/blood-and-its-components" data-subject="Science" data-text="blood and its components plasma, red blood cells, white blood cells and platelets, and what each transports or protects. science 8bs.02 7:ch09">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/Iaaj9jR7g9k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Science</span>
+        <span class="t-card-title" lang="en">Blood and Its Components</span>
+        <span class="t-card-sum" lang="en">Plasma, red blood cells, white blood cells and platelets, and what each transports or protects.</span>
+        <span class="t-codes"><code>8Bs.02</code><code>7:ch09</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/topics/classification-of-elements-and-the-periodic-table" data-subject="Science" data-text="classification of elements and the periodic table why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the trends down group 1. science 7cm.01 7cm.02 7cm.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/F-TwnP0ORlQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Science</span>
+        <span class="t-card-title" lang="en">Classification of Elements and the Periodic Table</span>
+        <span class="t-card-sum" lang="en">Why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the…</span>
+        <span class="t-codes"><code>7Cm.01</code><code>7Cm.02</code><code>7Cm.03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/topics/elements-compounds-and-mixtures" data-subject="Science" data-text="elements, compounds and mixtures atoms and elements, compounds and mixtures including alloys, represented with the particle model. science 7cm.04 7cm.07 9:u1:02">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/-3FnkvQ2JtQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Science</span>
+        <span class="t-card-title" lang="en">Elements, Compounds and Mixtures</span>
+        <span class="t-card-sum" lang="en">Atoms and elements, compounds and mixtures including alloys, represented with the particle model.</span>
+        <span class="t-codes"><code>7Cm.04</code><code>7Cm.07</code><code>9:U1:02</code></span>
+      </span>
+    </a></div></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — a chapter, taught" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/" data-i18n="common.nav.home">Home</a>
+        <a href="/about" data-i18n="common.nav.about">About</a>
+        <a href="/topics" data-i18n="common.nav.lessons">Lessons</a>
+        <a href="/homeschool" data-i18n="common.nav.homeschool">Homeschool</a>
+        <a href="/schools" data-i18n="common.nav.schools">For schools</a>
+        <a href="/pricing" data-i18n="common.nav.pricing">Pricing</a>
+        <a href="/privacy" data-i18n="common.footer.privacy">Privacy</a>
+        <a href="/terms" data-i18n="common.footer.terms">Terms</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">Contact</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="Aethel Twin on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="foot-legal" data-i18n="common.footer.legal">A product of <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Malaysia Digital status MD/0002997</p>
+    <p class="foot-legal" data-i18n="common.footer.youtube">SketchCast also publishes free lessons from its topic library on the <a href="https://www.youtube.com/@Sketchcast-AI-app" target="_blank" rel="noopener">SketchCast YouTube channel</a>. How we use Google API Services to do that is explained in our <a href="/privacy#google-api">Privacy Policy (§7)</a>.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script defer src="/assets/handoff.js"></script>
+<script>
+(function(){
+  // Click-to-play: the YouTube player loads only when asked (privacy, speed).
+  document.querySelectorAll('.t-play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0';
+      f.title=b.getAttribute('aria-label')||'Video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      b.parentNode.replaceChild(f,b);
+    });
+  });
+  // Index filters: subject chips + text search.
+  var cards=document.getElementById('t-cards');if(!cards)return;
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      c.hidden=!ok;if(ok)shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    subject=ch.getAttribute('data-subject');
+    chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
+  });});
+  q.addEventListener('input',apply);
+})();
+</script>
+</body>
+</html>

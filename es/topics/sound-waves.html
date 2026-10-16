@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sound Waves — lección en vídeo gratuita | SketchCast</title>
+<meta name="description" content="Vibrations, why sound needs a medium, echoes, and waveforms: amplitude and loudness, frequency and pitch." />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="Sound Waves — lección en vídeo gratuita | SketchCast" />
+<meta property="og:description" content="Vibrations, why sound needs a medium, echoes, and waveforms: amplitude and loudness, frequency and pitch." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+
+  /* Full-bleed header (founder, 2026-08-18): brand at the true start edge,
+     Start free at the true end — seven links + the language picker never fit
+     the 1080px wrap (labels wrapped mid-phrase). Logical properties keep the
+     RTL locales mirrored. Middle widths compress before the links hide; the
+     hide threshold is generous because fr/te labels run long. */
+  header .wrap{max-width:none;margin:0;padding-inline:26px}
+  .nav{gap:18px}
+  .nav-links{flex-wrap:nowrap}
+  .nav-links a,.nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
+  @media(max-width:1140px){.nav-links{display:none}}
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/topics/sound-waves" />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:url" content="https://sketchcast.app/topics/sound-waves" />
+
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}</style>
+<!--/i18n:head-->
+<style id="topics-css">
+.t-page{padding-top:28px;padding-bottom:72px}
+.t-crumbs{font-size:14px;color:var(--graphite);margin-bottom:18px}.t-crumbs a{color:var(--teal-ink)}.t-crumbs a:hover{text-decoration:underline}
+.t-note{margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-inline-start:3px solid var(--marker);border-radius:9px;background:#fff;font-size:14px;color:var(--graphite)}
+.t-hero{margin-bottom:26px;max-width:820px}.t-hero h1{font-size:clamp(32px,4.6vw,50px);margin:10px 0 14px}
+.t-lead{font-size:18px;color:var(--graphite);line-height:1.55}
+.t-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+@media(max-width:960px){.t-grid{grid-template-columns:minmax(0,1fr)}}
+.t-side{position:sticky;top:90px}
+@media(max-width:960px){.t-side{position:static}}
+.t-body>section,.t-article{margin-bottom:34px}
+.t-body h2{font-size:26px;margin:0 0 14px}
+.t-video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px -26px rgba(20,24,31,.5)}
+.t-play{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.t-play img{width:100%;height:100%;object-fit:cover;display:block}
+.t-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-play:hover .t-play-icon,.t-play:focus-visible .t-play-icon{transform:scale(1.08)}
+.t-play:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.t-video iframe{width:100%;height:100%;border:0;display:block}
+.t-yt{margin:10px 0 6px;font-size:14px}.t-yt a{color:var(--teal-ink);font-weight:500}.t-yt a:hover{text-decoration:underline}
+.t-part{font-size:18px;margin:22px 0 10px}
+.t-chapters{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px;font-size:14.5px}
+.t-chapters summary{cursor:pointer;font-weight:500}
+.t-chapters ol{list-style:none;margin:10px 0 2px;display:grid;gap:4px}
+.t-chapters a{display:flex;gap:10px;padding:3px 0;color:var(--ink)}.t-chapters a:hover{color:var(--teal-ink)}
+.t-time{font-family:var(--mono);font-size:12.5px;color:var(--graphite);min-width:42px}
+.t-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.t-ticks{list-style:none;display:grid;gap:9px}
+.t-ticks li{position:relative;padding-inline-start:28px}
+.t-ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:14px;height:8px;border-inline-start:2.4px solid var(--teal);border-bottom:2.4px solid var(--teal);transform:rotate(-45deg)}
+.t-toc{margin-bottom:28px}.t-toc ol{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:3px;font-size:15px}.t-toc a{color:var(--teal-ink)}.t-toc a:hover{text-decoration:underline}
+.t-article h3{font-size:21px;margin:28px 0 10px;scroll-margin-top:90px}
+.t-article p,.t-ex-a p{margin:0 0 12px;font-size:16.5px;line-height:1.7}
+.t-article ul,.t-article ol,.t-ex-a ul,.t-ex-a ol{margin:0 0 14px;padding-inline-start:24px;display:grid;gap:5px;font-size:16.5px}
+.t-table{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:10px}
+.t-table table{border-collapse:collapse;width:100%;font-size:15px;background:var(--paper)}
+.t-table th,.t-table td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.t-table th{background:var(--mist);font-weight:500}.t-table tr:last-child td{border-bottom:0}
+sup{font-size:.72em;line-height:0}
+.t-terms{display:grid;gap:12px}.t-terms div{display:grid;gap:2px}.t-terms dt{font-weight:600;font-family:var(--display)}.t-terms dd{color:var(--graphite)}
+.t-example{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;margin-bottom:12px}
+.t-ex-q{display:flex;gap:12px;font-weight:500;margin:0}
+.t-ex-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.t-example details{margin-top:12px}.t-example summary{cursor:pointer;color:var(--teal-ink);font-weight:500;font-size:15px}
+.t-ex-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.t-misc{display:grid;gap:12px}
+.t-misc-item{border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:14px 18px}
+.t-myth,.t-fact{margin:0;font-size:15.5px}.t-fact{margin-top:8px;color:var(--ink-soft)}
+.t-myth span,.t-fact span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-inline-end:6px}
+.t-myth span{background:#FFF1D6;color:#8A5A00}.t-fact span{background:#DDF5F1;color:var(--teal-ink)}
+.t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
+.t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
+.t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
+.t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
+.t-kit .eyebrow{color:#9AA3AD}
+.t-soon{display:inline-block;background:var(--marker);color:var(--ink);border-radius:6px;padding:2px 8px;font-weight:500}
+.t-kit-list{list-style:none;display:grid;gap:7px;margin:0 0 18px;font-size:14.5px}
+.t-kit-list li{position:relative;padding-inline-start:22px;color:#E9ECEF}
+.t-kit-list li::before{content:"";position:absolute;inset-inline-start:2px;top:.5em;width:10px;height:6px;border-inline-start:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.t-kit .btn-primary{background:#fff;color:var(--ink)}.t-kit .btn-primary:hover{background:var(--mist)}
+.t-kit-wide{margin-top:48px;max-width:760px}
+.t-related{margin-top:56px}.t-related h2{font-size:24px;margin-bottom:16px}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.t-cardlink{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .06s,border-color .15s}
+.t-cardlink:hover{border-color:var(--faint);box-shadow:0 16px 34px -24px rgba(20,24,31,.45)}
+.t-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--mist)}
+.t-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.t-card-body{display:grid;gap:6px;padding:14px 16px 16px}
+.t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
+.t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-chips{display:flex;flex-wrap:wrap;gap:8px}
+.t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
+.t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
+.t-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.t-chip[aria-pressed="true"] span{color:#9AA3AD}
+.t-search{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;min-width:240px;background:var(--paper)}
+@media(max-width:560px){.t-search{min-width:0;width:100%}}
+.t-empty{color:var(--graphite);padding:20px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/es/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/es/#how" data-i18n="common.nav.how">Cómo funciona</a>
+      <a href="/es/topics" aria-current="page" data-i18n="common.nav.lessons">Lecciones</a>
+      <a href="/es/homeschool" data-i18n="common.nav.homeschool">Educación en casa</a>
+      <a href="/es/schools" data-i18n="common.nav.schools">Para colegios</a>
+      <a href="/es/pricing" data-i18n="common.nav.pricing">Precios</a>
+      <a href="/es/about" data-i18n="common.nav.about">Quiénes somos</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="Elija su idioma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="es" dir="ltr">Español</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/topics/sound-waves" lang="en" hreflang="en" dir="ltr">English</a></li>
+      <li><a href="https://sketchcast.app/ms/topics/sound-waves" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/topics/sound-waves" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/topics/sound-waves" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/topics/sound-waves" lang="es" hreflang="es" dir="ltr" aria-current="true">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/topics/sound-waves" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/topics/sound-waves" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/topics/sound-waves" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/topics/sound-waves" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/topics/sound-waves" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">Iniciar sesión</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">Empezar gratis</a>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  // Locale-proof header fit: hide the middle links only when the row REALLY
+  // overflows (French/Telugu labels run long; breakpoints can't know that).
+  // Hysteresis: re-show only 40px past where it last overflowed.
+  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!links)return;
+  var hiddenAt=0;
+  function fit(){
+    var w=nav.clientWidth;
+    if(links.style.display!=='none'){
+      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
+    }else if(w>hiddenAt+40){
+      links.style.display='';
+      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
+    }
+  }
+  fit();
+  addEventListener('resize',fit);
+  // Web fonts can widen labels after first paint — re-measure when they land.
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+
+<main>
+
+  <div class="wrap t-page">
+    <nav class="t-crumbs" aria-label="Breadcrumb"><a href="/es/topics">Lecciones</a> <span aria-hidden="true">›</span> <span>Ciencias</span></nav>
+    <p class="t-note">Esta lección está en inglés.</p>
+    <div class="t-hero" lang="en" dir="ltr">
+      <p class="eyebrow">Ciencias · Curso 7, 9</p>
+      <h1>Sound Waves</h1>
+      <p class="t-lead">Vibrations, why sound needs a medium, echoes, and waveforms: amplitude and loudness, frequency and pitch.</p>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-body" lang="en" dir="ltr">
+        <section aria-label="Lección en vídeo">
+      <div class="t-video">
+        <button type="button" class="t-play" data-yt="rywpHCvIw5o" aria-label="Reproducir el vídeo: Sound Waves">
+          <img src="https://i.ytimg.com/vi/rywpHCvIw5o/hqdefault.jpg" alt="" width="480" height="360" loading="eager" />
+          <span class="t-play-icon" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#14181F"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+        </button>
+      </div>
+      <p class="t-yt"><a href="https://www.youtube.com/watch?v=rywpHCvIw5o" target="_blank" rel="noopener">Ver en YouTube ↗</a></p>
+      <details class="t-chapters"><summary>Capítulos de este vídeo</summary><ol><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o" target="_blank" rel="noopener"><span class="t-time">0:00</span> How Sound Begins</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=32s" target="_blank" rel="noopener"><span class="t-time">0:32</span> The Longitudinal Wave</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=62s" target="_blank" rel="noopener"><span class="t-time">1:02</span> Sound Needs a Medium</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=98s" target="_blank" rel="noopener"><span class="t-time">1:38</span> The Speed of Sound</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=142s" target="_blank" rel="noopener"><span class="t-time">2:22</span> Graphing a Sound Wave</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=167s" target="_blank" rel="noopener"><span class="t-time">2:47</span> Amplitude and Loudness</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=194s" target="_blank" rel="noopener"><span class="t-time">3:14</span> Frequency, Pitch, and Wavelength</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=231s" target="_blank" rel="noopener"><span class="t-time">3:51</span> Wave Superposition</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=266s" target="_blank" rel="noopener"><span class="t-time">4:26</span> Destructive Cancellation</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=287s" target="_blank" rel="noopener"><span class="t-time">4:47</span> Echoes and Reflection</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=314s" target="_blank" rel="noopener"><span class="t-time">5:14</span> Calculating Echo Distance</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=341s" target="_blank" rel="noopener"><span class="t-time">5:41</span> Beyond Human Hearing</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=358s" target="_blank" rel="noopener"><span class="t-time">5:58</span> Applications of Ultrasound</a></li><li><a href="https://www.youtube.com/watch?v=rywpHCvIw5o&t=386s" target="_blank" rel="noopener"><span class="t-time">6:26</span> Explore the Sound Around You</a></li></ol></details></section>
+
+        <section class="t-card"><h2>Lo que aprenderás</h2><ul class="t-ticks"><li>Describe how sound is produced by vibrations and propagates through various material media as longitudinal waves.</li><li>Explain why sound requires a material medium and cannot travel through a vacuum.</li><li>Draw and interpret waveforms, recognizing the link between loudness and amplitude, and pitch and frequency.</li><li>Calculate the speed of sound, distance, and time using the reflection of sound and echoes.</li><li>Describe the human hearing range, ultrasound applications, and waveform superposition phenomena.</li></ul></section>
+
+        <nav class="t-toc" aria-label="En esta lección"><p class="eyebrow">En esta lección</p><ol><li><a href="#nature-of-sound-and-its-propagation">Nature of Sound and Its Propagation</a></li><li><a href="#why-sound-needs-a-medium-and-speed-of-sound">Why Sound Needs a Medium and Speed of Sound</a></li><li><a href="#waveforms-amplitude-loudness-frequency-and-pitch">Waveforms, Amplitude, Loudness, Frequency, and Pitch</a></li><li><a href="#waveform-superposition-reinforcement-and-cancellation">Waveform Superposition, Reinforcement, and Cancellation</a></li><li><a href="#reflection-of-sound-echoes-and-ultrasound">Reflection of Sound, Echoes, and Ultrasound</a></li></ol></nav>
+
+        <article class="t-article">
+          <h2 class="t-article-h">La explicación</h2>
+          <section id="nature-of-sound-and-its-propagation"><h3>Nature of Sound and Its Propagation</h3><p>Sound is a form of energy that produces a sensation of hearing in our ears. It is produced by vibrating objects. When an object vibrates, it sets the surrounding particles of the medium into motion. These particles do not travel across the entire distance from the source to the listener; instead, they oscillate back and forth about their mean positions, transferring energy from one particle to the next.</p>
+<p>As a vibrating object moves forward, it pushes and compresses the air in front of it, creating a region of high pressure and high particle density called a <strong>compression</strong>. When the object moves backward, it creates a region of low pressure and low particle density called a <strong>rarefaction</strong>. As the object continues to vibrate, a series of alternating compressions and rarefactions travels through the medium, constituting a <strong>sound wave</strong>.</p>
+<p>Because sound waves travel by the displacement of particles in a direction parallel to the direction of wave propagation, sound is classified as a <strong>longitudinal wave</strong>. Sound can travel through various material media, including solids, liquids, and gases. The speed of sound depends on the properties of the medium, particularly its elasticity and density. In general, sound travels fastest in solids because solid particles are closely packed with strong intermolecular forces, allowing rapid energy transfer. Sound travels slower in liquids and slowest in gases.</p></section>
+<section id="why-sound-needs-a-medium-and-speed-of-sound"><h3>Why Sound Needs a Medium and Speed of Sound</h3><p>Unlike light or radio waves, which are electromagnetic waves and can travel through empty space, mechanical waves like sound require a material medium for propagation. A vacuum is a space devoid of matter. In a vacuum, there are no particles to vibrate, collide, and transfer mechanical energy. Therefore, sound cannot travel through a vacuum.</p>
+<p>This principle can be demonstrated using an electric bell placed inside an airtight glass bell jar connected to a vacuum pump. When the circuit is closed, the bell rings, and the sound is clearly heard through the glass and air. As the vacuum pump removes air from the jar, the sound of the bell becomes fainter and eventually disappears, even though the hammer can still be seen striking the gong. When air is readmitted into the jar, the sound is heard once again.</p>
+<p>The speed of sound is the distance that a sound wave travels per unit of time. In dry air at twenty degrees Celsius, the speed of sound is approximately three hundred forty-three metres per second. The speed varies with temperature; as the temperature of a medium increases, the speed of sound increases because the faster-moving particles transfer energy more rapidly. The relationship between speed, distance, and time for a sound wave is expressed mathematically as distance equals speed multiplied by time.</p></section>
+<section id="waveforms-amplitude-loudness-frequency-and-pitch"><h3>Waveforms, Amplitude, Loudness, Frequency, and Pitch</h3><p>A sound wave can be represented graphically as a waveform, plotting displacement or pressure against distance or time. Key characteristics of a waveform include <strong>amplitude</strong>, <strong>frequency</strong>, <strong>wavelength</strong>, and <strong>time period</strong>.</p>
+<p><strong>Amplitude</strong> is the maximum displacement of the particles of the medium from their mean position. The loudness or softness of a sound is determined by its amplitude. A larger amplitude indicates a louder sound because more energy is being transported by the wave, causing particles to displace further. Loudness is measured in decibels.</p>
+<p><strong>Frequency</strong> is the number of complete oscillations or cycles per second, measured in hertz. The pitch of a sound is directly determined by its frequency. A high-frequency sound produces a high-pitched sound, such as the chirp of a bird or the squeak of a mouse. A low-frequency sound produces a low-pitched sound, such as the roar of a lion or the beat of a drum. The time period is the time taken for one complete oscillation, which is the reciprocal of frequency.</p>
+<p><strong>Wavelength</strong> is the distance between two consecutive compressions or two consecutive rarefactions. The speed of a wave is equal to the product of its frequency and its wavelength.</p></section>
+<section id="waveform-superposition-reinforcement-and-cancellation"><h3>Waveform Superposition, Reinforcement, and Cancellation</h3><p>When two or more sound waves travel through the same medium simultaneously, they pass through each other and interact according to the principle of superposition. At any point where the waves meet, the resultant displacement is the vector sum of the displacements of the individual waves.</p>
+<p>If the crest of one wave meets the crest of another wave, or a compression meets a compression, the displacements are in the same direction. The waves reinforce each other, creating a wave with a larger amplitude than either individual wave. This phenomenon is known as constructive interference or <strong>reinforcement</strong>, resulting in a louder sound at that location.</p>
+<p>Conversely, if the crest of one wave meets the trough of another wave, or a compression meets a rarefaction, the displacements are in opposite directions. The waves cancel each other out partially or completely, creating a wave with a smaller amplitude. This phenomenon is known as destructive interference or <strong>cancellation</strong>, resulting in a softer sound or complete silence at that location. This wave interaction explains acoustic phenomena such as beats and dead spots in auditoriums.</p></section>
+<section id="reflection-of-sound-echoes-and-ultrasound"><h3>Reflection of Sound, Echoes, and Ultrasound</h3><p>Sound waves obey the laws of reflection, bouncing off hard surfaces just like light. An <strong>echo</strong> is a distinct sound heard after the reflection of sound waves from a rigid obstacle such as a cliff, large building, or wall. Because the human brain retains a sound sensation for one-tenth of a second, the reflected sound must reach the ear at least zero point one seconds after the original sound for an echo to be distinguished from the direct sound.</p>
+<p>Using the minimum time interval and the speed of sound in air, the minimum distance required from a reflecting surface to hear an echo can be calculated. If the speed of sound is three hundred forty-three metres per second, the total distance travelled by the sound in zero point one seconds is thirty-four point three metres. Dividing by two gives a minimum distance of seventeen point one metres between the sound source and the obstacle.</p>
+<p>The human ear can typically hear sounds with frequencies ranging from twenty hertz to twenty thousand hertz, known as the audible range. Sounds with frequencies below twenty hertz are called infrasound, while frequencies above twenty thousand hertz are called <strong>ultrasound</strong>. Ultrasound has numerous applications due to its high frequency and directional stability, including medical imaging, industrial flaw detection, and sonar for measuring ocean depths and locating underwater objects.</p></section>
+        </article>
+
+        <section class="t-card"><h2>Términos clave</h2><dl class="t-terms"><div><dt>Sound wave</dt><dd>A longitudinal mechanical wave consisting of alternating compressions and rarefactions that propagates through a material medium.</dd></div><div><dt>Compression</dt><dd>A region in a longitudinal wave where particles are pushed together, resulting in high pressure and high density.</dd></div><div><dt>Rarefaction</dt><dd>A region in a longitudinal wave where particles are spread apart, resulting in low pressure and low density.</dd></div><div><dt>Amplitude</dt><dd>The maximum displacement of particles from their mean position in a wave.</dd></div><div><dt>Frequency</dt><dd>The number of complete wave cycles produced per second, measured in hertz.</dd></div><div><dt>Pitch</dt><dd>The characteristic of sound that depends on frequency, determining whether a sound is high or low.</dd></div><div><dt>Loudness</dt><dd>The characteristic of sound that depends on amplitude, determining how loud or soft a sound is perceived.</dd></div><div><dt>Echo</dt><dd>The repetition of a sound caused by the reflection of sound waves from a hard surface.</dd></div><div><dt>Ultrasound</dt><dd>Sound waves with frequencies above the upper limit of human hearing, specifically greater than twenty thousand hertz.</dd></div><div><dt>Superposition</dt><dd>The principle that when two or more waves meet, the resultant displacement is the sum of the individual displacements.</dd></div></dl></section>
+
+        <section><h2>Ejemplos resueltos</h2><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">1</span>A person claps their hands near a tall cliff and hears the echo after two seconds. If the speed of sound in air is 343 metres per second, calculate the distance between the person and the cliff.</p><details><summary>Mostrar la solución</summary><div class="t-ex-a"><ol><li>Identify the given values: time taken for the echo to be heard (t = 2 seconds), speed of sound (v = 343 m/s).</li><li>Understand that the sound travels to the cliff and back to the person, covering twice the distance (2d) between the person and the cliff.</li><li>Use the formula for distance: Total distance = speed multiplied by time.</li><li>Calculate total distance: 343 m/s multiplied by 2 s = 686 metres.</li><li>Divide the total distance by 2 to find the one-way distance to the cliff: 686 m / 2 = 343 metres.</li><li>The distance between the person and the cliff is 343 metres.</li></ol></div></details></div></section>
+
+        <section><h2>Ideas erróneas frecuentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Sound waves can travel through the vacuum of space.</p><p class="t-fact"><span>En realidad</span> Sound is a mechanical wave that requires a material medium of particles to oscillate and transfer energy; therefore, sound cannot travel through a vacuum.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Loud sound travels faster than soft sound.</p><p class="t-fact"><span>En realidad</span> The speed of sound depends on the properties of the medium and temperature, not on the amplitude or loudness of the sound wave.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> High pitch means the sound is louder.</p><p class="t-fact"><span>En realidad</span> Pitch is determined by frequency, whereas loudness is determined by amplitude. A sound can be high-pitched and soft, or low-pitched and loud.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Particles of the medium travel all the way from the sound source to the listener's ear.</p><p class="t-fact"><span>En realidad</span> Particles only oscillate back and forth about their mean positions, transferring energy through the medium without travelling the entire distance themselves.</p></div></div></section>
+
+        <section class="t-card"><h2>Alineación con el currículo</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>7Ps.01</code> Describe the vibration of particles in a sound wave and explain why sound does not travel in a vacuum.</li><li><code>7Ps.02</code> Explain echoes in terms of the reflection of sound waves.</li><li><code>9Ps.01</code> Draw and interpret waveforms, and recognise the link between loudness and amplitude, pitch and frequency.</li><li><code>9Ps.02</code> Use waveforms to show how sound waves interact to reinforce or cancel each other.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U3:06</code> Sound</li></ul></section>
+      </div>
+
+      <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
+      <p class="eyebrow"><span class="t-soon">Próximamente</span></p>
+      <h2 id="kit-h">El kit didáctico completo</h2>
+      <p>Recursos listos para usar creados a partir de esta lección. Crea una cuenta gratuita y serás el primero en saber cuándo estén disponibles.</p>
+      <ul class="t-kit-list"><li>Plan de clase</li><li>Presentación</li><li>Ficha de trabajo con solucionario</li><li>Actividad de clase</li><li>Estudio de caso</li><li>Banco de preguntas: 30 preguntas de práctica</li><li>Evaluación en línea con corrección automática</li></ul>
+      <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=sound-waves">Crear una cuenta gratuita</a>
+    </aside></div>
+    </div>
+
+    <section class="t-related"><h2>Más lecciones de Ciencias</h2><div class="t-cards"><a class="t-cardlink" href="/es/topics/a-balanced-diet" data-subject="Science" data-text="a balanced diet proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it. science 8bp.01 6:ch03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/WzKtNmxUe1w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Ciencias</span>
+        <span class="t-card-title" lang="en">A Balanced Diet</span>
+        <span class="t-card-sum" lang="en">Proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it.</span>
+        <span class="t-codes"><code>8Bp.01</code><code>6:ch03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/acids-alkalis-and-the-ph-scale" data-subject="Science" data-text="acids, alkalis and the ph scale acidity and alkalinity as chemical properties, the ph scale, indicators, and neutralisation. science 7cp.02 7cp.03 7cc.04">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/izw9rsR3JmU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Ciencias</span>
+        <span class="t-card-title" lang="en">Acids, Alkalis and the pH Scale</span>
+        <span class="t-card-sum" lang="en">Acidity and alkalinity as chemical properties, the pH scale, indicators, and neutralisation.</span>
+        <span class="t-codes"><code>7Cp.02</code><code>7Cp.03</code><code>7Cc.04</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/aerobic-respiration" data-subject="Science" data-text="aerobic respiration energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing. science 8bp.04 8bp.05 10:u2:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/FPT96igGPK8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Ciencias</span>
+        <span class="t-card-title" lang="en">Aerobic Respiration</span>
+        <span class="t-card-sum" lang="en">Energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing.</span>
+        <span class="t-codes"><code>8Bp.04</code><code>8Bp.05</code><code>10:U2:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/blood-and-its-components" data-subject="Science" data-text="blood and its components plasma, red blood cells, white blood cells and platelets, and what each transports or protects. science 8bs.02 7:ch09">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/Iaaj9jR7g9k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Ciencias</span>
+        <span class="t-card-title" lang="en">Blood and Its Components</span>
+        <span class="t-card-sum" lang="en">Plasma, red blood cells, white blood cells and platelets, and what each transports or protects.</span>
+        <span class="t-codes"><code>8Bs.02</code><code>7:ch09</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/cells" data-subject="Science" data-text="cells the cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems. science 7bs.01 7bs.02 7bs.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/-Qm-tfg1yJ4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Ciencias</span>
+        <span class="t-card-title" lang="en">Cells</span>
+        <span class="t-card-sum" lang="en">The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build…</span>
+        <span class="t-codes"><code>7Bs.01</code><code>7Bs.02</code><code>7Bs.03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/es/topics/classification-of-elements-and-the-periodic-table" data-subject="Science" data-text="classification of elements and the periodic table why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the trends down group 1. science 7cm.01 7cm.02 7cm.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/F-TwnP0ORlQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Ciencias</span>
+        <span class="t-card-title" lang="en">Classification of Elements and the Periodic Table</span>
+        <span class="t-card-sum" lang="en">Why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the…</span>
+        <span class="t-codes"><code>7Cm.01</code><code>7Cm.02</code><code>7Cm.03</code></span>
+      </span>
+    </a></div></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — un capítulo, ya explicado" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/es/" data-i18n="common.nav.home">Inicio</a>
+        <a href="/es/about" data-i18n="common.nav.about">Quiénes somos</a>
+        <a href="/es/topics" data-i18n="common.nav.lessons">Lecciones</a>
+        <a href="/es/homeschool" data-i18n="common.nav.homeschool">Educación en casa</a>
+        <a href="/es/schools" data-i18n="common.nav.schools">Para colegios</a>
+        <a href="/es/pricing" data-i18n="common.nav.pricing">Precios</a>
+        <a href="/es/privacy" data-i18n="common.footer.privacy">Privacidad</a>
+        <a href="/es/terms" data-i18n="common.footer.terms">Términos</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">Contacto</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="Aethel Twin en LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="foot-legal" data-i18n="common.footer.legal">Un producto de <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Estatus Malaysia Digital MD/0002997</p>
+    <p class="foot-legal" data-i18n="common.footer.youtube">SketchCast también publica lecciones gratuitas de su biblioteca de temas en el <a href="https://www.youtube.com/@Sketchcast-AI-app" target="_blank" rel="noopener">canal de YouTube de SketchCast</a>. Cómo usamos los servicios de API de Google para ello se explica en nuestra <a href="/es/privacy#google-api">Política de privacidad (§7)</a>.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script defer src="/assets/handoff.js"></script>
+<script>
+(function(){
+  // Click-to-play: the YouTube player loads only when asked (privacy, speed).
+  document.querySelectorAll('.t-play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0';
+      f.title=b.getAttribute('aria-label')||'Video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      b.parentNode.replaceChild(f,b);
+    });
+  });
+  // Index filters: subject chips + text search.
+  var cards=document.getElementById('t-cards');if(!cards)return;
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      c.hidden=!ok;if(ok)shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    subject=ch.getAttribute('data-subject');
+    chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
+  });});
+  q.addEventListener('input',apply);
+})();
+</script>
+</body>
+</html>
