@@ -349,7 +349,10 @@ function kitItems(topic, t) {
   const items = [];
   const has = new Set(topic.kit_pieces || []);
   for (const k of ["lesson_plan", "deck", "worksheet", "activity", "case_study"]) if (has.has(k)) items.push(t[`kit.${k}`]);
-  if (topic.question_count >= 10) items.push(fill(t["kit.questions"], { n: topic.question_count }));
+  // The PRINTABLE bank (catalogue Phase D) names the same questions as the
+  // count line did; one line, not two.
+  if (has.has("question_bank")) items.push(fill(t["kit.question_bank"], { n: topic.question_count }));
+  else if (topic.question_count >= 10) items.push(fill(t["kit.questions"], { n: topic.question_count }));
   if (topic.has_online_assessment) items.push(t["kit.assessment"]);
   if (topic.exam_ready) items.push(t["kit.exam"]);
   return items;
