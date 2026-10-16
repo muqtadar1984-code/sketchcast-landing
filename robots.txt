@@ -3,3 +3,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sketchcast.app/sitemap.xml
+Sitemap: https://sketchcast.app/sitemap-topics.xml

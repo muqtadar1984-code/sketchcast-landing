@@ -1,0 +1,668 @@
+#!/usr/bin/env node
+/* SketchCast marketing site — the free-lesson pages (/topics).
+ *
+ * WHAT THIS IS. The catalogue's public face: one page per approved topic (the
+ * YouTube lesson, the written explanation, key terms, worked examples, common
+ * misconceptions, curriculum alignment) and an index of them all. Data comes
+ * from the app database's anon-safe projection, public_catalogue() (migration
+ * 0128): the same rows any visitor's browser could read, never a path, an id,
+ * a question or an answer.
+ *
+ *   node build-topics.mjs                 fetch from Supabase, write pages
+ *   node build-topics.mjs --from file.json  build from a saved copy (offline)
+ *
+ * RUN ORDER. After build-i18n.mjs: each language's topic pages are cut from that
+ * language's BUILT schools page (head, fonts, header, language switcher,
+ * footer), so the chrome is never written twice and a nav change reaches the
+ * topic pages on the next build.
+ *
+ * LANGUAGES. The lesson content is English (the videos and articles are). The
+ * page chrome comes from strings/topics/<locale>.json. A translated page wraps
+ * the English content in lang="en" dir="ltr" and is `noindex, follow` with its
+ * canonical on the English page, so search engines index one copy of each
+ * lesson. When a translated kit exists for a language, that language's pages
+ * become indexable (see `indexable` below).
+ *
+ * KITS. The full kit sits behind sign-in. Until the founder releases it
+ * (platform_settings.catalogue_release in the app, migration 0130), every page
+ * says "Coming soon"; flip KITS_RELEASED here at the same time.
+ */
+
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const ROOT = dirname(fileURLToPath(import.meta.url));
+const ORIGIN = "https://sketchcast.app";
+const APP = "https://app.sketchcast.app";
+
+// The public Supabase endpoint and PUBLISHABLE key: by design not secret (the
+// app ships the same key to every browser). public_catalogue() is the only
+// thing it reads.
+const SUPABASE_URL = "https://pblaxsqhjwlqbrwbraxy.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_WkV7khrwzkaj8FlyQ1lLag_rJHOyFPi";
+
+// Flip together with the app's catalogue_release switch.
+const KITS_RELEASED = false;
+
+// Same order as build-i18n.mjs's registry.
+const LOCALES = [
+  { code: "en", html: "en", dir: "ltr" },
+  { code: "ms", html: "ms", dir: "ltr" },
+  { code: "ar", html: "ar", dir: "rtl" },
+  { code: "fr", html: "fr", dir: "ltr" },
+  { code: "es", html: "es", dir: "ltr" },
+  { code: "pt", html: "pt", dir: "ltr" },
+  { code: "te", html: "te", dir: "ltr" },
+  { code: "mr", html: "mr", dir: "ltr" },
+  { code: "hi", html: "hi", dir: "ltr" },
+  { code: "ms-arab", html: "ms-Arab", dir: "rtl" },
+];
+const DEFAULT = "en";
+
+/* ── data ─────────────────────────────────────────────────────────────── */
+
+async function loadCatalogue() {
+  const i = process.argv.indexOf("--from");
+  if (i > 0) return JSON.parse(readFileSync(process.argv[i + 1], "utf8"));
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/public_catalogue`, {
+    method: "POST",
+    headers: { apikey: SUPABASE_PUBLISHABLE_KEY, "Content-Type": "application/json" },
+    body: "{}",
+  });
+  if (!res.ok) throw new Error(`public_catalogue: HTTP ${res.status} ${await res.text()}`);
+  return res.json();
+}
+
+async function loadRedirects() {
+  if (process.argv.includes("--from")) return [];
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/public_catalogue_redirects`, {
+    method: "POST",
+    headers: { apikey: SUPABASE_PUBLISHABLE_KEY, "Content-Type": "application/json" },
+    body: "{}",
+  });
+  return res.ok ? res.json() : [];
+}
+
+/* ── text helpers ─────────────────────────────────────────────────────── */
+
+const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const fill = (s, vars) => String(s).replace(/\{(\w+)\}/g, (_, k) => (k in vars ? vars[k] : `{${k}}`));
+const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const plain = (md) => String(md ?? "").replace(/\*\*?/g, "").replace(/\s+/g, " ").trim();
+const clip = (s, n) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, "") + "…");
+
+// Inline markdown: the subset the articles use (surveyed 2026-10-16): **bold**,
+// *italic*, and ^ exponents (10^8, r^2, 10^-3, x^(n+1)). Escaped first.
+function inline(md) {
+  let s = esc(md);
+  s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  s = s.replace(/(^|[^*\w])\*([^*\n]+)\*(?![*\w])/g, "$1<em>$2</em>");
+  s = s.replace(/([\w)\]])\^\(([^)]{1,40})\)/g, "$1<sup>$2</sup>");
+  s = s.replace(/([\w)\]])\^(-?[\w.]{1,6})/g, "$1<sup>$2</sup>");
+  return s;
+}
+
+// Block markdown: paragraphs, - / * bullets, 1. / 1) numbered lists, and
+// pipe tables. No headings, links, code or raw HTML occur in the articles.
+function markdown(md) {
+  const out = [];
+  const blocks = String(md ?? "").replace(/\r/g, "").split(/\n{2,}/);
+  for (const block of blocks) {
+    const lines = block.split("\n").filter((l) => l.trim() !== "");
+    if (!lines.length) continue;
+    if (lines.every((l) => /^\s*\|.*\|\s*$/.test(l))) {
+      const rows = lines
+        .filter((l) => !/^\s*\|[\s:|-]+\|\s*$/.test(l))
+        .map((l) => l.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim()));
+      const [head, ...body] = rows;
+      out.push(
+        `<div class="t-table"><table><thead><tr>${head.map((c) => `<th>${inline(c)}</th>`).join("")}</tr></thead>` +
+          `<tbody>${body.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`,
+      );
+      continue;
+    }
+    // A single newline is meaningful in this content (a worked solution's
+    // "Step 1: … / Step 2: …" lines), so each line is its own paragraph and
+    // a leading "Step N:" is set in bold.
+    let para = [];
+    let list = null; // { tag, items }
+    const flushPara = () => {
+      for (const line of para) out.push(`<p>${inline(line).replace(/^(Step \d+[:.])/, "<strong>$1</strong>")}</p>`);
+      para = [];
+    };
+    const flushList = () => { if (list) out.push(`<${list.tag}>${list.items.map((i) => `<li>${inline(i)}</li>`).join("")}</${list.tag}>`); list = null; };
+    for (const line of lines) {
+      const ul = line.match(/^\s*[-*]\s+(.*)$/);
+      const ol = line.match(/^\s*\d+[.)]\s+(.*)$/);
+      if (ul || ol) {
+        flushPara();
+        const tag = ul ? "ul" : "ol";
+        if (!list || list.tag !== tag) { flushList(); list = { tag, items: [] }; }
+        list.items.push((ul || ol)[1]);
+      } else if (list && /^\s{2,}\S/.test(line)) {
+        list.items[list.items.length - 1] += " " + line.trim();
+      } else {
+        flushList();
+        para.push(line.trim());
+      }
+    }
+    flushPara();
+    flushList();
+  }
+  return out.join("\n");
+}
+
+/* ── strings ──────────────────────────────────────────────────────────── */
+
+const STR_DIR = join(ROOT, "strings", "topics");
+const strings = Object.fromEntries(
+  LOCALES.map((l) => [l.code, JSON.parse(readFileSync(join(STR_DIR, `${l.code}.json`), "utf8"))]),
+);
+{
+  const keys = Object.keys(strings.en).filter((k) => !k.startsWith("_"));
+  for (const l of LOCALES) {
+    for (const k of keys) if (!(k in strings[l.code])) throw new Error(`strings/topics/${l.code}.json: missing "${k}"`);
+    for (const k of Object.keys(strings[l.code])) if (!k.startsWith("_") && !(k in strings.en)) throw new Error(`strings/topics/${l.code}.json: unknown "${k}"`);
+  }
+}
+const subjectLabel = (t, subject) => t[`subject.${subject}`] ?? subject;
+
+/* ── URLs ─────────────────────────────────────────────────────────────── */
+
+const prefix = (code) => (code === DEFAULT ? "" : `/${code}`);
+const indexUrl = (code) => `${ORIGIN}${prefix(code)}/topics`;
+const topicUrl = (code, slug) => `${ORIGIN}${prefix(code)}/topics/${slug}`;
+const indexable = (code /*, topic */) => code === DEFAULT; // until translated kits exist
+
+/* ── the shell: each language's BUILT schools page ────────────────────── */
+
+function shell(code) {
+  const file = code === DEFAULT ? join(ROOT, "schools.html") : join(ROOT, code, "schools.html");
+  const html = readFileSync(file, "utf8");
+  const mainStart = html.indexOf("<main>");
+  const mainEnd = html.indexOf("</main>");
+  const headStart = html.indexOf("<!--i18n:head-->");
+  const headEnd = html.indexOf("<!--/i18n:head-->");
+  const swStart = html.indexOf("<!--i18n:switcher-->");
+  const swEnd = html.indexOf("<!--/i18n:switcher-->");
+  if ([mainStart, mainEnd, headStart, headEnd, swStart, swEnd].some((i) => i < 0)) {
+    throw new Error(`${file}: missing <main> or an i18n marker — run build-i18n.mjs first`);
+  }
+  return { html, mainStart, mainEnd, headStart, headEnd, swStart, swEnd };
+}
+
+/* Assemble one page from a shell: new <title>/description/og, a head block
+ * (canonical, hreflang, robots) that keeps the shell's per-script font CSS,
+ * the switcher re-pointed at this page, nav "current" moved to Lessons, and
+ * our <main>. */
+function page(code, { route, title, description, ogType = "website", jsonLd = [], main, alternates }) {
+  const s = shell(code);
+  const loc = LOCALES.find((l) => l.code === code);
+  let head = s.html.slice(0, s.headStart);
+  head = head
+    .replace(/<title[^>]*>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
+    .replace(/<meta name="description"[^>]*\/>/, `<meta name="description" content="${esc(description)}" />`)
+    .replace(/<meta property="og:title"[^>]*\/>/, `<meta property="og:title" content="${esc(title)}" />`)
+    .replace(/<meta property="og:description"[^>]*\/>/, `<meta property="og:description" content="${esc(description)}" />`)
+    .replace(/<meta property="og:type"[^>]*\/>/, `<meta property="og:type" content="${ogType}" />`)
+    .replace(/<script type="application\/ld\+json"[\s\S]*?<\/script>\s*/g, "");
+
+  // Keep the shell head block's typography/CSS lines; replace its URL lines.
+  const oldBlock = s.html.slice(s.headStart + "<!--i18n:head-->".length, s.headEnd);
+  const keep = oldBlock
+    .split("\n")
+    .filter((l) => !/rel="canonical"|rel="alternate"|property="og:url"|property="og:locale/.test(l))
+    .join("\n");
+  const canonical = indexable(code) ? `${ORIGIN}${prefix(code)}${route}` : `${ORIGIN}${route}`;
+  const links = [`  <link rel="canonical" href="${canonical}" />`];
+  if (!indexable(code)) links.push(`  <meta name="robots" content="noindex, follow" />`);
+  // hreflang only between indexable versions (today: English alone, so none).
+  const indexed = LOCALES.filter((l) => indexable(l.code));
+  if (indexed.length > 1) for (const l of indexed) links.push(`  <link rel="alternate" hreflang="${l.html}" href="${alternates(l.code)}" />`);
+  links.push(`  <meta property="og:url" content="${canonical}" />`);
+  const ld = jsonLd.map((o) => `  <script type="application/ld+json">${JSON.stringify(o).replace(/</g, "\\u003c")}</script>`);
+  const headBlock = `<!--i18n:head-->\n${links.join("\n")}\n${ld.join("\n")}${keep}`;
+
+  let middle = s.html.slice(s.headEnd, s.swStart);
+  middle = middle
+    .replace("</head>", `<style id="topics-css">${CSS}</style>\n</head>`)
+    .replace(/ aria-current="page"/g, "")
+    .replace(/(<a href="[^"]*\/topics" )(data-i18n="common\.nav\.lessons")/, '$1aria-current="page" $2');
+
+  // Language switcher: every language links to THIS page in that language.
+  let sw = s.html.slice(s.swStart, s.swEnd);
+  sw = sw.replace(/href="https:\/\/sketchcast\.app(?:\/[a-z-]+)?\/schools"/g, (m) => {
+    const code2 = (m.match(/sketchcast\.app\/([a-z-]+)\/schools/) || [, DEFAULT])[1];
+    return `href="${alternates(LOCALES.some((l) => l.code === code2) ? code2 : DEFAULT)}"`;
+  });
+
+  let tail = s.html.slice(s.swEnd, s.mainStart);
+  const foot = s.html.slice(s.mainEnd + "</main>".length).replace(/ aria-current="page"/g, "");
+  return `${head}${headBlock}${middle}${sw}${tail}<main>\n${main}\n</main>${foot}`.replace(
+    /<html lang="[^"]*" dir="[^"]*">/,
+    `<html lang="${loc.html}" dir="${loc.dir}">`,
+  );
+}
+
+/* ── pieces ───────────────────────────────────────────────────────────── */
+
+const thumb = (id) => `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg`;
+const watchUrl = (id, t) => `https://www.youtube.com/watch?v=${encodeURIComponent(id)}${t ? `&t=${t}s` : ""}`;
+const mmss = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+
+function stageOf(topic) {
+  const grades = [...new Set((topic.curriculum || []).map((c) => c.grade).filter(Boolean))];
+  return grades;
+}
+
+function curriculumSummary(topic) {
+  const by = new Map();
+  for (const c of topic.curriculum || []) {
+    if (!by.has(c.curriculum)) by.set(c.curriculum, []);
+    by.get(c.curriculum).push(c);
+  }
+  return by;
+}
+
+function kitItems(topic, t) {
+  const items = [];
+  const has = new Set(topic.kit_pieces || []);
+  for (const k of ["lesson_plan", "deck", "worksheet", "activity", "case_study"]) if (has.has(k)) items.push(t[`kit.${k}`]);
+  if (topic.question_count >= 10) items.push(fill(t["kit.questions"], { n: topic.question_count }));
+  if (topic.has_online_assessment) items.push(t["kit.assessment"]);
+  if (topic.exam_ready) items.push(t["kit.exam"]);
+  return items;
+}
+
+function videoBlock(topic, t) {
+  const parts = topic.videos || [];
+  const chaptersFor = (p) => ((topic.chapters || []).find((c) => c.part === p.part)?.chapters || []).filter((c) => c && typeof c.t === "number");
+  return parts
+    .map((p) => {
+      const label = parts.length > 1 ? `<h3 class="t-part">${esc(fill(t.part, { n: p.part }))}</h3>` : "";
+      const ch = chaptersFor(p);
+      const chapters = ch.length
+        ? `<details class="t-chapters"><summary>${esc(t.chapters)}</summary><ol>${ch
+            .map((c) => `<li><a href="${watchUrl(p.youtube_video_id, c.t)}" target="_blank" rel="noopener"><span class="t-time">${mmss(c.t)}</span> ${inline(c.label)}</a></li>`)
+            .join("")}</ol></details>`
+        : "";
+      return `${label}
+      <div class="t-video">
+        <button type="button" class="t-play" data-yt="${esc(p.youtube_video_id)}" aria-label="${esc(fill(t.play, { title: topic.title }))}">
+          <img src="${thumb(p.youtube_video_id)}" alt="" width="480" height="360" loading="${p.part === 1 ? "eager" : "lazy"}" />
+          <span class="t-play-icon" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#14181F"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+        </button>
+      </div>
+      <p class="t-yt"><a href="${watchUrl(p.youtube_video_id)}" target="_blank" rel="noopener">${esc(t.watchOnYouTube)} ↗</a></p>
+      ${chapters}`;
+    })
+    .join("\n");
+}
+
+function kitBox(topic, t) {
+  const items = kitItems(topic, t);
+  const cta = KITS_RELEASED
+    ? `<a class="btn btn-primary" href="${APP}/signup?topic=${encodeURIComponent(topic.slug)}">${esc(t["kit.unlock"])}</a>`
+    : `<a class="btn btn-primary" href="${APP}/signup?topic=${encodeURIComponent(topic.slug)}">${esc(t["kit.signup"])}</a>`;
+  return `<aside class="t-kit" aria-labelledby="kit-h">
+      <p class="eyebrow">${KITS_RELEASED ? esc(t["kit.eyebrowReleased"]) : `<span class="t-soon">${esc(t["kit.comingSoon"])}</span>`}</p>
+      <h2 id="kit-h">${esc(t["kit.title"])}</h2>
+      <p>${esc(KITS_RELEASED ? t["kit.leadReleased"] : t["kit.lead"])}</p>
+      <ul class="t-kit-list">${items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
+      ${cta}
+    </aside>`;
+}
+
+/* ── the topic page ───────────────────────────────────────────────────── */
+
+function topicMain(topic, all, code) {
+  const t = strings[code];
+  const subj = subjectLabel(t, topic.subject);
+  const grades = stageOf(topic);
+  const curric = curriculumSummary(topic);
+  const sections = (topic.sections || []).filter((s) => s && (s.body_md || "").trim());
+  const objectives = (topic.objectives || []).map((o) => (typeof o === "string" ? o : o.text)).filter(Boolean);
+  const terms = (topic.key_concepts || []).filter((g) => g && g.term);
+  const examples = (topic.worked_examples || []).filter((w) => w && w.problem);
+  const misc = (topic.misconceptions || []).filter((m) => m && m.misconception);
+  const related = all.filter((x) => x.slug !== topic.slug && x.subject === topic.subject).slice(0, 6);
+  const contentAttrs = code === DEFAULT ? "" : ` lang="en" dir="ltr"`;
+  const note = code === DEFAULT ? "" : `<p class="t-note">${esc(t.englishNote)}</p>`;
+
+  const toc = sections.length > 2
+    ? `<nav class="t-toc" aria-label="${esc(t.contents)}"><p class="eyebrow">${esc(t.contents)}</p><ol>${sections
+        .map((s) => `<li><a href="#${esc(slugify(s.heading || s.id))}">${esc(s.heading)}</a></li>`)
+        .join("")}</ol></nav>`
+    : "";
+
+  return `
+  <div class="wrap t-page">
+    <nav class="t-crumbs" aria-label="Breadcrumb"><a href="${prefix(code)}/topics">${esc(t.breadcrumb)}</a> <span aria-hidden="true">›</span> <span>${esc(subj)}</span></nav>
+    ${note}
+    <div class="t-hero"${contentAttrs}>
+      <p class="eyebrow">${esc(subj)}${grades.length ? ` · ${esc(fill(t.grade, { g: grades.join(", ") }))}` : ""}</p>
+      <h1>${esc(topic.title)}</h1>
+      ${topic.summary ? `<p class="t-lead">${inline(topic.summary)}</p>` : ""}
+    </div>
+
+    <div class="t-grid">
+      <div class="t-body"${contentAttrs}>
+        <section aria-label="${esc(t.video)}">${videoBlock(topic, t)}</section>
+
+        ${objectives.length ? `<section class="t-card"><h2>${esc(t.objectives)}</h2><ul class="t-ticks">${objectives.map((o) => `<li>${inline(o)}</li>`).join("")}</ul></section>` : ""}
+
+        ${toc}
+
+        <article class="t-article">
+          <h2 class="t-article-h">${esc(t.explanation)}</h2>
+          ${sections.map((s) => `<section id="${esc(slugify(s.heading || s.id))}"><h3>${esc(s.heading)}</h3>${markdown(s.body_md)}</section>`).join("\n")}
+        </article>
+
+        ${terms.length ? `<section class="t-card"><h2>${esc(t.keyTerms)}</h2><dl class="t-terms">${terms.map((g) => `<div><dt>${inline(g.term)}</dt><dd>${inline(g.definition || "")}</dd></div>`).join("")}</dl></section>` : ""}
+
+        ${examples.length ? `<section><h2>${esc(t.workedExamples)}</h2>${examples
+          .map((w, i) => `<div class="t-example"><p class="t-ex-q"><span class="t-ex-n">${i + 1}</span>${inline(w.problem)}</p>${w.solution_md ? `<details><summary>${esc(t.showSolution)}</summary><div class="t-ex-a">${markdown(w.solution_md)}</div></details>` : ""}</div>`)
+          .join("")}</section>` : ""}
+
+        ${misc.length ? `<section><h2>${esc(t.misconceptions)}</h2><div class="t-misc">${misc
+          .map((m) => `<div class="t-misc-item"><p class="t-myth"><span>${esc(t.myth)}</span> ${inline(m.misconception)}</p>${m.correction ? `<p class="t-fact"><span>${esc(t.fact)}</span> ${inline(m.correction)}</p>` : ""}</div>`)
+          .join("")}</div></section>` : ""}
+
+        ${curric.size ? `<section class="t-card"><h2>${esc(t.curriculum)}</h2>${[...curric.entries()]
+          .map(([name, rows]) => `<h3 class="t-cur-h">${esc(name)}</h3><ul class="t-cur">${rows.map((c) => `<li><code>${esc(String(c.code).replace(/^cbse:/, ""))}</code> ${esc(c.title)}</li>`).join("")}</ul>`)
+          .join("")}</section>` : ""}
+      </div>
+
+      <div class="t-side">${kitBox(topic, t)}</div>
+    </div>
+
+    ${related.length ? `<section class="t-related"><h2>${esc(fill(t.related, { subject: subj }))}</h2><div class="t-cards">${related.map((r) => card(r, code)).join("")}</div></section>` : ""}
+  </div>`;
+}
+
+function topicJsonLd(topic) {
+  const url = topicUrl(DEFAULT, topic.slug);
+  const date = (topic.approved_at || "").slice(0, 10) || undefined;
+  const videos = (topic.videos || []).map((p) => ({
+    "@type": "VideoObject",
+    name: (topic.videos.length > 1 ? `${topic.title}, Part ${p.part}` : topic.title),
+    description: topic.summary || topic.title,
+    thumbnailUrl: thumb(p.youtube_video_id),
+    uploadDate: date,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${p.youtube_video_id}`,
+    url: watchUrl(p.youtube_video_id),
+  }));
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      name: topic.title,
+      description: topic.summary || topic.title,
+      url,
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      learningResourceType: "Video lesson",
+      about: topic.subject,
+      educationalLevel: stageOf(topic).length ? `Grade ${stageOf(topic).join(", ")}` : undefined,
+      teaches: (topic.objectives || []).map((o) => (typeof o === "string" ? o : o.text)).filter(Boolean),
+      educationalAlignment: (topic.curriculum || []).map((c) => ({
+        "@type": "AlignmentObject",
+        alignmentType: "teaches",
+        educationalFramework: c.curriculum,
+        targetName: String(c.code),
+        targetDescription: c.title,
+      })),
+      provider: { "@type": "Organization", name: "SketchCast AI", url: ORIGIN },
+      hasPart: videos,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Lessons", item: indexUrl(DEFAULT) },
+        { "@type": "ListItem", position: 2, name: topic.title, item: url },
+      ],
+    },
+  ];
+}
+
+/* ── the index ────────────────────────────────────────────────────────── */
+
+function card(topic, code) {
+  const t = strings[code];
+  const v = (topic.videos || [])[0];
+  const codes = [...new Set((topic.curriculum || []).map((c) => String(c.code).replace(/^cbse:/, "")))].slice(0, 3);
+  const text = `${topic.title} ${topic.summary || ""} ${topic.subject} ${codes.join(" ")}`.toLowerCase();
+  return `<a class="t-cardlink" href="${prefix(code)}/topics/${topic.slug}" data-subject="${esc(topic.subject)}" data-text="${esc(text)}">
+      ${v ? `<span class="t-thumb"><img src="${thumb(v.youtube_video_id)}" alt="" width="480" height="360" loading="lazy" /></span>` : ""}
+      <span class="t-card-body">
+        <span class="eyebrow">${esc(subjectLabel(t, topic.subject))}</span>
+        <span class="t-card-title" lang="en">${esc(topic.title)}</span>
+        ${topic.summary ? `<span class="t-card-sum" lang="en">${inline(clip(plain(topic.summary), 140))}</span>` : ""}
+        ${codes.length ? `<span class="t-codes">${codes.map((c) => `<code>${esc(c)}</code>`).join("")}</span>` : ""}
+      </span>
+    </a>`;
+}
+
+function indexMain(all, code) {
+  const t = strings[code];
+  const subjects = [...new Set(all.map((x) => x.subject))].sort();
+  return `
+  <div class="wrap t-page">
+    <div class="t-hero t-index-hero">
+      <p class="eyebrow">${esc(t["index.eyebrow"])}</p>
+      <h1>${esc(t["index.title"])}</h1>
+      <p class="t-lead">${esc(t["index.lead"])}</p>
+    </div>
+    <div class="t-filters" role="search">
+      <div class="t-chips" role="group" aria-label="${esc(t.subject)}">
+        <button type="button" class="t-chip" aria-pressed="true" data-subject="">${esc(t.all)} <span>${all.length}</span></button>
+        ${subjects.map((s) => `<button type="button" class="t-chip" aria-pressed="false" data-subject="${esc(s)}">${esc(subjectLabel(t, s))} <span>${all.filter((x) => x.subject === s).length}</span></button>`).join("")}
+      </div>
+      <input class="t-search" type="search" placeholder="${esc(t.search)}" aria-label="${esc(t.search)}" />
+    </div>
+    <div class="t-cards" id="t-cards">${all.map((x) => card(x, code)).join("")}</div>
+    <p class="t-empty" hidden>${esc(t.noResults)}</p>
+    <aside class="t-kit t-kit-wide">
+      <p class="eyebrow">${KITS_RELEASED ? esc(t["kit.eyebrowReleased"]) : `<span class="t-soon">${esc(t["kit.comingSoon"])}</span>`}</p>
+      <h2>${esc(t["index.kitTitle"])}</h2>
+      <p>${esc(KITS_RELEASED ? t["index.kitLeadReleased"] : t["index.kitLead"])}</p>
+      <a class="btn btn-primary" href="${APP}/signup">${esc(KITS_RELEASED ? t["kit.unlock"] : t["kit.signup"])}</a>
+    </aside>
+  </div>`;
+}
+
+function indexJsonLd(all) {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "SketchCast free lessons",
+      itemListElement: all.map((x, i) => ({ "@type": "ListItem", position: i + 1, url: topicUrl(DEFAULT, x.slug), name: x.title })),
+    },
+  ];
+}
+
+/* ── page CSS + behaviour ─────────────────────────────────────────────── */
+
+const CSS = `
+.t-page{padding-top:28px;padding-bottom:72px}
+.t-crumbs{font-size:14px;color:var(--graphite);margin-bottom:18px}.t-crumbs a{color:var(--teal-ink)}.t-crumbs a:hover{text-decoration:underline}
+.t-note{margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-inline-start:3px solid var(--marker);border-radius:9px;background:#fff;font-size:14px;color:var(--graphite)}
+.t-hero{margin-bottom:26px;max-width:820px}.t-hero h1{font-size:clamp(32px,4.6vw,50px);margin:10px 0 14px}
+.t-lead{font-size:18px;color:var(--graphite);line-height:1.55}
+.t-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+@media(max-width:960px){.t-grid{grid-template-columns:minmax(0,1fr)}}
+.t-side{position:sticky;top:90px}
+@media(max-width:960px){.t-side{position:static}}
+.t-body>section,.t-article{margin-bottom:34px}
+.t-body h2{font-size:26px;margin:0 0 14px}
+.t-video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px -26px rgba(20,24,31,.5)}
+.t-play{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.t-play img{width:100%;height:100%;object-fit:cover;display:block}
+.t-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-play:hover .t-play-icon,.t-play:focus-visible .t-play-icon{transform:scale(1.08)}
+.t-play:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.t-video iframe{width:100%;height:100%;border:0;display:block}
+.t-yt{margin:10px 0 6px;font-size:14px}.t-yt a{color:var(--teal-ink);font-weight:500}.t-yt a:hover{text-decoration:underline}
+.t-part{font-size:18px;margin:22px 0 10px}
+.t-chapters{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px;font-size:14.5px}
+.t-chapters summary{cursor:pointer;font-weight:500}
+.t-chapters ol{list-style:none;margin:10px 0 2px;display:grid;gap:4px}
+.t-chapters a{display:flex;gap:10px;padding:3px 0;color:var(--ink)}.t-chapters a:hover{color:var(--teal-ink)}
+.t-time{font-family:var(--mono);font-size:12.5px;color:var(--graphite);min-width:42px}
+.t-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.t-ticks{list-style:none;display:grid;gap:9px}
+.t-ticks li{position:relative;padding-inline-start:28px}
+.t-ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:14px;height:8px;border-inline-start:2.4px solid var(--teal);border-bottom:2.4px solid var(--teal);transform:rotate(-45deg)}
+.t-toc{margin-bottom:28px}.t-toc ol{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:3px;font-size:15px}.t-toc a{color:var(--teal-ink)}.t-toc a:hover{text-decoration:underline}
+.t-article h3{font-size:21px;margin:28px 0 10px;scroll-margin-top:90px}
+.t-article p,.t-ex-a p{margin:0 0 12px;font-size:16.5px;line-height:1.7}
+.t-article ul,.t-article ol,.t-ex-a ul,.t-ex-a ol{margin:0 0 14px;padding-inline-start:24px;display:grid;gap:5px;font-size:16.5px}
+.t-table{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:10px}
+.t-table table{border-collapse:collapse;width:100%;font-size:15px;background:var(--paper)}
+.t-table th,.t-table td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.t-table th{background:var(--mist);font-weight:500}.t-table tr:last-child td{border-bottom:0}
+sup{font-size:.72em;line-height:0}
+.t-terms{display:grid;gap:12px}.t-terms div{display:grid;gap:2px}.t-terms dt{font-weight:600;font-family:var(--display)}.t-terms dd{color:var(--graphite)}
+.t-example{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;margin-bottom:12px}
+.t-ex-q{display:flex;gap:12px;font-weight:500;margin:0}
+.t-ex-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.t-example details{margin-top:12px}.t-example summary{cursor:pointer;color:var(--teal-ink);font-weight:500;font-size:15px}
+.t-ex-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.t-misc{display:grid;gap:12px}
+.t-misc-item{border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:14px 18px}
+.t-myth,.t-fact{margin:0;font-size:15.5px}.t-fact{margin-top:8px;color:var(--ink-soft)}
+.t-myth span,.t-fact span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-inline-end:6px}
+.t-myth span{background:#FFF1D6;color:#8A5A00}.t-fact span{background:#DDF5F1;color:var(--teal-ink)}
+.t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
+.t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
+.t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
+.t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
+.t-kit .eyebrow{color:#9AA3AD}
+.t-soon{display:inline-block;background:var(--marker);color:var(--ink);border-radius:6px;padding:2px 8px;font-weight:500}
+.t-kit-list{list-style:none;display:grid;gap:7px;margin:0 0 18px;font-size:14.5px}
+.t-kit-list li{position:relative;padding-inline-start:22px;color:#E9ECEF}
+.t-kit-list li::before{content:"";position:absolute;inset-inline-start:2px;top:.5em;width:10px;height:6px;border-inline-start:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.t-kit .btn-primary{background:#fff;color:var(--ink)}.t-kit .btn-primary:hover{background:var(--mist)}
+.t-kit-wide{margin-top:48px;max-width:760px}
+.t-related{margin-top:56px}.t-related h2{font-size:24px;margin-bottom:16px}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.t-cardlink{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .06s,border-color .15s}
+.t-cardlink:hover{border-color:var(--faint);box-shadow:0 16px 34px -24px rgba(20,24,31,.45)}
+.t-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--mist)}
+.t-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.t-card-body{display:grid;gap:6px;padding:14px 16px 16px}
+.t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
+.t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-chips{display:flex;flex-wrap:wrap;gap:8px}
+.t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
+.t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
+.t-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.t-chip[aria-pressed="true"] span{color:#9AA3AD}
+.t-search{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;min-width:240px;background:var(--paper)}
+@media(max-width:560px){.t-search{min-width:0;width:100%}}
+.t-empty{color:var(--graphite);padding:20px 0}
+`;
+
+const JS = `<script>
+(function(){
+  // Click-to-play: the YouTube player loads only when asked (privacy, speed).
+  document.querySelectorAll('.t-play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0';
+      f.title=b.getAttribute('aria-label')||'Video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      b.parentNode.replaceChild(f,b);
+    });
+  });
+  // Index filters: subject chips + text search.
+  var cards=document.getElementById('t-cards');if(!cards)return;
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      c.hidden=!ok;if(ok)shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    subject=ch.getAttribute('data-subject');
+    chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
+  });});
+  q.addEventListener('input',apply);
+})();
+</script>`;
+
+/* ── main ─────────────────────────────────────────────────────────────── */
+
+const catalogue = (await loadCatalogue())
+  .filter((x) => (x.language || "en") === "en" && x.slug && x.title)
+  .sort((a, b) => a.subject.localeCompare(b.subject) || a.title.localeCompare(b.title));
+if (catalogue.length === 0) throw new Error("public_catalogue returned no topics — refusing to wipe the pages");
+const redirects = await loadRedirects();
+
+// Clean rebuild of the generated folders only.
+for (const l of LOCALES) {
+  const dir = join(ROOT, ...(l.code === DEFAULT ? [] : [l.code]), "topics");
+  if (existsSync(dir)) rmSync(dir, { recursive: true });
+}
+
+let written = 0;
+for (const l of LOCALES) {
+  const t = strings[l.code];
+  const base = join(ROOT, ...(l.code === DEFAULT ? [] : [l.code]));
+  mkdirSync(join(base, "topics"), { recursive: true });
+  const indexHtml = page(l.code, {
+    route: "/topics",
+    title: t["index.metaTitle"],
+    description: t["index.metaDescription"],
+    jsonLd: l.code === DEFAULT ? indexJsonLd(catalogue) : [],
+    main: indexMain(catalogue, l.code),
+    alternates: (c) => indexUrl(c),
+  }).replace("</body>", `${JS}\n</body>`);
+  writeFileSync(join(base, "topics.html"), indexHtml, "utf8");
+  written++;
+  for (const topic of catalogue) {
+    const html = page(l.code, {
+      route: `/topics/${topic.slug}`,
+      title: fill(t.metaTitle, { title: topic.title }),
+      description: clip(plain(topic.summary || topic.title), 158),
+      ogType: "article",
+      jsonLd: l.code === DEFAULT ? topicJsonLd(topic) : [],
+      main: topicMain(topic, catalogue, l.code),
+      alternates: (c) => topicUrl(c, topic.slug),
+    }).replace("</body>", `${JS}\n</body>`);
+    writeFileSync(join(base, "topics", `${topic.slug}.html`), html, "utf8");
+    written++;
+  }
+}
+
+// Sitemap: indexable (English) pages only; build-i18n.mjs points robots.txt at it.
+const lastmod = (x) => (x.approved_at || "").slice(0, 10);
+const newest = catalogue.map(lastmod).sort().pop();
+const urls = [
+  `  <url><loc>${indexUrl(DEFAULT)}</loc><lastmod>${newest}</lastmod></url>`,
+  ...catalogue.map((x) => `  <url><loc>${topicUrl(DEFAULT, x.slug)}</loc><lastmod>${lastmod(x)}</lastmod></url>`),
+];
+writeFileSync(
+  join(ROOT, "sitemap-topics.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<!-- Generated by build-topics.mjs — do not edit. -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`,
+  "utf8",
+);
+
+// Renamed topics keep their old links: one 301 per former slug, per language.
+if (redirects.length) {
+  const lines = ["# Generated by build-topics.mjs — renamed topics. Do not edit."];
+  for (const r of redirects) for (const l of LOCALES) lines.push(`${prefix(l.code)}/topics/${r.old_slug} ${prefix(l.code)}/topics/${r.slug} 301`);
+  writeFileSync(join(ROOT, "_redirects"), lines.join("\n") + "\n", "utf8");
+}
+
+console.log(`✓ wrote ${written} topic pages (${catalogue.length} topics × ${LOCALES.length} languages + indexes), sitemap-topics.xml${redirects.length ? `, _redirects (${redirects.length})` : ""}`);

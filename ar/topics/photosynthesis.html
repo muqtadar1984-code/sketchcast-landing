@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Photosynthesis — درس فيديو مجاني | SketchCast</title>
+<meta name="description" content="How plants make food in chloroplasts, and the word equation for photosynthesis." />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="Photosynthesis — درس فيديو مجاني | SketchCast" />
+<meta property="og:description" content="How plants make food in chloroplasts, and the word equation for photosynthesis." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+
+  /* Full-bleed header (founder, 2026-08-18): brand at the true start edge,
+     Start free at the true end — seven links + the language picker never fit
+     the 1080px wrap (labels wrapped mid-phrase). Logical properties keep the
+     RTL locales mirrored. Middle widths compress before the links hide; the
+     hide threshold is generous because fr/te labels run long. */
+  header .wrap{max-width:none;margin:0;padding-inline:26px}
+  .nav{gap:18px}
+  .nav-links{flex-wrap:nowrap}
+  .nav-links a,.nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
+  @media(max-width:1140px){.nav-links{display:none}}
+  /* Phones (2026-10-16): the header's end side (language picker, Log in, Start
+     free) never wrapped, and translated labels run long ("Se connecter" +
+     "Commencer gratuitement"), so at 375px EVERY translated page scrolled
+     sideways (fr by 147px; ar/ms-arab off the start edge). Log in and Start free
+     open the same URL (the app's page offers both), so Log in steps aside and
+     Start free may wrap to two lines instead of widening the page. */
+  @media(max-width:560px){
+    header .wrap{padding-inline:16px}
+    header .nav{gap:10px}
+    header .brand{font-size:17px;gap:8px;flex:0 0 auto}
+    header .nav-cta{gap:8px;min-width:0}
+    header .nav-cta a.login{display:none}
+    header .nav-cta .btn{padding:7px 12px !important;font-size:13px !important;white-space:normal;line-height:1.2;text-align:center;max-width:150px}
+    h1 .uline{white-space:normal}
+  }
+  @media(max-width:380px){
+    header .wrap{padding-inline:12px}
+    header .brand{font-size:15px;gap:7px}
+    header .brand .mark{width:28px;height:28px}
+    header .nav-cta .btn{padding:6px 10px !important}
+    main,body>section{overflow-x:clip} /* decorative ink strokes are drawn ~118% wide on purpose; clip (not hidden) on the content, never on body: body overflow propagates to the viewport */
+  }
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/topics/photosynthesis" />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:url" content="https://sketchcast.app/topics/photosynthesis" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}:root{--display:"Noto Kufi Arabic","Space Grotesk",ui-sans-serif,system-ui,sans-serif;--sans:"Noto Sans Arabic","Inter",ui-sans-serif,system-ui,sans-serif;--mono:"Noto Sans Arabic",ui-monospace,monospace}body{font-family:var(--sans);line-height:1.85}h1,h2,h3{font-family:var(--display)}*,*::before,*::after{letter-spacing:normal!important;text-transform:none!important}.rtl-flip{display:inline-block;scale:-1 1}.uline svg,.ph-uline svg,.arrow svg,.arr svg,.demo .flow svg{scale:-1 1}.demo{--pen-x:-1}</style>
+<!--/i18n:head-->
+<style id="topics-css">
+.t-page{padding-top:28px;padding-bottom:72px}
+.t-crumbs{font-size:14px;color:var(--graphite);margin-bottom:18px}.t-crumbs a{color:var(--teal-ink)}.t-crumbs a:hover{text-decoration:underline}
+.t-note{margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-inline-start:3px solid var(--marker);border-radius:9px;background:#fff;font-size:14px;color:var(--graphite)}
+.t-hero{margin-bottom:26px;max-width:820px}.t-hero h1{font-size:clamp(32px,4.6vw,50px);margin:10px 0 14px}
+.t-lead{font-size:18px;color:var(--graphite);line-height:1.55}
+.t-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+@media(max-width:960px){.t-grid{grid-template-columns:minmax(0,1fr)}}
+.t-side{position:sticky;top:90px}
+@media(max-width:960px){.t-side{position:static}}
+.t-body>section,.t-article{margin-bottom:34px}
+.t-body h2{font-size:26px;margin:0 0 14px}
+.t-video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px -26px rgba(20,24,31,.5)}
+.t-play{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.t-play img{width:100%;height:100%;object-fit:cover;display:block}
+.t-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-play:hover .t-play-icon,.t-play:focus-visible .t-play-icon{transform:scale(1.08)}
+.t-play:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.t-video iframe{width:100%;height:100%;border:0;display:block}
+.t-yt{margin:10px 0 6px;font-size:14px}.t-yt a{color:var(--teal-ink);font-weight:500}.t-yt a:hover{text-decoration:underline}
+.t-part{font-size:18px;margin:22px 0 10px}
+.t-chapters{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px;font-size:14.5px}
+.t-chapters summary{cursor:pointer;font-weight:500}
+.t-chapters ol{list-style:none;margin:10px 0 2px;display:grid;gap:4px}
+.t-chapters a{display:flex;gap:10px;padding:3px 0;color:var(--ink)}.t-chapters a:hover{color:var(--teal-ink)}
+.t-time{font-family:var(--mono);font-size:12.5px;color:var(--graphite);min-width:42px}
+.t-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.t-ticks{list-style:none;display:grid;gap:9px}
+.t-ticks li{position:relative;padding-inline-start:28px}
+.t-ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:14px;height:8px;border-inline-start:2.4px solid var(--teal);border-bottom:2.4px solid var(--teal);transform:rotate(-45deg)}
+.t-toc{margin-bottom:28px}.t-toc ol{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:3px;font-size:15px}.t-toc a{color:var(--teal-ink)}.t-toc a:hover{text-decoration:underline}
+.t-article h3{font-size:21px;margin:28px 0 10px;scroll-margin-top:90px}
+.t-article p,.t-ex-a p{margin:0 0 12px;font-size:16.5px;line-height:1.7}
+.t-article ul,.t-article ol,.t-ex-a ul,.t-ex-a ol{margin:0 0 14px;padding-inline-start:24px;display:grid;gap:5px;font-size:16.5px}
+.t-table{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:10px}
+.t-table table{border-collapse:collapse;width:100%;font-size:15px;background:var(--paper)}
+.t-table th,.t-table td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.t-table th{background:var(--mist);font-weight:500}.t-table tr:last-child td{border-bottom:0}
+sup{font-size:.72em;line-height:0}
+.t-terms{display:grid;gap:12px}.t-terms div{display:grid;gap:2px}.t-terms dt{font-weight:600;font-family:var(--display)}.t-terms dd{color:var(--graphite)}
+.t-example{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;margin-bottom:12px}
+.t-ex-q{display:flex;gap:12px;font-weight:500;margin:0}
+.t-ex-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.t-example details{margin-top:12px}.t-example summary{cursor:pointer;color:var(--teal-ink);font-weight:500;font-size:15px}
+.t-ex-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.t-misc{display:grid;gap:12px}
+.t-misc-item{border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:14px 18px}
+.t-myth,.t-fact{margin:0;font-size:15.5px}.t-fact{margin-top:8px;color:var(--ink-soft)}
+.t-myth span,.t-fact span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-inline-end:6px}
+.t-myth span{background:#FFF1D6;color:#8A5A00}.t-fact span{background:#DDF5F1;color:var(--teal-ink)}
+.t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
+.t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
+.t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
+.t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
+.t-kit .eyebrow{color:#9AA3AD}
+.t-soon{display:inline-block;background:var(--marker);color:var(--ink);border-radius:6px;padding:2px 8px;font-weight:500}
+.t-kit-list{list-style:none;display:grid;gap:7px;margin:0 0 18px;font-size:14.5px}
+.t-kit-list li{position:relative;padding-inline-start:22px;color:#E9ECEF}
+.t-kit-list li::before{content:"";position:absolute;inset-inline-start:2px;top:.5em;width:10px;height:6px;border-inline-start:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.t-kit .btn-primary{background:#fff;color:var(--ink)}.t-kit .btn-primary:hover{background:var(--mist)}
+.t-kit-wide{margin-top:48px;max-width:760px}
+.t-related{margin-top:56px}.t-related h2{font-size:24px;margin-bottom:16px}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.t-cardlink{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .06s,border-color .15s}
+.t-cardlink:hover{border-color:var(--faint);box-shadow:0 16px 34px -24px rgba(20,24,31,.45)}
+.t-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--mist)}
+.t-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.t-card-body{display:grid;gap:6px;padding:14px 16px 16px}
+.t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
+.t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-chips{display:flex;flex-wrap:wrap;gap:8px}
+.t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
+.t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
+.t-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.t-chip[aria-pressed="true"] span{color:#9AA3AD}
+.t-search{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;min-width:240px;background:var(--paper)}
+@media(max-width:560px){.t-search{min-width:0;width:100%}}
+.t-empty{color:var(--graphite);padding:20px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/ar/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/ar/#how" data-i18n="common.nav.how">كيف يعمل</a>
+      <a href="/ar/topics" aria-current="page" data-i18n="common.nav.lessons">الدروس</a>
+      <a href="/ar/homeschool" data-i18n="common.nav.homeschool">التعليم المنزلي</a>
+      <a href="/ar/schools" data-i18n="common.nav.schools">للمدارس</a>
+      <a href="/ar/pricing" data-i18n="common.nav.pricing">الأسعار</a>
+      <a href="/ar/about" data-i18n="common.nav.about">من نحن</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="اختر لغتك"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="ar" dir="rtl">العربية (Arabic)</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/topics/photosynthesis" lang="en" hreflang="en" dir="ltr">English</a></li>
+      <li><a href="https://sketchcast.app/ms/topics/photosynthesis" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/topics/photosynthesis" lang="ar" hreflang="ar" dir="rtl" aria-current="true">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/topics/photosynthesis" lang="fr" hreflang="fr" dir="ltr">Français</a></li>
+      <li><a href="https://sketchcast.app/es/topics/photosynthesis" lang="es" hreflang="es" dir="ltr">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/topics/photosynthesis" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/topics/photosynthesis" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/topics/photosynthesis" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/topics/photosynthesis" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/topics/photosynthesis" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">تسجيل الدخول</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">ابدأ مجانًا</a>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  // Locale-proof header fit: hide the middle links only when the row REALLY
+  // overflows (French/Telugu labels run long; breakpoints can't know that).
+  // Hysteresis: re-show only 40px past where it last overflowed.
+  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!links)return;
+  var hiddenAt=0;
+  function fit(){
+    var w=nav.clientWidth;
+    if(links.style.display!=='none'){
+      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
+    }else if(w>hiddenAt+40){
+      links.style.display='';
+      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
+    }
+  }
+  fit();
+  addEventListener('resize',fit);
+  // Web fonts can widen labels after first paint — re-measure when they land.
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+
+<main>
+
+  <div class="wrap t-page">
+    <nav class="t-crumbs" aria-label="Breadcrumb"><a href="/ar/topics">الدروس</a> <span aria-hidden="true">›</span> <span>العلوم</span></nav>
+    <p class="t-note">هذا الدرس باللغة الإنجليزية.</p>
+    <div class="t-hero" lang="en" dir="ltr">
+      <p class="eyebrow">العلوم · الصف 9</p>
+      <h1>Photosynthesis</h1>
+      <p class="t-lead">How plants make food in chloroplasts, and the word equation for photosynthesis.</p>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-body" lang="en" dir="ltr">
+        <section aria-label="درس فيديو">
+      <div class="t-video">
+        <button type="button" class="t-play" data-yt="FkEZ-oiQSnA" aria-label="تشغيل الفيديو: Photosynthesis">
+          <img src="https://i.ytimg.com/vi/FkEZ-oiQSnA/hqdefault.jpg" alt="" width="480" height="360" loading="eager" />
+          <span class="t-play-icon" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#14181F"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+        </button>
+      </div>
+      <p class="t-yt"><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA" target="_blank" rel="noopener">شاهد على YouTube ↗</a></p>
+      <details class="t-chapters"><summary>فصول هذا الفيديو</summary><ol><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA" target="_blank" rel="noopener"><span class="t-time">0:00</span> The Built-In Kitchen</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=30s" target="_blank" rel="noopener"><span class="t-time">0:30</span> Understanding Photosynthesis</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=69s" target="_blank" rel="noopener"><span class="t-time">1:09</span> Inside the Chloroplast</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=111s" target="_blank" rel="noopener"><span class="t-time">1:51</span> The Solar Baking Trays</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=150s" target="_blank" rel="noopener"><span class="t-time">2:30</span> Trapping and Converting Light</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=184s" target="_blank" rel="noopener"><span class="t-time">3:04</span> The Photosynthesis Recipe</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=219s" target="_blank" rel="noopener"><span class="t-time">3:39</span> Acquiring the Reactants</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=258s" target="_blank" rel="noopener"><span class="t-time">4:18</span> The Stomatal Guard Cells</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=294s" target="_blank" rel="noopener"><span class="t-time">4:54</span> Using the Products</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=337s" target="_blank" rel="noopener"><span class="t-time">5:37</span> A Dark Room Puzzle</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=359s" target="_blank" rel="noopener"><span class="t-time">5:59</span> The Energy Storage Cycle</a></li><li><a href="https://www.youtube.com/watch?v=FkEZ-oiQSnA&t=383s" target="_blank" rel="noopener"><span class="t-time">6:23</span> A World Powered by Light</a></li></ol></details></section>
+
+        <section class="t-card"><h2>ما ستتعلمه</h2><ul class="t-ticks"><li>State that photosynthesis is the process by which plants make carbohydrates using light energy inside chloroplasts.</li><li>Know and use the summary word equation for photosynthesis, identifying all reactants and products.</li><li>Explain the necessary environmental conditions for photosynthesis, including light, carbon dioxide, water, and chlorophyll.</li><li>Describe the cellular adaptations of leaves and chloroplasts that enable efficient light capture and gas exchange.</li></ul></section>
+
+        <nav class="t-toc" aria-label="في هذا الدرس"><p class="eyebrow">في هذا الدرس</p><ol><li><a href="#introduction-to-plant-nutrition-and-photosynthesis">Introduction to Plant Nutrition and Photosynthesis</a></li><li><a href="#the-role-of-chloroplasts-and-chlorophyll">The Role of Chloroplasts and Chlorophyll</a></li><li><a href="#the-summary-word-equation-for-photosynthesis">The Summary Word Equation for Photosynthesis</a></li><li><a href="#analyzing-the-equation-components-and-raw-materials">Analyzing the Equation Components and Raw Materials</a></li></ol></nav>
+
+        <article class="t-article">
+          <h2 class="t-article-h">الشرح</h2>
+          <section id="introduction-to-plant-nutrition-and-photosynthesis"><h3>Introduction to Plant Nutrition and Photosynthesis</h3><p>All living organisms require a continuous supply of energy to sustain life processes such as growth, repair, movement, and reproduction. While animals must consume other organisms to obtain this vital energy and the organic molecules required for their bodies, green plants possess a remarkable biochemical mechanism that sets them apart. Plants are autotrophs, meaning they can manufacture their own organic food substances from simple inorganic materials found in their surroundings. The primary biological process responsible for this is <strong>photosynthesis</strong>, a complex series of enzyme-controlled chemical reactions that takes place within green plant tissues.</p>
+<p>The term photosynthesis originates from Greek roots where 'photo' means light and 'synthesis' means putting together. Essentially, plants use the radiant energy of sunlight to synthesize complex carbohydrates, specifically sugars, from simple carbon dioxide gas absorbed from the air and water drawn up from the soil. This transformation of light energy into chemical potential energy is arguably the most important biochemical pathway on Earth. Without photosynthesis, the vast majority of food chains would collapse, as herbivores and carnivores ultimately depend on the plant biomass generated through this process. Furthermore, photosynthesis fundamentally shapes the composition of the global atmosphere by releasing large quantities of oxygen gas as a byproduct, which aerobic organisms require for cellular respiration.</p>
+<p>To appreciate how plants achieve this, one must examine the specialized structures within plant organs, particularly leaves. Leaves are structurally adapted as expansive, flat surfaces designed to capture maximum sunlight and facilitate the rapid diffusion of gases. The internal layers of a leaf contain specialized plant cells packed with organelles that specialize in trapping light. Within these cells, life transforms inorganic matter into life-sustaining organic molecules, driving global ecosystems and providing the foundational energy source for nearly all life on the planet.</p></section>
+<section id="the-role-of-chloroplasts-and-chlorophyll"><h3>The Role of Chloroplasts and Chlorophyll</h3><p>The actual site of photosynthesis within plant cells is a specialized intracellular organelle known as the <strong>chloroplast</strong>. Chloroplasts are typically lens-shaped or oval structures found abundantly in the mesophyll cells of green leaves and young stems. Unlike many other organelles, chloroplasts possess their own DNA and double-membrane envelope consisting of an outer membrane and an inner membrane. Inside this envelope lies a fluid-filled matrix called the stroma, suspended within which is an intricate system of interconnected membrane-bound sacs known as thylakoids. These thylakoids often stack in columns called grana, creating a vast internal surface area designed to host the chemical machinery required for capturing light.</p>
+<p>Embedded within the thylakoid membranes is a crucial green pigment called <strong>chlorophyll</strong>. Chlorophyll is the primary light-absorbing molecule in plants, responsible for capturing specific wavelengths of light, predominantly in the red and blue regions of the visible light spectrum, while reflecting green wavelengths. This reflection of green light is precisely why leaves appear green to the human eye. The captured light energy excites electrons within the chlorophyll molecules, initiating the conversion of radiant energy into chemical energy. Without <strong>chlorophyll</strong>, the plant cell would be unable to harvest sunlight efficiently, rendering photosynthesis impossible under normal environmental conditions. Other accessory pigments may also be present, but chlorophyll remains the undisputed master catalyst for light absorption.</p>
+<p>Beyond chlorophyll and the thylakoids, the stroma of the chloroplast contains enzymes, ribosomes, and starch grains. The enzymes located in the stroma facilitate the subsequent reactions that do not require direct light, converting the energy harvested by the thylakoids into stable organic storage molecules like <strong>glucose</strong>. The dual-membrane structure of the chloroplast keeps these delicate biochemical pathways isolated from the rest of the cell cytoplasm, creating a specialized microenvironment optimized exclusively for carbohydrate synthesis.</p></section>
+<section id="the-summary-word-equation-for-photosynthesis"><h3>The Summary Word Equation for Photosynthesis</h3><p>The overall chemical transformation of photosynthesis can be summarized concisely using a standard word equation. A word equation lists the starting substances, known as reactants, on the left-hand side, and the newly formed substances, known as products, on the right-hand side, separated by an arrow that signifies the direction of the chemical change. For photosynthesis, carbon dioxide and water act as the raw reactants, while glucose and oxygen emerge as the resulting products. This entire sequence can only proceed in the physical presence of light energy and the pigment chlorophyll, which are written above and below the reaction arrow to show their essential facilitating roles.</p>
+<p>The standard summary word equation for photosynthesis is written as follows:</p>
+<p>carbon dioxide + water -&gt; glucose + oxygen (in the presence of light and chlorophyll)</p>
+<p>In this balanced conceptual framework, <strong>carbon dioxide</strong> gas diffuses into the leaf from the surrounding atmosphere through microscopic pores called <strong>stomata</strong>. Water is absorbed from the soil by the root hair cells, transported upward through specialized transport tissue called xylem vessels, and distributed throughout the leaf veins. When light strikes the <strong>chlorophyll</strong> molecules inside the chloroplasts, the energy drives a series of reactions that rearrange the atoms of carbon dioxide and water molecules. The atoms recombine to form <strong>glucose</strong>, a simple carbohydrate that serves as an immediate energy source and building block for the plant, and <strong>oxygen</strong>, which is released into the surrounding air as a gaseous waste product.</p>
+<p>This summary equation encapsulates a massive conservation of mass and energy. The carbon, hydrogen, and oxygen atoms present in the reactants are simply reorganized into new molecular structures. The energy that was once travelling freely through space as electromagnetic radiation from the sun is now securely locked inside the chemical bonds of the glucose molecules.</p></section>
+<section id="analyzing-the-equation-components-and-raw-materials"><h3>Analyzing the Equation Components and Raw Materials</h3><p>A rigorous understanding of photosynthesis requires examining each component of the summary word equation in detail, tracing how reactants enter the plant and how products are utilized or expelled. The first reactant, carbon dioxide, constitutes only a tiny fraction of atmospheric gases, yet it provides the essential carbon backbone required to build organic molecules. Plants acquire this gas through <strong>stomata</strong>, which are microscopic aperture cells located predominantly on the lower epidermis of leaves. Specialized guard cells control the opening and closing of these stomata, balancing the need to take in carbon dioxide against the risk of losing precious water vapour through transpiration.</p>
+<p>The second reactant, water, plays a dual role. Not only does it provide the hydrogen atoms necessary to construct <strong>glucose</strong>, but water transport also maintains the internal hydraulic pressure, or turgor, within plant tissues, keeping leaves upright and oriented toward the sun. Water enters the plant entirely through the root system, driven by osmotic gradients and the pull generated by water evaporating from leaf surfaces.</p>
+<p>Turning to the products, <strong>glucose</strong> is a vital carbohydrate. While the summary equation depicts glucose as the primary output, plant cells rapidly convert much of this newly formed glucose into other substances. Some glucose is burned immediately during cellular respiration to release energy for cellular work, while excess glucose is polymerized into insoluble starch for safe storage within plastids, or converted into cellulose to construct robust cell walls. Meanwhile, <strong>oxygen</strong>, the second product, diffuses out of the chloroplasts, passes through the intercellular air spaces of the leaf, and escapes into the atmosphere via the stomata. This liberated oxygen sustains animal life across the globe and maintains the oxidative balance of the biosphere.</p></section>
+        </article>
+
+        <section class="t-card"><h2>المصطلحات الأساسية</h2><dl class="t-terms"><div><dt>Photosynthesis</dt><dd>The biochemical process by which green plants use light energy to make carbohydrates from carbon dioxide and water.</dd></div><div><dt>Chloroplast</dt><dd>A specialized plant cell organelle containing chlorophyll where photosynthesis takes place.</dd></div><div><dt>Chlorophyll</dt><dd>A green pigment found in chloroplasts that absorbs light energy required for photosynthesis.</dd></div><div><dt>Glucose</dt><dd>A simple sugar produced as a primary carbohydrate product of photosynthesis.</dd></div><div><dt>Carbon dioxide</dt><dd>A gas absorbed from the atmosphere by plants that provides the carbon atoms for glucose synthesis.</dd></div><div><dt>Stomata</dt><dd>Microscopic pores on the surface of leaves that allow gas exchange between the plant and the atmosphere.</dd></div></dl></section>
+
+        <section><h2>أمثلة محلولة</h2><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">1</span>Identify the missing products in the word equation for photosynthesis given the reactants: Carbon dioxide + Water -&gt; [ ? ] + [ ? ] in the presence of light and chlorophyll.</p><details><summary>اعرض الحل</summary><div class="t-ex-a"><ol><li>Recall the standard summary word equation for photosynthesis: carbon dioxide + water -&gt; glucose + oxygen.</li><li>Identify the given reactants on the left side: carbon dioxide and water.</li><li>Determine the required facilitating conditions: light and chlorophyll.</li><li>State the corresponding products formed on the right side: glucose and oxygen.</li></ol></div></details></div></section>
+
+        <section><h2>مفاهيم خاطئة شائعة</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Plants get their food from the soil.</p><p class="t-fact"><span>في الحقيقة</span> Soil provides water and essential mineral ions, but plants make their own food internally through photosynthesis using light, carbon dioxide, and water.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Photosynthesis only happens during the night when it is quiet.</p><p class="t-fact"><span>في الحقيقة</span> Photosynthesis requires light energy, so it only occurs during daylight hours when sunlight is available.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Oxygen is a reactant that plants breathe in during photosynthesis.</p><p class="t-fact"><span>في الحقيقة</span> Oxygen is actually a product of photosynthesis that is released into the atmosphere, while carbon dioxide is the gas absorbed.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Chlorophyll is a living organism inside the plant cell.</p><p class="t-fact"><span>في الحقيقة</span> Chlorophyll is a non-living chemical pigment molecule that absorbs light, located inside the living organelle called the chloroplast.</p></div></div></section>
+
+        <section class="t-card"><h2>المواءمة مع المنهج</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>9Bp.06</code> Know that photosynthesis occurs in chloroplasts and is the process by which plants make carbohydrates, using the energy from light.</li><li><code>9Bp.07</code> Know and use the summary word equation for photosynthesis (carbon dioxide + water -&gt; glucose + oxygen, in the presence of light and chlorophyll).</li></ul></section>
+      </div>
+
+      <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
+      <p class="eyebrow"><span class="t-soon">قريبًا</span></p>
+      <h2 id="kit-h">حقيبة التدريس الكاملة</h2>
+      <p>موارد جاهزة مبنية على هذا الدرس. أنشئ حسابًا مجانيًا وستكون أول من يعلم عند إتاحتها.</p>
+      <ul class="t-kit-list"><li>خطة الدرس</li><li>عرض تقديمي</li><li>ورقة عمل مع مفتاح الإجابة</li><li>نشاط صفي</li><li>دراسة حالة</li><li>بنك الأسئلة: 86 سؤالًا للتدريب</li><li>تقييم إلكتروني يُصحَّح تلقائيًا</li></ul>
+      <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=photosynthesis">أنشئ حسابًا مجانيًا</a>
+    </aside></div>
+    </div>
+
+    <section class="t-related"><h2>المزيد من دروس العلوم</h2><div class="t-cards"><a class="t-cardlink" href="/ar/topics/a-balanced-diet" data-subject="Science" data-text="a balanced diet proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it. science 8bp.01 6:ch03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/WzKtNmxUe1w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">العلوم</span>
+        <span class="t-card-title" lang="en">A Balanced Diet</span>
+        <span class="t-card-sum" lang="en">Proteins, carbohydrates, fats, water, minerals and vitamins — what each does and what happens without it.</span>
+        <span class="t-codes"><code>8Bp.01</code><code>6:ch03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ar/topics/acids-alkalis-and-the-ph-scale" data-subject="Science" data-text="acids, alkalis and the ph scale acidity and alkalinity as chemical properties, the ph scale, indicators, and neutralisation. science 7cp.02 7cp.03 7cc.04">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/izw9rsR3JmU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">العلوم</span>
+        <span class="t-card-title" lang="en">Acids, Alkalis and the pH Scale</span>
+        <span class="t-card-sum" lang="en">Acidity and alkalinity as chemical properties, the pH scale, indicators, and neutralisation.</span>
+        <span class="t-codes"><code>7Cp.02</code><code>7Cp.03</code><code>7Cc.04</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ar/topics/aerobic-respiration" data-subject="Science" data-text="aerobic respiration energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing. science 8bp.04 8bp.05 10:u2:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/FPT96igGPK8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">العلوم</span>
+        <span class="t-card-title" lang="en">Aerobic Respiration</span>
+        <span class="t-card-sum" lang="en">Energy release in mitochondria, the word equation glucose + oxygen -&gt; carbon dioxide + water, and why respiration is not breathing.</span>
+        <span class="t-codes"><code>8Bp.04</code><code>8Bp.05</code><code>10:U2:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ar/topics/blood-and-its-components" data-subject="Science" data-text="blood and its components plasma, red blood cells, white blood cells and platelets, and what each transports or protects. science 8bs.02 7:ch09">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/Iaaj9jR7g9k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">العلوم</span>
+        <span class="t-card-title" lang="en">Blood and Its Components</span>
+        <span class="t-card-sum" lang="en">Plasma, red blood cells, white blood cells and platelets, and what each transports or protects.</span>
+        <span class="t-codes"><code>8Bs.02</code><code>7:ch09</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ar/topics/cells" data-subject="Science" data-text="cells the cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build tissues, organs and organ systems. science 7bs.01 7bs.02 7bs.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/-Qm-tfg1yJ4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">العلوم</span>
+        <span class="t-card-title" lang="en">Cells</span>
+        <span class="t-card-sum" lang="en">The cell as the basic unit of life: structures and their functions, plant and animal cells, specialised cells, and how cells build…</span>
+        <span class="t-codes"><code>7Bs.01</code><code>7Bs.02</code><code>7Bs.03</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/ar/topics/classification-of-elements-and-the-periodic-table" data-subject="Science" data-text="classification of elements and the periodic table why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the trends down group 1. science 7cm.01 7cm.02 7cm.03">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/F-TwnP0ORlQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">العلوم</span>
+        <span class="t-card-title" lang="en">Classification of Elements and the Periodic Table</span>
+        <span class="t-card-sum" lang="en">Why the elements are arranged the way they are: periods and groups, metals and non-metals, how position follows atomic structure, and the…</span>
+        <span class="t-codes"><code>7Cm.01</code><code>7Cm.02</code><code>7Cm.03</code></span>
+      </span>
+    </a></div></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — فصلٌ من الكتاب، مشروحٌ بالكامل" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/ar/" data-i18n="common.nav.home">الرئيسية</a>
+        <a href="/ar/about" data-i18n="common.nav.about">من نحن</a>
+        <a href="/ar/topics" data-i18n="common.nav.lessons">الدروس</a>
+        <a href="/ar/homeschool" data-i18n="common.nav.homeschool">التعليم المنزلي</a>
+        <a href="/ar/schools" data-i18n="common.nav.schools">للمدارس</a>
+        <a href="/ar/pricing" data-i18n="common.nav.pricing">الأسعار</a>
+        <a href="/ar/privacy" data-i18n="common.footer.privacy">الخصوصية</a>
+        <a href="/ar/terms" data-i18n="common.footer.terms">الشروط</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">تواصل معنا</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="Aethel Twin على LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="foot-legal" data-i18n="common.footer.legal">منتج من <strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · حاصلة على وضع Malaysia Digital رقم MD/0002997</p>
+    <p class="foot-legal" data-i18n="common.footer.youtube">تنشر SketchCast أيضاً دروساً مجانية من مكتبة مواضيعها على <a href="https://www.youtube.com/@Sketchcast-AI-app" target="_blank" rel="noopener">قناة SketchCast في YouTube</a>. وتوضّح <a href="/ar/privacy#google-api">سياسة الخصوصية لدينا (§7)</a> كيفية استخدامنا لخدمات Google API لهذا الغرض.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script defer src="/assets/handoff.js"></script>
+<script>
+(function(){
+  // Click-to-play: the YouTube player loads only when asked (privacy, speed).
+  document.querySelectorAll('.t-play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0';
+      f.title=b.getAttribute('aria-label')||'Video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      b.parentNode.replaceChild(f,b);
+    });
+  });
+  // Index filters: subject chips + text search.
+  var cards=document.getElementById('t-cards');if(!cards)return;
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      c.hidden=!ok;if(ok)shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    subject=ch.getAttribute('data-subject');
+    chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
+  });});
+  q.addEventListener('input',apply);
+})();
+</script>
+</body>
+</html>

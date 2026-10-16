@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Linear Inequalities and Their Solutions on a Number Line — leçon vidéo gratuite | SketchCast</title>
+<meta name="description" content="Solving linear inequalities, what happens when multiplying or dividing by a negative, and showing solution sets on a number line." />
+<link rel="icon" type="image/png" href="/seal.png" />
+<meta property="og:title" content="Linear Inequalities and Their Solutions on a Number Line — leçon vidéo gratuite | SketchCast" />
+<meta property="og:description" content="Solving linear inequalities, what happens when multiplying or dividing by a negative, and showing solution sets on a number line." />
+<meta property="og:image" content="https://sketchcast.app/seal.png" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#FCFCFA; --paper:#FFFFFF; --mist:#F5F6F3;
+    --ink:#14181F; --ink-soft:#20262F; --teal:#1FB8A6; --teal-ink:#0C8175;
+    --marker:#FFB020; --graphite:#5B6470; --faint:#98A0A9; --line:#E6E8E4;
+    --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+    --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--canvas);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-size:15px;font-weight:500;padding:12px 22px;transition:background .15s,transform .06s,box-shadow .15s,filter .15s;cursor:pointer;border:0;font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-soft)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--mist);border-color:var(--faint)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+  /* ── ink stroke motif (shared with the homepage) ── */
+  .ink path{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300)}
+  .ink.in path{animation:draw .8s cubic-bezier(.65,0,.35,1) forwards var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ── header / footer (shared with the homepage) ── */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -1px rgba(20,24,31,.45)}
+  .brand span{color:var(--teal-ink)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--graphite)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+  .nav-cta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--graphite)}
+  .nav-cta a.login:hover{color:var(--ink)}
+
+  /* Full-bleed header (founder, 2026-08-18): brand at the true start edge,
+     Start free at the true end — seven links + the language picker never fit
+     the 1080px wrap (labels wrapped mid-phrase). Logical properties keep the
+     RTL locales mirrored. Middle widths compress before the links hide; the
+     hide threshold is generous because fr/te labels run long. */
+  header .wrap{max-width:none;margin:0;padding-inline:26px}
+  .nav{gap:18px}
+  .nav-links{flex-wrap:nowrap}
+  .nav-links a,.nav-cta a{white-space:nowrap}
+  @media(max-width:1340px){.nav-links{gap:15px;font-size:14px}.nav-cta{gap:11px}}
+  @media(max-width:1140px){.nav-links{display:none}}
+  /* Phones (2026-10-16): the header's end side (language picker, Log in, Start
+     free) never wrapped, and translated labels run long ("Se connecter" +
+     "Commencer gratuitement"), so at 375px EVERY translated page scrolled
+     sideways (fr by 147px; ar/ms-arab off the start edge). Log in and Start free
+     open the same URL (the app's page offers both), so Log in steps aside and
+     Start free may wrap to two lines instead of widening the page. */
+  @media(max-width:560px){
+    header .wrap{padding-inline:16px}
+    header .nav{gap:10px}
+    header .brand{font-size:17px;gap:8px;flex:0 0 auto}
+    header .nav-cta{gap:8px;min-width:0}
+    header .nav-cta a.login{display:none}
+    header .nav-cta .btn{padding:7px 12px !important;font-size:13px !important;white-space:normal;line-height:1.2;text-align:center;max-width:150px}
+    h1 .uline{white-space:normal}
+  }
+  @media(max-width:380px){
+    header .wrap{padding-inline:12px}
+    header .brand{font-size:15px;gap:7px}
+    header .brand .mark{width:28px;height:28px}
+    header .nav-cta .btn{padding:6px 10px !important}
+    main,body>section{overflow-x:clip} /* decorative ink strokes are drawn ~118% wide on purpose; clip (not hidden) on the content, never on body: body overflow propagates to the viewport */
+  }
+  footer{padding:34px 0;font-size:14px;color:var(--graphite);border-top:1px solid var(--line)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-li{display:inline-flex;align-items:center;color:var(--graphite)}
+  .foot-li:hover{color:var(--teal-ink)}
+  .foot-li svg{width:18px;height:18px}
+  .foot-legal{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint);line-height:1.7}
+  .foot-legal strong{color:var(--graphite);font-weight:500}
+  .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section{padding:78px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:34px;margin-top:10px}
+  .sec-head p.sub{color:var(--graphite);margin-top:14px;font-size:16px}
+
+  /* ── hero ── */
+  .hero{padding:70px 0 78px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:52px;margin-top:12px}
+  .uline{position:relative;display:inline-block;white-space:nowrap}
+  .uline svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:12px}
+  .hero-sub{font-size:18px;color:var(--graphite);margin-top:22px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-stat{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:26px;letter-spacing:.03em}
+  .hero-stat b{color:var(--teal-ink);font-weight:500}
+
+  /* the self-running timetable card */
+  .tt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 60px -35px rgba(20,24,31,.35)}
+  .tt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .tt-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+  .tt-chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-ink);background:rgba(31,184,166,.12);border:1px solid rgba(31,184,166,.35);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tt-grid{display:grid;grid-template-columns:42px repeat(5,1fr);gap:6px}
+  .tt-cell{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 2px;border-radius:8px;background:var(--mist);color:var(--ink)}
+  .tt-col{background:transparent;color:var(--faint);font-size:10px;padding:0 2px 2px}
+  .tt-day{background:transparent;color:var(--faint);text-align:start;font-size:10px;display:flex;align-items:center}
+  .tt-p1{background:rgba(31,184,166,.14);color:var(--teal-ink);font-weight:500}
+  .tt-cover{position:relative;background:rgba(255,176,32,.20);overflow:visible}
+  .tt-cover svg{position:absolute;inset-inline-start:-7px;top:-6px;width:calc(100% + 14px);height:calc(100% + 12px);pointer-events:none}
+  .tt-note{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .tt-note .k1{color:var(--teal-ink)}
+  .tt-note .k2{color:#9A6400}
+
+  /* ── portal / role cards ── */
+  .portal-url{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;color:var(--teal-ink);background:var(--mist);border:1px dashed var(--teal);border-radius:10px;padding:10px 16px;margin-top:20px}
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .feat-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .band .card{background:var(--canvas)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal-ink);background:var(--mist);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  .band .card .tag{background:#EDEFEA}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--graphite)}
+  .card p b{color:var(--ink);font-weight:500}
+
+  /* ── language pills ── */
+  .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .langs li{list-style:none;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .langs li.rtl{border-color:var(--teal);color:var(--teal-ink)}
+
+  /* ── trust strip ── */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+  /* Classes, not inline styles, because the sentence around this link is a
+     translated string — the anchor inside it carries no attributes to copy. */
+  .dpa-note{margin-top:26px;font-size:13px;color:var(--faint)}
+  .dpa-note a{color:var(--teal-ink);font-weight:500}
+  .cta-note a{color:var(--teal-ink)}
+
+  /* ── final CTA ── */
+  .cta{padding:96px 0;text-align:center}
+  .cta h2{font-size:38px}
+  .circle{position:relative;display:inline-block;white-space:nowrap}
+  .circle svg{position:absolute;inset-inline-start:-9%;top:-22%;width:118%;height:150%}
+  .cta-sub{color:var(--graphite);margin-top:16px}
+  .tiers{list-style:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .tiers li{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--mist);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav{gap:10px}
+    .brand{font-size:17px;gap:8px}
+    .nav-cta{gap:10px;font-size:14px}
+    .nav-cta .btn{padding:8px 13px !important;font-size:13px !important}
+    .hero{padding:48px 0 56px}
+    .hero-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+    .hero h1{font-size:40px}
+    .sec-head h2{font-size:28px}
+    .section{padding:56px 0}
+    .roles,.feat,.feat-3,.trust{grid-template-columns:1fr}
+    .cta h2{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ink path{stroke-dashoffset:0 !important;animation:none !important}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+<!-- Generated by build-i18n.mjs — see index.html for what lives here. -->
+<!--i18n:head-->
+  <link rel="canonical" href="https://sketchcast.app/topics/linear-inequalities-and-their-solutions-on-a-number-line" />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:url" content="https://sketchcast.app/topics/linear-inequalities-and-their-solutions-on-a-number-line" />
+
+  <style id="i18n-css">.i18n-lang{position:relative;font-size:14px}.i18n-lang>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:var(--paper,#fff);color:var(--graphite,#5B6470);white-space:nowrap}.i18n-lang>summary::-webkit-details-marker{display:none}.i18n-lang>summary:hover{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang>summary svg{width:15px;height:15px;flex:0 0 15px}.i18n-lang[open]>summary{color:var(--ink);border-color:var(--faint,#98A0A9)}.i18n-lang-menu{position:absolute;z-index:40;top:calc(100% + 8px);inset-inline-end:0;min-width:210px;padding:6px;margin:0;list-style:none;background:var(--paper,#fff);border:1px solid var(--line);border-radius:11px;box-shadow:0 1px 2px rgba(20,24,31,.05),0 18px 40px -22px rgba(20,24,31,.45)}.i18n-lang-menu li{margin:0}.i18n-lang-menu a{display:block;padding:7px 11px;border-radius:7px;color:var(--ink);text-decoration:none}.i18n-lang-menu a:hover{background:var(--mist,#F5F6F3)}.i18n-lang-menu a[aria-current]{font-weight:500;background:var(--mist,#F5F6F3)}.i18n-notice{margin:0 0 22px;padding:11px 15px;border:1px solid var(--line);border-inline-start:3px solid var(--marker,#FFB020);border-radius:9px;background:#fff;font-size:13.5px;color:var(--graphite,#5B6470)}@media(max-width:860px){.i18n-lang>summary .i18n-lang-name{display:none}}</style>
+<!--/i18n:head-->
+<style id="topics-css">
+.t-page{padding-top:28px;padding-bottom:72px}
+.t-crumbs{font-size:14px;color:var(--graphite);margin-bottom:18px}.t-crumbs a{color:var(--teal-ink)}.t-crumbs a:hover{text-decoration:underline}
+.t-note{margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-inline-start:3px solid var(--marker);border-radius:9px;background:#fff;font-size:14px;color:var(--graphite)}
+.t-hero{margin-bottom:26px;max-width:820px}.t-hero h1{font-size:clamp(32px,4.6vw,50px);margin:10px 0 14px}
+.t-lead{font-size:18px;color:var(--graphite);line-height:1.55}
+.t-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+@media(max-width:960px){.t-grid{grid-template-columns:minmax(0,1fr)}}
+.t-side{position:sticky;top:90px}
+@media(max-width:960px){.t-side{position:static}}
+.t-body>section,.t-article{margin-bottom:34px}
+.t-body h2{font-size:26px;margin:0 0 14px}
+.t-video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px -26px rgba(20,24,31,.5)}
+.t-play{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.t-play img{width:100%;height:100%;object-fit:cover;display:block}
+.t-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.t-play:hover .t-play-icon,.t-play:focus-visible .t-play-icon{transform:scale(1.08)}
+.t-play:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.t-video iframe{width:100%;height:100%;border:0;display:block}
+.t-yt{margin:10px 0 6px;font-size:14px}.t-yt a{color:var(--teal-ink);font-weight:500}.t-yt a:hover{text-decoration:underline}
+.t-part{font-size:18px;margin:22px 0 10px}
+.t-chapters{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px;font-size:14.5px}
+.t-chapters summary{cursor:pointer;font-weight:500}
+.t-chapters ol{list-style:none;margin:10px 0 2px;display:grid;gap:4px}
+.t-chapters a{display:flex;gap:10px;padding:3px 0;color:var(--ink)}.t-chapters a:hover{color:var(--teal-ink)}
+.t-time{font-family:var(--mono);font-size:12.5px;color:var(--graphite);min-width:42px}
+.t-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.t-ticks{list-style:none;display:grid;gap:9px}
+.t-ticks li{position:relative;padding-inline-start:28px}
+.t-ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:14px;height:8px;border-inline-start:2.4px solid var(--teal);border-bottom:2.4px solid var(--teal);transform:rotate(-45deg)}
+.t-toc{margin-bottom:28px}.t-toc ol{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:3px;font-size:15px}.t-toc a{color:var(--teal-ink)}.t-toc a:hover{text-decoration:underline}
+.t-article h3{font-size:21px;margin:28px 0 10px;scroll-margin-top:90px}
+.t-article p,.t-ex-a p{margin:0 0 12px;font-size:16.5px;line-height:1.7}
+.t-article ul,.t-article ol,.t-ex-a ul,.t-ex-a ol{margin:0 0 14px;padding-inline-start:24px;display:grid;gap:5px;font-size:16.5px}
+.t-table{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:10px}
+.t-table table{border-collapse:collapse;width:100%;font-size:15px;background:var(--paper)}
+.t-table th,.t-table td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.t-table th{background:var(--mist);font-weight:500}.t-table tr:last-child td{border-bottom:0}
+sup{font-size:.72em;line-height:0}
+.t-terms{display:grid;gap:12px}.t-terms div{display:grid;gap:2px}.t-terms dt{font-weight:600;font-family:var(--display)}.t-terms dd{color:var(--graphite)}
+.t-example{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;margin-bottom:12px}
+.t-ex-q{display:flex;gap:12px;font-weight:500;margin:0}
+.t-ex-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.t-example details{margin-top:12px}.t-example summary{cursor:pointer;color:var(--teal-ink);font-weight:500;font-size:15px}
+.t-ex-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.t-misc{display:grid;gap:12px}
+.t-misc-item{border-radius:12px;border:1px solid var(--line);background:var(--paper);padding:14px 18px}
+.t-myth,.t-fact{margin:0;font-size:15.5px}.t-fact{margin-top:8px;color:var(--ink-soft)}
+.t-myth span,.t-fact span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-inline-end:6px}
+.t-myth span{background:#FFF1D6;color:#8A5A00}.t-fact span{background:#DDF5F1;color:var(--teal-ink)}
+.t-cur-h{font-size:15px;margin:12px 0 6px;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.t-cur{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--graphite)}
+.t-cur code,.t-codes code{font-family:var(--mono);font-size:12px;background:var(--mist);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink);margin-inline-end:6px}
+.t-kit{background:var(--ink);color:#fff;border-radius:16px;padding:24px}
+.t-kit h2{font-size:22px;margin:8px 0 10px;color:#fff}
+.t-kit p{color:#C9CFD6;font-size:15px;margin-bottom:14px}
+.t-kit .eyebrow{color:#9AA3AD}
+.t-soon{display:inline-block;background:var(--marker);color:var(--ink);border-radius:6px;padding:2px 8px;font-weight:500}
+.t-kit-list{list-style:none;display:grid;gap:7px;margin:0 0 18px;font-size:14.5px}
+.t-kit-list li{position:relative;padding-inline-start:22px;color:#E9ECEF}
+.t-kit-list li::before{content:"";position:absolute;inset-inline-start:2px;top:.5em;width:10px;height:6px;border-inline-start:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.t-kit .btn-primary{background:#fff;color:var(--ink)}.t-kit .btn-primary:hover{background:var(--mist)}
+.t-kit-wide{margin-top:48px;max-width:760px}
+.t-related{margin-top:56px}.t-related h2{font-size:24px;margin-bottom:16px}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.t-cardlink{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .06s,border-color .15s}
+.t-cardlink:hover{border-color:var(--faint);box-shadow:0 16px 34px -24px rgba(20,24,31,.45)}
+.t-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--mist)}
+.t-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.t-card-body{display:grid;gap:6px;padding:14px 16px 16px}
+.t-card-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.t-card-sum{font-size:14px;color:var(--graphite);line-height:1.5}
+.t-codes{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.t-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
+.t-chips{display:flex;flex-wrap:wrap;gap:8px}
+.t-chip{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--graphite);cursor:pointer}
+.t-chip span{font-family:var(--mono);font-size:12px;margin-inline-start:4px;color:var(--faint)}
+.t-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.t-chip[aria-pressed="true"] span{color:#9AA3AD}
+.t-search{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;min-width:240px;background:var(--paper)}
+@media(max-width:560px){.t-search{min-width:0;width:100%}}
+.t-empty{color:var(--graphite);padding:20px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/fr/">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1FB8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></span>
+      SketchCast <span>AI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/fr/#how" data-i18n="common.nav.how">Comment ça marche</a>
+      <a href="/fr/topics" aria-current="page" data-i18n="common.nav.lessons">Leçons</a>
+      <a href="/fr/homeschool" data-i18n="common.nav.homeschool">École à la maison</a>
+      <a href="/fr/schools" data-i18n="common.nav.schools">Pour les écoles</a>
+      <a href="/fr/pricing" data-i18n="common.nav.pricing">Tarifs</a>
+      <a href="/fr/about" data-i18n="common.nav.about">À propos</a>
+    </nav>
+    <div class="nav-cta">
+      <!--i18n:switcher-->
+  <details class="i18n-lang">
+    <summary aria-label="Choisissez votre langue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span class="i18n-lang-name" lang="fr" dir="ltr">Français</span></summary>
+    <ul class="i18n-lang-menu">
+      <li><a href="https://sketchcast.app/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="en" hreflang="en" dir="ltr">English</a></li>
+      <li><a href="https://sketchcast.app/ms/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="ms" hreflang="ms" dir="ltr">Bahasa Melayu</a></li>
+      <li><a href="https://sketchcast.app/ar/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="ar" hreflang="ar" dir="rtl">العربية (Arabic)</a></li>
+      <li><a href="https://sketchcast.app/fr/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="fr" hreflang="fr" dir="ltr" aria-current="true">Français</a></li>
+      <li><a href="https://sketchcast.app/es/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="es" hreflang="es" dir="ltr">Español</a></li>
+      <li><a href="https://sketchcast.app/pt/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="pt" hreflang="pt" dir="ltr">Português</a></li>
+      <li><a href="https://sketchcast.app/te/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="te" hreflang="te" dir="ltr">తెలుగు (Telugu)</a></li>
+      <li><a href="https://sketchcast.app/mr/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="mr" hreflang="mr" dir="ltr">मराठी (Marathi)</a></li>
+      <li><a href="https://sketchcast.app/hi/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="hi" hreflang="hi" dir="ltr">हिन्दी (Hindi)</a></li>
+      <li><a href="https://sketchcast.app/ms-arab/topics/linear-inequalities-and-their-solutions-on-a-number-line" lang="ms-Arab" hreflang="ms-Arab" dir="rtl">بهاس ملايو — Jawi (Malay)</a></li>
+    </ul>
+  </details>
+<!--/i18n:switcher-->
+      <a href="https://app.sketchcast.app" class="login" data-i18n="common.nav.login">Se connecter</a>
+      <a href="https://app.sketchcast.app" class="btn btn-primary" style="padding:9px 18px;font-size:14px" data-i18n="common.nav.startFree">Commencer gratuitement</a>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  // Locale-proof header fit: hide the middle links only when the row REALLY
+  // overflows (French/Telugu labels run long; breakpoints can't know that).
+  // Hysteresis: re-show only 40px past where it last overflowed.
+  var nav=document.querySelector('header .nav'),links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!links)return;
+  var hiddenAt=0;
+  function fit(){
+    var w=nav.clientWidth;
+    if(links.style.display!=='none'){
+      if(nav.scrollWidth>w+1){hiddenAt=w;links.style.display='none';}
+    }else if(w>hiddenAt+40){
+      links.style.display='';
+      if(nav.scrollWidth>nav.clientWidth+1){hiddenAt=w;links.style.display='none';}
+    }
+  }
+  fit();
+  addEventListener('resize',fit);
+  // Web fonts can widen labels after first paint — re-measure when they land.
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+
+<main>
+
+  <div class="wrap t-page">
+    <nav class="t-crumbs" aria-label="Breadcrumb"><a href="/fr/topics">Leçons</a> <span aria-hidden="true">›</span> <span>Mathématiques</span></nav>
+    <p class="t-note">Cette leçon est en anglais.</p>
+    <div class="t-hero" lang="en" dir="ltr">
+      <p class="eyebrow">Mathématiques · Niveau 7, 8, 9</p>
+      <h1>Linear Inequalities and Their Solutions on a Number Line</h1>
+      <p class="t-lead">Solving linear inequalities, what happens when multiplying or dividing by a negative, and showing solution sets on a number line.</p>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-body" lang="en" dir="ltr">
+        <section aria-label="Leçon vidéo">
+      <div class="t-video">
+        <button type="button" class="t-play" data-yt="P5qvkkwd5PA" aria-label="Lire la vidéo : Linear Inequalities and Their Solutions on a Number Line">
+          <img src="https://i.ytimg.com/vi/P5qvkkwd5PA/hqdefault.jpg" alt="" width="480" height="360" loading="eager" />
+          <span class="t-play-icon" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.5 1.6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.4A8.5 8.5 0 0 0 1.5 7.7C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6.1C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6.1C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#14181F"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+        </button>
+      </div>
+      <p class="t-yt"><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA" target="_blank" rel="noopener">Regarder sur YouTube ↗</a></p>
+      <details class="t-chapters"><summary>Chapitres de cette vidéo</summary><ol><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA" target="_blank" rel="noopener"><span class="t-time">0:00</span> Linear Inequalities and Their Solutions on a Number Line</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=67s" target="_blank" rel="noopener"><span class="t-time">1:07</span> Example 1: x + 5 &gt; 12</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=108s" target="_blank" rel="noopener"><span class="t-time">1:48</span> x &gt; 7 on the number line</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=116s" target="_blank" rel="noopener"><span class="t-time">1:56</span> Example 2: 3x - 4 &lt;= 8</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=170s" target="_blank" rel="noopener"><span class="t-time">2:50</span> x ≤ 4 on the number line</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=179s" target="_blank" rel="noopener"><span class="t-time">2:59</span> Example 3: -2x + 7 &lt; 15</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=236s" target="_blank" rel="noopener"><span class="t-time">3:56</span> x &gt; -4 on the number line</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=246s" target="_blank" rel="noopener"><span class="t-time">4:06</span> Example 4: 5 - 3x &gt;= 2(x - 5)</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=373s" target="_blank" rel="noopener"><span class="t-time">6:13</span> x ≤ 3 on the number line</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=382s" target="_blank" rel="noopener"><span class="t-time">6:22</span> Common mistakes</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=405s" target="_blank" rel="noopener"><span class="t-time">6:45</span> Try it</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=420s" target="_blank" rel="noopener"><span class="t-time">7:00</span> Try it: 7 - 2x &gt; 11</a></li><li><a href="https://www.youtube.com/watch?v=P5qvkkwd5PA&t=461s" target="_blank" rel="noopener"><span class="t-time">7:41</span> Linear Inequalities and Their Solutions on a Number Line</a></li></ol></details></section>
+
+        <section class="t-card"><h2>Ce que vous allez apprendre</h2><ul class="t-ticks"><li>Understand the meaning of inequality symbols and how they represent ranges of numbers.</li><li>Solve one-step and multi-step linear inequalities using standard algebraic operations.</li><li>Apply the rule that reversing the inequality sign is required when multiplying or dividing by a negative number.</li><li>Represent solution sets accurately on a number line using open and closed circles with directional arrows.</li></ul></section>
+
+        <nav class="t-toc" aria-label="Dans cette leçon"><p class="eyebrow">Dans cette leçon</p><ol><li><a href="#introduction-to-linear-inequalities">Introduction to Linear Inequalities</a></li><li><a href="#solving-linear-inequalities-using-balance-methods">Solving Linear Inequalities Using Balance Methods</a></li><li><a href="#the-negative-multiplier-rule">The Negative Multiplier Rule</a></li><li><a href="#representing-solution-sets-on-a-number-line">Representing Solution Sets on a Number Line</a></li><li><a href="#worked-examples-of-linear-inequalities">Worked Examples of Linear Inequalities</a></li><li><a href="#common-misconceptions-and-how-to-avoid-them">Common Misconceptions and How to Avoid Them</a></li></ol></nav>
+
+        <article class="t-article">
+          <h2 class="t-article-h">L'explication</h2>
+          <section id="introduction-to-linear-inequalities"><h3>Introduction to Linear Inequalities</h3><p>An equation expresses a strict balance between two mathematical expressions, such as 3x + 2 = 11, which yields a single specific value for the unknown variable x. However, many real-world situations involve limits and ranges rather than fixed quantities. A linear inequality compares two expressions where one is strictly greater than, greater than or equal to, less than, or less than or equal to the other. The term linear indicates that the highest power of the variable is one, meaning no exponents higher than one appear in the expressions.</p>
+<p>Four fundamental symbols are used to write linear inequalities. The symbol less than (&lt;) indicates that the quantity on the left is smaller than the quantity on the right. The symbol greater than (&gt;) indicates that the left quantity is larger. When equality is included as a possibility, the symbols less than or equal to (&lt;=) and greater than or equal to (&gt;=) are used. Understanding these symbols is the foundation for interpreting algebraic constraints.</p>
+<p>Consider a simple physical scenario, such as a ride at an amusement park that requires a person to be at least 140 centimetres tall. If height is represented by the variable h, this restriction is written as the inequality h &gt;= 140. Unlike an equation with one exact answer, this inequality has an infinite number of solutions. Any height of 140 centimetres, 141.5 centimetres, 150 centimetres, or 200 centimetres satisfies the condition. When working with inequalities, finding the solution means determining the entire set of numbers that make the statement true, rather than stopping at a single isolated value.</p></section>
+<section id="solving-linear-inequalities-using-balance-methods"><h3>Solving Linear Inequalities Using Balance Methods</h3><p>Solving a linear inequality follows the same logical steps used to solve a standard linear equation. The goal is to isolate the variable on one side of the inequality symbol by performing inverse operations. Whatever operation is performed on one side of the inequality must also be performed on the other side to maintain the relative order of the expressions.</p>
+<p>To solve an inequality like x + 5 &gt; 12, the inverse operation of adding five is subtracting five from both sides. Subtracting five from x + 5 leaves x, and subtracting five from 12 leaves seven. This produces the solution x &gt; 7. Similarly, for an inequality involving multiplication such as 4x &lt;= 24, dividing both sides by four isolates the variable, resulting in x &lt;= 6.</p>
+<p>Multi-step inequalities require a specific order of operations, typically undoing additions or subtractions before multiplications or divisions. For example, to solve 3x - 4 &lt; 11, the first step is to add four to both sides, yielding 3x &lt; 15. Then, dividing both sides by three gives x &lt; 5. Throughout these algebraic manipulations, the inequality symbol remains unchanged because all operations involve positive numbers or simple additions and subtractions. The algebraic balance is preserved at every stage, ensuring that the solution set accurately reflects the original constraint.</p></section>
+<section id="the-negative-multiplier-rule"><h3>The Negative Multiplier Rule</h3><p>A crucial rule distinguishes the manipulation of inequalities from the manipulation of equations. When multiplying or dividing both sides of an inequality by a negative number, the inequality sign must be reversed. This means less than becomes greater than, greater than becomes less than, less than or equal to becomes greater than or equal to, and greater than or equal to becomes less than or equal to.</p>
+<p>To understand why this rule is necessary, consider a simple numerical statement that is clearly true, such as 2 &lt; 5. If both sides of this true statement are multiplied by a positive number, such as three, the result is 6 &lt; 15, which remains true. However, if both sides are multiplied by a negative number, such as negative three, the left side becomes negative six and the right side becomes negative fifteen. On the number line, negative fifteen is further to the left than negative six, meaning negative fifteen is smaller than negative six. Therefore, the statement -6 &lt; -15 is false. To make the mathematical relationship correct, the inequality symbol must be flipped, resulting in -6 &gt; -15.</p>
+<p>In algebraic problem-solving, failing to reverse the inequality sign when dividing by a negative coefficient is a frequent error. For instance, consider -2x &lt; 10. To isolate x, both sides must be divided by negative two. Performing this division while remembering the reversal rule changes the less than sign to a greater than sign, yielding x &gt; -5. The negative sign attached to the variable coefficient dictates this mandatory reversal, regardless of whether the constant on the other side of the inequality is positive or negative.</p></section>
+<section id="representing-solution-sets-on-a-number-line"><h3>Representing Solution Sets on a Number Line</h3><p>An algebraic solution such as x &gt; 3 or x &lt;= -2 communicates the boundary of a range, but representing this solution visually on a number line provides immediate clarity about the infinite set of numbers included. A standard horizontal number line is used, marked with integers, and specific graphical conventions indicate whether boundary points are included in the solution set.</p>
+<p>An open circle plotted on a number line indicates that the boundary value itself is not included in the solution set. This graphical representation corresponds directly to strict inequality symbols, which are less than (&lt;) and greater than (&gt;). For example, the solution x &gt; 3 is drawn by placing an open circle at the number three and drawing a bold arrow extending infinitely to the right, showing that all numbers greater than three satisfy the condition.</p>
+<p>A closed or shaded circle indicates that the boundary value is included in the solution set. This representation corresponds to non-strict inequality symbols, which are less than or equal to (&lt;=) and greater than or equal to (&gt;=). For instance, the solution x &lt;= -2 is drawn by placing a solid, filled circle at negative two and drawing a bold arrow extending infinitely to the left, showing that negative two and all numbers smaller than negative two are valid solutions.</p>
+<p>Compound inequalities, which bound a variable between two numbers such as -1 &lt; x &lt;= 4, combine these conventions. Two circles are placed on the number line, one open at negative one and one closed at four, with a bold line segment connecting them to show that the solution lies in the interval between those two values.</p></section>
+<section id="worked-examples-of-linear-inequalities"><h3>Worked Examples of Linear Inequalities</h3><p>Working through complete examples demonstrates how algebraic rules and graphical representations integrate into a single cohesive process. The first example involves a standard multi-step inequality with positive coefficients. Consider solving and graphing 5x + 3 &gt;= 23. Subtracting three from both sides gives 5x &gt;= 20. Dividing both sides by five yields x &gt;= 4. On the number line, this is represented by a solid closed circle at four and an arrow pointing to the right.</p>
+<p>The second example incorporates the negative multiplier rule. Consider solving and graphing 7 - 3x &lt; 16. First, subtract seven from both sides to isolate the variable term, resulting in -3x &lt; 9. Next, divide both sides by negative three. Because the division involves a negative number, the less than symbol must be reversed to a greater than symbol. This produces the final solution x &gt; -3. On the number line, this is represented by an open circle at negative three and an arrow pointing to the right.</p>
+<p>The third example features variables on both sides of the inequality. Consider solving 4x - 5 &lt;= 2x + 7. To collect the variable terms on the left, subtract 2x from both sides, yielding 2x - 5 &lt;= 7. Adding five to both sides gives 2x &lt;= 12. Finally, dividing by two produces x &lt;= 6. On the number line, this is represented by a closed circle at six and an arrow pointing to the left, capturing all numbers equal to or smaller than six.</p></section>
+<section id="common-misconceptions-and-how-to-avoid-them"><h3>Common Misconceptions and How to Avoid Them</h3><p>Learners frequently encounter specific conceptual hurdles when studying linear inequalities, often driven by the temptation to treat inequalities exactly like equations. Recognizing these pitfalls helps establish reliable problem-solving habits. One major misconception is believing that the inequality sign should be reversed whenever a negative number appears anywhere in the problem. In reality, the sign is only reversed when the specific operation of multiplying or dividing both sides by a negative number occurs. The presence of a negative constant or a negative number being subtracted does not trigger a sign reversal.</p>
+<p>Another common error involves confusing open and closed circles on the number line. Learners sometimes place solid dots for strict inequalities like x &lt; 4 or open circles for inclusive inequalities like x &gt;= -1. Remembering that equality requires a solid shape helps: the extra ink used to draw the underline in the symbol (&lt;= or &gt;=) matches the extra ink used to fill in the circle.</p>
+<p>A third error occurs when learners transpose the variable to the right side and read the inequality backward. For example, solving an inequality and arriving at 5 &gt; x can confuse students who are accustomed to seeing the variable on the left. Translating this statement to read from the variable's perspective, so that x &lt; 5, clarifies the direction of the arrow needed when drawing the solution on the number line.</p></section>
+        </article>
+
+        <section class="t-card"><h2>Termes clés</h2><dl class="t-terms"><div><dt>Linear Inequality</dt><dd>A mathematical statement comparing two linear expressions using an inequality symbol, having an infinite range of solutions.</dd></div><div><dt>Open Circle</dt><dd>A graphical symbol used on a number line to show that a boundary value is not included in the solution set for strict inequalities.</dd></div><div><dt>Closed Circle</dt><dd>A graphical symbol used on a number line to show that a boundary value is included in the solution set for inclusive inequalities.</dd></div><div><dt>Negative Multiplier Rule</dt><dd>The mathematical rule stating that the inequality sign must be reversed whenever both sides are multiplied or divided by a negative number.</dd></div><div><dt>Solution Set</dt><dd>The complete collection of all numbers that satisfy a given inequality or equation.</dd></div></dl></section>
+
+        <section><h2>Exemples corrigés</h2><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">1</span>Solve and graph the inequality 5x + 3 &gt;= 23.</p><details><summary>Afficher la solution</summary><div class="t-ex-a"><p><strong>Step 1:</strong> Write down the original inequality: 5x + 3 &gt;= 23.</p>
+<p><strong>Step 2:</strong> Subtract 3 from both sides to isolate the variable term: 5x &gt;= 23 - 3, which simplifies to 5x &gt;= 20.</p>
+<p><strong>Step 3:</strong> Divide both sides by the positive coefficient 5: x &gt;= 20 / 5.</p>
+<p><strong>Step 4:</strong> Calculate the final inequality: x &gt;= 4.</p>
+<p><strong>Step 5:</strong> Represent the solution on a number line by placing a closed circle at 4 and drawing a bold arrow extending to the right.</p>
+<p>Number line: x ≥ 4 — a filled circle at 4 and an arrow to the right.</p></div></details></div><div class="t-example"><p class="t-ex-q"><span class="t-ex-n">2</span>Solve and graph the inequality 7 - 3x &lt; 16.</p><details><summary>Afficher la solution</summary><div class="t-ex-a"><p><strong>Step 1:</strong> Write down the original inequality: 7 - 3x &lt; 16.</p>
+<p><strong>Step 2:</strong> Subtract 7 from both sides to isolate the variable term: -3x &lt; 16 - 7, which simplifies to -3x &lt; 9.</p>
+<p><strong>Step 3:</strong> Divide both sides by the negative coefficient -3. Because this is a division by a negative number, reverse the inequality sign from &lt; to &gt;.</p>
+<p><strong>Step 4:</strong> Calculate the final inequality: x &gt; -3.</p>
+<p><strong>Step 5:</strong> Represent the solution on a number line by placing an open circle at -3 and drawing a bold arrow extending to the right.</p>
+<p>Number line: x &gt; -3 — a open circle at -3 and an arrow to the right.</p></div></details></div></section>
+
+        <section><h2>Idées reçues fréquentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> The inequality sign must always be flipped whenever a negative number appears in the problem.</p><p class="t-fact"><span>En réalité</span> The sign is only reversed when multiplying or dividing both sides of the inequality by a negative number, not simply because a negative number is present.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Open and closed circles on the number line can be used interchangeably for any inequality.</p><p class="t-fact"><span>En réalité</span> Open circles are reserved for strict inequalities where the boundary is excluded, while closed circles are used for inclusive inequalities where the boundary is included.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Inequalities have a single isolated solution value just like linear equations.</p><p class="t-fact"><span>En réalité</span> Linear inequalities describe a continuous range or interval of numbers, yielding an infinite set of possible solutions.</p></div></div></section>
+
+        <section class="t-card"><h2>Alignement sur le programme</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.07</code> Understand that letters can represent an open interval (one term).</li><li><code>8Ae.07</code> Understand that letters can represent open and closed intervals (two terms).</li><li><code>9Ae.07</code> Understand that a situation can be represented either in words or as an inequality. Move between the two representations and solve linear inequalities.</li></ul></section>
+      </div>
+
+      <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
+      <p class="eyebrow"><span class="t-soon">Bientôt disponible</span></p>
+      <h2 id="kit-h">Le kit pédagogique complet</h2>
+      <p>Des ressources prêtes à l'emploi construites à partir de cette leçon. Créez un compte gratuit et vous serez informé en premier de leur ouverture.</p>
+      <ul class="t-kit-list"><li>Fiche de préparation</li><li>Diaporama</li><li>Fiche d'exercices avec corrigé</li><li>Activité en classe</li><li>Étude de cas</li><li>Banque de questions : 30 questions d'entraînement</li><li>Évaluation en ligne, corrigée automatiquement</li></ul>
+      <a class="btn btn-primary" href="https://app.sketchcast.app/signup?topic=linear-inequalities-and-their-solutions-on-a-number-line">Créer un compte gratuit</a>
+    </aside></div>
+    </div>
+
+    <section class="t-related"><h2>D'autres leçons de Mathématiques</h2><div class="t-cards"><a class="t-cardlink" href="/fr/topics/algebraic-fractions-simplifying-adding-and-subtracting" data-subject="Mathematics" data-text="algebraic fractions: simplifying, adding and subtracting cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator. mathematics 9ae.02">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/EiS0kCf51BE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Mathématiques</span>
+        <span class="t-card-title" lang="en">Algebraic Fractions: Simplifying, Adding and Subtracting</span>
+        <span class="t-card-sum" lang="en">Cancelling common factors in algebraic fractions and adding or subtracting them using a common denominator.</span>
+        <span class="t-codes"><code>9Ae.02</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/fr/topics/algebraic-identities-squares-of-binomials-and-the-difference-of-two-squares" data-subject="Mathematics" data-text="algebraic identities: squares of binomials and the difference of two squares the identities for (a + b)^2, (a - b)^2 and a^2 - b^2, where they come from, and how they speed up expansion and factorising. mathematics 8:alg:02 8:alg:03 9:u2:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/4CSrJEyGRH8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Mathématiques</span>
+        <span class="t-card-title" lang="en">Algebraic Identities: Squares of Binomials and the Difference of Two Squares</span>
+        <span class="t-card-sum" lang="en">The identities for (a + b)<sup>2</sup>, (a - b)<sup>2</sup> and a<sup>2</sup> - b<sup>2</sup>, where they come from, and how they speed up expansion and factorising.</span>
+        <span class="t-codes"><code>8:ALG:02</code><code>8:ALG:03</code><code>9:U2:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/fr/topics/area-of-trapeziums-and-compound-shapes" data-subject="Mathematics" data-text="area of trapeziums and compound shapes the area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles and adding or subtracting areas. mathematics 9:u5:01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/2tRmqwAsgzI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Mathématiques</span>
+        <span class="t-card-title" lang="en">Area of Trapeziums and Compound Shapes</span>
+        <span class="t-card-sum" lang="en">The area of a trapezium as half the sum of the parallel sides times the height; splitting a compound shape into rectangles and triangles…</span>
+        <span class="t-codes"><code>9:U5:01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/fr/topics/circumference-and-area-of-a-circle" data-subject="Mathematics" data-text="circumference and area of a circle radius, diameter and pi; circumference = pi x d and area = pi x r^2; answers in terms of pi and to a given accuracy; semicircles and quarter circles. mathematics 9gg.01">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/GrA8qFUz1dA/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Mathématiques</span>
+        <span class="t-card-title" lang="en">Circumference and Area of a Circle</span>
+        <span class="t-card-sum" lang="en">Radius, diameter and pi; circumference = pi x d and area = pi x r<sup>2</sup>; answers in terms of pi and to a given accuracy; semicircles and…</span>
+        <span class="t-codes"><code>9Gg.01</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/fr/topics/coordinates-and-plotting-linear-graphs" data-subject="Mathematics" data-text="coordinates and plotting linear graphs coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph. mathematics 7as.04 7as.05 7as.06">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/Pjy2vXnfNbM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Mathématiques</span>
+        <span class="t-card-title" lang="en">Coordinates and Plotting Linear Graphs</span>
+        <span class="t-card-sum" lang="en">Coordinates in all four quadrants, making a table of values from a linear equation, and plotting a straight-line graph.</span>
+        <span class="t-codes"><code>7As.04</code><code>7As.05</code><code>7As.06</code></span>
+      </span>
+    </a><a class="t-cardlink" href="/fr/topics/expanding-double-brackets" data-subject="Mathematics" data-text="expanding double brackets multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution. mathematics 9ae.02 8:alg:02">
+      <span class="t-thumb"><img src="https://i.ytimg.com/vi/h4Vv4ofMnPw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" /></span>
+      <span class="t-card-body">
+        <span class="eyebrow">Mathématiques</span>
+        <span class="t-card-title" lang="en">Expanding Double Brackets</span>
+        <span class="t-card-sum" lang="en">Multiplying two binomials term by term, collecting like terms, and checking the expansion by substitution.</span>
+        <span class="t-codes"><code>9Ae.02</code><code>8:ALG:02</code></span>
+      </span>
+    </a></div></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span style="display:inline-flex;align-items:center;gap:11px">
+        <img src="/seal.png" data-i18n-attr="alt:common.footer.sealAlt" alt="SketchCast AI — un chapitre, enseigné" width="44" height="44" style="width:44px;height:44px;border-radius:50%;display:block" />
+        <span data-i18n="common.footer.copyright">© 2026 SketchCast AI</span>
+      </span>
+      <div class="foot-links">
+        <a href="/fr/" data-i18n="common.nav.home">Accueil</a>
+        <a href="/fr/about" data-i18n="common.nav.about">À propos</a>
+        <a href="/fr/topics" data-i18n="common.nav.lessons">Leçons</a>
+        <a href="/fr/homeschool" data-i18n="common.nav.homeschool">École à la maison</a>
+        <a href="/fr/schools" data-i18n="common.nav.schools">Pour les écoles</a>
+        <a href="/fr/pricing" data-i18n="common.nav.pricing">Tarifs</a>
+        <a href="/fr/privacy" data-i18n="common.footer.privacy">Confidentialité</a>
+        <a href="/fr/terms" data-i18n="common.footer.terms">Conditions</a>
+        <a href="mailto:hello@sketchcast.app" data-i18n="common.footer.contact">Contact</a>
+        <a class="foot-li" href="https://www.linkedin.com/company/aethel-twin/" target="_blank" rel="noopener" data-i18n-attr="aria-label:common.footer.linkedIn" aria-label="Aethel Twin sur LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="foot-legal" data-i18n="common.footer.legal">Un produit d'<strong>Aethel Twin Sdn. Bhd.</strong> (202601012908) · Statut Malaysia Digital MD/0002997</p>
+    <p class="foot-legal" data-i18n="common.footer.youtube">SketchCast publie aussi des leçons gratuites issues de sa bibliothèque de sujets sur la <a href="https://www.youtube.com/@Sketchcast-AI-app" target="_blank" rel="noopener">chaîne YouTube de SketchCast</a>. La façon dont nous utilisons les services API Google à cette fin est expliquée dans notre <a href="/fr/privacy#google-api">Politique de confidentialité (§7)</a>.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var inks = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".ink").forEach(function (s) { s.classList.add("in"); });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    inks.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script defer src="/assets/handoff.js"></script>
+<script>
+(function(){
+  // Click-to-play: the YouTube player loads only when asked (privacy, speed).
+  document.querySelectorAll('.t-play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0';
+      f.title=b.getAttribute('aria-label')||'Video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      b.parentNode.replaceChild(f,b);
+    });
+  });
+  // Index filters: subject chips + text search.
+  var cards=document.getElementById('t-cards');if(!cards)return;
+  var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),empty=document.querySelector('.t-empty'),subject='';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),shown=0;
+    cards.querySelectorAll('.t-cardlink').forEach(function(c){
+      var ok=(!subject||c.getAttribute('data-subject')===subject)&&(!term||c.getAttribute('data-text').indexOf(term)>=0);
+      c.hidden=!ok;if(ok)shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    subject=ch.getAttribute('data-subject');
+    chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch?'true':'false');});apply();
+  });});
+  q.addEventListener('input',apply);
+})();
+</script>
+</body>
+</html>
