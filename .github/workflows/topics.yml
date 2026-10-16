@@ -105,6 +105,8 @@ jobs:
         run: |
           set -euo pipefail
           git add -A -- topics.html sitemap-topics.xml topics ':(glob)*/topics.html' ':(glob)*/topics/**'
+          # the kits' preview cards (plan §4.4) are downloaded by the build into assets/previews/<slug>/
+          if [ -d assets/previews ]; then git add -A -- assets/previews; fi
           if [ -e _redirects ]; then git add -A -- _redirects; fi
           other=$(git diff --name-only)
           if [ -n "$other" ]; then
