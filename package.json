@@ -6,6 +6,8 @@
   "scripts": {
     "i18n": "node build-i18n.mjs",
     "i18n:check": "node build-i18n.mjs --check",
+    "topics": "node build-i18n.mjs --quiet && node build-topics.mjs && node check-topics.mjs",
+    "topics:check": "node check-topics.mjs",
     "topics": "node build-topics.mjs",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy"
