@@ -47,5 +47,16 @@
   "kit.case_study": "کاجين کيس",
   "kit.questions": "بڠک سوالن: {n} سوالن لاتيهن",
   "kit.assessment": "ڤنيلاين دالم تالين، دتندا سچارا اوتوماتيک",
-  "kit.exam": "سيت ڤرسدياٴن ڤڤريقساٴن"
+  "kit.exam": "سيت ڤرسدياٴن ڤڤريقساٴن",
+  "strip.eyebrow": "ڤلاجرن ڤرچوما",
+  "strip.title": "تونتون ڤلاجرن ڤرچوما",
+  "strip.lead": "{n} ڤلاجرن ڤاڤن ڤوتيه ريڠکس دالم ساءينس دان ماتماتيک، ڤرچوما د YouTube. ڤيليه ساتو.",
+  "strip.subject": "سوبجيک",
+  "strip.lesson": "ڤلاجرن",
+  "strip.all": "سموا سوبجيک",
+  "strip.watch": "تونتون د YouTube",
+  "strip.read": "باچ ڤنرڠن ڤنوه",
+  "strip.browse": "ليهت سموا {n} ڤلاجرن",
+  "strip.kitSoon": "کيت ڤڠاجرن ڤرچوما: اکن داتڠ",
+  "strip.play": "ماءينکن د YouTube: {title}"
 }

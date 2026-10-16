@@ -47,5 +47,16 @@
   "kit.case_study": "Étude de cas",
   "kit.questions": "Banque de questions : {n} questions d'entraînement",
   "kit.assessment": "Évaluation en ligne, corrigée automatiquement",
-  "kit.exam": "Préparation à l'examen"
+  "kit.exam": "Préparation à l'examen",
+  "strip.eyebrow": "Leçons gratuites",
+  "strip.title": "Regardez une leçon gratuite",
+  "strip.lead": "{n} courtes leçons au tableau blanc en sciences et en mathématiques, gratuites sur YouTube. Choisissez-en une.",
+  "strip.subject": "Matière",
+  "strip.lesson": "Leçon",
+  "strip.all": "Toutes les matières",
+  "strip.watch": "Regarder sur YouTube",
+  "strip.read": "Lire l'explication complète",
+  "strip.browse": "Voir les {n} leçons",
+  "strip.kitSoon": "Kit pédagogique gratuit : bientôt",
+  "strip.play": "Lire sur YouTube : {title}"
 }

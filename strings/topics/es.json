@@ -47,5 +47,16 @@
   "kit.case_study": "Estudio de caso",
   "kit.questions": "Banco de preguntas: {n} preguntas de práctica",
   "kit.assessment": "Evaluación en línea con corrección automática",
-  "kit.exam": "Preparación para el examen"
+  "kit.exam": "Preparación para el examen",
+  "strip.eyebrow": "Lecciones gratuitas",
+  "strip.title": "Mira una lección gratuita",
+  "strip.lead": "{n} lecciones breves en pizarra blanca de Ciencias y Matemáticas, gratis en YouTube. Elige una.",
+  "strip.subject": "Asignatura",
+  "strip.lesson": "Lección",
+  "strip.all": "Todas las asignaturas",
+  "strip.watch": "Ver en YouTube",
+  "strip.read": "Leer la explicación completa",
+  "strip.browse": "Ver las {n} lecciones",
+  "strip.kitSoon": "Kit didáctico gratuito: próximamente",
+  "strip.play": "Reproducir en YouTube: {title}"
 }

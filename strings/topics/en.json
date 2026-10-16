@@ -48,5 +48,16 @@
   "kit.case_study": "Case study",
   "kit.questions": "Question bank: {n} practice questions",
   "kit.assessment": "Online assessment, marked automatically",
-  "kit.exam": "Exam preparation set"
+  "kit.exam": "Exam preparation set",
+  "strip.eyebrow": "Free lessons",
+  "strip.title": "Watch a free lesson",
+  "strip.lead": "{n} short whiteboard lessons in Science and Mathematics, free on YouTube. Pick one.",
+  "strip.subject": "Subject",
+  "strip.lesson": "Lesson",
+  "strip.all": "All subjects",
+  "strip.watch": "Watch on YouTube",
+  "strip.read": "Read the full explanation",
+  "strip.browse": "Browse all {n} lessons",
+  "strip.kitSoon": "Free teaching kit: coming soon",
+  "strip.play": "Play on YouTube: {title}"
 }
