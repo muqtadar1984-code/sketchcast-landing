@@ -264,7 +264,7 @@ function stageOf(topic) {
  * majority. The two unmapped geometry lessons fall back to title keywords. */
 const BRANCH_OF_STRAND = {
   Algebra: "algebra",
-  "Coordinate Geometry": "geometry", "Geometry and measure": "geometry", Mensuration: "geometry",
+  Geometry: "geometry", "Coordinate Geometry": "geometry", "Geometry and measure": "geometry", Mensuration: "geometry",
   Biology: "biology", "The World of the Living": "biology", "Natural Resources": "biology",
   Chemistry: "chemistry", Materials: "chemistry",
   Physics: "physics", "Natural Phenomena": "physics", "Moving Things, People and Ideas": "physics",
