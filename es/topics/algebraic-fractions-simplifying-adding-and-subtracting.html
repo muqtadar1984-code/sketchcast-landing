@@ -437,7 +437,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Ideas erróneas frecuentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Cancelling terms in expressions like x plus 5 over x to leave 5.</p><p class="t-fact"><span>En realidad</span> Terms separated by plus or minus signs cannot be cancelled. Only common multiplication factors can be cancelled from numerator and denominator.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Forgetting to distribute a negative sign when subtracting algebraic fractions with a common denominator.</p><p class="t-fact"><span>En realidad</span> When subtracting a multi-term numerator, place brackets around the entire numerator expression and distribute the negative sign to every term inside.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Adding denominators together when combining fractions instead of finding a common denominator.</p><p class="t-fact"><span>En realidad</span> Fractions can only be combined when their denominators are identical; unlike denominators must be converted to a common multiple before combining.</p></div></div></section>
 
-        <section class="t-card"><h2>Alineación con el currículo</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Ae.02</code> Understand how to manipulate algebraic expressions including: – expanding the product of two algebraic expressions – applying the laws of indices – simplifying algebraic fractions.</li></ul></section>
+        <section class="t-card"><h2>Alineación con el currículo</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Ae.02</code> Understand how to manipulate algebraic expressions including: – expanding the product of two algebraic expressions – applying the laws of indices – simplifying algebraic fractions.</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -568,7 +568,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

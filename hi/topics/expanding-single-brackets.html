@@ -446,7 +446,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>आम ग़लतफ़हमियाँ</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> Multiplying only the first term inside the bracket by the outside term and leaving the second term unchanged.</p><p class="t-fact"><span>असल में</span> The outside term must be multiplied by every individual term separated by plus or minus signs inside the bracket using the distributive law.</p></div><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> Forgetting that a negative number multiplied by a negative number results in a positive term when expanding brackets.</p><p class="t-fact"><span>असल में</span> When a negative multiplier distributes across a negative term inside a bracket, the two negatives combine to make a positive result.</p></div><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> Multiplying terms that are outside the bracket with the multiplier before expanding the bracket.</p><p class="t-fact"><span>असल में</span> Multiplication over brackets takes priority in order of operations, so brackets must be expanded before combining with separate numbers outside.</p></div></div></section>
 
-        <section class="t-card"><h2>पाठ्यक्रम से मेल</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.03</code> Understand how to manipulate algebraic expressions including: – collecting like terms – applying the distributive law with a constant.</li><li><code>8Ae.03</code> Understand how to manipulate algebraic expressions including: – applying the distributive law with a single term (squares and cubes) – identifying the highest common factor to factorise.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:02</code> Algebraic Expressions and Identities</li></ul></section>
+        <section class="t-card"><h2>पाठ्यक्रम से मेल</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.03</code> Understand how to manipulate algebraic expressions including: – collecting like terms – applying the distributive law with a constant.</li><li><code>8Ae.03</code> Understand how to manipulate algebraic expressions including: – applying the distributive law with a single term (squares and cubes) – identifying the highest common factor to factorise.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:02</code> Algebraic Expressions and Identities</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -577,7 +577,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

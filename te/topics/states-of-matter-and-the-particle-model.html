@@ -434,7 +434,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>సాధారణ అపోహలు</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Particles in a solid are completely stationary and do not move at all.</p><p class="t-fact"><span>నిజానికి</span> Particles in a solid vibrate constantly around fixed mean positions, possessing vibrational kinetic energy.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Boiling and evaporation are identical processes occurring throughout the entire liquid.</p><p class="t-fact"><span>నిజానికి</span> Evaporation happens only at the surface of a liquid at any temperature, whereas boiling happens throughout the entire liquid at a specific boiling point.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Spaces between particles in a gas contain air or other gases.</p><p class="t-fact"><span>నిజానికి</span> The spaces between particles in a gas are complete vacuums containing nothing; the gas particles themselves are what occupy that volume.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Sublimation means a solid melts into a liquid and then immediately evaporates into a gas.</p><p class="t-fact"><span>నిజానికి</span> Sublimation is a direct transition from solid to gas without entering the liquid phase at any point.</p></div></div></section>
 
-        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>7Cm.06</code> Describe the three states of matter as solid, liquid and gas in terms of the arrangement, separation and motion of particles.</li><li><code>8Pf.07</code> Describe the diffusion of gases and liquids as the intermingling of substances by the movement of particles.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U1:01</code> Matter in Our Surroundings</li><li><code>8:ch07</code> Particulate Nature of Matter</li></ul></section>
+        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>7Cm.06</code> Describe the three states of matter as solid, liquid and gas in terms of the arrangement, separation and motion of particles.</li><li><code>8Pf.07</code> Describe the diffusion of gases and liquids as the intermingling of substances by the movement of particles.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U1:01</code> Matter in Our Surroundings</li><li><code>8:ch07</code> Particulate Nature of Matter</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -565,7 +565,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

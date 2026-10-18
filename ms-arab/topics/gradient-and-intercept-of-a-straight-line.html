@@ -441,7 +441,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>ساله فهم بياسا</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> The gradient is calculated by dividing the run by the rise.</p><p class="t-fact"><span>سبنرڽ</span> The gradient is always calculated as the rise divided by the run. Dividing horizontal change by vertical change inverts the true slope value.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> The y-intercept is the point where the line crosses the horizontal x-axis.</p><p class="t-fact"><span>سبنرڽ</span> The y-intercept is located where the line crosses the vertical y-axis. The point where the line crosses the x-axis is called the x-intercept.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> A line that slopes downwards from left to right has a positive gradient.</p><p class="t-fact"><span>سبنرڽ</span> A line sloping downwards has a negative gradient because the vertical coordinate decreases as the horizontal coordinate increases.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> In the equation y = mx + c, the letter c represents the gradient.</p><p class="t-fact"><span>سبنرڽ</span> The letter m represents the gradient, while the letter c represents the y-intercept.</p></div></div></section>
 
-        <section class="t-card"><h2>ڤنجاجرن کوريکولوم</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>8As.06</code> Recognise that equations of the form y = mx + c correspond to straight-line graphs, where m is the gradient and c is the y-intercept (integer values of m).</li><li><code>9As.06</code> Understand that straight-line graphs can be represented by equations. Find the equation in the form y = mx + c or where y is given implicitly in terms of x (fractional, positive and negative gradients).</li></ul></section>
+        <section class="t-card"><h2>ڤنجاجرن کوريکولوم</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>8As.06</code> Recognise that equations of the form y = mx + c correspond to straight-line graphs, where m is the gradient and c is the y-intercept (integer values of m).</li><li><code>9As.06</code> Understand that straight-line graphs can be represented by equations. Find the equation in the form y = mx + c or where y is given implicitly in terms of x (fractional, positive and negative gradients).</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -572,7 +572,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

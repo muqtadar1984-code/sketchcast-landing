@@ -425,7 +425,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Salah faham biasa</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> Blood is a uniform red fluid made entirely of red liquid.</p><p class="t-fact"><span>Sebenarnya</span> Blood is actually a tissue composed of a liquid part called plasma and various solid-like cellular components, including red blood cells, white blood cells, and platelets.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> Red blood cells need a nucleus to carry out their functions effectively.</p><p class="t-fact"><span>Sebenarnya</span> Mature human red blood cells lack a nucleus so that they can pack more haemoglobin inside, maximizing the amount of oxygen they can transport.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> Plasma only transports water around the body.</p><p class="t-fact"><span>Sebenarnya</span> While plasma is mostly water, it also dissolves and transports vital nutrients, carbon dioxide, hormones, mineral ions, and heat.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> White blood cells transport oxygen when red blood cells run low.</p><p class="t-fact"><span>Sebenarnya</span> White blood cells have no role in oxygen transport; their sole function is to defend the body against pathogens and infections.</p></div></div></section>
 
-        <section class="t-card"><h2>Penjajaran kurikulum</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Bs.02</code> Describe the components of blood and their functions (limited to red blood cells transporting oxygen, white blood cells protecting against pathogens and plasma transporting blood cells, nutrients and carbon dioxide).</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>7:ch09</code> Life Processes in Animals</li></ul></section>
+        <section class="t-card"><h2>Penjajaran kurikulum</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Bs.02</code> Describe the components of blood and their functions (limited to red blood cells transporting oxygen, white blood cells protecting against pathogens and plasma transporting blood cells, nutrients and carbon dioxide).</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>7:ch09</code> Life Processes in Animals</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -556,7 +556,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

@@ -430,7 +430,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>ساله فهم بياسا</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Learners believe that perimeter and area measure the same property of a shape in different units.</p><p class="t-fact"><span>سبنرڽ</span> Perimeter measures the one-dimensional linear distance around the outside of a shape, whereas area measures two-dimensional surface coverage inside the boundary.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Students use the slanted side length of a parallelogram or triangle as its height in area calculations.</p><p class="t-fact"><span>سبنرڽ</span> The height used in area formulae must be strictly perpendicular at ninety degrees to the base, and slanted sides are always longer than the perpendicular height.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> When using Heron's formula, learners use the full perimeter value instead of the semi-perimeter s.</p><p class="t-fact"><span>سبنرڽ</span> Heron's formula requires s, which is half of the perimeter sum, because multiplying the full perimeter would distort the scale of the square root calculation.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Students assume the height of a triangle always falls inside the figure.</p><p class="t-fact"><span>سبنرڽ</span> In obtuse-angled triangles, the perpendicular height falls outside the boundary of the triangle, requiring the base line to be extended.</p></div></div></section>
 
-        <section class="t-card"><h2>ڤنجاجرن کوريکولوم</h2><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>9:U5:01</code> Areas</li></ul></section>
+        <section class="t-card"><h2>ڤنجاجرن کوريکولوم</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>9:U5:01</code> Areas</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -561,7 +561,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

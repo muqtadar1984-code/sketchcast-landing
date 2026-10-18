@@ -443,7 +443,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>సాధారణ అపోహలు</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> The inequality sign must always be flipped whenever a negative number appears in the problem.</p><p class="t-fact"><span>నిజానికి</span> The sign is only reversed when multiplying or dividing both sides of the inequality by a negative number, not simply because a negative number is present.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Open and closed circles on the number line can be used interchangeably for any inequality.</p><p class="t-fact"><span>నిజానికి</span> Open circles are reserved for strict inequalities where the boundary is excluded, while closed circles are used for inclusive inequalities where the boundary is included.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Inequalities have a single isolated solution value just like linear equations.</p><p class="t-fact"><span>నిజానికి</span> Linear inequalities describe a continuous range or interval of numbers, yielding an infinite set of possible solutions.</p></div></div></section>
 
-        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.07</code> Understand that letters can represent an open interval (one term).</li><li><code>8Ae.07</code> Understand that letters can represent open and closed intervals (two terms).</li><li><code>9Ae.07</code> Understand that a situation can be represented either in words or as an inequality. Move between the two representations and solve linear inequalities.</li></ul></section>
+        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.07</code> Understand that letters can represent an open interval (one term).</li><li><code>8Ae.07</code> Understand that letters can represent open and closed intervals (two terms).</li><li><code>9Ae.07</code> Understand that a situation can be represented either in words or as an inequality. Move between the two representations and solve linear inequalities.</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -574,7 +574,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

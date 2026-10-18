@@ -463,7 +463,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>సాధారణ అపోహలు</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Angles on a straight line add up to 360 degrees because a line looks like a circle stretched out.</p><p class="t-fact"><span>నిజానికి</span> Angles on a straight line add up to 180 degrees because a straight line represents a half turn from one direction to its exact opposite.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Adjacent angles that share a vertex are always vertically opposite.</p><p class="t-fact"><span>నిజానికి</span> Vertically opposite angles are formed only when two straight lines cross, and they do not share any common ray arms.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Any two intersecting lines cross at right angles.</p><p class="t-fact"><span>నిజానికి</span> Intersecting lines cross at right angles only if perpendicularity is specified; otherwise, they form acute and obtuse pairs of vertically opposite angles.</p></div></div></section>
 
-        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Gg.12</code> Know that the sum of the angles around a point is 360°, and use this to calculate missing angles.</li><li><code>7Gg.13</code> Recognise the properties of angles on: parallel lines and transversals; perpendicular lines; intersecting lines.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>7:GEO:01</code> Lines and Angles</li><li><code>9:U4:01</code> Lines and Angles</li></ul></section>
+        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Gg.12</code> Know that the sum of the angles around a point is 360°, and use this to calculate missing angles.</li><li><code>7Gg.13</code> Recognise the properties of angles on: parallel lines and transversals; perpendicular lines; intersecting lines.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>7:GEO:01</code> Lines and Angles</li><li><code>9:U4:01</code> Lines and Angles</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -594,7 +594,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

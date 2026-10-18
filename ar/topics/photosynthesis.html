@@ -428,7 +428,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>مفاهيم خاطئة شائعة</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Plants get their food from the soil.</p><p class="t-fact"><span>في الحقيقة</span> Soil provides water and essential mineral ions, but plants make their own food internally through photosynthesis using light, carbon dioxide, and water.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Photosynthesis only happens during the night when it is quiet.</p><p class="t-fact"><span>في الحقيقة</span> Photosynthesis requires light energy, so it only occurs during daylight hours when sunlight is available.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Oxygen is a reactant that plants breathe in during photosynthesis.</p><p class="t-fact"><span>في الحقيقة</span> Oxygen is actually a product of photosynthesis that is released into the atmosphere, while carbon dioxide is the gas absorbed.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Chlorophyll is a living organism inside the plant cell.</p><p class="t-fact"><span>في الحقيقة</span> Chlorophyll is a non-living chemical pigment molecule that absorbs light, located inside the living organelle called the chloroplast.</p></div></div></section>
 
-        <section class="t-card"><h2>المواءمة مع المنهج</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>9Bp.06</code> Know that photosynthesis occurs in chloroplasts and is the process by which plants make carbohydrates, using the energy from light.</li><li><code>9Bp.07</code> Know and use the summary word equation for photosynthesis (carbon dioxide + water -&gt; glucose + oxygen, in the presence of light and chlorophyll).</li></ul></section>
+        <section class="t-card"><h2>المواءمة مع المنهج</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>9Bp.06</code> Know that photosynthesis occurs in chloroplasts and is the process by which plants make carbohydrates, using the energy from light.</li><li><code>9Bp.07</code> Know and use the summary word equation for photosynthesis (carbon dioxide + water -&gt; glucose + oxygen, in the presence of light and chlorophyll).</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -559,7 +559,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

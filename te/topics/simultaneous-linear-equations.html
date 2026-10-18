@@ -473,7 +473,7 @@ Equation 2: 4x - y = 5</p><details><summary>జవాబు చూపించ�
 
         <section><h2>సాధారణ అపోహలు</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Substituting the rearranged expression back into the same equation it was derived from.</p><p class="t-fact"><span>నిజానికి</span> Always substitute the expression into the alternate equation. Substituting back into the same equation yields an identity statement like 0 = 0 and provides no solution.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Believing that a pair of linear equations always has one single unique solution.</p><p class="t-fact"><span>నిజానికి</span> While most school problems have one solution, parallel lines yield zero solutions, and coincident lines yield infinitely many solutions.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Forgetting to find the second variable after successfully solving for the first one.</p><p class="t-fact"><span>నిజానికి</span> A solution requires both coordinate values. Once the first variable is found, it must be substituted back to find the second variable.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Ignoring negative signs when subtracting equations during the elimination method.</p><p class="t-fact"><span>నిజానికి</span> Subtracting a negative term is equivalent to adding. Carefully distribute negative signs across every term in the subtracted equation.</p></div></div></section>
 
-        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Ae.06</code> Understand that the solution of simultaneous linear equations: – is the pair of values that satisfy both equations – can be found algebraically (eliminating one variable) – can be found graphically (point of intersection).</li></ul></section>
+        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Ae.06</code> Understand that the solution of simultaneous linear equations: – is the pair of values that satisfy both equations – can be found algebraically (eliminating one variable) – can be found graphically (point of intersection).</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -604,7 +604,7 @@ Equation 2: 4x - y = 5</p><details><summary>జవాబు చూపించ�
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

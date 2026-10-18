@@ -430,7 +430,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Ideias erradas comuns</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Ideia errada</span> Acquired characteristics, such as muscles built through exercise or knowledge gained through study, are passed on to offspring.</p><p class="t-fact"><span>Na verdade</span> Acquired characteristics affect only somatic cells and do not alter the DNA sequence in germline cells, meaning they cannot be transmitted to the next generation.</p></div><div class="t-misc-item"><p class="t-myth"><span>Ideia errada</span> The mother determines the biological sex of a human child because she contributes the egg.</p><p class="t-fact"><span>Na verdade</span> Human biological sex is determined entirely by the type of sperm cell that fertilises the egg; sperm can carry either an X or a Y chromosome, whereas all normal human eggs carry an X chromosome.</p></div><div class="t-misc-item"><p class="t-myth"><span>Ideia errada</span> Dominant traits are always the most common traits found in a natural population.</p><p class="t-fact"><span>Na verdade</span> Dominance refers only to the masking of a recessive allele in a heterozygote, not to frequency; a dominant trait can be rare in a population if its allele frequency is low.</p></div><div class="t-misc-item"><p class="t-myth"><span>Ideia errada</span> Mutations are always harmful to an organism.</p><p class="t-fact"><span>Na verdade</span> While some mutations cause genetic disorders, many are neutral, and some provide advantageous traits that enhance survival and reproduction in changing environments.</p></div></div></section>
 
-        <section class="t-card"><h2>Alinhamento curricular</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>9Bp.02</code> Describe the inheritance of sex in humans in terms of XX and XY chromosomes.</li><li><code>9Bp.03</code> Describe variation within a species and relate this to genetic differences between individuals.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>10:U2:04</code> Heredity and Evolution</li></ul></section>
+        <section class="t-card"><h2>Alinhamento curricular</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>9Bp.02</code> Describe the inheritance of sex in humans in terms of XX and XY chromosomes.</li><li><code>9Bp.03</code> Describe variation within a species and relate this to genetic differences between individuals.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>10:U2:04</code> Heredity and Evolution</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -561,7 +561,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)
