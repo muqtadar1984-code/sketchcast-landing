@@ -431,7 +431,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Idées reçues fréquentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Learners often use the slant height of a trapezium in the area formula instead of the perpendicular height.</p><p class="t-fact"><span>En réalité</span> The formula requires the perpendicular height because area measures flat surface coverage at right angles; slant height is longer and will produce an incorrect result.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Students believe that a compound shape must be split into sections in only one specific way to be solved correctly.</p><p class="t-fact"><span>En réalité</span> A compound shape can be partitioned into different combinations of triangles and rectangles, and as long as no gaps or overlaps occur, the final total area will always be the same.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Learners confuse area with perimeter, adding side lengths together when asked to find the space inside a shape.</p><p class="t-fact"><span>En réalité</span> Perimeter is the total linear distance around the outside of a shape, whereas area measures the two-dimensional surface units enclosed within that boundary.</p></div></div></section>
 
-        <section class="t-card"><h2>Alignement sur le programme</h2><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>9:U5:01</code> Areas</li></ul></section>
+        <section class="t-card"><h2>Alignement sur le programme</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>9:U5:01</code> Areas</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -562,7 +562,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

@@ -444,7 +444,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>مفاهيم خاطئة شائعة</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Electrons are located inside the nucleus alongside protons and neutrons.</p><p class="t-fact"><span>في الحقيقة</span> Electrons exist entirely outside the nucleus, revolving in specific energy shells or orbitals, while protons and neutrons are strictly confined to the nucleus.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Atoms are solid, hard spheres with matter distributed uniformly throughout their volume.</p><p class="t-fact"><span>في الحقيقة</span> Atoms are composed mostly of empty space, with all their positive charge and mass concentrated in a tiny central nucleus.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Isotopes of an element have different chemical properties because they have different masses.</p><p class="t-fact"><span>في الحقيقة</span> Isotopes share identical chemical properties because chemical reactivity depends on the number and arrangement of electrons, which remain the same for a given element.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> The mass number of an atom is equal to the number of protons only.</p><p class="t-fact"><span>في الحقيقة</span> The mass number is the total sum of both protons and neutrons in the nucleus.</p></div></div></section>
 
-        <section class="t-card"><h2>المواءمة مع المنهج</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Cm.01</code> Describe the Rutherford model of the structure of an atom.</li><li><code>8Cm.02</code> Know that electrons have negative charge, protons have positive charge and neutrons have no charge.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U1:04</code> Structure of atom</li></ul></section>
+        <section class="t-card"><h2>المواءمة مع المنهج</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Cm.01</code> Describe the Rutherford model of the structure of an atom.</li><li><code>8Cm.02</code> Know that electrons have negative charge, protons have positive charge and neutrons have no charge.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U1:04</code> Structure of atom</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -575,7 +575,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

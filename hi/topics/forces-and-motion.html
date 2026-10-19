@@ -422,7 +422,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>आम ग़लतफ़हमियाँ</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> An object needs a continuous force acting on it to keep moving at a constant speed.</p><p class="t-fact"><span>असल में</span> According to the laws of motion, once an object is moving, it will maintain a constant speed in a straight line unless acted upon by an unbalanced resistive force such as friction.</p></div><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> If an object is stationary, there are no forces acting on it.</p><p class="t-fact"><span>असल में</span> A stationary object experiences balanced forces, such as gravity pulling downwards and a surface pushing upwards with equal magnitude.</p></div><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> Heavy objects always fall faster because gravity pulls harder on them.</p><p class="t-fact"><span>असल में</span> In the absence of air resistance, all objects accelerate downwards at the exact same rate regardless of mass, because gravitational acceleration is constant for a given gravitational field.</p></div><div class="t-misc-item"><p class="t-myth"><span>ग़लतफ़हमी</span> Turning a heavy bolt is easier if the force is applied closer to the nut.</p><p class="t-fact"><span>असल में</span> The turning effect is greater when the distance from the pivot is larger, so applying force further away from the nut requires less effort.</p></div></div></section>
 
-        <section class="t-card"><h2>पाठ्यक्रम से मेल</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Pf.03</code> Describe the effects of balanced and unbalanced forces on motion.</li><li><code>8Pf.04</code> Identify and calculate turning forces (moment = force x distance).</li></ul></section>
+        <section class="t-card"><h2>पाठ्यक्रम से मेल</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Pf.03</code> Describe the effects of balanced and unbalanced forces on motion.</li><li><code>8Pf.04</code> Identify and calculate turning forces (moment = force x distance).</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -553,7 +553,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

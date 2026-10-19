@@ -437,7 +437,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>సాధారణ అపోహలు</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Believing that (a + b)<sup>2</sup> is equal to a<sup>2</sup> + b<sup>2</sup> by distributing the exponent across the addition.</p><p class="t-fact"><span>నిజానికి</span> The square of a sum always includes the middle cross term, 2ab, because expanding (a + b)(a + b) produces four individual products that combine into a<sup>2</sup> + 2ab + b<sup>2.</sup></p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Believing that the final term in the square of a difference, (a - b)<sup>2</sup>, is negative b<sup>2.</sup></p><p class="t-fact"><span>నిజానికి</span> The final term is always positive b<sup>2</sup> because squaring any non-zero number, whether positive or negative, results in a positive value since negative b multiplied by negative b is positive b<sup>2.</sup></p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Assuming that the sum of two squares, a<sup>2</sup> + b<sup>2</sup>, can be factorised into (a + b)(a - b).</p><p class="t-fact"><span>నిజానికి</span> The difference of two squares identity requires a subtraction sign between the terms; the sum of two squares cannot be factorised into linear binomials using real numbers.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Squaring only the variable when expanding a term with a coefficient, such as writing (3x)<sup>2</sup> as 3x<sup>2.</sup></p><p class="t-fact"><span>నిజానికి</span> Both the numerical coefficient and the variable must be squared entirely, so (3x)<sup>2</sup> becomes 3<sup>2</sup> times x<sup>2</sup>, which equals 9x<sup>2.</sup></p></div></div></section>
 
-        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:02</code> Algebraic Expressions and Identities</li><li><code>8:ALG:03</code> Factorisation</li><li><code>9:U2:01</code> Polynomials</li></ul></section>
+        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:02</code> Algebraic Expressions and Identities</li><li><code>8:ALG:03</code> Factorisation</li><li><code>9:U2:01</code> Polynomials</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -568,7 +568,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

@@ -473,7 +473,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>ساله فهم بياسا</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Terms like 3x and 4x<sup>2</sup> can be combined because they share the same variable x.</p><p class="t-fact"><span>سبنرڽ</span> Like terms must have both the same variables and the exact same exponents. Since the exponents 1 and 2 are different, 3x and 4x<sup>2</sup> are unlike terms and cannot be combined.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> The negative sign in front of a term is an operation separate from the term itself.</p><p class="t-fact"><span>سبنرڽ</span> The operational sign belongs to the term that immediately follows it. It dictates whether the coefficient of that term is positive or negative.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Unlike terms like 2x and 3y can be added together to make 5xy.</p><p class="t-fact"><span>سبنرڽ</span> Only like terms can be combined through addition and subtraction. Unlike terms represent different quantities and must remain separate, leaving the expression as 2x + 3y.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> A variable written without a visible number in front of it, such as x, has a coefficient of zero.</p><p class="t-fact"><span>سبنرڽ</span> An explicit number is omitted when the coefficient is 1. Therefore, x has an invisible coefficient of 1, representing 1x.</p></div></div></section>
 
-        <section class="t-card"><h2>ڤنجاجرن کوريکولوم</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.03</code> Understand how to manipulate algebraic expressions including: – collecting like terms – applying the distributive law with a constant.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>7:ALG:02</code> Algebraic Expressions</li><li><code>8:ALG:02</code> Algebraic Expressions and Identities</li><li><code>9:U2:01</code> Polynomials</li></ul></section>
+        <section class="t-card"><h2>ڤنجاجرن کوريکولوم</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.03</code> Understand how to manipulate algebraic expressions including: – collecting like terms – applying the distributive law with a constant.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>7:ALG:02</code> Algebraic Expressions</li><li><code>8:ALG:02</code> Algebraic Expressions and Identities</li><li><code>9:U2:01</code> Polynomials</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -604,7 +604,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

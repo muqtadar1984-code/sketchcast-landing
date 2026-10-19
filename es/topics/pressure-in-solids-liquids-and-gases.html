@@ -425,7 +425,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Ideas erróneas frecuentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Heavier objects always exert more pressure than lighter objects.</p><p class="t-fact"><span>En realidad</span> Pressure depends on both force and area. A heavy object spread over a very large area can exert less pressure than a light object concentrated on a tiny area.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Liquids only exert pressure downwards.</p><p class="t-fact"><span>En realidad</span> Liquid particles move in all directions, so liquid pressure acts equally in all directions, including sideways and upwards against submerged surfaces.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Gases exert pressure because their particles push against each other and expand outward like springs.</p><p class="t-fact"><span>En realidad</span> Gas pressure is caused by the rapid, continuous collisions of individual gas particles with the walls of their container.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Atmospheric pressure only pushes downwards.</p><p class="t-fact"><span>En realidad</span> Atmospheric pressure is transmitted by air molecules moving in all directions, so it pushes on all surfaces of an object from every direction.</p></div></div></section>
 
-        <section class="t-card"><h2>Alineación con el currículo</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Pf.05</code> Explain that pressure is caused by the action of a force, exerted by a substance, on an area (pressure = force / area).</li><li><code>8Pf.06</code> Use particle theory to explain pressures in gases and liquids (qualitative only).</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>8:ch06</code> Pressure, Winds, Storms, and Cyclones</li></ul></section>
+        <section class="t-card"><h2>Alineación con el currículo</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Pf.05</code> Explain that pressure is caused by the action of a force, exerted by a substance, on an area (pressure = force / area).</li><li><code>8Pf.06</code> Use particle theory to explain pressures in gases and liquids (qualitative only).</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>8:ch06</code> Pressure, Winds, Storms, and Cyclones</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -556,7 +556,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

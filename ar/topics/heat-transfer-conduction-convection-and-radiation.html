@@ -422,7 +422,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>مفاهيم خاطئة شائعة</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Heat and temperature are the same thing.</p><p class="t-fact"><span>في الحقيقة</span> Temperature is the average kinetic energy of particles, whereas heat is the total thermal energy transferred between objects. A large body of warm water has more heat energy than a boiling drop of water despite having a lower temperature.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Coldness can be transferred from a cold object to a warm object.</p><p class="t-fact"><span>في الحقيقة</span> Cold is not a physical substance that moves; cold is simply the absence of thermal energy. Thermal energy always moves from warmer regions to cooler regions.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Convection can happen in solid materials.</p><p class="t-fact"><span>في الحقيقة</span> Convection requires the bulk movement of fluid particles. In solids, particles are fixed in position and cannot flow, so convection cannot occur.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Thermal radiation requires air or another medium to travel.</p><p class="t-fact"><span>في الحقيقة</span> Thermal radiation consists of infrared electromagnetic waves which can travel through empty space, such as the vacuum of space from the Sun to Earth.</p></div></div></section>
 
-        <section class="t-card"><h2>المواءمة مع المنهج</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>9Pf.02</code> Describe the difference between heat and temperature.</li><li><code>9Pf.05</code> Describe thermal transfer by the processes of conduction, convection and radiation.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>7:ch07</code> Heat Transfer in Nature</li></ul></section>
+        <section class="t-card"><h2>المواءمة مع المنهج</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>9Pf.02</code> Describe the difference between heat and temperature.</li><li><code>9Pf.05</code> Describe thermal transfer by the processes of conduction, convection and radiation.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>7:ch07</code> Heat Transfer in Nature</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -553,7 +553,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

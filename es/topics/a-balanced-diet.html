@@ -429,7 +429,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Ideas erróneas frecuentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Fats should be completely eliminated from a healthy diet.</p><p class="t-fact"><span>En realidad</span> Fats are essential nutrients that provide concentrated energy, insulate organs, and help absorb fat-soluble vitamins; only unhealthy trans fats and excessive saturated fats should be limited.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Water provides energy to the body.</p><p class="t-fact"><span>En realidad</span> Water contains zero calories and provides no chemical energy, but it is necessary as a medium for metabolic reactions and transport.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Vitamins and minerals provide energy just like carbohydrates and fats.</p><p class="t-fact"><span>En realidad</span> Vitamins and minerals do not provide energy, but they act as regulators and cofactors for chemical reactions that release and use energy.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Calcium is only needed during childhood when bones are growing.</p><p class="t-fact"><span>En realidad</span> Calcium is required throughout life for ongoing bone maintenance, muscle contraction, nerve function, and blood clotting.</p></div></div></section>
 
-        <section class="t-card"><h2>Alineación con el currículo</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Bp.01</code> Identify the constituents of a balanced diet for humans as including protein, carbohydrates, fats and oils, water, minerals (limited to calcium and iron) and vitamins (limited to A, C and D), and describe the functions of these nutrients.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>6:ch03</code> Mindful Eating: A Path to a Healthy Body</li></ul></section>
+        <section class="t-card"><h2>Alineación con el currículo</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Bp.01</code> Identify the constituents of a balanced diet for humans as including protein, carbohydrates, fats and oils, water, minerals (limited to calcium and iron) and vitamins (limited to A, C and D), and describe the functions of these nutrients.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>6:ch03</code> Mindful Eating: A Path to a Healthy Body</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -560,7 +560,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

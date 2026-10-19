@@ -16,12 +16,13 @@
  * footer), so the chrome is never written twice and a nav change reaches the
  * topic pages on the next build.
  *
- * LANGUAGES. The lesson content is English (the videos and articles are). The
- * page chrome comes from strings/topics/<locale>.json. A translated page wraps
- * the English content in lang="en" dir="ltr" and is `noindex, follow` with its
- * canonical on the English page, so search engines index one copy of each
- * lesson. When a translated kit exists for a language, that language's pages
- * become indexable (see `indexable` below).
+ * LANGUAGES. The page chrome comes from strings/topics/<locale>.json. The
+ * lesson content is the topic's kit in THAT language when the Kit Translator
+ * has one with a public video (public_catalogue() returns one row per topic
+ * and language): the page is then in that language, indexable, and linked to
+ * its other versions by hreflang. Otherwise the page wraps the English
+ * content in lang="en" dir="ltr" and is `noindex, follow` with its canonical
+ * on the English page, so search engines index one copy of each lesson.
  *
  * KITS. The full kit sits behind sign-in. Until the founder releases it
  * (platform_settings.catalogue_release in the app, migration 0130), every page
@@ -33,7 +34,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-/** slug → [{kind, file}] of downloaded preview cards; filled in main() before any page renders. */
+/** "slug|language" → [{kind, file}] of downloaded preview cards; filled in main() before any page renders. */
 let PREVIEWS = new Map();
 const ORIGIN = "https://sketchcast.app";
 const APP = "https://app.sketchcast.app";
@@ -175,7 +176,26 @@ const subjectLabel = (t, subject) => t[`subject.${subject}`] ?? subject;
 const prefix = (code) => (code === DEFAULT ? "" : `/${code}`);
 const indexUrl = (code) => `${ORIGIN}${prefix(code)}/topics`;
 const topicUrl = (code, slug) => `${ORIGIN}${prefix(code)}/topics/${slug}`;
-const indexable = (code /*, topic */) => code === DEFAULT; // until translated kits exist
+
+/* ── translated kits ──────────────────────────────────────────────────── */
+// "slug|language" → that language's catalogue row, for every non-English
+// row with a public video and a locale this site has. Filled in main().
+let LOCAL = new Map();
+const langOf = (row) => row.language || DEFAULT;
+/** The row a page in `code` shows for an English topic: its own language's
+ * kit when there is one, else the English row. */
+const localRow = (topic, code) => (code === DEFAULT ? topic : LOCAL.get(`${topic.slug}|${code}`) || topic);
+/** The locales that have their own version of a topic (English first). */
+const versionsOf = (slug) => LOCALES.filter((l) => l.code === DEFAULT || LOCAL.has(`${slug}|${l.code}`)).map((l) => l.code);
+/** A row's own words for a description: the English summary, or (the
+ * summary is not translated) the opening of the first section. */
+function summaryOf(row) {
+  if (langOf(row) === DEFAULT) return row.summary || "";
+  const first = (row.sections || []).find((x) => x && (x.body_md || "").trim());
+  return first ? clip(plain(first.body_md), 220) : "";
+}
+/** A section's anchor: its heading when that has Latin letters, else its id. */
+const anchorOf = (sec, i) => slugify(sec.heading || "") || slugify(sec.id || "") || `s${i + 1}`;
 
 /* ── the shell: each language's BUILT schools page ────────────────────── */
 
@@ -198,7 +218,7 @@ function shell(code) {
  * (canonical, hreflang, robots) that keeps the shell's per-script font CSS,
  * the switcher re-pointed at this page, nav "current" moved to Lessons, and
  * our <main>. */
-function page(code, { route, title, description, ogType = "website", jsonLd = [], main, alternates }) {
+function page(code, { route, title, description, ogType = "website", jsonLd = [], main, alternates, versions = [DEFAULT] }) {
   const s = shell(code);
   const loc = LOCALES.find((l) => l.code === code);
   let head = s.html.slice(0, s.headStart);
@@ -216,12 +236,18 @@ function page(code, { route, title, description, ogType = "website", jsonLd = []
     .split("\n")
     .filter((l) => !/rel="canonical"|rel="alternate"|property="og:url"|property="og:locale/.test(l))
     .join("\n");
-  const canonical = indexable(code) ? `${ORIGIN}${prefix(code)}${route}` : `${ORIGIN}${route}`;
+  // A page is indexable when its language has its own version of the route
+  // (English always; a translated lesson when its kit exists).
+  const indexable = versions.includes(code);
+  const canonical = indexable ? `${ORIGIN}${prefix(code)}${route}` : `${ORIGIN}${route}`;
   const links = [`  <link rel="canonical" href="${canonical}" />`];
-  if (!indexable(code)) links.push(`  <meta name="robots" content="noindex, follow" />`);
-  // hreflang only between indexable versions (today: English alone, so none).
-  const indexed = LOCALES.filter((l) => indexable(l.code));
-  if (indexed.length > 1) for (const l of indexed) links.push(`  <link rel="alternate" hreflang="${l.html}" href="${alternates(l.code)}" />`);
+  if (!indexable) links.push(`  <meta name="robots" content="noindex, follow" />`);
+  // hreflang only between the versions that exist, plus x-default (English).
+  const indexed = LOCALES.filter((l) => versions.includes(l.code));
+  if (indexed.length > 1) {
+    for (const l of indexed) links.push(`  <link rel="alternate" hreflang="${l.html}" href="${alternates(l.code)}" />`);
+    links.push(`  <link rel="alternate" hreflang="x-default" href="${alternates(DEFAULT)}" />`);
+  }
   links.push(`  <meta property="og:url" content="${canonical}" />`);
   const ld = jsonLd.map((o) => `  <script type="application/ld+json">${JSON.stringify(o).replace(/</g, "\\u003c")}</script>`);
   const headBlock = `<!--i18n:head-->\n${links.join("\n")}\n${ld.join("\n")}${keep}`;
@@ -330,7 +356,7 @@ function searchTokens(topic, full) {
   for (const c of topic.curriculum || []) parts.push(c.title, String(c.code || "").replace(/^cbse:/, ""));
   const words = new Set();
   for (const p of parts) {
-    for (const w of String(p || "").toLowerCase().replace(/[*_#|`]/g, " ").split(/[^\p{L}\p{N}'’.-]+/u)) {
+    for (const w of String(p || "").toLowerCase().replace(/\p{M}+/gu, "").replace(/[*_#|`]/g, " ").split(/[^\p{L}\p{N}'’.-]+/u)) {
       const t = w.replace(/^[.'’-]+|[.'’-]+$/g, "");
       if (t.length >= 2) words.add(t);
     }
@@ -396,11 +422,15 @@ const PREVIEW_DIR = join(ROOT, "assets", "previews");
 const PREVIEW_LABEL = { "deck-1": "preview.deck", "deck-2": "preview.deck2", "plan-1": "preview.plan", "worksheet-1": "preview.worksheet" };
 
 async function fetchPreviews(topics) {
-  const out = new Map(); // slug → [{kind, file}]
+  const out = new Map(); // "slug|language" → [{kind, file}]
   for (const topic of topics) {
     const list = Array.isArray(topic.previews) ? topic.previews : [];
     if (!list.length) continue;
-    const dir = join(PREVIEW_DIR, topic.slug);
+    // English cards keep their old paths; a translated kit's sit in a
+    // language folder beside them, so neither overwrites the other.
+    const lang = langOf(topic);
+    const rel = lang === DEFAULT ? topic.slug : `${topic.slug}/${lang}`;
+    const dir = join(PREVIEW_DIR, ...rel.split("/"));
     const kept = [];
     for (const p of list) {
       const kind = String(p?.kind || "");
@@ -413,18 +443,18 @@ async function fetchPreviews(topics) {
         if (!buf.length) continue;
         mkdirSync(dir, { recursive: true });
         writeFileSync(join(dir, `${kind}.png`), buf);
-        kept.push({ kind, file: `/assets/previews/${topic.slug}/${kind}.png` });
+        kept.push({ kind, file: `/assets/previews/${rel}/${kind}.png` });
       } catch {
         // a missing card is not a missing page
       }
     }
-    if (kept.length) out.set(topic.slug, kept);
+    if (kept.length) out.set(`${topic.slug}|${lang}`, kept);
   }
   return out;
 }
 
 function previewStrip(topic, t, previews) {
-  const cards = previews.get(topic.slug) || [];
+  const cards = previews.get(`${topic.slug}|${langOf(topic)}`) || [];
   if (!cards.length) return "";
   return `<section class="t-previews" aria-labelledby="prev-h">
       <h2 id="prev-h">${esc(t["preview.heading"])}</h2>
@@ -462,12 +492,18 @@ function topicMain(topic, all, code) {
   const examples = (topic.worked_examples || []).filter((w) => w && w.problem);
   const misc = (topic.misconceptions || []).filter((m) => m && m.misconception);
   const related = all.filter((x) => x.slug !== topic.slug && x.subject === topic.subject).slice(0, 6);
-  const contentAttrs = code === DEFAULT ? "" : ` lang="en" dir="ltr"`;
-  const note = code === DEFAULT ? "" : `<p class="t-note">${esc(t.englishNote)}</p>`;
+  // `topic` is the row this page shows: its own language's kit, or English.
+  const native = langOf(topic) === code;
+  const contentAttrs = native ? "" : ` lang="en" dir="ltr"`;
+  const note = native ? "" : `<p class="t-note">${esc(t.englishNote)}</p>`;
+  // Curriculum titles are the boards' own (English) wording in every language.
+  const curricAttrs = code === DEFAULT ? "" : ` lang="en" dir="ltr"`;
+  // The summary is not translated; a translated page leads with no summary.
+  const lead = langOf(topic) === DEFAULT ? topic.summary : "";
 
   const toc = sections.length > 2
     ? `<nav class="t-toc" aria-label="${esc(t.contents)}"><p class="eyebrow">${esc(t.contents)}</p><ol>${sections
-        .map((s) => `<li><a href="#${esc(slugify(s.heading || s.id))}">${esc(s.heading)}</a></li>`)
+        .map((s, i) => `<li><a href="#${esc(anchorOf(s, i))}">${esc(s.heading)}</a></li>`)
         .join("")}</ol></nav>`
     : "";
 
@@ -478,7 +514,7 @@ function topicMain(topic, all, code) {
     <div class="t-hero"${contentAttrs}>
       <p class="eyebrow">${esc(subj)}${grades.length ? ` · ${esc(fill(t.grade, { g: grades.join(", ") }))}` : ""}</p>
       <h1>${esc(topic.title)}</h1>
-      ${topic.summary ? `<p class="t-lead">${inline(topic.summary)}</p>` : ""}
+      ${lead ? `<p class="t-lead">${inline(lead)}</p>` : ""}
     </div>
 
     <div class="t-grid">
@@ -492,7 +528,7 @@ function topicMain(topic, all, code) {
 
         <article class="t-article">
           <h2 class="t-article-h">${esc(t.explanation)}</h2>
-          ${sections.map((s) => `<section id="${esc(slugify(s.heading || s.id))}"><h3>${esc(s.heading)}</h3>${markdown(s.body_md)}</section>`).join("\n")}
+          ${sections.map((s, i) => `<section id="${esc(anchorOf(s, i))}"><h3>${esc(s.heading)}</h3>${markdown(s.body_md)}</section>`).join("\n")}
         </article>
 
         ${terms.length ? `<section class="t-card"><h2>${esc(t.keyTerms)}</h2><dl class="t-terms">${terms.map((g) => `<div><dt>${inline(g.term)}</dt><dd>${inline(g.definition || "")}</dd></div>`).join("")}</dl></section>` : ""}
@@ -505,9 +541,9 @@ function topicMain(topic, all, code) {
           .map((m) => `<div class="t-misc-item"><p class="t-myth"><span>${esc(t.myth)}</span> ${inline(m.misconception)}</p>${m.correction ? `<p class="t-fact"><span>${esc(t.fact)}</span> ${inline(m.correction)}</p>` : ""}</div>`)
           .join("")}</div></section>` : ""}
 
-        ${curric.size ? `<section class="t-card"><h2>${esc(t.curriculum)}</h2>${[...curric.entries()]
+        ${curric.size ? `<section class="t-card"><h2>${esc(t.curriculum)}</h2><div${curricAttrs}>${[...curric.entries()]
           .map(([name, rows]) => `<h3 class="t-cur-h">${esc(name)}</h3><ul class="t-cur">${rows.map((c) => `<li><code>${esc(String(c.code).replace(/^cbse:/, ""))}</code> ${esc(c.title)}</li>`).join("")}</ul>`)
-          .join("")}</section>` : ""}
+          .join("")}</div></section>` : ""}
       </div>
 
       <div class="t-side">${kitBox(topic, t)}</div>
@@ -517,13 +553,14 @@ function topicMain(topic, all, code) {
   </div>`;
 }
 
-function topicJsonLd(topic) {
-  const url = topicUrl(DEFAULT, topic.slug);
+function topicJsonLd(topic, code = DEFAULT) {
+  const url = topicUrl(code, topic.slug);
+  const description = summaryOf(topic) || topic.title;
   const date = (topic.approved_at || "").slice(0, 10) || undefined;
   const videos = (topic.videos || []).map((p) => ({
     "@type": "VideoObject",
     name: (topic.videos.length > 1 ? `${topic.title}, Part ${p.part}` : topic.title),
-    description: topic.summary || topic.title,
+    description,
     thumbnailUrl: thumb(p.youtube_video_id),
     uploadDate: date,
     embedUrl: `https://www.youtube-nocookie.com/embed/${p.youtube_video_id}`,
@@ -534,9 +571,9 @@ function topicJsonLd(topic) {
       "@context": "https://schema.org",
       "@type": "LearningResource",
       name: topic.title,
-      description: topic.summary || topic.title,
+      description,
       url,
-      inLanguage: "en",
+      inLanguage: langOf(topic),
       isAccessibleForFree: true,
       learningResourceType: "Video lesson",
       about: topic.subject,
@@ -556,7 +593,7 @@ function topicJsonLd(topic) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Lessons", item: indexUrl(DEFAULT) },
+        { "@type": "ListItem", position: 1, name: strings[code].breadcrumb, item: indexUrl(code) },
         { "@type": "ListItem", position: 2, name: topic.title, item: url },
       ],
     },
@@ -565,8 +602,11 @@ function topicJsonLd(topic) {
 
 /* ── the index ────────────────────────────────────────────────────────── */
 
-function card(topic, code) {
+function card(english, code) {
   const t = strings[code];
+  const topic = localRow(english, code);
+  const own = langOf(topic) === code ? "" : ` lang="en"`;
+  const sum = summaryOf(topic);
   const v = (topic.videos || [])[0];
   const codes = [...new Set((topic.curriculum || []).map((c) => String(c.code).replace(/^cbse:/, "")))].slice(0, 3);
   const branch = branchOf(topic);
@@ -576,8 +616,8 @@ function card(topic, code) {
       ${v ? `<span class="t-thumb"><img src="${thumb(v.youtube_video_id)}" alt="" width="480" height="360" loading="lazy" /></span>` : ""}
       <span class="t-card-body">
         <span class="eyebrow">${esc(subjectLabel(t, topic.subject))}${branch ? ` · ${esc(branchLabel(t, branch))}` : ""}</span>
-        <span class="t-card-title" lang="en">${esc(topic.title)}</span>
-        ${topic.summary ? `<span class="t-card-sum" lang="en">${inline(clip(plain(topic.summary), 140))}</span>` : ""}
+        <span class="t-card-title"${own}>${esc(topic.title)}</span>
+        ${sum ? `<span class="t-card-sum"${own}>${inline(clip(plain(sum), 140))}</span>` : ""}
         ${codes.length ? `<span class="t-codes">${codes.map((c) => `<code>${esc(c)}</code>`).join("")}</span>` : ""}
       </span>
     </a>`;
@@ -748,7 +788,7 @@ const JS = `<script>
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\\p{M}+/gu,'').split(/\\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)
@@ -770,13 +810,24 @@ const JS = `<script>
 
 /* ── main ─────────────────────────────────────────────────────────────── */
 
-const catalogue = (await loadCatalogue())
-  .filter((x) => (x.language || "en") === "en" && x.slug && x.title)
+const rows = (await loadCatalogue()).filter((x) => x.slug && x.title);
+const catalogue = rows
+  .filter((x) => langOf(x) === DEFAULT)
   .sort((a, b) => a.subject.localeCompare(b.subject) || a.title.localeCompare(b.title));
 if (catalogue.length === 0) throw new Error("public_catalogue returned no topics — refusing to wipe the pages");
+// A translated kit takes over its language's page only when it has a public
+// video and its English topic is listed (the page's spine is the English list).
+const englishSlugs = new Set(catalogue.map((x) => x.slug));
+LOCAL = new Map(rows
+  .filter((x) => langOf(x) !== DEFAULT && englishSlugs.has(x.slug) && (x.videos || []).length && LOCALES.some((l) => l.code === langOf(x)))
+  .map((x) => [`${x.slug}|${langOf(x)}`, x]));
+{
+  const waiting = rows.filter((x) => langOf(x) !== DEFAULT && !LOCAL.has(`${x.slug}|${langOf(x)}`));
+  console.log(`✓ ${LOCAL.size} translated lesson page(s)${waiting.length ? `; ${waiting.length} translated kit(s) without a public video keep the English page` : ""}`);
+}
 const redirects = await loadRedirects();
-PREVIEWS = await fetchPreviews(catalogue);
-console.log("✓ preview cards for " + PREVIEWS.size + " topic(s)");
+PREVIEWS = await fetchPreviews([...catalogue, ...LOCAL.values()]);
+console.log("✓ preview cards for " + PREVIEWS.size + " lesson(s)");
 
 // Clean rebuild of the generated folders only.
 for (const l of LOCALES) {
@@ -800,14 +851,17 @@ for (const l of LOCALES) {
   writeFileSync(join(base, "topics.html"), indexHtml, "utf8");
   written++;
   for (const topic of catalogue) {
+    const row = localRow(topic, l.code);
+    const native = langOf(row) === l.code;
     const html = page(l.code, {
       route: `/topics/${topic.slug}`,
-      title: fill(t.metaTitle, { title: topic.title }),
-      description: clip(plain(topic.summary || topic.title), 158),
+      title: fill(t.metaTitle, { title: row.title }),
+      description: clip(plain(summaryOf(row) || row.title), 158),
       ogType: "article",
-      jsonLd: l.code === DEFAULT ? topicJsonLd(topic) : [],
-      main: topicMain(topic, catalogue, l.code),
+      jsonLd: native ? topicJsonLd(row, l.code) : [],
+      main: topicMain(row, catalogue, l.code),
       alternates: (c) => topicUrl(c, topic.slug),
+      versions: versionsOf(topic.slug),
     }).replace("</body>", `${JS}\n</body>`);
     writeFileSync(join(base, "topics", `${topic.slug}.html`), html, "utf8");
     written++;
@@ -896,7 +950,7 @@ function stripHtml(code, all) {
   var a=document.getElementById('lstrip-video'),img=document.getElementById('lstrip-img'),ttl=document.getElementById('lstrip-title'),sj=document.getElementById('lstrip-subj'),read=document.getElementById('lstrip-read');
   function show(x){a.href='https://www.youtube.com/watch?v='+encodeURIComponent(x.y);a.setAttribute('aria-label',a.getAttribute('data-play').replace('{title}',x.t));img.src='https://i.ytimg.com/vi/'+encodeURIComponent(x.y)+'/hqdefault.jpg';ttl.textContent=x.t;sj.textContent=(D.labels[x.j]||x.j)+(x.b&&D.branches[x.b]?' · '+D.branches[x.b]:'');read.href=D.prefix+'/topics/'+x.s;}
   // Subject value is "Subject" or "Subject|branch"; curriculum value is "family:grade". Both AND together; either may be "all".
-  function fillList(keep){var sv=subj.value.split('|'),s=sv[0],b=sv[1]||'',ck=cur.value,words=(q.value||'').trim().toLowerCase().split(/\\s+/).filter(Boolean);
+  function fillList(keep){var sv=subj.value.split('|'),s=sv[0],b=sv[1]||'',ck=cur.value,words=(q.value||'').trim().toLowerCase().replace(/\\p{M}+/gu,'').split(/\\s+/).filter(Boolean);
     var list=D.lessons.filter(function(x){var text=' '+x.k;return (!s||x.j===s)&&(!b||x.b===b)&&(!ck||x.c.indexOf(ck)>=0)&&words.every(function(w){return text.indexOf(' '+w)>=0;})});
     sel.innerHTML='';sel.disabled=!list.length;if(!list.length){var o=document.createElement('option');o.textContent=D.none;sel.appendChild(o);return;}
     list.forEach(function(x){var o=document.createElement('option');o.value=x.s;o.textContent=x.t;o.lang='en';sel.appendChild(o);});
@@ -906,7 +960,7 @@ function stripHtml(code, all) {
   subj.addEventListener('change',function(){fillList(null);});
   cur.addEventListener('change',function(){fillList(null);});
   // Typing keeps the current pick while it still matches; otherwise the first match.
-  q.addEventListener('input',function(){var k=sel.value;var sv=subj.value.split('|'),ws=(q.value||'').trim().toLowerCase().split(/\\s+/).filter(Boolean);var cur0=D.lessons.find(function(x){return x.s===k});var still=cur0&&ws.every(function(w){return (' '+cur0.k).indexOf(' '+w)>=0});fillList(still?k:'__first__');});
+  q.addEventListener('input',function(){var k=sel.value;var sv=subj.value.split('|'),ws=(q.value||'').trim().toLowerCase().replace(/\\p{M}+/gu,'').split(/\\s+/).filter(Boolean);var cur0=D.lessons.find(function(x){return x.s===k});var still=cur0&&ws.every(function(w){return (' '+cur0.k).indexOf(' '+w)>=0});fillList(still?k:'__first__');});
   sel.addEventListener('change',function(){var x=D.lessons.find(function(y){return y.s===sel.value});if(x)show(x);});
 })();
 </script>`;
@@ -929,12 +983,15 @@ function stripHtml(code, all) {
   console.log(`✓ lesson strip written into ${stripped} homepage(s)`);
 }
 
-// Sitemap: indexable (English) pages only; build-i18n.mjs points robots.txt at it.
+// Sitemap: the indexable pages (English, and each translated lesson); build-i18n.mjs points robots.txt at it.
 const lastmod = (x) => (x.approved_at || "").slice(0, 10);
 const newest = catalogue.map(lastmod).sort().pop();
 const urls = [
   `  <url><loc>${indexUrl(DEFAULT)}</loc><lastmod>${newest}</lastmod></url>`,
   ...catalogue.map((x) => `  <url><loc>${topicUrl(DEFAULT, x.slug)}</loc><lastmod>${lastmod(x)}</lastmod></url>`),
+  ...[...LOCAL.values()]
+    .sort((a, b) => a.slug.localeCompare(b.slug) || langOf(a).localeCompare(langOf(b)))
+    .map((x) => `  <url><loc>${topicUrl(langOf(x), x.slug)}</loc><lastmod>${lastmod(x)}</lastmod></url>`),
 ];
 writeFileSync(
   join(ROOT, "sitemap-topics.xml"),

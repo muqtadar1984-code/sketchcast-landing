@@ -438,7 +438,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>సాధారణ అపోహలు</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Stopping at any common factor rather than finding the highest common factor.</p><p class="t-fact"><span>నిజానికి</span> Always check the terms inside the parentheses after factorising. If they still share a common factor greater than 1, the expression is not fully factorised.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Writing 0 when a term is divided entirely by the common factor.</p><p class="t-fact"><span>నిజానికి</span> Dividing a term by itself results in 1, not 0. The placeholder 1 must be kept inside the parentheses.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Ignoring negative signs when taking out a common factor from a negative leading term.</p><p class="t-fact"><span>నిజానికి</span> When the first term of an expression is negative, factor out a negative HCF so that the first term inside the brackets becomes positive.</p></div><div class="t-misc-item"><p class="t-myth"><span>అపోహ</span> Subtracting numerical coefficients instead of variable exponents when dividing powers of the same base.</p><p class="t-fact"><span>నిజానికి</span> When dividing variable terms, subtract the exponents according to the laws of indices, while dividing the coefficients normally.</p></div></div></section>
 
-        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>8Ae.03</code> Understand how to manipulate algebraic expressions including: – applying the distributive law with a single term (squares and cubes) – identifying the highest common factor to factorise.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:03</code> Factorisation</li></ul></section>
+        <section class="t-card"><h2>పాఠ్యప్రణాళిక అనుసంధానం</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>8Ae.03</code> Understand how to manipulate algebraic expressions including: – applying the distributive law with a single term (squares and cubes) – identifying the highest common factor to factorise.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:03</code> Factorisation</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -569,7 +569,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

@@ -427,7 +427,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Salah faham biasa</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> Learners often confuse the formula for circumference with the formula for area, using pi times r squared when calculating circumference or 2 times pi times r when calculating area.</p><p class="t-fact"><span>Sebenarnya</span> Circumference is a one-dimensional linear distance measured in units like cm, so its formula is C = 2 times pi times r. Area is a two-dimensional surface space measured in square units like cm squared, so its formula uses the squared radius term A = pi times r squared.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> When given the diameter of a circle, learners sometimes substitute the diameter directly into the area formula as the value of r, calculating pi times d squared instead of finding the radius first.</p><p class="t-fact"><span>Sebenarnya</span> The area formula requires the radius r, not the diameter d. The radius must always be found first by dividing the diameter by two before squaring it in the area calculation.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> When asked to find the perimeter of a semicircle, learners calculate only half of the circumference and forget to add the straight diameter edge.</p><p class="t-fact"><span>Sebenarnya</span> The perimeter of any closed two-dimensional shape is the total distance all the way around its outer boundary. For a semicircle, this includes both the curved arc and the straight flat edge along the diameter.</p></div><div class="t-misc-item"><p class="t-myth"><span>Mitos</span> Learners believe that answers left in terms of pi are incomplete and must always be converted to decimals.</p><p class="t-fact"><span>Sebenarnya</span> Leaving an answer in terms of pi provides an exact mathematical value without rounding errors, which is often preferred in mathematics unless a decimal approximation is explicitly requested.</p></div></div></section>
 
-        <section class="t-card"><h2>Penjajaran kurikulum</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Gg.01</code> Know and use the formulae for the area and circumference of a circle.</li></ul></section>
+        <section class="t-card"><h2>Penjajaran kurikulum</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Gg.01</code> Know and use the formulae for the area and circumference of a circle.</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -558,7 +558,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

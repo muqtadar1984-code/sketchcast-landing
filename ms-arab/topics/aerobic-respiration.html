@@ -426,7 +426,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>ساله فهم بياسا</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Respiration is the same thing as breathing.</p><p class="t-fact"><span>سبنرڽ</span> Breathing is the physical movement of air into and out of the lungs, whereas respiration is the chemical process inside cells that releases energy from glucose.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Plants only respire at night when they cannot photosynthesise.</p><p class="t-fact"><span>سبنرڽ</span> Plants respire continuously, twenty-four hours a day, because their cells always require energy to stay alive, even though they only photosynthesise in the presence of sunlight.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Respiration creates energy out of nothing.</p><p class="t-fact"><span>سبنرڽ</span> Respiration does not create energy; it releases chemical potential energy that was previously stored inside the bonds of glucose molecules.</p></div><div class="t-misc-item"><p class="t-myth"><span>ميتوس</span> Only animal cells contain mitochondria and carry out respiration.</p><p class="t-fact"><span>سبنرڽ</span> Plant cells also contain mitochondria and perform aerobic respiration to release energy from the glucose they produce.</p></div></div></section>
 
-        <section class="t-card"><h2>ڤنجاجرن کوريکولوم</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Bp.04</code> Know that aerobic respiration occurs in the mitochondria of plant and animal cells, and gives a controlled release of energy.</li><li><code>8Bp.05</code> Know and use the summary word equation for aerobic respiration (glucose + oxygen -&gt; carbon dioxide + water).</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>10:U2:01</code> Life processes</li></ul></section>
+        <section class="t-card"><h2>ڤنجاجرن کوريکولوم</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Bp.04</code> Know that aerobic respiration occurs in the mitochondria of plant and animal cells, and gives a controlled release of energy.</li><li><code>8Bp.05</code> Know and use the summary word equation for aerobic respiration (glucose + oxygen -&gt; carbon dioxide + water).</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>10:U2:01</code> Life processes</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -557,7 +557,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

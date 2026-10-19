@@ -427,7 +427,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Idées reçues fréquentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Muscles can push bones away as well as pull them toward the body.</p><p class="t-fact"><span>En réalité</span> Muscles can only pull when they contract; they cannot push. Movement in the opposite direction requires an opposing antagonistic muscle to contract.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Both muscles in an antagonistic pair contract at the same time to move a bone.</p><p class="t-fact"><span>En réalité</span> When one muscle in an antagonistic pair contracts, the other must relax and lengthen to allow the bone to move freely.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> All joints in the human body allow bones to move freely.</p><p class="t-fact"><span>En réalité</span> Some joints, such as the sutures in the skull, are fixed joints that do not allow any movement between the bones.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Hinge joints allow rotation and side-to-side movement just like ball-and-socket joints.</p><p class="t-fact"><span>En réalité</span> Hinge joints are restricted to movement in a single plane, functioning like a door hinge, whereas ball-and-socket joints allow multi-directional movement.</p></div></div></section>
 
-        <section class="t-card"><h2>Alignement sur le programme</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Bs.01</code> Identify ball-and-socket and hinge joints, and explain how antagonistic muscles move the bones at a hinge joint.</li></ul></section>
+        <section class="t-card"><h2>Alignement sur le programme</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>8Bs.01</code> Identify ball-and-socket and hinge joints, and explain how antagonistic muscles move the bones at a hinge joint.</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -558,7 +558,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

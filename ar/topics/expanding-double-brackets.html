@@ -442,7 +442,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>مفاهيم خاطئة شائعة</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Squaring a binomial by simply squaring each individual term, such as writing (x + 3)<sup>2</sup> as x<sup>2</sup> + 9.</p><p class="t-fact"><span>في الحقيقة</span> A squared binomial must be written out as two identical brackets, (x + 3)(x + 3), and fully expanded to include the middle terms, resulting in x<sup>2</sup> + 6x + 9.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Multiplying only the first terms of each bracket and ignoring the outer, inner, and last combinations.</p><p class="t-fact"><span>في الحقيقة</span> Every term in the first bracket must be multiplied by every term in the second bracket, yielding four distinct terms before simplification.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Ignoring negative signs when multiplying or combining terms in an expansion.</p><p class="t-fact"><span>في الحقيقة</span> Negative signs belong to the term that follows them and must be included in every multiplication and when collecting like terms.</p></div></div></section>
 
-        <section class="t-card"><h2>المواءمة مع المنهج</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Ae.02</code> Understand how to manipulate algebraic expressions including: – expanding the product of two algebraic expressions – applying the laws of indices – simplifying algebraic fractions.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:02</code> Algebraic Expressions and Identities</li></ul></section>
+        <section class="t-card"><h2>المواءمة مع المنهج</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Ae.02</code> Understand how to manipulate algebraic expressions including: – expanding the product of two algebraic expressions – applying the laws of indices – simplifying algebraic fractions.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:02</code> Algebraic Expressions and Identities</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -573,7 +573,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

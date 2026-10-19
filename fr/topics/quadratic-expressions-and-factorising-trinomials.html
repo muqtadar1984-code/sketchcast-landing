@@ -434,7 +434,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Idées reçues fréquentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Learners believe that any two numbers that add up to the middle coefficient are the correct factors, ignoring the constant term.</p><p class="t-fact"><span>En réalité</span> The two numbers must satisfy two conditions simultaneously: their sum must equal the middle coefficient, and their product must equal the constant term.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Learners think that a quadratic equation can be solved using the zero product property even when the equation is equal to a non-zero number like 5.</p><p class="t-fact"><span>En réalité</span> The zero product property only works when the product equals zero. The equation must be rearranged so that one side is zero before factorising and solving.</p></div><div class="t-misc-item"><p class="t-myth"><span>Idée reçue</span> Learners assume that if the constant term is negative, both numbers in the factor pairs must be negative.</p><p class="t-fact"><span>En réalité</span> If the constant term is negative, the two numbers must have opposite signs, one positive and one negative.</p></div></div></section>
 
-        <section class="t-card"><h2>Alignement sur le programme</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Ae.02</code> Understand how to manipulate algebraic expressions including: – expanding the product of two algebraic expressions – applying the laws of indices – simplifying algebraic fractions.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:03</code> Factorisation</li><li><code>9:U2:01</code> Polynomials</li></ul></section>
+        <section class="t-card"><h2>Alignement sur le programme</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>9Ae.02</code> Understand how to manipulate algebraic expressions including: – expanding the product of two algebraic expressions – applying the laws of indices – simplifying algebraic fractions.</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>8:ALG:03</code> Factorisation</li><li><code>9:U2:01</code> Polynomials</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -565,7 +565,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

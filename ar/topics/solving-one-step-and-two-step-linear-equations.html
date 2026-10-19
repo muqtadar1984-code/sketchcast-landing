@@ -453,7 +453,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>مفاهيم خاطئة شائعة</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Operations only need to be applied to the side containing the variable.</p><p class="t-fact"><span>في الحقيقة</span> An equation is a balance scale; any addition, subtraction, multiplication, or division must be applied to both sides equally to maintain equality.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Multiplication should always be undone before addition in a two-step equation.</p><p class="t-fact"><span>في الحقيقة</span> To isolate the variable efficiently, operations should be undone in reverse order, meaning addition and subtraction are addressed before multiplication and division.</p></div><div class="t-misc-item"><p class="t-myth"><span>خطأ شائع</span> Dividing by a negative coefficient changes nothing about the variable's sign.</p><p class="t-fact"><span>في الحقيقة</span> Dividing both sides by a negative number follows standard integer sign rules, turning positive results negative or negative results positive.</p></div></div></section>
 
-        <section class="t-card"><h2>المواءمة مع المنهج</h2><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.06</code> Understand that a situation can be represented either in words or as an equation. Move between the two representations and solve the equation (integer coefficients, unknown on one side).</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>7:ALG:01</code> Simple Equations</li></ul></section>
+        <section class="t-card"><h2>المواءمة مع المنهج</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Mathematics 0862</h3><ul class="t-cur"><li><code>7Ae.06</code> Understand that a situation can be represented either in words or as an equation. Move between the two representations and solve the equation (integer coefficients, unknown on one side).</li></ul><h3 class="t-cur-h">CBSE Mathematics (Class 6-10)</h3><ul class="t-cur"><li><code>7:ALG:01</code> Simple Equations</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -584,7 +584,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

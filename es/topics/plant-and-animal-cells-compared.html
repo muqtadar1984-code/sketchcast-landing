@@ -424,7 +424,7 @@ sup{font-size:.72em;line-height:0}
 
         <section><h2>Ideas erróneas frecuentes</h2><div class="t-misc"><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Plant cells do not contain mitochondria because they have chloroplasts.</p><p class="t-fact"><span>En realidad</span> Plant cells contain both chloroplasts and mitochondria. Chloroplasts capture solar energy to manufacture glucose, while mitochondria break down that glucose to release cellular energy (ATP) for metabolic functions.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Animal cells have a cell wall just like plant cells.</p><p class="t-fact"><span>En realidad</span> Animal cells completely lack a cell wall; they are bounded only by a flexible cell membrane. This flexibility allows animal cells to adopt diverse shapes and perform specialized movements.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> All cells contain a visible, membrane-bound nucleus.</p><p class="t-fact"><span>En realidad</span> Only eukaryotic cells possess a membrane-bound nucleus. Prokaryotic cells, such as bacteria, lack a true nucleus, storing their genetic material in an unbound region called the nucleoid.</p></div><div class="t-misc-item"><p class="t-myth"><span>Error común</span> Vacuoles are exclusively found in plant cells.</p><p class="t-fact"><span>En realidad</span> Both plant and animal cells contain vacuoles. Plant cells typically feature one large central vacuole for turgor pressure and storage, whereas animal cells contain multiple small, temporary vacuoles.</p></div></div></section>
 
-        <section class="t-card"><h2>Alineación con el currículo</h2><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>7Bs.04</code> Describe the similarities and differences between the structures of plant and animal cells.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U2:01</code> Cell - Basic Unit of life</li></ul></section>
+        <section class="t-card"><h2>Alineación con el currículo</h2><div lang="en" dir="ltr"><h3 class="t-cur-h">Cambridge Lower Secondary Science 0893</h3><ul class="t-cur"><li><code>7Bs.04</code> Describe the similarities and differences between the structures of plant and animal cells.</li></ul><h3 class="t-cur-h">CBSE Science (Class 6-10)</h3><ul class="t-cur"><li><code>9:U2:01</code> Cell - Basic Unit of life</li></ul></div></section>
       </div>
 
       <div class="t-side"><aside class="t-kit" aria-labelledby="kit-h">
@@ -555,7 +555,7 @@ sup{font-size:.72em;line-height:0}
   var cards=document.getElementById('t-cards');if(!cards)return;
   var chips=document.querySelectorAll('.t-chip'),q=document.querySelector('.t-search'),cur=document.querySelector('.t-cur'),empty=document.querySelector('.t-empty'),subject='',branch='';
   function apply(){
-    var words=(q.value||'').trim().toLowerCase().split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
+    var words=(q.value||'').trim().toLowerCase().replace(/\p{M}+/gu,'').split(/\s+/).filter(Boolean),ck=cur?cur.value:'',shown=0;
     cards.querySelectorAll('.t-cardlink').forEach(function(c){
       var text=' '+c.getAttribute('data-text');
       var ok=(!subject||c.getAttribute('data-subject')===subject)

@@ -49,13 +49,19 @@ const fail = (s) => errors.push(s);
 function slugsOf(xml) {
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const slugs = [];
+  // A translated lesson (its own language's kit, build-topics.mjs LOCAL) is
+  // listed as /<locale>/topics/<slug>; it is a version of an English topic,
+  // not a topic of its own, so it is not counted in `slugs`.
+  const translated = [];
   for (const loc of locs) {
     if (loc === `${SITE}/topics`) continue;
     const m = loc.match(/^https:\/\/sketchcast\.app\/topics\/([a-z0-9-]+)$/);
-    if (!m) fail(`sitemap-topics.xml: unexpected <loc> ${loc}`);
-    else slugs.push(m[1]);
+    const t = loc.match(/^https:\/\/sketchcast\.app\/([a-z]{2}(?:-[a-z]{2,4})?)\/topics\/([a-z0-9-]+)$/);
+    if (m) slugs.push(m[1]);
+    else if (t) translated.push({ locale: t[1], slug: t[2] });
+    else fail(`sitemap-topics.xml: unexpected <loc> ${loc}`);
   }
-  return { hasIndex: locs.includes(`${SITE}/topics`), slugs };
+  return { hasIndex: locs.includes(`${SITE}/topics`), slugs, translated };
 }
 
 const sitemapPath = join(ROOT, "sitemap-topics.xml");
@@ -63,7 +69,11 @@ if (!existsSync(sitemapPath)) {
   console.error("error sitemap-topics.xml is missing — run build-topics.mjs first");
   process.exit(1);
 }
-const { hasIndex, slugs } = slugsOf(readFileSync(sitemapPath, "utf8"));
+const { hasIndex, slugs, translated } = slugsOf(readFileSync(sitemapPath, "utf8"));
+for (const x of translated) {
+  if (!slugs.includes(x.slug)) fail(`sitemap-topics.xml: /${x.locale}/topics/${x.slug} has no English topic`);
+  if (!existsSync(join(ROOT, x.locale, "topics", `${x.slug}.html`))) fail(`sitemap-topics.xml: ${x.locale}/topics/${x.slug}.html is not on disk`);
+}
 if (!hasIndex) fail("sitemap-topics.xml does not list /topics");
 if (slugs.length === 0) fail("sitemap-topics.xml lists no topic pages");
 if (new Set(slugs).size !== slugs.length) fail("sitemap-topics.xml lists a slug twice");
