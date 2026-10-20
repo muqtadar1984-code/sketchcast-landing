@@ -46,7 +46,7 @@ const SUPABASE_URL = "https://pblaxsqhjwlqbrwbraxy.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_WkV7khrwzkaj8FlyQ1lLag_rJHOyFPi";
 
 // Flip together with the app's catalogue_release switch.
-const KITS_RELEASED = false;
+const KITS_RELEASED = true;
 
 // Same order as build-i18n.mjs's registry.
 const LOCALES = [
