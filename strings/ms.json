@@ -101,7 +101,7 @@
       },
       "stat3": {
         "big": "$0",
-        "body": "Mula percuma: satu buku dan satu kit lengkap tujuh bahagian — tanpa sebarang kos."
+        "body": "Mula percuma: satu buku, satu kit lengkap tujuh bahagian dan satu kit sedia guna setiap minggu — tanpa sebarang kos."
       }
     },
     "free": {
@@ -545,7 +545,7 @@
     "hero": {
       "eyebrow": "Harga",
       "headline": "Berpatutan untuk setiap <mark>guru</mark>, rumah dan sekolah.",
-      "sub": "Mula percuma dengan satu buku dan satu kit yang lengkap. Selepas itu: langganan untuk guru bilik darjah serta untuk pendidik di rumah dan tutor (dibil dalam USD), dan sebut harga khusus untuk sekolah."
+      "sub": "Mula percuma dengan satu buku, satu kit yang lengkap dan satu kit sedia guna setiap minggu. Selepas itu: langganan untuk guru bilik darjah serta untuk pendidik di rumah dan tutor (dibil dalam USD), dan sebut harga khusus untuk sekolah."
     },
     "toggle": {
       "label": "Tempoh bil",
@@ -586,7 +586,7 @@
     "free": {
       "eyebrow": "Mula di sini",
       "heading": "Percuma untuk semua, guru mahupun ibu bapa.",
-      "sub": "Satu buku, satu kit tujuh bahagian yang lengkap — tiada kad, tiada pemasa. Pilih pelan di bawah hanya apabila anda mahu lebih.",
+      "sub": "Satu buku, satu kit tujuh bahagian yang lengkap dan satu kit sedia guna setiap minggu — tiada kad, tiada pemasa. Pilih pelan di bawah hanya apabila anda mahu lebih.",
       "panel": "Pelan percuma"
     },
     "teachers": {
@@ -705,6 +705,14 @@
       "tier3": "Enterprise",
       "cta": "Mula percubaan sekolah percuma",
       "learn": "Lihat apa yang sekolah dapat"
+    },
+    "ready": {
+      "panel": "Kit sedia guna",
+      "eyebrow": "Dalam setiap pelan, termasuk percuma",
+      "heading": "Kit sedia guna, setiap minggu.",
+      "body": "Pustaka pelajaran siap dalam Sains dan Matematik, dipetakan kepada Cambridge dan CBSE: video bernaratif, slaid, rancangan pengajaran, lembaran kerja dengan skema jawapan, bank soalan dan kuiz dalam talian yang ditanda untuk anda. Salin satu ke Pustaka anda dan tugaskannya — ia tidak menggunakan janaan bulanan anda.",
+      "terms": "Percuma {free} seminggu · Teacher Pro dan Home Basic {pro} seminggu · Teacher Pro+ dan Homeschool {plus} seminggu · Sekolah tanpa had",
+      "cta": "Lihat kit"
     }
   },
   "about": {

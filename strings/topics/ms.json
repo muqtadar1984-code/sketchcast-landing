@@ -78,5 +78,14 @@
   "preview.plan": "Rancangan pengajaran — muka surat 1",
   "preview.worksheet": "Lembaran kerja — muka surat 1",
   "preview.alt": "{title}: {piece} (pratonton)",
-  "preview.note": "Pratonton resolusi rendah. Kit penuh menjadi milik anda dengan akaun percuma."
+  "preview.note": "Pratonton resolusi rendah. Kit penuh menjadi milik anda dengan akaun percuma.",
+  "kits.heading": "Kit pelajaran siap setiap minggu — tanpa perlu buku teks.",
+  "kits.perWeek": "{n} seminggu",
+  "kits.free": "Percuma",
+  "kits.schools": "Sekolah",
+  "kits.unlimited": "Tanpa had",
+  "kits.note": "Salin kit ke Pustaka anda dan tugaskan kepada kelas dengan satu klik. Kit sedia guna tidak menggunakan janaan bulanan anda.",
+  "kits.browse": "Lihat semua {n} kit",
+  "kits.from": "Daripada kit: {title}",
+  "strip.kitReleased": "Setiap pelajaran disertakan kit pengajaran percuma — buka satu setiap minggu."
 }

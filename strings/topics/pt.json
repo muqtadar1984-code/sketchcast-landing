@@ -78,5 +78,14 @@
   "preview.plan": "Plano de aula — página 1",
   "preview.worksheet": "Ficha de exercícios — página 1",
   "preview.alt": "{title}: {piece} (pré-visualização)",
-  "preview.note": "Pré-visualizações em baixa resolução. O kit completo é seu com uma conta gratuita."
+  "preview.note": "Pré-visualizações em baixa resolução. O kit completo é seu com uma conta gratuita.",
+  "kits.heading": "Um kit de aula pronto todas as semanas — sem precisar de manual.",
+  "kits.perWeek": "{n} por semana",
+  "kits.free": "Grátis",
+  "kits.schools": "Escolas",
+  "kits.unlimited": "Ilimitado",
+  "kits.note": "Copie um kit para a sua biblioteca e atribua-o a uma turma com um clique. Os kits prontos a usar nunca gastam as suas gerações mensais.",
+  "kits.browse": "Ver os {n} kits",
+  "kits.from": "Do kit: {title}",
+  "strip.kitReleased": "Cada aula traz um kit pedagógico gratuito — desbloqueie um todas as semanas."
 }

@@ -228,6 +228,18 @@
      the least legible text on it. */
   .ph-rail-terms{font-family:var(--mono);font-size:11.5px;color:var(--graphite);margin-top:9px}
   .ph-rail .btn{flex:0 0 auto}
+  /* Ready-made kits (founder, 2026-10-20: one of the headline services).
+     The weekly allowance is a teal badge, not a grey meter line, and the kits
+     get their own tinted rail after the plans. --teal-ink on #E2F4F1 = 4.9:1. */
+  .ph-ready{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 10px 4px 8px;border-radius:999px;
+    background:#E2F4F1;color:var(--teal-ink);font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.01em;line-height:1.35}
+  .ph-ready::before{content:"";flex:0 0 auto;width:12px;height:12px;border-radius:3px;background:var(--teal-ink);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 3.5h5v10H2zM9 3.5h5v10H9z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 3.5h5v10H2zM9 3.5h5v10H9z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat}
+  .ph-rail-ready{background:#EEF8F6;border-color:#BDE8E2;margin-bottom:14px}
+  .ph-rail-ready .eyebrow{color:var(--teal-ink)}
+  .ph-rail-ready .ph-rail-lead{font-size:20px}
+  .ph-rail-ready[hidden]{display:none}
 
   /* ── the grid ──
      1240 - 48 padding - 3x16 gap = 1144 / 4 = 286px per card at 1280px.
@@ -528,7 +540,7 @@
     <div class="wrap">
       <p class="eyebrow" data-i18n="pricing.hero.eyebrow">Pricing</p>
       <h1 data-i18n="pricing.hero.headline" data-i18n-mark="ph-uline">Priced for every <span class="ph-uline">teacher<svg class="ink in" viewBox="0 0 240 12" preserveAspectRatio="none" fill="none" style="--l:290"><path d="M3 8 C 46 3, 96 11, 150 6 S 214 4, 237 7" stroke="#FFB020" stroke-width="3.5" stroke-linecap="round" style="--d:.5s"/></svg></span>, home and school.</h1>
-      <p class="ph-sub" data-i18n="pricing.hero.sub">Start free with one book and one complete kit. Beyond that: subscriptions for classroom teachers and for home educators and tutors (billed in USD), and a tailored quote for schools.</p>
+      <p class="ph-sub" data-i18n="pricing.hero.sub">Start free with one book, one complete kit, and a ready-made kit every week. Beyond that: subscriptions for classroom teachers and for home educators and tutors (billed in USD), and a tailored quote for schools.</p>
 
       <!-- Dormant, NOT deleted. The promo lapsed on 2026-08-14, so trialActive
            is false and initTrialBanner() leaves this hidden — but the whole
@@ -614,7 +626,7 @@
       <div class="ph-rail-txt">
         <p class="eyebrow" data-i18n="pricing.free.eyebrow">Start here</p>
         <h3 class="ph-rail-lead" data-i18n="pricing.free.heading">Free for everyone, teacher or parent.</h3>
-        <p class="ph-rail-body" data-i18n="pricing.free.sub">One book, one complete seven-piece kit — no card, no timer. Pick a plan below only when you want more.</p>
+        <p class="ph-rail-body" data-i18n="pricing.free.sub">One book, one complete seven-piece kit, and a ready-made kit every week — no card, no timer. Pick a plan below only when you want more.</p>
         <!-- The scope line is written by renderFreeRail() from the config's own
              free.features[0], not typed here — see the comment there. -->
       </div>
@@ -702,6 +714,21 @@
          ALL NINE LOCALES as of 2026-08-19, so any further edit to this copy now
          costs nine re-translations and silently leaves the old wording live in
          every other language until they land. -->
+    <!-- Ready-made kits (founder, 2026-10-20): the catalogue's weekly kits as a
+         service of their own, beside the plans that generate from your book.
+         Hidden until pricing.config.js kitsReleased; the terms line is written
+         by renderReadyRail() from each plan's weeklyKits, so no number is
+         typed twice. -->
+    <div class="ph-rail ph-rail-ready" id="ready-rail" role="group" data-i18n-attr="aria-label:pricing.ready.panel" aria-label="Ready-made kits" hidden>
+      <div class="ph-rail-txt">
+        <p class="eyebrow" data-i18n="pricing.ready.eyebrow">On every plan, free included</p>
+        <h3 class="ph-rail-lead" data-i18n="pricing.ready.heading">Ready-made kits, every week.</h3>
+        <p class="ph-rail-body" data-i18n="pricing.ready.body">A library of finished lessons in Science and Mathematics, mapped to Cambridge and CBSE: narrated video, slide deck, lesson plan, worksheet with answer key, question bank and an online quiz marked for you. Copy one to your Library and assign it — it never uses your monthly generations.</p>
+        <p class="ph-rail-terms" id="ready-terms"></p>
+      </div>
+      <a class="btn btn-primary" href="/topics" data-i18n="pricing.ready.cta">Browse the kits</a>
+    </div>
+
     <div class="ph-rail">
       <div class="ph-rail-txt">
         <p class="eyebrow" data-i18n="pricing.topup.eyebrow">Once you are on a plan</p>
@@ -867,8 +894,8 @@
         // Ready-made kits a week (catalogue): the same string in every column,
         // shown only once the kits are released (pricing.config.js kitsReleased).
         + (P.kitsReleased && plan.weeklyKits
-            ? '<p class="ph-meter-row">' + esc(fill(T(plan.weeklyKits === 1 ? "pricing.meter.weeklyKitOne" : "pricing.meter.weeklyKits",
-                plan.weeklyKits === 1 ? "1 ready-made kit a week" : "{n} ready-made kits a week"), { n: String(plan.weeklyKits) })) + '</p>'
+            ? '<p class="ph-meter-row"><span class="ph-ready">' + esc(fill(T(plan.weeklyKits === 1 ? "pricing.meter.weeklyKitOne" : "pricing.meter.weeklyKits",
+                plan.weeklyKits === 1 ? "1 ready-made kit a week" : "{n} ready-made kits a week"), { n: String(plan.weeklyKits) })) + '</span></p>'
             : "")
         + '</div>';
 
@@ -1018,6 +1045,23 @@
     /** The Free plan as the rail that opens the comparison, not a fifth column.
      *  Only the button is built here — its words and its URL are the config's,
      *  so no checkout link is ever written in markup. */
+    /* Ready-made kits rail: the weekly allowance of every plan in one line,
+       read from pricing.config.js (Free, then Teacher Pro / Home Basic, then
+       Teacher Pro+ / Homeschool — the pairs share a number by design). */
+    function renderReadyRail(){
+      var rail = document.getElementById("ready-rail");
+      if (!rail || !P.kitsReleased) return;
+      var byKey = {};
+      (P.teacher || []).concat(P.home || []).forEach(function (p) { byKey[p.key] = p.weeklyKits; });
+      var terms = document.getElementById("ready-terms");
+      if (terms){
+        terms.textContent = fill(T("pricing.ready.terms",
+          "Free {free} a week · Teacher Pro and Home Basic {pro} a week · Teacher Pro+ and Homeschool {plus} a week · Schools unlimited"),
+          { free: String((P.free && P.free.weeklyKits) || 1), pro: String(byKey.pro || ""), plus: String(byKey.proplus || "") });
+      }
+      rail.hidden = false;
+    }
+
     function renderFreeRail(plan){
       var slot = document.getElementById("free-cta");
       if (!slot || !plan) return;
@@ -1046,8 +1090,8 @@
       // The free weekly ready-made kit (catalogue), once released — the same
       // gate and strings as the paid cards' meter row.
       if (txt && P.kitsReleased && plan.weeklyKits){
-        var kitLine = document.createElement("p");
-        kitLine.className = "ph-rail-terms";
+        var kitLine = document.createElement("span");
+        kitLine.className = "ph-ready";
         kitLine.textContent = fill(T(plan.weeklyKits === 1 ? "pricing.meter.weeklyKitOne" : "pricing.meter.weeklyKits",
           plan.weeklyKits === 1 ? "1 ready-made kit a week" : "{n} ready-made kits a week"), { n: String(plan.weeklyKits) });
         txt.appendChild(kitLine);
@@ -1353,6 +1397,7 @@
     // One grid, four paid plans, ascending within each audience pair:
     // Teacher Pro, Teacher Pro+ | Home Basic, Homeschool.
     renderFreeRail(P.free);
+    renderReadyRail();
     var compareGrid = document.getElementById("compare-grid");
     var homeHead = document.getElementById("head-home");
     mountCards(compareGrid, P.teacher || [], homeHead); // between the two labels

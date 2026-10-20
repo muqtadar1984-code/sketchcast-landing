@@ -79,5 +79,14 @@
   "preview.plan": "Lesson plan — page 1",
   "preview.worksheet": "Worksheet — page 1",
   "preview.alt": "{title}: {piece} (preview)",
-  "preview.note": "Low-resolution previews. The full kit is yours with a free account."
+  "preview.note": "Low-resolution previews. The full kit is yours with a free account.",
+  "kits.heading": "A finished lesson kit every week — no textbook needed.",
+  "kits.perWeek": "{n} a week",
+  "kits.free": "Free",
+  "kits.schools": "Schools",
+  "kits.unlimited": "Unlimited",
+  "kits.note": "Copy a kit to your Library and assign it to a class in one click. Ready-made kits never use your monthly generations.",
+  "kits.browse": "Browse all {n} kits",
+  "kits.from": "From the kit for: {title}",
+  "strip.kitReleased": "A free teaching kit comes with every lesson — unlock one each week."
 }

@@ -78,5 +78,14 @@
   "preview.plan": "Plan de leçon — page 1",
   "preview.worksheet": "Fiche d'exercices — page 1",
   "preview.alt": "{title} : {piece} (aperçu)",
-  "preview.note": "Aperçus en basse résolution. Le kit complet est à vous avec un compte gratuit."
+  "preview.note": "Aperçus en basse résolution. Le kit complet est à vous avec un compte gratuit.",
+  "kits.heading": "Un kit de leçon complet chaque semaine — sans manuel.",
+  "kits.perWeek": "{n} par semaine",
+  "kits.free": "Gratuit",
+  "kits.schools": "Établissements",
+  "kits.unlimited": "Illimité",
+  "kits.note": "Copiez un kit dans votre bibliothèque et attribuez-le à une classe en un clic. Les kits prêts à l'emploi n'utilisent jamais vos générations mensuelles.",
+  "kits.browse": "Voir les {n} kits",
+  "kits.from": "Extrait du kit : {title}",
+  "strip.kitReleased": "Chaque leçon est accompagnée d'un kit pédagogique gratuit — débloquez-en un chaque semaine."
 }
