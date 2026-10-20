@@ -101,7 +101,7 @@
       },
       "stat3": {
         "big": "$0",
-        "body": "Empiece gratis: un libro y un kit completo de siete piezas — sin pagar nada."
+        "body": "Empiece gratis: un libro, un kit completo de siete piezas y un kit listo para usar cada semana — sin pagar nada."
       }
     },
     "free": {
@@ -545,7 +545,7 @@
     "hero": {
       "eyebrow": "Precios",
       "headline": "Un precio para cada <mark>profesor</mark>, cada hogar y cada colegio.",
-      "sub": "Empiece gratis con un libro y un kit completo. A partir de ahí: suscripciones para profesores de aula y para quienes educan en casa o dan clases particulares (cobradas en USD), y un presupuesto a medida para colegios."
+      "sub": "Empiece gratis con un libro, un kit completo y un kit listo para usar cada semana. A partir de ahí: suscripciones para profesores de aula y para quienes educan en casa o dan clases particulares (cobradas en USD), y un presupuesto a medida para colegios."
     },
     "toggle": {
       "label": "Periodo de facturación",
@@ -586,7 +586,7 @@
     "free": {
       "eyebrow": "Empiece aquí",
       "heading": "Gratis para todos, profesor o padre de familia.",
-      "sub": "Un libro, un kit completo de siete piezas — sin tarjeta y sin reloj. Elija un plan de abajo solo cuando quiera más.",
+      "sub": "Un libro, un kit completo de siete piezas y un kit listo para usar cada semana — sin tarjeta y sin reloj. Elija un plan de abajo solo cuando quiera más.",
       "panel": "Plan gratuito"
     },
     "teachers": {
@@ -705,6 +705,14 @@
       "tier3": "Enterprise",
       "cta": "Empezar una prueba gratis para su colegio",
       "learn": "Ver qué reciben los colegios"
+    },
+    "ready": {
+      "panel": "Kits listos para usar",
+      "eyebrow": "En todos los planes, incluido el gratuito",
+      "heading": "Kits listos para usar, cada semana.",
+      "body": "Una biblioteca de lecciones terminadas de Ciencias y Matemáticas, alineadas con Cambridge y CBSE: video narrado, presentación, plan de clase, ficha de trabajo con solucionario, banco de preguntas y un cuestionario en línea que se corrige solo. Copie uno a su biblioteca y asígnelo — sin gastar sus generaciones mensuales.",
+      "terms": "Gratis {free} a la semana · Teacher Pro y Home Basic {pro} a la semana · Teacher Pro+ y Homeschool {plus} a la semana · Colegios ilimitado",
+      "cta": "Ver los kits"
     }
   },
   "about": {

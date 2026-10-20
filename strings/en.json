@@ -123,7 +123,7 @@
       },
       "stat3": {
         "big": "$0",
-        "body": "Start free: one book and one complete seven-piece kit — at no cost."
+        "body": "Start free: one book, one complete seven-piece kit, and a ready-made kit every week — at no cost."
       }
     },
     "free": {
@@ -567,7 +567,7 @@
     "hero": {
       "eyebrow": "Pricing",
       "headline": "Priced for every <mark>teacher</mark>, home and school.",
-      "sub": "Start free with one book and one complete kit. Beyond that: subscriptions for classroom teachers and for home educators and tutors (billed in USD), and a tailored quote for schools."
+      "sub": "Start free with one book, one complete kit, and a ready-made kit every week. Beyond that: subscriptions for classroom teachers and for home educators and tutors (billed in USD), and a tailored quote for schools."
     },
     "toggle": {
       "label": "Billing period",
@@ -608,7 +608,7 @@
     "free": {
       "eyebrow": "Start here",
       "heading": "Free for everyone, teacher or parent.",
-      "sub": "One book, one complete seven-piece kit — no card, no timer. Pick a plan below only when you want more.",
+      "sub": "One book, one complete seven-piece kit, and a ready-made kit every week — no card, no timer. Pick a plan below only when you want more.",
       "panel": "Free plan"
     },
     "teachers": {
@@ -727,6 +727,14 @@
       "tier3": "Enterprise",
       "cta": "Start a free school trial",
       "learn": "See what schools get"
+    },
+    "ready": {
+      "panel": "Ready-made kits",
+      "eyebrow": "On every plan, free included",
+      "heading": "Ready-made kits, every week.",
+      "body": "A library of finished lessons in Science and Mathematics, mapped to Cambridge and CBSE: narrated video, slide deck, lesson plan, worksheet with answer key, question bank and an online quiz marked for you. Copy one to your Library and assign it — it never uses your monthly generations.",
+      "terms": "Free {free} a week · Teacher Pro and Home Basic {pro} a week · Teacher Pro+ and Homeschool {plus} a week · Schools unlimited",
+      "cta": "Browse the kits"
     }
   },
   "about": {

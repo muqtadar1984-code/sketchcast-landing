@@ -78,5 +78,14 @@
   "preview.plan": "Plan de clase — página 1",
   "preview.worksheet": "Hoja de ejercicios — página 1",
   "preview.alt": "{title}: {piece} (vista previa)",
-  "preview.note": "Vistas previas en baja resolución. El kit completo es tuyo con una cuenta gratuita."
+  "preview.note": "Vistas previas en baja resolución. El kit completo es tuyo con una cuenta gratuita.",
+  "kits.heading": "Un kit de clase terminado cada semana — sin necesidad de libro.",
+  "kits.perWeek": "{n} a la semana",
+  "kits.free": "Gratis",
+  "kits.schools": "Colegios",
+  "kits.unlimited": "Ilimitado",
+  "kits.note": "Copia un kit a tu biblioteca y asígnalo a una clase con un clic. Los kits listos para usar nunca consumen tus generaciones mensuales.",
+  "kits.browse": "Ver los {n} kits",
+  "kits.from": "Del kit: {title}",
+  "strip.kitReleased": "Cada lección incluye un kit didáctico gratuito — desbloquea uno cada semana."
 }

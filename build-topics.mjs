@@ -891,6 +891,25 @@ const STRIP_CSS = `
 .lstrip-links a{color:var(--teal-ink);font-weight:500}.lstrip-links a:hover{text-decoration:underline}
 .lstrip-soon{margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--faint)}
 .lstrip-soon span{display:inline-block;background:#FFF1D6;color:#8A5A00;border-radius:5px;padding:1px 7px;margin-inline-end:6px;letter-spacing:.04em}
+.lstrip-kit{color:var(--graphite)}.lstrip-kit span{background:#E2F4F1;color:var(--teal-ink)}
+.kband{padding:64px 0 68px;background:linear-gradient(180deg,#EEF8F6 0%,var(--canvas) 100%);border-bottom:1px solid var(--line)}
+.kband-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:center}
+@media(max-width:900px){.kband{padding:48px 0 52px}.kband-grid{grid-template-columns:minmax(0,1fr);gap:30px}}
+.kband .eyebrow{color:var(--teal-ink)}
+.kband h2{font-size:clamp(28px,3.4vw,38px);margin:10px 0 14px;line-height:1.15}
+.kband-lead{color:var(--graphite);font-size:17px;max-width:520px}
+.kband-plans{list-style:none;padding:0;margin:22px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:520px}
+.kband-plans li{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.kband-plans b{font-family:var(--display);font-size:15px;font-weight:600;color:var(--ink)}
+.kband-plans span{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--teal-ink);font-weight:600}
+.kband-note{margin-top:16px;font-size:14px;color:var(--graphite);max-width:520px}
+.kband-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.kband-shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.kband-shots figure:first-child{grid-column:1/-1}
+
+.kband-shots figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(20,24,31,.04),0 18px 40px -28px rgba(20,24,31,.35)}
+.kband-shots img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--mist)}
+.kband-shots figcaption{font-family:var(--mono);font-size:11px;color:var(--graphite);padding:8px 10px;letter-spacing:.02em}
+.kband-from{margin-top:12px;font-size:13.5px;color:var(--graphite)}.kband-from a{color:var(--teal-ink);font-weight:500}.kband-from a:hover{text-decoration:underline}
 .lstrip-video{display:block;position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--mist);box-shadow:0 1px 2px rgba(20,24,31,.04),0 24px 60px -28px rgba(20,24,31,.35);transition:transform .15s,box-shadow .15s}
 .lstrip-video:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(20,24,31,.04),0 30px 64px -26px rgba(20,24,31,.45)}
 .lstrip-video img{width:100%;height:100%;object-fit:cover;display:block}
@@ -900,6 +919,76 @@ const STRIP_CSS = `
 .lstrip-cap b{font-family:var(--display);font-weight:600;color:var(--ink);font-size:16px}
 .lstrip-cap span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
 `;
+
+/* ── the homepage ready-made kits band ─────────────────────────────────
+   Founder, 2026-10-20: ready-made kits are one of the headline services, so
+   the homepage gives them a section of their own right under the free
+   lessons. The weekly allowance per plan is read from pricing.config.js (the
+   same numbers the pricing page prints); the pictures are one kit's real
+   preview cards, a different kit each ISO week. Only once KITS_RELEASED. */
+const PRICING = (() => {
+  try {
+    const window = {};
+    // eslint-disable-next-line no-eval
+    eval(readFileSync(join(ROOT, "pricing.config.js"), "utf8"));
+    return window.SKETCHCAST_PRICING || null;
+  } catch { return null; }
+})();
+function isoWeek(d) {
+  const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7));
+  return Math.ceil(((t - new Date(Date.UTC(t.getUTCFullYear(), 0, 1))) / 86400000 + 1) / 7);
+}
+function kitsBandHtml(code, all) {
+  if (!KITS_RELEASED || !PRICING) return "";
+  const t = strings[code];
+  const byKey = {};
+  for (const p of [...(PRICING.teacher || []), ...(PRICING.home || [])]) byKey[p.key] = p.weeklyKits;
+  const per = (n) => fill(t["kits.perWeek"], { n });
+  const plans = [
+    [t["kits.free"], per((PRICING.free && PRICING.free.weeklyKits) || 1)],
+    ["Teacher Pro · Home Basic", per(byKey.pro)],
+    ["Teacher Pro+ · Homeschool", per(byKey.proplus)],
+    [t["kits.schools"], t["kits.unlimited"]],
+  ];
+  // One kit's three preview cards: this page's own language when it has them.
+  const want = ["deck-1", "plan-1", "worksheet-1"];
+  const full = all.filter((x) => {
+    const row = localRow(x, code);
+    const cards = PREVIEWS.get(`${row.slug}|${langOf(row)}`) || [];
+    return want.every((k) => cards.some((c) => c.kind === k));
+  });
+  // A kit in this page's own language first (its cards are translated too).
+  const native = full.filter((x) => langOf(localRow(x, code)) === code);
+  const pool = native.length ? native : full;
+  const pick = pool.length ? pool[isoWeek(new Date()) % pool.length] : null;
+  let shots = "";
+  if (pick) {
+    const row = localRow(pick, code);
+    const cards = PREVIEWS.get(`${row.slug}|${langOf(row)}`);
+    const own = langOf(row) === code ? "" : ` lang="en"`;
+    shots = `<div class="kband-shots">${want.map((k) => {
+      const c = cards.find((x) => x.kind === k);
+      const label = t[PREVIEW_LABEL[k]];
+      return `<figure><img src="${esc(c.file)}" alt="${esc(fill(t["preview.alt"], { title: row.title, piece: label }))}" width="640" height="360" loading="lazy" /><figcaption>${esc(label)}</figcaption></figure>`;
+    }).join("")}</div>
+      <p class="kband-from">${esc(fill(t["kits.from"], { title: "" })).trim()} <a href="${prefix(code)}/topics/${esc(row.slug)}"${own}>${esc(row.title)}</a></p>`;
+  }
+  return `
+<section class="kband" id="kits" aria-labelledby="kband-h">
+  <div class="wrap kband-grid">
+    <div>
+      <p class="eyebrow">${esc(t["index.kitTitle"])}</p>
+      <h2 id="kband-h">${esc(t["kits.heading"])}</h2>
+      <p class="kband-lead">${esc(t["index.kitLeadReleased"])}</p>
+      <ul class="kband-plans">${plans.map(([name, n]) => `<li><b>${esc(name)}</b><span>${esc(String(n))}</span></li>`).join("")}</ul>
+      <p class="kband-note">${esc(t["kits.note"])}</p>
+      <p class="kband-cta"><a class="btn btn-primary" href="${APP}/signup">${esc(t["kit.unlock"])}</a><a class="btn btn-ghost" href="${prefix(code)}/topics">${esc(fill(t["kits.browse"], { n: all.length }))}</a></p>
+    </div>
+    <div>${shots}</div>
+  </div>
+</section>`;
+}
 
 function stripHtml(code, all) {
   const t = strings[code];
@@ -931,7 +1020,9 @@ function stripHtml(code, all) {
         <label>${esc(t["strip.lesson"])}<select id="lstrip-lesson" lang="en" dir="ltr">${data.map(opt).join("")}</select></label>
       </div>
       <p class="lstrip-links"><a id="lstrip-read" href="${prefix(code)}/topics/${esc(first.s)}">${esc(t["strip.read"])} →</a><a href="${prefix(code)}/topics">${esc(fill(t["strip.browse"], { n }))}</a></p>
-      <p class="lstrip-soon"><span>${esc(strings[code]["kit.comingSoon"])}</span>${esc(t["strip.kitSoon"])}</p>
+      ${KITS_RELEASED
+        ? `<p class="lstrip-soon lstrip-kit"><span>${esc(t["kit.eyebrowReleased"])}</span>${esc(t["strip.kitReleased"])}</p>`
+        : `<p class="lstrip-soon"><span>${esc(strings[code]["kit.comingSoon"])}</span>${esc(t["strip.kitSoon"])}</p>`}
     </div>
     <div>
       <a id="lstrip-video" class="lstrip-video" href="${watchUrl(first.y)}" target="_blank" rel="noopener" aria-label="${esc(fill(t["strip.play"], { title: first.t }))}" data-play="${esc(t["strip.play"])}">
@@ -976,7 +1067,7 @@ function stripHtml(code, all) {
     const a = html.indexOf(OPEN), b = html.indexOf(CLOSE);
     if (a < 0 || b < 0) { if (l.code === DEFAULT) throw new Error("index.html has no <!--topics:strip--> markers"); continue; }
     const eol = html.includes("\r\n") ? "\r\n" : "\n";
-    const body = stripHtml(l.code, catalogue).replace(/\n/g, eol);
+    const body = (stripHtml(l.code, catalogue) + kitsBandHtml(l.code, catalogue)).replace(/\n/g, eol);
     writeFileSync(file, html.slice(0, a + OPEN.length) + eol + body + eol + html.slice(b), "utf8");
     stripped++;
   }

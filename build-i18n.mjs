@@ -172,7 +172,7 @@ const LOCALIZED_PATHS = new Set([
 // pricing.meter.* and pricing.compare.more are printed inside the plan cards,
 // which pricing.html builds at runtime — no element can annotate them, so
 // without this they would each raise a spurious "never used by any page".
-const GENERATOR_OWNED = ["common.lang.", "common.legal.", "pricing.plans.", "pricing.founding.", "pricing.trial.", "pricing.schools.", "pricing.toggle.status", "pricing.toggle.per", "pricing.meter.", "pricing.compare.more"];
+const GENERATOR_OWNED = ["common.lang.", "common.legal.", "pricing.plans.", "pricing.founding.", "pricing.trial.", "pricing.schools.", "pricing.toggle.status", "pricing.toggle.per", "pricing.meter.", "pricing.compare.more", "pricing.ready.terms"];
 
 /* ══════════════════════════════════════════════════════════════════════════
    A SMALL HTML SCANNER

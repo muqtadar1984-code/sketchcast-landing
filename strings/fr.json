@@ -101,7 +101,7 @@
       },
       "stat3": {
         "big": "0 $",
-        "body": "Commencez gratuitement : un livre et un kit complet de sept éléments — sans rien payer."
+        "body": "Commencez gratuitement : un livre, un kit complet de sept éléments et un kit prêt à l'emploi chaque semaine — sans rien payer."
       }
     },
     "free": {
@@ -545,7 +545,7 @@
     "hero": {
       "eyebrow": "Tarifs",
       "headline": "Un tarif pour chaque <mark>enseignant</mark>, chaque foyer, chaque école.",
-      "sub": "Commencez gratuitement avec un livre et un kit complet. Au-delà : des abonnements pour les enseignants en classe et pour l'école à la maison et les cours particuliers (facturés en USD), et un devis sur mesure pour les établissements."
+      "sub": "Commencez gratuitement avec un livre, un kit complet et un kit prêt à l'emploi chaque semaine. Au-delà : des abonnements pour les enseignants en classe et pour l'école à la maison et les cours particuliers (facturés en USD), et un devis sur mesure pour les établissements."
     },
     "toggle": {
       "label": "Période de facturation",
@@ -586,7 +586,7 @@
     "free": {
       "eyebrow": "Commencez ici",
       "heading": "Gratuit pour tout le monde, enseignant ou parent.",
-      "sub": "Un livre, un kit complet en sept éléments — sans carte bancaire, sans compte à rebours. Choisissez une offre ci-dessous seulement quand vous en voudrez plus.",
+      "sub": "Un livre, un kit complet en sept éléments et un kit prêt à l'emploi chaque semaine — sans carte bancaire, sans compte à rebours. Choisissez une offre ci-dessous seulement quand vous en voudrez plus.",
       "panel": "Offre gratuite"
     },
     "teachers": {
@@ -705,6 +705,14 @@
       "tier3": "Enterprise",
       "cta": "Démarrer un essai gratuit pour votre école",
       "learn": "Voir ce que reçoivent les écoles"
+    },
+    "ready": {
+      "panel": "Kits prêts à l'emploi",
+      "eyebrow": "Dans chaque offre, gratuite comprise",
+      "heading": "Des kits prêts à l'emploi, chaque semaine.",
+      "body": "Une bibliothèque de leçons complètes en sciences et en mathématiques, alignées sur Cambridge et le CBSE : vidéo narrée, diaporama, fiche de préparation, fiche d'exercices avec corrigé, banque de questions et quiz en ligne corrigé pour vous. Copiez-en un dans votre bibliothèque et attribuez-le — sans utiliser vos générations mensuelles.",
+      "terms": "Gratuit {free} par semaine · Teacher Pro et Home Basic {pro} par semaine · Teacher Pro+ et Homeschool {plus} par semaine · Établissements illimité",
+      "cta": "Voir les kits"
     }
   },
   "about": {

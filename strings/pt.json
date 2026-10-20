@@ -101,7 +101,7 @@
       },
       "stat3": {
         "big": "$0",
-        "body": "Comece grátis: um livro e um kit completo de sete peças — sem custo nenhum."
+        "body": "Comece grátis: um livro, um kit completo de sete peças e um kit pronto toda semana — sem custo nenhum."
       }
     },
     "free": {
@@ -545,7 +545,7 @@
     "hero": {
       "eyebrow": "Preços",
       "headline": "Um preço para cada <mark>professor</mark>, cada casa e cada escola.",
-      "sub": "Comece grátis com um livro e um kit completo. Depois disso: assinaturas para professores de sala de aula e para quem ensina em casa ou dá aula particular (cobradas em USD), e uma proposta sob medida para escolas."
+      "sub": "Comece grátis com um livro, um kit completo e um kit pronto toda semana. Depois disso: assinaturas para professores de sala de aula e para quem ensina em casa ou dá aula particular (cobradas em USD), e uma proposta sob medida para escolas."
     },
     "toggle": {
       "label": "Período de cobrança",
@@ -586,7 +586,7 @@
     "free": {
       "eyebrow": "Comece por aqui",
       "heading": "Grátis para todo mundo, professor ou responsável.",
-      "sub": "Um livro, um kit completo de sete peças — sem cartão, sem cronômetro. Escolha um plano abaixo só quando quiser mais.",
+      "sub": "Um livro, um kit completo de sete peças e um kit pronto toda semana — sem cartão, sem cronômetro. Escolha um plano abaixo só quando quiser mais.",
       "panel": "Plano grátis"
     },
     "teachers": {
@@ -705,6 +705,14 @@
       "tier3": "Enterprise",
       "cta": "Começar um teste grátis para a sua escola",
       "learn": "Veja o que as escolas recebem"
+    },
+    "ready": {
+      "panel": "Kits prontos",
+      "eyebrow": "Em todos os planos, incluindo o grátis",
+      "heading": "Kits prontos, toda semana.",
+      "body": "Uma biblioteca de aulas completas de Ciências e Matemática, alinhadas ao Cambridge e ao CBSE: vídeo narrado, slides, plano de aula, ficha de exercícios com gabarito, banco de perguntas e um quiz on-line corrigido para você. Copie um para a sua biblioteca e atribua — sem gastar suas gerações mensais.",
+      "terms": "Grátis {free} por semana · Teacher Pro e Home Basic {pro} por semana · Teacher Pro+ e Homeschool {plus} por semana · Escolas ilimitado",
+      "cta": "Ver os kits"
     }
   },
   "about": {
