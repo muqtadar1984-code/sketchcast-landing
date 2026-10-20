@@ -72,5 +72,12 @@
   "curriculum.all": "All curricula",
   "strip.curriculum": "Curriculum",
   "strip.find": "Find a lesson",
-  "strip.findHint": "e.g. cells, fractions, light"
+  "strip.findHint": "e.g. cells, fractions, light",
+  "preview.heading": "A look inside the kit",
+  "preview.deck": "Slide deck — title slide",
+  "preview.deck2": "Slide deck — first slide",
+  "preview.plan": "Lesson plan — page 1",
+  "preview.worksheet": "Worksheet — page 1",
+  "preview.alt": "{title}: {piece} (preview)",
+  "preview.note": "Low-resolution previews. The full kit is yours with a free account."
 }
