@@ -524,7 +524,7 @@
       },
       "q6": {
         "q": "Berapakah kosnya?",
-        "a": "Anda boleh mula secara percuma dengan satu kit pelajaran yang lengkap — tiada kad diperlukan. Home Basic ialah $9.99 sebulan untuk satu dua mata pelajaran, dan Homeschool ialah $34 sebulan atau $340 setahun (dua bulan percuma) untuk keseluruhan kurikulum: 56 janaan sebulan, sehingga 10 murid dan rekod kemajuan yang boleh dicetak."
+        "a": "Anda boleh mula secara percuma dengan satu kit pelajaran yang lengkap — tiada kad diperlukan. Home Basic ialah $10 sebulan untuk satu dua mata pelajaran, dan Homeschool ialah $20 sebulan atau $200 setahun (dua bulan percuma) untuk keseluruhan kurikulum: 56 janaan sebulan, sehingga 10 murid dan rekod kemajuan yang boleh dicetak."
       }
     },
     "cta": {
@@ -627,7 +627,7 @@
         "tag": "Semua yang anda perlukan, setiap minggu",
         "badge": "Paling popular",
         "cta": "Pilih Teacher Pro",
-        "saveLabel": "Jimat $48 setahun",
+        "saveLabel": "Jimat $20 setahun",
         "who": "Satu kelas penuh",
         "f1": "28 janaan sebulan — kira-kira 4 kit pelajaran lengkap",
         "f2": "Pelajaran, rancangan, aktiviti, lembaran kerja, kertas peperiksaan atau kajian kes — setiap satu dikira satu janaan",
@@ -642,10 +642,10 @@
         "name": "Teacher Pro+",
         "tag": "Untuk pengguna berat dan panitia",
         "cta": "Pilih Teacher Pro+",
-        "saveLabel": "Jimat $98 setahun",
+        "saveLabel": "Jimat $40 setahun",
         "who": "Satu kelas penuh",
         "f1": "Semua dalam Teacher Pro, serta:",
-        "f2": "56 janaan tambahan — 84 sebulan, kira-kira 12 kit pelajaran lengkap",
+        "f2": "28 janaan tambahan — 56 sebulan, kira-kira 8 kit pelajaran lengkap",
         "f3": "2 buku tambahan — 4 sebulan",
         "f4": "Janaan keutamaan",
         "f5": "Akses awal kepada ciri baharu"
@@ -656,7 +656,7 @@
         "cta": "Dapatkan Home Basic",
         "who": "Sehingga 2 murid",
         "saveLabel": "2 bulan percuma",
-        "f1": "14 janaan sebulan — kira-kira 2 kit pelajaran lengkap",
+        "f1": "28 janaan sebulan — kira-kira 4 kit pelajaran lengkap",
         "f2": "Sehingga 2 murid",
         "f3": "Kertas latihan dalam bahasa buku itu sendiri (9 disokong)",
         "f4": "Bantuan kerja rumah & penerangan AI",

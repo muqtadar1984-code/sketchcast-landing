@@ -524,7 +524,7 @@
       },
       "q6": {
         "q": "¿Cuánto cuesta?",
-        "a": "Puede empezar gratis con un kit de clase completo — sin tarjeta. Home Basic cuesta $9.99 al mes para una o dos materias, y Homeschool cuesta $34 al mes o $340 al año (dos meses gratis) para todo el currículo: 56 generaciones al mes, hasta 10 estudiantes e informes de progreso imprimibles."
+        "a": "Puede empezar gratis con un kit de clase completo — sin tarjeta. Home Basic cuesta $10 al mes para una o dos materias, y Homeschool cuesta $20 al mes o $200 al año (dos meses gratis) para todo el currículo: 56 generaciones al mes, hasta 10 estudiantes e informes de progreso imprimibles."
       }
     },
     "cta": {
@@ -627,7 +627,7 @@
         "tag": "Todo lo que necesita, cada semana",
         "badge": "El más elegido",
         "cta": "Elegir Teacher Pro",
-        "saveLabel": "Ahorre $48 al año",
+        "saveLabel": "Ahorre $20 al año",
         "who": "Una clase entera",
         "f1": "28 generaciones al mes — unos 4 kits de clase completos",
         "f2": "Videolección, plan, actividades, hoja de trabajo, examen o caso práctico: cada uno cuenta como una generación",
@@ -642,10 +642,10 @@
         "name": "Teacher Pro+",
         "tag": "Para usuarios intensivos y departamentos",
         "cta": "Elegir Teacher Pro+",
-        "saveLabel": "Ahorre $98 al año",
+        "saveLabel": "Ahorre $40 al año",
         "who": "Una clase entera",
         "f1": "Todo lo de Teacher Pro, y además:",
-        "f2": "56 generaciones adicionales — 84 al mes, unos 12 kits de clase completos",
+        "f2": "28 generaciones adicionales — 56 al mes, unos 8 kits de clase completos",
         "f3": "2 libros adicionales — 4 al mes",
         "f4": "Generación prioritaria",
         "f5": "Acceso anticipado a las novedades"
@@ -656,7 +656,7 @@
         "cta": "Elegir Home Basic",
         "who": "Hasta 2 estudiantes",
         "saveLabel": "2 meses gratis",
-        "f1": "14 generaciones al mes — unos 2 kits de clase completos",
+        "f1": "28 generaciones al mes — unos 4 kits de clase completos",
         "f2": "Hasta 2 estudiantes",
         "f3": "Exámenes de práctica en el idioma del propio libro (9 admitidos)",
         "f4": "Ayuda con la tarea y explicaciones con IA",

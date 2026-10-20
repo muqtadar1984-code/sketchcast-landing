@@ -524,7 +524,7 @@
       },
       "q6": {
         "q": "Combien ça coûte ?",
-        "a": "Vous pouvez commencer gratuitement avec un kit pédagogique complet — sans carte bancaire. Home Basic coûte 9,99 $ par mois pour une matière ou deux, et Homeschool 34 $ par mois ou 340 $ par an (deux mois offerts) pour tout le programme : 56 générations par mois, jusqu'à 10 apprenants et des relevés de progression imprimables."
+        "a": "Vous pouvez commencer gratuitement avec un kit pédagogique complet — sans carte bancaire. Home Basic coûte 10 $ par mois pour une matière ou deux, et Homeschool 20 $ par mois ou 200 $ par an (deux mois offerts) pour tout le programme : 56 générations par mois, jusqu'à 10 apprenants et des relevés de progression imprimables."
       }
     },
     "cta": {
@@ -627,7 +627,7 @@
         "tag": "Tout ce qu'il vous faut, chaque semaine",
         "badge": "Le plus choisi",
         "cta": "Choisir Teacher Pro",
-        "saveLabel": "Économisez 48 $ par an",
+        "saveLabel": "Économisez 20 $ par an",
         "who": "Toute une classe",
         "f1": "28 générations par mois — soit environ 4 kits pédagogiques complets",
         "f2": "Une leçon, une préparation, des activités, une fiche d'exercices, un sujet d'examen ou une étude de cas — chacun compte pour une génération",
@@ -642,10 +642,10 @@
         "name": "Teacher Pro+",
         "tag": "Pour les gros utilisateurs et les départements",
         "cta": "Choisir Teacher Pro+",
-        "saveLabel": "Économisez 98 $ par an",
+        "saveLabel": "Économisez 40 $ par an",
         "who": "Toute une classe",
         "f1": "Tout Teacher Pro, et en plus :",
-        "f2": "56 générations supplémentaires — 84 par mois, soit environ 12 kits pédagogiques complets",
+        "f2": "28 générations supplémentaires — 56 par mois, soit environ 8 kits pédagogiques complets",
         "f3": "2 manuels supplémentaires — 4 par mois",
         "f4": "Génération prioritaire",
         "f5": "Accès anticipé aux nouveautés"
@@ -656,7 +656,7 @@
         "cta": "Choisir Home Basic",
         "who": "Jusqu'à 2 apprenants",
         "saveLabel": "2 mois offerts",
-        "f1": "14 générations par mois — soit environ 2 kits pédagogiques complets",
+        "f1": "28 générations par mois — soit environ 4 kits pédagogiques complets",
         "f2": "Jusqu'à 2 apprenants",
         "f3": "Sujets d'entraînement dans la langue du livre (9 prises en charge)",
         "f4": "Aide aux devoirs et explications par l'IA",

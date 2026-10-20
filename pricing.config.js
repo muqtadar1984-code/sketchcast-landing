@@ -3,8 +3,12 @@
  * The ONE place plans, prices, copy, features and checkout links live;
  * pricing.html renders entirely from `window.SKETCHCAST_PRICING` below, so no
  * price or link is ever written twice. Annual pricing is two months free — the
- * whole-dollar teacher plans are exactly monthly x 10 (24->240, 49->490), and
- * Family is $99 (~2 months off $9.99). All prices USD.
+ * plans are exactly monthly x 10 (10->100, 20->200). All prices USD.
+ * PRICE RESET 2026-10-20 (founder): Teacher Pro and Home Basic $10, Teacher
+ * Pro+ and Homeschool $20; Pro+ drops to 56 generations (8 kits) and Home
+ * Basic rises to 28 (4 kits). The Lemon Squeezy variants must carry the same
+ * prices BEFORE this ships — a card that says $10 over a link that charges $24
+ * is the exact failure the CHECKOUT note below describes.
  *
  * This is a static site with no runtime env, and the Lemon Squeezy checkout
  * URLs are PUBLIC hosted-checkout links (any visitor can see them), so they
@@ -54,20 +58,20 @@
   // confirm the price the URL actually opens.
   var CHECKOUT = {
     teacherPro: {
-      monthly: BUY + "aa7062b7-d108-421e-a703-a9f8915820f3", // variant 2037937 — $24/mo
-      annual: BUY + "dac4fa04-49cb-4160-acea-7ff23d51a08d"   // variant 2037934 — $240/yr
+      monthly: BUY + "aa7062b7-d108-421e-a703-a9f8915820f3", // variant 2037937 — $10/mo (was $24; set in LS)
+      annual: BUY + "dac4fa04-49cb-4160-acea-7ff23d51a08d"   // variant 2037934 — $100/yr (was $240)
     },
     teacherProPlus: {
-      monthly: BUY + "b44c72ed-fed6-4296-ba87-b882a94b9b25", // variant 2037938 — $49/mo
-      annual: BUY + "4d075907-455e-4c9d-9f01-c2b873774981"   // variant 2037940 — $490/yr
+      monthly: BUY + "b44c72ed-fed6-4296-ba87-b882a94b9b25", // variant 2037938 — $20/mo (was $49)
+      annual: BUY + "4d075907-455e-4c9d-9f01-c2b873774981"   // variant 2037940 — $200/yr (was $490)
     },
     homeBasic: {
-      monthly: BUY + "337fe0b4-0f9a-4fb0-8a1c-b2eb5f2c5743", // variant 2037943 — $9.99/mo
-      annual: BUY + "17dbe0ec-72f1-4331-9b44-2166d2181772"   // variant 2037948 — $99/yr
+      monthly: BUY + "337fe0b4-0f9a-4fb0-8a1c-b2eb5f2c5743", // variant 2037943 — $10/mo (was $9.99)
+      annual: BUY + "17dbe0ec-72f1-4331-9b44-2166d2181772"   // variant 2037948 — $100/yr (was $99)
     },
     homeschool: {
-      monthly: BUY + "64af4e6c-7937-4174-9db8-5cdcef6713ed", // variant 2037950 — $34/mo
-      annual: BUY + "000d458f-f139-4a5f-b07f-079cb9d683fc"   // variant 2037951 — $340/yr
+      monthly: BUY + "64af4e6c-7937-4174-9db8-5cdcef6713ed", // variant 2037950 — $20/mo (was $34)
+      annual: BUY + "000d458f-f139-4a5f-b07f-079cb9d683fc"   // variant 2037951 — $200/yr (was $340)
     }
   };
   var APP_SIGNUP = "https://app.sketchcast.app/signup"; // TODO: confirm real sign-up path
@@ -91,8 +95,8 @@
     // kitSize is therefore NOT "what a kit costs" — it is the divisor behind
     // the ADVERTISED kit count, and it is deliberately the larger of the two
     // numbers (7, not 6) so the page can only ever UNDERSTATE what a plan buys:
-    //   advertised = generations / 7 → 1, 2, 4, 8, 12
-    //   actually buildable = generations / 6 → 1, 2, 4 (+4 spare), 9, 14
+    //   advertised = generations / 7 → 1, 4, 8
+    //   actually buildable = generations / 6 → 1, 4 (+4 spare), 9 (+2 spare)
     // The meter DERIVES its kit count as generations / kitSize — "4 kits" is
     // never stored anywhere, so it cannot drift from "28 generations". All five
     // allowances divide exactly by 7: 7, 14, 28, 56, 84 → 1, 2, 4, 8, 12.
@@ -202,9 +206,9 @@
         tag: "Everything you need, every week",
         featured: true,
         badge: "Most popular",
-        monthly: 24,
-        annual: 240,
-        saveLabel: "Save $48 a year",
+        monthly: 10,
+        annual: 100,
+        saveLabel: "Save $20 a year",
         cta: "Choose Teacher Pro",
         checkout: CHECKOUT.teacherPro,
         // ── the meter (see kitSize above) ──
@@ -224,7 +228,7 @@
         // four cards: every bullet Teacher Pro does not render is dead white
         // space removed from the three cards that have fewer.
         generations: 28,
-        weeklyKits: 5,
+        weeklyKits: 4,
         who: "A whole class",
         skipFeatures: [0, 1, 4],
         features: [
@@ -243,20 +247,20 @@
         i18n: "teacherProPlus",
         name: "Teacher Pro+",
         tag: "For power users and departments",
-        monthly: 49,
-        annual: 490,
-        saveLabel: "Save $98 a year",
+        monthly: 20,
+        annual: 200,
+        saveLabel: "Save $40 a year",
         cta: "Choose Teacher Pro+",
         checkout: CHECKOUT.teacherProPlus,
         // f1 ("Everything in Teacher Pro, plus:") stays — the card sits next to
         // Teacher Pro. Only f2, the allowance sentence, is skipped.
-        generations: 84,
-        weeklyKits: 10,
+        generations: 56,
+        weeklyKits: 8,
         who: "A whole class",
         skipFeatures: [1],
         features: [
           "Everything in Teacher Pro, plus:",
-          "56 additional generations — 84 a month, about 12 complete lesson kits",
+          "28 additional generations — 56 a month, about 8 complete lesson kits",
           "2 additional books — 4 a month",
           "Priority generation",
           "Early access to new features"
@@ -272,17 +276,17 @@
         i18n: "homeBasic",
         name: "Home Basic",
         tag: "A subject or two, alongside school",
-        monthly: 9.99,
-        annual: 99,
+        monthly: 10,
+        annual: 100,
         saveLabel: "2 months free",
         cta: "Get Home Basic",
         checkout: CHECKOUT.homeBasic,
-        generations: 14,
-        weeklyKits: 5,
+        generations: 28,
+        weeklyKits: 4,
         who: "Up to 2 learners",
         skipFeatures: [0, 1], // the meter states the allowance; `who` states the learners
         features: [
-          "14 generations a month — about 2 complete lesson kits",
+          "28 generations a month — about 4 complete lesson kits",
           "Up to 2 learners",
           "Practice papers in the book's own language (9 supported)",
           "Homework help & AI explanations",
@@ -297,13 +301,13 @@
         tag: "The whole curriculum at home — and tutors with a full roster",
         featured: true,
         badge: "For home educators",
-        monthly: 34,
-        annual: 340,
+        monthly: 20,
+        annual: 200,
         saveLabel: "2 months free",
         cta: "Choose Homeschool",
         checkout: CHECKOUT.homeschool,
         generations: 56,
-        weeklyKits: 10,
+        weeklyKits: 8,
         who: "Up to 10 learners, each with their own books",
         skipFeatures: [0, 1],
         features: [
