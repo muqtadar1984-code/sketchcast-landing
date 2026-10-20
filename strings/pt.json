@@ -524,7 +524,7 @@
       },
       "q6": {
         "q": "Quanto custa?",
-        "a": "Você pode começar de graça com um kit de aula completo — sem cartão. O Home Basic custa $9.99 por mês para uma matéria ou duas, e o Homeschool custa $34 por mês ou $340 por ano (dois meses grátis) para o currículo inteiro: 56 gerações por mês, até 10 estudantes e registros de progresso para imprimir."
+        "a": "Você pode começar de graça com um kit de aula completo — sem cartão. O Home Basic custa $10 por mês para uma matéria ou duas, e o Homeschool custa $20 por mês ou $200 por ano (dois meses grátis) para o currículo inteiro: 56 gerações por mês, até 10 estudantes e registros de progresso para imprimir."
       }
     },
     "cta": {
@@ -627,7 +627,7 @@
         "tag": "Tudo o que você precisa, toda semana",
         "badge": "Mais escolhido",
         "cta": "Escolher Teacher Pro",
-        "saveLabel": "Economize $48 por ano",
+        "saveLabel": "Economize $20 por ano",
         "who": "Uma turma inteira",
         "f1": "28 gerações por mês — cerca de 4 kits de aula completos",
         "f2": "Aula, plano, atividades, exercícios, prova ou estudo de caso — cada um conta como uma geração",
@@ -642,10 +642,10 @@
         "name": "Teacher Pro+",
         "tag": "Para quem usa muito e para departamentos",
         "cta": "Escolher Teacher Pro+",
-        "saveLabel": "Economize $98 por ano",
+        "saveLabel": "Economize $40 por ano",
         "who": "Uma turma inteira",
         "f1": "Tudo do Teacher Pro, e mais:",
-        "f2": "56 gerações adicionais — 84 por mês, cerca de 12 kits de aula completos",
+        "f2": "28 gerações adicionais — 56 por mês, cerca de 8 kits de aula completos",
         "f3": "2 livros adicionais — 4 por mês",
         "f4": "Geração prioritária",
         "f5": "Acesso antecipado a novidades"
@@ -656,7 +656,7 @@
         "cta": "Assinar o Home Basic",
         "who": "Até 2 estudantes",
         "saveLabel": "2 meses grátis",
-        "f1": "14 gerações por mês — cerca de 2 kits de aula completos",
+        "f1": "28 gerações por mês — cerca de 4 kits de aula completos",
         "f2": "Até 2 estudantes",
         "f3": "Provas de treino no próprio idioma do livro (9 idiomas)",
         "f4": "Ajuda com a lição de casa e explicações com IA",

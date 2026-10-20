@@ -27,8 +27,8 @@ live at `/<locale>/…` — `/ar/pricing`, `/ms-arab/`, and so on.
 `/pricing` renders entirely from **`pricing.config.js`** — the single source of
 truth for plans, prices, copy, features, and checkout links. No price or link
 is ever written twice; to change any of them, edit that one file. Annual pricing
-is two months free — the whole-dollar teacher plans are exactly monthly × 10
-(24→240, 49→490), and Family is $99 (~2 months off $9.99). All prices USD.
+is two months free — every plan is exactly monthly × 10 (10→100, 20→200;
+price reset 2026-10-20). All prices USD.
 
 - **Checkout links live directly in the config.** This is a static site with no
   runtime env, and Lemon Squeezy hosted-checkout URLs are public (any visitor
